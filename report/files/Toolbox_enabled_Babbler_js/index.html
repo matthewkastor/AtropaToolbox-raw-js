@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/bootstrap-3.0.0-wip.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome-ie7.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet">
+  <link href="../../assets/css/plato.css" rel="stylesheet">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="brand" href="http://github.com/jsoverson/plato">Plato on Github</a>
+    <ul class="nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>Toolbox\enabled\Babbler.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="span6">
+      <h2 class="header">Maintainability</h2>
+      <p class="stat">119.97</p>
+    </div>
+    <div class="span6">
+      <h2 class="header">Estimated # Bugs</h2>
+      <p class="stat">0.57</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span6">
+      <h2 class="header">Difficulty</h2>
+      <p class="stat">27.83</p>
+    </div>
+    <div class="span6">
+      <h2 class="header">SLOC/LSLOC</h2>
+      <p class="stat">192 / 62</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="span6">
+      <h3 class="chart-header">By Complexity</h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="span6">
+      <h3 class="chart-header">By SLOC</h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="span12">/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
+/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
+/*global atropa */
+/**
+ * This class represents a babbler. The babbler
+ * produces lorum ipsum text, to user specifications.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ * Matthew Christopher Kastor-Inare III </a><br />
+ * ☭ Hial Atropa!! ☭
+ * @version 20120909
+ * @class This class represents a babbler
+ * @param {Number} wrdCount The amount of "words" you would like
+ * the babbler to produce.
+ * @returns {Babbler} Returns a babbler.
+ * @requires atropa.random.integer
+ * @requires atropa.string.ucFirst
+ * @requires atropa.random.string
+ */
+atropa.Babbler = function Babbler(wrdCount) {
+	'use strict';
+	var babble = '',
+	wordCount = 0;
+	/**
+	 * Sets the word count.
+	 * @author <a href="mailto:matthewkastor@gmail.com">
+	 * Matthew Christopher Kastor-Inare III </a><br />
+	 * ☭ Hial Atropa!! ☭
+	 * @version 20120909
+	 * @methodOf atropa.Babbler#
+	 * @param {Number} wrdCount The amount of "words" which you want the
+	 * babbler to produce.
+	 * @returns {Number} Returns the set word count for this babbler.
+	 */
+	this.setWordCount = function (wrdCount) {
+		if (typeof(wrdCount) !== 'number') {
+			if (typeof(wordCount) !== 'number') {
+				wordCount = 250;
+			}
+		} else {
+			wordCount = wrdCount;
+		}
+		return wordCount;
+	};
+	/**
+	 * Resets the word count for this babbler.
+	 * @author <a href="mailto:matthewkastor@gmail.com">
+	 * Matthew Christopher Kastor-Inare III </a><br />
+	 * ☭ Hial Atropa!! ☭
+	 * @version 20120909
+	 * @methodOf atropa.Babbler#
+	 * @param {Number} wordCount The amount of "words" you would like
+	 * to set for this babbler.
+	 * @returns {Number} Returns the set word count for this babbler.
+	 */
+	this.resetWordCount = function resetWordCount(wordCount) {
+		this.setWordCount(wordCount);
+		return wordCount;
+	};
+	/**
+	 * Gets the current word count.
+	 * @author <a href="mailto:matthewkastor@gmail.com">
+	 * Matthew Christopher Kastor-Inare III </a><br />
+	 * ☭ Hial Atropa!! ☭
+	 * @version 20120909
+	 * @methodOf atropa.Babbler#
+	 * @returns {Number} Returns the word count for this babbler.
+	 */
+	this.getWordCount = function getWordCount() {
+		return wordCount;
+	};
+	/**
+	 * Generates a word with a specified length.
+	 * @author <a href="mailto:matthewkastor@gmail.com">
+	 * Matthew Christopher Kastor-Inare III </a><br />
+	 * ☭ Hial Atropa!! ☭
+	 * @version 20120909
+	 * @methodOf atropa.Babbler#
+	 * @param {Number} stringMin the shortest word, in characters.
+	 * @param {Number} stringMax The longest word, in characters.
+	 * @returns {String} Returns a random string of characters
+	 * within the specified range of length.
+	 * @requires atropa.random.integer
+	 * @requires atropa.random.string
+	 */
+	this.generateWord = function generateWord(stringMin, stringMax) {
+		var wordLength,
+		word;
+		wordLength = atropa.random.integer(stringMin, stringMax);
+		word = atropa.random.string(wordLength, 'lower');
+		wordCount--;
+		return word;
+	};
+	/**
+	 * Adds punctuation to the babble.
+	 * @author <a href="mailto:matthewkastor@gmail.com">
+	 * Matthew Christopher Kastor-Inare III </a><br />
+	 * ☭ Hial Atropa!! ☭
+	 * @version 20120909
+	 * @methodOf atropa.Babbler#
+	 * @returns {String} Returns a random punctuation
+	 * character ( . ! or ? ).
+	 * @requires atropa.random.string
+	 */
+	this.punctuate = function punctuate() {
+		var punctuation;
+		punctuation = atropa.random.string(1, 'punctuation');
+		return punctuation;
+	};
+	/**
+	 * Generates a sentence of specified length in words.
+	 * @author <a href="mailto:matthewkastor@gmail.com">
+	 * Matthew Christopher Kastor-Inare III </a><br />
+	 * ☭ Hial Atropa!! ☭
+	 * @version 20120909
+	 * @methodOf atropa.Babbler#
+	 * @param {Number} sentenceMin The shortest sentence, in words,
+	 * you would like returned.
+	 * @param {Number} sentenceMax The longest sentence, in words,
+	 * you would like returned.
+	 * @returns {String} Returns a "sentence" within the specified
+	 * range of length.
+	 * @requires atropa.random.integer
+	 * @requires atropa.string.ucFirst
+	 */
+	this.generateSentence = function generateSentence(sentenceMin, sentenceMax) {
+		var word,
+		sentenceLength,
+		sentence;
+		sentenceLength = atropa.random.integer(sentenceMin, sentenceMax);
+		sentence = this.generateWord(4, 12);
+		if (sentenceLength > wordCount) {
+			sentenceLength = wordCount;
+		}
+		for (sentenceLength; sentenceLength > 0; sentenceLength--) {
+			if (wordCount > 0) {
+				word = this.generateWord(4, 12);
+				sentence += ' ' + word;
+			} else {
+				sentenceLength = 0;
+			}
+		}
+		sentence += this.punctuate();
+		return atropa.string.ucFirst(sentence);
+	};
+	/**
+	 * Sets the babble.
+	 * @author <a href="mailto:matthewkastor@gmail.com">
+	 * Matthew Christopher Kastor-Inare III </a><br />
+	 * ☭ Hial Atropa!! ☭
+	 * @version 20120909
+	 * @methodOf atropa.Babbler#
+	 * @param {String} babbleString Specified babble to set.
+	 * @returns {String} Returns Babble.
+	 */
+	this.setBabble = function setBabble(babbleString) {
+		if (typeof(babbleString) === 'string') {
+			babble = babbleString;
+		} else {
+			this.resetBabble();
+		}
+		return babble;
+	};
+	/**
+	 * Resets the babble.
+	 * @author <a href="mailto:matthewkastor@gmail.com">
+	 * Matthew Christopher Kastor-Inare III </a><br />
+	 * ☭ Hial Atropa!! ☭
+	 * @version 20120909
+	 * @methodOf atropa.Babbler#
+	 * @returns {String} Returns an empty string.
+	 */
+	this.resetBabble = function resetBabble() {
+		babble = '';
+		return babble;
+	};
+	/**
+	 * Gets the babble.
+	 * @author <a href="mailto:matthewkastor@gmail.com">
+	 * Matthew Christopher Kastor-Inare III </a><br />
+	 * ☭ Hial Atropa!! ☭
+	 * @version 20120909
+	 * @methodOf atropa.Babbler#
+	 * @returns {String} Returns Babble.
+	 */
+	this.getBabble = function getBabble() {
+		return babble;
+	};
+	/**
+	 * Generates babble to a user specified length in words.
+	 * @author <a href="mailto:matthewkastor@gmail.com">
+	 * Matthew Christopher Kastor-Inare III </a><br />
+	 * ☭ Hial Atropa!! ☭
+	 * @version 20120909
+	 * @methodOf atropa.Babbler#
+	 * @param {Number} wordsCt The desired word count for the
+	 * generated babble.
+	 * @returns {String} Returns babble of specified length in words.
+	 */
+	this.generateBabble = function generateBabble(wordsCt) {
+		this.resetBabble();
+		this.resetWordCount(wordsCt);
+		for (wordCount; wordCount > 0; babble += ' ') {
+			this.setBabble(babble + this.generateSentence(5, 20));
+		}
+		return babble;
+	};
+	
+	this.resetBabble();
+	this.resetWordCount(wrdCount);
+};</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/bootstrap-3.0.0-wip.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome-ie7.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet">
+  <link href="../../assets/css/plato.css" rel="stylesheet">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="brand" href="http://github.com/jsoverson/plato">Plato on Github</a>
+    <ul class="nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>Toolbox\enabled\arrays.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="span6">
+      <h2 class="header">Maintainability</h2>
+      <p class="stat">128.07</p>
+    </div>
+    <div class="span6">
+      <h2 class="header">Estimated # Bugs</h2>
+      <p class="stat">0.42</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span6">
+      <h2 class="header">Difficulty</h2>
+      <p class="stat">23.22</p>
+    </div>
+    <div class="span6">
+      <h2 class="header">SLOC/LSLOC</h2>
+      <p class="stat">114 / 40</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="span6">
+      <h3 class="chart-header">By Complexity</h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="span6">
+      <h3 class="chart-header">By SLOC</h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="span12">/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
+/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
+/*global atropa */
+/**
+ * Utilities for handling arrays.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ * Matthew Christopher Kastor-Inare III </a><br />
+ * ☭ Hial Atropa!! ☭
+ * @version 20120909
+ * @namespace Utilities for handling arrays.
+ */
+atropa.arrays = {};
+/**
+ * Compares two arrays based on size and contents.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ * Matthew Christopher Kastor-Inare III </a><br />
+ * ☭ Hial Atropa!! ☭
+ * @version 20120909
+ * @param {Array} array1 One array you want compared to another.
+ * @param {Array} array2 The other array.
+ * @returns {Boolean} Returns true or false depending on
+ * whether or not the arrays matched in size and composition.
+ */
+atropa.arrays.match = function arraysMatch(array1, array2) {
+	"use strict";
+	var x,
+	l;
+	if (array1.length !== array2.length) {
+		return false;
+	}
+	l = array1.length;
+	for (x = 0; x < l; x += 1) {
+		if (array1[x] !== array2[x]) {
+			return false;
+		}
+	}
+	return true;
+};
+/**
+ * Subtracts one array of scalar values from another array of scalar values.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ * Matthew Christopher Kastor-Inare III </a><br />
+ * ☭ Hial Atropa!! ☭
+ * @version 20130112
+ * @param {Array} a The array to subtract.
+ * @param {Array} fromB The array with elements duplicated in <code>a</code>
+ * @example
+ * <pre>
+ * var x = [1,2];
+ * var y = [1,3];
+ * atropa.arrays.subtract(x,y);
+ * // [3]
+ * </pre>
+ * @returns {Array} Returns a new array containing only the unique
+ *  values found in the largeArray.
+ */
+atropa.arrays.subtract = function(a, fromB) {
+	"use strict";
+    var the = {};
+    the.result = [];
+    fromB.forEach(function(item){
+        the.mark = false;
+        a.forEach(function(rm){
+            if(item === rm) {
+                the.mark = true;
+            }
+        });
+        if(the.mark !== true) {
+            the.result.push(item);
+        }
+    });
+    return the.result;
+};
+/**
+ * Calculates the frequency of items occurring in an array.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ * Matthew Christopher Kastor-Inare III </a><br />
+ * ☭ Hial Atropa!! ☭
+ * @version 20130118
+ * @param {Array} arr The array to calculate frequencies from.
+ * @returns {Object} Returns an object whose keys are each unique
+ *  elements from the array and their value is their frequency of
+ *  occurrence within the array.
+ */
+atropa.arrays.getFrequency = function (arr) {
+	"use strict";
+	var out = arr.reduce(function (acc, curr) {
+		if (acc[curr] === undefined) {
+			acc[curr] = 1;
+		} else {
+			acc[curr] += 1;
+		}
+		return acc;
+	}, {});
+	return out;
+};
+/**
+ * Gets Unique values from an array.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ * Matthew Christopher Kastor-Inare III </a><br />
+ * ☭ Hial Atropa!! ☭
+ * @version 20130118
+ * @param {Array} largeArray The array with duplicate values in it.
+ * @returns {Array} Returns a new array containing only the unique
+ *  values found in the largeArray.
+ */
+atropa.arrays.getUnique = function (largeArray) {
+	"use strict";
+	return Object.keys(atropa.arrays.getFrequency(largeArray));
+};
+/**
+ * Removes empty strings from the given array.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ * Matthew Christopher Kastor-Inare III </a><br />
+ * ☭ Hial Atropa!! ☭
+ * @version 20130118
+ * @param {Array} arrayWithEmptyElements The array with empty strings in it.
+ * @returns {Array} Returns a new array with empty strings removed.
+ */
+atropa.arrays.removeEmptyElements = function (arrayWithEmptyElements) {
+	"use strict";
+	return arrayWithEmptyElements.filter(function (item) {
+		return !atropa.inquire.isEmptyString(item);
+	});
+};</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+
+</body>
+</html>

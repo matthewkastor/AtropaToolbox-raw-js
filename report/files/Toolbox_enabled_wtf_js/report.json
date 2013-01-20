@@ -1,0 +1,160 @@
+{
+  "info": {
+    "file": "Toolbox\\enabled\\wtf.js",
+    "fileShort": "Toolbox\\enabled\\wtf.js",
+    "fileSafe": "Toolbox_enabled_wtf_js",
+    "link": "files/Toolbox_enabled_wtf_js/index.html"
+  },
+  "complexity": {
+    "aggregate": {
+      "line": 12,
+      "complexity": {
+        "sloc": {
+          "physical": 550,
+          "logical": 505
+        },
+        "cyclomatic": 6,
+        "halstead": {
+          "operators": {
+            "distinct": 18,
+            "total": 568,
+            "identifiers": [
+              "__stripped__"
+            ]
+          },
+          "operands": {
+            "distinct": 928,
+            "total": 1068,
+            "identifiers": [
+              "__stripped__"
+            ]
+          },
+          "length": 1636,
+          "vocabulary": 946,
+          "difficulty": 10.357758620689657,
+          "volume": 16172.999266783248,
+          "effort": 167516.0225779317,
+          "bugs": 5.390999755594416,
+          "time": 9306.445698773983
+        }
+      }
+    },
+    "functions": [
+      {
+        "name": "<anonymous>.wtfify",
+        "line": 489,
+        "complexity": {
+          "sloc": {
+            "physical": 59,
+            "logical": 29
+          },
+          "cyclomatic": 4,
+          "halstead": {
+            "operators": {
+              "distinct": 14,
+              "total": 56,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 36,
+              "total": 84,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 140,
+            "vocabulary": 50,
+            "difficulty": 16.333333333333336,
+            "volume": 790.1398665684615,
+            "effort": 12905.617820618205,
+            "bugs": 0.2633799555228205,
+            "time": 716.9787678121224
+          }
+        }
+      },
+      {
+        "name": "<anonymous>",
+        "line": 523,
+        "complexity": {
+          "sloc": {
+            "physical": 12,
+            "logical": 9
+          },
+          "cyclomatic": 2,
+          "halstead": {
+            "operators": {
+              "distinct": 10,
+              "total": 26,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 15,
+              "total": 34,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 60,
+            "vocabulary": 25,
+            "difficulty": 11.333333333333332,
+            "volume": 278.63137138648347,
+            "effort": 3157.822209046812,
+            "bugs": 0.09287712379549448,
+            "time": 175.43456716926732
+          }
+        }
+      },
+      {
+        "name": "<anonymous>.htmlElement",
+        "line": 555,
+        "complexity": {
+          "sloc": {
+            "physical": 7,
+            "logical": 6
+          },
+          "cyclomatic": 2,
+          "halstead": {
+            "operators": {
+              "distinct": 6,
+              "total": 14,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 13,
+              "total": 21,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 35,
+            "vocabulary": 19,
+            "difficulty": 4.846153846153847,
+            "volume": 148.67746297052548,
+            "effort": 720.5138590110082,
+            "bugs": 0.04955915432350849,
+            "time": 40.02854772283379
+          }
+        }
+      }
+    ],
+    "maintainability": 97.7549395511339,
+    "module": "Toolbox\\enabled\\wtf.js"
+  },
+  "jshint": {
+    "messages": [
+      {
+        "severity": "error",
+        "line": 535,
+        "column": 10,
+        "message": "Bad for in variable 'x'.",
+        "source": "Bad for in variable '{a}'."
+      }
+    ]
+  }
+}

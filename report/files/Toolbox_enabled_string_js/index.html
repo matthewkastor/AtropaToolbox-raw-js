@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/bootstrap-3.0.0-wip.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome-ie7.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet">
+  <link href="../../assets/css/plato.css" rel="stylesheet">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="brand" href="http://github.com/jsoverson/plato">Plato on Github</a>
+    <ul class="nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>Toolbox\enabled\string.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="span6">
+      <h2 class="header">Maintainability</h2>
+      <p class="stat">124.69</p>
+    </div>
+    <div class="span6">
+      <h2 class="header">Estimated # Bugs</h2>
+      <p class="stat">0.50</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span6">
+      <h2 class="header">Difficulty</h2>
+      <p class="stat">23.50</p>
+    </div>
+    <div class="span6">
+      <h2 class="header">SLOC/LSLOC</h2>
+      <p class="stat">139 / 45</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="span6">
+      <h3 class="chart-header">By Complexity</h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="span6">
+      <h3 class="chart-header">By SLOC</h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="span12">/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
+/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
+/*global atropa */
+/**
+ * A few utilities for manipulating strings.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ * Matthew Christopher Kastor-Inare III </a><br />
+ * ☭ Hial Atropa!! ☭
+ * @namespace A few utilities for manipulating strings.
+ */
+atropa.string = {};
+/**
+ * Converts the first character of a given string to
+ * uppercase.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ * Matthew Christopher Kastor-Inare III </a><br />
+ * ☭ Hial Atropa!! ☭
+ * @version 20120909
+ * @param {String} string The string for which you want the
+ * first letter to be in upper case.
+ * @returns {String} The given string with it's first letter capitalized.
+ */
+atropa.string.ucFirst = function ucFirst(string) {
+	"use strict";
+	string = string.charAt(0).toUpperCase() + string.slice(1);
+	return string;
+};
+/**
+ * Counts words.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ * Matthew Christopher Kastor-Inare III </a><br />
+ * ☭ Hial Atropa!! ☭
+ * @version 20120909
+ * @param {String} someText Plain text.
+ * @return {Number} Returns the count of words in someText.
+ */
+atropa.string.countWords = function (someText) {
+	"use strict";
+	var wordCount,
+	re;
+	wordCount = 0;
+	re = /\s+/gi;
+	wordCount = someText.split(re);
+	return wordCount.length;
+};
+
+/**
+ * Converts end of line markers into whatever you want. 
+ * Automatically detects any of \r\n, \n, or \r and 
+ * replaces it with the user specified EOL marker.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ * Matthew Christopher Kastor-Inare III </a><br />
+ * ☭ Hial Atropa!! ☭
+ * @param {String} text The text you want processed.
+ * @param {String} newEOL The replacement for the current EOL marks.
+ * @returns {String} Returns the processed text.
+ */
+atropa.string.convertEol = function convertEOL(text, newEOL) {
+	'use strict';
+    return text.replace(/(\r\n|\n|\r)/g, newEOL);
+};
+
+/**
+ * Removes a quantity of leading spaces specified by offset.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ * Matthew Christopher Kastor-Inare III </a><br />
+ * ☭ Hial Atropa!! ☭
+ * @param {String} text The text to process.
+ * @param {Number} offset The amount of spaces you want removed 
+ * from the beginning of the text.
+ * @returns Returns the processed text.
+ */
+atropa.string.offsetWhiteSpace = function offsetWhiteSpace(text, offset) {
+	'use strict';
+    var regx;
+    regx = new RegExp('^ {' + offset + '}');
+    text = text.replace(regx, '');
+    return text;
+};
+
+/**
+ * Converts all tabs in leading whitespace into four spaces.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ * Matthew Christopher Kastor-Inare III </a><br />
+ * ☭ Hial Atropa!! ☭
+ * @param {String} text The text to process
+ * @returns {String} Returns the processed text.
+ */
+atropa.string.normalizeWhiteSpacePrefix = function normalizeWhiteSpacePrefix(text) {
+	'use strict';
+    var prefix = text.match(/^\s*/);
+    if(prefix) {
+        prefix = prefix[0];
+        prefix = prefix.replace(/\t/g, '    ');
+        text = text.replace(/^\s*/, prefix);
+    }
+    return text;
+};
+
+/**
+ * Converts all tabs into four spaces.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ * Matthew Christopher Kastor-Inare III </a><br />
+ * ☭ Hial Atropa!! ☭
+ * @param {String} text The text to process
+ * @returns {String} Returns the processed text.
+ */
+atropa.string.normalizeWhiteSpace = function normalizeWhiteSpace(text) {
+	'use strict';
+    text = text.replace(/\t/g, '    ');
+    return text;
+};
+
+/**
+ * Counts the number of leading space or tab characters but not both.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ * Matthew Christopher Kastor-Inare III </a><br />
+ * ☭ Hial Atropa!! ☭
+ * @param {String} text The text to analyze.
+ * @returns {Number} Returns the quantity of leading spaces or tabs.
+ */
+atropa.string.getOffset = function getOffset(text) {
+	'use strict';
+    var offset = 0,
+        leadingChar = text.charAt(0);
+        
+    if( leadingChar === ' ' || leadingChar === '\t') {
+        while(text.charAt(offset) === leadingChar && offset < text.length) {
+            offset++;
+        }
+    }
+    return offset;
+};
+/**
+ * Breaks a string into an array of words.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ * Matthew Christopher Kastor-Inare III </a><br />
+ * ☭ Hial Atropa!! ☭
+ * @version 20130118
+ * @param {String} text The text to analyze.
+ * @returns {Array} Returns an array of the words in
+ *  the given text.
+ */
+atropa.string.getWords = function (text) {
+	"use strict";
+	return atropa.arrays.removeEmptyElements(
+		text.split(/[^A-Za-z\-']+/gi).sort()
+	);
+};</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+
+</body>
+</html>

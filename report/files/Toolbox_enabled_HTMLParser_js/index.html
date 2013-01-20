@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/bootstrap-3.0.0-wip.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome-ie7.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet">
+  <link href="../../assets/css/plato.css" rel="stylesheet">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="brand" href="http://github.com/jsoverson/plato">Plato on Github</a>
+    <ul class="nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>Toolbox\enabled\HTMLParser.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="span6">
+      <h2 class="header">Maintainability</h2>
+      <p class="stat">121.76</p>
+    </div>
+    <div class="span6">
+      <h2 class="header">Estimated # Bugs</h2>
+      <p class="stat">0.16</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span6">
+      <h2 class="header">Difficulty</h2>
+      <p class="stat">10.37</p>
+    </div>
+    <div class="span6">
+      <h2 class="header">SLOC/LSLOC</h2>
+      <p class="stat">47 / 17</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="span6">
+      <h3 class="chart-header">By Complexity</h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="span6">
+      <h3 class="chart-header">By SLOC</h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="span12">/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
+/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
+/*global atropa */
+/**
+ * Creates a new HTML Parser<br />
+ * Carry out DOM operations without loading content to the active document.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ * Matthew Christopher Kastor-Inare III </a><br />
+ * ☭ Hial Atropa!! ☭
+ * @version 20120909
+ * @class Creates a new HTML Parser
+ * @returns {HTML DOM Document} Returns a blank HTML Document for you to load data into
+ */
+atropa.HTMLParser = function HTMLParser() {
+	"use strict";
+	/**
+	 * Holds the created HTML DOM Document.
+	 * @type HTML DOM Document
+	 * @fieldOf atropa.HTMLParser#
+	 */
+	this.doc = {};
+	/**
+	 * Creates a blank HTML DOM Document.
+	 * @author <a href="mailto:matthewkastor@gmail.com">
+	 * Matthew Christopher Kastor-Inare III </a><br />
+	 * ☭ Hial Atropa!! ☭
+	 * @version 20120909
+	 * @methodOf atropa.HTMLParser#
+	 * @returns {HTML DOM Document} Resets the doc property of this instance and,
+	 * returns a blank HTML Document for you to load data into.
+	 */
+	this.newDocument = function () {
+		var dt;
+		dt = document.implementation.createDocumentType("html", "-//W3C//DTD HTML 4.01 Transitional//EN", "http://www.w3.org/TR/html4/loose.dtd");
+		this.doc = document.implementation.createDocument('', '', dt);
+		return this.doc;
+	};
+	/**
+	 * Creates a new HTML DOM Document and loads the given string into it.
+	 * @author <a href="mailto:matthewkastor@gmail.com">
+	 * Matthew Christopher Kastor-Inare III </a><br />
+	 * ☭ Hial Atropa!! ☭
+	 * @version 20120909
+	 * @methodOf atropa.HTMLParser#
+	 * @param {String} htmlstring a string of HTML data
+	 * @returns {HTML DOM Document} Resets the doc property of this instance,
+	 * loading a new document with the string given.
+	 */
+	this.loadString = function (htmlstring) {
+		if (!htmlstring) {
+			return false;
+		}
+		this.newDocument();
+		this.doc.appendChild(this.doc.createElement('html'));
+		this.doc.documentElement.innerHTML = htmlstring;
+		return this.doc;
+	};
+	this.newDocument();
+	return this;
+};</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+
+</body>
+</html>
