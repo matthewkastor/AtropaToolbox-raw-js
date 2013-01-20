@@ -1,26 +1,52 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="en">
     <head>
-        <meta charset="utf-8">
+        <meta content="text/html; charset=utf-8"
+              http-equiv="Content-Type">
         <title>
-            AtropaToolbox.js Loaded
+            AtropaToolbox's Raw JS
         </title>
         <script type="text/javascript"
               src="src/AtropaToolbox.js">
 </script>
     </head>
-    <body>
+    <body style="direction: ltr;">
         <h1>
             AtropaToolbox's Raw JS
         </h1>
 
         <p>
+            <a href="https://github.com/matthewkastor/AtropaToolbox-raw-js">The Glorious AtropaToolbox</a> provides tools for automating websites in <a href="http://www.mozilla.org/en-US/firefox/new/"
+               target="_blank">Firefox</a>, <a target="_blank"
+               href="http://phantomjs.org/">phantomjs</a>, and other browsers. Providing several easy methods for creating and manipulating DOMDocument objects, The Glorious AtropaToolbox gives you flexibility in how you will retreive and manipulate data. You can operate on the visible window, in a hidden frame, in a completely separate DOMDocument object, or through the speedy magic of XMLHttpRequests. The Glorious AtropaToolbox provides a great deal of simplification in using the several methods mentioned so you can get on to doing whatever it is that you're trying to do. This toolbox goes great with phantomjs. Use The Amazing phantomjs to go crazy reading and writing to and from files, and acting as the user controlling an invisible web browser while you inject The Glorious AtropaToolbox into pages for great results! You may be able to get a similar effect using <a target="_blank"
+               href="https://developer.mozilla.org/en-US/docs/Mozmill">mozmill</a> as well however, phantomjs is much easier to get started with.
+        </p>
+
+        <p>
             Grab a copy from github at <a href="https://github.com/matthewkastor/AtropaToolbox-raw-js">https://github.com/matthewkastor/AtropaToolbox-raw-js</a>
             <br>
-            See the docs at <a href="./docs/jsdoc/index.html">docs/jsdoc</a>
+            For full details on everything the AtropaToolbox can do, see the docs at <a target="_blank"
+               href="./docs/jsdoc/index.html">docs/jsdoc</a>
             <br>
-            See the Plato code report at <a href="./report/index.html">report</a>
+            Code metrics? See the <a target="_blank"
+               href="./report/index.html">Plato code report</a>.
             <br>
+            Using Visual Studio or WebMatrix? Intellisense support is available from&nbsp;<a target="_blank"
+               href="./docs/vsdoc/OpenLayersAll.js">docs/vsdoc/OpenLayersAll.js</a>
+            <br>Other editors and IDE's may be able to use the javadoc style comments in the source code.
         </p>
+
+        <p>
+            <a href="./src/AtropaToolbox.js"
+               target="_blank"><code>AtropaToolbox.js</code></a> is loaded into this page. Open your console and try it out!
+        </p>
+
+        <h2>
+            TextAnalyzer Example
+        </h2>
+
+        <pre>
+var text, analyzer, index, frequency, percentOfText, tmp;<br>text = "This is my string! \nStrings aren't like rope! \nCould I make a rope out of string?";<br>analyzer = new atropa.TextAnalyzer(text);<br>index = analyzer.getIndex();<br>frequency = analyzer.getWordFrequency();<br><br>console.log('Text: ', analyzer.text);<br>console.log('Word Count: ', analyzer.wordCount);<br>console.log('All Words: ', analyzer.words);<br>console.log('Unique Words Count: ', index.length);<br>console.log('Word Index: ', index);<br>console.log('Word Frequency: ', frequency);<br><br>tmp = 'string';<br>console.log('How many times did the text say "string"? ', frequency[tmp]);<br><br>tmp = 'rope';<br>percentOfText = Math.round((frequency[tmp] / analyzer.wordCount) * 100);<br>console.log('Of all the words in the text, what percentage of them were the word "rope"? ', percentOfText + '%');
+</pre>
     </body>
 </html>
