@@ -30,6 +30,7 @@
         /// <field name="inject" type="">Contains tools for injecting elements and assemblies.
         /// into the page.</field>
         /// <field name="inquire" type="">Container for functions that test the state of inputs.</field>
+        /// <field name="objects" type="">Utilities for handling objects.</field>
         /// <field name="random" type="">Provides random strings and numbers.</field>
         /// <field name="regex" type="">Container for regex functions.</field>
         /// <field name="string" type="">A few utilities for manipulating strings.</field>
@@ -166,6 +167,24 @@
             /// <summary>Removes empty strings from the given array.</summary>
             /// <param name="arrayWithEmptyElements" type="Array">The array with empty strings in it.</param>
             /// <returns type="Array">Returns a new array with empty strings removed.</returns>
+        }, 
+        
+        reindex: function(arr) {
+            /// <summary>Reindexes an array.</summary>
+            /// <param name="arr" type="Array">The array with discontinuous keys.</param>
+            /// <returns type="Array">Returns an array with continuous keys.</returns>
+        }, 
+        
+        sortNumerically: function(arr) {
+            /// <summary>Sorts an array&apos;s elements numerically.</summary>
+            /// <param name="arr" type="Array">The array to sort. All elements of the array must be number-ish.</param>
+            /// <returns type="Array">Returns an array whose elements are in numeric order.</returns>
+        }, 
+        
+        sortAlphabetically: function(arr) {
+            /// <summary>Sorts an array&apos;s elements lexicographically.</summary>
+            /// <param name="arr" type="Array">The array to sort. All elements of the array must be strings.</param>
+            /// <returns type="Array">Returns an array whose elements are in alphabetic order.</returns>
         }
         
     };
@@ -548,6 +567,116 @@
   
 
   
+/* vsdoc for atropa.objects */
+
+(function (window) {
+    window.atropa = window.atropa || {};
+
+    window.atropa.objects = {
+        /// <summary></summary>
+        /// <returns type="atropa.objects"/>
+                
+        convertObjectToArray: function(obj) {
+            /// <summary>Converts an object into an array of arrays to make it possible to sort and enumerate properties reliably.</summary>
+            /// <param name="obj" type="Object">An object.</param>
+            /// <returns type="Array">Returns an array of arrays where each
+            ///  nested array will have the object&apos;s key stored in element 0 and
+            ///  the value stored in element 1. The reason an array of arrays is
+            ///  returned is because JavaScript does not guarantee the order of
+            ///  properties on an object so there is no relizble way to sort
+            ///  an objects keys or values.</returns>
+        }, 
+        
+        sort: function(obj, sortFn) {
+            /// <summary>Converts an object into an array of arrays and allows for reliable sorting and enumeration.</summary>
+            /// <param name="obj" type="Object">An object.</param>
+            /// <param name="sortFn" type="Function">Optional. The sorting function. This function will
+            ///  be given two arguments. Compare the two arguments and return:
+            ///  0 if they are equal, greater than zero if the first argument
+            ///  is greater than the second, or less than zero if the second
+            ///  argument is greater than the first. If the sorting function
+            ///  is not given, the array will be sorted lexographically by
+            ///  each elements &lt;code&gt;toString&lt;/code&gt; value.</param>
+            /// <returns type="Array">Returns an array of arrays where each
+            ///  nested array will have the objects key stored in element 0 and
+            ///  the value stored in element 1. The reason an array of arrays is
+            ///  returned is because JavaScript does not guarantee the order of
+            ///  properties on an object so there is no relizble way to sort
+            ///  an objects keys or values.</returns>
+        }, 
+        
+        sortValues: function(obj, sortFn) {
+            /// <summary>Sorts an object by its values using a user defined algorithm.</summary>
+            /// <param name="obj" type="Object">An object.</param>
+            /// <param name="sortFn" type="Function">The sorting function. This function will
+            ///  be given two arguments. Compare the two arguments and return:
+            ///  0 if they are equal, greater than zero if the first argument
+            ///  is greater than the second, or less than zero if the second
+            ///  argument is greater than the first.</param>
+            /// <returns type="Array">Returns an array of arrays where each
+            ///  nested array will have the objects key stored in element 0 and
+            ///  the value stored in element 1.</returns>
+        }, 
+        
+        sortProperties: function(obj, sortFn) {
+            /// <summary>Sorts an object by its properties using a user defined algorithm.</summary>
+            /// <param name="obj" type="Object">An object.</param>
+            /// <param name="sortFn" type="Function">The sorting function. This function will
+            ///  be given two arguments. Compare the two arguments and return:
+            ///  0 if they are equal, greater than zero if the first argument
+            ///  is greater than the second, or less than zero if the second
+            ///  argument is greater than the first.</param>
+            /// <returns type="Array">Returns an array of arrays where each
+            ///  nested array will have the objects key stored in element 0 and
+            ///  the value stored in element 1.</returns>
+        }, 
+        
+        sortValuesNumerically: function(obj) {
+            /// <summary>Sorts an object by its values numerically.</summary>
+            /// <param name="obj" type="Object">A simple object where the properties
+            ///  all have numeric-ish values.</param>
+            /// <returns type="Array">Returns an array of arrays where each
+            ///  nested array will have the objects key stored in element 0 and
+            ///  the value stored in element 1.</returns>
+        }, 
+        
+        sortValuesAlphabetically: function(obj) {
+            /// <summary>Sorts an object by its values lexicographically.</summary>
+            /// <param name="obj" type="Object">A simple object where the properties
+            ///  all have string values.</param>
+            /// <returns type="Array">Returns an array of arrays where each
+            ///  nested array will have the objects key stored in element 0 and
+            ///  the value stored in element 1.</returns>
+        }, 
+        
+        sortPropertiesNumerically: function(obj) {
+            /// <summary>Sorts an object by its properties numerically.</summary>
+            /// <param name="obj" type="Object">A simple object where the properties
+            ///  all have numeric-ish values.</param>
+            /// <returns type="Array">Returns an array of arrays where each
+            ///  nested array will have the objects key stored in element 0 and
+            ///  the value stored in element 1.</returns>
+        }, 
+        
+        sortPropertiesAlphabetically: function(obj) {
+            /// <summary>Sorts an object by its properties lexicographically.</summary>
+            /// <param name="obj" type="Object">A simple object where the properties
+            ///  all have string values.</param>
+            /// <returns type="Array">Returns an array of arrays where each
+            ///  nested array will have the objects key stored in element 0 and
+            ///  the value stored in element 1.</returns>
+        }
+        
+    };
+
+    var $x = window.atropa.objects;
+    $x.__namespace = "true";
+    $x.__typeName = "atropa.objects";
+})(this);
+
+  
+
+  
 /* vsdoc for atropa.random */
 
 (function (window) {
@@ -575,28 +704,40 @@
         }, 
         
         getPropertyName: function(obj) {
-            /// <summary></summary>
-            /// <param name="obj" type=""></param>
+            /// <summary>Get a random property name from the given object.</summary>
+            /// <param name="obj" type="Object">The object to select a random
+            ///  property name from.</param>
+            /// <returns type="String">A random property name from the
+            ///  given object.</returns>
         }, 
         
         getArrayKey: function(arr) {
-            /// <summary></summary>
-            /// <param name="arr" type=""></param>
+            /// <summary>Get a random key from the given array.</summary>
+            /// <param name="arr" type="Array">The array to select a random
+            ///  key from. The keys of the array must be contiguous.</param>
+            /// <returns type="Number">A random integer between 0 and
+            ///  &lt;code&gt;arr.length&lt;/code&gt;</returns>
         }, 
         
         getArrayValue: function(arr) {
-            /// <summary></summary>
-            /// <param name="arr" type=""></param>
+            /// <summary>Get a random value from the given array.</summary>
+            /// <param name="arr" type="Array">The array to select a random
+            ///  value from. The keys of the array must be contiguous.</param>
+            /// <returns type="Mixed">A random value from the given array.</returns>
         }, 
         
         pullArrayElement: function(arr) {
-            /// <summary></summary>
-            /// <param name="arr" type=""></param>
+            /// <summary>Remove a random element from the given array.</summary>
+            /// <param name="arr" type="Array">The array to remove a random
+            ///  element from. The keys of the array must be contiguous.</param>
+            /// <returns type="Mixed">A random value from the given array.</returns>
         }, 
         
         pullProperty: function(obj) {
-            /// <summary></summary>
-            /// <param name="obj" type=""></param>
+            /// <summary>Remove a random property from the given object.</summary>
+            /// <param name="obj" type="Object">The object to remove a random
+            ///  property from.</param>
+            /// <returns type="Mixed">A random value from the given object.</returns>
         }
         
     };
@@ -800,6 +941,14 @@
             /// <returns type="Object">Returns an object whose keys are
             ///  the unique words from the given text and whose
             ///  values are the count of each words occurrence.</returns>
+        }, 
+        
+        getPhraseFrequency: function(phraseLength) {
+            /// <summary>Gets phrases of the specified length from the text.</summary>
+            /// <param name="phraseLength" type="Number">The length of the phrases
+            ///  to extract from the text. Defaults to 2.</param>
+            /// <returns type="Object">Returns an object whose keys are phrases
+            ///  and whose values are the number of occurrences of the phrase.</returns>
         }
         
     };

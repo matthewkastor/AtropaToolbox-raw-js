@@ -10,32 +10,32 @@ __report = {
       "line": 17,
       "complexity": {
         "sloc": {
-          "physical": 70,
-          "logical": 19
+          "physical": 104,
+          "logical": 39
         },
-        "cyclomatic": 1,
+        "cyclomatic": 4,
         "halstead": {
           "operators": {
-            "distinct": 7,
-            "total": 57,
+            "distinct": 15,
+            "total": 124,
             "identifiers": [
               "__stripped__"
             ]
           },
           "operands": {
-            "distinct": 25,
-            "total": 69,
+            "distinct": 42,
+            "total": 151,
             "identifiers": [
               "__stripped__"
             ]
           },
-          "length": 126,
-          "vocabulary": 32,
-          "difficulty": 9.66,
-          "volume": 630,
-          "effort": 6085.8,
-          "bugs": 0.21,
-          "time": 338.1
+          "length": 275,
+          "vocabulary": 57,
+          "difficulty": 26.964285714285715,
+          "volume": 1604.0447538953042,
+          "effort": 43251.9210425341,
+          "bugs": 0.5346815846317681,
+          "time": 2402.8845023630056
         }
       }
     },
@@ -113,71 +113,139 @@ __report = {
         "line": 67,
         "complexity": {
           "sloc": {
-            "physical": 4,
-            "logical": 2
+            "physical": 5,
+            "logical": 3
           },
           "cyclomatic": 1,
           "halstead": {
             "operators": {
-              "distinct": 3,
-              "total": 5,
+              "distinct": 4,
+              "total": 11,
               "identifiers": [
                 "__stripped__"
               ]
             },
             "operands": {
-              "distinct": 6,
-              "total": 6,
+              "distinct": 7,
+              "total": 13,
               "identifiers": [
                 "__stripped__"
               ]
             },
-            "length": 11,
-            "vocabulary": 9,
-            "difficulty": 1.5,
-            "volume": 34.86917501586544,
-            "effort": 52.303762523798156,
-            "bugs": 0.011623058338621813,
-            "time": 2.905764584655453
+            "length": 24,
+            "vocabulary": 11,
+            "difficulty": 3.7142857142857144,
+            "volume": 83.02635884729514,
+            "effort": 308.3836185756677,
+            "bugs": 0.02767545294909838,
+            "time": 17.13242325420376
           }
         }
       },
       {
         "name": "<anonymous>.getWordFrequency",
-        "line": 83,
+        "line": 84,
         "complexity": {
           "sloc": {
-            "physical": 4,
-            "logical": 2
+            "physical": 5,
+            "logical": 3
           },
           "cyclomatic": 1,
           "halstead": {
             "operators": {
-              "distinct": 3,
-              "total": 5,
+              "distinct": 4,
+              "total": 11,
               "identifiers": [
                 "__stripped__"
               ]
             },
             "operands": {
-              "distinct": 6,
-              "total": 6,
+              "distinct": 7,
+              "total": 13,
               "identifiers": [
                 "__stripped__"
               ]
             },
-            "length": 11,
-            "vocabulary": 9,
-            "difficulty": 1.5,
-            "volume": 34.86917501586544,
-            "effort": 52.303762523798156,
-            "bugs": 0.011623058338621813,
-            "time": 2.905764584655453
+            "length": 24,
+            "vocabulary": 11,
+            "difficulty": 3.7142857142857144,
+            "volume": 83.02635884729514,
+            "effort": 308.3836185756677,
+            "bugs": 0.02767545294909838,
+            "time": 17.13242325420376
+          }
+        }
+      },
+      {
+        "name": "getPhraseFrequency",
+        "line": 96,
+        "complexity": {
+          "sloc": {
+            "physical": 25,
+            "logical": 11
+          },
+          "cyclomatic": 2,
+          "halstead": {
+            "operators": {
+              "distinct": 9,
+              "total": 25,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 16,
+              "total": 33,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 58,
+            "vocabulary": 25,
+            "difficulty": 9.28125,
+            "volume": 269.343659006934,
+            "effort": 2499.845835158106,
+            "bugs": 0.089781219668978,
+            "time": 138.88032417545034
+          }
+        }
+      },
+      {
+        "name": "<anonymous>",
+        "line": 106,
+        "complexity": {
+          "sloc": {
+            "physical": 10,
+            "logical": 6
+          },
+          "cyclomatic": 3,
+          "halstead": {
+            "operators": {
+              "distinct": 10,
+              "total": 25,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 14,
+              "total": 30,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 55,
+            "vocabulary": 24,
+            "difficulty": 10.714285714285714,
+            "volume": 252.17293753966362,
+            "effort": 2701.8529022106813,
+            "bugs": 0.08405764584655454,
+            "time": 150.1029390117045
           }
         }
       }
     ],
-    "maintainability": 128.1250481414247,
+    "maintainability": 118.05090010892083,
     "module": "Toolbox\\enabled\\TextAnalyzer.js"
   },
   "jshint": {

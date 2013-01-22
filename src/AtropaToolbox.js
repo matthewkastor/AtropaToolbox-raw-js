@@ -3,8 +3,8 @@
  * @fileOverview Atropa Toolbox - Everything <br />
  * The Entire Atropa Toolbox.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  */
 
 
@@ -14,8 +14,8 @@
 /**
  * Container for all Glorious classes, functions, etc.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @namespace Container for all Glorious classes, functions, etc.
  */
 var atropa;
@@ -28,8 +28,8 @@ atropa = {};
 /**
  * This represents a filter for arguments based on type.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @class This represents a filter for arguments based on type.
  * @returns {ArgsInfo} Returns an ArgsInfo filter.
@@ -58,24 +58,24 @@ atropa.ArgsInfo = function ArgsInfo() {
 	/**
 	 * Sets the expected argument types.
 	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 * Matthew Christopher Kastor-Inare III </a><br />
-	 * ☭ Hial Atropa!! ☭
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
 	 * @version 20120909
 	 * @methodOf atropa.ArgsInfo#
 	 * @param {Expected Arg Types} typesObj An object containing information about the
 	 * types of arguments you expect. Specifically, the object should look like the example.
 	 * @example
-	 * <p><b> * typesObj is expected to be of the form: </b></p>
-	 * <pre>
+	 * // typesObj is expected to be of the form:
+	 * 
 	 * var typesObj = {
 	 *     "namedArgumentTypesArray" :
 	 *     ["string", "function", "number"],
 	 *     "namedAlternateArgumentTypesArray" :
 	 *     ["object", "function", "number"]
 	 * };
-	 * </pre>
-	 * <p>You may use as many named arrays as you wish and checkArgTypes will
-	 * test for a match to <u>at least one</u> of the provided named arrays.</p>
+	 * 
+	 * // You may use as many named arrays as you wish and checkArgTypes will
+	 * // test for a match to at least one of the provided named arrays.
 	 * @returns {undefined}
 	 * @throws invalid argument type.
 	 */
@@ -95,8 +95,8 @@ atropa.ArgsInfo = function ArgsInfo() {
 	/**
 	 * Gets the types of arguments.
 	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 * Matthew Christopher Kastor-Inare III </a><br />
-	 * ☭ Hial Atropa!! ☭
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
 	 * @version 20120909
 	 * @methodOf atropa.ArgsInfo#
 	 * @param {arguments} args An arguments object, or anything you want to
@@ -118,8 +118,8 @@ atropa.ArgsInfo = function ArgsInfo() {
 	 * Compares the expected arguments types to the
 	 * received arguments types.
 	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 * Matthew Christopher Kastor-Inare III </a><br />
-	 * ☭ Hial Atropa!! ☭
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
 	 * @version 20120909
 	 * @private
 	 * @methodOf atropa.ArgsInfo-
@@ -141,8 +141,8 @@ atropa.ArgsInfo = function ArgsInfo() {
 	 * Checks the given arguments object against the expected
 	 * arguments types.
 	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 * Matthew Christopher Kastor-Inare III </a><br />
-	 * ☭ Hial Atropa!! ☭
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
 	 * @version 20120909
 	 * @methodOf atropa.ArgsInfo#
 	 * @param {arguments} args An arguments object
@@ -183,8 +183,8 @@ atropa.ArgsInfo = function ArgsInfo() {
 /**
  * Utilities for handling arrays.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @namespace Utilities for handling arrays.
  */
@@ -192,8 +192,8 @@ atropa.arrays = {};
 /**
  * Compares two arrays based on size and contents.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {Array} array1 One array you want compared to another.
  * @param {Array} array2 The other array.
@@ -218,18 +218,16 @@ atropa.arrays.match = function arraysMatch(array1, array2) {
 /**
  * Subtracts one array of scalar values from another array of scalar values.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20130112
  * @param {Array} a The array to subtract.
  * @param {Array} fromB The array with elements duplicated in <code>a</code>
  * @example
- * <pre>
  * var x = [1,2];
  * var y = [1,3];
  * atropa.arrays.subtract(x,y);
  * // [3]
- * </pre>
  * @returns {Array} Returns a new array containing only the unique
  *  values found in the largeArray.
  */
@@ -253,8 +251,8 @@ atropa.arrays.subtract = function(a, fromB) {
 /**
  * Calculates the frequency of items occurring in an array.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20130118
  * @param {Array} arr The array to calculate frequencies from.
  * @returns {Object} Returns an object whose keys are each unique
@@ -276,8 +274,8 @@ atropa.arrays.getFrequency = function (arr) {
 /**
  * Gets Unique values from an array.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20130118
  * @param {Array} largeArray The array with duplicate values in it.
  * @returns {Array} Returns a new array containing only the unique
@@ -290,8 +288,8 @@ atropa.arrays.getUnique = function (largeArray) {
 /**
  * Removes empty strings from the given array.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20130118
  * @param {Array} arrayWithEmptyElements The array with empty strings in it.
  * @returns {Array} Returns a new array with empty strings removed.
@@ -300,6 +298,60 @@ atropa.arrays.removeEmptyElements = function (arrayWithEmptyElements) {
 	"use strict";
 	return arrayWithEmptyElements.filter(function (item) {
 		return !atropa.inquire.isEmptyString(item);
+	});
+};
+/**
+ * Reindexes an array.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130118
+ * @param {Array} arr The array with discontinuous keys.
+ * @returns {Array} Returns an array with continuous keys.
+ */
+atropa.arrays.reindex = function reindex(arr) {
+	"use strict";
+	var idx, out;
+	out = [];
+	for(idx in arr) {
+		if(arr.hasOwnProperty(idx)) {
+			out.push(arr[idx]);
+		}
+	}
+	return out;
+};
+/**
+ * Sorts an array's elements numerically.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130120
+ * @param {Array} arr The array to sort. All elements of the array must be number-ish.
+ * @returns {Array} Returns an array whose elements are in numeric order.
+ */
+atropa.arrays.sortNumerically = function sortNumerically(arr) {
+	"use strict";
+	return arr.sort(function (a, b) {
+        return (a - b);
+    });
+};
+/**
+ * Sorts an array's elements lexicographically.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130120
+ * @example
+ *  var x = ['Z','a', '1', '2', '10', 'A', 'z'];
+ *  console.log( atropa.arrays.sortAlphabetically(x) );
+ *  // logs ["1", "10", "2", "a", "A", "z", "Z"]
+ * @param {Array} arr The array to sort. All elements of the array must be strings.
+ * @returns {Array} Returns an array whose elements are in alphabetic order.
+ */
+atropa.arrays.sortAlphabetically = function sortAlphabetically(arr) {
+	"use strict";
+	return arr.sort(function (a, b) {
+		return a.localeCompare(b);
 	});
 };
 
@@ -311,8 +363,8 @@ atropa.arrays.removeEmptyElements = function (arrayWithEmptyElements) {
  * This class represents a babbler. The babbler
  * produces lorum ipsum text, to user specifications.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @class This class represents a babbler
  * @param {Number} wrdCount The amount of "words" you would like
@@ -329,8 +381,8 @@ atropa.Babbler = function Babbler(wrdCount) {
 	/**
 	 * Sets the word count.
 	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 * Matthew Christopher Kastor-Inare III </a><br />
-	 * ☭ Hial Atropa!! ☭
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
 	 * @version 20120909
 	 * @methodOf atropa.Babbler#
 	 * @param {Number} wrdCount The amount of "words" which you want the
@@ -350,8 +402,8 @@ atropa.Babbler = function Babbler(wrdCount) {
 	/**
 	 * Resets the word count for this babbler.
 	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 * Matthew Christopher Kastor-Inare III </a><br />
-	 * ☭ Hial Atropa!! ☭
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
 	 * @version 20120909
 	 * @methodOf atropa.Babbler#
 	 * @param {Number} wordCount The amount of "words" you would like
@@ -365,8 +417,8 @@ atropa.Babbler = function Babbler(wrdCount) {
 	/**
 	 * Gets the current word count.
 	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 * Matthew Christopher Kastor-Inare III </a><br />
-	 * ☭ Hial Atropa!! ☭
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
 	 * @version 20120909
 	 * @methodOf atropa.Babbler#
 	 * @returns {Number} Returns the word count for this babbler.
@@ -377,8 +429,8 @@ atropa.Babbler = function Babbler(wrdCount) {
 	/**
 	 * Generates a word with a specified length.
 	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 * Matthew Christopher Kastor-Inare III </a><br />
-	 * ☭ Hial Atropa!! ☭
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
 	 * @version 20120909
 	 * @methodOf atropa.Babbler#
 	 * @param {Number} stringMin the shortest word, in characters.
@@ -399,8 +451,8 @@ atropa.Babbler = function Babbler(wrdCount) {
 	/**
 	 * Adds punctuation to the babble.
 	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 * Matthew Christopher Kastor-Inare III </a><br />
-	 * ☭ Hial Atropa!! ☭
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
 	 * @version 20120909
 	 * @methodOf atropa.Babbler#
 	 * @returns {String} Returns a random punctuation
@@ -415,8 +467,8 @@ atropa.Babbler = function Babbler(wrdCount) {
 	/**
 	 * Generates a sentence of specified length in words.
 	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 * Matthew Christopher Kastor-Inare III </a><br />
-	 * ☭ Hial Atropa!! ☭
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
 	 * @version 20120909
 	 * @methodOf atropa.Babbler#
 	 * @param {Number} sentenceMin The shortest sentence, in words,
@@ -451,8 +503,8 @@ atropa.Babbler = function Babbler(wrdCount) {
 	/**
 	 * Sets the babble.
 	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 * Matthew Christopher Kastor-Inare III </a><br />
-	 * ☭ Hial Atropa!! ☭
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
 	 * @version 20120909
 	 * @methodOf atropa.Babbler#
 	 * @param {String} babbleString Specified babble to set.
@@ -469,8 +521,8 @@ atropa.Babbler = function Babbler(wrdCount) {
 	/**
 	 * Resets the babble.
 	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 * Matthew Christopher Kastor-Inare III </a><br />
-	 * ☭ Hial Atropa!! ☭
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
 	 * @version 20120909
 	 * @methodOf atropa.Babbler#
 	 * @returns {String} Returns an empty string.
@@ -482,8 +534,8 @@ atropa.Babbler = function Babbler(wrdCount) {
 	/**
 	 * Gets the babble.
 	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 * Matthew Christopher Kastor-Inare III </a><br />
-	 * ☭ Hial Atropa!! ☭
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
 	 * @version 20120909
 	 * @methodOf atropa.Babbler#
 	 * @returns {String} Returns Babble.
@@ -494,8 +546,8 @@ atropa.Babbler = function Babbler(wrdCount) {
 	/**
 	 * Generates babble to a user specified length in words.
 	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 * Matthew Christopher Kastor-Inare III </a><br />
-	 * ☭ Hial Atropa!! ☭
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
 	 * @version 20120909
 	 * @methodOf atropa.Babbler#
 	 * @param {Number} wordsCt The desired word count for the
@@ -526,8 +578,8 @@ atropa.Babbler = function Babbler(wrdCount) {
  *  <code>{"key" : "cookieName", "val" : "cookieVal"}</code>
  *  <b>Cookie String:</b> <code>cookieName=cookieVal;</code></p>
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @class This represents a cookie handler
  * @returns {CookieMonster} A cookie handler.
@@ -547,8 +599,8 @@ atropa.CookieMonster = function CookieMonster() {
 	/**
 	 * Converts a cookie string into an object.
 	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 * Matthew Christopher Kastor-Inare III </a><br />
-	 * ☭ Hial Atropa!! ☭
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
 	 * @version 20120909
 	 * @methodOf atropa.CookieMonster#
 	 * @param {String} cookie A cookie represented as a string
@@ -567,8 +619,8 @@ atropa.CookieMonster = function CookieMonster() {
 	/**
 	 * Converts a cookie object to a cookie string.
 	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 * Matthew Christopher Kastor-Inare III </a><br />
-	 * ☭ Hial Atropa!! ☭
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
 	 * @version 20120909
 	 * @methodOf atropa.CookieMonster#
 	 * @param {Object} cookieObj A cookie object
@@ -587,8 +639,8 @@ atropa.CookieMonster = function CookieMonster() {
 	 * Checks cookies for worms based on a user defined
 	 * callback function.
 	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 * Matthew Christopher Kastor-Inare III </a><br />
-	 * ☭ Hial Atropa!! ☭
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
 	 * @version 20120909
 	 * @methodOf atropa.CookieMonster#
 	 * @param {function} callback
@@ -613,8 +665,8 @@ atropa.CookieMonster = function CookieMonster() {
 	 * Internal callback function used while getting the current
 	 * cookies.
 	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 * Matthew Christopher Kastor-Inare III </a><br />
-	 * ☭ Hial Atropa!! ☭
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
 	 * @version 20120909
 	 * @private
 	 * @methodOf atropa.CookieMonster-
@@ -631,8 +683,8 @@ atropa.CookieMonster = function CookieMonster() {
 	/**
 	 * Gets a user requested cookie.
 	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 * Matthew Christopher Kastor-Inare III </a><br />
-	 * ☭ Hial Atropa!! ☭
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
 	 * @version 20120909
 	 * @methodOf atropa.CookieMonster#
 	 * @param {String} whichKey The cookies key (name)
@@ -647,8 +699,8 @@ atropa.CookieMonster = function CookieMonster() {
 	/**
 	 * Get all cookies.
 	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 * Matthew Christopher Kastor-Inare III </a><br />
-	 * ☭ Hial Atropa!! ☭
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
 	 * @version 20120909
 	 * @methodOf atropa.CookieMonster#
 	 * @returns {Array} An array whose elements are cookie objects.
@@ -674,8 +726,8 @@ atropa.CookieMonster = function CookieMonster() {
 	/**
 	 * Deletes a specified cookie by user submitted string.
 	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 * Matthew Christopher Kastor-Inare III </a><br />
-	 * ☭ Hial Atropa!! ☭
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
 	 * @version 20120909
 	 * @methodOf atropa.CookieMonster#
 	 * @param {String} whichKey The cookies key (name) that
@@ -690,8 +742,8 @@ atropa.CookieMonster = function CookieMonster() {
 	/**
 	 * Deletes a specified cookie by user submitted cookieObj.
 	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 * Matthew Christopher Kastor-Inare III </a><br />
-	 * ☭ Hial Atropa!! ☭
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
 	 * @version 20120909
 	 * @methodOf atropa.CookieMonster#
 	 * @param {cookieObj} cookieObj A cookie object.
@@ -703,8 +755,8 @@ atropa.CookieMonster = function CookieMonster() {
 	 * Sets a cookie per user specifications as strings. The cookie
 	 * will expire when the browser is closed.
 	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 * Matthew Christopher Kastor-Inare III </a><br />
-	 * ☭ Hial Atropa!! ☭
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
 	 * @version 20120909
 	 * @methodOf atropa.CookieMonster#
 	 * @param {String} whichKey The key (name) of the new cookie
@@ -720,8 +772,8 @@ atropa.CookieMonster = function CookieMonster() {
 	 * Sets a cookie per user specifications as an object.
 	 * The cookie will expire when the browser is closed.
 	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 * Matthew Christopher Kastor-Inare III </a><br />
-	 * ☭ Hial Atropa!! ☭
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
 	 * @version 20120909
 	 * @methodOf atropa.CookieMonster#
 	 * @param {cookieObj} cookieObj A cookie object.
@@ -738,8 +790,8 @@ atropa.CookieMonster = function CookieMonster() {
 /**
  * Creates HTML DOM Documents from an XMLHttpRequest object.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @class Creates HTML DOM Documents from an XMLHttpRequest object.
  * @requires atropa.Requester
@@ -756,8 +808,8 @@ atropa.CreateHtmlDocumentsFromXmlhttp = function CreateHtmlDocumentsFromXmlhttp(
 	/**
 	 * Queue of documents created by this instance.
 	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 * Matthew Christopher Kastor-Inare III </a><br />
-	 * ☭ Hial Atropa!! ☭
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
 	 * @version 20120909
 	 * @type Array
 	 * @fieldOf atropa.CreateHtmlDocumentsFromXmlhttp#
@@ -767,8 +819,8 @@ atropa.CreateHtmlDocumentsFromXmlhttp = function CreateHtmlDocumentsFromXmlhttp(
 	 * Creates an HTML DOM Document and puts it in the document
 	 * queue, then executes the callback given.
 	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 * Matthew Christopher Kastor-Inare III </a><br />
-	 * ☭ Hial Atropa!! ☭
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
 	 * @version 20120909
 	 * @methodOf atropa.CreateHtmlDocumentsFromXmlhttp#
 	 * @param {String} method Any valid method to be used in
@@ -786,8 +838,8 @@ atropa.CreateHtmlDocumentsFromXmlhttp = function CreateHtmlDocumentsFromXmlhttp(
 		/**
 		 * Internal callback function to process data from XMLHttpRequest
 		 * @author <a href="mailto:matthewkastor@gmail.com">
-		 * Matthew Christopher Kastor-Inare III </a><br />
-		 * ☭ Hial Atropa!! ☭
+		 *  Matthew Christopher Kastor-Inare III </a><br />
+		 *  ☭ Hial Atropa!! ☭
 		 * @version 20120909
 		 * @methodOf atropa.CreateHtmlDocumentsFromXmlhttp#newDocument-
 		 * @private
@@ -818,8 +870,8 @@ atropa.CreateHtmlDocumentsFromXmlhttp = function CreateHtmlDocumentsFromXmlhttp(
  * Creates a new HTML Parser<br />
  * Carry out DOM operations without loading content to the active document.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @class Creates a new HTML Parser
  * @returns {HTML DOM Document} Returns a blank HTML Document for you to load data into
@@ -835,8 +887,8 @@ atropa.HTMLParser = function HTMLParser() {
 	/**
 	 * Creates a blank HTML DOM Document.
 	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 * Matthew Christopher Kastor-Inare III </a><br />
-	 * ☭ Hial Atropa!! ☭
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
 	 * @version 20120909
 	 * @methodOf atropa.HTMLParser#
 	 * @returns {HTML DOM Document} Resets the doc property of this instance and,
@@ -851,8 +903,8 @@ atropa.HTMLParser = function HTMLParser() {
 	/**
 	 * Creates a new HTML DOM Document and loads the given string into it.
 	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 * Matthew Christopher Kastor-Inare III </a><br />
-	 * ☭ Hial Atropa!! ☭
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
 	 * @version 20120909
 	 * @methodOf atropa.HTMLParser#
 	 * @param {String} htmlstring a string of HTML data
@@ -880,8 +932,8 @@ atropa.HTMLParser = function HTMLParser() {
  * Contains tools for injecting elements and assemblies.
  * into the page.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @namespace Contains tools for injecting elements and assemblies.
  */
@@ -889,8 +941,8 @@ atropa.inject = {};
 /**
  * Generic Element Injector.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {String} elementType The type of element to be injected.
  * @param {HTML DOM Document} docref Optional. A reference to the document to target,
@@ -938,8 +990,8 @@ atropa.inject.element = function (elementType, docref, parentNod, attributes, on
 /**
  * Hidden Iframe Injector.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {String} id The id of the element to be injected.
  * @param {String} srcUrl The URL to load in the iframe.
@@ -971,8 +1023,8 @@ atropa.inject.hiddenFrame = function (id, srcURL, docref, callback, parentNod) {
 /**
  * Script Injector.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {String} id The id of the element to be injected.
  * @param {String} srcUrl The URL where the script is located.
@@ -1007,8 +1059,8 @@ atropa.inject.script = function (id, srcURL, docref, callback) {
 /**
  * Container for functions that test the state of inputs.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @namespace Container for functions that test the state of inputs.
  */
@@ -1016,8 +1068,8 @@ atropa.inquire = {};
 /**
  * Checks whether the input is null.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {Mixed} x Any input that may or may not be null.
  * @returns {Boolean} Returns true if x === null.
@@ -1029,8 +1081,8 @@ atropa.inquire.isNull = function (x) {
 /**
  * Checks whether the input is an object.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {Mixed} x Any input that may or may not be an object.
  * @returns {Boolean} Returns true if typeof(x) === 'objeect'.
@@ -1042,8 +1094,8 @@ atropa.inquire.isObject = function (x) {
 /**
  * Checks whether the input is both an object and not null.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {Mixed} x Any input that may or may not be both an
  * object and null.
@@ -1059,8 +1111,8 @@ atropa.inquire.isObjectNotNull = function (x) {
  * regardless of whether the property was inherited
  * or not.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {Object} obj An object which may or may not
  * have the property identified by prop.
@@ -1098,12 +1150,318 @@ atropa.inquire.hasProperty = function (obj, prop) {
 
 /// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
 /*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
+/*global atropa, XPathResult */
+/**
+ * Utilities for handling objects.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130121
+ * @namespace Utilities for handling objects.
+ */
+atropa.objects = {};
+/**
+ * Converts an object into an array of arrays to make it possible to sort and enumerate properties reliably.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130120
+ * @methodOf atropa.objects.
+ * @example
+ *  var x = {
+ *      "stuffing" : "cotton",
+ *      "nose" : "button",
+ *      "name" : "bear"
+ *  };
+ *  console.log( atropa.objects.convertObjectToArray(x) );
+ *  // logs [["stuffing", "cotton"], ["nose", "button"], ["name", "bear"]]
+ * @param {Object} obj An object.
+ * @returns {Array} Returns an array of arrays where each
+ *  nested array will have the object's key stored in element 0 and
+ *  the value stored in element 1. The reason an array of arrays is
+ *  returned is because JavaScript does not guarantee the order of
+ *  properties on an object so there is no relizble way to sort
+ *  an objects keys or values.
+ * @see "The mechanics and order of enumerating the properties [of an object] is not specified."
+ *  <a href="http://www.ecma-international.org/ecma-262/5.1/#sec-12.6.4">
+ *  http://www.ecma-international.org/ecma-262/5.1/#sec-12.6.4</a>
+ */
+atropa.objects.convertObjectToArray = function convertObjectToArray(obj) {
+	"use strict";
+	var prop, out = [];
+    for (prop in obj) {
+        if (obj.hasOwnProperty(prop)) {
+            out.push([prop, obj[prop]]);
+        }
+    }
+	return out;
+};
+/**
+ * Converts an object into an array of arrays and allows for reliable sorting and enumeration.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130120
+ * @example
+ *  var wordsCounted, sortedByValues, sortedByProperties;
+ *  wordsCounted = {
+ *      "document3" : 150,
+ *      "document1" : 300,
+ *      "document2" : 25
+ *  };
+ *  // sorting by property value as numbers
+ *  function valSort(a, b) {
+ *      return a[1] - b[1];
+ *  }
+ *  // sorting by property names as strings
+ *  function propSort(a, b) {
+ *      return a[0].localeCompare(b[0]);
+ *  }
+ *  sortedByValues = atropa.objects.sort(wordsCounted, valSort);
+ *  sortedByProperties = atropa.objects.sort(wordsCounted, propSort);
+ *  console.log('sorted by value: ', sortedByValues);
+ *  console.log('sorted by properties: ', sortedByProperties);
+ *  
+ *  // logs:
+ *  // sorted by value: [
+ *      ["document2", 25],
+ *      ["document3", 150],
+ *      ["document1", 300]
+ *  ]
+ *  // sorted by properties: [
+ *      ["document1", 300],
+ *      ["document2", 25],
+ *      ["document3", 150]
+ *  ]
+ * @example
+ *  Lexicographic sorting:
+ *  This    [1, 2, 10, 'A', 'a','Z', 'z']
+ *  becomes [1, 10, 2, "A", "Z", "a", "z"]
+ * @param {Object} obj An object.
+ * @param {Function} sortFn Optional. The sorting function. This function will
+ *  be given two arguments. Compare the two arguments and return:
+ *  0 if they are equal, greater than zero if the first argument
+ *  is greater than the second, or less than zero if the second
+ *  argument is greater than the first. If the sorting function
+ *  is not given, the array will be sorted lexographically by
+ *  each elements <code>toString</code> value.
+ * @returns {Array} Returns an array of arrays where each
+ *  nested array will have the objects key stored in element 0 and
+ *  the value stored in element 1. The reason an array of arrays is
+ *  returned is because JavaScript does not guarantee the order of
+ *  properties on an object so there is no relizble way to sort
+ *  an objects keys or values.
+ * @see atropa.objects.convertObjectToArray
+ * @see <a href="http://www.ecma-international.org/ecma-262/5.1/#sec-15.4.4.11">
+ *  http://www.ecma-international.org/ecma-262/5.1/#sec-15.4.4.11</a>
+ * @see <a href="https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/sort">
+ *  https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/sort</a>
+ */
+atropa.objects.sort = function sort(obj, sortFn) {
+	"use strict";
+    return atropa.objects.convertObjectToArray(obj).sort(sortFn);
+};
+/**
+ * Sorts an object by its values using a user defined algorithm.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130120
+ * @example
+ *  var wordsCounted;
+ *  wordsCounted = {
+ *      "document3" : 150,
+ *      "document1" : 300,
+ *      "document2" : 25
+ *  };
+ *  // sorting by values as numbers
+ *  function sortFn(a, b) {
+ *      return a - b;
+ *  }
+ *  console.log( atropa.objects.sortValues(wordsCounted, sortFn) );
+ *  // logs: [["document2", 25], ["document3", 150], ["document1", 300]]
+ * @param {Object} obj An object.
+ * @param {Function} sortFn The sorting function. This function will
+ *  be given two arguments. Compare the two arguments and return:
+ *  0 if they are equal, greater than zero if the first argument
+ *  is greater than the second, or less than zero if the second
+ *  argument is greater than the first.
+ * @returns {Array} Returns an array of arrays where each
+ *  nested array will have the objects key stored in element 0 and
+ *  the value stored in element 1.
+ * @see atropa.objects.sort
+ */
+atropa.objects.sortValues = function sortValues(obj, sortFn) {
+	"use strict";
+	var valSort = function(a, b) {
+		return sortFn(a[1], b[1]);
+	};
+	return atropa.objects.sort(obj, valSort);
+};
+/**
+ * Sorts an object by its properties using a user defined algorithm.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130120
+ * @example
+ *  var wordsCounted;
+ *  wordsCounted = {
+ *      "document3" : 150,
+ *      "document1" : 300,
+ *      "document2" : 25
+ *  };
+ *  // sorting by property names as strings
+ *  function sortFn(a, b) {
+ *      return a.localeCompare(b);
+ *  }
+ *  console.log( atropa.objects.sortProperties(wordsCounted, sortFn) );
+ *  // logs: [["document1", 300], ["document2", 25], ["document3", 150]]
+ * @param {Object} obj An object.
+ * @param {Function} sortFn The sorting function. This function will
+ *  be given two arguments. Compare the two arguments and return:
+ *  0 if they are equal, greater than zero if the first argument
+ *  is greater than the second, or less than zero if the second
+ *  argument is greater than the first.
+ * @returns {Array} Returns an array of arrays where each
+ *  nested array will have the objects key stored in element 0 and
+ *  the value stored in element 1.
+ * @see atropa.objects.sort
+ */
+atropa.objects.sortProperties = function sortValues(obj, sortFn) {
+	"use strict";
+	var propSort = function(a, b) {
+		return sortFn(a[0], b[0]);
+	};
+	return atropa.objects.sort(obj, propSort);
+};
+/**
+ * Sorts an object by its values numerically.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130120
+ * @example
+ *  var wordsCounted;
+ *  wordsCounted = {
+ *      "document3" : 150,
+ *      "document1" : 300,
+ *      "document2" : 25
+ *  };
+ *  console.log( atropa.objects.sortValuesNumerically(wordsCounted) );
+ *  [["document2", 25], ["document3", 150], ["document1", 300]]
+ * @param {Object} obj A simple object where the properties
+ *  all have numeric-ish values.
+ * @returns {Array} Returns an array of arrays where each
+ *  nested array will have the objects key stored in element 0 and
+ *  the value stored in element 1.
+ * @see atropa.objects.sort
+ */
+atropa.objects.sortValuesNumerically = function sortValuesNumerically(obj) {
+	"use strict";
+	function sortFn(a, b) {
+        return (a - b);
+    }
+	return atropa.objects.sortValues(obj, sortFn);
+};
+/**
+ * Sorts an object by its values lexicographically.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130120
+ * @example
+ *  var wordsCounted;
+ *  wordsCounted = {
+ *      "3" : "Document A",
+ *      "2" : "Document Z",
+ *      "1" : "Document M"
+ *  };
+ *  console.log( atropa.objects.sortValuesAlphabetically(wordsCounted) );
+ *  [["3", "Document A"], ["1", "Document M"], ["2", "Document Z"]]
+ * @param {Object} obj A simple object where the properties
+ *  all have string values.
+ * @returns {Array} Returns an array of arrays where each
+ *  nested array will have the objects key stored in element 0 and
+ *  the value stored in element 1.
+ * @see atropa.objects.sort
+ */
+atropa.objects.sortValuesAlphabetically = function sortValuesAlphabetically(obj) {
+	"use strict";
+	function sortFn(a, b) {
+        return (a.localeCompare(b));
+    }
+	return atropa.objects.sortValues(obj, sortFn);
+};
+/**
+ * Sorts an object by its properties numerically.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130120
+ * @example
+ *  var wordsCounted;
+ *  wordsCounted = {
+ *      "3" : "Document A",
+ *      "2" : "Document Z",
+ *      "1" : "Document M"
+ *  };
+ *  console.log( atropa.objects.sortPropertiesNumerically(wordsCounted) );
+ *  // logs: [["1", "Document M"], ["2", "Document Z"], ["3", "Document A"]]
+ * @param {Object} obj A simple object where the properties
+ *  all have numeric-ish values.
+ * @returns {Array} Returns an array of arrays where each
+ *  nested array will have the objects key stored in element 0 and
+ *  the value stored in element 1.
+ * @see atropa.objects.sort
+ */
+atropa.objects.sortPropertiesNumerically = function sortPropertiesNumerically(obj) {
+	"use strict";
+	function sortFn(a, b) {
+        return (a - b);
+    }
+	return atropa.objects.sortProperties(obj, sortFn);
+};
+/**
+ * Sorts an object by its properties lexicographically.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130120
+ * @example
+ *  var wordsCounted;
+ *  wordsCounted = {
+ *      "Document A" : "2",
+ *      "Document Z" : "1",
+ *      "Document M" : "3"
+ *  };
+ *  console.log( atropa.objects.sortPropertiesAlphabetically(wordsCounted) );
+ *  
+ *  // logs: [["Document A", "2"], ["Document M", "3"], ["Document Z", "1"]]
+ * @param {Object} obj A simple object where the properties
+ *  all have string values.
+ * @returns {Array} Returns an array of arrays where each
+ *  nested array will have the objects key stored in element 0 and
+ *  the value stored in element 1.
+ * @see atropa.objects.sort
+ */
+atropa.objects.sortPropertiesAlphabetically = function sortPropertiesAlphabetically(obj) {
+	"use strict";
+	function sortFn(a, b) {
+        return (a.localeCompare(b));
+    }
+	return atropa.objects.sortProperties(obj, sortFn);
+};
+
+
+/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
+/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
 /*global atropa */
 /**
  * Provides random strings and numbers.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @namespace Provides random strings and numbers.
  */
@@ -1111,8 +1469,8 @@ atropa.random = {};
 /**
  * Gives you a random string whose length and characters you specify.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {Number} stringLength This is the length of the string.
  * @param {String} characterClass May be one of:
@@ -1189,8 +1547,8 @@ atropa.random.string = function randomString(stringLength, characterClass) {
 /**
  * Generates a random number.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {Number} min The lowest number you want returned
  * @param {Number} max The highest number you want returned
@@ -1200,20 +1558,62 @@ atropa.random.integer = function randomInteger(min, max) {
 	'use strict';
 	return Math.floor(Math.random() * (max - min + 1) + min);
 };
+/**
+ * Get a random property name from the given object.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20120909
+ * @param {Object} obj The object to select a random
+ *  property name from.
+ * @return {String} A random property name from the
+ *  given object.
+ */
 atropa.random.getPropertyName = function (obj) {
 	"use strict";
 	var arr;
 	arr = Object.keys(obj);
 	return arr[atropa.random.getArrayKey(arr)];
 };
+/**
+ * Get a random key from the given array.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20120909
+ * @param {Array} arr The array to select a random
+ *  key from. The keys of the array must be contiguous.
+ * @return {Number} A random integer between 0 and
+ *  <code>arr.length</code>
+ */
 atropa.random.getArrayKey = function (arr) {
 	"use strict";
 	return Math.floor(Math.random() * arr.length);
 };
+/**
+ * Get a random value from the given array.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20120909
+ * @param {Array} arr The array to select a random
+ *  value from. The keys of the array must be contiguous.
+ * @return {Mixed} A random value from the given array.
+ */
 atropa.random.getArrayValue = function (arr) {
 	"use strict";
 	return arr[atropa.random.getArrayKey(arr)];
 };
+/**
+ * Remove a random element from the given array.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20120909
+ * @param {Array} arr The array to remove a random
+ *  element from. The keys of the array must be contiguous.
+ * @return {Mixed} A random value from the given array.
+ */
 atropa.random.pullArrayElement = function (arr) {
 	"use strict";
 	var k,
@@ -1223,6 +1623,16 @@ atropa.random.pullArrayElement = function (arr) {
 	arr.splice(k, 1);
 	return d;
 };
+/**
+ * Remove a random property from the given object.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20120909
+ * @param {Object} obj The object to remove a random
+ *  property from.
+ * @return {Mixed} A random value from the given object.
+ */
 atropa.random.pullProperty = function (obj) {
 	"use strict";
 	var pName,
@@ -1240,8 +1650,8 @@ atropa.random.pullProperty = function (obj) {
 /**
  * Container for regex functions.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @namespace Container for regex functions.
  */
@@ -1250,8 +1660,8 @@ atropa.regex = {};
  * Appends common prefix, suffix, and word boundary regex strings to
  * the supplied word.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20130110
  * @param {String} word The word to append prefix and suffix to
  * @param {Integer} threshold The word.length at which it does not
@@ -1286,8 +1696,8 @@ atropa.regex.appendPrefixesAndSuffixes = function (word, threshold) {
 /**
  * Removes DOM Nodes.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @function
  * @param {DOM Node} elementReference A reference to the DOM Node you want
@@ -1307,8 +1717,8 @@ atropa.removeNodeByReference = function (elementReference) {
 /**
  * This represents an XMLHTTPRequest.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @class This represents an XMLHTTPRequest.
  * @returns {Requester} Returns a requester object.
@@ -1334,8 +1744,8 @@ atropa.Requester = function Requester() {
 	/**
 	 * Used to check the arguments types supplied to this.makeRequest.
 	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 * Matthew Christopher Kastor-Inare III </a><br />
-	 * ☭ Hial Atropa!! ☭
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
 	 * @version 20120909
 	 * @private
 	 * @methodOf atropa.Requester-
@@ -1385,8 +1795,8 @@ atropa.Requester = function Requester() {
 	/**
 	 * Makes an AJAX request.
 	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 * Matthew Christopher Kastor-Inare III </a><br />
-	 * ☭ Hial Atropa!! ☭
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
 	 * @version 20120909
 	 * @methodOf atropa.Requester#
 	 * @param {String} method The HTTP method to be used for this request.
@@ -1412,8 +1822,8 @@ atropa.Requester = function Requester() {
 		 * This is what actually fires the callback supplied
 		 * to makeRequest.
 		 * @author <a href="mailto:matthewkastor@gmail.com">
-		 * Matthew Christopher Kastor-Inare III </a><br />
-		 * ☭ Hial Atropa!! ☭
+		 *  Matthew Christopher Kastor-Inare III </a><br />
+		 *  ☭ Hial Atropa!! ☭
 		 * @version 20120909
 		 * @methodOf atropa.Requester-request
 		 * @private
@@ -1447,8 +1857,8 @@ atropa.Requester = function Requester() {
  *   }
  * </pre>
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {Mixed} defaultVal The default value to set.
  * @param {Mixed} optionalArg A reference to the optional argument.
@@ -1471,8 +1881,8 @@ atropa.setAsOptionalArg = function (defaultVal, optionalArg) {
 /**
  * A few utilities for manipulating strings.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @namespace A few utilities for manipulating strings.
  */
 atropa.string = {};
@@ -1480,8 +1890,8 @@ atropa.string = {};
  * Converts the first character of a given string to
  * uppercase.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {String} string The string for which you want the
  * first letter to be in upper case.
@@ -1495,8 +1905,8 @@ atropa.string.ucFirst = function ucFirst(string) {
 /**
  * Counts words.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {String} someText Plain text.
  * @return {Number} Returns the count of words in someText.
@@ -1516,8 +1926,8 @@ atropa.string.countWords = function (someText) {
  * Automatically detects any of \r\n, \n, or \r and 
  * replaces it with the user specified EOL marker.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @param {String} text The text you want processed.
  * @param {String} newEOL The replacement for the current EOL marks.
  * @returns {String} Returns the processed text.
@@ -1530,8 +1940,8 @@ atropa.string.convertEol = function convertEOL(text, newEOL) {
 /**
  * Removes a quantity of leading spaces specified by offset.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @param {String} text The text to process.
  * @param {Number} offset The amount of spaces you want removed 
  * from the beginning of the text.
@@ -1548,8 +1958,8 @@ atropa.string.offsetWhiteSpace = function offsetWhiteSpace(text, offset) {
 /**
  * Converts all tabs in leading whitespace into four spaces.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @param {String} text The text to process
  * @returns {String} Returns the processed text.
  */
@@ -1567,8 +1977,8 @@ atropa.string.normalizeWhiteSpacePrefix = function normalizeWhiteSpacePrefix(tex
 /**
  * Converts all tabs into four spaces.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @param {String} text The text to process
  * @returns {String} Returns the processed text.
  */
@@ -1581,8 +1991,8 @@ atropa.string.normalizeWhiteSpace = function normalizeWhiteSpace(text) {
 /**
  * Counts the number of leading space or tab characters but not both.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @param {String} text The text to analyze.
  * @returns {Number} Returns the quantity of leading spaces or tabs.
  */
@@ -1601,8 +2011,8 @@ atropa.string.getOffset = function getOffset(text) {
 /**
  * Breaks a string into an array of words.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20130118
  * @param {String} text The text to analyze.
  * @returns {Array} Returns an array of the words in
@@ -1610,9 +2020,17 @@ atropa.string.getOffset = function getOffset(text) {
  */
 atropa.string.getWords = function (text) {
 	"use strict";
-	return atropa.arrays.removeEmptyElements(
-		text.split(/[^A-Za-z\-']+/gi).sort()
+	var out = [];
+	function invalidChars(element) {
+		var matched = /^[\-'’`]+$/.test(element);
+		// invert the result of test. throw out elements that match.
+		return !matched;
+	}
+	out = atropa.arrays.removeEmptyElements(
+		text.split(/[^A-Za-z\-'’`]+/gi)
 	);
+	out = out.filter(invalidChars);
+	return out;
 };
 
 
@@ -1622,8 +2040,8 @@ atropa.string.getWords = function (text) {
 /**
  * Represents a utility for analyzing text.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20130118
  * @class Represents a utility for analyzing text.
  * @param {String} text The text to analyze.
@@ -1675,8 +2093,8 @@ atropa.TextAnalyzer = function TextAnalyzer(text) {
 /**
  * Gets an index of the text.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20130118
  * @methodOf atropa.TextAnalyzer#
  * @returns {Array} Returns an array of unique values
@@ -1684,14 +2102,15 @@ atropa.TextAnalyzer = function TextAnalyzer(text) {
  */
 atropa.TextAnalyzer.prototype.getIndex = function () {
 	"use strict";
+	this.words = atropa.arrays.reindex(this.words);
 	return atropa.arrays.getUnique(this.words);
 };
 /**
  * Get the frequency data for each unique word in
  *  the text.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20130118
  * @methodOf atropa.TextAnalyzer#
  * @returns {Object} Returns an object whose keys are
@@ -1700,9 +2119,41 @@ atropa.TextAnalyzer.prototype.getIndex = function () {
  */
 atropa.TextAnalyzer.prototype.getWordFrequency = function () {
 	"use strict";
+	this.words = atropa.arrays.reindex(this.words);
 	return atropa.arrays.getFrequency(this.words);
 };
-
+/**
+ * Gets phrases of the specified length from the text.
+ * @param {Number} phraseLength The length of the phrases
+ *  to extract from the text. Defaults to 2.
+ * @returns {Object} Returns an object whose keys are phrases
+ *  and whose values are the number of occurrences of the phrase.
+ */
+atropa.TextAnalyzer.prototype.getPhraseFrequency = function getPhraseFrequency(phraseLength) {
+	"use strict";
+	phraseLength = atropa.setAsOptionalArg(2, phraseLength);
+	if(2 > phraseLength) {
+		phraseLength = 2;
+	}
+	var counter = 0, prop, out = [];
+	
+	this.words = atropa.arrays.reindex(this.words);
+	
+	this.words.map(function(element, index, arr) {
+		counter = 1;  // element is word 1 of phraseLength
+		if(arr[index + phraseLength - 1] !== undefined) { // making sure there are enough words to concatenate a phrase of the proper length.
+			prop = String(element + ' ').toLowerCase();
+			for(counter; counter !== phraseLength; counter++) {
+				prop += String(arr[index + counter] + ' ').toLowerCase();
+			}
+			out.push(prop.trim());
+		}
+	});
+	
+	out = atropa.arrays.getFrequency(out);
+	
+	return out;
+};
 
 /// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
 /*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
@@ -1710,8 +2161,8 @@ atropa.TextAnalyzer.prototype.getWordFrequency = function () {
 /**
  * Utilities for handling urls.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @namespace Utilities for handling urls.
  */
@@ -1734,8 +2185,8 @@ atropa.url.getFilename = function(url) {
 /**
  * Polling functions for quick and sloppy work.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @namespace Polling functions for quick and sloppy work.
  */
@@ -1743,8 +2194,8 @@ atropa.waitFor = {};
 /**
  * Generic Wait for true.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {Function} testFn A function to tell when the wait is over. Must return true on success, false on failure.
  * @param {Function} onSuccessCallback Optional. The function to run when testFn returns true. Defaults to <code>function () {} </code>
@@ -1777,8 +2228,8 @@ atropa.waitFor.test = function test(testFn, onSuccessCallback, onMaxPollCallback
 /**
  * Wait for Element
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {Function} testFn A function which returns a reference to an HTML Element.
  * @param {Function} onSuccessCallback Optional.
@@ -1794,8 +2245,8 @@ atropa.waitFor.element = function (testFn, onSuccessCallback, onMaxPollCallback,
 	 * Creates an HTML DOM Document and puts it in the document
 	 * queue, then executes the callback given.
 	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 * Matthew Christopher Kastor-Inare III </a><br />
-	 * ☭ Hial Atropa!! ☭
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
 	 * @version 20120909
 	 * @methodOf atropa.waitFor.element-
 	 * @private
@@ -1816,8 +2267,8 @@ atropa.waitFor.element = function (testFn, onSuccessCallback, onMaxPollCallback,
 /**
  * Container for all window functions and classes.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @namespace Container for all window functions and classes.
  */
 atropa.window = {};
@@ -1825,8 +2276,8 @@ atropa.window = {};
  * Opens a new window and fires a callback once the window has loaded.
  *  Optionally, a test function may be provided to fire the callback.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @function
  * @param {String} url The url to load in the window.
@@ -1872,8 +2323,8 @@ atropa.window.open = function(url, callback, testFn) {
 /**
  * Container for all Glorious WTFifier related functions and such.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @namespace Container for all Glorious WTFifier related functions and such.
  */
@@ -1882,8 +2333,8 @@ atropa.wtf = {};
  * The Glorious WTFification Dictionary: Turning Shit
  * Into Polished Turds.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20130110
  */
 atropa.wtf.dictionary = {
@@ -2348,8 +2799,8 @@ atropa.wtf.dictionary = {
 /**
  * Accepts plain text input and Gloriously WTFifies it.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20130110
  * @param {String} target The text to WTFify.
  * @return {String} Returns Genuine WTFified text.
@@ -2379,8 +2830,8 @@ atropa.wtf.wtfify = function (target, isHTML) {
 	/**
 	 * Accepts plain text input and Gloriously WTFifies it.
 	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 * Matthew Christopher Kastor-Inare III </a><br />
-	 * ☭ Hial Atropa!! ☭
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
 	 * @version 20130112
 	 * @methodOf atropa.wtf.wtfify-
 	 * @private
@@ -2435,8 +2886,8 @@ atropa.wtf.htmlElement = function(elementReference) {
 /**
  * An Xpath toolkit for manipulating the DOM.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @namespace An Xpath toolkit for manipulating the DOM.
  */
@@ -2466,8 +2917,8 @@ atropa.xpath = {};
  *   atropa.xpath.processNodesByXpath(xpathExpression, contextNode, docref, callback);
  * </pre>
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {String} xpathExpression An Xpath expression as a string
  * @param {DOM Node} contxtNode The node which is to serve as the root
@@ -2512,8 +2963,8 @@ atropa.xpath.processNodesByXpath = function processNodesByXpath(xpathExpression,
  *   atropa.xpath.removeNodesByXpath(xpathExpression);
  * </pre>
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {String} xpathExpression An Xpath expression as a string
  * @param {DOM Node} contxtNode The node which is to serve as the root
@@ -2539,8 +2990,8 @@ atropa.xpath.removeNodesByXpath = function removeNodesByXpath(xpathExpression, c
  *   var srcElements = atropa.xpath.getNodesByXpath('[@src]');
  * </pre>
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {String} xpathExpression An Xpath expression as a string
  * @param {DOM Node} contxtNode The node which is to serve as the root
@@ -2574,8 +3025,8 @@ atropa.xpath.getNodesByXpath = function getNodesByXpath(xpathExpression, context
  *  // found nodes will contain the p elements where the text was matched.
  * </pre>
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {String} string An Xpath query
  * @returns {String} Returns a string representing a concat function in Xpath

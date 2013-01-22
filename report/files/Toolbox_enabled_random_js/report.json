@@ -10,7 +10,7 @@
       "line": 12,
       "complexity": {
         "sloc": {
-          "physical": 125,
+          "physical": 177,
           "logical": 91
         },
         "cyclomatic": 11,
@@ -110,7 +110,7 @@
       },
       {
         "name": "<anonymous>.getPropertyName",
-        "line": 105,
+        "line": 116,
         "complexity": {
           "sloc": {
             "physical": 6,
@@ -144,7 +144,7 @@
       },
       {
         "name": "<anonymous>.getArrayKey",
-        "line": 111,
+        "line": 133,
         "complexity": {
           "sloc": {
             "physical": 4,
@@ -178,7 +178,7 @@
       },
       {
         "name": "<anonymous>.getArrayValue",
-        "line": 115,
+        "line": 147,
         "complexity": {
           "sloc": {
             "physical": 4,
@@ -212,7 +212,7 @@
       },
       {
         "name": "<anonymous>.pullArrayElement",
-        "line": 119,
+        "line": 161,
         "complexity": {
           "sloc": {
             "physical": 9,
@@ -246,7 +246,7 @@
       },
       {
         "name": "<anonymous>.pullProperty",
-        "line": 128,
+        "line": 180,
         "complexity": {
           "sloc": {
             "physical": 9,

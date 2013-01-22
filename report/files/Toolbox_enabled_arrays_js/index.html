@@ -45,21 +45,21 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Maintainability</h2>
-      <p class="stat">128.07</p>
+      <p class="stat">130.39</p>
     </div>
     <div class="span6">
       <h2 class="header">Estimated # Bugs</h2>
-      <p class="stat">0.42</p>
+      <p class="stat">0.61</p>
     </div>
   </div>
   <div class="row">
     <div class="span6">
       <h2 class="header">Difficulty</h2>
-      <p class="stat">23.22</p>
+      <p class="stat">30.49</p>
     </div>
     <div class="span6">
       <h2 class="header">SLOC/LSLOC</h2>
-      <p class="stat">114 / 40</p>
+      <p class="stat">166 / 57</p>
     </div>
   </div>
 </div>
@@ -88,8 +88,8 @@
 /**
  * Utilities for handling arrays.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @namespace Utilities for handling arrays.
  */
@@ -97,8 +97,8 @@ atropa.arrays = {};
 /**
  * Compares two arrays based on size and contents.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {Array} array1 One array you want compared to another.
  * @param {Array} array2 The other array.
@@ -123,18 +123,16 @@ atropa.arrays.match = function arraysMatch(array1, array2) {
 /**
  * Subtracts one array of scalar values from another array of scalar values.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20130112
  * @param {Array} a The array to subtract.
  * @param {Array} fromB The array with elements duplicated in <code>a</code>
  * @example
- * <pre>
  * var x = [1,2];
  * var y = [1,3];
  * atropa.arrays.subtract(x,y);
  * // [3]
- * </pre>
  * @returns {Array} Returns a new array containing only the unique
  *  values found in the largeArray.
  */
@@ -158,8 +156,8 @@ atropa.arrays.subtract = function(a, fromB) {
 /**
  * Calculates the frequency of items occurring in an array.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20130118
  * @param {Array} arr The array to calculate frequencies from.
  * @returns {Object} Returns an object whose keys are each unique
@@ -181,8 +179,8 @@ atropa.arrays.getFrequency = function (arr) {
 /**
  * Gets Unique values from an array.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20130118
  * @param {Array} largeArray The array with duplicate values in it.
  * @returns {Array} Returns a new array containing only the unique
@@ -195,8 +193,8 @@ atropa.arrays.getUnique = function (largeArray) {
 /**
  * Removes empty strings from the given array.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20130118
  * @param {Array} arrayWithEmptyElements The array with empty strings in it.
  * @returns {Array} Returns a new array with empty strings removed.
@@ -205,6 +203,60 @@ atropa.arrays.removeEmptyElements = function (arrayWithEmptyElements) {
 	"use strict";
 	return arrayWithEmptyElements.filter(function (item) {
 		return !atropa.inquire.isEmptyString(item);
+	});
+};
+/**
+ * Reindexes an array.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130118
+ * @param {Array} arr The array with discontinuous keys.
+ * @returns {Array} Returns an array with continuous keys.
+ */
+atropa.arrays.reindex = function reindex(arr) {
+	"use strict";
+	var idx, out;
+	out = [];
+	for(idx in arr) {
+		if(arr.hasOwnProperty(idx)) {
+			out.push(arr[idx]);
+		}
+	}
+	return out;
+};
+/**
+ * Sorts an array's elements numerically.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130120
+ * @param {Array} arr The array to sort. All elements of the array must be number-ish.
+ * @returns {Array} Returns an array whose elements are in numeric order.
+ */
+atropa.arrays.sortNumerically = function sortNumerically(arr) {
+	"use strict";
+	return arr.sort(function (a, b) {
+        return (a - b);
+    });
+};
+/**
+ * Sorts an array's elements lexicographically.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130120
+ * @example
+ *  var x = ['Z','a', '1', '2', '10', 'A', 'z'];
+ *  console.log( atropa.arrays.sortAlphabetically(x) );
+ *  // logs ["1", "10", "2", "a", "A", "z", "Z"]
+ * @param {Array} arr The array to sort. All elements of the array must be strings.
+ * @returns {Array} Returns an array whose elements are in alphabetic order.
+ */
+atropa.arrays.sortAlphabetically = function sortAlphabetically(arr) {
+	"use strict";
+	return arr.sort(function (a, b) {
+		return a.localeCompare(b);
 	});
 };</textarea>
   </div>

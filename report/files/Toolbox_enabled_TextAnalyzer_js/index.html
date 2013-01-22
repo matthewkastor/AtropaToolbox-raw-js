@@ -45,21 +45,21 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Maintainability</h2>
-      <p class="stat">128.13</p>
+      <p class="stat">118.05</p>
     </div>
     <div class="span6">
       <h2 class="header">Estimated # Bugs</h2>
-      <p class="stat">0.21</p>
+      <p class="stat">0.53</p>
     </div>
   </div>
   <div class="row">
     <div class="span6">
       <h2 class="header">Difficulty</h2>
-      <p class="stat">9.66</p>
+      <p class="stat">26.96</p>
     </div>
     <div class="span6">
       <h2 class="header">SLOC/LSLOC</h2>
-      <p class="stat">70 / 19</p>
+      <p class="stat">104 / 39</p>
     </div>
   </div>
 </div>
@@ -88,8 +88,8 @@
 /**
  * Represents a utility for analyzing text.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20130118
  * @class Represents a utility for analyzing text.
  * @param {String} text The text to analyze.
@@ -141,8 +141,8 @@ atropa.TextAnalyzer = function TextAnalyzer(text) {
 /**
  * Gets an index of the text.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20130118
  * @methodOf atropa.TextAnalyzer#
  * @returns {Array} Returns an array of unique values
@@ -150,14 +150,15 @@ atropa.TextAnalyzer = function TextAnalyzer(text) {
  */
 atropa.TextAnalyzer.prototype.getIndex = function () {
 	"use strict";
+	this.words = atropa.arrays.reindex(this.words);
 	return atropa.arrays.getUnique(this.words);
 };
 /**
  * Get the frequency data for each unique word in
  *  the text.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20130118
  * @methodOf atropa.TextAnalyzer#
  * @returns {Object} Returns an object whose keys are
@@ -166,7 +167,40 @@ atropa.TextAnalyzer.prototype.getIndex = function () {
  */
 atropa.TextAnalyzer.prototype.getWordFrequency = function () {
 	"use strict";
+	this.words = atropa.arrays.reindex(this.words);
 	return atropa.arrays.getFrequency(this.words);
+};
+/**
+ * Gets phrases of the specified length from the text.
+ * @param {Number} phraseLength The length of the phrases
+ *  to extract from the text. Defaults to 2.
+ * @returns {Object} Returns an object whose keys are phrases
+ *  and whose values are the number of occurrences of the phrase.
+ */
+atropa.TextAnalyzer.prototype.getPhraseFrequency = function getPhraseFrequency(phraseLength) {
+	"use strict";
+	phraseLength = atropa.setAsOptionalArg(2, phraseLength);
+	if(2 > phraseLength) {
+		phraseLength = 2;
+	}
+	var counter = 0, prop, out = [];
+	
+	this.words = atropa.arrays.reindex(this.words);
+	
+	this.words.map(function(element, index, arr) {
+		counter = 1;  // element is word 1 of phraseLength
+		if(arr[index + phraseLength - 1] !== undefined) { // making sure there are enough words to concatenate a phrase of the proper length.
+			prop = String(element + ' ').toLowerCase();
+			for(counter; counter !== phraseLength; counter++) {
+				prop += String(arr[index + counter] + ' ').toLowerCase();
+			}
+			out.push(prop.trim());
+		}
+	});
+	
+	out = atropa.arrays.getFrequency(out);
+	
+	return out;
 };</textarea>
   </div>
 </div>

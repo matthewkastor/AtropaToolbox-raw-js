@@ -33,6 +33,14 @@
             /// <returns type="Object">Returns an object whose keys are
             ///  the unique words from the given text and whose
             ///  values are the count of each words occurrence.</returns>
+        }, 
+        
+        getPhraseFrequency: function(phraseLength) {
+            /// <summary>Gets phrases of the specified length from the text.</summary>
+            /// <param name="phraseLength" type="Number">The length of the phrases
+            ///  to extract from the text. Defaults to 2.</param>
+            /// <returns type="Object">Returns an object whose keys are phrases
+            ///  and whose values are the number of occurrences of the phrase.</returns>
         }
         
     };

@@ -209,6 +209,8 @@ ul.inheritsList
 	
 	<li><a href="../symbols/atropa.inquire.html">atropa.inquire</a></li>
 	
+	<li><a href="../symbols/atropa.objects.html">atropa.objects</a></li>
+	
 	<li><a href="../symbols/atropa.random.html">atropa.random</a></li>
 	
 	<li><a href="../symbols/atropa.regex.html">atropa.regex</a></li>
@@ -301,7 +303,7 @@ ul.inheritsList
 							<td class="nameDescription">
 								<div class="fixedFont">atropa.random.<b><a href="../symbols/atropa.random.html#.getArrayKey">getArrayKey</a></b>(arr)
 								</div>
-								<div class="description"></div>
+								<div class="description">Get a random key from the given array.</div>
 							</td>
 						</tr>
 					
@@ -310,7 +312,7 @@ ul.inheritsList
 							<td class="nameDescription">
 								<div class="fixedFont">atropa.random.<b><a href="../symbols/atropa.random.html#.getArrayValue">getArrayValue</a></b>(arr)
 								</div>
-								<div class="description"></div>
+								<div class="description">Get a random value from the given array.</div>
 							</td>
 						</tr>
 					
@@ -319,7 +321,7 @@ ul.inheritsList
 							<td class="nameDescription">
 								<div class="fixedFont">atropa.random.<b><a href="../symbols/atropa.random.html#.getPropertyName">getPropertyName</a></b>(obj)
 								</div>
-								<div class="description"></div>
+								<div class="description">Get a random property name from the given object.</div>
 							</td>
 						</tr>
 					
@@ -337,7 +339,7 @@ ul.inheritsList
 							<td class="nameDescription">
 								<div class="fixedFont">atropa.random.<b><a href="../symbols/atropa.random.html#.pullArrayElement">pullArrayElement</a></b>(arr)
 								</div>
-								<div class="description"></div>
+								<div class="description">Remove a random element from the given array.</div>
 							</td>
 						</tr>
 					
@@ -346,7 +348,7 @@ ul.inheritsList
 							<td class="nameDescription">
 								<div class="fixedFont">atropa.random.<b><a href="../symbols/atropa.random.html#.pullProperty">pullProperty</a></b>(obj)
 								</div>
-								<div class="description"></div>
+								<div class="description">Remove a random property from the given object.</div>
 							</td>
 						</tr>
 					
@@ -381,7 +383,7 @@ ul.inheritsList
 				
 				<div class="description">
 					Provides random strings and numbers.
-					<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com">Matthew Christopher Kastor-Inare III </a><br />☭ Hial Atropa!! ☭.
+					<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 				</div>
 				
 				
@@ -410,14 +412,14 @@ ul.inheritsList
 					<a name=".getArrayKey"> </a>
 					<div class="fixedFont">&lt;static&gt; 
 					
-					
+					<span class="light">{Number}</span>
 					<span class="light">atropa.random.</span><b>getArrayKey</b>(arr)
 					
 					</div>
 					<div class="description">
+						Get a random key from the given array.
 						
-						
-						
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
 					
 					
@@ -427,16 +429,23 @@ ul.inheritsList
 							<dt class="heading">Parameters:</dt>
 							
 								<dt>
-									<b>arr</b>
+									<span class="light fixedFont">{Array}</span> <b>arr</b>
 									
 								</dt>
-								<dd></dd>
+								<dd>The array to select a random key from. The keys of the array must be contiguous.</dd>
 							
 							</dl>
 						
 						
 						
 						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Number}</span> A random integer between 0 and <code>arr.length</code></dd>
+							
+							</dl>
 						
 						
 						
@@ -446,14 +455,14 @@ ul.inheritsList
 					<a name=".getArrayValue"> </a>
 					<div class="fixedFont">&lt;static&gt; 
 					
-					
+					<span class="light">{Mixed}</span>
 					<span class="light">atropa.random.</span><b>getArrayValue</b>(arr)
 					
 					</div>
 					<div class="description">
+						Get a random value from the given array.
 						
-						
-						
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
 					
 					
@@ -463,16 +472,23 @@ ul.inheritsList
 							<dt class="heading">Parameters:</dt>
 							
 								<dt>
-									<b>arr</b>
+									<span class="light fixedFont">{Array}</span> <b>arr</b>
 									
 								</dt>
-								<dd></dd>
+								<dd>The array to select a random value from. The keys of the array must be contiguous.</dd>
 							
 							</dl>
 						
 						
 						
 						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Mixed}</span> A random value from the given array.</dd>
+							
+							</dl>
 						
 						
 						
@@ -482,14 +498,14 @@ ul.inheritsList
 					<a name=".getPropertyName"> </a>
 					<div class="fixedFont">&lt;static&gt; 
 					
-					
+					<span class="light">{String}</span>
 					<span class="light">atropa.random.</span><b>getPropertyName</b>(obj)
 					
 					</div>
 					<div class="description">
+						Get a random property name from the given object.
 						
-						
-						
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
 					
 					
@@ -499,16 +515,23 @@ ul.inheritsList
 							<dt class="heading">Parameters:</dt>
 							
 								<dt>
-									<b>obj</b>
+									<span class="light fixedFont">{Object}</span> <b>obj</b>
 									
 								</dt>
-								<dd></dd>
+								<dd>The object to select a random property name from.</dd>
 							
 							</dl>
 						
 						
 						
 						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> A random property name from the given object.</dd>
+							
+							</dl>
 						
 						
 						
@@ -525,7 +548,7 @@ ul.inheritsList
 					<div class="description">
 						Generates a random number.
 						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com">Matthew Christopher Kastor-Inare III </a><br />☭ Hial Atropa!! ☭.
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
 					
 					
@@ -567,14 +590,14 @@ ul.inheritsList
 					<a name=".pullArrayElement"> </a>
 					<div class="fixedFont">&lt;static&gt; 
 					
-					
+					<span class="light">{Mixed}</span>
 					<span class="light">atropa.random.</span><b>pullArrayElement</b>(arr)
 					
 					</div>
 					<div class="description">
+						Remove a random element from the given array.
 						
-						
-						
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
 					
 					
@@ -584,16 +607,23 @@ ul.inheritsList
 							<dt class="heading">Parameters:</dt>
 							
 								<dt>
-									<b>arr</b>
+									<span class="light fixedFont">{Array}</span> <b>arr</b>
 									
 								</dt>
-								<dd></dd>
+								<dd>The array to remove a random element from. The keys of the array must be contiguous.</dd>
 							
 							</dl>
 						
 						
 						
 						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Mixed}</span> A random value from the given array.</dd>
+							
+							</dl>
 						
 						
 						
@@ -603,14 +633,14 @@ ul.inheritsList
 					<a name=".pullProperty"> </a>
 					<div class="fixedFont">&lt;static&gt; 
 					
-					
+					<span class="light">{Mixed}</span>
 					<span class="light">atropa.random.</span><b>pullProperty</b>(obj)
 					
 					</div>
 					<div class="description">
+						Remove a random property from the given object.
 						
-						
-						
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
 					
 					
@@ -620,16 +650,23 @@ ul.inheritsList
 							<dt class="heading">Parameters:</dt>
 							
 								<dt>
-									<b>obj</b>
+									<span class="light fixedFont">{Object}</span> <b>obj</b>
 									
 								</dt>
-								<dd></dd>
+								<dd>The object to remove a random property from.</dd>
 							
 							</dl>
 						
 						
 						
 						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Mixed}</span> A random value from the given object.</dd>
+							
+							</dl>
 						
 						
 						
@@ -646,7 +683,7 @@ ul.inheritsList
 					<div class="description">
 						Gives you a random string whose length and characters you specify.
 						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com">Matthew Christopher Kastor-Inare III </a><br />☭ Hial Atropa!! ☭.
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
 					
 					
@@ -697,7 +734,7 @@ ul.inheritsList
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sun Jan 20 2013 07:13:42 GMT-0500 (EST)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Mon Jan 21 2013 23:48:01 GMT-0500 (EST)
 		</div>
 	</body>
 </html>

@@ -43,6 +43,24 @@
             /// <summary>Removes empty strings from the given array.</summary>
             /// <param name="arrayWithEmptyElements" type="Array">The array with empty strings in it.</param>
             /// <returns type="Array">Returns a new array with empty strings removed.</returns>
+        }, 
+        
+        reindex: function(arr) {
+            /// <summary>Reindexes an array.</summary>
+            /// <param name="arr" type="Array">The array with discontinuous keys.</param>
+            /// <returns type="Array">Returns an array with continuous keys.</returns>
+        }, 
+        
+        sortNumerically: function(arr) {
+            /// <summary>Sorts an array&apos;s elements numerically.</summary>
+            /// <param name="arr" type="Array">The array to sort. All elements of the array must be number-ish.</param>
+            /// <returns type="Array">Returns an array whose elements are in numeric order.</returns>
+        }, 
+        
+        sortAlphabetically: function(arr) {
+            /// <summary>Sorts an array&apos;s elements lexicographically.</summary>
+            /// <param name="arr" type="Array">The array to sort. All elements of the array must be strings.</param>
+            /// <returns type="Array">Returns an array whose elements are in alphabetic order.</returns>
         }
         
     };

@@ -8,6 +8,7 @@
 /// <reference path="atropa.HTMLParser-vsdoc.js" />
 /// <reference path="atropa.inject-vsdoc.js" />
 /// <reference path="atropa.inquire-vsdoc.js" />
+/// <reference path="atropa.objects-vsdoc.js" />
 /// <reference path="atropa.random-vsdoc.js" />
 /// <reference path="atropa.regex-vsdoc.js" />
 /// <reference path="atropa.Requester-vsdoc.js" />

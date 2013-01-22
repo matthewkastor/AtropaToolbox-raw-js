@@ -10,6 +10,7 @@
         /// <field name="inject" type="">Contains tools for injecting elements and assemblies.
         /// into the page.</field>
         /// <field name="inquire" type="">Container for functions that test the state of inputs.</field>
+        /// <field name="objects" type="">Utilities for handling objects.</field>
         /// <field name="random" type="">Provides random strings and numbers.</field>
         /// <field name="regex" type="">Container for regex functions.</field>
         /// <field name="string" type="">A few utilities for manipulating strings.</field>

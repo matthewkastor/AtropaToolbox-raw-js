@@ -26,28 +26,40 @@
         }, 
         
         getPropertyName: function(obj) {
-            /// <summary></summary>
-            /// <param name="obj" type=""></param>
+            /// <summary>Get a random property name from the given object.</summary>
+            /// <param name="obj" type="Object">The object to select a random
+            ///  property name from.</param>
+            /// <returns type="String">A random property name from the
+            ///  given object.</returns>
         }, 
         
         getArrayKey: function(arr) {
-            /// <summary></summary>
-            /// <param name="arr" type=""></param>
+            /// <summary>Get a random key from the given array.</summary>
+            /// <param name="arr" type="Array">The array to select a random
+            ///  key from. The keys of the array must be contiguous.</param>
+            /// <returns type="Number">A random integer between 0 and
+            ///  &lt;code&gt;arr.length&lt;/code&gt;</returns>
         }, 
         
         getArrayValue: function(arr) {
-            /// <summary></summary>
-            /// <param name="arr" type=""></param>
+            /// <summary>Get a random value from the given array.</summary>
+            /// <param name="arr" type="Array">The array to select a random
+            ///  value from. The keys of the array must be contiguous.</param>
+            /// <returns type="Mixed">A random value from the given array.</returns>
         }, 
         
         pullArrayElement: function(arr) {
-            /// <summary></summary>
-            /// <param name="arr" type=""></param>
+            /// <summary>Remove a random element from the given array.</summary>
+            /// <param name="arr" type="Array">The array to remove a random
+            ///  element from. The keys of the array must be contiguous.</param>
+            /// <returns type="Mixed">A random value from the given array.</returns>
         }, 
         
         pullProperty: function(obj) {
-            /// <summary></summary>
-            /// <param name="obj" type=""></param>
+            /// <summary>Remove a random property from the given object.</summary>
+            /// <param name="obj" type="Object">The object to remove a random
+            ///  property from.</param>
+            /// <returns type="Mixed">A random value from the given object.</returns>
         }
         
     };

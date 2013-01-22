@@ -59,7 +59,7 @@
     </div>
     <div class="span6">
       <h2 class="header">SLOC/LSLOC</h2>
-      <p class="stat">125 / 91</p>
+      <p class="stat">177 / 91</p>
     </div>
   </div>
 </div>
@@ -88,8 +88,8 @@
 /**
  * Provides random strings and numbers.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @namespace Provides random strings and numbers.
  */
@@ -97,8 +97,8 @@ atropa.random = {};
 /**
  * Gives you a random string whose length and characters you specify.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {Number} stringLength This is the length of the string.
  * @param {String} characterClass May be one of:
@@ -175,8 +175,8 @@ atropa.random.string = function randomString(stringLength, characterClass) {
 /**
  * Generates a random number.
  * @author <a href="mailto:matthewkastor@gmail.com">
- * Matthew Christopher Kastor-Inare III </a><br />
- * ☭ Hial Atropa!! ☭
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {Number} min The lowest number you want returned
  * @param {Number} max The highest number you want returned
@@ -186,20 +186,62 @@ atropa.random.integer = function randomInteger(min, max) {
 	'use strict';
 	return Math.floor(Math.random() * (max - min + 1) + min);
 };
+/**
+ * Get a random property name from the given object.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20120909
+ * @param {Object} obj The object to select a random
+ *  property name from.
+ * @return {String} A random property name from the
+ *  given object.
+ */
 atropa.random.getPropertyName = function (obj) {
 	"use strict";
 	var arr;
 	arr = Object.keys(obj);
 	return arr[atropa.random.getArrayKey(arr)];
 };
+/**
+ * Get a random key from the given array.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20120909
+ * @param {Array} arr The array to select a random
+ *  key from. The keys of the array must be contiguous.
+ * @return {Number} A random integer between 0 and
+ *  <code>arr.length</code>
+ */
 atropa.random.getArrayKey = function (arr) {
 	"use strict";
 	return Math.floor(Math.random() * arr.length);
 };
+/**
+ * Get a random value from the given array.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20120909
+ * @param {Array} arr The array to select a random
+ *  value from. The keys of the array must be contiguous.
+ * @return {Mixed} A random value from the given array.
+ */
 atropa.random.getArrayValue = function (arr) {
 	"use strict";
 	return arr[atropa.random.getArrayKey(arr)];
 };
+/**
+ * Remove a random element from the given array.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20120909
+ * @param {Array} arr The array to remove a random
+ *  element from. The keys of the array must be contiguous.
+ * @return {Mixed} A random value from the given array.
+ */
 atropa.random.pullArrayElement = function (arr) {
 	"use strict";
 	var k,
@@ -209,6 +251,16 @@ atropa.random.pullArrayElement = function (arr) {
 	arr.splice(k, 1);
 	return d;
 };
+/**
+ * Remove a random property from the given object.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20120909
+ * @param {Object} obj The object to remove a random
+ *  property from.
+ * @return {Mixed} A random value from the given object.
+ */
 atropa.random.pullProperty = function (obj) {
 	"use strict";
 	var pName,
