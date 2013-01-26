@@ -249,6 +249,26 @@ atropa.arrays.subtract = function(a, fromB) {
     return the.result;
 };
 /**
+ * 
+ */
+atropa.arrays.intersect = function intersect(array1, array2) {
+	var smallArray, largeArray, intersection = [];
+	if(array1.length > array2.length) {
+		largeArray = array1.splice(0);
+		smallArray = array2.splice(0);
+	} else {
+		largeArray = array2.splice(0);
+		smallArray = array1.splice(0);
+	}
+	smallArray.forEach(function (item, idx, arr) {
+		var idxInLargeArray = largeArray.indexOf(item);
+		if (0 <= idxInLargeArray) { // has word
+			intersection.push(largeArray.splice(idxInLargeArray, 1)[0]);
+		}
+	});
+	return intersection;
+};
+/**
  * Calculates the frequency of items occurring in an array.
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
@@ -2032,6 +2052,29 @@ atropa.string.getWords = function (text) {
 	out = out.filter(invalidChars);
 	return out;
 };
+/**
+ * Escapes <code>CDATA</code> sections in text
+ *  so that the text may be embedded into a 
+ *  <code>CDATA</code> section. This should be run
+ *  on any text which may contain the string 
+ *  <code>]]></code> since said string will effectively
+ *  end the <code>CDATA</code> section prematurely.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130118
+ * @param {String} text The text containing 
+ *  <code>CDATA</code> sections to escape.
+ * @returns {Array} Returns a string with escaped
+ *  <code>CDATA</code> sections.
+ * @see <a href="http://en.wikipedia.org/wiki/CDATA#Nesting">
+ *  http://en.wikipedia.org/wiki/CDATA#Nesting</a>
+ * @see <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=98168">
+ *  https://bugzilla.mozilla.org/show_bug.cgi?id=98168</a>
+ */
+atropa.string.escapeCdata = function escapeCdata(text) {
+	return String(text).replace(/]]>/g, ']]]]><![CDATA[>');
+};
 
 
 /// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
@@ -2154,6 +2197,7 @@ atropa.TextAnalyzer.prototype.getPhraseFrequency = function getPhraseFrequency(p
 	
 	return out;
 };
+
 
 /// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
 /*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */

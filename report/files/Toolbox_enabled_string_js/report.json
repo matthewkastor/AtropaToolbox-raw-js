@@ -10,32 +10,32 @@
       "line": 11,
       "complexity": {
         "sloc": {
-          "physical": 147,
-          "logical": 51
+          "physical": 170,
+          "logical": 53
         },
         "cyclomatic": 5,
         "halstead": {
           "operators": {
             "distinct": 18,
-            "total": 120,
+            "total": 128,
             "identifiers": [
               "__stripped__"
             ]
           },
           "operands": {
-            "distinct": 54,
-            "total": 155,
+            "distinct": 58,
+            "total": 165,
             "identifiers": [
               "__stripped__"
             ]
           },
-          "length": 275,
-          "vocabulary": 72,
-          "difficulty": 25.833333333333332,
-          "volume": 1696.7293753966358,
-          "effort": 43832.17553107975,
-          "bugs": 0.5655764584655453,
-          "time": 2435.120862837764
+          "length": 293,
+          "vocabulary": 76,
+          "difficulty": 25.603448275862068,
+          "volume": 1830.6427614389706,
+          "effort": 46870.767254083985,
+          "bugs": 0.6102142538129902,
+          "time": 2603.9315141157767
         }
       }
     },
@@ -345,12 +345,61 @@
             "time": 9.965784284662089
           }
         }
+      },
+      {
+        "name": "escapeCdata",
+        "line": 178,
+        "complexity": {
+          "sloc": {
+            "physical": 3,
+            "logical": 1
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 3,
+              "total": 4,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 5,
+              "total": 6,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 10,
+            "vocabulary": 8,
+            "difficulty": 1.7999999999999998,
+            "volume": 30,
+            "effort": 53.99999999999999,
+            "bugs": 0.01,
+            "time": 2.9999999999999996
+          }
+        }
       }
     ],
-    "maintainability": 123.9943268079767,
+    "maintainability": 125.65432804095164,
     "module": "Toolbox\\enabled\\string.js"
   },
   "jshint": {
-    "messages": []
+    "messages": [
+      {
+        "severity": "error",
+        "line": 179,
+        "column": 34,
+        "message": "Unescaped ']'.",
+        "source": "Unescaped '{a}'."
+      },
+      {
+        "severity": "error",
+        "line": 179,
+        "column": 35,
+        "message": "Unescaped ']'.",
+        "source": "Unescaped '{a}'."
+      }
+    ]
   }
 }

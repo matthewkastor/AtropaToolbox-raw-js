@@ -24,6 +24,12 @@
             ///  values found in the largeArray.</returns>
         }, 
         
+        intersect: function(array1, array2) {
+            /// <summary></summary>
+            /// <param name="array1" type=""></param>
+            /// <param name="array2" type=""></param>
+        }, 
+        
         getFrequency: function(arr) {
             /// <summary>Calculates the frequency of items occurring in an array.</summary>
             /// <param name="arr" type="Array">The array to calculate frequencies from.</param>

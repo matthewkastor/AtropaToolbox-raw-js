@@ -45,21 +45,21 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Maintainability</h2>
-      <p class="stat">130.39</p>
+      <p class="stat">127.04</p>
     </div>
     <div class="span6">
       <h2 class="header">Estimated # Bugs</h2>
-      <p class="stat">0.61</p>
+      <p class="stat">0.81</p>
     </div>
   </div>
   <div class="row">
     <div class="span6">
       <h2 class="header">Difficulty</h2>
-      <p class="stat">30.49</p>
+      <p class="stat">39.27</p>
     </div>
     <div class="span6">
       <h2 class="header">SLOC/LSLOC</h2>
-      <p class="stat">166 / 57</p>
+      <p class="stat">186 / 72</p>
     </div>
   </div>
 </div>
@@ -152,6 +152,26 @@ atropa.arrays.subtract = function(a, fromB) {
         }
     });
     return the.result;
+};
+/**
+ * 
+ */
+atropa.arrays.intersect = function intersect(array1, array2) {
+	var smallArray, largeArray, intersection = [];
+	if(array1.length > array2.length) {
+		largeArray = array1.splice(0);
+		smallArray = array2.splice(0);
+	} else {
+		largeArray = array2.splice(0);
+		smallArray = array1.splice(0);
+	}
+	smallArray.forEach(function (item, idx, arr) {
+		var idxInLargeArray = largeArray.indexOf(item);
+		if (0 <= idxInLargeArray) { // has word
+			intersection.push(largeArray.splice(idxInLargeArray, 1)[0]);
+		}
+	});
+	return intersection;
 };
 /**
  * Calculates the frequency of items occurring in an array.

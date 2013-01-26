@@ -45,21 +45,21 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Maintainability</h2>
-      <p class="stat">123.99</p>
+      <p class="stat">125.65</p>
     </div>
     <div class="span6">
       <h2 class="header">Estimated # Bugs</h2>
-      <p class="stat">0.57</p>
+      <p class="stat">0.61</p>
     </div>
   </div>
   <div class="row">
     <div class="span6">
       <h2 class="header">Difficulty</h2>
-      <p class="stat">25.83</p>
+      <p class="stat">25.60</p>
     </div>
     <div class="span6">
       <h2 class="header">SLOC/LSLOC</h2>
-      <p class="stat">147 / 51</p>
+      <p class="stat">170 / 53</p>
     </div>
   </div>
 </div>
@@ -238,6 +238,29 @@ atropa.string.getWords = function (text) {
 	);
 	out = out.filter(invalidChars);
 	return out;
+};
+/**
+ * Escapes <code>CDATA</code> sections in text
+ *  so that the text may be embedded into a 
+ *  <code>CDATA</code> section. This should be run
+ *  on any text which may contain the string 
+ *  <code>]]></code> since said string will effectively
+ *  end the <code>CDATA</code> section prematurely.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130118
+ * @param {String} text The text containing 
+ *  <code>CDATA</code> sections to escape.
+ * @returns {Array} Returns a string with escaped
+ *  <code>CDATA</code> sections.
+ * @see <a href="http://en.wikipedia.org/wiki/CDATA#Nesting">
+ *  http://en.wikipedia.org/wiki/CDATA#Nesting</a>
+ * @see <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=98168">
+ *  https://bugzilla.mozilla.org/show_bug.cgi?id=98168</a>
+ */
+atropa.string.escapeCdata = function escapeCdata(text) {
+	return String(text).replace(/]]>/g, ']]]]><![CDATA[>');
 };</textarea>
   </div>
 </div>

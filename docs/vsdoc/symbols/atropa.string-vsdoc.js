@@ -62,6 +62,19 @@
             /// <param name="text" type="String">The text to analyze.</param>
             /// <returns type="Array">Returns an array of the words in
             ///  the given text.</returns>
+        }, 
+        
+        escapeCdata: function(text) {
+            /// <summary>Escapes &lt;code&gt;CDATA&lt;/code&gt; sections in text
+            ///  so that the text may be embedded into a 
+            ///  &lt;code&gt;CDATA&lt;/code&gt; section. This should be run
+            ///  on any text which may contain the string 
+            ///  &lt;code&gt;]]>&lt;/code&gt; since said string will effectively
+            ///  end the &lt;code&gt;CDATA&lt;/code&gt; section prematurely.</summary>
+            /// <param name="text" type="String">The text containing 
+            ///  &lt;code&gt;CDATA&lt;/code&gt; sections to escape.</param>
+            /// <returns type="Array">Returns a string with escaped
+            ///  &lt;code&gt;CDATA&lt;/code&gt; sections.</returns>
         }
         
     };
