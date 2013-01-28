@@ -1,12 +1,12 @@
 __report = {
   "summary": {
     "total": {
-      "sloc": 2750,
-      "maintainability": 2572.977434932842
+      "sloc": 2751,
+      "maintainability": 2572.536836815528
     },
     "average": {
-      "sloc": 130,
-      "maintainability": "122.52"
+      "sloc": 131,
+      "maintainability": "122.50"
     }
   },
   "reports": [
@@ -877,37 +877,37 @@ __report = {
           "line": 12,
           "complexity": {
             "sloc": {
-              "physical": 550,
-              "logical": 505
+              "physical": 551,
+              "logical": 506
             },
             "cyclomatic": 6,
             "halstead": {
               "operators": {
                 "distinct": 18,
-                "total": 568,
+                "total": 573,
                 "identifiers": [
                   "__stripped__"
                 ]
               },
               "operands": {
-                "distinct": 928,
-                "total": 1068,
+                "distinct": 930,
+                "total": 1075,
                 "identifiers": [
                   "__stripped__"
                 ]
               },
-              "length": 1636,
-              "vocabulary": 946,
-              "difficulty": 10.357758620689657,
-              "volume": 16172.999266783248,
-              "effort": 167516.0225779317,
-              "bugs": 5.390999755594416,
-              "time": 9306.445698773983
+              "length": 1648,
+              "vocabulary": 948,
+              "difficulty": 10.403225806451614,
+              "volume": 16296.64887418433,
+              "effort": 169537.71812659505,
+              "bugs": 5.432216291394776,
+              "time": 9418.76211814417
             }
           }
         },
         "module": "Toolbox\\enabled\\wtf.js",
-        "maintainability": 97.7549395511339
+        "maintainability": 97.31434143382032
       }
     },
     {

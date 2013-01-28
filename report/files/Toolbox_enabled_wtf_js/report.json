@@ -10,32 +10,32 @@
       "line": 12,
       "complexity": {
         "sloc": {
-          "physical": 550,
-          "logical": 505
+          "physical": 551,
+          "logical": 506
         },
         "cyclomatic": 6,
         "halstead": {
           "operators": {
             "distinct": 18,
-            "total": 568,
+            "total": 573,
             "identifiers": [
               "__stripped__"
             ]
           },
           "operands": {
-            "distinct": 928,
-            "total": 1068,
+            "distinct": 930,
+            "total": 1075,
             "identifiers": [
               "__stripped__"
             ]
           },
-          "length": 1636,
-          "vocabulary": 946,
-          "difficulty": 10.357758620689657,
-          "volume": 16172.999266783248,
-          "effort": 167516.0225779317,
-          "bugs": 5.390999755594416,
-          "time": 9306.445698773983
+          "length": 1648,
+          "vocabulary": 948,
+          "difficulty": 10.403225806451614,
+          "volume": 16296.64887418433,
+          "effort": 169537.71812659505,
+          "bugs": 5.432216291394776,
+          "time": 9418.76211814417
         }
       }
     },
@@ -113,37 +113,37 @@
         "line": 555,
         "complexity": {
           "sloc": {
-            "physical": 7,
-            "logical": 6
+            "physical": 8,
+            "logical": 7
           },
           "cyclomatic": 2,
           "halstead": {
             "operators": {
               "distinct": 6,
-              "total": 14,
+              "total": 19,
               "identifiers": [
                 "__stripped__"
               ]
             },
             "operands": {
-              "distinct": 13,
-              "total": 21,
+              "distinct": 16,
+              "total": 28,
               "identifiers": [
                 "__stripped__"
               ]
             },
-            "length": 35,
-            "vocabulary": 19,
-            "difficulty": 4.846153846153847,
-            "volume": 148.67746297052548,
-            "effort": 720.5138590110082,
-            "bugs": 0.04955915432350849,
-            "time": 40.02854772283379
+            "length": 47,
+            "vocabulary": 22,
+            "difficulty": 5.25,
+            "volume": 209.59328607595296,
+            "effort": 1100.364751898753,
+            "bugs": 0.06986442869198432,
+            "time": 61.13137510548628
           }
         }
       }
     ],
-    "maintainability": 97.7549395511339,
+    "maintainability": 97.31434143382032,
     "module": "Toolbox\\enabled\\wtf.js"
   },
   "jshint": {

@@ -2865,7 +2865,7 @@ atropa.wtf.wtfify = function (target, isHTML) {
 	ret = {};
 	wtfCount = 0;
 	target = target.trim();
-	target = target.replace(/[. ][. ]+/gi, '<span style="color : brown ;"> [shit taco] </span>');
+	target = target.replace(/(\. ?){2,}/gi, '<span style="color : brown ;"> [shit taco] </span>');
 	target = target.replace(/\b[ivxcl]+\./gi, '<span style="color : brown ;"> [#!~ syntax error : unexpected shit taco ~!#] </span>');
 	if(true === isHTML) {
 		target = '<p> ' + target.replace(/(\r\n|\r|\n)/g,' <br/> ') + ' </p>';
@@ -2915,12 +2915,13 @@ atropa.wtf.wtfify = function (target, isHTML) {
  * @param {HTMLElement} elementReference A reference to an HTML Element.
  * @version 20130112
  */
-atropa.wtf.htmlElement = function(elementReference) {
+atropa.wtf.htmlElement = function (elementReference) {
 	"use strict";
 	var wtfified, txt;
+	elementReference.innerHTML = elementReference.innerHTML.replace(/<br>(\s+)?\r?\n?/g, '\r\n');
 	txt = elementReference.value || elementReference.textContent;
 	wtfified = atropa.wtf.wtfify(txt, true);
-	elementReference.innerHTML = '<div style="color:black; background:white; white-space:pre-wrap;">' + wtfified.txt + '</div>';
+	elementReference.innerHTML = '<pre style="color:black; background:white; white-space:pre-wrap;">' + wtfified.txt + '</pre>';
 };
 
 
