@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html style="direction: ltr;"
+      lang="en-us">
+    <head>
+        <meta content="text/html; charset=utf-8"
+              http-equiv="Content-Type">
+		<meta name="Description"
+			  content="The Glorious WTF-O-Vision WTFifies, Gloriously.">
+		<meta name="keywords"
+			  content="WTFify, WTF-O-Vision, atropa, WTF-O-Meter, Kastor, Matthew Kastor">
+        <title>
+            WTF-O-Vision
+        </title>
+        <style type="text/css">
+			.halfWidth {
+				width: 49%;
+				min-width: 200px;
+			}
+			.btn {
+				height: 30px;
+			}
+			.content {
+				height: 250px;
+				overflow: auto;
+				border : 2px black solid;
+			}
+			.quote {
+				padding: 5px;
+				border: 2px blue dashed;
+			}
+        </style>
+		<script type="text/javascript">
+			/**
+			 * This demo page is used in two projects: the AtropaToolbox
+			 *  and the WTF-O-Vision. The WTF-O-Vision is just one of the
+			 *  many tools in the AtropaToolbox and so I have provided a
+			 *  separate repository for this single tool. To load the
+			 *  WTF-O-Vision in your own pages you do not need the following
+			 *  code, all you need is a script tag whose source attribute
+			 *  points to WTF-O-Vision.js. For example, if you crated an
+			 *  HTML page where you want to use the WTF-O-Vision and you have
+			 *  put both the HTML page and WTF-O-Vision.js in the same folder,
+			 *  then all you need is a script tag like
+			 *  <script type="text/javascript" src="WTF-O-Vision.js">
+			 *  The following code block is simply detecting which project
+			 *  this page is being accessed from and creating a script tag to
+			 *  load either the AtropaToolbox or the standalone WTF-O-Vision.
+			 */
+  			(function () {
+  				function loadScript(url) {
+  					var head = document.getElementsByTagName('head')[0];
+  					var script = document.createElement('script');
+  					script.setAttribute('type', 'text/javascript');
+  					script.setAttribute('src', url);
+  					head.appendChild(script);
+  				}
+  				if (/^\/WTF-O-Vision/gi.test(document.location.pathname)) {
+  					loadScript('./src/WTF-O-Vision.js');
+  				} else if (/^\/Atropa/gi.test(document.location.pathname)) {
+					loadScript('./src/AtropaToolbox.js');
+  				}
+  			} ());
+		</script>
+</script>
+    </head>
+    <body style="direction: ltr;">
+		<h1>
+			The Glorious WTF-O-Vision!
+		</h1>
+
+		<p>
+			<b></b>The Glorious WTF-O-Vision WTFifies, Gloriously.<br>
+			Get it at <a href="https://github.com/matthewkastor/WTF-O-Vision">https://github.com/matthewkastor/WTF-O-Vision</a>.</b>
+		</p>
+
+		<p>
+			The WTF-O-Vision is a subproject of the <a href="/AtropaToolbox-raw-js">Atropa Toolbox</a>.
+		</p>
+
+		<h2>
+			What It Does
+		</h2>
+
+		<div class="quote halfWidth">
+			<p>From the <a href="http://www.urbandictionary.com/define.php?term=WTFify&defid=6895739">Urban Dictionary</a></p>
+			<blockquote cite="http://www.urbandictionary.com/define.php?term=WTFify&defid=6895739">
+				<p></p><b>WTFify</b><br>
+				Pronounced: "What-the-fuckify"<br>
+				Root: WTF<br>
+				verb<br>
+				To edit a piece of writing as if it were a Mad Libs word game. Replacing nouns, verbs, and phrases with other asinine and often more interesting bits of text.</p>
+			</blockquote>
+		</div>
+
+		<h2>
+			Try it live!
+		</h2>
+
+		<p>
+			The div below is editable in any browser worth it's salt. Go ahead and paste in whatever you want then click the <code>WTFify!</code> button for Glorious results!
+		</p>
+
+		<p class="halfWidth">
+			<button class="halfWidth btn"
+				id="submit"
+				name="submit"
+				type="button"
+				onclick="document.getElementsByClassName('content')[0].innerHTML = '';">Clear</button>
+				
+			<button class="halfWidth btn"
+				id="submit"
+				name="submit"
+				type="button"
+				onclick="atropa.wtf.htmlElement(document.getElementsByClassName('content')[0]);">WTFify!</button>
+		</p>
+
+		<div contenteditable="true" class="content halfWidth">
+			I am the greatest poet to ever live.
+		</div>
+
+		<h2>
+			Usage & Info
+		</h2>
+
+		<p>
+			Tested on Firefox 17 - 18.0.1. Your mileage may vary.
+		</p>
+
+		<p>
+			You can use the <code>js</code> file as is, it's ready to go. Edit the dictionary and turn it into a profanity filter, reverse profanity filter, trite checker, or whatever you want. Full documentation is available in the source code or in somewhat organized HTML <a href="./docs/jsdoc/symbols/atropa.wtf.html">here</a>. There is also a <a href="./report/index.html">code analysis report</a> if you are into that kind of thing.
+		</p>
+
+		<p>
+			Using Visual Studio or WebMatrix? Intellisense support is available from <a target="_blank"
+               href="./docs/vsdoc/OpenLayersAll.js">docs/vsdoc/OpenLayersAll.js</a>. Other editors and IDE's may be able to use the javadoc style comments in the source code.
+		</p>
+
+    </body>
+</html>
