@@ -3,6 +3,10 @@
     <head>
         <meta content="text/html; charset=utf-8"
               http-equiv="Content-Type">
+		<meta name="Description"
+			  content="The AtropaToolbox provides tools for browser automation, content analysis, content generation, web scraping, and some general purpose utilities that make everything easy.">
+		<meta name="keywords"
+			  content="atropa, AtropaToolbox, web scraping, browser automation, phantomjs, mozmill, intellisense, visual studio, Kastor, Matthew Kastor">
         <title>
             AtropaToolbox's Raw JS
         </title>
@@ -15,6 +19,26 @@
             AtropaToolbox's Raw JS
         </h1>
 
+		<h2>
+			What our customers are saying:
+		</h2>
+
+		<div>
+			<p>As reported by GFYS:</p>
+			<blockquote>
+				They were calling it a <a href="./docs/jsdoc/symbols/atropa.xpath.html">"kitchen sink"</a>, <a href="./docs/jsdoc/symbols/atropa.CreateHtmlDocumentsFromXmlhttp.html">"steroids for script kiddies"</a>, and generaly spewing trollish B.S. So he took the idea a step further by automating their foolishness into the <a href="./docs/jsdoc/symbols/atropa.Babbler.html"><code>atropa.Babbler</code></a>. Then he let it crawl their silly forum saying <i>all sorts of relevant things</i>. That's when they realized it was more like an outhouse punt or a pudgy porn star. Sure, it might be a bit ugly and have strange protrusions on the backside but, once you see it in action... $$$$!
+			</blockquote>
+		</div>
+		
+
+		<p>
+            Grab a copy from github at <a href="https://github.com/matthewkastor/AtropaToolbox-raw-js">https://github.com/matthewkastor/AtropaToolbox-raw-js</a>
+		</p>
+
+		<h2>
+			What is it?
+		</h2>
+
         <p>
             <a href="https://github.com/matthewkastor/AtropaToolbox-raw-js">The Glorious AtropaToolbox</a> provides tools for automating websites in <a href="http://www.mozilla.org/en-US/firefox/new/"
                target="_blank">Firefox</a>, <a target="_blank"
@@ -22,31 +46,39 @@
                href="https://developer.mozilla.org/en-US/docs/Mozmill">mozmill</a> as well however, phantomjs is much easier to get started with.
         </p>
 
+		<h2>
+			What about docs?
+		</h2>
+
         <p>
-            Grab a copy from github at <a href="https://github.com/matthewkastor/AtropaToolbox-raw-js">https://github.com/matthewkastor/AtropaToolbox-raw-js</a>
-            <br>
             For full details on everything the AtropaToolbox can do, see the docs at <a target="_blank"
                href="./docs/jsdoc/index.html">docs/jsdoc</a>
             <br>
             Code metrics? See the <a target="_blank"
                href="./report/index.html">Plato code report</a>.
             <br>
-            Using Visual Studio or WebMatrix? Intellisense support is available from&nbsp;<a target="_blank"
+            Using Visual Studio or WebMatrix? Intellisense support is available from <a target="_blank"
                href="./docs/vsdoc/OpenLayersAll.js">docs/vsdoc/OpenLayersAll.js</a>
             <br>Other editors and IDE's may be able to use the javadoc style comments in the source code.
         </p>
 
-        <p>
+        
+		<h2>
+			Examples
+		</h2>
+		
+		<p>
             <a href="./src/AtropaToolbox.js"
                target="_blank"><code>AtropaToolbox.js</code></a> is loaded into this page. Open your console and try it out!
         </p>
 
-        <h2>
-            TextAnalyzer Example
-        </h2>
+		<pre>console.log(atropa);</pre>
 
-        <pre>
-var text, analyzer, index, frequency, percentOfText, tmp;<br>text = "This is my string! \nStrings aren't like rope! \nCould I make a rope out of string?";<br>analyzer = new atropa.TextAnalyzer(text);<br>index = analyzer.getIndex();<br>frequency = analyzer.getWordFrequency();<br><br>console.log('Text: ', analyzer.text);<br>console.log('Word Count: ', analyzer.wordCount);<br>console.log('All Words: ', analyzer.words);<br>console.log('Unique Words Count: ', index.length);<br>console.log('Word Index: ', index);<br>console.log('Word Frequency: ', frequency);<br><br>tmp = 'string';<br>console.log('How many times did the text say "string"? ', frequency[tmp]);<br><br>tmp = 'rope';<br>percentOfText = Math.round((frequency[tmp] / analyzer.wordCount) * 100);<br>console.log('Of all the words in the text, what percentage of them were the word "rope"? ', percentOfText + '%');
-</pre>
+		<ul>
+			<li><a href="/WTF-O-Vision">WTF-O-Vision Demo / Example</a></li>
+			<li><a href="TextAnalyzer Example.html">TextAnalyzer Demo / Example</a></li>
+		</ul>
+
+        
     </body>
 </html>

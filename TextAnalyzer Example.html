@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta content="text/html; charset=utf-8"
+              http-equiv="Content-Type">
+		<meta name="Description"
+			  content="The Atropa TextAnalyzer gives basic analytical information about text.">
+		<meta name="keywords"
+			  content="text analysis, atropa, TextAnalyzer, Kastor, Matthew Kastor">
+        <script type="text/javascript"
+              src="src/AtropaToolbox.js">
+</script>
+				<script type="text/javascript">
+		function insertRow(table, arr) {
+			var row = document.createElement('tr');
+			arr.forEach(function (item, idx, ar) {
+				if (typeof item === 'object') {
+					item = JSON.stringify(item, null, '    ');
+				}
+				var td = document.createElement('td');
+				td.setAttribute('style', 'vertical-align: top; border-bottom: 1px blue dashed;');
+				var pre = document.createElement('pre');
+				pre.setAttribute('style', 'white-space: pre-wrap;');
+				pre.textContent = item;
+				td.appendChild(pre);
+				row.appendChild(td);
+			});
+			table.appendChild(row);
+		}
+
+		function clearBtn() {
+			document.getElementById('content').value = '';
+			document.getElementById('results').innerHTML = '';
+		}
+
+		function textAnalyzerExample() {
+			var text, analyzer, index, wordFrequency, percentOfText, phraseFrequency, table;
+
+			document.getElementById('results').innerHTML = '';
+
+			text = document.getElementById('content').value;
+			analyzer = new atropa.TextAnalyzer(text);
+			index = analyzer.getIndex();
+			wordFrequency = analyzer.getWordFrequency();
+			phraseFrequency = analyzer.getPhraseFrequency(4);
+
+			table = document.createElement('table');
+			table.setAttribute('style', 'width: 99%;');
+
+			insertRow(table, ['Property', 'Value']);
+			insertRow(table, ['Text: ', analyzer.text]);
+			insertRow(table, ['Word Count: ', analyzer.wordCount]);
+			insertRow(table, ['All Words: ', analyzer.words]);
+			insertRow(table, ['Unique Words Count: ', index.length]);
+			insertRow(table, ['Word Index: ', index]);
+			insertRow(table, ['Word Frequency: ', wordFrequency]);
+			insertRow(table, ['4 word phrase frequency: ', phraseFrequency]);
+			document.getElementById('results').appendChild(table);
+		}
+</script>
+
+        <title>
+			Text Analyzer Example
+		</title>
+    </head>
+    <body>
+        <h1>
+            TextAnalyzer Example
+        </h1>
+
+		<p>
+			The Atropa TextAnalyzer is a subproject of the <a href="index.html">Atropa Toolbox</a>.
+		</p>
+
+		<h2>
+			Try It out!
+		</h2>
+		<div style="min-width: 250px; width:  50%;">
+			<textarea id="content" style="min-width: 240px; width:  99%; height:  300px;">This is my string!
+Strings aren't like rope!
+Could I make a rope out of string?</textarea>
+
+			<p>
+				<button onclick="textAnalyzerExample();" style="width: 45%; float: left;">Analyze!</button>
+				<button onclick="clearBtn();" style="width: 45%; float: right;">Clear</button>
+				<br style="clear: both;">
+			</p>
+		</div>
+
+		
+		<h3>
+			Result:
+		</h3>
+
+		<div id="results" style="min-width: 250px; width:  50%;"></div>
+    </body>
+</html>
