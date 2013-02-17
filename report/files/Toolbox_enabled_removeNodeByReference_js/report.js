@@ -75,7 +75,7 @@ __report = {
         }
       }
     ],
-    "maintainability": 136.34727338364053,
+    "maintainability": 79.73524759277224,
     "module": "Toolbox\\enabled\\removeNodeByReference.js"
   },
   "jshint": {

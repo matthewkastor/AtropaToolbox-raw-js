@@ -415,7 +415,7 @@ __report = {
         }
       }
     ],
-    "maintainability": 119.96667375802699,
+    "maintainability": 70.15594956609766,
     "module": "Toolbox\\enabled\\Babbler.js"
   },
   "jshint": {

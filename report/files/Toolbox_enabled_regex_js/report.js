@@ -75,7 +75,7 @@ __report = {
         }
       }
     ],
-    "maintainability": 105.44381560770157,
+    "maintainability": 61.66305006298337,
     "module": "Toolbox\\enabled\\regex.js"
   },
   "jshint": {

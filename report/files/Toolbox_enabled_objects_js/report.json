@@ -517,7 +517,7 @@
         }
       }
     ],
-    "maintainability": 139.42104895143675,
+    "maintainability": 81.5327771645829,
     "module": "Toolbox\\enabled\\objects.js"
   },
   "jshint": {

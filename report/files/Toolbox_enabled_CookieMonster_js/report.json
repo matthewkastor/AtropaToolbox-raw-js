@@ -415,7 +415,7 @@
         }
       }
     ],
-    "maintainability": 119.51996532896385,
+    "maintainability": 69.89471656664553,
     "module": "Toolbox\\enabled\\CookieMonster.js"
   },
   "jshint": {

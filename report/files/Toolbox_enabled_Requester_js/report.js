@@ -211,7 +211,7 @@ __report = {
         }
       }
     ],
-    "maintainability": 118.33342759740938,
+    "maintainability": 69.20083485228619,
     "module": "Toolbox\\enabled\\Requester.js"
   },
   "jshint": {

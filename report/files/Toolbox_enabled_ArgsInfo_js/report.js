@@ -211,7 +211,7 @@ __report = {
         }
       }
     ],
-    "maintainability": 115.6653311550632,
+    "maintainability": 67.64054453512468,
     "module": "Toolbox\\enabled\\ArgsInfo.js"
   },
   "jshint": {

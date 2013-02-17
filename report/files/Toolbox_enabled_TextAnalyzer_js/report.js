@@ -245,7 +245,7 @@ __report = {
         }
       }
     ],
-    "maintainability": 118.05090010892083,
+    "maintainability": 69.03561409878411,
     "module": "Toolbox\\enabled\\TextAnalyzer.js"
   },
   "jshint": {

@@ -143,7 +143,7 @@
         }
       }
     ],
-    "maintainability": 121.7633432950862,
+    "maintainability": 71.20663350589837,
     "module": "Toolbox\\enabled\\HTMLParser.js"
   },
   "jshint": {

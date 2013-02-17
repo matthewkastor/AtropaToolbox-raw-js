@@ -279,7 +279,7 @@ __report = {
         }
       }
     ],
-    "maintainability": 103.41586183345987,
+    "maintainability": 60.47711218330987,
     "module": "Toolbox\\enabled\\random.js"
   },
   "jshint": {

@@ -54,10 +54,10 @@
   					script.setAttribute('src', url);
   					head.appendChild(script);
   				}
-  				if (/^\/WTF-O-Vision/gi.test(document.location.pathname)) {
-  					loadScript('./src/WTF-O-Vision.js');
-  				} else if (/^\/Atropa/gi.test(document.location.pathname)) {
+  				if (/\/Atropa/gi.test(document.location.pathname)) {
 					loadScript('./src/AtropaToolbox.js');
+  				} else {
+  					loadScript('./src/WTF-O-Vision.js');
   				}
   			} ());
 		</script>

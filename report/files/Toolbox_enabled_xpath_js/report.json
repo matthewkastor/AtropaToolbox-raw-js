@@ -245,7 +245,7 @@
         }
       }
     ],
-    "maintainability": 123.76163796843579,
+    "maintainability": 72.3752268821262,
     "module": "Toolbox\\enabled\\xpath.js"
   },
   "jshint": {

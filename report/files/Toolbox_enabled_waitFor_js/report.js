@@ -245,7 +245,7 @@ __report = {
         }
       }
     ],
-    "maintainability": 129.2737921303431,
+    "maintainability": 75.59870884815388,
     "module": "Toolbox\\enabled\\waitFor.js"
   },
   "jshint": {

@@ -1,4 +1,4 @@
-/*global $:false, _:false, Morris:false, __report:false, Raphael:false */
+/*global $:false, _:false, Morris:false, __report:false, __options: false, Raphael:false */
 /*jshint browser:true*/
 
 $(function(){
@@ -10,9 +10,9 @@ $(function(){
   //  $('.plato-file-link').fitText(1.2, { minFontSize: '20px', maxFontSize: '28px' });
 
   var colors = [
-    '#50ABD2',
-    '#ED913D',
-    '#E8182E'
+    '#01939A',
+    '#FFAB00',
+    '#FF0700'
   ];
 
   var graphHeight = 10,
@@ -58,6 +58,9 @@ $(function(){
 
         value = report.complexity.aggregate.complexity.halstead.bugs.toFixed(2);
         horizontalGraph(chart,2,value, value * 5, 'est bugs', getColor(value,colors,[1,5]));
+
+        value = report.jshint.messages;
+        horizontalGraph(chart,3,value, value * 5, 'lint errors', getColor(value,colors,[1,10]));
       },0);
     });
   }
@@ -65,6 +68,16 @@ $(function(){
   function drawOverviewCharts(reports) {
     $('.chart').empty();
 
+    var maintainability = {
+      element: 'chart_maintainability',
+      data: [],
+      xkey: 'label',
+      ykeys: ['value'],
+      ymax : 100,
+      ymin : 0,
+      labels: ['Maintainability'],
+      barColors : ['#ff9b40']
+    };
     var sloc = {
       element: 'chart_sloc',
       data: [],
@@ -72,16 +85,7 @@ $(function(){
       ykeys: ['value'],
       ymax : 400,
       labels: ['Lines'],
-      barColors : ['#FAAF78']
-    };
-    var maintainability = {
-      element: 'chart_maintainability',
-      data: [],
-      xkey: 'label',
-      ykeys: ['value'],
-      ymax : 171,
-      labels: ['Maintainability'],
-      barColors : ['#FAAF78']
+      barColors : ['#1f6b75']
     };
     var bugs = {
       element: 'chart_bugs',
@@ -90,7 +94,16 @@ $(function(){
       ykeys: ['value'],
       labels: ['Bugs'],
       ymax: 20,
-      barColors : ['#D54C2C']
+      barColors : ['#ff9b40']
+    };
+    var lint = {
+      element: 'chart_lint',
+      data: [],
+      xkey: 'label',
+      ykeys: ['value'],
+      labels: ['Errors'],
+      ymax: 20,
+      barColors : ['#1f6b75']
     };
 
     reports.forEach(function(report){
@@ -101,15 +114,19 @@ $(function(){
 
       sloc.data.push({
         value : report.complexity.aggregate.complexity.sloc.physical,
-        label : report.complexity.module
+        label : report.info.fileShort
       });
       bugs.data.push({
         value : report.complexity.aggregate.complexity.halstead.bugs.toFixed(2),
-        label : report.complexity.module
+        label : report.info.fileShort
       });
       maintainability.data.push({
-        value : report.complexity.maintainability.toFixed(2),
-        label : report.complexity.module
+        value : report.complexity.maintainability ? report.complexity.maintainability.toFixed(2) : 0,
+        label : report.info.fileShort
+      });
+      lint.data.push({
+        value : report.jshint && report.jshint.messages,
+        label : report.info.fileShort
       });
     });
 
@@ -122,6 +139,8 @@ $(function(){
       Morris.Bar(sloc),
       Morris.Bar(maintainability)
     ];
+
+    if (__options.flags.jshint) charts.push(Morris.Bar(lint));
 
     charts.forEach(function(chart){
       chart.on('click', onGraphClick);

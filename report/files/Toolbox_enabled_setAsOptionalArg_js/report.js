@@ -75,7 +75,7 @@ __report = {
         }
       }
     ],
-    "maintainability": 129.19695428174214,
+    "maintainability": 75.55377443376733,
     "module": "Toolbox\\enabled\\setAsOptionalArg.js"
   },
   "jshint": {

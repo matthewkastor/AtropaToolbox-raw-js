@@ -75,7 +75,7 @@ __report = {
         }
       }
     ],
-    "maintainability": 145.7106467308659,
+    "maintainability": 85.21090452097421,
     "module": "Toolbox\\enabled\\url.js"
   },
   "jshint": {

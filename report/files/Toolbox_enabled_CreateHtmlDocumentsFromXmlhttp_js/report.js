@@ -143,7 +143,7 @@ __report = {
         }
       }
     ],
-    "maintainability": 117.78993319028334,
+    "maintainability": 68.88300186566276,
     "module": "Toolbox\\enabled\\CreateHtmlDocumentsFromXmlhttp.js"
   },
   "jshint": {

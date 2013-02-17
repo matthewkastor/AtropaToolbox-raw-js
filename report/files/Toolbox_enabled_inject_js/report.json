@@ -211,7 +211,7 @@
         }
       }
     ],
-    "maintainability": 109.8150916698735,
+    "maintainability": 64.21935185372719,
     "module": "Toolbox\\enabled\\inject.js"
   },
   "jshint": {

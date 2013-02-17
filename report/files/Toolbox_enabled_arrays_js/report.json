@@ -585,7 +585,7 @@
         }
       }
     ],
-    "maintainability": 127.04387604478313,
+    "maintainability": 74.29466435367435,
     "module": "Toolbox\\enabled\\arrays.js"
   },
   "jshint": {

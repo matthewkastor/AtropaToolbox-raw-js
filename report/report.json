@@ -2,11 +2,11 @@
   "summary": {
     "total": {
       "sloc": 2751,
-      "maintainability": 2572.536836815528
+      "maintainability": 1504.4075069096657
     },
     "average": {
       "sloc": 131,
-      "maintainability": "122.50"
+      "maintainability": "71.64"
     }
   },
   "reports": [
@@ -16,6 +16,9 @@
         "fileShort": "Toolbox\\enabled\\ArgsInfo.js",
         "fileSafe": "Toolbox_enabled_ArgsInfo_js",
         "link": "files/Toolbox_enabled_ArgsInfo_js/index.html"
+      },
+      "jshint": {
+        "messages": 30
       },
       "complexity": {
         "aggregate": {
@@ -52,7 +55,7 @@
           }
         },
         "module": "Toolbox\\enabled\\ArgsInfo.js",
-        "maintainability": 115.6653311550632
+        "maintainability": 67.64054453512468
       }
     },
     {
@@ -61,6 +64,9 @@
         "fileShort": "Toolbox\\enabled\\arrays.js",
         "fileSafe": "Toolbox_enabled_arrays_js",
         "link": "files/Toolbox_enabled_arrays_js/index.html"
+      },
+      "jshint": {
+        "messages": 0
       },
       "complexity": {
         "aggregate": {
@@ -97,7 +103,7 @@
           }
         },
         "module": "Toolbox\\enabled\\arrays.js",
-        "maintainability": 127.04387604478313
+        "maintainability": 74.29466435367435
       }
     },
     {
@@ -106,6 +112,9 @@
         "fileShort": "Toolbox\\enabled\\Babbler.js",
         "fileSafe": "Toolbox_enabled_Babbler_js",
         "link": "files/Toolbox_enabled_Babbler_js/index.html"
+      },
+      "jshint": {
+        "messages": 0
       },
       "complexity": {
         "aggregate": {
@@ -142,7 +151,7 @@
           }
         },
         "module": "Toolbox\\enabled\\Babbler.js",
-        "maintainability": 119.96667375802699
+        "maintainability": 70.15594956609766
       }
     },
     {
@@ -151,6 +160,9 @@
         "fileShort": "Toolbox\\enabled\\CookieMonster.js",
         "fileSafe": "Toolbox_enabled_CookieMonster_js",
         "link": "files/Toolbox_enabled_CookieMonster_js/index.html"
+      },
+      "jshint": {
+        "messages": 0
       },
       "complexity": {
         "aggregate": {
@@ -187,7 +199,7 @@
           }
         },
         "module": "Toolbox\\enabled\\CookieMonster.js",
-        "maintainability": 119.51996532896385
+        "maintainability": 69.89471656664553
       }
     },
     {
@@ -196,6 +208,9 @@
         "fileShort": "Toolbox\\enabled\\CreateHtmlDocumentsFromXmlhttp.js",
         "fileSafe": "Toolbox_enabled_CreateHtmlDocumentsFromXmlhttp_js",
         "link": "files/Toolbox_enabled_CreateHtmlDocumentsFromXmlhttp_js/index.html"
+      },
+      "jshint": {
+        "messages": 0
       },
       "complexity": {
         "aggregate": {
@@ -232,7 +247,7 @@
           }
         },
         "module": "Toolbox\\enabled\\CreateHtmlDocumentsFromXmlhttp.js",
-        "maintainability": 117.78993319028334
+        "maintainability": 68.88300186566276
       }
     },
     {
@@ -241,6 +256,9 @@
         "fileShort": "Toolbox\\enabled\\HTMLParser.js",
         "fileSafe": "Toolbox_enabled_HTMLParser_js",
         "link": "files/Toolbox_enabled_HTMLParser_js/index.html"
+      },
+      "jshint": {
+        "messages": 0
       },
       "complexity": {
         "aggregate": {
@@ -277,7 +295,7 @@
           }
         },
         "module": "Toolbox\\enabled\\HTMLParser.js",
-        "maintainability": 121.7633432950862
+        "maintainability": 71.20663350589837
       }
     },
     {
@@ -286,6 +304,9 @@
         "fileShort": "Toolbox\\enabled\\inject.js",
         "fileSafe": "Toolbox_enabled_inject_js",
         "link": "files/Toolbox_enabled_inject_js/index.html"
+      },
+      "jshint": {
+        "messages": 0
       },
       "complexity": {
         "aggregate": {
@@ -322,7 +343,7 @@
           }
         },
         "module": "Toolbox\\enabled\\inject.js",
-        "maintainability": 109.8150916698735
+        "maintainability": 64.21935185372719
       }
     },
     {
@@ -331,6 +352,9 @@
         "fileShort": "Toolbox\\enabled\\inquire.js",
         "fileSafe": "Toolbox_enabled_inquire_js",
         "link": "files/Toolbox_enabled_inquire_js/index.html"
+      },
+      "jshint": {
+        "messages": 0
       },
       "complexity": {
         "aggregate": {
@@ -367,7 +391,7 @@
           }
         },
         "module": "Toolbox\\enabled\\inquire.js",
-        "maintainability": 136.03052462865614
+        "maintainability": 79.55001440272288
       }
     },
     {
@@ -376,6 +400,9 @@
         "fileShort": "Toolbox\\enabled\\objects.js",
         "fileSafe": "Toolbox_enabled_objects_js",
         "link": "files/Toolbox_enabled_objects_js/index.html"
+      },
+      "jshint": {
+        "messages": 0
       },
       "complexity": {
         "aggregate": {
@@ -412,7 +439,7 @@
           }
         },
         "module": "Toolbox\\enabled\\objects.js",
-        "maintainability": 139.42104895143675
+        "maintainability": 81.5327771645829
       }
     },
     {
@@ -421,6 +448,9 @@
         "fileShort": "Toolbox\\enabled\\random.js",
         "fileSafe": "Toolbox_enabled_random_js",
         "link": "files/Toolbox_enabled_random_js/index.html"
+      },
+      "jshint": {
+        "messages": 0
       },
       "complexity": {
         "aggregate": {
@@ -457,7 +487,7 @@
           }
         },
         "module": "Toolbox\\enabled\\random.js",
-        "maintainability": 103.41586183345987
+        "maintainability": 60.47711218330987
       }
     },
     {
@@ -466,6 +496,9 @@
         "fileShort": "Toolbox\\enabled\\regex.js",
         "fileSafe": "Toolbox_enabled_regex_js",
         "link": "files/Toolbox_enabled_regex_js/index.html"
+      },
+      "jshint": {
+        "messages": 0
       },
       "complexity": {
         "aggregate": {
@@ -502,7 +535,7 @@
           }
         },
         "module": "Toolbox\\enabled\\regex.js",
-        "maintainability": 105.44381560770157
+        "maintainability": 61.66305006298337
       }
     },
     {
@@ -511,6 +544,9 @@
         "fileShort": "Toolbox\\enabled\\removeNodeByReference.js",
         "fileSafe": "Toolbox_enabled_removeNodeByReference_js",
         "link": "files/Toolbox_enabled_removeNodeByReference_js/index.html"
+      },
+      "jshint": {
+        "messages": 0
       },
       "complexity": {
         "aggregate": {
@@ -547,7 +583,7 @@
           }
         },
         "module": "Toolbox\\enabled\\removeNodeByReference.js",
-        "maintainability": 136.34727338364053
+        "maintainability": 79.73524759277224
       }
     },
     {
@@ -556,6 +592,9 @@
         "fileShort": "Toolbox\\enabled\\Requester.js",
         "fileSafe": "Toolbox_enabled_Requester_js",
         "link": "files/Toolbox_enabled_Requester_js/index.html"
+      },
+      "jshint": {
+        "messages": 0
       },
       "complexity": {
         "aggregate": {
@@ -592,7 +631,7 @@
           }
         },
         "module": "Toolbox\\enabled\\Requester.js",
-        "maintainability": 118.33342759740938
+        "maintainability": 69.20083485228619
       }
     },
     {
@@ -601,6 +640,9 @@
         "fileShort": "Toolbox\\enabled\\setAsOptionalArg.js",
         "fileSafe": "Toolbox_enabled_setAsOptionalArg_js",
         "link": "files/Toolbox_enabled_setAsOptionalArg_js/index.html"
+      },
+      "jshint": {
+        "messages": 0
       },
       "complexity": {
         "aggregate": {
@@ -637,7 +679,7 @@
           }
         },
         "module": "Toolbox\\enabled\\setAsOptionalArg.js",
-        "maintainability": 129.19695428174214
+        "maintainability": 75.55377443376733
       }
     },
     {
@@ -646,6 +688,9 @@
         "fileShort": "Toolbox\\enabled\\string.js",
         "fileSafe": "Toolbox_enabled_string_js",
         "link": "files/Toolbox_enabled_string_js/index.html"
+      },
+      "jshint": {
+        "messages": 2
       },
       "complexity": {
         "aggregate": {
@@ -682,7 +727,7 @@
           }
         },
         "module": "Toolbox\\enabled\\string.js",
-        "maintainability": 125.65432804095164
+        "maintainability": 73.48206318184306
       }
     },
     {
@@ -691,6 +736,9 @@
         "fileShort": "Toolbox\\enabled\\TextAnalyzer.js",
         "fileSafe": "Toolbox_enabled_TextAnalyzer_js",
         "link": "files/Toolbox_enabled_TextAnalyzer_js/index.html"
+      },
+      "jshint": {
+        "messages": 0
       },
       "complexity": {
         "aggregate": {
@@ -727,7 +775,7 @@
           }
         },
         "module": "Toolbox\\enabled\\TextAnalyzer.js",
-        "maintainability": 118.05090010892083
+        "maintainability": 69.03561409878411
       }
     },
     {
@@ -736,6 +784,9 @@
         "fileShort": "Toolbox\\enabled\\url.js",
         "fileSafe": "Toolbox_enabled_url_js",
         "link": "files/Toolbox_enabled_url_js/index.html"
+      },
+      "jshint": {
+        "messages": 0
       },
       "complexity": {
         "aggregate": {
@@ -772,7 +823,7 @@
           }
         },
         "module": "Toolbox\\enabled\\url.js",
-        "maintainability": 145.7106467308659
+        "maintainability": 85.21090452097421
       }
     },
     {
@@ -781,6 +832,9 @@
         "fileShort": "Toolbox\\enabled\\waitFor.js",
         "fileSafe": "Toolbox_enabled_waitFor_js",
         "link": "files/Toolbox_enabled_waitFor_js/index.html"
+      },
+      "jshint": {
+        "messages": 0
       },
       "complexity": {
         "aggregate": {
@@ -817,7 +871,7 @@
           }
         },
         "module": "Toolbox\\enabled\\waitFor.js",
-        "maintainability": 129.2737921303431
+        "maintainability": 75.59870884815388
       }
     },
     {
@@ -826,6 +880,9 @@
         "fileShort": "Toolbox\\enabled\\window.js",
         "fileSafe": "Toolbox_enabled_window_js",
         "link": "files/Toolbox_enabled_window_js/index.html"
+      },
+      "jshint": {
+        "messages": 0
       },
       "complexity": {
         "aggregate": {
@@ -862,7 +919,7 @@
           }
         },
         "module": "Toolbox\\enabled\\window.js",
-        "maintainability": 133.0180696760638
+        "maintainability": 77.78834483980339
       }
     },
     {
@@ -871,6 +928,9 @@
         "fileShort": "Toolbox\\enabled\\wtf.js",
         "fileSafe": "Toolbox_enabled_wtf_js",
         "link": "files/Toolbox_enabled_wtf_js/index.html"
+      },
+      "jshint": {
+        "messages": 1
       },
       "complexity": {
         "aggregate": {
@@ -907,7 +967,7 @@
           }
         },
         "module": "Toolbox\\enabled\\wtf.js",
-        "maintainability": 97.31434143382032
+        "maintainability": 56.90897159872533
       }
     },
     {
@@ -916,6 +976,9 @@
         "fileShort": "Toolbox\\enabled\\xpath.js",
         "fileSafe": "Toolbox_enabled_xpath_js",
         "link": "files/Toolbox_enabled_xpath_js/index.html"
+      },
+      "jshint": {
+        "messages": 0
       },
       "complexity": {
         "aggregate": {
@@ -952,7 +1015,7 @@
           }
         },
         "module": "Toolbox\\enabled\\xpath.js",
-        "maintainability": 123.76163796843579
+        "maintainability": 72.3752268821262
       }
     }
   ]
