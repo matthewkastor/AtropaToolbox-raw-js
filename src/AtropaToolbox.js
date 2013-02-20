@@ -2050,6 +2050,7 @@ atropa.Requester = function Requester() {
 	this.makeRequest = function (method, url, messageBody, callback) {
 		var hdr;
 		checkRequest(arguments);
+		request.aborted = false;
 		request.open(method, url, true);
 		for (hdr in this.requestHeaders) {
 			if (this.requestHeaders.hasOwnProperty(hdr)) {
