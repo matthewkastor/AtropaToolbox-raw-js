@@ -18,7 +18,7 @@ __report = {
         "link": "files/Toolbox_enabled_ArgsInfo_js/index.html"
       },
       "jshint": {
-        "messages": 30
+        "messages": 0
       },
       "complexity": {
         "aggregate": {

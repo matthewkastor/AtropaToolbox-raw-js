@@ -87,12 +87,12 @@ atropa.ArgsInfo = function ArgsInfo() {
 		var names;
 		names = Object.keys(typesObj);
 		if (names.length < 1) {
-			throw 'typesObj is expected to be of the form: var typesObj = '
-			 + '{ "namedArgumentTypesArray" : ["string", "function", "number"]'
-			 + ', "namedAlternateArgumentTypesArray" : ["object", "function",'
-			 + '"number"] }; You may use as many named arrays as you wish and'
-			 + 'checkArgTypes will test for a match to at least one of the '
-			 + 'provided named arrays.';
+			throw 'typesObj is expected to be of the form: var typesObj = ' +
+				'{ "namedArgumentTypesArray" : ["string", "function", "number"]' +
+				', "namedAlternateArgumentTypesArray" : ["object", "function",' +
+				'"number"] }; You may use as many named arrays as you wish and' +
+				'checkArgTypes will test for a match to at least one of the ' +
+				'provided named arrays.';
 		}
 		expectedArgTypes = typesObj;
 	};
@@ -157,17 +157,17 @@ atropa.ArgsInfo = function ArgsInfo() {
 	this.checkArgTypes = function checkArgTypes(args) {
 		var expectedTypes;
 		if (Object.keys(expectedArgTypes).length < 1) {
-			throw 'Expected argument types is not set. Use '
-			 + 'setExpectedArgTypes(typesObj) to set. typesObj is an '
-			 + 'object whose properties are arrays of strings representing '
-			 + 'the typeof(argument) for each argument, in the exact order '
-			 + 'in which they will be given to the function. Using multiple '
-			 + 'properties it is possible to define alternative acceptable '
-			 + 'argument type sets. Use getArgTypes(arguments) as a '
-			 + 'convenient way of getting the array you want to hard code '
-			 + 'in for validation. Example: var typesObj = '
-			 + '{ "messageIncluded" : ["string", "function", "number"], '
-			 + '"messageNotIncluded" : ["object", "function", "number"] };';
+			throw 'Expected argument types is not set. Use ' +
+				'setExpectedArgTypes(typesObj) to set. typesObj is an ' +
+				'object whose properties are arrays of strings representing ' +
+				'the typeof(argument) for each argument, in the exact order ' +
+				'in which they will be given to the function. Using multiple ' +
+				'properties it is possible to define alternative acceptable ' +
+				'argument type sets. Use getArgTypes(arguments) as a ' +
+				'convenient way of getting the array you want to hard code ' +
+				'in for validation. Example: var typesObj = ' +
+				'{ "messageIncluded" : ["string", "function", "number"], ' +
+				'"messageNotIncluded" : ["object", "function", "number"] };';
 		}
 		for (expectedTypes in expectedArgTypes) {
 			if (expectedArgTypes.hasOwnProperty(expectedTypes)) {
@@ -383,7 +383,7 @@ atropa.arrays.sortAlphabetically = function sortAlphabetically(arr) {
 
 /// <reference path="../docs/vsdoc/OpenLayersAll.js"/>
 /*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
-/*global atropa, ap */
+/*global atropa */
 
 /**
  * A polling class designed for executing long running processes that return nothing and have no callback parameter.
