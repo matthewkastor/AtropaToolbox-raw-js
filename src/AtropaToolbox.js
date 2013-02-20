@@ -1978,8 +1978,8 @@ atropa.removeNodeByReference = function (elementReference) {
  * 
  * function showRequestResults(status, request) {
  *     console.log("Status: ' + status);
- * 	console.dir(request); // console dir may or may not
-                          // be supported in your environment.
+ *     console.dir(request); // console dir may or may not
+ *                        // be supported in your environment.
  * }
  * 
  * formData = new FormData();

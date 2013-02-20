@@ -249,14 +249,6 @@
     "module": "Toolbox\\enabled\\Requester.js"
   },
   "jshint": {
-    "messages": [
-      {
-        "severity": "error",
-        "line": 25,
-        "column": 3,
-        "message": "Mixed spaces and tabs.",
-        "source": "Mixed spaces and tabs."
-      }
-    ]
+    "messages": []
   }
 }
