@@ -2082,7 +2082,6 @@ atropa.Requester = function Requester() {
 		setTimeout(function () {
 			if (request.aborted === false) {
 				request.abort();
-				callback(false, request);
 			}
 		}, this.timeout);
 	};
