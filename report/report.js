@@ -1,7 +1,7 @@
 __report = {
   "summary": {
     "total": {
-      "sloc": 2951,
+      "sloc": 2952,
       "maintainability": 1576.8515534370397
     },
     "average": {
@@ -642,14 +642,14 @@ __report = {
         "link": "files/Toolbox_enabled_Requester_js/index.html"
       },
       "jshint": {
-        "messages": 0
+        "messages": 1
       },
       "complexity": {
         "aggregate": {
-          "line": 14,
+          "line": 35,
           "complexity": {
             "sloc": {
-              "physical": 119,
+              "physical": 120,
               "logical": 38
             },
             "cyclomatic": 5,

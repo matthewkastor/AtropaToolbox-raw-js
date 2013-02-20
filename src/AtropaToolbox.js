@@ -1966,6 +1966,27 @@ atropa.removeNodeByReference = function (elementReference) {
  * @class This represents an XMLHTTPRequest.
  * @returns {Requester} Returns a requester object.
  * @requires atropa.ArgsInfo#checkArgTypes
+ * @example
+ * var requester, formData;
+ * 
+ * requester = new atropa.Requester();
+ * requester.timeout = 10000; // requests will abort after 10 seconds.
+ * requester.requestHeaders = {
+ *     "aHeader" : "headerValue",
+ *     "anotherHeader" : "andValue"
+ * };
+ * 
+ * function showRequestResults(status, request) {
+ *     console.log("Status: ' + status);
+ * 	console.dir(request); // console dir may or may not
+                          // be supported in your environment.
+ * }
+ * 
+ * formData = new FormData();
+ * formData.append('aFormFieldName', 'formFieldData');
+ * formData.append('anotherFormFieldName', 'andData');
+ * 
+ * requester.makeRequest("post", "http://example.com", formData, showRequestResults);
  */
 atropa.Requester = function Requester() {
 	"use strict";
@@ -2015,6 +2036,7 @@ atropa.Requester = function Requester() {
 	/**
 	 * Set the timeout value for the request in milliseconds. The request will abort
 	 *  after this amount of time has passed.
+	 * @type Number
 	 * @fieldOf atropa.Requester#
 	 */
 	this.timeout = 3000;

@@ -7,10 +7,10 @@ __report = {
   },
   "complexity": {
     "aggregate": {
-      "line": 14,
+      "line": 35,
       "complexity": {
         "sloc": {
-          "physical": 119,
+          "physical": 120,
           "logical": 38
         },
         "cyclomatic": 5,
@@ -42,10 +42,10 @@ __report = {
     "functions": [
       {
         "name": "Requester",
-        "line": 14,
+        "line": 35,
         "complexity": {
           "sloc": {
-            "physical": 119,
+            "physical": 120,
             "logical": 14
           },
           "cyclomatic": 1,
@@ -76,7 +76,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 44,
+        "line": 65,
         "complexity": {
           "sloc": {
             "physical": 6,
@@ -110,7 +110,7 @@ __report = {
       },
       {
         "name": "request.abort",
-        "line": 74,
+        "line": 96,
         "complexity": {
           "sloc": {
             "physical": 4,
@@ -144,7 +144,7 @@ __report = {
       },
       {
         "name": "<anonymous>.makeRequest",
-        "line": 94,
+        "line": 116,
         "complexity": {
           "sloc": {
             "physical": 38,
@@ -178,7 +178,7 @@ __report = {
       },
       {
         "name": "request.onreadystatechange",
-        "line": 116,
+        "line": 138,
         "complexity": {
           "sloc": {
             "physical": 9,
@@ -212,7 +212,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 126,
+        "line": 148,
         "complexity": {
           "sloc": {
             "physical": 5,
@@ -249,6 +249,14 @@ __report = {
     "module": "Toolbox\\enabled\\Requester.js"
   },
   "jshint": {
-    "messages": []
+    "messages": [
+      {
+        "severity": "error",
+        "line": 25,
+        "column": 3,
+        "message": "Mixed spaces and tabs.",
+        "source": "Mixed spaces and tabs."
+      }
+    ]
   }
 }
