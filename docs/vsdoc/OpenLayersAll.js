@@ -799,6 +799,7 @@
         /// <field name="expArgTypes" type="Expected Arg Types">Container object for the expected argument types
         /// supplied to this.makeRequest.</field>
         /// <field name="requestHeaders" type="Request Headers Object">Object whose properties and values are header names and values respectively.</field>
+        /// <field name="timeout" type="">Set the timeout value for the request.</field>
         /// <field name="request" type="XMLHttpRequest">XMLHttpRequest object used by Requester.</field>
         /// <returns type="atropa.Requester"/>
     };
@@ -811,11 +812,6 @@
             /// <param name="args" type="Arguments">An arguments array</param>
             /// <returns type="Boolean">Returns true if args types match the
             /// expected types.</returns>
-        }, 
-        
-        setRequestTimeout: function(timeout) {
-            /// <summary>Set the timeout value for the request.</summary>
-            /// <param name="timeout" type="Integer" integer="true">The value of the timeout in ms.</param>
         }, 
         
         makeRequest: function(method, url, messageBody, callback) {

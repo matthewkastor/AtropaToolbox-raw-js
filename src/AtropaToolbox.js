@@ -2011,6 +2011,13 @@ atropa.Requester = function Requester() {
 	 */
 	this.requestHeaders = {};
 	
+	
+	/**
+	 * Set the timeout value for the request.
+	 * @fieldOf atropa.Requester#
+	 */
+	this.timeout = 3000;
+	
 	/**
 	 * XMLHttpRequest object used by Requester.
 	 * @private
@@ -2018,21 +2025,10 @@ atropa.Requester = function Requester() {
 	 * @fieldOf atropa.Requester-
 	 */
 	request = new XMLHttpRequest();
-	/**
-	 * timeout property of XMLHttpRequest object.
-	 * @private
-	 * @type Number
-	 * @fieldOf atropa.Requester-request#
-	 */
-	request.timeout = 30000;
-	
-	/**
-	 * Set the timeout value for the request.
-	 * @param {Integer} timeout The value of the timeout in ms.
-	 * @methodOf atropa.Requester#
-	 */
-	this.setRequestTimeout = function (timeout) {
-		request.timeout = timeout;
+	request.aborted = false;
+	request.abort = function() {
+		request.aborted = true;
+		XMLHttpRequest.prototype.abort.call(this);
 	};
 	
 	/**
@@ -2081,6 +2077,12 @@ atropa.Requester = function Requester() {
 			}
 		};
 		request.send(messageBody);
+		setTimeout(function () {
+			if (request.aborted === false) {
+				request.abort();
+				callback(false, request);
+			}
+		}, this.timeout);
 	};
 };
 

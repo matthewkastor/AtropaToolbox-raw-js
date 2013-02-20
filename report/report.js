@@ -1,12 +1,12 @@
 __report = {
   "summary": {
     "total": {
-      "sloc": 2949,
-      "maintainability": 1576.7353255269795
+      "sloc": 2951,
+      "maintainability": 1576.8718817941258
     },
     "average": {
       "sloc": 134,
-      "maintainability": "71.67"
+      "maintainability": "71.68"
     }
   },
   "reports": [
@@ -649,37 +649,37 @@ __report = {
           "line": 14,
           "complexity": {
             "sloc": {
-              "physical": 116,
-              "logical": 32
+              "physical": 118,
+              "logical": 38
             },
-            "cyclomatic": 4,
+            "cyclomatic": 5,
             "halstead": {
               "operators": {
                 "distinct": 13,
-                "total": 66,
+                "total": 81,
                 "identifiers": [
                   "__stripped__"
                 ]
               },
               "operands": {
-                "distinct": 41,
-                "total": 97,
+                "distinct": 45,
+                "total": 116,
                 "identifiers": [
                   "__stripped__"
                 ]
               },
-              "length": 163,
-              "vocabulary": 54,
-              "difficulty": 15.378048780487804,
-              "volume": 938.0466628526455,
-              "effort": 14425.327339721778,
-              "bugs": 0.31268222095088183,
-              "time": 801.4070744289877
+              "length": 197,
+              "vocabulary": 58,
+              "difficulty": 16.755555555555556,
+              "volume": 1154.0222560401317,
+              "effort": 19336.284023427983,
+              "bugs": 0.38467408534671055,
+              "time": 1074.2380013015545
             }
           }
         },
         "module": "Toolbox\\enabled\\Requester.js",
-        "maintainability": 69.20083485228619
+        "maintainability": 69.33739111943244
       }
     },
     {
