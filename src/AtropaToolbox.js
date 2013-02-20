@@ -3083,7 +3083,6 @@ atropa.wtf.wtfify = function (target, outputHTML) {
 	"use strict";
 	var regexValue,
 	replacementText,
-	x,
 	oldWord,
 	wtfCount,
 	wordCount,
@@ -3120,15 +3119,15 @@ atropa.wtf.wtfify = function (target, outputHTML) {
 		sub2 = atropa.setAsOptionalArg('', sub2);
 		var out;
 		if(true === outputHTML) {
-			out = '<span style="color : red ;">' + sub1 + atropa.wtf.dictionary[x] + sub2 + '</span>';
+			out = '<span style="color : red ;">' + sub1 + atropa.wtf.dictionary[word] + sub2 + '</span>';
 		} else {
-			out = sub1 + atropa.wtf.dictionary[x] + sub2;
+			out = sub1 + atropa.wtf.dictionary[word] + sub2;
 		}
 		return out;
 	};
-	for (x in atropa.wtf.dictionary) {
-		if (atropa.wtf.dictionary.hasOwnProperty(x)) {
-			oldWord = atropa.regex.appendPrefixesAndSuffixes(x);
+	for (var word in atropa.wtf.dictionary) {
+		if (atropa.wtf.dictionary.hasOwnProperty(word)) {
+			oldWord = atropa.regex.appendPrefixesAndSuffixes(word);
 			regexValue = new RegExp(oldWord, 'gi');
 			target = target.replace(regexValue, replacementText);
 		}

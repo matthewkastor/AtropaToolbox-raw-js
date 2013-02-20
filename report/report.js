@@ -1,12 +1,12 @@
 __report = {
   "summary": {
     "total": {
-      "sloc": 2952,
-      "maintainability": 1576.8332139600313
+      "sloc": 2951,
+      "maintainability": 1576.8515534370397
     },
     "average": {
       "sloc": 134,
-      "maintainability": "71.67"
+      "maintainability": "71.68"
     }
   },
   "reports": [
@@ -978,44 +978,44 @@ __report = {
         "link": "files/Toolbox_enabled_wtf_js/index.html"
       },
       "jshint": {
-        "messages": 1
+        "messages": 0
       },
       "complexity": {
         "aggregate": {
           "line": 12,
           "complexity": {
             "sloc": {
-              "physical": 555,
+              "physical": 554,
               "logical": 507
             },
             "cyclomatic": 6,
             "halstead": {
               "operators": {
                 "distinct": 18,
-                "total": 574,
+                "total": 575,
                 "identifiers": [
                   "__stripped__"
                 ]
               },
               "operands": {
                 "distinct": 930,
-                "total": 1075,
+                "total": 1074,
                 "identifiers": [
                   "__stripped__"
                 ]
               },
               "length": 1649,
               "vocabulary": 948,
-              "difficulty": 10.403225806451614,
+              "difficulty": 10.393548387096773,
               "volume": 16306.537617433229,
-              "effort": 169640.5929555554,
+              "effort": 169482.787752806,
               "bugs": 5.435512539144409,
-              "time": 9424.477386419743
+              "time": 9415.710430711444
             }
           }
         },
         "module": "Toolbox\\enabled\\wtf.js",
-        "maintainability": 56.57748927390315
+        "maintainability": 56.59582875091151
       }
     },
     {
