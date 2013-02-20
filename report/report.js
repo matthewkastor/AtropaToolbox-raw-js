@@ -1,12 +1,12 @@
 __report = {
   "summary": {
     "total": {
-      "sloc": 2751,
-      "maintainability": 1504.4075069096657
+      "sloc": 2949,
+      "maintainability": 1576.7353255269795
     },
     "average": {
-      "sloc": 131,
-      "maintainability": "71.64"
+      "sloc": 134,
+      "maintainability": "71.67"
     }
   },
   "reports": [
@@ -73,8 +73,8 @@ __report = {
           "line": 12,
           "complexity": {
             "sloc": {
-              "physical": 186,
-              "logical": 72
+              "physical": 187,
+              "logical": 73
             },
             "cyclomatic": 10,
             "halstead": {
@@ -87,23 +87,71 @@ __report = {
               },
               "operands": {
                 "distinct": 55,
-                "total": 216,
+                "total": 217,
                 "identifiers": [
                   "__stripped__"
                 ]
               },
-              "length": 389,
+              "length": 390,
               "vocabulary": 75,
-              "difficulty": 39.27272727272727,
-              "volume": 2423.0104706028974,
-              "effort": 95158.22939095016,
-              "bugs": 0.8076701568676324,
-              "time": 5286.568299497231
+              "difficulty": 39.45454545454545,
+              "volume": 2429.2392892933935,
+              "effort": 95844.53195939389,
+              "bugs": 0.8097464297644645,
+              "time": 5324.696219966328
             }
           }
         },
         "module": "Toolbox\\enabled\\arrays.js",
-        "maintainability": 74.29466435367435
+        "maintainability": 74.16314192324234
+      }
+    },
+    {
+      "info": {
+        "file": "Toolbox\\enabled\\atropa.SerialActor.js",
+        "fileShort": "Toolbox\\enabled\\atropa.SerialActor.js",
+        "fileSafe": "Toolbox_enabled_atropa_SerialActor_js",
+        "link": "files/Toolbox_enabled_atropa_SerialActor_js/index.html"
+      },
+      "jshint": {
+        "messages": 0
+      },
+      "complexity": {
+        "aggregate": {
+          "line": 25,
+          "complexity": {
+            "sloc": {
+              "physical": 192,
+              "logical": 58
+            },
+            "cyclomatic": 3,
+            "halstead": {
+              "operators": {
+                "distinct": 12,
+                "total": 148,
+                "identifiers": [
+                  "__stripped__"
+                ]
+              },
+              "operands": {
+                "distinct": 46,
+                "total": 188,
+                "identifiers": [
+                  "__stripped__"
+                ]
+              },
+              "length": 336,
+              "vocabulary": 58,
+              "difficulty": 24.521739130434785,
+              "volume": 1968.281614362864,
+              "effort": 48265.688282637195,
+              "bugs": 0.656093871454288,
+              "time": 2681.4271268131774
+            }
+          }
+        },
+        "module": "Toolbox\\enabled\\atropa.SerialActor.js",
+        "maintainability": 73.01112682654637
       }
     },
     {
@@ -690,15 +738,15 @@ __report = {
         "link": "files/Toolbox_enabled_string_js/index.html"
       },
       "jshint": {
-        "messages": 2
+        "messages": 0
       },
       "complexity": {
         "aggregate": {
           "line": 11,
           "complexity": {
             "sloc": {
-              "physical": 170,
-              "logical": 53
+              "physical": 171,
+              "logical": 54
             },
             "cyclomatic": 5,
             "halstead": {
@@ -711,23 +759,23 @@ __report = {
               },
               "operands": {
                 "distinct": 58,
-                "total": 165,
+                "total": 166,
                 "identifiers": [
                   "__stripped__"
                 ]
               },
-              "length": 293,
+              "length": 294,
               "vocabulary": 76,
-              "difficulty": 25.603448275862068,
-              "volume": 1830.6427614389706,
-              "effort": 46870.767254083985,
-              "bugs": 0.6102142538129902,
-              "time": 2603.9315141157767
+              "difficulty": 25.758620689655174,
+              "volume": 1836.8906889524144,
+              "effort": 47315.770505084605,
+              "bugs": 0.6122968963174714,
+              "time": 2628.653916949145
             }
           }
         },
         "module": "Toolbox\\enabled\\string.js",
-        "maintainability": 73.48206318184306
+        "maintainability": 73.26175972786464
       }
     },
     {
@@ -937,14 +985,14 @@ __report = {
           "line": 12,
           "complexity": {
             "sloc": {
-              "physical": 551,
-              "logical": 506
+              "physical": 555,
+              "logical": 507
             },
             "cyclomatic": 6,
             "halstead": {
               "operators": {
                 "distinct": 18,
-                "total": 573,
+                "total": 574,
                 "identifiers": [
                   "__stripped__"
                 ]
@@ -956,18 +1004,18 @@ __report = {
                   "__stripped__"
                 ]
               },
-              "length": 1648,
+              "length": 1649,
               "vocabulary": 948,
               "difficulty": 10.403225806451614,
-              "volume": 16296.64887418433,
-              "effort": 169537.71812659505,
-              "bugs": 5.432216291394776,
-              "time": 9418.76211814417
+              "volume": 16306.537617433229,
+              "effort": 169640.5929555554,
+              "bugs": 5.435512539144409,
+              "time": 9424.477386419743
             }
           }
         },
         "module": "Toolbox\\enabled\\wtf.js",
-        "maintainability": 56.90897159872533
+        "maintainability": 56.57748927390315
       }
     },
     {

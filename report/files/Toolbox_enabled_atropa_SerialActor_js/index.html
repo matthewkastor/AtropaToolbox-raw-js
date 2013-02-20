@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/bootstrap-3.0.0-wip.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome-ie7.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet">
+  <link href="../../assets/css/plato.css" rel="stylesheet">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="brand" href="http://github.com/jsoverson/plato">Plato on Github</a>
+    <ul class="nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>Toolbox\enabled\atropa.SerialActor.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="span6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
+      <p class="stat">73.01</p>
+    </div>
+    <div class="span6">
+      <h2 class="header">Estimated # Bugs  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
+      <p class="stat">0.66</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="span6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
+      <p class="stat">24.52</p>
+    </div>
+    <div class="span6">
+      <h2 class="header">SLOC/LSLOC <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
+      <p class="stat">192 / 58</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="span6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="span6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="span12">/// <reference path="../docs/vsdoc/OpenLayersAll.js"/>
+/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
+/*global atropa, ap */
+
+/**
+ * A polling class designed for executing long running processes that return nothing and have no callback parameter.
+ * @class A polling class designed for executing long running processes that return nothing and have no callback parameter.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130220
+ * @param {String} actorName The name for the SerialActor instance.
+ * @param {Function} actorFunction The function to execute when the
+ *  actor is free.
+ * @example
+ * function dummyActor(){
+ *     var that = this;
+ *     console.log('actorFunction would execute');
+ *     console.log('freeing ' + this.name + ' in 10000 ms');
+ *     setTimeout(function(){that.free();}, 10000);
+ * };
+ * var actor = new atropa.SerialActor('dummy', dummyActor);
+ * actor.start();
+ */
+atropa.SerialActor = function(actorName, actorFunction) {
+	"use strict";
+	var that, dummyActor;
+	/**
+	 * Reference to <code>this</code>
+	 * @fieldOf atropa.SerialActor-
+	 */
+	that = this;
+	/**
+	 * Default actorFunction
+	 * @author <a href="mailto:matthewkastor@gmail.com">
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
+	 * @version 20130220
+	 * @methodOf atropa.SerialActor-
+	 */
+	dummyActor = function(){
+		console.log('actorFunction would execute');
+		console.log('freeing Serial Actor in 10000 ms');
+		setTimeout(function(){that.free();}, 10000);
+	};
+	/**
+	 * The name of this instance. Defaults to "SerialActor"
+	 * @fieldOf atropa.SerialActor#
+	 * @type String
+	 */
+	this.name = atropa.setAsOptionalArg('SerialActor', actorName);
+	/**
+	 * Polling interval in milliseconds. This determines how frequently the actor function will
+	 *  try to execute. Defaults to 100 milliseconds.
+	 * @fieldOf atropa.SerialActor#
+	 * @type Number
+	 */
+	this.interval = 100; // milliseconds
+	/**
+	 * The id of the interval set to poll the actor. You should not change
+	 *  this manually, use the start and stop functions instead. Defauls to undefined.
+	 * @fieldOf atropa.SerialActor#
+	 * @type Number
+	 */
+	this.intervalId = undefined;
+	/**
+	 * The state of the SerialActor. If true, the actor will sleep. If false the actor
+	 *  will execute the actor function when next polled. Defaults to false.
+	 * @fieldOf atropa.SerialActor#
+	 * @type Boolean
+	 */
+	this.blocked = false;
+	/**
+	 * Stores id's of currently running timeout functions used to free the actor
+	 *  if it has been blocked for too long.
+	 * @fieldOf atropa.SerialActor#
+	 * @see atropa.SerialActor#blockTimeoutValue
+	 * @type Array
+	 */
+	this.timeouts = [];
+	/**
+	 * The maximum time, in milliseconds, which the actor may be blocked for.
+	 *  After this duration has been reached the actor will be freed. Defaults to 60 seconds.
+	 * @fieldOf atropa.SerialActor#
+	 * @type Number
+	 */
+	this.blockTimeoutValue = 60000;
+	/**
+	 * The function to execute when the actor is free. Defaults to the <code>dummyActor</code>
+	 *  function defined above.
+	 * @fieldOf atropa.SerialActor#
+	 * @type Function
+	 */
+	this.actorFunction = atropa.setAsOptionalArg(dummyActor, actorFunction);
+	/**
+	 * The action function is called when the actor is polled and it's blocked state is false.
+	 *  This method should not be set manually, set the <code>actorFunction</code> instead.
+	 * @author <a href="mailto:matthewkastor@gmail.com">
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
+	 * @version 20130220
+	 * @methodOf atropa.SerialActor#
+	 * @see atropa.SerialActor#actorFunction
+	 */
+	this.action = function() {
+		if(false === that.blocked) {
+			that.block();
+			setTimeout(function() {
+				that.actorFunction();
+			}, 100);
+		} else {
+			console.log(that.name + ' sleeping for ' + that.interval + ' ms');
+		}
+	};
+};
+/**
+ * Prevents the actor from executing it's actorFunction.
+ *  This block will timeout once the <code>blockTimeoutValue</code> has been reached.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130220
+ * @methodOf atropa.SerialActor#
+ */
+atropa.SerialActor.prototype.block = function() {
+	"use strict";
+	var that = this;
+	this.blocked = true;
+	this.timeouts.push(setTimeout(that.blockTimeout, that.blockTimeoutValue));
+	return this.blocked;
+};
+/**
+ * Called when the <code>blockTimeoutValue</code> has been reached. This frees the actor
+ *  and removes the timeout reference from the timeouts array.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130220
+ * @methodOf atropa.SerialActor#
+ */
+atropa.SerialActor.prototype.blockTimeout = function() {
+	"use strict";
+	this.timeouts.shift();
+	this.blocked = false;
+	return this.blocked;
+};
+/**
+ * Frees the actor so it may execute its actor function when next polled.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130220
+ * @methodOf atropa.SerialActor#
+ */
+atropa.SerialActor.prototype.free = function() {
+	"use strict";
+	console.log(this.name + ' free');
+	this.blocked = false;
+	clearTimeout(this.timeouts.shift());
+	return this.blocked;
+};
+/**
+ * Starts polling the actor.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130220
+ * @methodOf atropa.SerialActor#
+ * @param {Number} interval Optional. The polling interval. Defaults to the value
+ *  of <code>this.interval</code>
+ * @see atropa.SerialActor#interval
+ */
+atropa.SerialActor.prototype.start = function(interval) {
+	"use strict";
+	var that = this;
+	this.interval = atropa.setAsOptionalArg(this.interval, interval);
+	
+	if(this.intervalId !== undefined) {
+		// clear the old timeout before creating a new one.
+		this.stop();
+	}
+	this.intervalId = setInterval(that.action, that.interval);
+	console.log(this.name + ' started');
+	return this.intervalId;
+};
+/**
+ * Adjusts the polling interval after <code>start</code> has
+ * been called.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130220
+ * @methodOf atropa.SerialActor#
+ * @param {Number} interval The new polling interval in milliseconds.
+ */
+atropa.SerialActor.prototype.changeInterval = function(interval) {
+	"use strict";
+	this.start(interval);
+};
+/**
+ * Stops polling the actor. Note that the actor will be freed once the
+ *  <code>blockTimeoutValue</code> has been reached. This will not restart the polling.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130220
+ * @methodOf atropa.SerialActor#
+ * @see atropa.SerialActor#blocked
+ * @see atropa.SerialActor#blockTimeoutValue
+ */
+atropa.SerialActor.prototype.stop = function() {
+	"use strict";
+	clearInterval(this.intervalId);
+	this.intervalId = undefined;
+	console.log(this.name + ' stopped');
+};</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+<script>
+  $('[rel=popover]').popover();
+</script>
+
+</body>
+</html>

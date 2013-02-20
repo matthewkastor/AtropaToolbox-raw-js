@@ -116,8 +116,8 @@ atropa.Babbler = function Babbler(wrdCount) {
 	 * @returns {Number} Returns the set word count for this babbler.
 	 */
 	this.setWordCount = function (wrdCount) {
-		if (typeof(wrdCount) !== 'number') {
-			if (typeof(wordCount) !== 'number') {
+		if (typeof wrdCount !== 'number') {
+			if (typeof wordCount !== 'number') {
 				wordCount = 250;
 			}
 		} else {
@@ -237,7 +237,7 @@ atropa.Babbler = function Babbler(wrdCount) {
 	 * @returns {String} Returns Babble.
 	 */
 	this.setBabble = function setBabble(babbleString) {
-		if (typeof(babbleString) === 'string') {
+		if (typeof babbleString === 'string') {
 			babble = babbleString;
 		} else {
 			this.resetBabble();

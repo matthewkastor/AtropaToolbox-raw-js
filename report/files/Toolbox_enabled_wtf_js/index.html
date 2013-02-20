@@ -45,11 +45,11 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
-      <p class="stat">56.91</p>
+      <p class="stat">56.58</p>
     </div>
     <div class="span6">
       <h2 class="header">Estimated # Bugs  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
-      <p class="stat">5.43</p>
+      <p class="stat">5.44</p>
     </div>
   </div>
   <div class="row">
@@ -59,7 +59,7 @@
     </div>
     <div class="span6">
       <h2 class="header">SLOC/LSLOC <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">551 / 506</p>
+      <p class="stat">555 / 507</p>
     </div>
   </div>
 </div>
@@ -568,9 +568,12 @@ atropa.wtf.dictionary = {
  *  ☭ Hial Atropa!! ☭
  * @version 20130110
  * @param {String} target The text to WTFify.
+ * @param {Boolean} outputHTML Specifies if you want the output
+ *  in HTML format. If false, will output plain text. Defaults
+ *  to false.
  * @return {String} Returns Genuine WTFified text.
  */
-atropa.wtf.wtfify = function (target, isHTML) {
+atropa.wtf.wtfify = function (target, outputHTML) {
 	"use strict";
 	var regexValue,
 	replacementText,
@@ -580,16 +583,17 @@ atropa.wtf.wtfify = function (target, isHTML) {
 	wordCount,
 	ret;
 	
-	if(true !== isHTML) {
-		isHTML = false;
+	if(true !== outputHTML) {
+		outputHTML = false;
 	}
 	ret = {};
 	wtfCount = 0;
 	target = target.trim();
-	target = target.replace(/(\. ?){2,}/gi, '<span style="color : brown ;"> [shit taco] </span>');
-	target = target.replace(/\b[ivxcl]+\./gi, '<span style="color : brown ;"> [#!~ syntax error : unexpected shit taco ~!#] </span>');
-	if(true === isHTML) {
+	if(true === outputHTML) {
+		target = target.replace(/(\. ?){2,}/gi, '<span style="color : brown ;"> [shit taco] </span>');
 		target = '<p> ' + target.replace(/(\r\n|\r|\n)/g,' <br/> ') + ' </p>';
+	} else {
+		target = target.replace(/(\. ?){2,}/gi, ' [shit taco] ');
 	}
 	wordCount = atropa.string.countWords(target);
 	/**
@@ -609,7 +613,7 @@ atropa.wtf.wtfify = function (target, isHTML) {
 		sub1 = atropa.setAsOptionalArg('', sub1);
 		sub2 = atropa.setAsOptionalArg('', sub2);
 		var out;
-		if(true === isHTML) {
+		if(true === outputHTML) {
 			out = '<span style="color : red ;">' + sub1 + atropa.wtf.dictionary[x] + sub2 + '</span>';
 		} else {
 			out = sub1 + atropa.wtf.dictionary[x] + sub2;

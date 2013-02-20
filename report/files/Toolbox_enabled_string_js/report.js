@@ -10,8 +10,8 @@ __report = {
       "line": 11,
       "complexity": {
         "sloc": {
-          "physical": 170,
-          "logical": 53
+          "physical": 171,
+          "logical": 54
         },
         "cyclomatic": 5,
         "halstead": {
@@ -24,18 +24,18 @@ __report = {
           },
           "operands": {
             "distinct": 58,
-            "total": 165,
+            "total": 166,
             "identifiers": [
               "__stripped__"
             ]
           },
-          "length": 293,
+          "length": 294,
           "vocabulary": 76,
-          "difficulty": 25.603448275862068,
-          "volume": 1830.6427614389706,
-          "effort": 46870.767254083985,
-          "bugs": 0.6102142538129902,
-          "time": 2603.9315141157767
+          "difficulty": 25.758620689655174,
+          "volume": 1836.8906889524144,
+          "effort": 47315.770505084605,
+          "bugs": 0.6122968963174714,
+          "time": 2628.653916949145
         }
       }
     },
@@ -351,8 +351,8 @@ __report = {
         "line": 178,
         "complexity": {
           "sloc": {
-            "physical": 3,
-            "logical": 1
+            "physical": 4,
+            "logical": 2
           },
           "cyclomatic": 1,
           "halstead": {
@@ -364,42 +364,27 @@ __report = {
               ]
             },
             "operands": {
-              "distinct": 5,
-              "total": 6,
+              "distinct": 6,
+              "total": 7,
               "identifiers": [
                 "__stripped__"
               ]
             },
-            "length": 10,
-            "vocabulary": 8,
-            "difficulty": 1.7999999999999998,
-            "volume": 30,
-            "effort": 53.99999999999999,
-            "bugs": 0.01,
-            "time": 2.9999999999999996
+            "length": 11,
+            "vocabulary": 9,
+            "difficulty": 1.75,
+            "volume": 34.86917501586544,
+            "effort": 61.021056277764515,
+            "bugs": 0.011623058338621813,
+            "time": 3.3900586820980285
           }
         }
       }
     ],
-    "maintainability": 73.48206318184306,
+    "maintainability": 73.26175972786464,
     "module": "Toolbox\\enabled\\string.js"
   },
   "jshint": {
-    "messages": [
-      {
-        "severity": "error",
-        "line": 179,
-        "column": 34,
-        "message": "Unescaped ']'.",
-        "source": "Unescaped '{a}'."
-      },
-      {
-        "severity": "error",
-        "line": 179,
-        "column": 35,
-        "message": "Unescaped ']'.",
-        "source": "Unescaped '{a}'."
-      }
-    ]
+    "messages": []
   }
 }

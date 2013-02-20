@@ -1,3 +1,5 @@
+/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
+
 /**
  * Atropa Toolbox
  * @fileOverview Atropa Toolbox - Everything <br />
@@ -7,6 +9,8 @@
  *  ☭ Hial Atropa!! ☭
  */
 
+
+/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
 
 /*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
 /*global XPathResult */
@@ -252,6 +256,7 @@ atropa.arrays.subtract = function(a, fromB) {
  * 
  */
 atropa.arrays.intersect = function intersect(array1, array2) {
+	"use strict";
 	var smallArray, largeArray, intersection = [];
 	if(array1.length > array2.length) {
 		largeArray = array1.splice(0);
@@ -376,6 +381,224 @@ atropa.arrays.sortAlphabetically = function sortAlphabetically(arr) {
 };
 
 
+/// <reference path="../docs/vsdoc/OpenLayersAll.js"/>
+/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
+/*global atropa, ap */
+
+/**
+ * A polling class designed for executing long running processes that return nothing and have no callback parameter.
+ * @class A polling class designed for executing long running processes that return nothing and have no callback parameter.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130220
+ * @param {String} actorName The name for the SerialActor instance.
+ * @param {Function} actorFunction The function to execute when the
+ *  actor is free.
+ * @example
+ * function dummyActor(){
+ *     var that = this;
+ *     console.log('actorFunction would execute');
+ *     console.log('freeing ' + this.name + ' in 10000 ms');
+ *     setTimeout(function(){that.free();}, 10000);
+ * };
+ * var actor = new atropa.SerialActor('dummy', dummyActor);
+ * actor.start();
+ */
+atropa.SerialActor = function(actorName, actorFunction) {
+	"use strict";
+	var that, dummyActor;
+	/**
+	 * Reference to <code>this</code>
+	 * @fieldOf atropa.SerialActor-
+	 */
+	that = this;
+	/**
+	 * Default actorFunction
+	 * @author <a href="mailto:matthewkastor@gmail.com">
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
+	 * @version 20130220
+	 * @methodOf atropa.SerialActor-
+	 */
+	dummyActor = function(){
+		console.log('actorFunction would execute');
+		console.log('freeing Serial Actor in 10000 ms');
+		setTimeout(function(){that.free();}, 10000);
+	};
+	/**
+	 * The name of this instance. Defaults to "SerialActor"
+	 * @fieldOf atropa.SerialActor#
+	 * @type String
+	 */
+	this.name = atropa.setAsOptionalArg('SerialActor', actorName);
+	/**
+	 * Polling interval in milliseconds. This determines how frequently the actor function will
+	 *  try to execute. Defaults to 100 milliseconds.
+	 * @fieldOf atropa.SerialActor#
+	 * @type Number
+	 */
+	this.interval = 100; // milliseconds
+	/**
+	 * The id of the interval set to poll the actor. You should not change
+	 *  this manually, use the start and stop functions instead. Defauls to undefined.
+	 * @fieldOf atropa.SerialActor#
+	 * @type Number
+	 */
+	this.intervalId = undefined;
+	/**
+	 * The state of the SerialActor. If true, the actor will sleep. If false the actor
+	 *  will execute the actor function when next polled. Defaults to false.
+	 * @fieldOf atropa.SerialActor#
+	 * @type Boolean
+	 */
+	this.blocked = false;
+	/**
+	 * Stores id's of currently running timeout functions used to free the actor
+	 *  if it has been blocked for too long.
+	 * @fieldOf atropa.SerialActor#
+	 * @see atropa.SerialActor#blockTimeoutValue
+	 * @type Array
+	 */
+	this.timeouts = [];
+	/**
+	 * The maximum time, in milliseconds, which the actor may be blocked for.
+	 *  After this duration has been reached the actor will be freed. Defaults to 60 seconds.
+	 * @fieldOf atropa.SerialActor#
+	 * @type Number
+	 */
+	this.blockTimeoutValue = 60000;
+	/**
+	 * The function to execute when the actor is free. Defaults to the <code>dummyActor</code>
+	 *  function defined above.
+	 * @fieldOf atropa.SerialActor#
+	 * @type Function
+	 */
+	this.actorFunction = atropa.setAsOptionalArg(dummyActor, actorFunction);
+	/**
+	 * The action function is called when the actor is polled and it's blocked state is false.
+	 *  This method should not be set manually, set the <code>actorFunction</code> instead.
+	 * @author <a href="mailto:matthewkastor@gmail.com">
+	 *  Matthew Christopher Kastor-Inare III </a><br />
+	 *  ☭ Hial Atropa!! ☭
+	 * @version 20130220
+	 * @methodOf atropa.SerialActor#
+	 * @see atropa.SerialActor#actorFunction
+	 */
+	this.action = function() {
+		if(false === that.blocked) {
+			that.block();
+			setTimeout(function() {
+				that.actorFunction();
+			}, 100);
+		} else {
+			console.log(that.name + ' sleeping for ' + that.interval + ' ms');
+		}
+	};
+};
+/**
+ * Prevents the actor from executing it's actorFunction.
+ *  This block will timeout once the <code>blockTimeoutValue</code> has been reached.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130220
+ * @methodOf atropa.SerialActor#
+ */
+atropa.SerialActor.prototype.block = function() {
+	"use strict";
+	var that = this;
+	this.blocked = true;
+	this.timeouts.push(setTimeout(that.blockTimeout, that.blockTimeoutValue));
+	return this.blocked;
+};
+/**
+ * Called when the <code>blockTimeoutValue</code> has been reached. This frees the actor
+ *  and removes the timeout reference from the timeouts array.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130220
+ * @methodOf atropa.SerialActor#
+ */
+atropa.SerialActor.prototype.blockTimeout = function() {
+	"use strict";
+	this.timeouts.shift();
+	this.blocked = false;
+	return this.blocked;
+};
+/**
+ * Frees the actor so it may execute its actor function when next polled.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130220
+ * @methodOf atropa.SerialActor#
+ */
+atropa.SerialActor.prototype.free = function() {
+	"use strict";
+	console.log(this.name + ' free');
+	this.blocked = false;
+	clearTimeout(this.timeouts.shift());
+	return this.blocked;
+};
+/**
+ * Starts polling the actor.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130220
+ * @methodOf atropa.SerialActor#
+ * @param {Number} interval Optional. The polling interval. Defaults to the value
+ *  of <code>this.interval</code>
+ * @see atropa.SerialActor#interval
+ */
+atropa.SerialActor.prototype.start = function(interval) {
+	"use strict";
+	var that = this;
+	this.interval = atropa.setAsOptionalArg(this.interval, interval);
+	
+	if(this.intervalId !== undefined) {
+		// clear the old timeout before creating a new one.
+		this.stop();
+	}
+	this.intervalId = setInterval(that.action, that.interval);
+	console.log(this.name + ' started');
+	return this.intervalId;
+};
+/**
+ * Adjusts the polling interval after <code>start</code> has
+ * been called.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130220
+ * @methodOf atropa.SerialActor#
+ * @param {Number} interval The new polling interval in milliseconds.
+ */
+atropa.SerialActor.prototype.changeInterval = function(interval) {
+	"use strict";
+	this.start(interval);
+};
+/**
+ * Stops polling the actor. Note that the actor will be freed once the
+ *  <code>blockTimeoutValue</code> has been reached. This will not restart the polling.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130220
+ * @methodOf atropa.SerialActor#
+ * @see atropa.SerialActor#blocked
+ * @see atropa.SerialActor#blockTimeoutValue
+ */
+atropa.SerialActor.prototype.stop = function() {
+	"use strict";
+	clearInterval(this.intervalId);
+	this.intervalId = undefined;
+	console.log(this.name + ' stopped');
+};
+
+
 /// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
 /*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
 /*global atropa */
@@ -410,8 +633,8 @@ atropa.Babbler = function Babbler(wrdCount) {
 	 * @returns {Number} Returns the set word count for this babbler.
 	 */
 	this.setWordCount = function (wrdCount) {
-		if (typeof(wrdCount) !== 'number') {
-			if (typeof(wordCount) !== 'number') {
+		if (typeof wrdCount !== 'number') {
+			if (typeof wordCount !== 'number') {
 				wordCount = 250;
 			}
 		} else {
@@ -531,7 +754,7 @@ atropa.Babbler = function Babbler(wrdCount) {
 	 * @returns {String} Returns Babble.
 	 */
 	this.setBabble = function setBabble(babbleString) {
-		if (typeof(babbleString) === 'string') {
+		if (typeof babbleString === 'string') {
 			babble = babbleString;
 		} else {
 			this.resetBabble();
@@ -1109,7 +1332,7 @@ atropa.inquire.isNull = function (x) {
  */
 atropa.inquire.isObject = function (x) {
 	"use strict";
-	return (typeof(x) === 'object');
+	return (typeof x === 'object');
 };
 /**
  * Checks whether the input is both an object and not null.
@@ -2073,7 +2296,8 @@ atropa.string.getWords = function (text) {
  *  https://bugzilla.mozilla.org/show_bug.cgi?id=98168</a>
  */
 atropa.string.escapeCdata = function escapeCdata(text) {
-	return String(text).replace(/]]>/g, ']]]]><![CDATA[>');
+	"use strict";
+	return String(text).replace(/\]\]>/g, ']]]]><![CDATA[>');
 };
 
 
@@ -2847,9 +3071,12 @@ atropa.wtf.dictionary = {
  *  ☭ Hial Atropa!! ☭
  * @version 20130110
  * @param {String} target The text to WTFify.
+ * @param {Boolean} outputHTML Specifies if you want the output
+ *  in HTML format. If false, will output plain text. Defaults
+ *  to false.
  * @return {String} Returns Genuine WTFified text.
  */
-atropa.wtf.wtfify = function (target, isHTML) {
+atropa.wtf.wtfify = function (target, outputHTML) {
 	"use strict";
 	var regexValue,
 	replacementText,
@@ -2859,16 +3086,17 @@ atropa.wtf.wtfify = function (target, isHTML) {
 	wordCount,
 	ret;
 	
-	if(true !== isHTML) {
-		isHTML = false;
+	if(true !== outputHTML) {
+		outputHTML = false;
 	}
 	ret = {};
 	wtfCount = 0;
 	target = target.trim();
-	target = target.replace(/(\. ?){2,}/gi, '<span style="color : brown ;"> [shit taco] </span>');
-	target = target.replace(/\b[ivxcl]+\./gi, '<span style="color : brown ;"> [#!~ syntax error : unexpected shit taco ~!#] </span>');
-	if(true === isHTML) {
+	if(true === outputHTML) {
+		target = target.replace(/(\. ?){2,}/gi, '<span style="color : brown ;"> [shit taco] </span>');
 		target = '<p> ' + target.replace(/(\r\n|\r|\n)/g,' <br/> ') + ' </p>';
+	} else {
+		target = target.replace(/(\. ?){2,}/gi, ' [shit taco] ');
 	}
 	wordCount = atropa.string.countWords(target);
 	/**
@@ -2888,7 +3116,7 @@ atropa.wtf.wtfify = function (target, isHTML) {
 		sub1 = atropa.setAsOptionalArg('', sub1);
 		sub2 = atropa.setAsOptionalArg('', sub2);
 		var out;
-		if(true === isHTML) {
+		if(true === outputHTML) {
 			out = '<span style="color : red ;">' + sub1 + atropa.wtf.dictionary[x] + sub2 + '</span>';
 		} else {
 			out = sub1 + atropa.wtf.dictionary[x] + sub2;

@@ -5,7 +5,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
 		
-		<title>JsDoc Reference - atropa.CookieMonster</title>
+		<title>JsDoc Reference - atropa.SerialActor</title>
 
 		<style type="text/css">
 			/* default.css */
@@ -242,17 +242,17 @@ ul.inheritsList
 <!-- ============================== class title ============================ -->
 			<h1 class="classTitle">
 				
-				Class atropa.CookieMonster
+				Class atropa.SerialActor
 			</h1>
 
 <!-- ============================== class summary ========================== -->			
 			<p class="description">
 				<br />Version
-					20120909.<br />
+					20130220.<br />
 				
 				
 			
-				This represents a cookie handler
+				A polling class designed for executing long running processes that return nothing and have no callback parameter.
 				
 				
 					<br /><i>Defined in: </i> <a href="../symbols/src/src_AtropaToolbox.js.html">AtropaToolbox.js</a>.
@@ -261,7 +261,7 @@ ul.inheritsList
 
 <!-- ============================== constructor summary ==================== -->			
 			
-			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class atropa.CookieMonster.">
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class atropa.SerialActor.">
 				<caption>Class Summary</caption>
 				<thead>
 					<tr>
@@ -274,9 +274,9 @@ ul.inheritsList
 						<td class="attributes">&nbsp;</td>
 						<td class="nameDescription" >
 							<div class="fixedFont">
-								<b><a href="../symbols/atropa.CookieMonster.html#constructor">atropa.CookieMonster</a></b>()
+								<b><a href="../symbols/atropa.SerialActor.html#constructor">atropa.SerialActor</a></b>(actorName, actorFunction)
 							</div>
-							<div class="description">This is a cookie handler.</div>
+							<div class="description">A polling class designed for executing long running processes that return nothing and have no callback parameter.</div>
 						</td>
 					</tr>
 				</tbody>
@@ -287,7 +287,7 @@ ul.inheritsList
 			
 				
 				
-				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class atropa.CookieMonster.">
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class atropa.SerialActor.">
 					<caption>Field Summary</caption>
 					<thead>
 						<tr>
@@ -298,12 +298,72 @@ ul.inheritsList
 					<tbody>
 					
 						<tr>
-							<td class="attributes">&lt;private&gt; &lt;inner&gt; &nbsp;</td>
+							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
 								<div class="fixedFont">
-								<b><a href="../symbols/atropa.CookieMonster.html#-currentCookies">currentCookies</a></b>
+								<b><a href="../symbols/atropa.SerialActor.html#actorFunction">actorFunction</a></b>
 								</div>
-								<div class="description">This holds the current cookie object array.</div>
+								<div class="description">The function to execute when the actor is free.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/atropa.SerialActor.html#blocked">blocked</a></b>
+								</div>
+								<div class="description">The state of the SerialActor.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/atropa.SerialActor.html#blockTimeoutValue">blockTimeoutValue</a></b>
+								</div>
+								<div class="description">The maximum time, in milliseconds, which the actor may be blocked for.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/atropa.SerialActor.html#interval">interval</a></b>
+								</div>
+								<div class="description">Polling interval in milliseconds.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/atropa.SerialActor.html#intervalId">intervalId</a></b>
+								</div>
+								<div class="description">The id of the interval set to poll the actor.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/atropa.SerialActor.html#name">name</a></b>
+								</div>
+								<div class="description">The name of this instance.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/atropa.SerialActor.html#timeouts">timeouts</a></b>
+								</div>
+								<div class="description">Stores id's of currently running timeout functions used to free the actor if it has been blocked for too long.</div>
 							</td>
 						</tr>
 					
@@ -318,7 +378,7 @@ ul.inheritsList
 			
 				
 				
-				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class atropa.CookieMonster.">
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class atropa.SerialActor.">
 					<caption>Method Summary</caption>
 					<thead>
 						<tr>
@@ -331,90 +391,72 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/atropa.CookieMonster.html#bakeCookie">bakeCookie</a></b>(cookieObj)
+								<div class="fixedFont"><b><a href="../symbols/atropa.SerialActor.html#action">action</a></b>()
 								</div>
-								<div class="description">Converts a cookie object to a cookie string.</div>
+								<div class="description">The action function is called when the actor is polled and it's blocked state is false.</div>
 							</td>
 						</tr>
 					
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/atropa.CookieMonster.html#cookie2obj">cookie2obj</a></b>(cookie)
+								<div class="fixedFont"><b><a href="../symbols/atropa.SerialActor.html#block">block</a></b>()
 								</div>
-								<div class="description">Converts a cookie string into an object.</div>
+								<div class="description">Prevents the actor from executing it's actorFunction.</div>
 							</td>
 						</tr>
 					
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/atropa.CookieMonster.html#deleteCookie">deleteCookie</a></b>(whichKey)
+								<div class="fixedFont"><b><a href="../symbols/atropa.SerialActor.html#blockTimeout">blockTimeout</a></b>()
 								</div>
-								<div class="description">Deletes a specified cookie by user submitted string.</div>
+								<div class="description">Called when the <code>blockTimeoutValue</code> has been reached.</div>
 							</td>
 						</tr>
 					
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/atropa.CookieMonster.html#deleteCookieObj">deleteCookieObj</a></b>(cookieObj)
+								<div class="fixedFont"><b><a href="../symbols/atropa.SerialActor.html#changeInterval">changeInterval</a></b>(interval)
 								</div>
-								<div class="description">Deletes a specified cookie by user submitted cookieObj.</div>
+								<div class="description">Adjusts the polling interval after <code>start</code> hasbeen called.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;inner&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/atropa.SerialActor.html#-dummyActor">dummyActor</a></b>()
+								</div>
+								<div class="description">Default actorFunction</div>
 							</td>
 						</tr>
 					
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/atropa.CookieMonster.html#getCookie">getCookie</a></b>(whichKey)
+								<div class="fixedFont"><b><a href="../symbols/atropa.SerialActor.html#free">free</a></b>()
 								</div>
-								<div class="description">Gets a user requested cookie.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&lt;private&gt; &lt;inner&gt; &nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/atropa.CookieMonster.html#-getCookieCallback">getCookieCallback</a></b>(testCookie, args)
-								</div>
-								<div class="description">Internal callback function used while getting the currentcookies.</div>
+								<div class="description">Frees the actor so it may execute its actor function when next polled.</div>
 							</td>
 						</tr>
 					
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/atropa.CookieMonster.html#getCookies">getCookies</a></b>()
+								<div class="fixedFont"><b><a href="../symbols/atropa.SerialActor.html#start">start</a></b>(interval)
 								</div>
-								<div class="description">Get all cookies.</div>
+								<div class="description">Starts polling the actor.</div>
 							</td>
 						</tr>
 					
 						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/atropa.CookieMonster.html#inspectCookies">inspectCookies</a></b>(callback, args)
+								<div class="fixedFont"><b><a href="../symbols/atropa.SerialActor.html#stop">stop</a></b>()
 								</div>
-								<div class="description">Checks cookies for worms based on a user definedcallback function.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/atropa.CookieMonster.html#setCookie">setCookie</a></b>(whichKey, setTo)
-								</div>
-								<div class="description">Sets a cookie per user specifications as strings.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/atropa.CookieMonster.html#setCookieObj">setCookieObj</a></b>(cookieObj)
-								</div>
-								<div class="description">Sets a cookie per user specifications as an object.</div>
+								<div class="description">Stops polling the actor.</div>
 							</td>
 						</tr>
 					
@@ -435,32 +477,42 @@ ul.inheritsList
 				</div>
 				
 				<div class="fixedFont">
-						<b>atropa.CookieMonster</b>()
+						<b>atropa.SerialActor</b>(actorName, actorFunction)
 				</div>
 				
 				<div class="description">
-					This is a cookie handler.
+					A polling class designed for executing long running processes that return nothing and have no callback parameter.
 					<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 				</div>
 				
 				
 				
-				<pre class="code"> <p><b>Reference:</b> Cookie Object: <code>{"key" : "cookieName", "val" : "cookieVal"}</code> <b>Cookie String:</b> <code>cookieName=cookieVal;</code></p></pre>
+				<pre class="code">function dummyActor(){    var that = this;    console.log('actorFunction would execute');    console.log('freeing ' + this.name + ' in 10000 ms');    setTimeout(function(){that.free();}, 10000);};var actor = new atropa.SerialActor('dummy', dummyActor);actor.start();</pre>
 				
 				
 				
 				
-					
-					
-					
-					
 					
 						<dl class="detailList">
-						<dt class="heading">Returns:</dt>
+						<dt class="heading">Parameters:</dt>
 						
-								<dd><span class="light fixedFont">{CookieMonster}</span> A cookie handler.</dd>
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>actorName</b>
+								
+							</dt>
+								<dd>The name for the SerialActor instance.</dd>
+						
+							<dt>
+								<span class="light fixedFont">{Function}</span>  <b>actorFunction</b>
+								
+							</dt>
+								<dd>The function to execute when the actor is free.</dd>
 						
 						</dl>
+					
+					
+					
+					
 					
 					
 					
@@ -474,15 +526,15 @@ ul.inheritsList
 					Field Detail
 				</div>
 				
-					<a name="-currentCookies"> </a>
-					<div class="fixedFont">&lt;private&gt; &lt;inner&gt; 
+					<a name="actorFunction"> </a>
+					<div class="fixedFont">
 					
-					<span class="light">{Array}</span>
-					<b>currentCookies</b>
+					<span class="light">{Function}</span>
+					<b>actorFunction</b>
 					
 					</div>
 					<div class="description">
-						This holds the current cookie object array.
+						The function to execute when the actor is free. Defaults to the <code>dummyActor</code> function defined above.
 						
 						
 					</div>
@@ -491,6 +543,145 @@ ul.inheritsList
 
 						
 						
+						
+						
+
+					<hr />
+				
+					<a name="blocked"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>blocked</b>
+					
+					</div>
+					<div class="description">
+						The state of the SerialActor. If true, the actor will sleep. If false the actor will execute the actor function when next polled. Defaults to false.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="blockTimeoutValue"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Number}</span>
+					<b>blockTimeoutValue</b>
+					
+					</div>
+					<div class="description">
+						The maximum time, in milliseconds, which the actor may be blocked for. After this duration has been reached the actor will be freed. Defaults to 60 seconds.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="interval"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Number}</span>
+					<b>interval</b>
+					
+					</div>
+					<div class="description">
+						Polling interval in milliseconds. This determines how frequently the actor function will try to execute. Defaults to 100 milliseconds.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="intervalId"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Number}</span>
+					<b>intervalId</b>
+					
+					</div>
+					<div class="description">
+						The id of the interval set to poll the actor. You should not change this manually, use the start and stop functions instead. Defauls to undefined.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="name"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{String}</span>
+					<b>name</b>
+					
+					</div>
+					<div class="description">
+						The name of this instance. Defaults to "SerialActor"
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="timeouts"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Array}</span>
+					<b>timeouts</b>
+					
+					</div>
+					<div class="description">
+						Stores id's of currently running timeout functions used to free the actor if it has been blocked for too long.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+							<dd><a href="../symbols/atropa.SerialActor.html#blockTimeoutValue">atropa.SerialActor#blockTimeoutValue</a></dd>
+							
+							</dl>
 						
 						
 
@@ -504,15 +695,15 @@ ul.inheritsList
 					Method Detail
 				</div>
 				
-					<a name="bakeCookie"> </a>
+					<a name="action"> </a>
 					<div class="fixedFont">
 					
-					<span class="light">{String}</span>
-					<b>bakeCookie</b>(cookieObj)
+					
+					<b>action</b>()
 					
 					</div>
 					<div class="description">
-						Converts a cookie object to a cookie string.
+						The action function is called when the actor is polled and it's blocked state is false. This method should not be set manually, set the <code>actorFunction</code> instead.
 						
 						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
@@ -520,42 +711,56 @@ ul.inheritsList
 					
 					
 						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{Object}</span> <b>cookieObj</b>
-									
-								</dt>
-								<dd>A cookie object</dd>
-							
-							</dl>
+						
 						
 						
 						
 						
 						
 							<dl class="detailList">
-							<dt class="heading">Returns:</dt>
+							<dt class="heading">See:</dt>
 							
-								<dd><span class="light fixedFont">{String}</span> Returns a cookie string.</dd>
+								<dd><a href="../symbols/atropa.SerialActor.html#actorFunction">atropa.SerialActor#actorFunction</a></dd>
 							
 							</dl>
+						
+
+					<hr />
+				
+					<a name="block"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>block</b>()
+					
+					</div>
+					<div class="description">
+						Prevents the actor from executing it's actorFunction. This block will timeout once the <code>blockTimeoutValue</code> has been reached.
+						
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
+					</div>
+					
+					
+					
+						
+						
+						
+						
 						
 						
 						
 
 					<hr />
 				
-					<a name="cookie2obj"> </a>
+					<a name="blockTimeout"> </a>
 					<div class="fixedFont">
 					
-					<span class="light">{cookieObj}</span>
-					<b>cookie2obj</b>(cookie)
+					
+					<b>blockTimeout</b>()
 					
 					</div>
 					<div class="description">
-						Converts a cookie string into an object.
+						Called when the <code>blockTimeoutValue</code> has been reached. This frees the actor and removes the timeout reference from the timeouts array.
 						
 						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
@@ -563,42 +768,24 @@ ul.inheritsList
 					
 					
 						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{String}</span> <b>cookie</b>
-									
-								</dt>
-								<dd>A cookie represented as a string<code>cookieName=cookieVal;</code></dd>
-							
-							</dl>
 						
 						
 						
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Returns:</dt>
-							
-								<dd><span class="light fixedFont">{cookieObj}</span> Returns a cookie object.</dd>
-							
-							</dl>
 						
 						
 						
 
 					<hr />
 				
-					<a name="deleteCookie"> </a>
+					<a name="changeInterval"> </a>
 					<div class="fixedFont">
 					
 					
-					<b>deleteCookie</b>(whichKey)
+					<b>changeInterval</b>(interval)
 					
 					</div>
 					<div class="description">
-						Deletes a specified cookie by user submitted string.
+						Adjusts the polling interval after <code>start</code> hasbeen called.
 						
 						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
@@ -610,10 +797,10 @@ ul.inheritsList
 							<dt class="heading">Parameters:</dt>
 							
 								<dt>
-									<span class="light fixedFont">{String}</span> <b>whichKey</b>
+									<span class="light fixedFont">{Number}</span> <b>interval</b>
 									
 								</dt>
-								<dd>The cookies key (name) thatwill be deleted.</dd>
+								<dd>The new polling interval in milliseconds.</dd>
 							
 							</dl>
 						
@@ -626,15 +813,65 @@ ul.inheritsList
 
 					<hr />
 				
-					<a name="deleteCookieObj"> </a>
-					<div class="fixedFont">
+					<a name="-dummyActor"> </a>
+					<div class="fixedFont">&lt;inner&gt; 
 					
 					
-					<b>deleteCookieObj</b>(cookieObj)
+					<b>dummyActor</b>()
 					
 					</div>
 					<div class="description">
-						Deletes a specified cookie by user submitted cookieObj.
+						Default actorFunction
+						
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="free"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>free</b>()
+					
+					</div>
+					<div class="description">
+						Frees the actor so it may execute its actor function when next polled.
+						
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="start"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>start</b>(interval)
+					
+					</div>
+					<div class="description">
+						Starts polling the actor.
 						
 						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
@@ -646,10 +883,10 @@ ul.inheritsList
 							<dt class="heading">Parameters:</dt>
 							
 								<dt>
-									<span class="light fixedFont">{cookieObj}</span> <b>cookieObj</b>
+									<span class="light fixedFont">{Number}</span> <b>interval</b>
 									
 								</dt>
-								<dd>A cookie object.</dd>
+								<dd>Optional. The polling interval. Defaults to the value of <code>this.interval</code></dd>
 							
 							</dl>
 						
@@ -658,192 +895,26 @@ ul.inheritsList
 						
 						
 						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/atropa.SerialActor.html#interval">atropa.SerialActor#interval</a></dd>
+							
+							</dl>
 						
 
 					<hr />
 				
-					<a name="getCookie"> </a>
-					<div class="fixedFont">
-					
-					<span class="light">{cookieObj|false}</span>
-					<b>getCookie</b>(whichKey)
-					
-					</div>
-					<div class="description">
-						Gets a user requested cookie.
-						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{String}</span> <b>whichKey</b>
-									
-								</dt>
-								<dd>The cookies key (name)</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Returns:</dt>
-							
-								<dd><span class="light fixedFont">{cookieObj|false}</span> Returns a cookie object ifa cookie with the specified key is found or false ifit is not found.</dd>
-							
-							</dl>
-						
-						
-						
-
-					<hr />
-				
-					<a name="-getCookieCallback"> </a>
-					<div class="fixedFont">&lt;private&gt; &lt;inner&gt; 
-					
-					<span class="light">{Boolean}</span>
-					<b>getCookieCallback</b>(testCookie, args)
-					
-					</div>
-					<div class="description">
-						Internal callback function used while getting the currentcookies.
-						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{cookieObj}</span> <b>testCookie</b>
-									
-								</dt>
-								<dd>A cookie object</dd>
-							
-								<dt>
-									<span class="light fixedFont">{String}</span> <b>args</b>
-									
-								</dt>
-								<dd>argument used in comparison function</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Returns:</dt>
-							
-								<dd><span class="light fixedFont">{Boolean}</span> If cookie key is exactly equal to the argumentthen the callback returns true.</dd>
-							
-							</dl>
-						
-						
-						
-
-					<hr />
-				
-					<a name="getCookies"> </a>
-					<div class="fixedFont">
-					
-					<span class="light">{Array}</span>
-					<b>getCookies</b>()
-					
-					</div>
-					<div class="description">
-						Get all cookies.
-						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Returns:</dt>
-							
-								<dd><span class="light fixedFont">{Array}</span> An array whose elements are cookie objects.</dd>
-							
-							</dl>
-						
-						
-						
-
-					<hr />
-				
-					<a name="inspectCookies"> </a>
-					<div class="fixedFont">
-					
-					<span class="light">{Array}</span>
-					<b>inspectCookies</b>(callback, args)
-					
-					</div>
-					<div class="description">
-						Checks cookies for worms based on a user definedcallback function.
-						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{function}</span> <b>callback</b>
-									
-								</dt>
-								<dd></dd>
-							
-								<dt>
-									<span class="light fixedFont">{Array}</span> <b>args</b>
-									
-								</dt>
-								<dd>arguments to pass to the callbackfunction</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Returns:</dt>
-							
-								<dd><span class="light fixedFont">{Array}</span> An array of cookie objects.</dd>
-							
-							</dl>
-						
-						
-						
-
-					<hr />
-				
-					<a name="setCookie"> </a>
+					<a name="stop"> </a>
 					<div class="fixedFont">
 					
 					
-					<b>setCookie</b>(whichKey, setTo)
+					<b>stop</b>()
 					
 					</div>
 					<div class="description">
-						Sets a cookie per user specifications as strings. The cookiewill expire when the browser is closed.
+						Stops polling the actor. Note that the actor will be freed once the <code>blockTimeoutValue</code> has been reached. This will not restart the polling.
 						
 						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
@@ -851,64 +922,20 @@ ul.inheritsList
 					
 					
 						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{String}</span> <b>whichKey</b>
-									
-								</dt>
-								<dd>The key (name) of the new cookie</dd>
-							
-								<dt>
-									<span class="light fixedFont">{String}</span> <b>setTo</b>
-									
-								</dt>
-								<dd>The value of the new cookie.</dd>
-							
-							</dl>
 						
 						
 						
 						
 						
-						
-						
-
-					<hr />
-				
-					<a name="setCookieObj"> </a>
-					<div class="fixedFont">
-					
-					
-					<b>setCookieObj</b>(cookieObj)
-					
-					</div>
-					<div class="description">
-						Sets a cookie per user specifications as an object.The cookie will expire when the browser is closed.
-						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
-					</div>
-					
-					
-					
 						
 							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
+							<dt class="heading">See:</dt>
 							
-								<dt>
-									<span class="light fixedFont">{cookieObj}</span> <b>cookieObj</b>
-									
-								</dt>
-								<dd>A cookie object.</dd>
+								<dd><a href="../symbols/atropa.SerialActor.html#blocked">atropa.SerialActor#blocked</a></dd>
+							
+								<dd><a href="../symbols/atropa.SerialActor.html#blockTimeoutValue">atropa.SerialActor#blockTimeoutValue</a></dd>
 							
 							</dl>
-						
-						
-						
-						
-						
-						
 						
 
 					

@@ -10,10 +10,12 @@
         /// Into Polished Turds.</field>
         /// <returns type="atropa.wtf"/>
                 
-        wtfify: function(target, isHTML) {
+        wtfify: function(target, outputHTML) {
             /// <summary>Accepts plain text input and Gloriously WTFifies it.</summary>
             /// <param name="target" type="String">The text to WTFify.</param>
-            /// <param name="isHTML" type=""></param>
+            /// <param name="outputHTML" type="Boolean">Specifies if you want the output
+            ///  in HTML format. If false, will output plain text. Defaults
+            ///  to false.</param>
             /// <returns type="String">Returns Genuine WTFified text.</returns>
         }, 
         
