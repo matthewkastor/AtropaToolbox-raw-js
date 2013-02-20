@@ -9,7 +9,8 @@
         /// <field name="expArgTypes" type="Expected Arg Types">Container object for the expected argument types
         /// supplied to this.makeRequest.</field>
         /// <field name="requestHeaders" type="Request Headers Object">Object whose properties and values are header names and values respectively.</field>
-        /// <field name="timeout" type="">Set the timeout value for the request.</field>
+        /// <field name="timeout" type="">Set the timeout value for the request in milliseconds. The request will abort
+        ///  after this amount of time has passed.</field>
         /// <field name="request" type="XMLHttpRequest">XMLHttpRequest object used by Requester.</field>
         /// <returns type="atropa.Requester"/>
     };

@@ -2013,7 +2013,8 @@ atropa.Requester = function Requester() {
 	
 	
 	/**
-	 * Set the timeout value for the request.
+	 * Set the timeout value for the request in milliseconds. The request will abort
+	 *  after this amount of time has passed.
 	 * @fieldOf atropa.Requester#
 	 */
 	this.timeout = 3000;

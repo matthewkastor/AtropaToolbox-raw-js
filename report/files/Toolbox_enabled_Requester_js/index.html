@@ -59,7 +59,7 @@
     </div>
     <div class="span6">
       <h2 class="header">SLOC/LSLOC <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">118 / 38</p>
+      <p class="stat">119 / 38</p>
     </div>
   </div>
 </div>
@@ -141,7 +141,8 @@ atropa.Requester = function Requester() {
 	
 	
 	/**
-	 * Set the timeout value for the request.
+	 * Set the timeout value for the request in milliseconds. The request will abort
+	 *  after this amount of time has passed.
 	 * @fieldOf atropa.Requester#
 	 */
 	this.timeout = 3000;

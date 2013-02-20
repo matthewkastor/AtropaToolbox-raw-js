@@ -10,7 +10,7 @@
       "line": 14,
       "complexity": {
         "sloc": {
-          "physical": 118,
+          "physical": 119,
           "logical": 38
         },
         "cyclomatic": 5,
@@ -45,7 +45,7 @@
         "line": 14,
         "complexity": {
           "sloc": {
-            "physical": 118,
+            "physical": 119,
             "logical": 14
           },
           "cyclomatic": 1,
@@ -110,7 +110,7 @@
       },
       {
         "name": "request.abort",
-        "line": 73,
+        "line": 74,
         "complexity": {
           "sloc": {
             "physical": 4,
@@ -144,7 +144,7 @@
       },
       {
         "name": "<anonymous>.makeRequest",
-        "line": 93,
+        "line": 94,
         "complexity": {
           "sloc": {
             "physical": 38,
@@ -178,7 +178,7 @@
       },
       {
         "name": "request.onreadystatechange",
-        "line": 114,
+        "line": 115,
         "complexity": {
           "sloc": {
             "physical": 9,
@@ -212,7 +212,7 @@
       },
       {
         "name": "<anonymous>",
-        "line": 124,
+        "line": 125,
         "complexity": {
           "sloc": {
             "physical": 6,
