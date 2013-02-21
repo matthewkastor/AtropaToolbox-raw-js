@@ -7,7 +7,7 @@ __report = {
   },
   "complexity": {
     "aggregate": {
-      "line": 14,
+      "line": 44,
       "complexity": {
         "sloc": {
           "physical": 140,
@@ -16,33 +16,33 @@ __report = {
         "cyclomatic": 6,
         "halstead": {
           "operators": {
-            "distinct": 14,
-            "total": 85,
+            "distinct": 15,
+            "total": 91,
             "identifiers": [
               "__stripped__"
             ]
           },
           "operands": {
-            "distinct": 47,
-            "total": 103,
+            "distinct": 48,
+            "total": 109,
             "identifiers": [
               "__stripped__"
             ]
           },
-          "length": 188,
-          "vocabulary": 61,
-          "difficulty": 15.340425531914892,
-          "volume": 1114.9786194618227,
-          "effort": 17104.246481531365,
-          "bugs": 0.37165953982060757,
-          "time": 950.2359156406314
+          "length": 200,
+          "vocabulary": 63,
+          "difficulty": 17.03125,
+          "volume": 1195.4559846999834,
+          "effort": 20360.109739421594,
+          "bugs": 0.39848532823332783,
+          "time": 1131.117207745644
         }
       }
     },
     "functions": [
       {
         "name": "ArgsInfo",
-        "line": 14,
+        "line": 44,
         "complexity": {
           "sloc": {
             "physical": 140,
@@ -76,7 +76,7 @@ __report = {
       },
       {
         "name": "setExpectedArgTypes",
-        "line": 58,
+        "line": 86,
         "complexity": {
           "sloc": {
             "physical": 13,
@@ -85,32 +85,32 @@ __report = {
           "cyclomatic": 2,
           "halstead": {
             "operators": {
-              "distinct": 8,
-              "total": 14,
+              "distinct": 9,
+              "total": 16,
               "identifiers": [
                 "__stripped__"
               ]
             },
             "operands": {
-              "distinct": 13,
-              "total": 17,
+              "distinct": 15,
+              "total": 19,
               "identifiers": [
                 "__stripped__"
               ]
             },
-            "length": 31,
-            "vocabulary": 21,
-            "difficulty": 5.230769230769231,
-            "volume": 136.16184010614157,
-            "effort": 712.2311636321251,
-            "bugs": 0.04538728003538052,
-            "time": 39.568397979562505
+            "length": 35,
+            "vocabulary": 24,
+            "difficulty": 5.699999999999999,
+            "volume": 160.4736875252405,
+            "effort": 914.7000188938707,
+            "bugs": 0.05349122917508017,
+            "time": 50.81666771632615
           }
         }
       },
       {
         "name": "getArgTypes",
-        "line": 82,
+        "line": 110,
         "complexity": {
           "sloc": {
             "physical": 11,
@@ -144,7 +144,7 @@ __report = {
       },
       {
         "name": "checkArgs",
-        "line": 109,
+        "line": 137,
         "complexity": {
           "sloc": {
             "physical": 7,
@@ -178,7 +178,7 @@ __report = {
       },
       {
         "name": "checkArgTypes",
-        "line": 129,
+        "line": 159,
         "complexity": {
           "sloc": {
             "physical": 24,
@@ -187,31 +187,31 @@ __report = {
           "cyclomatic": 4,
           "halstead": {
             "operators": {
-              "distinct": 9,
-              "total": 26,
+              "distinct": 10,
+              "total": 30,
               "identifiers": [
                 "__stripped__"
               ]
             },
             "operands": {
-              "distinct": 21,
-              "total": 29,
+              "distinct": 23,
+              "total": 33,
               "identifiers": [
                 "__stripped__"
               ]
             },
-            "length": 55,
-            "vocabulary": 30,
-            "difficulty": 6.214285714285714,
-            "volume": 269.8789827584685,
-            "effort": 1677.1051071419115,
-            "bugs": 0.08995966091948951,
-            "time": 93.17250595232842
+            "length": 63,
+            "vocabulary": 33,
+            "difficulty": 7.173913043478261,
+            "volume": 317.79682951958256,
+            "effort": 2279.8468204665705,
+            "bugs": 0.10593227650652752,
+            "time": 126.65815669258726
           }
         }
       }
     ],
-    "maintainability": 67.64054453512468,
+    "maintainability": 67.344089416983,
     "module": "Toolbox\\enabled\\ArgsInfo.js"
   },
   "jshint": {

@@ -1,12 +1,12 @@
 {
   "summary": {
     "total": {
-      "sloc": 2952,
-      "maintainability": 1576.8515534370397
+      "sloc": 2958,
+      "maintainability": 1660.8171497293577
     },
     "average": {
-      "sloc": 134,
-      "maintainability": "71.68"
+      "sloc": 128,
+      "maintainability": "72.21"
     }
   },
   "reports": [
@@ -22,7 +22,7 @@
       },
       "complexity": {
         "aggregate": {
-          "line": 14,
+          "line": 44,
           "complexity": {
             "sloc": {
               "physical": 140,
@@ -31,31 +31,31 @@
             "cyclomatic": 6,
             "halstead": {
               "operators": {
-                "distinct": 14,
-                "total": 85,
+                "distinct": 15,
+                "total": 91,
                 "identifiers": [
                   "__stripped__"
                 ]
               },
               "operands": {
-                "distinct": 47,
-                "total": 103,
+                "distinct": 48,
+                "total": 109,
                 "identifiers": [
                   "__stripped__"
                 ]
               },
-              "length": 188,
-              "vocabulary": 61,
-              "difficulty": 15.340425531914892,
-              "volume": 1114.9786194618227,
-              "effort": 17104.246481531365,
-              "bugs": 0.37165953982060757,
-              "time": 950.2359156406314
+              "length": 200,
+              "vocabulary": 63,
+              "difficulty": 17.03125,
+              "volume": 1195.4559846999834,
+              "effort": 20360.109739421594,
+              "bugs": 0.39848532823332783,
+              "time": 1131.117207745644
             }
           }
         },
         "module": "Toolbox\\enabled\\ArgsInfo.js",
-        "maintainability": 67.64054453512468
+        "maintainability": 67.344089416983
       }
     },
     {
@@ -296,6 +296,54 @@
         },
         "module": "Toolbox\\enabled\\CreateHtmlDocumentsFromXmlhttp.js",
         "maintainability": 68.88300186566276
+      }
+    },
+    {
+      "info": {
+        "file": "Toolbox\\enabled\\customErrors.js",
+        "fileShort": "Toolbox\\enabled\\customErrors.js",
+        "fileSafe": "Toolbox_enabled_customErrors_js",
+        "link": "files/Toolbox_enabled_customErrors_js/index.html"
+      },
+      "jshint": {
+        "messages": 1
+      },
+      "complexity": {
+        "aggregate": {
+          "line": 1,
+          "complexity": {
+            "sloc": {
+              "physical": 6,
+              "logical": 5
+            },
+            "cyclomatic": 2,
+            "halstead": {
+              "operators": {
+                "distinct": 5,
+                "total": 17,
+                "identifiers": [
+                  "__stripped__"
+                ]
+              },
+              "operands": {
+                "distinct": 10,
+                "total": 21,
+                "identifiers": [
+                  "__stripped__"
+                ]
+              },
+              "length": 38,
+              "vocabulary": 15,
+              "difficulty": 5.25,
+              "volume": 148.46184263312372,
+              "effort": 779.4246738238995,
+              "bugs": 0.04948728087770791,
+              "time": 43.30137076799442
+            }
+          }
+        },
+        "module": "Toolbox\\enabled\\customErrors.js",
+        "maintainability": 84.26205141045986
       }
     },
     {

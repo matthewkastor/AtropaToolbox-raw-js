@@ -41,6 +41,11 @@
         /// <field name="xpath" type="">An Xpath toolkit for manipulating the DOM.</field>
         /// <returns type="atropa"/>
                 
+        InvalidArgumentTypesError: function(message) {
+            /// <summary></summary>
+            /// <param name="message" type=""></param>
+        }, 
+        
         removeNodeByReference: function(elementReference) {
             /// <summary>Removes DOM Nodes.</summary>
             /// <param name="elementReference" type="DOM Node">A reference to the DOM Node you want
@@ -87,7 +92,6 @@
             /// <summary>Sets the expected argument types.</summary>
             /// <param name="typesObj" type="Expected Arg Types">An object containing information about the
             /// types of arguments you expect. Specifically, the object should look like the example.</param>
-            /// <returns type="undefined"></returns>
         }, 
         
         getArgTypes: function(args) {

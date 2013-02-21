@@ -19,7 +19,6 @@
             /// <summary>Sets the expected argument types.</summary>
             /// <param name="typesObj" type="Expected Arg Types">An object containing information about the
             /// types of arguments you expect. Specifically, the object should look like the example.</param>
-            /// <returns type="undefined"></returns>
         }, 
         
         getArgTypes: function(args) {

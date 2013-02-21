@@ -21,6 +21,11 @@
         /// <field name="xpath" type="">An Xpath toolkit for manipulating the DOM.</field>
         /// <returns type="atropa"/>
                 
+        InvalidArgumentTypesError: function(message) {
+            /// <summary></summary>
+            /// <param name="message" type=""></param>
+        }, 
+        
         removeNodeByReference: function(elementReference) {
             /// <summary>Removes DOM Nodes.</summary>
             /// <param name="elementReference" type="DOM Node">A reference to the DOM Node you want

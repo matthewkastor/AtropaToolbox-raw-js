@@ -29,6 +29,7 @@ atropa = {};
 /// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
 /*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
 /*global atropa */
+
 /**
  * This represents a filter for arguments based on type.
  * @author <a href="mailto:matthewkastor@gmail.com">
@@ -38,6 +39,35 @@ atropa = {};
  * @class This represents a filter for arguments based on type.
  * @returns {ArgsInfo} Returns an ArgsInfo filter.
  * @requires atropa.arrays.match
+ * @example
+ * function myClassyConstructor(takes, a, few, args) {
+ *     var expectedArgTypes, checker;
+ *     
+ *     expectedArgTypes = {};
+ *     expectedArgTypes.requestWithMessage = ['string', 'string', 'string', 'function'];
+ *     expectedArgTypes.requestNullMessage = ['string', 'string', 'object', 'function'];
+ *     
+ *     checker = new atropa.ArgsInfo();
+ *     checker.setExpectedArgTypes(expectedArgTypes);
+ *     
+ *     try {
+ *     
+ *         // Check the supplied arguments pseudo array's argument types
+ *         // if the pattern of types in arguments matches one of the
+ *         // patterns set on expectedArgTypes then the matching pattern
+ *         // will be returned. Otherwise, an error will be thrown.
+ *         
+ *         checker.checkArgTypes(arguments);
+ *     } catch (e) {
+ *     
+ *         // Invalid argument types supplied. Handle
+ *         // the error or bail.
+ *         
+ *     }
+ *     
+ *     // the arguments supplied will be of the proper type
+ *     // your function can go ahead and do things with them
+ * }
  */
 atropa.ArgsInfo = function ArgsInfo() {
 	'use strict';
@@ -72,27 +102,25 @@ atropa.ArgsInfo = function ArgsInfo() {
 	 * // typesObj is expected to be of the form:
 	 * 
 	 * var typesObj = {
-	 *     "namedArgumentTypesArray" :
-	 *     ["string", "function", "number"],
-	 *     "namedAlternateArgumentTypesArray" :
-	 *     ["object", "function", "number"]
+	 *     "namedArgumentTypesArray" : ["string", "function", "number"],
+	 *     "namedAlternateArgumentTypesArray" : ["object", "function", "number"]
 	 * };
 	 * 
 	 * // You may use as many named arrays as you wish and checkArgTypes will
 	 * // test for a match to at least one of the provided named arrays.
-	 * @returns {undefined}
-	 * @throws invalid argument type.
+	 * @throws {atropa.InvalidArgumentTypesError} Throws an error if the typesObj
+	 *  can not be used to set the expected argument types.
 	 */
 	this.setExpectedArgTypes = function setExpectedArgTypes(typesObj) {
 		var names;
 		names = Object.keys(typesObj);
 		if (names.length < 1) {
-			throw 'typesObj is expected to be of the form: var typesObj = ' +
+			throw new atropa.InvalidArgumentTypesError('typesObj is expected to be of the form: var typesObj = ' +
 				'{ "namedArgumentTypesArray" : ["string", "function", "number"]' +
 				', "namedAlternateArgumentTypesArray" : ["object", "function",' +
 				'"number"] }; You may use as many named arrays as you wish and' +
 				'checkArgTypes will test for a match to at least one of the ' +
-				'provided named arrays.';
+				'provided named arrays.');
 		}
 		expectedArgTypes = typesObj;
 	};
@@ -152,12 +180,14 @@ atropa.ArgsInfo = function ArgsInfo() {
 	 * @param {arguments} args An arguments object
 	 * @returns {String} The user assigned key which matches the
 	 * arguments supplied, or throws an error.
-	 * @throws invalid argument type
+	 * @throws {atropa.InvalidArgumentTypesError} Throws an error if no matching
+	 *  pattern of argument types can be found for <code>args</code>
+	 * @see atropa.ArgsInfo#setExpectedArgTypes
 	 */
 	this.checkArgTypes = function checkArgTypes(args) {
 		var expectedTypes;
 		if (Object.keys(expectedArgTypes).length < 1) {
-			throw 'Expected argument types is not set. Use ' +
+			throw new atropa.InvalidArgumentTypesError('Expected argument types is not set. Use ' +
 				'setExpectedArgTypes(typesObj) to set. typesObj is an ' +
 				'object whose properties are arrays of strings representing ' +
 				'the typeof(argument) for each argument, in the exact order ' +
@@ -167,7 +197,7 @@ atropa.ArgsInfo = function ArgsInfo() {
 				'convenient way of getting the array you want to hard code ' +
 				'in for validation. Example: var typesObj = ' +
 				'{ "messageIncluded" : ["string", "function", "number"], ' +
-				'"messageNotIncluded" : ["object", "function", "number"] };';
+				'"messageNotIncluded" : ["object", "function", "number"] };');
 		}
 		for (expectedTypes in expectedArgTypes) {
 			if (expectedArgTypes.hasOwnProperty(expectedTypes)) {
@@ -176,7 +206,7 @@ atropa.ArgsInfo = function ArgsInfo() {
 				}
 			}
 		}
-		throw 'invalid argument type @ checkArgTypes';
+		throw new atropa.InvalidArgumentTypesError('invalid argument type @ atropa.ArgsInfo.checkArgTypes');
 	};
 };
 
@@ -1105,6 +1135,13 @@ atropa.CreateHtmlDocumentsFromXmlhttp = function CreateHtmlDocumentsFromXmlhttp(
 	};
 };
 
+
+atropa.InvalidArgumentTypesError = function InvalidArgumentTypesError(message) {
+    this.name = "atropa.InvalidArgumentTypesError";
+    this.message = message || "InvalidArgumentTypesError";
+}
+atropa.InvalidArgumentTypesError.prototype = new Error();
+atropa.InvalidArgumentTypesError.prototype.constructor = atropa.InvalidArgumentTypesError;
 
 /// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
 /*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
