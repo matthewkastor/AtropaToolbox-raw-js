@@ -7,7 +7,7 @@ __report = {
   },
   "complexity": {
     "aggregate": {
-      "line": 12,
+      "line": 13,
       "complexity": {
         "sloc": {
           "physical": 554,
@@ -42,7 +42,7 @@ __report = {
     "functions": [
       {
         "name": "<anonymous>.wtfify",
-        "line": 492,
+        "line": 493,
         "complexity": {
           "sloc": {
             "physical": 59,
@@ -76,7 +76,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 526,
+        "line": 527,
         "complexity": {
           "sloc": {
             "physical": 12,
@@ -110,7 +110,7 @@ __report = {
       },
       {
         "name": "<anonymous>.htmlElement",
-        "line": 558,
+        "line": 559,
         "complexity": {
           "sloc": {
             "physical": 8,

@@ -7,10 +7,10 @@ __report = {
   },
   "complexity": {
     "aggregate": {
-      "line": 12,
+      "line": 13,
       "complexity": {
         "sloc": {
-          "physical": 187,
+          "physical": 372,
           "logical": 73
         },
         "cyclomatic": 10,
@@ -42,7 +42,7 @@ __report = {
     "functions": [
       {
         "name": "arraysMatch",
-        "line": 24,
+        "line": 54,
         "complexity": {
           "sloc": {
             "physical": 15,
@@ -76,7 +76,7 @@ __report = {
       },
       {
         "name": "<anonymous>.subtract",
-        "line": 55,
+        "line": 112,
         "complexity": {
           "sloc": {
             "physical": 17,
@@ -110,7 +110,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 59,
+        "line": 116,
         "complexity": {
           "sloc": {
             "physical": 11,
@@ -144,7 +144,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 61,
+        "line": 118,
         "complexity": {
           "sloc": {
             "physical": 5,
@@ -178,7 +178,7 @@ __report = {
       },
       {
         "name": "intersect",
-        "line": 75,
+        "line": 166,
         "complexity": {
           "sloc": {
             "physical": 18,
@@ -212,7 +212,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 85,
+        "line": 176,
         "complexity": {
           "sloc": {
             "physical": 6,
@@ -246,7 +246,7 @@ __report = {
       },
       {
         "name": "<anonymous>.getFrequency",
-        "line": 104,
+        "line": 237,
         "complexity": {
           "sloc": {
             "physical": 12,
@@ -280,7 +280,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 106,
+        "line": 239,
         "complexity": {
           "sloc": {
             "physical": 8,
@@ -314,7 +314,7 @@ __report = {
       },
       {
         "name": "<anonymous>.getUnique",
-        "line": 126,
+        "line": 271,
         "complexity": {
           "sloc": {
             "physical": 4,
@@ -348,7 +348,7 @@ __report = {
       },
       {
         "name": "<anonymous>.removeEmptyElements",
-        "line": 139,
+        "line": 296,
         "complexity": {
           "sloc": {
             "physical": 6,
@@ -382,7 +382,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 141,
+        "line": 298,
         "complexity": {
           "sloc": {
             "physical": 3,
@@ -416,7 +416,7 @@ __report = {
       },
       {
         "name": "reindex",
-        "line": 154,
+        "line": 336,
         "complexity": {
           "sloc": {
             "physical": 11,
@@ -450,7 +450,7 @@ __report = {
       },
       {
         "name": "sortNumerically",
-        "line": 174,
+        "line": 360,
         "complexity": {
           "sloc": {
             "physical": 6,
@@ -484,7 +484,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 176,
+        "line": 362,
         "complexity": {
           "sloc": {
             "physical": 3,
@@ -518,7 +518,7 @@ __report = {
       },
       {
         "name": "sortAlphabetically",
-        "line": 193,
+        "line": 379,
         "complexity": {
           "sloc": {
             "physical": 6,
@@ -552,7 +552,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 195,
+        "line": 381,
         "complexity": {
           "sloc": {
             "physical": 3,

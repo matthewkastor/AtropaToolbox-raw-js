@@ -59,7 +59,7 @@
     </div>
     <div class="span6">
       <h2 class="header">SLOC/LSLOC <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">6 / 5</p>
+      <p class="stat">19 / 5</p>
     </div>
   </div>
 </div>
@@ -82,10 +82,39 @@
 
 <div class="container">
   <div class="row">
-    <textarea id="file-source" class="span12">atropa.InvalidArgumentTypesError = function InvalidArgumentTypesError(message) {
+    <textarea id="file-source" class="span12">/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
+/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
+/*global atropa */
+
+
+/**
+ * Invalid Argument Types Error
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130221
+ * @class Invalid Argument Types Error
+ * @param {String} message Optional. The error message to send. Defaults to
+ *  <code>InvalidArgumentTypesError</code>
+ * @returns {Error} Returns an instance of the InvalidArgumentTypesError
+ */
+atropa.InvalidArgumentTypesError = function InvalidArgumentTypesError(message) {
+	/**
+	 * The name of the error. Tells the user what kind of custom
+	 * error has been thrown.
+	 * @fieldOf atropa.InvalidArgumentTypesError#
+	 * @type {String}
+	 * @default "atropa.InvalidArgumentTypesError"
+	 */
     this.name = "atropa.InvalidArgumentTypesError";
+	/**
+	 * The error message to send.
+	 * @fieldOf atropa.InvalidArgumentTypesError#
+	 * @type {String}
+	 * @default "InvalidArgumentTypesError"
+	 */
     this.message = message || "InvalidArgumentTypesError";
-}
+};
 atropa.InvalidArgumentTypesError.prototype = new Error();
 atropa.InvalidArgumentTypesError.prototype.constructor = atropa.InvalidArgumentTypesError;</textarea>
   </div>

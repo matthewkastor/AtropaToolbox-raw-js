@@ -7,7 +7,7 @@
   },
   "complexity": {
     "aggregate": {
-      "line": 12,
+      "line": 13,
       "complexity": {
         "sloc": {
           "physical": 69,
@@ -42,7 +42,7 @@
     "functions": [
       {
         "name": "test",
-        "line": 26,
+        "line": 27,
         "complexity": {
           "sloc": {
             "physical": 21,
@@ -71,40 +71,6 @@
             "effort": 1298.0190711645043,
             "bugs": 0.07635406300967673,
             "time": 72.11217062025024
-          }
-        }
-      },
-      {
-        "name": "<anonymous>",
-        "line": 30,
-        "complexity": {
-          "sloc": {
-            "physical": 1,
-            "logical": 0
-          },
-          "cyclomatic": 1,
-          "halstead": {
-            "operators": {
-              "distinct": 0,
-              "total": 0,
-              "identifiers": [
-                "__stripped__"
-              ]
-            },
-            "operands": {
-              "distinct": 0,
-              "total": 0,
-              "identifiers": [
-                "__stripped__"
-              ]
-            },
-            "length": 0,
-            "time": 0,
-            "bugs": 0,
-            "effort": 0,
-            "volume": 0,
-            "difficulty": 0,
-            "vocabulary": 0
           }
         }
       },
@@ -144,7 +110,41 @@
       },
       {
         "name": "<anonymous>",
-        "line": 35,
+        "line": 32,
+        "complexity": {
+          "sloc": {
+            "physical": 1,
+            "logical": 0
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 0,
+              "total": 0,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 0,
+              "total": 0,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 0,
+            "time": 0,
+            "bugs": 0,
+            "effort": 0,
+            "volume": 0,
+            "difficulty": 0,
+            "vocabulary": 0
+          }
+        }
+      },
+      {
+        "name": "<anonymous>",
+        "line": 36,
         "complexity": {
           "sloc": {
             "physical": 11,
@@ -178,7 +178,7 @@
       },
       {
         "name": "<anonymous>.element",
-        "line": 60,
+        "line": 61,
         "complexity": {
           "sloc": {
             "physical": 21,
@@ -212,7 +212,7 @@
       },
       {
         "name": "<anonymous>",
-        "line": 74,
+        "line": 75,
         "complexity": {
           "sloc": {
             "physical": 5,

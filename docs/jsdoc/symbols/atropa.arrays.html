@@ -209,6 +209,8 @@ ul.inheritsList
 	
 	<li><a href="../symbols/atropa.inquire.html">atropa.inquire</a></li>
 	
+	<li><a href="../symbols/atropa.InvalidArgumentTypesError.html">atropa.InvalidArgumentTypesError</a></li>
+	
 	<li><a href="../symbols/atropa.objects.html">atropa.objects</a></li>
 	
 	<li><a href="../symbols/atropa.random.html">atropa.random</a></li>
@@ -248,7 +250,7 @@ ul.inheritsList
 <!-- ============================== class summary ========================== -->			
 			<p class="description">
 				<br />Version
-					20120909.<br />
+					20130221.<br />
 				
 				
 			
@@ -323,7 +325,7 @@ ul.inheritsList
 							<td class="nameDescription">
 								<div class="fixedFont">atropa.arrays.<b><a href="../symbols/atropa.arrays.html#.intersect">intersect</a></b>(array1, array2)
 								</div>
-								<div class="description"></div>
+								<div class="description">Returns an array of values found in both of the given arrays.</div>
 							</td>
 						</tr>
 					
@@ -332,7 +334,7 @@ ul.inheritsList
 							<td class="nameDescription">
 								<div class="fixedFont">atropa.arrays.<b><a href="../symbols/atropa.arrays.html#.match">match</a></b>(array1, array2)
 								</div>
-								<div class="description">Compares two arrays based on size and contents.</div>
+								<div class="description">Compares two arrays based on size, contents, and element order.</div>
 							</td>
 						</tr>
 					
@@ -377,7 +379,7 @@ ul.inheritsList
 							<td class="nameDescription">
 								<div class="fixedFont">atropa.arrays.<b><a href="../symbols/atropa.arrays.html#.subtract">subtract</a></b>(a, fromB)
 								</div>
-								<div class="description">Subtracts one array of scalar values from another array of scalar values.</div>
+								<div class="description">Subtracts one array from another array based on the unique values in both sets.</div>
 							</td>
 						</tr>
 					
@@ -444,6 +446,18 @@ ul.inheritsList
 					
 					
 					
+					<pre class="code">var x = [1,1,1,1,1,3,3];atropa.arrays.getFrequency(x);// returns {//     "1": 5,//     "3": 2// }</pre>
+					
+					<pre class="code">var x = ["bill", "fred", "fred", "jane"];atropa.arrays.getFrequency(x);// returns {//     "bill": 1,//     "fred": 2,//     "jane": 1// }</pre>
+					
+					<pre class="code">var x = [1,3,{'aProp' : 'aVal'}];atropa.arrays.getFrequency(x);// returns {//     "1": 1,//     "3": 1,//     "[object Object]": 1// }</pre>
+					
+					<pre class="code">var obj = {'aProp' : 'aVal'};var otherObj = {};var x = [1,3,obj,otherObj,{'aDoughnut' : 'sprinkles'}];atropa.arrays.getFrequency(x);// returns {//     "1": 1,//     "3": 1,//     "[object Object]": 3// }</pre>
+					
+					<pre class="code">var x = [1,3,"toString"];atropa.arrays.getFrequency(x);// returns {//     "1": 1,//     "3": 1,//     "toString": "function toString() {\n    [native code]\n}1"// }</pre>
+					
+					
+					
 						
 							<dl class="detailList">
 							<dt class="heading">Parameters:</dt>
@@ -463,7 +477,7 @@ ul.inheritsList
 							<dl class="detailList">
 							<dt class="heading">Returns:</dt>
 							
-								<dd><span class="light fixedFont">{Object}</span> Returns an object whose keys are each unique elements from the array and their value is their frequency of occurrence within the array.</dd>
+								<dd><span class="light fixedFont">{Object}</span> Returns an object whose keys are each unique elements from the array and their value is their frequency of occurrence within the array. Be careful that your array does not contain values matching object instance property names.</dd>
 							
 							</dl>
 						
@@ -484,6 +498,14 @@ ul.inheritsList
 						
 						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
+					
+					
+					
+					<pre class="code">var x = [1,1,1,4,4,3,6];atropa.arrays.getUnique(x);// returns [ "1", "4", "3", "6" ]</pre>
+					
+					<pre class="code">var x = ["bill", "fred", "jane", "fred"];atropa.arrays.getUnique(x);// returns ["bill", "fred", "jane"]</pre>
+					
+					<pre class="code">var x = [ "bill", {"aProp" : "aValue"}, {"aGuy" : "fred"}, {"aLady" : "jane"} ];atropa.arrays.getUnique(x);// returns [ "bill", "[object Object]" ]</pre>
 					
 					
 					
@@ -518,15 +540,27 @@ ul.inheritsList
 					<a name=".intersect"> </a>
 					<div class="fixedFont">&lt;static&gt; 
 					
-					
+					<span class="light">{Array}</span>
 					<span class="light">atropa.arrays.</span><b>intersect</b>(array1, array2)
 					
 					</div>
 					<div class="description">
+						Returns an array of values found in both of the given arrays.
 						
-						
-						
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
+					
+					
+					
+					<pre class="code">var x = [1,3,4];var y = [3,1,5];atropa.arrays.intersect(x,y);// returns [1,3]</pre>
+					
+					<pre class="code">var x = [1,1,3,4];var y = [3,1,1,5];atropa.arrays.intersect(x,y);// returns [1,1,3]</pre>
+					
+					<pre class="code">var obj = {'aProp' : 'aVal'};var x = [1,3,obj];var y = [3,1,obj];atropa.arrays.intersect(x,y);// returns [1,3,{'aProp' : 'aVal'}]</pre>
+					
+					<pre class="code">var obj = {'aProp' : 'aVal'};var x = [1,3,{'aProp' : 'aVal'}];var y = [3,1,obj];atropa.arrays.intersect(x,y);// returns [1,3] because the two objects are not the same object.</pre>
+					
+					<pre class="code">var x = [1,3,{'aProp' : 'aVal'}];var y = [3,1,{'aProp' : 'aVal'}];atropa.arrays.intersect(x,y);// returns [1,3] because the two objects are not the same object.</pre>
 					
 					
 					
@@ -535,22 +569,29 @@ ul.inheritsList
 							<dt class="heading">Parameters:</dt>
 							
 								<dt>
-									<b>array1</b>
+									<span class="light fixedFont">{Array}</span> <b>array1</b>
 									
 								</dt>
-								<dd></dd>
+								<dd>An array.</dd>
 							
 								<dt>
-									<b>array2</b>
+									<span class="light fixedFont">{Array}</span> <b>array2</b>
 									
 								</dt>
-								<dd></dd>
+								<dd>Another array.</dd>
 							
 							</dl>
 						
 						
 						
 						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Array}</span> Returns an array of values found in both of the given arrays.</dd>
+							
+							</dl>
 						
 						
 						
@@ -565,10 +606,22 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						Compares two arrays based on size and contents.
+						Compares two arrays based on size, contents, and element order.
 						
 						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
+					
+					
+					
+					<pre class="code">var x = [1,2];var y = [1,1,3];atropa.arrays.match(x,y);// returns false</pre>
+					
+					<pre class="code">var x = [1,2];var y = [1,2];atropa.arrays.match(x,y);// returns true</pre>
+					
+					<pre class="code">var x = [1,2];var y = [2,1];atropa.arrays.match(x,y);// returns false because the elements are not in the same order.</pre>
+					
+					<pre class="code">var x = [1,{'aProp' : 'aValue'}];var y = [1,{'aProp' : 'aValue'}];atropa.arrays.match(x,y);// returns false because even though the object looks the same, the// two objects are in fact distinct objects.</pre>
+					
+					<pre class="code">var obj = {'aProp' : 'aValue'};var x = [1,obj];var y = [1,obj];atropa.arrays.match(x,y);// returns true because the objects referenced in the arrays are// in fact the same object.</pre>
 					
 					
 					
@@ -597,7 +650,7 @@ ul.inheritsList
 							<dl class="detailList">
 							<dt class="heading">Returns:</dt>
 							
-								<dd><span class="light fixedFont">{Boolean}</span> Returns true or false depending onwhether or not the arrays matched in size and composition.</dd>
+								<dd><span class="light fixedFont">{Boolean}</span> Returns true or false depending on whether or not the arrays matched in size, composition, and element order.</dd>
 							
 							</dl>
 						
@@ -618,6 +671,10 @@ ul.inheritsList
 						
 						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
+					
+					
+					
+					<pre class="code">var x = [ "a", "b", "c", undefined ];console.log(x); // [ "a", "b", "c", undefined ]console.log(x.length); // 4delete x[1]; // deletes the key from the array but             // the array length remains the same             // at this point the arrays keys are 0, 2, and 3console.log(x); // [ "a", undefined, "c", undefined ]console.log(x.length); // 4x = atropa.arrays.reindex(x);console.log(x); //  [ "a", "c", undefined ]   // note that the last element existed in the array,   // its value was undefined but it did have a key so   // the element remains in the array.   //   // The deleted element was in fact deleted from the array so there was no   // key x[1] at all, when trying to access this non existing element the   // value of undefined was returned.    // This behavior is confusing unless you   // think about the arrayas an object whose properties are named by numbers.   // Accessing an undefined property returns undefined regardless of   // whether the property existed in the past or not.console.log(x.length); // 3</pre>
 					
 					
 					
@@ -661,6 +718,10 @@ ul.inheritsList
 						
 						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
+					
+					
+					
+					<pre class="code">var x = [ 10, , 5, "", '', 7 ];console.log('starting length ' + x.length);console.log(x);x = atropa.arrays.removeEmptyElements(x);console.log('ending length ' + x.length);console.log(x);// displays the following// starting length 6// [10, undefined, 5, "", "", 7]// ending length 3// [10, 5, 7]</pre>
 					
 					
 					
@@ -754,6 +815,10 @@ ul.inheritsList
 					
 					
 					
+					<pre class="code">var x = [3, 2, 9, 26, 10, 1, 99, 15];console.log( atropa.arrays.sortNumerically(x) );// logs [1, 2, 3, 9, 10, 15, 26, 99]</pre>
+					
+					
+					
 						
 							<dl class="detailList">
 							<dt class="heading">Parameters:</dt>
@@ -790,14 +855,24 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						Subtracts one array of scalar values from another array of scalar values.
+						Subtracts one array from another array based on the unique values in both sets.
 						
 						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
 					
 					
 					
-					<pre class="code">var x = [1,2];var y = [1,3];atropa.arrays.subtract(x,y);// [3]</pre>
+					<pre class="code">var x = [1,2];var y = [1,1,3];atropa.arrays.subtract(x,y);// returns [3]</pre>
+					
+					<pre class="code">var x = [1,3];var y = [3,1];atropa.arrays.subtract(x,y);// returns []</pre>
+					
+					<pre class="code">var x = [1,3];var y = [3,1,1,9];atropa.arrays.subtract(x,y);// returns [9]</pre>
+					
+					<pre class="code">var x = [1,3,{'aProp' : 'aVal'}];var y = [3,1,{'aProp' : 'aVal'}];atropa.arrays.subtract(x,y);// returns [{'aProp' : 'aVal'}] because the two objects are not the same object.</pre>
+					
+					<pre class="code">var obj = {'aProp' : 'aVal'};var x = [1,3,obj];var y = [3,1,{'aProp' : 'aVal'}];atropa.arrays.subtract(x,y);// returns [{'aProp' : 'aVal'}] because the two objects are not the same object.</pre>
+					
+					<pre class="code">var obj = {'aProp' : 'aVal'}var x = [1,3,obj];var y = [3,1,obj];atropa.arrays.subtract(x,y);// returns [] because the objects referenced in the arrays are the same object.</pre>
 					
 					
 					
@@ -826,7 +901,7 @@ ul.inheritsList
 							<dl class="detailList">
 							<dt class="heading">Returns:</dt>
 							
-								<dd><span class="light fixedFont">{Array}</span> Returns a new array containing only the unique values found in the largeArray.</dd>
+								<dd><span class="light fixedFont">{Array}</span> Returns a new array containing only the unique values found in <code>fromB</code> that are not present in <code>a</code></dd>
 							
 							</dl>
 						
@@ -847,7 +922,7 @@ ul.inheritsList
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Thu Feb 21 2013 02:49:25 GMT-0500 (EST)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Thu Feb 21 2013 15:30:06 GMT-0500 (EST)
 		</div>
 	</body>
 </html>

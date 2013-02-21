@@ -1,11 +1,11 @@
 {
   "summary": {
     "total": {
-      "sloc": 2958,
+      "sloc": 3156,
       "maintainability": 1660.8171497293577
     },
     "average": {
-      "sloc": 128,
+      "sloc": 137,
       "maintainability": "72.21"
     }
   },
@@ -70,10 +70,10 @@
       },
       "complexity": {
         "aggregate": {
-          "line": 12,
+          "line": 13,
           "complexity": {
             "sloc": {
-              "physical": 187,
+              "physical": 372,
               "logical": 73
             },
             "cyclomatic": 10,
@@ -166,7 +166,7 @@
       },
       "complexity": {
         "aggregate": {
-          "line": 19,
+          "line": 20,
           "complexity": {
             "sloc": {
               "physical": 192,
@@ -214,7 +214,7 @@
       },
       "complexity": {
         "aggregate": {
-          "line": 17,
+          "line": 18,
           "complexity": {
             "sloc": {
               "physical": 198,
@@ -262,7 +262,7 @@
       },
       "complexity": {
         "aggregate": {
-          "line": 14,
+          "line": 15,
           "complexity": {
             "sloc": {
               "physical": 64,
@@ -306,14 +306,14 @@
         "link": "files/Toolbox_enabled_customErrors_js/index.html"
       },
       "jshint": {
-        "messages": 1
+        "messages": 0
       },
       "complexity": {
         "aggregate": {
-          "line": 1,
+          "line": 17,
           "complexity": {
             "sloc": {
-              "physical": 6,
+              "physical": 19,
               "logical": 5
             },
             "cyclomatic": 2,
@@ -358,7 +358,7 @@
       },
       "complexity": {
         "aggregate": {
-          "line": 14,
+          "line": 15,
           "complexity": {
             "sloc": {
               "physical": 47,
@@ -406,7 +406,7 @@
       },
       "complexity": {
         "aggregate": {
-          "line": 13,
+          "line": 14,
           "complexity": {
             "sloc": {
               "physical": 114,
@@ -454,7 +454,7 @@
       },
       "complexity": {
         "aggregate": {
-          "line": 12,
+          "line": 13,
           "complexity": {
             "sloc": {
               "physical": 82,
@@ -502,7 +502,7 @@
       },
       "complexity": {
         "aggregate": {
-          "line": 12,
+          "line": 13,
           "complexity": {
             "sloc": {
               "physical": 293,
@@ -550,7 +550,7 @@
       },
       "complexity": {
         "aggregate": {
-          "line": 12,
+          "line": 13,
           "complexity": {
             "sloc": {
               "physical": 177,
@@ -598,7 +598,7 @@
       },
       "complexity": {
         "aggregate": {
-          "line": 12,
+          "line": 13,
           "complexity": {
             "sloc": {
               "physical": 33,
@@ -646,7 +646,7 @@
       },
       "complexity": {
         "aggregate": {
-          "line": 14,
+          "line": 15,
           "complexity": {
             "sloc": {
               "physical": 6,
@@ -694,7 +694,7 @@
       },
       "complexity": {
         "aggregate": {
-          "line": 35,
+          "line": 36,
           "complexity": {
             "sloc": {
               "physical": 120,
@@ -742,7 +742,7 @@
       },
       "complexity": {
         "aggregate": {
-          "line": 25,
+          "line": 26,
           "complexity": {
             "sloc": {
               "physical": 7,
@@ -790,7 +790,7 @@
       },
       "complexity": {
         "aggregate": {
-          "line": 11,
+          "line": 12,
           "complexity": {
             "sloc": {
               "physical": 171,
@@ -838,7 +838,7 @@
       },
       "complexity": {
         "aggregate": {
-          "line": 17,
+          "line": 18,
           "complexity": {
             "sloc": {
               "physical": 104,
@@ -886,7 +886,7 @@
       },
       "complexity": {
         "aggregate": {
-          "line": 12,
+          "line": 13,
           "complexity": {
             "sloc": {
               "physical": 11,
@@ -934,7 +934,7 @@
       },
       "complexity": {
         "aggregate": {
-          "line": 12,
+          "line": 13,
           "complexity": {
             "sloc": {
               "physical": 69,
@@ -982,7 +982,7 @@
       },
       "complexity": {
         "aggregate": {
-          "line": 11,
+          "line": 12,
           "complexity": {
             "sloc": {
               "physical": 44,
@@ -1030,7 +1030,7 @@
       },
       "complexity": {
         "aggregate": {
-          "line": 12,
+          "line": 13,
           "complexity": {
             "sloc": {
               "physical": 554,
@@ -1078,7 +1078,7 @@
       },
       "complexity": {
         "aggregate": {
-          "line": 12,
+          "line": 13,
           "complexity": {
             "sloc": {
               "physical": 147,

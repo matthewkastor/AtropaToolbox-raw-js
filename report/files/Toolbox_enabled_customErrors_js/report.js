@@ -7,10 +7,10 @@ __report = {
   },
   "complexity": {
     "aggregate": {
-      "line": 1,
+      "line": 17,
       "complexity": {
         "sloc": {
-          "physical": 6,
+          "physical": 19,
           "logical": 5
         },
         "cyclomatic": 2,
@@ -42,10 +42,10 @@ __report = {
     "functions": [
       {
         "name": "InvalidArgumentTypesError",
-        "line": 1,
+        "line": 17,
         "complexity": {
           "sloc": {
-            "physical": 4,
+            "physical": 17,
             "logical": 2
           },
           "cyclomatic": 2,
@@ -79,14 +79,6 @@ __report = {
     "module": "Toolbox\\enabled\\customErrors.js"
   },
   "jshint": {
-    "messages": [
-      {
-        "severity": "error",
-        "line": 4,
-        "column": 2,
-        "message": "Missing semicolon.",
-        "source": "Missing semicolon."
-      }
-    ]
+    "messages": []
   }
 }

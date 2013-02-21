@@ -7,7 +7,7 @@ __report = {
   },
   "complexity": {
     "aggregate": {
-      "line": 12,
+      "line": 13,
       "complexity": {
         "sloc": {
           "physical": 11,
@@ -42,7 +42,7 @@ __report = {
     "functions": [
       {
         "name": "<anonymous>.getFilename",
-        "line": 19,
+        "line": 20,
         "complexity": {
           "sloc": {
             "physical": 4,

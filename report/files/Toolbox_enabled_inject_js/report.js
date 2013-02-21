@@ -7,7 +7,7 @@ __report = {
   },
   "complexity": {
     "aggregate": {
-      "line": 13,
+      "line": 14,
       "complexity": {
         "sloc": {
           "physical": 114,
@@ -42,7 +42,7 @@ __report = {
     "functions": [
       {
         "name": "<anonymous>.element",
-        "line": 43,
+        "line": 44,
         "complexity": {
           "sloc": {
             "physical": 20,
@@ -71,40 +71,6 @@ __report = {
             "effort": 6056.504963722515,
             "bugs": 0.1570204990594726,
             "time": 336.47249798458415
-          }
-        }
-      },
-      {
-        "name": "<anonymous>",
-        "line": 50,
-        "complexity": {
-          "sloc": {
-            "physical": 1,
-            "logical": 0
-          },
-          "cyclomatic": 1,
-          "halstead": {
-            "operators": {
-              "distinct": 0,
-              "total": 0,
-              "identifiers": [
-                "__stripped__"
-              ]
-            },
-            "operands": {
-              "distinct": 0,
-              "total": 0,
-              "identifiers": [
-                "__stripped__"
-              ]
-            },
-            "length": 0,
-            "time": 0,
-            "bugs": 0,
-            "effort": 0,
-            "volume": 0,
-            "difficulty": 0,
-            "vocabulary": 0
           }
         }
       },
@@ -143,8 +109,42 @@ __report = {
         }
       },
       {
+        "name": "<anonymous>",
+        "line": 52,
+        "complexity": {
+          "sloc": {
+            "physical": 1,
+            "logical": 0
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 0,
+              "total": 0,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 0,
+              "total": 0,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 0,
+            "time": 0,
+            "bugs": 0,
+            "effort": 0,
+            "volume": 0,
+            "difficulty": 0,
+            "vocabulary": 0
+          }
+        }
+      },
+      {
         "name": "<anonymous>.hiddenFrame",
-        "line": 78,
+        "line": 79,
         "complexity": {
           "sloc": {
             "physical": 18,
@@ -178,7 +178,7 @@ __report = {
       },
       {
         "name": "<anonymous>.script",
-        "line": 110,
+        "line": 111,
         "complexity": {
           "sloc": {
             "physical": 17,

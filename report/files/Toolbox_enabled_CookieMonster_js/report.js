@@ -7,7 +7,7 @@ __report = {
   },
   "complexity": {
     "aggregate": {
-      "line": 17,
+      "line": 18,
       "complexity": {
         "sloc": {
           "physical": 198,
@@ -42,7 +42,7 @@ __report = {
     "functions": [
       {
         "name": "CookieMonster",
-        "line": 17,
+        "line": 18,
         "complexity": {
           "sloc": {
             "physical": 198,
@@ -76,7 +76,7 @@ __report = {
       },
       {
         "name": "cookie2obj",
-        "line": 40,
+        "line": 41,
         "complexity": {
           "sloc": {
             "physical": 9,
@@ -110,7 +110,7 @@ __report = {
       },
       {
         "name": "bakeCookie",
-        "line": 59,
+        "line": 60,
         "complexity": {
           "sloc": {
             "physical": 9,
@@ -144,7 +144,7 @@ __report = {
       },
       {
         "name": "inspectCookies",
-        "line": 81,
+        "line": 82,
         "complexity": {
           "sloc": {
             "physical": 13,
@@ -178,7 +178,7 @@ __report = {
       },
       {
         "name": "getCookieCallback",
-        "line": 108,
+        "line": 109,
         "complexity": {
           "sloc": {
             "physical": 5,
@@ -212,7 +212,7 @@ __report = {
       },
       {
         "name": "getCookie",
-        "line": 125,
+        "line": 126,
         "complexity": {
           "sloc": {
             "physical": 4,
@@ -246,7 +246,7 @@ __report = {
       },
       {
         "name": "getCookies",
-        "line": 138,
+        "line": 139,
         "complexity": {
           "sloc": {
             "physical": 18,
@@ -280,7 +280,7 @@ __report = {
       },
       {
         "name": "deleteCookie",
-        "line": 166,
+        "line": 167,
         "complexity": {
           "sloc": {
             "physical": 6,
@@ -314,7 +314,7 @@ __report = {
       },
       {
         "name": "deleteCookieObj",
-        "line": 181,
+        "line": 182,
         "complexity": {
           "sloc": {
             "physical": 3,
@@ -348,7 +348,7 @@ __report = {
       },
       {
         "name": "setCookie",
-        "line": 195,
+        "line": 196,
         "complexity": {
           "sloc": {
             "physical": 6,
@@ -382,7 +382,7 @@ __report = {
       },
       {
         "name": "setCookieObj",
-        "line": 211,
+        "line": 212,
         "complexity": {
           "sloc": {
             "physical": 3,

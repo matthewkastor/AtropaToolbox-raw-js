@@ -7,7 +7,7 @@ __report = {
   },
   "complexity": {
     "aggregate": {
-      "line": 19,
+      "line": 20,
       "complexity": {
         "sloc": {
           "physical": 192,
@@ -42,7 +42,7 @@ __report = {
     "functions": [
       {
         "name": "Babbler",
-        "line": 19,
+        "line": 20,
         "complexity": {
           "sloc": {
             "physical": 192,
@@ -76,7 +76,7 @@ __report = {
       },
       {
         "name": "<anonymous>.setWordCount",
-        "line": 34,
+        "line": 35,
         "complexity": {
           "sloc": {
             "physical": 10,
@@ -110,7 +110,7 @@ __report = {
       },
       {
         "name": "resetWordCount",
-        "line": 55,
+        "line": 56,
         "complexity": {
           "sloc": {
             "physical": 4,
@@ -144,7 +144,7 @@ __report = {
       },
       {
         "name": "getWordCount",
-        "line": 68,
+        "line": 69,
         "complexity": {
           "sloc": {
             "physical": 3,
@@ -178,7 +178,7 @@ __report = {
       },
       {
         "name": "generateWord",
-        "line": 85,
+        "line": 86,
         "complexity": {
           "sloc": {
             "physical": 8,
@@ -212,7 +212,7 @@ __report = {
       },
       {
         "name": "punctuate",
-        "line": 104,
+        "line": 105,
         "complexity": {
           "sloc": {
             "physical": 5,
@@ -246,7 +246,7 @@ __report = {
       },
       {
         "name": "generateSentence",
-        "line": 125,
+        "line": 126,
         "complexity": {
           "sloc": {
             "physical": 20,
@@ -280,7 +280,7 @@ __report = {
       },
       {
         "name": "setBabble",
-        "line": 155,
+        "line": 156,
         "complexity": {
           "sloc": {
             "physical": 8,
@@ -314,7 +314,7 @@ __report = {
       },
       {
         "name": "resetBabble",
-        "line": 172,
+        "line": 173,
         "complexity": {
           "sloc": {
             "physical": 4,
@@ -348,7 +348,7 @@ __report = {
       },
       {
         "name": "getBabble",
-        "line": 185,
+        "line": 186,
         "complexity": {
           "sloc": {
             "physical": 3,
@@ -382,7 +382,7 @@ __report = {
       },
       {
         "name": "generateBabble",
-        "line": 199,
+        "line": 200,
         "complexity": {
           "sloc": {
             "physical": 8,

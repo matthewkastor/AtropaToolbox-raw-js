@@ -7,7 +7,7 @@ __report = {
   },
   "complexity": {
     "aggregate": {
-      "line": 14,
+      "line": 15,
       "complexity": {
         "sloc": {
           "physical": 47,
@@ -42,7 +42,7 @@ __report = {
     "functions": [
       {
         "name": "HTMLParser",
-        "line": 14,
+        "line": 15,
         "complexity": {
           "sloc": {
             "physical": 47,
@@ -76,7 +76,7 @@ __report = {
       },
       {
         "name": "<anonymous>.newDocument",
-        "line": 32,
+        "line": 33,
         "complexity": {
           "sloc": {
             "physical": 6,
@@ -110,7 +110,7 @@ __report = {
       },
       {
         "name": "<anonymous>.loadString",
-        "line": 49,
+        "line": 50,
         "complexity": {
           "sloc": {
             "physical": 9,

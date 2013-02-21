@@ -7,7 +7,7 @@ __report = {
   },
   "complexity": {
     "aggregate": {
-      "line": 25,
+      "line": 26,
       "complexity": {
         "sloc": {
           "physical": 7,
@@ -42,7 +42,7 @@ __report = {
     "functions": [
       {
         "name": "atropa.setAsOptionalArg",
-        "line": 25,
+        "line": 26,
         "complexity": {
           "sloc": {
             "physical": 7,

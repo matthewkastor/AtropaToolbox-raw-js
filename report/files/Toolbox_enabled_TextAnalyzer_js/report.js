@@ -7,7 +7,7 @@ __report = {
   },
   "complexity": {
     "aggregate": {
-      "line": 17,
+      "line": 18,
       "complexity": {
         "sloc": {
           "physical": 104,
@@ -42,7 +42,7 @@ __report = {
     "functions": [
       {
         "name": "TextAnalyzer",
-        "line": 17,
+        "line": 18,
         "complexity": {
           "sloc": {
             "physical": 40,
@@ -76,7 +76,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 48,
+        "line": 49,
         "complexity": {
           "sloc": {
             "physical": 5,
@@ -110,7 +110,7 @@ __report = {
       },
       {
         "name": "<anonymous>.getIndex",
-        "line": 67,
+        "line": 68,
         "complexity": {
           "sloc": {
             "physical": 5,
@@ -144,7 +144,7 @@ __report = {
       },
       {
         "name": "<anonymous>.getWordFrequency",
-        "line": 84,
+        "line": 85,
         "complexity": {
           "sloc": {
             "physical": 5,
@@ -178,7 +178,7 @@ __report = {
       },
       {
         "name": "getPhraseFrequency",
-        "line": 96,
+        "line": 97,
         "complexity": {
           "sloc": {
             "physical": 25,
@@ -212,7 +212,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 106,
+        "line": 107,
         "complexity": {
           "sloc": {
             "physical": 10,

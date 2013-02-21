@@ -41,11 +41,6 @@
         /// <field name="xpath" type="">An Xpath toolkit for manipulating the DOM.</field>
         /// <returns type="atropa"/>
                 
-        InvalidArgumentTypesError: function(message) {
-            /// <summary></summary>
-            /// <param name="message" type=""></param>
-        }, 
-        
         removeNodeByReference: function(elementReference) {
             /// <summary>Removes DOM Nodes.</summary>
             /// <param name="elementReference" type="DOM Node">A reference to the DOM Node you want
@@ -137,25 +132,27 @@
         /// <returns type="atropa.arrays"/>
                 
         match: function(array1, array2) {
-            /// <summary>Compares two arrays based on size and contents.</summary>
+            /// <summary>Compares two arrays based on size, contents, and element order.</summary>
             /// <param name="array1" type="Array">One array you want compared to another.</param>
             /// <param name="array2" type="Array">The other array.</param>
             /// <returns type="Boolean">Returns true or false depending on
-            /// whether or not the arrays matched in size and composition.</returns>
+            ///  whether or not the arrays matched in size, composition, and
+            ///  element order.</returns>
         }, 
         
         subtract: function(a, fromB) {
-            /// <summary>Subtracts one array of scalar values from another array of scalar values.</summary>
+            /// <summary>Subtracts one array from another array based on the unique values in both sets.</summary>
             /// <param name="a" type="Array">The array to subtract.</param>
             /// <param name="fromB" type="Array">The array with elements duplicated in &lt;code&gt;a&lt;/code&gt;</param>
             /// <returns type="Array">Returns a new array containing only the unique
-            ///  values found in the largeArray.</returns>
+            ///  values found in &lt;code&gt;fromB&lt;/code&gt; that are not present in &lt;code&gt;a&lt;/code&gt;</returns>
         }, 
         
         intersect: function(array1, array2) {
-            /// <summary></summary>
-            /// <param name="array1" type=""></param>
-            /// <param name="array2" type=""></param>
+            /// <summary>Returns an array of values found in both of the given arrays.</summary>
+            /// <param name="array1" type="Array">An array.</param>
+            /// <param name="array2" type="Array">Another array.</param>
+            /// <returns type="Array">Returns an array of values found in both of the given arrays.</returns>
         }, 
         
         getFrequency: function(arr) {
@@ -163,7 +160,8 @@
             /// <param name="arr" type="Array">The array to calculate frequencies from.</param>
             /// <returns type="Object">Returns an object whose keys are each unique
             ///  elements from the array and their value is their frequency of
-            ///  occurrence within the array.</returns>
+            ///  occurrence within the array. Be careful that your array does
+            ///  not contain values matching object instance property names.</returns>
         }, 
         
         getUnique: function(largeArray) {
@@ -575,6 +573,33 @@
 })(this);
 
   
+
+  
+  
+/* vsdoc for atropa.InvalidArgumentTypesError */
+
+(function (window) {
+    window.atropa = window.atropa || {};
+
+    window.atropa.InvalidArgumentTypesError = function(message){
+        /// <summary></summary>
+        /// <param name="message" type="String">Optional. The error message to send. Defaults to
+        ///  &lt;code&gt;InvalidArgumentTypesError&lt;/code&gt;</param>
+        /// <field name="name" type="">The name of the error. Tells the user what kind of custom
+        /// error has been thrown.</field>
+        /// <field name="message" type="">The error message to send.</field>
+        /// <returns type="atropa.InvalidArgumentTypesError"/>
+    };
+
+    var $x = window.atropa.InvalidArgumentTypesError;
+    $x.prototype = {
+                
+    };
+
+    $x.__class = "true";
+    $x.__typeName = "atropa.InvalidArgumentTypesError";
+})(this);
+
 
   
 /* vsdoc for atropa.objects */
