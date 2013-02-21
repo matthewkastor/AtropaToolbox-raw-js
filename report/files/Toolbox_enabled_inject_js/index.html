@@ -126,24 +126,24 @@ atropa.inject = {};
  * @return {HTML Element} Returns a reference to the HTML Element created and injected.
  */
 atropa.inject.element = function (elementType, docref, parentNod, attributes, onloadHandler, callback) {
-	"use strict";
-	var el,
-	x;
-	docref = atropa.setAsOptionalArg(document, docref);
-	parentNod = atropa.setAsOptionalArg(docref.body, parentNod);
-	attributes = atropa.setAsOptionalArg({}, attributes);
-	onloadHandler = atropa.setAsOptionalArg(function () {}, onloadHandler);
-	callback = atropa.setAsOptionalArg(function () {}, callback);
-	el = docref.createElement(elementType);
-	for (x in attributes) {
-		if (attributes.hasOwnProperty(x)) {
-			el.setAttribute(x, attributes[x]);
-		}
-	}
-	el.addEventListener('load', onloadHandler, true);
-	callback(el);
-	parentNod.appendChild(el);
-	return el;
+    "use strict";
+    var el,
+    x;
+    docref = atropa.setAsOptionalArg(document, docref);
+    parentNod = atropa.setAsOptionalArg(docref.body, parentNod);
+    attributes = atropa.setAsOptionalArg({}, attributes);
+    onloadHandler = atropa.setAsOptionalArg(function () {}, onloadHandler);
+    callback = atropa.setAsOptionalArg(function () {}, callback);
+    el = docref.createElement(elementType);
+    for (x in attributes) {
+        if (attributes.hasOwnProperty(x)) {
+            el.setAttribute(x, attributes[x]);
+        }
+    }
+    el.addEventListener('load', onloadHandler, true);
+    callback(el);
+    parentNod.appendChild(el);
+    return el;
 };
 /**
  * Hidden Iframe Injector.
@@ -161,22 +161,22 @@ atropa.inject.element = function (elementType, docref, parentNod, attributes, on
  * on optional parameters.
  */
 atropa.inject.hiddenFrame = function (id, srcURL, docref, callback, parentNod) {
-	"use strict";
-	var attributes,
-	elementType,
-	onloadHandler,
-	el;
-	attributes = {
-		"id" : id,
-		"src" : srcURL,
-		"width" : "0px",
-		"height" : "0px",
-		"border" : "0px"
-	};
-	elementType = 'iframe';
-	onloadHandler = callback;
-	el = atropa.inject.element(elementType, docref, parentNod, attributes, onloadHandler);
-	return el;
+    "use strict";
+    var attributes,
+    elementType,
+    onloadHandler,
+    el;
+    attributes = {
+        "id" : id,
+        "src" : srcURL,
+        "width" : "0px",
+        "height" : "0px",
+        "border" : "0px"
+    };
+    elementType = 'iframe';
+    onloadHandler = callback;
+    el = atropa.inject.element(elementType, docref, parentNod, attributes, onloadHandler);
+    return el;
 };
 /**
  * Script Injector.
@@ -193,21 +193,21 @@ atropa.inject.hiddenFrame = function (id, srcURL, docref, callback, parentNod) {
  * on optional parameters.
  */
 atropa.inject.script = function (id, srcURL, docref, callback) {
-	"use strict";
-	var attributes,
-	elementType,
-	parentNod,
-	onloadHandler,
-	el;
-	attributes = {
-		"id" : id,
-		"type" : "text/javascript",
-		"src" : srcURL
-	};
-	elementType = 'script';
-	onloadHandler = callback;
-	el = atropa.inject.element(elementType, docref, parentNod, attributes, onloadHandler);
-	return el;
+    "use strict";
+    var attributes,
+    elementType,
+    parentNod,
+    onloadHandler,
+    el;
+    attributes = {
+        "id" : id,
+        "type" : "text/javascript",
+        "src" : srcURL
+    };
+    elementType = 'script';
+    onloadHandler = callback;
+    el = atropa.inject.element(elementType, docref, parentNod, attributes, onloadHandler);
+    return el;
 };</textarea>
   </div>
 </div>

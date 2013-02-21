@@ -113,19 +113,19 @@ atropa.window = {};
  *  returns something truthy.
  */
 atropa.window.open = function(url, callback, testFn) {
-	"use strict";
+    "use strict";
     var win;
-	
-	function defaultTestFn(win){
-		return win.document.readyState === 'complete';
-	}
-	
-	testFn = atropa.setAsOptionalArg(defaultTestFn, testFn);
-	
+    
+    function defaultTestFn(win){
+        return win.document.readyState === 'complete';
+    }
+    
+    testFn = atropa.setAsOptionalArg(defaultTestFn, testFn);
+    
     function ops(url) {
         return window.open(url);
     }
-	
+    
     function blks(win) {
         if(testFn(win)) {
             callback(win);
@@ -133,7 +133,7 @@ atropa.window.open = function(url, callback, testFn) {
             setTimeout(blks, 250, win);
         }
     }
-	
+    
     win = ops(url);
     setTimeout(blks, 0, win);
 };</textarea>

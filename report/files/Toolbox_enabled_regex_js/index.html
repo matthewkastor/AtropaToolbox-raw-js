@@ -112,20 +112,20 @@ atropa.regex = {};
  * words.
  */
 atropa.regex.appendPrefixesAndSuffixes = function (word, threshold) {
-	"use strict";
-	var prefixes,
-	suffixes;
-	prefixes = '(pre|un|re)?';
-	suffixes = '(ification|tionally|ication|ified|istic|iness|fare|tion|ance|ence|less|ally|able|ness|ized|ised|ous|ify|ing|ity|ful|ant|ate|est|ism|izm|ist|ic|al|ed|er|et|ly|rs|in|y|s|r|d)?';
-	
-	threshold = threshold === undefined ? 3 : threshold;
-	
-	if (word.length > threshold) {
-		word = '\\b' + prefixes + word + suffixes + '\\b';
-	} else {
-		word = '\\b()' + word + '()\\b';
-	}
-	return word;
+    "use strict";
+    var prefixes,
+    suffixes;
+    prefixes = '(pre|un|re)?';
+    suffixes = '(ification|tionally|ication|ified|istic|iness|fare|tion|ance|ence|less|ally|able|ness|ized|ised|ous|ify|ing|ity|ful|ant|ate|est|ism|izm|ist|ic|al|ed|er|et|ly|rs|in|y|s|r|d)?';
+    
+    threshold = threshold === undefined ? 3 : threshold;
+    
+    if (word.length > threshold) {
+        word = '\\b' + prefixes + word + suffixes + '\\b';
+    } else {
+        word = '\\b()' + word + '()\\b';
+    }
+    return word;
 };</textarea>
   </div>
 </div>

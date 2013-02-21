@@ -122,14 +122,14 @@ atropa.objects = {};
  *  http://www.ecma-international.org/ecma-262/5.1/#sec-12.6.4</a>
  */
 atropa.objects.convertObjectToArray = function convertObjectToArray(obj) {
-	"use strict";
-	var prop, out = [];
+    "use strict";
+    var prop, out = [];
     for (prop in obj) {
         if (obj.hasOwnProperty(prop)) {
             out.push([prop, obj[prop]]);
         }
     }
-	return out;
+    return out;
 };
 /**
  * Converts an object into an array of arrays and allows for reliable sorting and enumeration.
@@ -193,7 +193,7 @@ atropa.objects.convertObjectToArray = function convertObjectToArray(obj) {
  *  https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/sort</a>
  */
 atropa.objects.sort = function sort(obj, sortFn) {
-	"use strict";
+    "use strict";
     return atropa.objects.convertObjectToArray(obj).sort(sortFn);
 };
 /**
@@ -227,11 +227,11 @@ atropa.objects.sort = function sort(obj, sortFn) {
  * @see atropa.objects.sort
  */
 atropa.objects.sortValues = function sortValues(obj, sortFn) {
-	"use strict";
-	var valSort = function(a, b) {
-		return sortFn(a[1], b[1]);
-	};
-	return atropa.objects.sort(obj, valSort);
+    "use strict";
+    var valSort = function(a, b) {
+        return sortFn(a[1], b[1]);
+    };
+    return atropa.objects.sort(obj, valSort);
 };
 /**
  * Sorts an object by its properties using a user defined algorithm.
@@ -264,11 +264,11 @@ atropa.objects.sortValues = function sortValues(obj, sortFn) {
  * @see atropa.objects.sort
  */
 atropa.objects.sortProperties = function sortValues(obj, sortFn) {
-	"use strict";
-	var propSort = function(a, b) {
-		return sortFn(a[0], b[0]);
-	};
-	return atropa.objects.sort(obj, propSort);
+    "use strict";
+    var propSort = function(a, b) {
+        return sortFn(a[0], b[0]);
+    };
+    return atropa.objects.sort(obj, propSort);
 };
 /**
  * Sorts an object by its values numerically.
@@ -293,11 +293,11 @@ atropa.objects.sortProperties = function sortValues(obj, sortFn) {
  * @see atropa.objects.sort
  */
 atropa.objects.sortValuesNumerically = function sortValuesNumerically(obj) {
-	"use strict";
-	function sortFn(a, b) {
+    "use strict";
+    function sortFn(a, b) {
         return (a - b);
     }
-	return atropa.objects.sortValues(obj, sortFn);
+    return atropa.objects.sortValues(obj, sortFn);
 };
 /**
  * Sorts an object by its values lexicographically.
@@ -322,11 +322,11 @@ atropa.objects.sortValuesNumerically = function sortValuesNumerically(obj) {
  * @see atropa.objects.sort
  */
 atropa.objects.sortValuesAlphabetically = function sortValuesAlphabetically(obj) {
-	"use strict";
-	function sortFn(a, b) {
+    "use strict";
+    function sortFn(a, b) {
         return (a.localeCompare(b));
     }
-	return atropa.objects.sortValues(obj, sortFn);
+    return atropa.objects.sortValues(obj, sortFn);
 };
 /**
  * Sorts an object by its properties numerically.
@@ -351,11 +351,11 @@ atropa.objects.sortValuesAlphabetically = function sortValuesAlphabetically(obj)
  * @see atropa.objects.sort
  */
 atropa.objects.sortPropertiesNumerically = function sortPropertiesNumerically(obj) {
-	"use strict";
-	function sortFn(a, b) {
+    "use strict";
+    function sortFn(a, b) {
         return (a - b);
     }
-	return atropa.objects.sortProperties(obj, sortFn);
+    return atropa.objects.sortProperties(obj, sortFn);
 };
 /**
  * Sorts an object by its properties lexicographically.
@@ -381,11 +381,11 @@ atropa.objects.sortPropertiesNumerically = function sortPropertiesNumerically(ob
  * @see atropa.objects.sort
  */
 atropa.objects.sortPropertiesAlphabetically = function sortPropertiesAlphabetically(obj) {
-	"use strict";
-	function sortFn(a, b) {
+    "use strict";
+    function sortFn(a, b) {
         return (a.localeCompare(b));
     }
-	return atropa.objects.sortProperties(obj, sortFn);
+    return atropa.objects.sortProperties(obj, sortFn);
 };</textarea>
   </div>
 </div>

@@ -100,202 +100,202 @@
  * @returns {CookieMonster} A cookie handler.
  */
 atropa.CookieMonster = function CookieMonster() {
-	'use strict';
-	var currentCookies,
-	getCookieCallback;
-	
-	/**
-	 * This holds the current cookie object array.
-	 * @private
-	 * @type Array
-	 * @fieldOf atropa.CookieMonster-
-	 */
-	currentCookies = [];
-	/**
-	 * Converts a cookie string into an object.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.CookieMonster#
-	 * @param {String} cookie A cookie represented as a string
-	 * <code>cookieName=cookieVal;</code>
-	 * @returns {cookieObj} Returns a cookie object.
-	 */
-	this.cookie2obj = function cookie2obj(cookie) {
-		var cookieObj = {};
-		if (!cookie) {
-			return false;
-		}
-		cookieObj.key = cookie.substr(0, cookie.indexOf("="));
-		cookieObj.val = cookie.substr(cookie.indexOf("=") + 1);
-		return cookieObj;
-	};
-	/**
-	 * Converts a cookie object to a cookie string.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.CookieMonster#
-	 * @param {Object} cookieObj A cookie object
-	 * @returns {String} Returns a cookie string.
-	 */
-	this.bakeCookie = function bakeCookie(cookieObj) {
-		var cookie = '',
-		key,
-		val;
-		key = cookieObj.key;
-		val = cookieObj.val;
-		cookie = key + '=' + val + ';';
-		return cookie;
-	};
-	/**
-	 * Checks cookies for worms based on a user defined
-	 * callback function.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.CookieMonster#
-	 * @param {function} callback
-	 * @param {Array} args arguments to pass to the callback
-	 * function
-	 * @returns {Array} An array of cookie objects.
-	 */
-	this.inspectCookies = function inspectCookies(callback, args) {
-		var testCookie,
-		cookies,
-		jar = [];
-		cookies = this.getCookies();
-		while (cookies.length > 0) {
-			testCookie = cookies.shift();
-			if (callback(testCookie, args) !== false) {
-				jar.push(testCookie);
-			}
-		}
-		return jar;
-	};
-	/**
-	 * Internal callback function used while getting the current
-	 * cookies.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @private
-	 * @methodOf atropa.CookieMonster-
-	 * @param {cookieObj} testCookie A cookie object
-	 * @param {String} args argument used in comparison function
-	 * @returns {Boolean} If cookie key is exactly equal to the argument
-	 * then the callback returns true.
-	 */
-	getCookieCallback = function getCookieCallback(testCookie, args) {
-		if (testCookie.key === args) {
-			return true;
-		}
-	};
-	/**
-	 * Gets a user requested cookie.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.CookieMonster#
-	 * @param {String} whichKey The cookies key (name)
-	 * @returns {cookieObj|false} Returns a cookie object if
-	 * a cookie with the specified key is found or false if
-	 * it is not found.
-	 */
-	this.getCookie = function getCookie(whichKey) {
-		var result = this.inspectCookies(getCookieCallback, whichKey);
-		return result[0] || false;
-	};
-	/**
-	 * Get all cookies.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.CookieMonster#
-	 * @returns {Array} An array whose elements are cookie objects.
-	 */
-	this.getCookies = function getCookies() {
-		var n,
-		l,
-		cookieArray,
-		cookieObj;
-		currentCookies = [];
-		cookieArray = document.cookie.split(";");
-		for (n = 0, l = cookieArray.length; n < l; n++) {
-			cookieObj = false;
-			if (cookieArray[n]) {
-				cookieObj = this.cookie2obj(cookieArray[n]);
-				if (cookieObj) {
-					currentCookies.push(cookieObj);
-				}
-			}
-		}
-		return currentCookies;
-	};
-	/**
-	 * Deletes a specified cookie by user submitted string.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.CookieMonster#
-	 * @param {String} whichKey The cookies key (name) that
-	 * will be deleted.
-	 */
-	this.deleteCookie = function deleteCookie(whichKey) {
-		var cookieObj;
-		cookieObj.key = whichKey;
-		cookieObj.val = ';expires=Thu, 2 Aug 2001 20:47:11 UTC';
-		document.cookie = this.bakeCookie(cookieObj);
-	};
-	/**
-	 * Deletes a specified cookie by user submitted cookieObj.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.CookieMonster#
-	 * @param {cookieObj} cookieObj A cookie object.
-	 */
-	this.deleteCookieObj = function deleteCookieObj(cookieObj) {
-		this.deleteCookie(cookieObj.key);
-	};
-	/**
-	 * Sets a cookie per user specifications as strings. The cookie
-	 * will expire when the browser is closed.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.CookieMonster#
-	 * @param {String} whichKey The key (name) of the new cookie
-	 * @param {String} setTo The value of the new cookie.
-	 */
-	this.setCookie = function setCookie(whichKey, setTo) {
-		var newCookie = {};
-		newCookie.key = whichKey;
-		newCookie.val = setTo;
-		document.cookie = this.bakeCookie(newCookie);
-	};
-	/**
-	 * Sets a cookie per user specifications as an object.
-	 * The cookie will expire when the browser is closed.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.CookieMonster#
-	 * @param {cookieObj} cookieObj A cookie object.
-	 */
-	this.setCookieObj = function setCookieObj(cookieObj) {
-		return this.setCookie(cookieObj.key, cookieObj.val);
-	};
+    'use strict';
+    var currentCookies,
+    getCookieCallback;
+    
+    /**
+     * This holds the current cookie object array.
+     * @private
+     * @type Array
+     * @fieldOf atropa.CookieMonster-
+     */
+    currentCookies = [];
+    /**
+     * Converts a cookie string into an object.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.CookieMonster#
+     * @param {String} cookie A cookie represented as a string
+     * <code>cookieName=cookieVal;</code>
+     * @returns {cookieObj} Returns a cookie object.
+     */
+    this.cookie2obj = function cookie2obj(cookie) {
+        var cookieObj = {};
+        if (!cookie) {
+            return false;
+        }
+        cookieObj.key = cookie.substr(0, cookie.indexOf("="));
+        cookieObj.val = cookie.substr(cookie.indexOf("=") + 1);
+        return cookieObj;
+    };
+    /**
+     * Converts a cookie object to a cookie string.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.CookieMonster#
+     * @param {Object} cookieObj A cookie object
+     * @returns {String} Returns a cookie string.
+     */
+    this.bakeCookie = function bakeCookie(cookieObj) {
+        var cookie = '',
+        key,
+        val;
+        key = cookieObj.key;
+        val = cookieObj.val;
+        cookie = key + '=' + val + ';';
+        return cookie;
+    };
+    /**
+     * Checks cookies for worms based on a user defined
+     * callback function.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.CookieMonster#
+     * @param {function} callback
+     * @param {Array} args arguments to pass to the callback
+     * function
+     * @returns {Array} An array of cookie objects.
+     */
+    this.inspectCookies = function inspectCookies(callback, args) {
+        var testCookie,
+        cookies,
+        jar = [];
+        cookies = this.getCookies();
+        while (cookies.length > 0) {
+            testCookie = cookies.shift();
+            if (callback(testCookie, args) !== false) {
+                jar.push(testCookie);
+            }
+        }
+        return jar;
+    };
+    /**
+     * Internal callback function used while getting the current
+     * cookies.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @private
+     * @methodOf atropa.CookieMonster-
+     * @param {cookieObj} testCookie A cookie object
+     * @param {String} args argument used in comparison function
+     * @returns {Boolean} If cookie key is exactly equal to the argument
+     * then the callback returns true.
+     */
+    getCookieCallback = function getCookieCallback(testCookie, args) {
+        if (testCookie.key === args) {
+            return true;
+        }
+    };
+    /**
+     * Gets a user requested cookie.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.CookieMonster#
+     * @param {String} whichKey The cookies key (name)
+     * @returns {cookieObj|false} Returns a cookie object if
+     * a cookie with the specified key is found or false if
+     * it is not found.
+     */
+    this.getCookie = function getCookie(whichKey) {
+        var result = this.inspectCookies(getCookieCallback, whichKey);
+        return result[0] || false;
+    };
+    /**
+     * Get all cookies.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.CookieMonster#
+     * @returns {Array} An array whose elements are cookie objects.
+     */
+    this.getCookies = function getCookies() {
+        var n,
+        l,
+        cookieArray,
+        cookieObj;
+        currentCookies = [];
+        cookieArray = document.cookie.split(";");
+        for (n = 0, l = cookieArray.length; n < l; n++) {
+            cookieObj = false;
+            if (cookieArray[n]) {
+                cookieObj = this.cookie2obj(cookieArray[n]);
+                if (cookieObj) {
+                    currentCookies.push(cookieObj);
+                }
+            }
+        }
+        return currentCookies;
+    };
+    /**
+     * Deletes a specified cookie by user submitted string.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.CookieMonster#
+     * @param {String} whichKey The cookies key (name) that
+     * will be deleted.
+     */
+    this.deleteCookie = function deleteCookie(whichKey) {
+        var cookieObj;
+        cookieObj.key = whichKey;
+        cookieObj.val = ';expires=Thu, 2 Aug 2001 20:47:11 UTC';
+        document.cookie = this.bakeCookie(cookieObj);
+    };
+    /**
+     * Deletes a specified cookie by user submitted cookieObj.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.CookieMonster#
+     * @param {cookieObj} cookieObj A cookie object.
+     */
+    this.deleteCookieObj = function deleteCookieObj(cookieObj) {
+        this.deleteCookie(cookieObj.key);
+    };
+    /**
+     * Sets a cookie per user specifications as strings. The cookie
+     * will expire when the browser is closed.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.CookieMonster#
+     * @param {String} whichKey The key (name) of the new cookie
+     * @param {String} setTo The value of the new cookie.
+     */
+    this.setCookie = function setCookie(whichKey, setTo) {
+        var newCookie = {};
+        newCookie.key = whichKey;
+        newCookie.val = setTo;
+        document.cookie = this.bakeCookie(newCookie);
+    };
+    /**
+     * Sets a cookie per user specifications as an object.
+     * The cookie will expire when the browser is closed.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.CookieMonster#
+     * @param {cookieObj} cookieObj A cookie object.
+     */
+    this.setCookieObj = function setCookieObj(cookieObj) {
+        return this.setCookie(cookieObj.key, cookieObj.val);
+    };
 };</textarea>
   </div>
 </div>

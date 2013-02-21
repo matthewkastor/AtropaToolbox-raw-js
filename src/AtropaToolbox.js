@@ -70,144 +70,144 @@ atropa = {};
  * }
  */
 atropa.ArgsInfo = function ArgsInfo() {
-	'use strict';
-	var expectedArgTypes,
-	checkArgs,
-	that;
-	/**
-	 * Holds the proper reference to <code>this</code>
-	 * for private functions.
-	 * @type This
-	 * @private
-	 * @fieldOf atropa.ArgsInfo-
-	 */
-	that = this;
-	/**
-	 * Holds the expected argument types object.
-	 * @private
-	 * @type Expected Arg Types
-	 * @fieldOf atropa.ArgsInfo-
-	 */
-	expectedArgTypes = {};
-	/**
-	 * Sets the expected argument types.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.ArgsInfo#
-	 * @param {Expected Arg Types} typesObj An object containing information about the
-	 * types of arguments you expect. Specifically, the object should look like the example.
-	 * @example
-	 * // typesObj is expected to be of the form:
-	 * 
-	 * var typesObj = {
-	 *     "namedArgumentTypesArray" : ["string", "function", "number"],
-	 *     "namedAlternateArgumentTypesArray" : ["object", "function", "number"]
-	 * };
-	 * 
-	 * // You may use as many named arrays as you wish and checkArgTypes will
-	 * // test for a match to at least one of the provided named arrays.
-	 * @throws {atropa.InvalidArgumentTypesError} Throws an error if the typesObj
-	 *  can not be used to set the expected argument types.
-	 */
-	this.setExpectedArgTypes = function setExpectedArgTypes(typesObj) {
-		var names;
-		names = Object.keys(typesObj);
-		if (names.length < 1) {
-			throw new atropa.InvalidArgumentTypesError('typesObj is expected to be of the form: var typesObj = ' +
-				'{ "namedArgumentTypesArray" : ["string", "function", "number"]' +
-				', "namedAlternateArgumentTypesArray" : ["object", "function",' +
-				'"number"] }; You may use as many named arrays as you wish and' +
-				'checkArgTypes will test for a match to at least one of the ' +
-				'provided named arrays.');
-		}
-		expectedArgTypes = typesObj;
-	};
-	/**
-	 * Gets the types of arguments.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.ArgsInfo#
-	 * @param {arguments} args An arguments object, or anything you want to
-	 * check the type of.
-	 * @returns {Array} Returns an array of the types of arguments passed in.
-	 */
-	this.getArgTypes = function getArgTypes(args) {
-		var x,
-		argTypes;
-		argTypes = [];
-		for (x in args) {
-			if (args.hasOwnProperty(x)) {
-				argTypes.push(typeof(args[x]));
-			}
-		}
-		return argTypes;
-	};
-	/**
-	 * Compares the expected arguments types to the
-	 * received arguments types.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @private
-	 * @methodOf atropa.ArgsInfo-
-	 * @param {Array} expectedTypesArray An array taken from the user
-	 * created argument types object.
-	 * @param {arguments} args an arguments object.
-	 * @returns {Boolean} Returns true if the expected types match for type
-	 * and in the same order as the received types.
-	 * @requires atropa.arrays.match
-	 */
-	checkArgs = function checkArgs(expectedTypesArray, args) {
-		var types;
-		types = {};
-		types.expected = expectedTypesArray;
-		types.received = that.getArgTypes(args);
-		return atropa.arrays.match(types.expected, types.received);
-	};
-	/**
-	 * Checks the given arguments object against the expected
-	 * arguments types.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.ArgsInfo#
-	 * @param {arguments} args An arguments object
-	 * @returns {String} The user assigned key which matches the
-	 * arguments supplied, or throws an error.
-	 * @throws {atropa.InvalidArgumentTypesError} Throws an error if no matching
-	 *  pattern of argument types can be found for <code>args</code>
-	 * @see atropa.ArgsInfo#setExpectedArgTypes
-	 */
-	this.checkArgTypes = function checkArgTypes(args) {
-		var expectedTypes;
-		if (Object.keys(expectedArgTypes).length < 1) {
-			throw new atropa.InvalidArgumentTypesError('Expected argument types is not set. Use ' +
-				'setExpectedArgTypes(typesObj) to set. typesObj is an ' +
-				'object whose properties are arrays of strings representing ' +
-				'the typeof(argument) for each argument, in the exact order ' +
-				'in which they will be given to the function. Using multiple ' +
-				'properties it is possible to define alternative acceptable ' +
-				'argument type sets. Use getArgTypes(arguments) as a ' +
-				'convenient way of getting the array you want to hard code ' +
-				'in for validation. Example: var typesObj = ' +
-				'{ "messageIncluded" : ["string", "function", "number"], ' +
-				'"messageNotIncluded" : ["object", "function", "number"] };');
-		}
-		for (expectedTypes in expectedArgTypes) {
-			if (expectedArgTypes.hasOwnProperty(expectedTypes)) {
-				if (checkArgs(expectedArgTypes[expectedTypes], args)) {
-					return expectedTypes;
-				}
-			}
-		}
-		throw new atropa.InvalidArgumentTypesError('invalid argument type @ atropa.ArgsInfo.checkArgTypes');
-	};
+    'use strict';
+    var expectedArgTypes,
+    checkArgs,
+    that;
+    /**
+     * Holds the proper reference to <code>this</code>
+     * for private functions.
+     * @type This
+     * @private
+     * @fieldOf atropa.ArgsInfo-
+     */
+    that = this;
+    /**
+     * Holds the expected argument types object.
+     * @private
+     * @type Expected Arg Types
+     * @fieldOf atropa.ArgsInfo-
+     */
+    expectedArgTypes = {};
+    /**
+     * Sets the expected argument types.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.ArgsInfo#
+     * @param {Expected Arg Types} typesObj An object containing information about the
+     * types of arguments you expect. Specifically, the object should look like the example.
+     * @example
+     * // typesObj is expected to be of the form:
+     * 
+     * var typesObj = {
+     *     "namedArgumentTypesArray" : ["string", "function", "number"],
+     *     "namedAlternateArgumentTypesArray" : ["object", "function", "number"]
+     * };
+     * 
+     * // You may use as many named arrays as you wish and checkArgTypes will
+     * // test for a match to at least one of the provided named arrays.
+     * @throws {atropa.InvalidArgumentTypesError} Throws an error if the typesObj
+     *  can not be used to set the expected argument types.
+     */
+    this.setExpectedArgTypes = function setExpectedArgTypes(typesObj) {
+        var names;
+        names = Object.keys(typesObj);
+        if (names.length < 1) {
+            throw new atropa.InvalidArgumentTypesError('typesObj is expected to be of the form: var typesObj = ' +
+                '{ "namedArgumentTypesArray" : ["string", "function", "number"]' +
+                ', "namedAlternateArgumentTypesArray" : ["object", "function",' +
+                '"number"] }; You may use as many named arrays as you wish and' +
+                'checkArgTypes will test for a match to at least one of the ' +
+                'provided named arrays.');
+        }
+        expectedArgTypes = typesObj;
+    };
+    /**
+     * Gets the types of arguments.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.ArgsInfo#
+     * @param {arguments} args An arguments object, or anything you want to
+     * check the type of.
+     * @returns {Array} Returns an array of the types of arguments passed in.
+     */
+    this.getArgTypes = function getArgTypes(args) {
+        var x,
+        argTypes;
+        argTypes = [];
+        for (x in args) {
+            if (args.hasOwnProperty(x)) {
+                argTypes.push(typeof(args[x]));
+            }
+        }
+        return argTypes;
+    };
+    /**
+     * Compares the expected arguments types to the
+     * received arguments types.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @private
+     * @methodOf atropa.ArgsInfo-
+     * @param {Array} expectedTypesArray An array taken from the user
+     * created argument types object.
+     * @param {arguments} args an arguments object.
+     * @returns {Boolean} Returns true if the expected types match for type
+     * and in the same order as the received types.
+     * @requires atropa.arrays.match
+     */
+    checkArgs = function checkArgs(expectedTypesArray, args) {
+        var types;
+        types = {};
+        types.expected = expectedTypesArray;
+        types.received = that.getArgTypes(args);
+        return atropa.arrays.match(types.expected, types.received);
+    };
+    /**
+     * Checks the given arguments object against the expected
+     * arguments types.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.ArgsInfo#
+     * @param {arguments} args An arguments object
+     * @returns {String} The user assigned key which matches the
+     * arguments supplied, or throws an error.
+     * @throws {atropa.InvalidArgumentTypesError} Throws an error if no matching
+     *  pattern of argument types can be found for <code>args</code>
+     * @see atropa.ArgsInfo#setExpectedArgTypes
+     */
+    this.checkArgTypes = function checkArgTypes(args) {
+        var expectedTypes;
+        if (Object.keys(expectedArgTypes).length < 1) {
+            throw new atropa.InvalidArgumentTypesError('Expected argument types is not set. Use ' +
+                'setExpectedArgTypes(typesObj) to set. typesObj is an ' +
+                'object whose properties are arrays of strings representing ' +
+                'the typeof(argument) for each argument, in the exact order ' +
+                'in which they will be given to the function. Using multiple ' +
+                'properties it is possible to define alternative acceptable ' +
+                'argument type sets. Use getArgTypes(arguments) as a ' +
+                'convenient way of getting the array you want to hard code ' +
+                'in for validation. Example: var typesObj = ' +
+                '{ "messageIncluded" : ["string", "function", "number"], ' +
+                '"messageNotIncluded" : ["object", "function", "number"] };');
+        }
+        for (expectedTypes in expectedArgTypes) {
+            if (expectedArgTypes.hasOwnProperty(expectedTypes)) {
+                if (checkArgs(expectedArgTypes[expectedTypes], args)) {
+                    return expectedTypes;
+                }
+            }
+        }
+        throw new atropa.InvalidArgumentTypesError('invalid argument type @ atropa.ArgsInfo.checkArgTypes');
+    };
 };
 
 
@@ -622,95 +622,95 @@ atropa.arrays.sortAlphabetically = function sortAlphabetically(arr) {
  * actor.start();
  */
 atropa.SerialActor = function(actorName, actorFunction) {
-	"use strict";
-	var that, dummyActor;
-	/**
-	 * Reference to <code>this</code>
-	 * @fieldOf atropa.SerialActor-
-	 */
-	that = this;
-	/**
-	 * Default actorFunction
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20130220
-	 * @methodOf atropa.SerialActor-
-	 */
-	dummyActor = function(){
-		console.log('actorFunction would execute');
-		console.log('freeing Serial Actor in 10000 ms');
-		setTimeout(function(){that.free();}, 10000);
-	};
-	/**
-	 * The name of this instance. Defaults to "SerialActor"
-	 * @fieldOf atropa.SerialActor#
-	 * @type String
-	 */
-	this.name = atropa.setAsOptionalArg('SerialActor', actorName);
-	/**
-	 * Polling interval in milliseconds. This determines how frequently the actor function will
-	 *  try to execute. Defaults to 100 milliseconds.
-	 * @fieldOf atropa.SerialActor#
-	 * @type Number
-	 */
-	this.interval = 100; // milliseconds
-	/**
-	 * The id of the interval set to poll the actor. You should not change
-	 *  this manually, use the start and stop functions instead. Defauls to undefined.
-	 * @fieldOf atropa.SerialActor#
-	 * @type Number
-	 */
-	this.intervalId = undefined;
-	/**
-	 * The state of the SerialActor. If true, the actor will sleep. If false the actor
-	 *  will execute the actor function when next polled. Defaults to false.
-	 * @fieldOf atropa.SerialActor#
-	 * @type Boolean
-	 */
-	this.blocked = false;
-	/**
-	 * Stores id's of currently running timeout functions used to free the actor
-	 *  if it has been blocked for too long.
-	 * @fieldOf atropa.SerialActor#
-	 * @see atropa.SerialActor#blockTimeoutValue
-	 * @type Array
-	 */
-	this.timeouts = [];
-	/**
-	 * The maximum time, in milliseconds, which the actor may be blocked for.
-	 *  After this duration has been reached the actor will be freed. Defaults to 60 seconds.
-	 * @fieldOf atropa.SerialActor#
-	 * @type Number
-	 */
-	this.blockTimeoutValue = 60000;
-	/**
-	 * The function to execute when the actor is free. Defaults to the <code>dummyActor</code>
-	 *  function defined above.
-	 * @fieldOf atropa.SerialActor#
-	 * @type Function
-	 */
-	this.actorFunction = atropa.setAsOptionalArg(dummyActor, actorFunction);
-	/**
-	 * The action function is called when the actor is polled and it's blocked state is false.
-	 *  This method should not be set manually, set the <code>actorFunction</code> instead.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20130220
-	 * @methodOf atropa.SerialActor#
-	 * @see atropa.SerialActor#actorFunction
-	 */
-	this.action = function() {
-		if(false === that.blocked) {
-			that.block();
-			setTimeout(function() {
-				that.actorFunction();
-			}, 100);
-		} else {
-			console.log(that.name + ' sleeping for ' + that.interval + ' ms');
-		}
-	};
+    "use strict";
+    var that, dummyActor;
+    /**
+     * Reference to <code>this</code>
+     * @fieldOf atropa.SerialActor-
+     */
+    that = this;
+    /**
+     * Default actorFunction
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20130220
+     * @methodOf atropa.SerialActor-
+     */
+    dummyActor = function(){
+        console.log('actorFunction would execute');
+        console.log('freeing Serial Actor in 10000 ms');
+        setTimeout(function(){that.free();}, 10000);
+    };
+    /**
+     * The name of this instance. Defaults to "SerialActor"
+     * @fieldOf atropa.SerialActor#
+     * @type String
+     */
+    this.name = atropa.setAsOptionalArg('SerialActor', actorName);
+    /**
+     * Polling interval in milliseconds. This determines how frequently the actor function will
+     *  try to execute. Defaults to 100 milliseconds.
+     * @fieldOf atropa.SerialActor#
+     * @type Number
+     */
+    this.interval = 100; // milliseconds
+    /**
+     * The id of the interval set to poll the actor. You should not change
+     *  this manually, use the start and stop functions instead. Defauls to undefined.
+     * @fieldOf atropa.SerialActor#
+     * @type Number
+     */
+    this.intervalId = undefined;
+    /**
+     * The state of the SerialActor. If true, the actor will sleep. If false the actor
+     *  will execute the actor function when next polled. Defaults to false.
+     * @fieldOf atropa.SerialActor#
+     * @type Boolean
+     */
+    this.blocked = false;
+    /**
+     * Stores id's of currently running timeout functions used to free the actor
+     *  if it has been blocked for too long.
+     * @fieldOf atropa.SerialActor#
+     * @see atropa.SerialActor#blockTimeoutValue
+     * @type Array
+     */
+    this.timeouts = [];
+    /**
+     * The maximum time, in milliseconds, which the actor may be blocked for.
+     *  After this duration has been reached the actor will be freed. Defaults to 60 seconds.
+     * @fieldOf atropa.SerialActor#
+     * @type Number
+     */
+    this.blockTimeoutValue = 60000;
+    /**
+     * The function to execute when the actor is free. Defaults to the <code>dummyActor</code>
+     *  function defined above.
+     * @fieldOf atropa.SerialActor#
+     * @type Function
+     */
+    this.actorFunction = atropa.setAsOptionalArg(dummyActor, actorFunction);
+    /**
+     * The action function is called when the actor is polled and it's blocked state is false.
+     *  This method should not be set manually, set the <code>actorFunction</code> instead.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20130220
+     * @methodOf atropa.SerialActor#
+     * @see atropa.SerialActor#actorFunction
+     */
+    this.action = function() {
+        if(false === that.blocked) {
+            that.block();
+            setTimeout(function() {
+                that.actorFunction();
+            }, 100);
+        } else {
+            console.log(that.name + ' sleeping for ' + that.interval + ' ms');
+        }
+    };
 };
 /**
  * Prevents the actor from executing it's actorFunction.
@@ -722,11 +722,11 @@ atropa.SerialActor = function(actorName, actorFunction) {
  * @methodOf atropa.SerialActor#
  */
 atropa.SerialActor.prototype.block = function() {
-	"use strict";
-	var that = this;
-	this.blocked = true;
-	this.timeouts.push(setTimeout(that.blockTimeout, that.blockTimeoutValue));
-	return this.blocked;
+    "use strict";
+    var that = this;
+    this.blocked = true;
+    this.timeouts.push(setTimeout(that.blockTimeout, that.blockTimeoutValue));
+    return this.blocked;
 };
 /**
  * Called when the <code>blockTimeoutValue</code> has been reached. This frees the actor
@@ -738,10 +738,10 @@ atropa.SerialActor.prototype.block = function() {
  * @methodOf atropa.SerialActor#
  */
 atropa.SerialActor.prototype.blockTimeout = function() {
-	"use strict";
-	this.timeouts.shift();
-	this.blocked = false;
-	return this.blocked;
+    "use strict";
+    this.timeouts.shift();
+    this.blocked = false;
+    return this.blocked;
 };
 /**
  * Frees the actor so it may execute its actor function when next polled.
@@ -752,11 +752,11 @@ atropa.SerialActor.prototype.blockTimeout = function() {
  * @methodOf atropa.SerialActor#
  */
 atropa.SerialActor.prototype.free = function() {
-	"use strict";
-	console.log(this.name + ' free');
-	this.blocked = false;
-	clearTimeout(this.timeouts.shift());
-	return this.blocked;
+    "use strict";
+    console.log(this.name + ' free');
+    this.blocked = false;
+    clearTimeout(this.timeouts.shift());
+    return this.blocked;
 };
 /**
  * Starts polling the actor.
@@ -770,17 +770,17 @@ atropa.SerialActor.prototype.free = function() {
  * @see atropa.SerialActor#interval
  */
 atropa.SerialActor.prototype.start = function(interval) {
-	"use strict";
-	var that = this;
-	this.interval = atropa.setAsOptionalArg(this.interval, interval);
-	
-	if(this.intervalId !== undefined) {
-		// clear the old timeout before creating a new one.
-		this.stop();
-	}
-	this.intervalId = setInterval(that.action, that.interval);
-	console.log(this.name + ' started');
-	return this.intervalId;
+    "use strict";
+    var that = this;
+    this.interval = atropa.setAsOptionalArg(this.interval, interval);
+    
+    if(this.intervalId !== undefined) {
+        // clear the old timeout before creating a new one.
+        this.stop();
+    }
+    this.intervalId = setInterval(that.action, that.interval);
+    console.log(this.name + ' started');
+    return this.intervalId;
 };
 /**
  * Adjusts the polling interval after <code>start</code> has
@@ -793,8 +793,8 @@ atropa.SerialActor.prototype.start = function(interval) {
  * @param {Number} interval The new polling interval in milliseconds.
  */
 atropa.SerialActor.prototype.changeInterval = function(interval) {
-	"use strict";
-	this.start(interval);
+    "use strict";
+    this.start(interval);
 };
 /**
  * Stops polling the actor. Note that the actor will be freed once the
@@ -808,10 +808,10 @@ atropa.SerialActor.prototype.changeInterval = function(interval) {
  * @see atropa.SerialActor#blockTimeoutValue
  */
 atropa.SerialActor.prototype.stop = function() {
-	"use strict";
-	clearInterval(this.intervalId);
-	this.intervalId = undefined;
-	console.log(this.name + ' stopped');
+    "use strict";
+    clearInterval(this.intervalId);
+    this.intervalId = undefined;
+    console.log(this.name + ' stopped');
 };
 
 
@@ -835,196 +835,196 @@ atropa.SerialActor.prototype.stop = function() {
  * @requires atropa.random.string
  */
 atropa.Babbler = function Babbler(wrdCount) {
-	'use strict';
-	var babble = '',
-	wordCount = 0;
-	/**
-	 * Sets the word count.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.Babbler#
-	 * @param {Number} wrdCount The amount of "words" which you want the
-	 * babbler to produce.
-	 * @returns {Number} Returns the set word count for this babbler.
-	 */
-	this.setWordCount = function (wrdCount) {
-		if (typeof wrdCount !== 'number') {
-			if (typeof wordCount !== 'number') {
-				wordCount = 250;
-			}
-		} else {
-			wordCount = wrdCount;
-		}
-		return wordCount;
-	};
-	/**
-	 * Resets the word count for this babbler.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.Babbler#
-	 * @param {Number} wordCount The amount of "words" you would like
-	 * to set for this babbler.
-	 * @returns {Number} Returns the set word count for this babbler.
-	 */
-	this.resetWordCount = function resetWordCount(wordCount) {
-		this.setWordCount(wordCount);
-		return wordCount;
-	};
-	/**
-	 * Gets the current word count.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.Babbler#
-	 * @returns {Number} Returns the word count for this babbler.
-	 */
-	this.getWordCount = function getWordCount() {
-		return wordCount;
-	};
-	/**
-	 * Generates a word with a specified length.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.Babbler#
-	 * @param {Number} stringMin the shortest word, in characters.
-	 * @param {Number} stringMax The longest word, in characters.
-	 * @returns {String} Returns a random string of characters
-	 * within the specified range of length.
-	 * @requires atropa.random.integer
-	 * @requires atropa.random.string
-	 */
-	this.generateWord = function generateWord(stringMin, stringMax) {
-		var wordLength,
-		word;
-		wordLength = atropa.random.integer(stringMin, stringMax);
-		word = atropa.random.string(wordLength, 'lower');
-		wordCount--;
-		return word;
-	};
-	/**
-	 * Adds punctuation to the babble.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.Babbler#
-	 * @returns {String} Returns a random punctuation
-	 * character ( . ! or ? ).
-	 * @requires atropa.random.string
-	 */
-	this.punctuate = function punctuate() {
-		var punctuation;
-		punctuation = atropa.random.string(1, 'punctuation');
-		return punctuation;
-	};
-	/**
-	 * Generates a sentence of specified length in words.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.Babbler#
-	 * @param {Number} sentenceMin The shortest sentence, in words,
-	 * you would like returned.
-	 * @param {Number} sentenceMax The longest sentence, in words,
-	 * you would like returned.
-	 * @returns {String} Returns a "sentence" within the specified
-	 * range of length.
-	 * @requires atropa.random.integer
-	 * @requires atropa.string.ucFirst
-	 */
-	this.generateSentence = function generateSentence(sentenceMin, sentenceMax) {
-		var word,
-		sentenceLength,
-		sentence;
-		sentenceLength = atropa.random.integer(sentenceMin, sentenceMax);
-		sentence = this.generateWord(4, 12);
-		if (sentenceLength > wordCount) {
-			sentenceLength = wordCount;
-		}
-		for (sentenceLength; sentenceLength > 0; sentenceLength--) {
-			if (wordCount > 0) {
-				word = this.generateWord(4, 12);
-				sentence += ' ' + word;
-			} else {
-				sentenceLength = 0;
-			}
-		}
-		sentence += this.punctuate();
-		return atropa.string.ucFirst(sentence);
-	};
-	/**
-	 * Sets the babble.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.Babbler#
-	 * @param {String} babbleString Specified babble to set.
-	 * @returns {String} Returns Babble.
-	 */
-	this.setBabble = function setBabble(babbleString) {
-		if (typeof babbleString === 'string') {
-			babble = babbleString;
-		} else {
-			this.resetBabble();
-		}
-		return babble;
-	};
-	/**
-	 * Resets the babble.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.Babbler#
-	 * @returns {String} Returns an empty string.
-	 */
-	this.resetBabble = function resetBabble() {
-		babble = '';
-		return babble;
-	};
-	/**
-	 * Gets the babble.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.Babbler#
-	 * @returns {String} Returns Babble.
-	 */
-	this.getBabble = function getBabble() {
-		return babble;
-	};
-	/**
-	 * Generates babble to a user specified length in words.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.Babbler#
-	 * @param {Number} wordsCt The desired word count for the
-	 * generated babble.
-	 * @returns {String} Returns babble of specified length in words.
-	 */
-	this.generateBabble = function generateBabble(wordsCt) {
-		this.resetBabble();
-		this.resetWordCount(wordsCt);
-		for (wordCount; wordCount > 0; babble += ' ') {
-			this.setBabble(babble + this.generateSentence(5, 20));
-		}
-		return babble;
-	};
-	
-	this.resetBabble();
-	this.resetWordCount(wrdCount);
+    'use strict';
+    var babble = '',
+    wordCount = 0;
+    /**
+     * Sets the word count.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.Babbler#
+     * @param {Number} wrdCount The amount of "words" which you want the
+     * babbler to produce.
+     * @returns {Number} Returns the set word count for this babbler.
+     */
+    this.setWordCount = function (wrdCount) {
+        if (typeof wrdCount !== 'number') {
+            if (typeof wordCount !== 'number') {
+                wordCount = 250;
+            }
+        } else {
+            wordCount = wrdCount;
+        }
+        return wordCount;
+    };
+    /**
+     * Resets the word count for this babbler.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.Babbler#
+     * @param {Number} wordCount The amount of "words" you would like
+     * to set for this babbler.
+     * @returns {Number} Returns the set word count for this babbler.
+     */
+    this.resetWordCount = function resetWordCount(wordCount) {
+        this.setWordCount(wordCount);
+        return wordCount;
+    };
+    /**
+     * Gets the current word count.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.Babbler#
+     * @returns {Number} Returns the word count for this babbler.
+     */
+    this.getWordCount = function getWordCount() {
+        return wordCount;
+    };
+    /**
+     * Generates a word with a specified length.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.Babbler#
+     * @param {Number} stringMin the shortest word, in characters.
+     * @param {Number} stringMax The longest word, in characters.
+     * @returns {String} Returns a random string of characters
+     * within the specified range of length.
+     * @requires atropa.random.integer
+     * @requires atropa.random.string
+     */
+    this.generateWord = function generateWord(stringMin, stringMax) {
+        var wordLength,
+        word;
+        wordLength = atropa.random.integer(stringMin, stringMax);
+        word = atropa.random.string(wordLength, 'lower');
+        wordCount--;
+        return word;
+    };
+    /**
+     * Adds punctuation to the babble.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.Babbler#
+     * @returns {String} Returns a random punctuation
+     * character ( . ! or ? ).
+     * @requires atropa.random.string
+     */
+    this.punctuate = function punctuate() {
+        var punctuation;
+        punctuation = atropa.random.string(1, 'punctuation');
+        return punctuation;
+    };
+    /**
+     * Generates a sentence of specified length in words.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.Babbler#
+     * @param {Number} sentenceMin The shortest sentence, in words,
+     * you would like returned.
+     * @param {Number} sentenceMax The longest sentence, in words,
+     * you would like returned.
+     * @returns {String} Returns a "sentence" within the specified
+     * range of length.
+     * @requires atropa.random.integer
+     * @requires atropa.string.ucFirst
+     */
+    this.generateSentence = function generateSentence(sentenceMin, sentenceMax) {
+        var word,
+        sentenceLength,
+        sentence;
+        sentenceLength = atropa.random.integer(sentenceMin, sentenceMax);
+        sentence = this.generateWord(4, 12);
+        if (sentenceLength > wordCount) {
+            sentenceLength = wordCount;
+        }
+        for (sentenceLength; sentenceLength > 0; sentenceLength--) {
+            if (wordCount > 0) {
+                word = this.generateWord(4, 12);
+                sentence += ' ' + word;
+            } else {
+                sentenceLength = 0;
+            }
+        }
+        sentence += this.punctuate();
+        return atropa.string.ucFirst(sentence);
+    };
+    /**
+     * Sets the babble.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.Babbler#
+     * @param {String} babbleString Specified babble to set.
+     * @returns {String} Returns Babble.
+     */
+    this.setBabble = function setBabble(babbleString) {
+        if (typeof babbleString === 'string') {
+            babble = babbleString;
+        } else {
+            this.resetBabble();
+        }
+        return babble;
+    };
+    /**
+     * Resets the babble.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.Babbler#
+     * @returns {String} Returns an empty string.
+     */
+    this.resetBabble = function resetBabble() {
+        babble = '';
+        return babble;
+    };
+    /**
+     * Gets the babble.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.Babbler#
+     * @returns {String} Returns Babble.
+     */
+    this.getBabble = function getBabble() {
+        return babble;
+    };
+    /**
+     * Generates babble to a user specified length in words.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.Babbler#
+     * @param {Number} wordsCt The desired word count for the
+     * generated babble.
+     * @returns {String} Returns babble of specified length in words.
+     */
+    this.generateBabble = function generateBabble(wordsCt) {
+        this.resetBabble();
+        this.resetWordCount(wordsCt);
+        for (wordCount; wordCount > 0; babble += ' ') {
+            this.setBabble(babble + this.generateSentence(5, 20));
+        }
+        return babble;
+    };
+    
+    this.resetBabble();
+    this.resetWordCount(wrdCount);
 };
 
 
@@ -1046,202 +1046,202 @@ atropa.Babbler = function Babbler(wrdCount) {
  * @returns {CookieMonster} A cookie handler.
  */
 atropa.CookieMonster = function CookieMonster() {
-	'use strict';
-	var currentCookies,
-	getCookieCallback;
-	
-	/**
-	 * This holds the current cookie object array.
-	 * @private
-	 * @type Array
-	 * @fieldOf atropa.CookieMonster-
-	 */
-	currentCookies = [];
-	/**
-	 * Converts a cookie string into an object.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.CookieMonster#
-	 * @param {String} cookie A cookie represented as a string
-	 * <code>cookieName=cookieVal;</code>
-	 * @returns {cookieObj} Returns a cookie object.
-	 */
-	this.cookie2obj = function cookie2obj(cookie) {
-		var cookieObj = {};
-		if (!cookie) {
-			return false;
-		}
-		cookieObj.key = cookie.substr(0, cookie.indexOf("="));
-		cookieObj.val = cookie.substr(cookie.indexOf("=") + 1);
-		return cookieObj;
-	};
-	/**
-	 * Converts a cookie object to a cookie string.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.CookieMonster#
-	 * @param {Object} cookieObj A cookie object
-	 * @returns {String} Returns a cookie string.
-	 */
-	this.bakeCookie = function bakeCookie(cookieObj) {
-		var cookie = '',
-		key,
-		val;
-		key = cookieObj.key;
-		val = cookieObj.val;
-		cookie = key + '=' + val + ';';
-		return cookie;
-	};
-	/**
-	 * Checks cookies for worms based on a user defined
-	 * callback function.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.CookieMonster#
-	 * @param {function} callback
-	 * @param {Array} args arguments to pass to the callback
-	 * function
-	 * @returns {Array} An array of cookie objects.
-	 */
-	this.inspectCookies = function inspectCookies(callback, args) {
-		var testCookie,
-		cookies,
-		jar = [];
-		cookies = this.getCookies();
-		while (cookies.length > 0) {
-			testCookie = cookies.shift();
-			if (callback(testCookie, args) !== false) {
-				jar.push(testCookie);
-			}
-		}
-		return jar;
-	};
-	/**
-	 * Internal callback function used while getting the current
-	 * cookies.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @private
-	 * @methodOf atropa.CookieMonster-
-	 * @param {cookieObj} testCookie A cookie object
-	 * @param {String} args argument used in comparison function
-	 * @returns {Boolean} If cookie key is exactly equal to the argument
-	 * then the callback returns true.
-	 */
-	getCookieCallback = function getCookieCallback(testCookie, args) {
-		if (testCookie.key === args) {
-			return true;
-		}
-	};
-	/**
-	 * Gets a user requested cookie.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.CookieMonster#
-	 * @param {String} whichKey The cookies key (name)
-	 * @returns {cookieObj|false} Returns a cookie object if
-	 * a cookie with the specified key is found or false if
-	 * it is not found.
-	 */
-	this.getCookie = function getCookie(whichKey) {
-		var result = this.inspectCookies(getCookieCallback, whichKey);
-		return result[0] || false;
-	};
-	/**
-	 * Get all cookies.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.CookieMonster#
-	 * @returns {Array} An array whose elements are cookie objects.
-	 */
-	this.getCookies = function getCookies() {
-		var n,
-		l,
-		cookieArray,
-		cookieObj;
-		currentCookies = [];
-		cookieArray = document.cookie.split(";");
-		for (n = 0, l = cookieArray.length; n < l; n++) {
-			cookieObj = false;
-			if (cookieArray[n]) {
-				cookieObj = this.cookie2obj(cookieArray[n]);
-				if (cookieObj) {
-					currentCookies.push(cookieObj);
-				}
-			}
-		}
-		return currentCookies;
-	};
-	/**
-	 * Deletes a specified cookie by user submitted string.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.CookieMonster#
-	 * @param {String} whichKey The cookies key (name) that
-	 * will be deleted.
-	 */
-	this.deleteCookie = function deleteCookie(whichKey) {
-		var cookieObj;
-		cookieObj.key = whichKey;
-		cookieObj.val = ';expires=Thu, 2 Aug 2001 20:47:11 UTC';
-		document.cookie = this.bakeCookie(cookieObj);
-	};
-	/**
-	 * Deletes a specified cookie by user submitted cookieObj.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.CookieMonster#
-	 * @param {cookieObj} cookieObj A cookie object.
-	 */
-	this.deleteCookieObj = function deleteCookieObj(cookieObj) {
-		this.deleteCookie(cookieObj.key);
-	};
-	/**
-	 * Sets a cookie per user specifications as strings. The cookie
-	 * will expire when the browser is closed.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.CookieMonster#
-	 * @param {String} whichKey The key (name) of the new cookie
-	 * @param {String} setTo The value of the new cookie.
-	 */
-	this.setCookie = function setCookie(whichKey, setTo) {
-		var newCookie = {};
-		newCookie.key = whichKey;
-		newCookie.val = setTo;
-		document.cookie = this.bakeCookie(newCookie);
-	};
-	/**
-	 * Sets a cookie per user specifications as an object.
-	 * The cookie will expire when the browser is closed.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.CookieMonster#
-	 * @param {cookieObj} cookieObj A cookie object.
-	 */
-	this.setCookieObj = function setCookieObj(cookieObj) {
-		return this.setCookie(cookieObj.key, cookieObj.val);
-	};
+    'use strict';
+    var currentCookies,
+    getCookieCallback;
+    
+    /**
+     * This holds the current cookie object array.
+     * @private
+     * @type Array
+     * @fieldOf atropa.CookieMonster-
+     */
+    currentCookies = [];
+    /**
+     * Converts a cookie string into an object.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.CookieMonster#
+     * @param {String} cookie A cookie represented as a string
+     * <code>cookieName=cookieVal;</code>
+     * @returns {cookieObj} Returns a cookie object.
+     */
+    this.cookie2obj = function cookie2obj(cookie) {
+        var cookieObj = {};
+        if (!cookie) {
+            return false;
+        }
+        cookieObj.key = cookie.substr(0, cookie.indexOf("="));
+        cookieObj.val = cookie.substr(cookie.indexOf("=") + 1);
+        return cookieObj;
+    };
+    /**
+     * Converts a cookie object to a cookie string.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.CookieMonster#
+     * @param {Object} cookieObj A cookie object
+     * @returns {String} Returns a cookie string.
+     */
+    this.bakeCookie = function bakeCookie(cookieObj) {
+        var cookie = '',
+        key,
+        val;
+        key = cookieObj.key;
+        val = cookieObj.val;
+        cookie = key + '=' + val + ';';
+        return cookie;
+    };
+    /**
+     * Checks cookies for worms based on a user defined
+     * callback function.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.CookieMonster#
+     * @param {function} callback
+     * @param {Array} args arguments to pass to the callback
+     * function
+     * @returns {Array} An array of cookie objects.
+     */
+    this.inspectCookies = function inspectCookies(callback, args) {
+        var testCookie,
+        cookies,
+        jar = [];
+        cookies = this.getCookies();
+        while (cookies.length > 0) {
+            testCookie = cookies.shift();
+            if (callback(testCookie, args) !== false) {
+                jar.push(testCookie);
+            }
+        }
+        return jar;
+    };
+    /**
+     * Internal callback function used while getting the current
+     * cookies.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @private
+     * @methodOf atropa.CookieMonster-
+     * @param {cookieObj} testCookie A cookie object
+     * @param {String} args argument used in comparison function
+     * @returns {Boolean} If cookie key is exactly equal to the argument
+     * then the callback returns true.
+     */
+    getCookieCallback = function getCookieCallback(testCookie, args) {
+        if (testCookie.key === args) {
+            return true;
+        }
+    };
+    /**
+     * Gets a user requested cookie.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.CookieMonster#
+     * @param {String} whichKey The cookies key (name)
+     * @returns {cookieObj|false} Returns a cookie object if
+     * a cookie with the specified key is found or false if
+     * it is not found.
+     */
+    this.getCookie = function getCookie(whichKey) {
+        var result = this.inspectCookies(getCookieCallback, whichKey);
+        return result[0] || false;
+    };
+    /**
+     * Get all cookies.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.CookieMonster#
+     * @returns {Array} An array whose elements are cookie objects.
+     */
+    this.getCookies = function getCookies() {
+        var n,
+        l,
+        cookieArray,
+        cookieObj;
+        currentCookies = [];
+        cookieArray = document.cookie.split(";");
+        for (n = 0, l = cookieArray.length; n < l; n++) {
+            cookieObj = false;
+            if (cookieArray[n]) {
+                cookieObj = this.cookie2obj(cookieArray[n]);
+                if (cookieObj) {
+                    currentCookies.push(cookieObj);
+                }
+            }
+        }
+        return currentCookies;
+    };
+    /**
+     * Deletes a specified cookie by user submitted string.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.CookieMonster#
+     * @param {String} whichKey The cookies key (name) that
+     * will be deleted.
+     */
+    this.deleteCookie = function deleteCookie(whichKey) {
+        var cookieObj;
+        cookieObj.key = whichKey;
+        cookieObj.val = ';expires=Thu, 2 Aug 2001 20:47:11 UTC';
+        document.cookie = this.bakeCookie(cookieObj);
+    };
+    /**
+     * Deletes a specified cookie by user submitted cookieObj.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.CookieMonster#
+     * @param {cookieObj} cookieObj A cookie object.
+     */
+    this.deleteCookieObj = function deleteCookieObj(cookieObj) {
+        this.deleteCookie(cookieObj.key);
+    };
+    /**
+     * Sets a cookie per user specifications as strings. The cookie
+     * will expire when the browser is closed.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.CookieMonster#
+     * @param {String} whichKey The key (name) of the new cookie
+     * @param {String} setTo The value of the new cookie.
+     */
+    this.setCookie = function setCookie(whichKey, setTo) {
+        var newCookie = {};
+        newCookie.key = whichKey;
+        newCookie.val = setTo;
+        document.cookie = this.bakeCookie(newCookie);
+    };
+    /**
+     * Sets a cookie per user specifications as an object.
+     * The cookie will expire when the browser is closed.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.CookieMonster#
+     * @param {cookieObj} cookieObj A cookie object.
+     */
+    this.setCookieObj = function setCookieObj(cookieObj) {
+        return this.setCookie(cookieObj.key, cookieObj.val);
+    };
 };
 
 
@@ -1260,68 +1260,68 @@ atropa.CookieMonster = function CookieMonster() {
  * @requires atropa.HTMLParser
  */
 atropa.CreateHtmlDocumentsFromXmlhttp = function CreateHtmlDocumentsFromXmlhttp() {
-	"use strict";
-	var requester,
-	htmldocument,
-	that;
-	that = this;
-	requester = new atropa.Requester();
-	htmldocument = new atropa.HTMLParser();
-	/**
-	 * Queue of documents created by this instance.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @type Array
-	 * @fieldOf atropa.CreateHtmlDocumentsFromXmlhttp#
-	 */
-	this.documentQueue = [];
-	/**
-	 * Creates an HTML DOM Document and puts it in the document
-	 * queue, then executes the callback given.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.CreateHtmlDocumentsFromXmlhttp#
-	 * @param {String} method Any valid method to be used in
-	 * an XMLHttpRequest.
-	 * @param {String} url The location of the document's source.
-	 * @param {String} messageBody null, or a message body.
-	 * @param {Function} callback The function to execute upon
-	 * request completion. This function will be given either
-	 * an HTML DOM Document or false.
-	 * @returns {HTML DOM Document, false} The return value is
-	 * given to the callback function.
-	 */
-	this.newDocument = function newDocument(method, url, messageBody, callback) {
-		var cb;
-		/**
-		 * Internal callback function to process data from XMLHttpRequest
-		 * @author <a href="mailto:matthewkastor@gmail.com">
-		 *  Matthew Christopher Kastor-Inare III </a><br />
-		 *  ☭ Hial Atropa!! ☭
-		 * @version 20120909
-		 * @methodOf atropa.CreateHtmlDocumentsFromXmlhttp#newDocument-
-		 * @private
-		 * @property {true,false} boolStatus This tells whether or not the XMLHttpRequest was successful.
-		 * @property {XMLHttp Response Object} responseObject This is the response object from the XMLHttp Request object.
-		 */
-		cb = function (boolStatus, responseObject) {
-			var result = false;
-			if (boolStatus === true) {
-				if (false !== htmldocument.loadString(responseObject.responseText)) {
-					result = htmldocument.doc;
-					that.documentQueue.push(result);
-				}
-			} else {
-				result = boolStatus;
-			}
-			callback(result);
-		};
-		requester.makeRequest(method, url, messageBody, cb);
-	};
+    "use strict";
+    var requester,
+    htmldocument,
+    that;
+    that = this;
+    requester = new atropa.Requester();
+    htmldocument = new atropa.HTMLParser();
+    /**
+     * Queue of documents created by this instance.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @type Array
+     * @fieldOf atropa.CreateHtmlDocumentsFromXmlhttp#
+     */
+    this.documentQueue = [];
+    /**
+     * Creates an HTML DOM Document and puts it in the document
+     * queue, then executes the callback given.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.CreateHtmlDocumentsFromXmlhttp#
+     * @param {String} method Any valid method to be used in
+     * an XMLHttpRequest.
+     * @param {String} url The location of the document's source.
+     * @param {String} messageBody null, or a message body.
+     * @param {Function} callback The function to execute upon
+     * request completion. This function will be given either
+     * an HTML DOM Document or false.
+     * @returns {HTML DOM Document, false} The return value is
+     * given to the callback function.
+     */
+    this.newDocument = function newDocument(method, url, messageBody, callback) {
+        var cb;
+        /**
+         * Internal callback function to process data from XMLHttpRequest
+         * @author <a href="mailto:matthewkastor@gmail.com">
+         *  Matthew Christopher Kastor-Inare III </a><br />
+         *  ☭ Hial Atropa!! ☭
+         * @version 20120909
+         * @methodOf atropa.CreateHtmlDocumentsFromXmlhttp#newDocument-
+         * @private
+         * @property {true,false} boolStatus This tells whether or not the XMLHttpRequest was successful.
+         * @property {XMLHttp Response Object} responseObject This is the response object from the XMLHttp Request object.
+         */
+        cb = function (boolStatus, responseObject) {
+            var result = false;
+            if (boolStatus === true) {
+                if (false !== htmldocument.loadString(responseObject.responseText)) {
+                    result = htmldocument.doc;
+                    that.documentQueue.push(result);
+                }
+            } else {
+                result = boolStatus;
+            }
+            callback(result);
+        };
+        requester.makeRequest(method, url, messageBody, cb);
+    };
 };
 
 
@@ -1342,20 +1342,20 @@ atropa.CreateHtmlDocumentsFromXmlhttp = function CreateHtmlDocumentsFromXmlhttp(
  * @returns {Error} Returns an instance of the InvalidArgumentTypesError
  */
 atropa.InvalidArgumentTypesError = function InvalidArgumentTypesError(message) {
-	/**
-	 * The name of the error. Tells the user what kind of custom
-	 * error has been thrown.
-	 * @fieldOf atropa.InvalidArgumentTypesError#
-	 * @type {String}
-	 * @default "atropa.InvalidArgumentTypesError"
-	 */
+    /**
+     * The name of the error. Tells the user what kind of custom
+     * error has been thrown.
+     * @fieldOf atropa.InvalidArgumentTypesError#
+     * @type {String}
+     * @default "atropa.InvalidArgumentTypesError"
+     */
     this.name = "atropa.InvalidArgumentTypesError";
-	/**
-	 * The error message to send.
-	 * @fieldOf atropa.InvalidArgumentTypesError#
-	 * @type {String}
-	 * @default "InvalidArgumentTypesError"
-	 */
+    /**
+     * The error message to send.
+     * @fieldOf atropa.InvalidArgumentTypesError#
+     * @type {String}
+     * @default "InvalidArgumentTypesError"
+     */
     this.message = message || "InvalidArgumentTypesError";
 };
 atropa.InvalidArgumentTypesError.prototype = new Error();
@@ -1376,51 +1376,51 @@ atropa.InvalidArgumentTypesError.prototype.constructor = atropa.InvalidArgumentT
  * @returns {HTML DOM Document} Returns a blank HTML Document for you to load data into
  */
 atropa.HTMLParser = function HTMLParser() {
-	"use strict";
-	/**
-	 * Holds the created HTML DOM Document.
-	 * @type HTML DOM Document
-	 * @fieldOf atropa.HTMLParser#
-	 */
-	this.doc = {};
-	/**
-	 * Creates a blank HTML DOM Document.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.HTMLParser#
-	 * @returns {HTML DOM Document} Resets the doc property of this instance and,
-	 * returns a blank HTML Document for you to load data into.
-	 */
-	this.newDocument = function () {
-		var dt;
-		dt = document.implementation.createDocumentType("html", "-//W3C//DTD HTML 4.01 Transitional//EN", "http://www.w3.org/TR/html4/loose.dtd");
-		this.doc = document.implementation.createDocument('', '', dt);
-		return this.doc;
-	};
-	/**
-	 * Creates a new HTML DOM Document and loads the given string into it.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.HTMLParser#
-	 * @param {String} htmlstring a string of HTML data
-	 * @returns {HTML DOM Document} Resets the doc property of this instance,
-	 * loading a new document with the string given.
-	 */
-	this.loadString = function (htmlstring) {
-		if (!htmlstring) {
-			return false;
-		}
-		this.newDocument();
-		this.doc.appendChild(this.doc.createElement('html'));
-		this.doc.documentElement.innerHTML = htmlstring;
-		return this.doc;
-	};
-	this.newDocument();
-	return this;
+    "use strict";
+    /**
+     * Holds the created HTML DOM Document.
+     * @type HTML DOM Document
+     * @fieldOf atropa.HTMLParser#
+     */
+    this.doc = {};
+    /**
+     * Creates a blank HTML DOM Document.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.HTMLParser#
+     * @returns {HTML DOM Document} Resets the doc property of this instance and,
+     * returns a blank HTML Document for you to load data into.
+     */
+    this.newDocument = function () {
+        var dt;
+        dt = document.implementation.createDocumentType("html", "-//W3C//DTD HTML 4.01 Transitional//EN", "http://www.w3.org/TR/html4/loose.dtd");
+        this.doc = document.implementation.createDocument('', '', dt);
+        return this.doc;
+    };
+    /**
+     * Creates a new HTML DOM Document and loads the given string into it.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.HTMLParser#
+     * @param {String} htmlstring a string of HTML data
+     * @returns {HTML DOM Document} Resets the doc property of this instance,
+     * loading a new document with the string given.
+     */
+    this.loadString = function (htmlstring) {
+        if (!htmlstring) {
+            return false;
+        }
+        this.newDocument();
+        this.doc.appendChild(this.doc.createElement('html'));
+        this.doc.documentElement.innerHTML = htmlstring;
+        return this.doc;
+    };
+    this.newDocument();
+    return this;
 };
 
 
@@ -1468,24 +1468,24 @@ atropa.inject = {};
  * @return {HTML Element} Returns a reference to the HTML Element created and injected.
  */
 atropa.inject.element = function (elementType, docref, parentNod, attributes, onloadHandler, callback) {
-	"use strict";
-	var el,
-	x;
-	docref = atropa.setAsOptionalArg(document, docref);
-	parentNod = atropa.setAsOptionalArg(docref.body, parentNod);
-	attributes = atropa.setAsOptionalArg({}, attributes);
-	onloadHandler = atropa.setAsOptionalArg(function () {}, onloadHandler);
-	callback = atropa.setAsOptionalArg(function () {}, callback);
-	el = docref.createElement(elementType);
-	for (x in attributes) {
-		if (attributes.hasOwnProperty(x)) {
-			el.setAttribute(x, attributes[x]);
-		}
-	}
-	el.addEventListener('load', onloadHandler, true);
-	callback(el);
-	parentNod.appendChild(el);
-	return el;
+    "use strict";
+    var el,
+    x;
+    docref = atropa.setAsOptionalArg(document, docref);
+    parentNod = atropa.setAsOptionalArg(docref.body, parentNod);
+    attributes = atropa.setAsOptionalArg({}, attributes);
+    onloadHandler = atropa.setAsOptionalArg(function () {}, onloadHandler);
+    callback = atropa.setAsOptionalArg(function () {}, callback);
+    el = docref.createElement(elementType);
+    for (x in attributes) {
+        if (attributes.hasOwnProperty(x)) {
+            el.setAttribute(x, attributes[x]);
+        }
+    }
+    el.addEventListener('load', onloadHandler, true);
+    callback(el);
+    parentNod.appendChild(el);
+    return el;
 };
 /**
  * Hidden Iframe Injector.
@@ -1503,22 +1503,22 @@ atropa.inject.element = function (elementType, docref, parentNod, attributes, on
  * on optional parameters.
  */
 atropa.inject.hiddenFrame = function (id, srcURL, docref, callback, parentNod) {
-	"use strict";
-	var attributes,
-	elementType,
-	onloadHandler,
-	el;
-	attributes = {
-		"id" : id,
-		"src" : srcURL,
-		"width" : "0px",
-		"height" : "0px",
-		"border" : "0px"
-	};
-	elementType = 'iframe';
-	onloadHandler = callback;
-	el = atropa.inject.element(elementType, docref, parentNod, attributes, onloadHandler);
-	return el;
+    "use strict";
+    var attributes,
+    elementType,
+    onloadHandler,
+    el;
+    attributes = {
+        "id" : id,
+        "src" : srcURL,
+        "width" : "0px",
+        "height" : "0px",
+        "border" : "0px"
+    };
+    elementType = 'iframe';
+    onloadHandler = callback;
+    el = atropa.inject.element(elementType, docref, parentNod, attributes, onloadHandler);
+    return el;
 };
 /**
  * Script Injector.
@@ -1535,21 +1535,21 @@ atropa.inject.hiddenFrame = function (id, srcURL, docref, callback, parentNod) {
  * on optional parameters.
  */
 atropa.inject.script = function (id, srcURL, docref, callback) {
-	"use strict";
-	var attributes,
-	elementType,
-	parentNod,
-	onloadHandler,
-	el;
-	attributes = {
-		"id" : id,
-		"type" : "text/javascript",
-		"src" : srcURL
-	};
-	elementType = 'script';
-	onloadHandler = callback;
-	el = atropa.inject.element(elementType, docref, parentNod, attributes, onloadHandler);
-	return el;
+    "use strict";
+    var attributes,
+    elementType,
+    parentNod,
+    onloadHandler,
+    el;
+    attributes = {
+        "id" : id,
+        "type" : "text/javascript",
+        "src" : srcURL
+    };
+    elementType = 'script';
+    onloadHandler = callback;
+    el = atropa.inject.element(elementType, docref, parentNod, attributes, onloadHandler);
+    return el;
 };
 
 
@@ -1576,8 +1576,8 @@ atropa.inquire = {};
  * @returns {Boolean} Returns true if x === null.
  */
 atropa.inquire.isNull = function (x) {
-	"use strict";
-	return (x === null);
+    "use strict";
+    return (x === null);
 };
 /**
  * Checks whether the input is an object.
@@ -1589,8 +1589,8 @@ atropa.inquire.isNull = function (x) {
  * @returns {Boolean} Returns true if typeof(x) === 'objeect'.
  */
 atropa.inquire.isObject = function (x) {
-	"use strict";
-	return (typeof x === 'object');
+    "use strict";
+    return (typeof x === 'object');
 };
 /**
  * Checks whether the input is both an object and not null.
@@ -1604,8 +1604,8 @@ atropa.inquire.isObject = function (x) {
  * not null. (null is an object).
  */
 atropa.inquire.isObjectNotNull = function (x) {
-	"use strict";
-	return atropa.inquire.isObject(x) && (!atropa.inquire.isNull(x));
+    "use strict";
+    return atropa.inquire.isObject(x) && (!atropa.inquire.isNull(x));
 };
 /**
  * Checks an object for the existence of a property
@@ -1623,11 +1623,11 @@ atropa.inquire.isObjectNotNull = function (x) {
  * otherwise returns false.
  */
 atropa.inquire.hasProperty = function (obj, prop) {
-	"use strict";
-	if (atropa.inquire.isObjectNotNull(obj)) {
-		return (prop in obj);
-	}
-	return false;
+    "use strict";
+    if (atropa.inquire.isObjectNotNull(obj)) {
+        return (prop in obj);
+    }
+    return false;
 };
 /**
  * Checks whether the input is an empty string.
@@ -1640,12 +1640,12 @@ atropa.inquire.hasProperty = function (obj, prop) {
  *  otherwise returns false.
  */
  atropa.inquire.isEmptyString = function (str) {
-	"use strict";
-	var out = false;
-	if ('' === str) {
-		out = true;
-	}
-	return out;
+    "use strict";
+    var out = false;
+    if ('' === str) {
+        out = true;
+    }
+    return out;
 };
 
 
@@ -1689,14 +1689,14 @@ atropa.objects = {};
  *  http://www.ecma-international.org/ecma-262/5.1/#sec-12.6.4</a>
  */
 atropa.objects.convertObjectToArray = function convertObjectToArray(obj) {
-	"use strict";
-	var prop, out = [];
+    "use strict";
+    var prop, out = [];
     for (prop in obj) {
         if (obj.hasOwnProperty(prop)) {
             out.push([prop, obj[prop]]);
         }
     }
-	return out;
+    return out;
 };
 /**
  * Converts an object into an array of arrays and allows for reliable sorting and enumeration.
@@ -1760,7 +1760,7 @@ atropa.objects.convertObjectToArray = function convertObjectToArray(obj) {
  *  https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/sort</a>
  */
 atropa.objects.sort = function sort(obj, sortFn) {
-	"use strict";
+    "use strict";
     return atropa.objects.convertObjectToArray(obj).sort(sortFn);
 };
 /**
@@ -1794,11 +1794,11 @@ atropa.objects.sort = function sort(obj, sortFn) {
  * @see atropa.objects.sort
  */
 atropa.objects.sortValues = function sortValues(obj, sortFn) {
-	"use strict";
-	var valSort = function(a, b) {
-		return sortFn(a[1], b[1]);
-	};
-	return atropa.objects.sort(obj, valSort);
+    "use strict";
+    var valSort = function(a, b) {
+        return sortFn(a[1], b[1]);
+    };
+    return atropa.objects.sort(obj, valSort);
 };
 /**
  * Sorts an object by its properties using a user defined algorithm.
@@ -1831,11 +1831,11 @@ atropa.objects.sortValues = function sortValues(obj, sortFn) {
  * @see atropa.objects.sort
  */
 atropa.objects.sortProperties = function sortValues(obj, sortFn) {
-	"use strict";
-	var propSort = function(a, b) {
-		return sortFn(a[0], b[0]);
-	};
-	return atropa.objects.sort(obj, propSort);
+    "use strict";
+    var propSort = function(a, b) {
+        return sortFn(a[0], b[0]);
+    };
+    return atropa.objects.sort(obj, propSort);
 };
 /**
  * Sorts an object by its values numerically.
@@ -1860,11 +1860,11 @@ atropa.objects.sortProperties = function sortValues(obj, sortFn) {
  * @see atropa.objects.sort
  */
 atropa.objects.sortValuesNumerically = function sortValuesNumerically(obj) {
-	"use strict";
-	function sortFn(a, b) {
+    "use strict";
+    function sortFn(a, b) {
         return (a - b);
     }
-	return atropa.objects.sortValues(obj, sortFn);
+    return atropa.objects.sortValues(obj, sortFn);
 };
 /**
  * Sorts an object by its values lexicographically.
@@ -1889,11 +1889,11 @@ atropa.objects.sortValuesNumerically = function sortValuesNumerically(obj) {
  * @see atropa.objects.sort
  */
 atropa.objects.sortValuesAlphabetically = function sortValuesAlphabetically(obj) {
-	"use strict";
-	function sortFn(a, b) {
+    "use strict";
+    function sortFn(a, b) {
         return (a.localeCompare(b));
     }
-	return atropa.objects.sortValues(obj, sortFn);
+    return atropa.objects.sortValues(obj, sortFn);
 };
 /**
  * Sorts an object by its properties numerically.
@@ -1918,11 +1918,11 @@ atropa.objects.sortValuesAlphabetically = function sortValuesAlphabetically(obj)
  * @see atropa.objects.sort
  */
 atropa.objects.sortPropertiesNumerically = function sortPropertiesNumerically(obj) {
-	"use strict";
-	function sortFn(a, b) {
+    "use strict";
+    function sortFn(a, b) {
         return (a - b);
     }
-	return atropa.objects.sortProperties(obj, sortFn);
+    return atropa.objects.sortProperties(obj, sortFn);
 };
 /**
  * Sorts an object by its properties lexicographically.
@@ -1948,11 +1948,11 @@ atropa.objects.sortPropertiesNumerically = function sortPropertiesNumerically(ob
  * @see atropa.objects.sort
  */
 atropa.objects.sortPropertiesAlphabetically = function sortPropertiesAlphabetically(obj) {
-	"use strict";
-	function sortFn(a, b) {
+    "use strict";
+    function sortFn(a, b) {
         return (a.localeCompare(b));
     }
-	return atropa.objects.sortProperties(obj, sortFn);
+    return atropa.objects.sortProperties(obj, sortFn);
 };
 
 
@@ -1983,69 +1983,69 @@ atropa.random = {};
  * @return {String} A random string of specified length and composition.
  */
 atropa.random.string = function randomString(stringLength, characterClass) {
-	'use strict';
-	var numeric,
-	vowel,
-	consonant,
-	lower,
-	caps,
-	alpha,
-	alphanumeric,
-	punctuation,
-	chars,
-	string_length,
-	randomstring,
-	i,
-	character;
-	
-	numeric = '0123456789';
-	vowel = 'aeiouy';
-	consonant = 'bcdfghjklmnpqrstvwxz';
-	lower = vowel + consonant;
-	caps = lower.toUpperCase();
-	alpha = caps + lower;
-	alphanumeric = numeric + caps + lower;
-	punctuation = '.?!';
-	randomstring = '';
-	switch (characterClass) {
-	case 'numeric':
-		chars = numeric;
-		break;
-	case 'caps':
-		chars = caps;
-		break;
-	case 'lower':
-		chars = lower;
-		break;
-	case 'alpha':
-		chars = alpha;
-		break;
-	case 'alphanumeric':
-		chars = alphanumeric;
-		break;
-	case 'punctuation':
-		chars = punctuation;
-		break;
-	case 'vowel':
-		chars = vowel;
-		break;
-	case 'consonant':
-		chars = consonant;
-		break;
-	default:
-		chars = alphanumeric;
-		break;
-	}
-	if (stringLength === undefined) {
-		string_length = 4;
-	} else {
-		string_length = stringLength;
-	}
-	for (i = 0; i < string_length; i++) {
-		character = Math.floor(Math.random() * chars.length);
-		randomstring += chars[character];
-	}
-	return randomstring;
+    'use strict';
+    var numeric,
+    vowel,
+    consonant,
+    lower,
+    caps,
+    alpha,
+    alphanumeric,
+    punctuation,
+    chars,
+    string_length,
+    randomstring,
+    i,
+    character;
+    
+    numeric = '0123456789';
+    vowel = 'aeiouy';
+    consonant = 'bcdfghjklmnpqrstvwxz';
+    lower = vowel + consonant;
+    caps = lower.toUpperCase();
+    alpha = caps + lower;
+    alphanumeric = numeric + caps + lower;
+    punctuation = '.?!';
+    randomstring = '';
+    switch (characterClass) {
+    case 'numeric':
+        chars = numeric;
+        break;
+    case 'caps':
+        chars = caps;
+        break;
+    case 'lower':
+        chars = lower;
+        break;
+    case 'alpha':
+        chars = alpha;
+        break;
+    case 'alphanumeric':
+        chars = alphanumeric;
+        break;
+    case 'punctuation':
+        chars = punctuation;
+        break;
+    case 'vowel':
+        chars = vowel;
+        break;
+    case 'consonant':
+        chars = consonant;
+        break;
+    default:
+        chars = alphanumeric;
+        break;
+    }
+    if (stringLength === undefined) {
+        string_length = 4;
+    } else {
+        string_length = stringLength;
+    }
+    for (i = 0; i < string_length; i++) {
+        character = Math.floor(Math.random() * chars.length);
+        randomstring += chars[character];
+    }
+    return randomstring;
 };
 /**
  * Generates a random number.
@@ -2058,8 +2058,8 @@ atropa.random.string = function randomString(stringLength, characterClass) {
  * @returns {Number} A random number within the specified range.
  */
 atropa.random.integer = function randomInteger(min, max) {
-	'use strict';
-	return Math.floor(Math.random() * (max - min + 1) + min);
+    'use strict';
+    return Math.floor(Math.random() * (max - min + 1) + min);
 };
 /**
  * Get a random property name from the given object.
@@ -2073,10 +2073,10 @@ atropa.random.integer = function randomInteger(min, max) {
  *  given object.
  */
 atropa.random.getPropertyName = function (obj) {
-	"use strict";
-	var arr;
-	arr = Object.keys(obj);
-	return arr[atropa.random.getArrayKey(arr)];
+    "use strict";
+    var arr;
+    arr = Object.keys(obj);
+    return arr[atropa.random.getArrayKey(arr)];
 };
 /**
  * Get a random key from the given array.
@@ -2090,8 +2090,8 @@ atropa.random.getPropertyName = function (obj) {
  *  <code>arr.length</code>
  */
 atropa.random.getArrayKey = function (arr) {
-	"use strict";
-	return Math.floor(Math.random() * arr.length);
+    "use strict";
+    return Math.floor(Math.random() * arr.length);
 };
 /**
  * Get a random value from the given array.
@@ -2104,8 +2104,8 @@ atropa.random.getArrayKey = function (arr) {
  * @return {Mixed} A random value from the given array.
  */
 atropa.random.getArrayValue = function (arr) {
-	"use strict";
-	return arr[atropa.random.getArrayKey(arr)];
+    "use strict";
+    return arr[atropa.random.getArrayKey(arr)];
 };
 /**
  * Remove a random element from the given array.
@@ -2118,13 +2118,13 @@ atropa.random.getArrayValue = function (arr) {
  * @return {Mixed} A random value from the given array.
  */
 atropa.random.pullArrayElement = function (arr) {
-	"use strict";
-	var k,
-	d;
-	k = atropa.random.getArrayKey(arr);
-	d = arr[k];
-	arr.splice(k, 1);
-	return d;
+    "use strict";
+    var k,
+    d;
+    k = atropa.random.getArrayKey(arr);
+    d = arr[k];
+    arr.splice(k, 1);
+    return d;
 };
 /**
  * Remove a random property from the given object.
@@ -2137,13 +2137,13 @@ atropa.random.pullArrayElement = function (arr) {
  * @return {Mixed} A random value from the given object.
  */
 atropa.random.pullProperty = function (obj) {
-	"use strict";
-	var pName,
-	objData;
-	pName = atropa.random.getPropertyName(obj);
-	objData = obj[pName];
-	delete obj[pName];
-	return objData;
+    "use strict";
+    var pName,
+    objData;
+    pName = atropa.random.getPropertyName(obj);
+    objData = obj[pName];
+    delete obj[pName];
+    return objData;
 };
 
 
@@ -2177,20 +2177,20 @@ atropa.regex = {};
  * words.
  */
 atropa.regex.appendPrefixesAndSuffixes = function (word, threshold) {
-	"use strict";
-	var prefixes,
-	suffixes;
-	prefixes = '(pre|un|re)?';
-	suffixes = '(ification|tionally|ication|ified|istic|iness|fare|tion|ance|ence|less|ally|able|ness|ized|ised|ous|ify|ing|ity|ful|ant|ate|est|ism|izm|ist|ic|al|ed|er|et|ly|rs|in|y|s|r|d)?';
-	
-	threshold = threshold === undefined ? 3 : threshold;
-	
-	if (word.length > threshold) {
-		word = '\\b' + prefixes + word + suffixes + '\\b';
-	} else {
-		word = '\\b()' + word + '()\\b';
-	}
-	return word;
+    "use strict";
+    var prefixes,
+    suffixes;
+    prefixes = '(pre|un|re)?';
+    suffixes = '(ification|tionally|ication|ified|istic|iness|fare|tion|ance|ence|less|ally|able|ness|ized|ised|ous|ify|ing|ity|ful|ant|ate|est|ism|izm|ist|ic|al|ed|er|et|ly|rs|in|y|s|r|d)?';
+    
+    threshold = threshold === undefined ? 3 : threshold;
+    
+    if (word.length > threshold) {
+        word = '\\b' + prefixes + word + suffixes + '\\b';
+    } else {
+        word = '\\b()' + word + '()\\b';
+    }
+    return word;
 };
 
 
@@ -2209,10 +2209,10 @@ atropa.regex.appendPrefixesAndSuffixes = function (word, threshold) {
  * to remove.
  */
 atropa.removeNodeByReference = function (elementReference) {
-	"use strict";
-	if(elementReference !== undefined) {
-		elementReference.parentNode.removeChild(elementReference);
-	}
+    "use strict";
+    if(elementReference !== undefined) {
+        elementReference.parentNode.removeChild(elementReference);
+    }
 };
 
 
@@ -2252,124 +2252,124 @@ atropa.removeNodeByReference = function (elementReference) {
  * requester.makeRequest("post", "http://example.com", formData, showRequestResults);
  */
 atropa.Requester = function Requester() {
-	"use strict";
-	var expArgTypes,
-	checkRequest,
-	request;
-	
-	/**
-	 * Container object for the expected argument types
-	 * supplied to this.makeRequest.
-	 * @private
-	 * @type Expected Arg Types
-	 * @fieldOf atropa.Requester-
-	 */
-	expArgTypes = {};
-	expArgTypes.requestWithMessage = ['string', 'string', 'string', 'function'];
-	expArgTypes.requestNullMessage = ['string', 'string', 'object', 'function'];
-	
-	/**
-	 * Used to check the arguments types supplied to this.makeRequest.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @private
-	 * @methodOf atropa.Requester-
-	 * @param {Arguments} args An arguments array
-	 * @returns {Boolean} Returns true if args types match the
-	 * expected types.
-	 * @requires atropa.ArgsInfo#checkArgTypes
-	 */
-	checkRequest = function (args) {
-		var checker;
-		checker = new atropa.ArgsInfo();
-		checker.setExpectedArgTypes(expArgTypes);
-		return checker.checkArgTypes(args);
-	};
-	
-	/**
-	 * Object whose properties and values are header names and values respectively.
-	 * @type Request Headers Object
-	 * @fieldOf atropa.Requester#
-	 */
-	this.requestHeaders = {};
-	
-	
-	/**
-	 * Set the timeout value for the request in milliseconds. The request will abort
-	 *  after this amount of time has passed.
-	 * @type Number
-	 * @fieldOf atropa.Requester#
-	 */
-	this.timeout = 3000;
-	
-	/**
-	 * XMLHttpRequest object used by Requester.
-	 * @private
-	 * @type XMLHttpRequest
-	 * @fieldOf atropa.Requester-
-	 */
-	request = new XMLHttpRequest();
-	request.aborted = false;
-	request.abort = function() {
-		request.aborted = true;
-		XMLHttpRequest.prototype.abort.call(this);
-	};
-	
-	/**
-	 * Makes an AJAX request.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.Requester#
-	 * @param {String} method The HTTP method to be used for this request.
-	 * @param {String} url The URL to send the request to.
-	 * @param {String} messageBody The body of the request.
-	 * @param {Object} callback The callback function to execute
-	 *  when readyState is 4. The callback is supplied with two arguments. The
-	 *  first argument is a boolean indicating whether or not the http status was 200.
-	 *  The second argument is the request object.
-	 */
-	this.makeRequest = function (method, url, messageBody, callback) {
-		var hdr;
-		checkRequest(arguments);
-		request.aborted = false;
-		request.open(method, url, true);
-		for (hdr in this.requestHeaders) {
-			if (this.requestHeaders.hasOwnProperty(hdr)) {
-				request.setRequestHeader(hdr, this.requestHeaders[hdr]);
-			}
-		}
-		
-		/**
-		 * Event listener function for the AJAX request.
-		 * This is what actually fires the callback supplied
-		 * to makeRequest.
-		 * @author <a href="mailto:matthewkastor@gmail.com">
-		 *  Matthew Christopher Kastor-Inare III </a><br />
-		 *  ☭ Hial Atropa!! ☭
-		 * @version 20120909
-		 * @methodOf atropa.Requester-request
-		 * @private
-		 */
-		request.onreadystatechange = function () {
-			if (request.readyState === 4) {
-				if (request.status === 200) {
-					callback(true, request);
-				} else {
-					callback(false, request);
-				}
-			}
-		};
-		request.send(messageBody);
-		setTimeout(function () {
-			if (request.aborted === false) {
-				request.abort();
-			}
-		}, this.timeout);
-	};
+    "use strict";
+    var expArgTypes,
+    checkRequest,
+    request;
+    
+    /**
+     * Container object for the expected argument types
+     * supplied to this.makeRequest.
+     * @private
+     * @type Expected Arg Types
+     * @fieldOf atropa.Requester-
+     */
+    expArgTypes = {};
+    expArgTypes.requestWithMessage = ['string', 'string', 'string', 'function'];
+    expArgTypes.requestNullMessage = ['string', 'string', 'object', 'function'];
+    
+    /**
+     * Used to check the arguments types supplied to this.makeRequest.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @private
+     * @methodOf atropa.Requester-
+     * @param {Arguments} args An arguments array
+     * @returns {Boolean} Returns true if args types match the
+     * expected types.
+     * @requires atropa.ArgsInfo#checkArgTypes
+     */
+    checkRequest = function (args) {
+        var checker;
+        checker = new atropa.ArgsInfo();
+        checker.setExpectedArgTypes(expArgTypes);
+        return checker.checkArgTypes(args);
+    };
+    
+    /**
+     * Object whose properties and values are header names and values respectively.
+     * @type Request Headers Object
+     * @fieldOf atropa.Requester#
+     */
+    this.requestHeaders = {};
+    
+    
+    /**
+     * Set the timeout value for the request in milliseconds. The request will abort
+     *  after this amount of time has passed.
+     * @type Number
+     * @fieldOf atropa.Requester#
+     */
+    this.timeout = 3000;
+    
+    /**
+     * XMLHttpRequest object used by Requester.
+     * @private
+     * @type XMLHttpRequest
+     * @fieldOf atropa.Requester-
+     */
+    request = new XMLHttpRequest();
+    request.aborted = false;
+    request.abort = function() {
+        request.aborted = true;
+        XMLHttpRequest.prototype.abort.call(this);
+    };
+    
+    /**
+     * Makes an AJAX request.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.Requester#
+     * @param {String} method The HTTP method to be used for this request.
+     * @param {String} url The URL to send the request to.
+     * @param {String} messageBody The body of the request.
+     * @param {Object} callback The callback function to execute
+     *  when readyState is 4. The callback is supplied with two arguments. The
+     *  first argument is a boolean indicating whether or not the http status was 200.
+     *  The second argument is the request object.
+     */
+    this.makeRequest = function (method, url, messageBody, callback) {
+        var hdr;
+        checkRequest(arguments);
+        request.aborted = false;
+        request.open(method, url, true);
+        for (hdr in this.requestHeaders) {
+            if (this.requestHeaders.hasOwnProperty(hdr)) {
+                request.setRequestHeader(hdr, this.requestHeaders[hdr]);
+            }
+        }
+        
+        /**
+         * Event listener function for the AJAX request.
+         * This is what actually fires the callback supplied
+         * to makeRequest.
+         * @author <a href="mailto:matthewkastor@gmail.com">
+         *  Matthew Christopher Kastor-Inare III </a><br />
+         *  ☭ Hial Atropa!! ☭
+         * @version 20120909
+         * @methodOf atropa.Requester-request
+         * @private
+         */
+        request.onreadystatechange = function () {
+            if (request.readyState === 4) {
+                if (request.status === 200) {
+                    callback(true, request);
+                } else {
+                    callback(false, request);
+                }
+            }
+        };
+        request.send(messageBody);
+        setTimeout(function () {
+            if (request.aborted === false) {
+                request.abort();
+            }
+        }, this.timeout);
+    };
 };
 
 
@@ -2399,11 +2399,11 @@ atropa.Requester = function Requester() {
  * is returned.
  */
 atropa.setAsOptionalArg = function (defaultVal, optionalArg) {
-	"use strict";
-	if (optionalArg === undefined || optionalArg === null) {
-		optionalArg = defaultVal;
-	}
-	return optionalArg;
+    "use strict";
+    if (optionalArg === undefined || optionalArg === null) {
+        optionalArg = defaultVal;
+    }
+    return optionalArg;
 };
 
 
@@ -2431,9 +2431,9 @@ atropa.string = {};
  * @returns {String} The given string with it's first letter capitalized.
  */
 atropa.string.ucFirst = function ucFirst(string) {
-	"use strict";
-	string = string.charAt(0).toUpperCase() + string.slice(1);
-	return string;
+    "use strict";
+    string = string.charAt(0).toUpperCase() + string.slice(1);
+    return string;
 };
 /**
  * Counts words.
@@ -2445,13 +2445,13 @@ atropa.string.ucFirst = function ucFirst(string) {
  * @return {Number} Returns the count of words in someText.
  */
 atropa.string.countWords = function (someText) {
-	"use strict";
-	var wordCount,
-	re;
-	wordCount = 0;
-	re = /\s+/gi;
-	wordCount = someText.split(re);
-	return wordCount.length;
+    "use strict";
+    var wordCount,
+    re;
+    wordCount = 0;
+    re = /\s+/gi;
+    wordCount = someText.split(re);
+    return wordCount.length;
 };
 
 /**
@@ -2466,7 +2466,7 @@ atropa.string.countWords = function (someText) {
  * @returns {String} Returns the processed text.
  */
 atropa.string.convertEol = function convertEOL(text, newEOL) {
-	'use strict';
+    'use strict';
     return text.replace(/(\r\n|\n|\r)/g, newEOL);
 };
 
@@ -2481,7 +2481,7 @@ atropa.string.convertEol = function convertEOL(text, newEOL) {
  * @returns Returns the processed text.
  */
 atropa.string.offsetWhiteSpace = function offsetWhiteSpace(text, offset) {
-	'use strict';
+    'use strict';
     var regx;
     regx = new RegExp('^ {' + offset + '}');
     text = text.replace(regx, '');
@@ -2497,7 +2497,7 @@ atropa.string.offsetWhiteSpace = function offsetWhiteSpace(text, offset) {
  * @returns {String} Returns the processed text.
  */
 atropa.string.normalizeWhiteSpacePrefix = function normalizeWhiteSpacePrefix(text) {
-	'use strict';
+    'use strict';
     var prefix = text.match(/^\s*/);
     if(prefix) {
         prefix = prefix[0];
@@ -2516,7 +2516,7 @@ atropa.string.normalizeWhiteSpacePrefix = function normalizeWhiteSpacePrefix(tex
  * @returns {String} Returns the processed text.
  */
 atropa.string.normalizeWhiteSpace = function normalizeWhiteSpace(text) {
-	'use strict';
+    'use strict';
     text = text.replace(/\t/g, '    ');
     return text;
 };
@@ -2530,7 +2530,7 @@ atropa.string.normalizeWhiteSpace = function normalizeWhiteSpace(text) {
  * @returns {Number} Returns the quantity of leading spaces or tabs.
  */
 atropa.string.getOffset = function getOffset(text) {
-	'use strict';
+    'use strict';
     var offset = 0,
         leadingChar = text.charAt(0);
         
@@ -2552,18 +2552,18 @@ atropa.string.getOffset = function getOffset(text) {
  *  the given text.
  */
 atropa.string.getWords = function (text) {
-	"use strict";
-	var out = [];
-	function invalidChars(element) {
-		var matched = /^[\-'’`]+$/.test(element);
-		// invert the result of test. throw out elements that match.
-		return !matched;
-	}
-	out = atropa.arrays.removeEmptyElements(
-		text.split(/[^A-Za-z\-'’`]+/gi)
-	);
-	out = out.filter(invalidChars);
-	return out;
+    "use strict";
+    var out = [];
+    function invalidChars(element) {
+        var matched = /^[\-'’`]+$/.test(element);
+        // invert the result of test. throw out elements that match.
+        return !matched;
+    }
+    out = atropa.arrays.removeEmptyElements(
+        text.split(/[^A-Za-z\-'’`]+/gi)
+    );
+    out = out.filter(invalidChars);
+    return out;
 };
 /**
  * Escapes <code>CDATA</code> sections in text
@@ -2586,8 +2586,8 @@ atropa.string.getWords = function (text) {
  *  https://bugzilla.mozilla.org/show_bug.cgi?id=98168</a>
  */
 atropa.string.escapeCdata = function escapeCdata(text) {
-	"use strict";
-	return String(text).replace(/\]\]>/g, ']]]]><![CDATA[>');
+    "use strict";
+    return String(text).replace(/\]\]>/g, ']]]]><![CDATA[>');
 };
 
 
@@ -2609,44 +2609,44 @@ atropa.string.escapeCdata = function escapeCdata(text) {
  * @requires atropa.setAsOptionalArg
  */
 atropa.TextAnalyzer = function TextAnalyzer(text) {
-	"use strict";
-	var that = this, construct;
-	/**
-	* The supplied text. Defaults to an empty string.
-	* @type String
-	* @fieldOf atropa.TextAnalyzer#
-	*/
-	this.text = atropa.setAsOptionalArg('', String(text));
-	/**
-	* Gives the count of words in the text. Defaults to 0.
-	* @type Number
-	* @fieldOf atropa.TextAnalyzer#
-	*/
-	this.wordCount = 0;
-	/**
-	* An array of every word in the supplied text.
-	*  Defaults to an empty array.
-	* @type Array
-	* @fieldOf atropa.TextAnalyzer#
-	*/
-	this.words = [];
-	/**
-	* Sets the basic properties of the text analyzer.
-	* @author <a href="mailto:matthewkastor@gmail.com">
-	* Matthew Christopher Kastor-Inare III </a><br />
-	* ☭ Hial Atropa!! ☭
-	* @private
-	* @version 20130118
-	* @methodOf atropa.TextAnalyzer-
-	*/
-	construct = function () {
-		that.text = atropa.string.convertEol(that.text, '\n');
-		that.wordCount = atropa.string.countWords(that.text);
-		that.words = atropa.string.getWords(that.text);
-	};
+    "use strict";
+    var that = this, construct;
+    /**
+    * The supplied text. Defaults to an empty string.
+    * @type String
+    * @fieldOf atropa.TextAnalyzer#
+    */
+    this.text = atropa.setAsOptionalArg('', String(text));
+    /**
+    * Gives the count of words in the text. Defaults to 0.
+    * @type Number
+    * @fieldOf atropa.TextAnalyzer#
+    */
+    this.wordCount = 0;
+    /**
+    * An array of every word in the supplied text.
+    *  Defaults to an empty array.
+    * @type Array
+    * @fieldOf atropa.TextAnalyzer#
+    */
+    this.words = [];
+    /**
+    * Sets the basic properties of the text analyzer.
+    * @author <a href="mailto:matthewkastor@gmail.com">
+    * Matthew Christopher Kastor-Inare III </a><br />
+    * ☭ Hial Atropa!! ☭
+    * @private
+    * @version 20130118
+    * @methodOf atropa.TextAnalyzer-
+    */
+    construct = function () {
+        that.text = atropa.string.convertEol(that.text, '\n');
+        that.wordCount = atropa.string.countWords(that.text);
+        that.words = atropa.string.getWords(that.text);
+    };
 
-	construct();
-	return this;
+    construct();
+    return this;
 };
 /**
  * Gets an index of the text.
@@ -2659,9 +2659,9 @@ atropa.TextAnalyzer = function TextAnalyzer(text) {
  *  derived from the text given.
  */
 atropa.TextAnalyzer.prototype.getIndex = function () {
-	"use strict";
-	this.words = atropa.arrays.reindex(this.words);
-	return atropa.arrays.getUnique(this.words);
+    "use strict";
+    this.words = atropa.arrays.reindex(this.words);
+    return atropa.arrays.getUnique(this.words);
 };
 /**
  * Get the frequency data for each unique word in
@@ -2676,9 +2676,9 @@ atropa.TextAnalyzer.prototype.getIndex = function () {
  *  values are the count of each words occurrence.
  */
 atropa.TextAnalyzer.prototype.getWordFrequency = function () {
-	"use strict";
-	this.words = atropa.arrays.reindex(this.words);
-	return atropa.arrays.getFrequency(this.words);
+    "use strict";
+    this.words = atropa.arrays.reindex(this.words);
+    return atropa.arrays.getFrequency(this.words);
 };
 /**
  * Gets phrases of the specified length from the text.
@@ -2688,29 +2688,29 @@ atropa.TextAnalyzer.prototype.getWordFrequency = function () {
  *  and whose values are the number of occurrences of the phrase.
  */
 atropa.TextAnalyzer.prototype.getPhraseFrequency = function getPhraseFrequency(phraseLength) {
-	"use strict";
-	phraseLength = atropa.setAsOptionalArg(2, phraseLength);
-	if(2 > phraseLength) {
-		phraseLength = 2;
-	}
-	var counter = 0, prop, out = [];
-	
-	this.words = atropa.arrays.reindex(this.words);
-	
-	this.words.map(function(element, index, arr) {
-		counter = 1;  // element is word 1 of phraseLength
-		if(arr[index + phraseLength - 1] !== undefined) { // making sure there are enough words to concatenate a phrase of the proper length.
-			prop = String(element + ' ').toLowerCase();
-			for(counter; counter !== phraseLength; counter++) {
-				prop += String(arr[index + counter] + ' ').toLowerCase();
-			}
-			out.push(prop.trim());
-		}
-	});
-	
-	out = atropa.arrays.getFrequency(out);
-	
-	return out;
+    "use strict";
+    phraseLength = atropa.setAsOptionalArg(2, phraseLength);
+    if(2 > phraseLength) {
+        phraseLength = 2;
+    }
+    var counter = 0, prop, out = [];
+    
+    this.words = atropa.arrays.reindex(this.words);
+    
+    this.words.map(function(element, index, arr) {
+        counter = 1;  // element is word 1 of phraseLength
+        if(arr[index + phraseLength - 1] !== undefined) { // making sure there are enough words to concatenate a phrase of the proper length.
+            prop = String(element + ' ').toLowerCase();
+            for(counter; counter !== phraseLength; counter++) {
+                prop += String(arr[index + counter] + ' ').toLowerCase();
+            }
+            out.push(prop.trim());
+        }
+    });
+    
+    out = atropa.arrays.getFrequency(out);
+    
+    return out;
 };
 
 
@@ -2734,8 +2734,8 @@ atropa.url = {};
  * @returns {String} Returns everything after the last / in the url.
  */
 atropa.url.getFilename = function(url) {
-	"use strict";
-	return String(url).replace(/^.*\//,'');
+    "use strict";
+    return String(url).replace(/^.*\//,'');
 };
 
 
@@ -2766,25 +2766,25 @@ atropa.waitFor = {};
  * @param {Integer} maxPoll The quantity of polls at which it makes sense to give up waiting. Defaults to 50.
  */
 atropa.waitFor.test = function test(testFn, onSuccessCallback, onMaxPollCallback, pollInterval, maxPoll) {
-	"use strict";
-	pollInterval = atropa.setAsOptionalArg(200, pollInterval);
-	maxPoll = atropa.setAsOptionalArg(50, maxPoll);
-	onMaxPollCallback = atropa.setAsOptionalArg(function () {}, onMaxPollCallback);
-	onSuccessCallback = atropa.setAsOptionalArg(function () {}, onSuccessCallback);
-	var myInt,
-	myCounter;
-	myCounter = 0;
-	myInt = setInterval(function () {
-			myCounter++;
-			if (testFn()) {
-				clearInterval(myInt);
-				onSuccessCallback();
-			}
-			if (myCounter === maxPoll) {
-				clearInterval(myInt);
-				onMaxPollCallback();
-			}
-		}, pollInterval);
+    "use strict";
+    pollInterval = atropa.setAsOptionalArg(200, pollInterval);
+    maxPoll = atropa.setAsOptionalArg(50, maxPoll);
+    onMaxPollCallback = atropa.setAsOptionalArg(function () {}, onMaxPollCallback);
+    onSuccessCallback = atropa.setAsOptionalArg(function () {}, onSuccessCallback);
+    var myInt,
+    myCounter;
+    myCounter = 0;
+    myInt = setInterval(function () {
+            myCounter++;
+            if (testFn()) {
+                clearInterval(myInt);
+                onSuccessCallback();
+            }
+            if (myCounter === maxPoll) {
+                clearInterval(myInt);
+                onMaxPollCallback();
+            }
+        }, pollInterval);
 };
 /**
  * Wait for Element
@@ -2800,25 +2800,25 @@ atropa.waitFor.test = function test(testFn, onSuccessCallback, onMaxPollCallback
  * @see atropa.waitFor.test for more information and default values for the optional parameters.
  */
 atropa.waitFor.element = function (testFn, onSuccessCallback, onMaxPollCallback, pollInterval, maxPoll) {
-	"use strict";
-	var elementTest;
-	/**
-	 * Creates an HTML DOM Document and puts it in the document
-	 * queue, then executes the callback given.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.waitFor.element-
-	 * @private
-	 * @returns {Boolean} Returns true or false depending on whether the object has a tag name property.
-	 */
-	elementTest = function () {
-		var obj;
-		obj = testFn();
-		return atropa.inquire.hasProperty(obj, 'tagName');
-	};
-	atropa.waitFor.test(elementTest, onSuccessCallback, onMaxPollCallback, pollInterval, maxPoll);
+    "use strict";
+    var elementTest;
+    /**
+     * Creates an HTML DOM Document and puts it in the document
+     * queue, then executes the callback given.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.waitFor.element-
+     * @private
+     * @returns {Boolean} Returns true or false depending on whether the object has a tag name property.
+     */
+    elementTest = function () {
+        var obj;
+        obj = testFn();
+        return atropa.inquire.hasProperty(obj, 'tagName');
+    };
+    atropa.waitFor.test(elementTest, onSuccessCallback, onMaxPollCallback, pollInterval, maxPoll);
 };
 
 
@@ -2853,19 +2853,19 @@ atropa.window = {};
  *  returns something truthy.
  */
 atropa.window.open = function(url, callback, testFn) {
-	"use strict";
+    "use strict";
     var win;
-	
-	function defaultTestFn(win){
-		return win.document.readyState === 'complete';
-	}
-	
-	testFn = atropa.setAsOptionalArg(defaultTestFn, testFn);
-	
+    
+    function defaultTestFn(win){
+        return win.document.readyState === 'complete';
+    }
+    
+    testFn = atropa.setAsOptionalArg(defaultTestFn, testFn);
+    
     function ops(url) {
         return window.open(url);
     }
-	
+    
     function blks(win) {
         if(testFn(win)) {
             callback(win);
@@ -2873,7 +2873,7 @@ atropa.window.open = function(url, callback, testFn) {
             setTimeout(blks, 250, win);
         }
     }
-	
+    
     win = ops(url);
     setTimeout(blks, 0, win);
 };
@@ -2901,463 +2901,463 @@ atropa.wtf = {};
  * @version 20130110
  */
 atropa.wtf.dictionary = {
-	"novelty quickly wears off" : "dumb shit gits old fast",
-	"the way it is" : "how it be",
-	"put up with" : "manhandle",
-	"yet" : "immediately",
-	"lose" : "shake",
-	"for no reason" : "maiacally",
-	"given a choice" : "extorted",
-	"not strong enough" : "ain't got the nuts",
-	"now at an end" : "brand spankin new",
-	"be together" : "mash up",
-	"apocalypse" : "party time",
-	"nothing is assured" : "we live to deliver",
-	"to no avail" : "for great good",
-	"too good to be true" : "fucking fantastic",
-	"growing apart" : "fucking other people",
-	"rest in peace" : "party like it's 1999",
-	"back stab" : "rump shake",
-	"back stabb" : "rump shake",
-	"look into their eyes" : "give them AIDS",
-	"look into her eyes" : "give her AIDS",
-	"look into his eyes" : "give him AIDS",
-	"can't live without" : "touch myself about",
-	"can't be without" : "touch myself about",
-	"could never be without" : "can't work anal beads without",
-	"no matter" : "irregardless of",
-	"will be there" : "stick like shit",
-	"will always be there" : "stick like wet shit",
-	"holding them close to" : "handcuffing them to",
-	"by your side" : "on your ass",
-	"by my side" : "on my ass",
-	"by his side" : "on his ass",
-	"by her side" : "on her ass",
-	"leave your side" : "get off your ass",
-	"leave my side"   : "get off my ass",
-	"leave his side"  : "get off his ass",
-	"leave her side"  : "get off her ass",
-	"doesn't happen over" : "cartwheels straight across",
-	"means many things" : "is best described with lies",
-	"laying in bed" : "taking a shit",
-	"promise" : "lie",
-	"liar" : "fibber",
-	"lie" : "fib",
-	"lies" : "fibs",
-	"what's the point" : "the fucks this mean",
-	"it must be true" : "for real 'n' shit",
-	"what people say" : "muthaphukkas be talkin",
-	"etched" : "ground",
-	"don't have a clue" : "got shit twisted",
-	"viscious cycle" : "clusterfuck",
-	"don't need" : "could give a fuck about",
-	"raven" : "pigeon",
-	"to get away" : "to fucking run",
-	"to a better" : "for some glittered",
-	"beautiful face" : "enormous tits",
-	"might as well" : "oh fuck I oughtta",
-	"the first moment" : "straightaway",
-	"as well" : "also",
-	"so good" : "neato",
-	"could do anything" : "is fucking insane",
-	"set the mood" : "whip it out",
-	"baby if" : "look bitch,",
-	"through your hair" : "upside your head",
-	"entered the house of" : "got up in the barn for",
-	"always love you the same" : "always love you like my other suckers",
-	"kissing other" : "going down on",
-	"never thought you would do that" : "got turned out like a dumb fuck",
-	"laying on the floor" : "begging for it",
-	"first laid eyes on" : "first tried groping",
-	"most people can only" : "most freaks and dope fiends",
-	"you were the one" : "you were my target",
-	"standing out from the crowd" : "wobbling like an elephant on a bicycle",
-	"stood out from the crowd" : "jiggled like a jello Santa",
-	"stand out from the crowd" : "look like a jackass",
-	"stands out from the crowd" : "smells like old dick",
-	"i've never felt this way" : "i've done this",
-	"with every fiber" : "from pithy pits",
-	"wander" : "stumble",
-	"haunt" : "stalk",
-	"mask" : "trashbag",
-	"demonic angel" : "ass pirate",
-	"angelic demon" : "ass pirate",
-	"cunning" : "desperate",
-	"dangerous" : "cock catching",
-	"demi-god" : "punk bitch",
-	"demigod" : "punk bitch",
-	"mortal" : "queer",
-	"immortal" : "whiny",
-	"betrayal" : "game",
-	"betray" : "screw",
-	"gave up on" : "don't give a fuck about",
-	"give up on" : "won't give a fuck about",
-	"given up on" : "don't give a fuck about",
-	"giving up on" : "ain't givin a fuck about",
-	"coffin" : "tobogan",
-	"beautiful" : "gaudy",
-	"the best" : "the baddest",
-	"selfish" : "thieving",
-	"walked out" : "narrowly escaped",
-	"walk out" : "narrowly escape",
-	"walking out" : "narrowly escaping",
-	"got in your way" : "got all up in your shit",
-	"try" : "shoot",
-	"the point of no return" : "the fat girls bedrooom door",
-	"only wanted" : "begged for",
-	"guess it doesn't matter" : "know this shit is pointless",
-	"look back" : "lick windows",
-	"path" : "sidewalk",
-	"shine" : "bling",
-	"in the middle of" : "all up in",
-	"deep down inside" : "in the bottom of the tank",
-	"piece by piece" : "one handjob at a time",
-	"aura" : "stench",
-	"candle" : "glowstick",
-	"for her" : "to that broads",
-	"for she" : "'cause the cunt",
-	"for he" : "this dumb mother fucker",
-	"forest" : "campground",
-	"hand in hand" : "cock to jaw",
-	"hand to hold" : "nuts to grip",
-	"girl meets boy" : "horny kids hook up",
-	"boy meets girl" : "horny kids hook up",
-	"sunny" : "sweltering",
-	"so nervous" : "so fucking drunk",
-	"kiss" : "slap",
-	"fingertips" : "chicken nuggets",
-	"tell you i'm fine" : "screm I'M FUCKIN OK",
-	"write" : "scrawl",
-	"written" : "scrawled",
-	"wrote" : "scrawled",
-	"first of all" : "mm-kay",
-	"bring forth" : "whip out",
-	"into the light" : "on to the light",
-	"the only one" : "fucking stupid",
-	"to the light" : "out in public",
-	"talk" : "cuss",
-	"full of life" : "full of shit",
-	"can't find the words to say" : "could blurt out some dumb shit",
-	"consume" : "suck",
-	"consuming" : "sucking",
-	"pillow" : "stone",
-	"advice" : "bullshit",
-	"universe" : "toilet bowl",
-	"elder" : "old folk",
-	"magick" : "delusion",
-	"magic" : "hope",
-	"arcane" : "foolish",
-	"speak of" : "talk about",
-	"shall" : "should-will",
-	"obtain" : "get",
-	"battle" : "squabble",
-	"midnight" : "daybreak",
-	"sorrow" : "whimper",
-	"crimson" : "azure",
-	"black" : "yellow",
-	"won't make it through" : "could shimmy past",
-	"night" : "bedtime",
-	"day" : "morning",
-	"fragile" : "sturdy",
-	"crack" : "mend",
-	"solitude" : "ambiance",
-	"torment" : "tickle",
-	"incantation" : "much yammering",
-	"hopeless" : "pitiful",
-	"depressing" : "inebriating",
-	"depressed" : "drunk",
-	"depression" : "so much booze",
-	"saddened" : "made flaccid",
-	"sadness" : "impotence",
-	"neverending" : "never ending",
-	"never ending" : "relentless",
-	"never going" : "fucked for trying",
-	"change one thing" : "fuck some'n up",
-	"never end" : "drag on",
-	"will not heal" : "festers",
-	"outward appearance" : "facade",
-	"emo" : "closet homo",
-	"blackened walls" : "filthy rooms",
-	"farewell" : "adios",
-	"meet again" : "have another go-round",
-	"sadd" : "flaccid",
-	"sad" : "impotent",
-	"amidst" : "all up in",
-	"midst" : "pants",
-	"knowledge" : "trivia",
-	"known" : "got",
-	"know" : "get",
-	"knew" : "got",
-	"passionate" : "delirious",
-	"passion" : "delirium",
-	"o'" : "uh",
-	"o" : "uh",
-	"fang" : "denture",
-	"curse" : "stain",
-	"love" : "confuse",
-	"vampiric" : "pedophilic",
-	"vampyre" : "pedophyle",
-	"vampire" : "pedophile",
-	"problem" : "useless concern",
-	"feel" : "fondle",
-	"woe" : "chlamydia",
-	"empty" : "bloated",
-	"hatred" : "odium",
-	"hate" : "dislike",
-	"scarred" : "striated",
-	"scars" : "striae",
-	"scare" : "tickle",
-	"scary" : "tickly",
-	"scar" : "stria",
-	"wound" : "ouchie",
-	"slit" : "crevice",
-	"slice" : "pet",
-	"twas" : "it was",
-	"big brother" : "my paranoia",
-	"eternity" : "awhile",
-	"eternally" : "for a bit",
-	"eternal" : "imagined",
-	"prophet" : "insomniac",
-	"prophecies" : "wives tales",
-	"prophecy" : "wives tale",
-	"soldier" : "maniac",
-	"militia" : "gang",
-	"military" : "gangster",
-	"militant" : "maniacal",
-	"goddess" : "Kylee Strutt",
-	"higher power" : "crusty sock",
-	"dark" : "effervescent",
-	"ancient" : "elderly",
-	"quest" : "stroll",
-	"heartbeat" : "cock beat",
-	"heart" : "cock",
-	"blood" : "grease",
-	"bleed" : "whine",
-	"cut" : "mutilate",
-	"slash" : "mutilate",
-	"moonlight" : "moonshine",
-	"moon" : "night light",
-	"steel" : "latex",
-	"knife" : "dildo",
-	"razorblade" : "butt plug",
-	"razor" : "dildo",
-	"blade" : "handle",
-	"pain" : "hot sex",
-	"emotional" : "childish",
-	"emotion" : "lubricant",
-	"teardrop" : "tear drop",
-	"tear" : "sperme",
-	"castle" : "chateau",
-	"world" : "hand towel",
-	"dead" : "inert",
-	"goodbye" : "peace y'all",
-	"good-bye" : "get the fuck out",
-	"good bye" : "fuck off",
-	"death" : "Santa",
-	"pale" : "sexy",
-	"drift" : "him-haw",
-	"fade" : "him-haw",
-	"flesh" : "twinkie",
-	"corpse" : "mannequin",
-	"skin" : "twinkies",
-	"putrid" : "pleasant",
-	"breathe" : "pause awkwardly",
-	"breath" : "awkward pause",
-	"stopp" : "push",
-	"stop" : "push",
-	"scream" : "grunt",
-	"think" : "scheme",
-	"spiritual" : "banana craving",
-	"spirit" : "banana",
-	"soul" : "banana",
-	"ghost" : "imaginary friend",
-	"monster" : "dislexic lover",
-	"beast" : "erection",
-	"demon" : "hard-on",
-	"angel" : "porn star",
-	"shooting star" : "swift missile",
-	"star" : "missile",
-	"lost" : "aroused",
-	"time" : "throbbing",
-	"cheek" : "rump",
-	"fingers" : "sausage",
-	"daydream" : "fantasize",
-	"the spring" : "tube sock",
-	"spring" : "tube socks",
-	"illusion" : "drunken mistake",
-	"loneliness" : "arousal",
-	"lonely" : "horny",
-	"alone" : "ecstatic",
-	"lone" : "single",
-	"perfect" : "fucked",
-	"hidden" : "stashed",
-	"mystery" : "neon sign",
-	"mysteries" : "neon signs",
-	"rose" : "butt hole",
-	"petal" : "dingleberry",
-	"different" : "awkward",
-	"wrong" : "buzzing",
-	"fate" : "coincidence",
-	"cold" : "fuzzy",
-	"hellfire" : "hell fire",
-	"hell" : "my cock's",
-	"crystal" : "bedazler",
-	"rainbow" : "pizzazz",
-	"rain" : "jizzum",
-	"storm" : "orgy",
-	"wind" : "blow",
-	"breeze" : "draft",
-	"brilliance" : "shinyness",
-	"brilliant" : "shiny",
-	"dreamland" : "obsession island",
-	"dreams" : "obsessions",
-	"dream" : "obsess",
-	"prison" : "outhouse",
-	"golden ray" : "gaudy scribble",
-	"ray" : "scribble",
-	"deadly" : "fertile",
-	"truth" : "trivia",
-	"sun" : "yellow disk",
-	"cruel" : "haphazard",
-	"cloud" : "balloon",
-	"twinkle" : "strobe",
-	"twinkling" : "strobing",
-	"escape" : "snuggle",
-	"understand" : "stroke my ego",
-	"remember" : "mumble",
-	"illumination" : "mumbo jumbo",
-	"reality" : "toilet bowl",
-	"bind" : "coddle",
-	"bound" : "coddled",
-	"torn" : "huggled",
-	"died" : "made marshmallows",
-	"dies" : "makes marshmallows",
-	"die" : "make marshmallows",
-	"dying" : "making marshmallows",
-	"body" : "jiggling clump",
-	"bodies" : "jiggling piles",
-	"warfare" : "children laughing",
-	"debutantes" : "hookers",
-	"slave" : "gimp",
-	"poetic" : "flatulent",
-	"poetry" : "bad gas",
-	"poet" : "hobo",
-	"poem" : "scribble",
-	"country" : "bathroom",
-	"naked" : "unshaved",
-	"jesus christ" : "jim bob jr",
-	"christ" : "jim bob jr",
-	"jesus" : "jim bob jr",
-	"healer" : "fondler",
-	"gods" : "jim bob sr et al.",
-	"god" : "jim bob sr",
-	"weapon" : "pocket pussy",
-	"existence" : "whatever",
-	"minion" : "horny pirate",
-	"raping" : "what",
-	"rape" : "what",
-	"gravestone" : "mile marker",
-	"grave" : "personal space",
-	"infinite" : "abstract",
-	"suicide" : "murder",
-	"brink" : "border",
-	"cried" : "came",
-	"cries" : "skeets",
-	"crying" : "cumming",
-	"had done" : "done did",
-	"cry" : "cum",
-	"cryptic" : "drunken",
-	"crypt" : "urinal",
-	"mystic" : "transexual",
-	"balanced individual" : "psycho",
-	"balanced person" : "psycho",
-	"balanced man" : "psycho",
-	"balanced woman" : "psycho",
-	"wisdom" : "bull shit",
-	"wise" : "bull shitting",
-	"blessed be" : "suck eggs",
-	"energy" : "juice",
-	"riddle" : "polka dot",
-	"my lord" : "sweet palm",
-	"so mote it be" : "it's real in my head",
-	"pray" : "murmur",
-	"nomad" : "drunk hobo",
-	"destiny" : "taxes",
-	"sword" : "dildo",
-	"void" : "bucket",
-	"just" : "sure",
-	"vengeance" : "slap happiness",
-	"avenge" : "git rowdy for",
-	"venge" : "-rowdy-",
-	"heavens" : "skies",
-	"heaven" : "sky",
-	"endless" : "real long",
-	"valley" : "ditch",
-	"arduous" : "not easy",
-	"touch" : "grope",
-	"wretched" : "skeezy",
-	"wretch" : "skeeze",
-	"awe" : "fearful reverence",
-	"ritual" : "banana dance",
-	"behold" : "oogle",
-	"veil" : "disguise",
-	"vista" : "scene",
-	"always" : "usually",
-	"believe" : "buy",
-	"wish" : "want",
-	"fell" : "flopped",
-	"fall" : "flop",
-	"righteous" : "arrogant",
-	"warrior" : "kitten",
-	"uncaring" : "prickish",
-	"care to give" : "shit to give",
-	"take care of" : "decimate",
-	"taking care" : "forgeting",
-	"takes care" : "forgets",
-	"take care" : "forget",
-	"forget" : "disremember",
-	"caring" : "giving a shit",
-	"cared" : "gave a shit",
-	"care" : "give a shit",
-	"wield" : "jerk",
-	"ocean" : "sewer",
-	"sea" : "bath",
-	"bay" : "sink",
-	"twilight" : "moonshine",
-	"broken" : "beaten",
-	"broke" : "beat",
-	"break" : "beat",
-	"forever" : "so very",
-	"human race" : "gerbil empire",
-	"nightmare" : "tantrum",
-	"suffer" : "pirouette",
-	"myself" : "my muchness",
-	"me" : "i",
-	"my" : "i's ",
-	"mine" : "i's",
-	"was i" : "were i",
-	"am i" : "are i",
-	"im" : "i'm",
-	"i'm" : "i are",
-	"i've" : "i have",
-	"i'll" : "i will",
-	"i am" : "i are",
-	"yourself" : "you's muchness",
-	"yours" : "you's",
-	"your" : "you's",
-	"you all" : "all you",
-	"you'll" : "you will",
-	"you've" : "you has",
-	"you're" : "you is",
-	"thee" : "you",
-	"thine" : "you's",
-	"thou" : "you",
-	"we" : "they",
-	"us" : "them",
-	"our" : "their",
-	"ours" : "theirs",
-	"i" : "Kevin",
-	"you" : "Retards"
+    "novelty quickly wears off" : "dumb shit gits old fast",
+    "the way it is" : "how it be",
+    "put up with" : "manhandle",
+    "yet" : "immediately",
+    "lose" : "shake",
+    "for no reason" : "maiacally",
+    "given a choice" : "extorted",
+    "not strong enough" : "ain't got the nuts",
+    "now at an end" : "brand spankin new",
+    "be together" : "mash up",
+    "apocalypse" : "party time",
+    "nothing is assured" : "we live to deliver",
+    "to no avail" : "for great good",
+    "too good to be true" : "fucking fantastic",
+    "growing apart" : "fucking other people",
+    "rest in peace" : "party like it's 1999",
+    "back stab" : "rump shake",
+    "back stabb" : "rump shake",
+    "look into their eyes" : "give them AIDS",
+    "look into her eyes" : "give her AIDS",
+    "look into his eyes" : "give him AIDS",
+    "can't live without" : "touch myself about",
+    "can't be without" : "touch myself about",
+    "could never be without" : "can't work anal beads without",
+    "no matter" : "irregardless of",
+    "will be there" : "stick like shit",
+    "will always be there" : "stick like wet shit",
+    "holding them close to" : "handcuffing them to",
+    "by your side" : "on your ass",
+    "by my side" : "on my ass",
+    "by his side" : "on his ass",
+    "by her side" : "on her ass",
+    "leave your side" : "get off your ass",
+    "leave my side"   : "get off my ass",
+    "leave his side"  : "get off his ass",
+    "leave her side"  : "get off her ass",
+    "doesn't happen over" : "cartwheels straight across",
+    "means many things" : "is best described with lies",
+    "laying in bed" : "taking a shit",
+    "promise" : "lie",
+    "liar" : "fibber",
+    "lie" : "fib",
+    "lies" : "fibs",
+    "what's the point" : "the fucks this mean",
+    "it must be true" : "for real 'n' shit",
+    "what people say" : "muthaphukkas be talkin",
+    "etched" : "ground",
+    "don't have a clue" : "got shit twisted",
+    "viscious cycle" : "clusterfuck",
+    "don't need" : "could give a fuck about",
+    "raven" : "pigeon",
+    "to get away" : "to fucking run",
+    "to a better" : "for some glittered",
+    "beautiful face" : "enormous tits",
+    "might as well" : "oh fuck I oughtta",
+    "the first moment" : "straightaway",
+    "as well" : "also",
+    "so good" : "neato",
+    "could do anything" : "is fucking insane",
+    "set the mood" : "whip it out",
+    "baby if" : "look bitch,",
+    "through your hair" : "upside your head",
+    "entered the house of" : "got up in the barn for",
+    "always love you the same" : "always love you like my other suckers",
+    "kissing other" : "going down on",
+    "never thought you would do that" : "got turned out like a dumb fuck",
+    "laying on the floor" : "begging for it",
+    "first laid eyes on" : "first tried groping",
+    "most people can only" : "most freaks and dope fiends",
+    "you were the one" : "you were my target",
+    "standing out from the crowd" : "wobbling like an elephant on a bicycle",
+    "stood out from the crowd" : "jiggled like a jello Santa",
+    "stand out from the crowd" : "look like a jackass",
+    "stands out from the crowd" : "smells like old dick",
+    "i've never felt this way" : "i've done this",
+    "with every fiber" : "from pithy pits",
+    "wander" : "stumble",
+    "haunt" : "stalk",
+    "mask" : "trashbag",
+    "demonic angel" : "ass pirate",
+    "angelic demon" : "ass pirate",
+    "cunning" : "desperate",
+    "dangerous" : "cock catching",
+    "demi-god" : "punk bitch",
+    "demigod" : "punk bitch",
+    "mortal" : "queer",
+    "immortal" : "whiny",
+    "betrayal" : "game",
+    "betray" : "screw",
+    "gave up on" : "don't give a fuck about",
+    "give up on" : "won't give a fuck about",
+    "given up on" : "don't give a fuck about",
+    "giving up on" : "ain't givin a fuck about",
+    "coffin" : "tobogan",
+    "beautiful" : "gaudy",
+    "the best" : "the baddest",
+    "selfish" : "thieving",
+    "walked out" : "narrowly escaped",
+    "walk out" : "narrowly escape",
+    "walking out" : "narrowly escaping",
+    "got in your way" : "got all up in your shit",
+    "try" : "shoot",
+    "the point of no return" : "the fat girls bedrooom door",
+    "only wanted" : "begged for",
+    "guess it doesn't matter" : "know this shit is pointless",
+    "look back" : "lick windows",
+    "path" : "sidewalk",
+    "shine" : "bling",
+    "in the middle of" : "all up in",
+    "deep down inside" : "in the bottom of the tank",
+    "piece by piece" : "one handjob at a time",
+    "aura" : "stench",
+    "candle" : "glowstick",
+    "for her" : "to that broads",
+    "for she" : "'cause the cunt",
+    "for he" : "this dumb mother fucker",
+    "forest" : "campground",
+    "hand in hand" : "cock to jaw",
+    "hand to hold" : "nuts to grip",
+    "girl meets boy" : "horny kids hook up",
+    "boy meets girl" : "horny kids hook up",
+    "sunny" : "sweltering",
+    "so nervous" : "so fucking drunk",
+    "kiss" : "slap",
+    "fingertips" : "chicken nuggets",
+    "tell you i'm fine" : "screm I'M FUCKIN OK",
+    "write" : "scrawl",
+    "written" : "scrawled",
+    "wrote" : "scrawled",
+    "first of all" : "mm-kay",
+    "bring forth" : "whip out",
+    "into the light" : "on to the light",
+    "the only one" : "fucking stupid",
+    "to the light" : "out in public",
+    "talk" : "cuss",
+    "full of life" : "full of shit",
+    "can't find the words to say" : "could blurt out some dumb shit",
+    "consume" : "suck",
+    "consuming" : "sucking",
+    "pillow" : "stone",
+    "advice" : "bullshit",
+    "universe" : "toilet bowl",
+    "elder" : "old folk",
+    "magick" : "delusion",
+    "magic" : "hope",
+    "arcane" : "foolish",
+    "speak of" : "talk about",
+    "shall" : "should-will",
+    "obtain" : "get",
+    "battle" : "squabble",
+    "midnight" : "daybreak",
+    "sorrow" : "whimper",
+    "crimson" : "azure",
+    "black" : "yellow",
+    "won't make it through" : "could shimmy past",
+    "night" : "bedtime",
+    "day" : "morning",
+    "fragile" : "sturdy",
+    "crack" : "mend",
+    "solitude" : "ambiance",
+    "torment" : "tickle",
+    "incantation" : "much yammering",
+    "hopeless" : "pitiful",
+    "depressing" : "inebriating",
+    "depressed" : "drunk",
+    "depression" : "so much booze",
+    "saddened" : "made flaccid",
+    "sadness" : "impotence",
+    "neverending" : "never ending",
+    "never ending" : "relentless",
+    "never going" : "fucked for trying",
+    "change one thing" : "fuck some'n up",
+    "never end" : "drag on",
+    "will not heal" : "festers",
+    "outward appearance" : "facade",
+    "emo" : "closet homo",
+    "blackened walls" : "filthy rooms",
+    "farewell" : "adios",
+    "meet again" : "have another go-round",
+    "sadd" : "flaccid",
+    "sad" : "impotent",
+    "amidst" : "all up in",
+    "midst" : "pants",
+    "knowledge" : "trivia",
+    "known" : "got",
+    "know" : "get",
+    "knew" : "got",
+    "passionate" : "delirious",
+    "passion" : "delirium",
+    "o'" : "uh",
+    "o" : "uh",
+    "fang" : "denture",
+    "curse" : "stain",
+    "love" : "confuse",
+    "vampiric" : "pedophilic",
+    "vampyre" : "pedophyle",
+    "vampire" : "pedophile",
+    "problem" : "useless concern",
+    "feel" : "fondle",
+    "woe" : "chlamydia",
+    "empty" : "bloated",
+    "hatred" : "odium",
+    "hate" : "dislike",
+    "scarred" : "striated",
+    "scars" : "striae",
+    "scare" : "tickle",
+    "scary" : "tickly",
+    "scar" : "stria",
+    "wound" : "ouchie",
+    "slit" : "crevice",
+    "slice" : "pet",
+    "twas" : "it was",
+    "big brother" : "my paranoia",
+    "eternity" : "awhile",
+    "eternally" : "for a bit",
+    "eternal" : "imagined",
+    "prophet" : "insomniac",
+    "prophecies" : "wives tales",
+    "prophecy" : "wives tale",
+    "soldier" : "maniac",
+    "militia" : "gang",
+    "military" : "gangster",
+    "militant" : "maniacal",
+    "goddess" : "Kylee Strutt",
+    "higher power" : "crusty sock",
+    "dark" : "effervescent",
+    "ancient" : "elderly",
+    "quest" : "stroll",
+    "heartbeat" : "cock beat",
+    "heart" : "cock",
+    "blood" : "grease",
+    "bleed" : "whine",
+    "cut" : "mutilate",
+    "slash" : "mutilate",
+    "moonlight" : "moonshine",
+    "moon" : "night light",
+    "steel" : "latex",
+    "knife" : "dildo",
+    "razorblade" : "butt plug",
+    "razor" : "dildo",
+    "blade" : "handle",
+    "pain" : "hot sex",
+    "emotional" : "childish",
+    "emotion" : "lubricant",
+    "teardrop" : "tear drop",
+    "tear" : "sperme",
+    "castle" : "chateau",
+    "world" : "hand towel",
+    "dead" : "inert",
+    "goodbye" : "peace y'all",
+    "good-bye" : "get the fuck out",
+    "good bye" : "fuck off",
+    "death" : "Santa",
+    "pale" : "sexy",
+    "drift" : "him-haw",
+    "fade" : "him-haw",
+    "flesh" : "twinkie",
+    "corpse" : "mannequin",
+    "skin" : "twinkies",
+    "putrid" : "pleasant",
+    "breathe" : "pause awkwardly",
+    "breath" : "awkward pause",
+    "stopp" : "push",
+    "stop" : "push",
+    "scream" : "grunt",
+    "think" : "scheme",
+    "spiritual" : "banana craving",
+    "spirit" : "banana",
+    "soul" : "banana",
+    "ghost" : "imaginary friend",
+    "monster" : "dislexic lover",
+    "beast" : "erection",
+    "demon" : "hard-on",
+    "angel" : "porn star",
+    "shooting star" : "swift missile",
+    "star" : "missile",
+    "lost" : "aroused",
+    "time" : "throbbing",
+    "cheek" : "rump",
+    "fingers" : "sausage",
+    "daydream" : "fantasize",
+    "the spring" : "tube sock",
+    "spring" : "tube socks",
+    "illusion" : "drunken mistake",
+    "loneliness" : "arousal",
+    "lonely" : "horny",
+    "alone" : "ecstatic",
+    "lone" : "single",
+    "perfect" : "fucked",
+    "hidden" : "stashed",
+    "mystery" : "neon sign",
+    "mysteries" : "neon signs",
+    "rose" : "butt hole",
+    "petal" : "dingleberry",
+    "different" : "awkward",
+    "wrong" : "buzzing",
+    "fate" : "coincidence",
+    "cold" : "fuzzy",
+    "hellfire" : "hell fire",
+    "hell" : "my cock's",
+    "crystal" : "bedazler",
+    "rainbow" : "pizzazz",
+    "rain" : "jizzum",
+    "storm" : "orgy",
+    "wind" : "blow",
+    "breeze" : "draft",
+    "brilliance" : "shinyness",
+    "brilliant" : "shiny",
+    "dreamland" : "obsession island",
+    "dreams" : "obsessions",
+    "dream" : "obsess",
+    "prison" : "outhouse",
+    "golden ray" : "gaudy scribble",
+    "ray" : "scribble",
+    "deadly" : "fertile",
+    "truth" : "trivia",
+    "sun" : "yellow disk",
+    "cruel" : "haphazard",
+    "cloud" : "balloon",
+    "twinkle" : "strobe",
+    "twinkling" : "strobing",
+    "escape" : "snuggle",
+    "understand" : "stroke my ego",
+    "remember" : "mumble",
+    "illumination" : "mumbo jumbo",
+    "reality" : "toilet bowl",
+    "bind" : "coddle",
+    "bound" : "coddled",
+    "torn" : "huggled",
+    "died" : "made marshmallows",
+    "dies" : "makes marshmallows",
+    "die" : "make marshmallows",
+    "dying" : "making marshmallows",
+    "body" : "jiggling clump",
+    "bodies" : "jiggling piles",
+    "warfare" : "children laughing",
+    "debutantes" : "hookers",
+    "slave" : "gimp",
+    "poetic" : "flatulent",
+    "poetry" : "bad gas",
+    "poet" : "hobo",
+    "poem" : "scribble",
+    "country" : "bathroom",
+    "naked" : "unshaved",
+    "jesus christ" : "jim bob jr",
+    "christ" : "jim bob jr",
+    "jesus" : "jim bob jr",
+    "healer" : "fondler",
+    "gods" : "jim bob sr et al.",
+    "god" : "jim bob sr",
+    "weapon" : "pocket pussy",
+    "existence" : "whatever",
+    "minion" : "horny pirate",
+    "raping" : "what",
+    "rape" : "what",
+    "gravestone" : "mile marker",
+    "grave" : "personal space",
+    "infinite" : "abstract",
+    "suicide" : "murder",
+    "brink" : "border",
+    "cried" : "came",
+    "cries" : "skeets",
+    "crying" : "cumming",
+    "had done" : "done did",
+    "cry" : "cum",
+    "cryptic" : "drunken",
+    "crypt" : "urinal",
+    "mystic" : "transexual",
+    "balanced individual" : "psycho",
+    "balanced person" : "psycho",
+    "balanced man" : "psycho",
+    "balanced woman" : "psycho",
+    "wisdom" : "bull shit",
+    "wise" : "bull shitting",
+    "blessed be" : "suck eggs",
+    "energy" : "juice",
+    "riddle" : "polka dot",
+    "my lord" : "sweet palm",
+    "so mote it be" : "it's real in my head",
+    "pray" : "murmur",
+    "nomad" : "drunk hobo",
+    "destiny" : "taxes",
+    "sword" : "dildo",
+    "void" : "bucket",
+    "just" : "sure",
+    "vengeance" : "slap happiness",
+    "avenge" : "git rowdy for",
+    "venge" : "-rowdy-",
+    "heavens" : "skies",
+    "heaven" : "sky",
+    "endless" : "real long",
+    "valley" : "ditch",
+    "arduous" : "not easy",
+    "touch" : "grope",
+    "wretched" : "skeezy",
+    "wretch" : "skeeze",
+    "awe" : "fearful reverence",
+    "ritual" : "banana dance",
+    "behold" : "oogle",
+    "veil" : "disguise",
+    "vista" : "scene",
+    "always" : "usually",
+    "believe" : "buy",
+    "wish" : "want",
+    "fell" : "flopped",
+    "fall" : "flop",
+    "righteous" : "arrogant",
+    "warrior" : "kitten",
+    "uncaring" : "prickish",
+    "care to give" : "shit to give",
+    "take care of" : "decimate",
+    "taking care" : "forgeting",
+    "takes care" : "forgets",
+    "take care" : "forget",
+    "forget" : "disremember",
+    "caring" : "giving a shit",
+    "cared" : "gave a shit",
+    "care" : "give a shit",
+    "wield" : "jerk",
+    "ocean" : "sewer",
+    "sea" : "bath",
+    "bay" : "sink",
+    "twilight" : "moonshine",
+    "broken" : "beaten",
+    "broke" : "beat",
+    "break" : "beat",
+    "forever" : "so very",
+    "human race" : "gerbil empire",
+    "nightmare" : "tantrum",
+    "suffer" : "pirouette",
+    "myself" : "my muchness",
+    "me" : "i",
+    "my" : "i's ",
+    "mine" : "i's",
+    "was i" : "were i",
+    "am i" : "are i",
+    "im" : "i'm",
+    "i'm" : "i are",
+    "i've" : "i have",
+    "i'll" : "i will",
+    "i am" : "i are",
+    "yourself" : "you's muchness",
+    "yours" : "you's",
+    "your" : "you's",
+    "you all" : "all you",
+    "you'll" : "you will",
+    "you've" : "you has",
+    "you're" : "you is",
+    "thee" : "you",
+    "thine" : "you's",
+    "thou" : "you",
+    "we" : "they",
+    "us" : "them",
+    "our" : "their",
+    "ours" : "theirs",
+    "i" : "Kevin",
+    "you" : "Retards"
 };
 /**
  * Accepts plain text input and Gloriously WTFifies it.
@@ -3372,63 +3372,63 @@ atropa.wtf.dictionary = {
  * @return {String} Returns Genuine WTFified text.
  */
 atropa.wtf.wtfify = function (target, outputHTML) {
-	"use strict";
-	var regexValue,
-	replacementText,
-	oldWord,
-	wtfCount,
-	wordCount,
-	ret;
-	
-	if(true !== outputHTML) {
-		outputHTML = false;
-	}
-	ret = {};
-	wtfCount = 0;
-	target = target.trim();
-	if(true === outputHTML) {
-		target = target.replace(/(\. ?){2,}/gi, '<span style="color : brown ;"> [shit taco] </span>');
-		target = '<p> ' + target.replace(/(\r\n|\r|\n)/g,' <br/> ') + ' </p>';
-	} else {
-		target = target.replace(/(\. ?){2,}/gi, ' [shit taco] ');
-	}
-	wordCount = atropa.string.countWords(target);
-	/**
-	 * Accepts plain text input and Gloriously WTFifies it.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20130112
-	 * @methodOf atropa.wtf.wtfify-
-	 * @private
-	 * @param {String} m First matched pattern in string searched.
-	 * @param {String} sub1 First matched subpattern in string searched.
-	 * @param {String} sub2 Second matched subpattern in string searched.
-	 */
-	replacementText = function (m, sub1, sub2) {
-		wtfCount++;
-		sub1 = atropa.setAsOptionalArg('', sub1);
-		sub2 = atropa.setAsOptionalArg('', sub2);
-		var out;
-		if(true === outputHTML) {
-			out = '<span style="color : red ;">' + sub1 + atropa.wtf.dictionary[word] + sub2 + '</span>';
-		} else {
-			out = sub1 + atropa.wtf.dictionary[word] + sub2;
-		}
-		return out;
-	};
-	for (var word in atropa.wtf.dictionary) {
-		if (atropa.wtf.dictionary.hasOwnProperty(word)) {
-			oldWord = atropa.regex.appendPrefixesAndSuffixes(word);
-			regexValue = new RegExp(oldWord, 'gi');
-			target = target.replace(regexValue, replacementText);
-		}
-	}
-	ret.wtfCount = wtfCount;
-	ret.wordCount = wordCount;
-	ret.score = wtfCount / wordCount;
-	ret.txt = target;
-	return ret;
+    "use strict";
+    var regexValue,
+    replacementText,
+    oldWord,
+    wtfCount,
+    wordCount,
+    ret;
+    
+    if(true !== outputHTML) {
+        outputHTML = false;
+    }
+    ret = {};
+    wtfCount = 0;
+    target = target.trim();
+    if(true === outputHTML) {
+        target = target.replace(/(\. ?){2,}/gi, '<span style="color : brown ;"> [shit taco] </span>');
+        target = '<p> ' + target.replace(/(\r\n|\r|\n)/g,' <br/> ') + ' </p>';
+    } else {
+        target = target.replace(/(\. ?){2,}/gi, ' [shit taco] ');
+    }
+    wordCount = atropa.string.countWords(target);
+    /**
+     * Accepts plain text input and Gloriously WTFifies it.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20130112
+     * @methodOf atropa.wtf.wtfify-
+     * @private
+     * @param {String} m First matched pattern in string searched.
+     * @param {String} sub1 First matched subpattern in string searched.
+     * @param {String} sub2 Second matched subpattern in string searched.
+     */
+    replacementText = function (m, sub1, sub2) {
+        wtfCount++;
+        sub1 = atropa.setAsOptionalArg('', sub1);
+        sub2 = atropa.setAsOptionalArg('', sub2);
+        var out;
+        if(true === outputHTML) {
+            out = '<span style="color : red ;">' + sub1 + atropa.wtf.dictionary[word] + sub2 + '</span>';
+        } else {
+            out = sub1 + atropa.wtf.dictionary[word] + sub2;
+        }
+        return out;
+    };
+    for (var word in atropa.wtf.dictionary) {
+        if (atropa.wtf.dictionary.hasOwnProperty(word)) {
+            oldWord = atropa.regex.appendPrefixesAndSuffixes(word);
+            regexValue = new RegExp(oldWord, 'gi');
+            target = target.replace(regexValue, replacementText);
+        }
+    }
+    ret.wtfCount = wtfCount;
+    ret.wordCount = wordCount;
+    ret.score = wtfCount / wordCount;
+    ret.txt = target;
+    return ret;
 };
 /**
  * WTFifies the <code>textContent</code> or <code>value</code> of the
@@ -3438,12 +3438,12 @@ atropa.wtf.wtfify = function (target, outputHTML) {
  * @version 20130112
  */
 atropa.wtf.htmlElement = function (elementReference) {
-	"use strict";
-	var wtfified, txt;
-	elementReference.innerHTML = elementReference.innerHTML.replace(/<br>(\s+)?\r?\n?/g, '\r\n');
-	txt = elementReference.value || elementReference.textContent;
-	wtfified = atropa.wtf.wtfify(txt, true);
-	elementReference.innerHTML = '<pre style="color:black; background:white; white-space:pre-wrap;">' + wtfified.txt + '</pre>';
+    "use strict";
+    var wtfified, txt;
+    elementReference.innerHTML = elementReference.innerHTML.replace(/<br>(\s+)?\r?\n?/g, '\r\n');
+    txt = elementReference.value || elementReference.textContent;
+    wtfified = atropa.wtf.wtfify(txt, true);
+    elementReference.innerHTML = '<pre style="color:black; background:white; white-space:pre-wrap;">' + wtfified.txt + '</pre>';
 };
 
 
@@ -3507,20 +3507,20 @@ atropa.xpath = {};
  * @returns {Number} Returns the quantity of nodes processed.
  */
 atropa.xpath.processNodesByXpath = function processNodesByXpath(xpathExpression, contextNode, docref, callback) {
-	"use strict";
-	docref = atropa.setAsOptionalArg(document, docref);
-	contextNode = atropa.setAsOptionalArg(docref, contextNode);
-	var nodesSnapshot,
-	nsl,
-	i,
-	nsi;
-	nodesSnapshot = docref.evaluate(xpathExpression, contextNode, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-	nsl = nodesSnapshot.snapshotLength;
-	for (i = 0; i < nsl; i++) {
-		nsi = nodesSnapshot.snapshotItem(i);
-		callback(nsi);
-	}
-	return i;
+    "use strict";
+    docref = atropa.setAsOptionalArg(document, docref);
+    contextNode = atropa.setAsOptionalArg(docref, contextNode);
+    var nodesSnapshot,
+    nsl,
+    i,
+    nsi;
+    nodesSnapshot = docref.evaluate(xpathExpression, contextNode, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+    nsl = nodesSnapshot.snapshotLength;
+    for (i = 0; i < nsl; i++) {
+        nsi = nodesSnapshot.snapshotItem(i);
+        callback(nsi);
+    }
+    return i;
 };
 /**
  * Removes nodes from the DOM using an Xpath expression.
@@ -3543,12 +3543,12 @@ atropa.xpath.processNodesByXpath = function processNodesByXpath(xpathExpression,
  * @see atropa.xpath.processNodesByXpath for more information.
  */
 atropa.xpath.removeNodesByXpath = function removeNodesByXpath(xpathExpression, contextNode, docref) {
-	"use strict";
-	var count;
-	count = atropa.xpath.processNodesByXpath(xpathExpression, contextNode, docref, function (element) {
-			atropa.removeNodeByReference(element);
-		});
-	return count;
+    "use strict";
+    var count;
+    count = atropa.xpath.processNodesByXpath(xpathExpression, contextNode, docref, function (element) {
+            atropa.removeNodeByReference(element);
+        });
+    return count;
 };
 /**
  * Selects nodes from the DOM using an Xpath expression.
@@ -3570,13 +3570,13 @@ atropa.xpath.removeNodesByXpath = function removeNodesByXpath(xpathExpression, c
  * @see atropa.xpath.processNodesByXpath for more information.
  */
 atropa.xpath.getNodesByXpath = function getNodesByXpath(xpathExpression, contextNode, docref) {
-	'use strict';
-	var elementReferences;
-	elementReferences = [];
-	atropa.xpath.processNodesByXpath(xpathExpression, contextNode, docref, function (element) {
-		elementReferences.push(element);
-	});
-	return elementReferences;
+    'use strict';
+    var elementReferences;
+    elementReferences = [];
+    atropa.xpath.processNodesByXpath(xpathExpression, contextNode, docref, function (element) {
+        elementReferences.push(element);
+    });
+    return elementReferences;
 };
 /**
  * Escapes single quotes (apostrope) in Xpath queries.
@@ -3601,10 +3601,10 @@ atropa.xpath.getNodesByXpath = function getNodesByXpath(xpathExpression, context
  * which will effectively work in escaping quotes in your xpath query.
  */
 atropa.xpath.escapeQuotesXpath = function escapeQuotesXpath(string) {
-	'use strict';
-	string = string.replace(/\'/g, "', \"'\", '");
-	string = string.replace(/^(.*)$/g, "concat('$1')");
-	return string;
+    'use strict';
+    string = string.replace(/\'/g, "', \"'\", '");
+    string = string.replace(/^(.*)$/g, "concat('$1')");
+    return string;
 };
 
 

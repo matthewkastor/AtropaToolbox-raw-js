@@ -142,20 +142,20 @@ atropa.xpath = {};
  * @returns {Number} Returns the quantity of nodes processed.
  */
 atropa.xpath.processNodesByXpath = function processNodesByXpath(xpathExpression, contextNode, docref, callback) {
-	"use strict";
-	docref = atropa.setAsOptionalArg(document, docref);
-	contextNode = atropa.setAsOptionalArg(docref, contextNode);
-	var nodesSnapshot,
-	nsl,
-	i,
-	nsi;
-	nodesSnapshot = docref.evaluate(xpathExpression, contextNode, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-	nsl = nodesSnapshot.snapshotLength;
-	for (i = 0; i < nsl; i++) {
-		nsi = nodesSnapshot.snapshotItem(i);
-		callback(nsi);
-	}
-	return i;
+    "use strict";
+    docref = atropa.setAsOptionalArg(document, docref);
+    contextNode = atropa.setAsOptionalArg(docref, contextNode);
+    var nodesSnapshot,
+    nsl,
+    i,
+    nsi;
+    nodesSnapshot = docref.evaluate(xpathExpression, contextNode, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+    nsl = nodesSnapshot.snapshotLength;
+    for (i = 0; i < nsl; i++) {
+        nsi = nodesSnapshot.snapshotItem(i);
+        callback(nsi);
+    }
+    return i;
 };
 /**
  * Removes nodes from the DOM using an Xpath expression.
@@ -178,12 +178,12 @@ atropa.xpath.processNodesByXpath = function processNodesByXpath(xpathExpression,
  * @see atropa.xpath.processNodesByXpath for more information.
  */
 atropa.xpath.removeNodesByXpath = function removeNodesByXpath(xpathExpression, contextNode, docref) {
-	"use strict";
-	var count;
-	count = atropa.xpath.processNodesByXpath(xpathExpression, contextNode, docref, function (element) {
-			atropa.removeNodeByReference(element);
-		});
-	return count;
+    "use strict";
+    var count;
+    count = atropa.xpath.processNodesByXpath(xpathExpression, contextNode, docref, function (element) {
+            atropa.removeNodeByReference(element);
+        });
+    return count;
 };
 /**
  * Selects nodes from the DOM using an Xpath expression.
@@ -205,13 +205,13 @@ atropa.xpath.removeNodesByXpath = function removeNodesByXpath(xpathExpression, c
  * @see atropa.xpath.processNodesByXpath for more information.
  */
 atropa.xpath.getNodesByXpath = function getNodesByXpath(xpathExpression, contextNode, docref) {
-	'use strict';
-	var elementReferences;
-	elementReferences = [];
-	atropa.xpath.processNodesByXpath(xpathExpression, contextNode, docref, function (element) {
-		elementReferences.push(element);
-	});
-	return elementReferences;
+    'use strict';
+    var elementReferences;
+    elementReferences = [];
+    atropa.xpath.processNodesByXpath(xpathExpression, contextNode, docref, function (element) {
+        elementReferences.push(element);
+    });
+    return elementReferences;
 };
 /**
  * Escapes single quotes (apostrope) in Xpath queries.
@@ -236,10 +236,10 @@ atropa.xpath.getNodesByXpath = function getNodesByXpath(xpathExpression, context
  * which will effectively work in escaping quotes in your xpath query.
  */
 atropa.xpath.escapeQuotesXpath = function escapeQuotesXpath(string) {
-	'use strict';
-	string = string.replace(/\'/g, "', \"'\", '");
-	string = string.replace(/^(.*)$/g, "concat('$1')");
-	return string;
+    'use strict';
+    string = string.replace(/\'/g, "', \"'\", '");
+    string = string.replace(/^(.*)$/g, "concat('$1')");
+    return string;
 };</textarea>
   </div>
 </div>

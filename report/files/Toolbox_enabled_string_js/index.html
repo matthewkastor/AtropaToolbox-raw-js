@@ -106,9 +106,9 @@ atropa.string = {};
  * @returns {String} The given string with it's first letter capitalized.
  */
 atropa.string.ucFirst = function ucFirst(string) {
-	"use strict";
-	string = string.charAt(0).toUpperCase() + string.slice(1);
-	return string;
+    "use strict";
+    string = string.charAt(0).toUpperCase() + string.slice(1);
+    return string;
 };
 /**
  * Counts words.
@@ -120,13 +120,13 @@ atropa.string.ucFirst = function ucFirst(string) {
  * @return {Number} Returns the count of words in someText.
  */
 atropa.string.countWords = function (someText) {
-	"use strict";
-	var wordCount,
-	re;
-	wordCount = 0;
-	re = /\s+/gi;
-	wordCount = someText.split(re);
-	return wordCount.length;
+    "use strict";
+    var wordCount,
+    re;
+    wordCount = 0;
+    re = /\s+/gi;
+    wordCount = someText.split(re);
+    return wordCount.length;
 };
 
 /**
@@ -141,7 +141,7 @@ atropa.string.countWords = function (someText) {
  * @returns {String} Returns the processed text.
  */
 atropa.string.convertEol = function convertEOL(text, newEOL) {
-	'use strict';
+    'use strict';
     return text.replace(/(\r\n|\n|\r)/g, newEOL);
 };
 
@@ -156,7 +156,7 @@ atropa.string.convertEol = function convertEOL(text, newEOL) {
  * @returns Returns the processed text.
  */
 atropa.string.offsetWhiteSpace = function offsetWhiteSpace(text, offset) {
-	'use strict';
+    'use strict';
     var regx;
     regx = new RegExp('^ {' + offset + '}');
     text = text.replace(regx, '');
@@ -172,7 +172,7 @@ atropa.string.offsetWhiteSpace = function offsetWhiteSpace(text, offset) {
  * @returns {String} Returns the processed text.
  */
 atropa.string.normalizeWhiteSpacePrefix = function normalizeWhiteSpacePrefix(text) {
-	'use strict';
+    'use strict';
     var prefix = text.match(/^\s*/);
     if(prefix) {
         prefix = prefix[0];
@@ -191,7 +191,7 @@ atropa.string.normalizeWhiteSpacePrefix = function normalizeWhiteSpacePrefix(tex
  * @returns {String} Returns the processed text.
  */
 atropa.string.normalizeWhiteSpace = function normalizeWhiteSpace(text) {
-	'use strict';
+    'use strict';
     text = text.replace(/\t/g, '    ');
     return text;
 };
@@ -205,7 +205,7 @@ atropa.string.normalizeWhiteSpace = function normalizeWhiteSpace(text) {
  * @returns {Number} Returns the quantity of leading spaces or tabs.
  */
 atropa.string.getOffset = function getOffset(text) {
-	'use strict';
+    'use strict';
     var offset = 0,
         leadingChar = text.charAt(0);
         
@@ -227,18 +227,18 @@ atropa.string.getOffset = function getOffset(text) {
  *  the given text.
  */
 atropa.string.getWords = function (text) {
-	"use strict";
-	var out = [];
-	function invalidChars(element) {
-		var matched = /^[\-'’`]+$/.test(element);
-		// invert the result of test. throw out elements that match.
-		return !matched;
-	}
-	out = atropa.arrays.removeEmptyElements(
-		text.split(/[^A-Za-z\-'’`]+/gi)
-	);
-	out = out.filter(invalidChars);
-	return out;
+    "use strict";
+    var out = [];
+    function invalidChars(element) {
+        var matched = /^[\-'’`]+$/.test(element);
+        // invert the result of test. throw out elements that match.
+        return !matched;
+    }
+    out = atropa.arrays.removeEmptyElements(
+        text.split(/[^A-Za-z\-'’`]+/gi)
+    );
+    out = out.filter(invalidChars);
+    return out;
 };
 /**
  * Escapes <code>CDATA</code> sections in text
@@ -261,8 +261,8 @@ atropa.string.getWords = function (text) {
  *  https://bugzilla.mozilla.org/show_bug.cgi?id=98168</a>
  */
 atropa.string.escapeCdata = function escapeCdata(text) {
-	"use strict";
-	return String(text).replace(/\]\]>/g, ']]]]><![CDATA[>');
+    "use strict";
+    return String(text).replace(/\]\]>/g, ']]]]><![CDATA[>');
 };</textarea>
   </div>
 </div>

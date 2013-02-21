@@ -105,8 +105,8 @@ atropa.inquire = {};
  * @returns {Boolean} Returns true if x === null.
  */
 atropa.inquire.isNull = function (x) {
-	"use strict";
-	return (x === null);
+    "use strict";
+    return (x === null);
 };
 /**
  * Checks whether the input is an object.
@@ -118,8 +118,8 @@ atropa.inquire.isNull = function (x) {
  * @returns {Boolean} Returns true if typeof(x) === 'objeect'.
  */
 atropa.inquire.isObject = function (x) {
-	"use strict";
-	return (typeof x === 'object');
+    "use strict";
+    return (typeof x === 'object');
 };
 /**
  * Checks whether the input is both an object and not null.
@@ -133,8 +133,8 @@ atropa.inquire.isObject = function (x) {
  * not null. (null is an object).
  */
 atropa.inquire.isObjectNotNull = function (x) {
-	"use strict";
-	return atropa.inquire.isObject(x) && (!atropa.inquire.isNull(x));
+    "use strict";
+    return atropa.inquire.isObject(x) && (!atropa.inquire.isNull(x));
 };
 /**
  * Checks an object for the existence of a property
@@ -152,11 +152,11 @@ atropa.inquire.isObjectNotNull = function (x) {
  * otherwise returns false.
  */
 atropa.inquire.hasProperty = function (obj, prop) {
-	"use strict";
-	if (atropa.inquire.isObjectNotNull(obj)) {
-		return (prop in obj);
-	}
-	return false;
+    "use strict";
+    if (atropa.inquire.isObjectNotNull(obj)) {
+        return (prop in obj);
+    }
+    return false;
 };
 /**
  * Checks whether the input is an empty string.
@@ -169,12 +169,12 @@ atropa.inquire.hasProperty = function (obj, prop) {
  *  otherwise returns false.
  */
  atropa.inquire.isEmptyString = function (str) {
-	"use strict";
-	var out = false;
-	if ('' === str) {
-		out = true;
-	}
-	return out;
+    "use strict";
+    var out = false;
+    if ('' === str) {
+        out = true;
+    }
+    return out;
 };</textarea>
   </div>
 </div>

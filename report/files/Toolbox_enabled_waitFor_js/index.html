@@ -109,25 +109,25 @@ atropa.waitFor = {};
  * @param {Integer} maxPoll The quantity of polls at which it makes sense to give up waiting. Defaults to 50.
  */
 atropa.waitFor.test = function test(testFn, onSuccessCallback, onMaxPollCallback, pollInterval, maxPoll) {
-	"use strict";
-	pollInterval = atropa.setAsOptionalArg(200, pollInterval);
-	maxPoll = atropa.setAsOptionalArg(50, maxPoll);
-	onMaxPollCallback = atropa.setAsOptionalArg(function () {}, onMaxPollCallback);
-	onSuccessCallback = atropa.setAsOptionalArg(function () {}, onSuccessCallback);
-	var myInt,
-	myCounter;
-	myCounter = 0;
-	myInt = setInterval(function () {
-			myCounter++;
-			if (testFn()) {
-				clearInterval(myInt);
-				onSuccessCallback();
-			}
-			if (myCounter === maxPoll) {
-				clearInterval(myInt);
-				onMaxPollCallback();
-			}
-		}, pollInterval);
+    "use strict";
+    pollInterval = atropa.setAsOptionalArg(200, pollInterval);
+    maxPoll = atropa.setAsOptionalArg(50, maxPoll);
+    onMaxPollCallback = atropa.setAsOptionalArg(function () {}, onMaxPollCallback);
+    onSuccessCallback = atropa.setAsOptionalArg(function () {}, onSuccessCallback);
+    var myInt,
+    myCounter;
+    myCounter = 0;
+    myInt = setInterval(function () {
+            myCounter++;
+            if (testFn()) {
+                clearInterval(myInt);
+                onSuccessCallback();
+            }
+            if (myCounter === maxPoll) {
+                clearInterval(myInt);
+                onMaxPollCallback();
+            }
+        }, pollInterval);
 };
 /**
  * Wait for Element
@@ -143,25 +143,25 @@ atropa.waitFor.test = function test(testFn, onSuccessCallback, onMaxPollCallback
  * @see atropa.waitFor.test for more information and default values for the optional parameters.
  */
 atropa.waitFor.element = function (testFn, onSuccessCallback, onMaxPollCallback, pollInterval, maxPoll) {
-	"use strict";
-	var elementTest;
-	/**
-	 * Creates an HTML DOM Document and puts it in the document
-	 * queue, then executes the callback given.
-	 * @author <a href="mailto:matthewkastor@gmail.com">
-	 *  Matthew Christopher Kastor-Inare III </a><br />
-	 *  ☭ Hial Atropa!! ☭
-	 * @version 20120909
-	 * @methodOf atropa.waitFor.element-
-	 * @private
-	 * @returns {Boolean} Returns true or false depending on whether the object has a tag name property.
-	 */
-	elementTest = function () {
-		var obj;
-		obj = testFn();
-		return atropa.inquire.hasProperty(obj, 'tagName');
-	};
-	atropa.waitFor.test(elementTest, onSuccessCallback, onMaxPollCallback, pollInterval, maxPoll);
+    "use strict";
+    var elementTest;
+    /**
+     * Creates an HTML DOM Document and puts it in the document
+     * queue, then executes the callback given.
+     * @author <a href="mailto:matthewkastor@gmail.com">
+     *  Matthew Christopher Kastor-Inare III </a><br />
+     *  ☭ Hial Atropa!! ☭
+     * @version 20120909
+     * @methodOf atropa.waitFor.element-
+     * @private
+     * @returns {Boolean} Returns true or false depending on whether the object has a tag name property.
+     */
+    elementTest = function () {
+        var obj;
+        obj = testFn();
+        return atropa.inquire.hasProperty(obj, 'tagName');
+    };
+    atropa.waitFor.test(elementTest, onSuccessCallback, onMaxPollCallback, pollInterval, maxPoll);
 };</textarea>
   </div>
 </div>
