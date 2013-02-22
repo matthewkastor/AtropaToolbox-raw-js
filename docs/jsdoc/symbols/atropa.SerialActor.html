@@ -305,7 +305,7 @@ ul.inheritsList
 								<div class="fixedFont">
 								<b><a href="../symbols/atropa.SerialActor.html#actorFunction">actorFunction</a></b>
 								</div>
-								<div class="description">The function to execute when the actor is free.</div>
+								<div class="description">The function to execute when the SerialActor is free.</div>
 							</td>
 						</tr>
 					
@@ -427,7 +427,7 @@ ul.inheritsList
 						</tr>
 					
 						<tr>
-							<td class="attributes">&lt;inner&gt; &nbsp;</td>
+							<td class="attributes">&lt;private&gt; &lt;inner&gt; &nbsp;</td>
 							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/atropa.SerialActor.html#-dummyActor">dummyActor</a></b>()
 								</div>
@@ -489,7 +489,7 @@ ul.inheritsList
 				
 				
 				
-				<pre class="code">function dummyActor(){    var that = this;    console.log('actorFunction would execute');    console.log('freeing ' + this.name + ' in 10000 ms');    setTimeout(function(){that.free();}, 10000);};var actor = new atropa.SerialActor('dummy', dummyActor);actor.start();</pre>
+				<pre class="code">function dummyActor(){    var that = this;    console.log('actorFunction would execute');    console.log('freeing ' + this.name + ' in 10000 ms');    setTimeout(function(){that.free();}, 10000);};var actor = new atropa.SerialActor('dummy', dummyActor);    // change the name of the actor from    // dummy to awesomeactor.name = "awesome";    // set the polling interval (milliseconds)actor.interval = 3000;    // set the blocking timeout value (milliseconds)actor.blockTimeoutValue = 120000;    // start pollingactor.start();    // dynamically change the SerialActorsetTimeout(function(){    // change the polling interval    // while the SerialActor is running.    actor.changeInterval(2000);        // change the actor function    actor.actorFunction = function() {        console.log('new actorFunction executing');        console.log('freeing ' + this.name + ' immediately');        this.free();    };},10000);</pre>
 				
 				
 				
@@ -508,13 +508,20 @@ ul.inheritsList
 								<span class="light fixedFont">{Function}</span>  <b>actorFunction</b>
 								
 							</dt>
-								<dd>The function to execute when the actor is free.</dd>
+								<dd>The function to execute when the SerialActor is free. This function must call the <code>free</code> function when it is finished in order to allow the actor to continue.</dd>
 						
 						</dl>
 					
 					
 					
 					
+					
+						<dl class="detailList">
+						<dt class="heading">Returns:</dt>
+						
+								<dd><span class="light fixedFont">{<a href="../symbols/atropa.SerialActor.html">atropa.SerialActor</a>}</span> Returns an <code>atropa.SerialActor</code> instance.</dd>
+						
+						</dl>
 					
 					
 					
@@ -536,16 +543,34 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						The function to execute when the actor is free. Defaults to the <code>dummyActor</code> function defined above.
+						The function to execute when the SerialActor is free. This function must call the <code>free</code> function when it is finished in order to allow the actor to continue. Defaults to the <code>dummyActor</code> function.
 						
 						
 					</div>
+					
+					
+					
+					<pre class="code">dummyActor = function(){    console.log('actorFunction would execute');    console.log('freeing Serial Actor in 10000 ms');    setTimeout(function(){that.free();}, 10000);};</pre>
 					
 					
 
 						
 						
 						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+							<dd><a href="../symbols/atropa.SerialActor.html#-dummyActor">atropa.SerialActor-dummyActor</a></dd>
+							
+							</dl>
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Default Value:</dt>
+							<dd>
+								dummyActor
+							</dd>
+							</dl>
 						
 
 					<hr />
@@ -569,6 +594,13 @@ ul.inheritsList
 						
 						
 						
+							<dl class="detailList">
+							<dt class="heading">Default Value:</dt>
+							<dd>
+								false
+							</dd>
+							</dl>
+						
 
 					<hr />
 				
@@ -590,6 +622,13 @@ ul.inheritsList
 						
 						
 						
+						
+							<dl class="detailList">
+							<dt class="heading">Default Value:</dt>
+							<dd>
+								60000
+							</dd>
+							</dl>
 						
 
 					<hr />
@@ -613,6 +652,13 @@ ul.inheritsList
 						
 						
 						
+							<dl class="detailList">
+							<dt class="heading">Default Value:</dt>
+							<dd>
+								100
+							</dd>
+							</dl>
+						
 
 					<hr />
 				
@@ -635,6 +681,13 @@ ul.inheritsList
 						
 						
 						
+							<dl class="detailList">
+							<dt class="heading">Default Value:</dt>
+							<dd>
+								undefined
+							</dd>
+							</dl>
+						
 
 					<hr />
 				
@@ -656,6 +709,13 @@ ul.inheritsList
 						
 						
 						
+						
+							<dl class="detailList">
+							<dt class="heading">Default Value:</dt>
+							<dd>
+								"SerialActor"
+							</dd>
+							</dl>
 						
 
 					<hr />
@@ -686,6 +746,13 @@ ul.inheritsList
 							</dl>
 						
 						
+							<dl class="detailList">
+							<dt class="heading">Default Value:</dt>
+							<dd>
+								[]
+							</dd>
+							</dl>
+						
 
 					
 				
@@ -705,7 +772,7 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						The action function is called when the actor is polled and it's blocked state is false. This method should not be set manually, set the <code>actorFunction</code> instead.
+						The action function is called when the actor is polled and it's blocked state is false. This method should not be set or called manually, set the <code>actorFunction</code> instead.
 						
 						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
@@ -732,7 +799,7 @@ ul.inheritsList
 					<a name="block"> </a>
 					<div class="fixedFont">
 					
-					
+					<span class="light">{Boolean}</span>
 					<b>block</b>()
 					
 					</div>
@@ -744,12 +811,30 @@ ul.inheritsList
 					
 					
 					
+					<pre class="code">function d() {    console.log('doing stuff to things');    this.free();}var actor = new atropa.SerialActor('dummy', d);actor.interval = 2000;actor.blockTimeoutValue = 5000;actor.start();// 5 seconds after starting the actor will be blocked.// It will remain blocked until the block timeout is reached.setTimeout(function() {    console.log('blocking!!!');    actor.block();}, 5000);</pre>
+					
+					
+					
 						
 						
 						
 						
 						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> Returns the value of this instances <code>blocked</code> property.</dd>
+							
+							</dl>
 						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/atropa.SerialActor.html#blocked">atropa.SerialActor#blocked</a></dd>
+							
+							</dl>
 						
 
 					<hr />
@@ -757,7 +842,7 @@ ul.inheritsList
 					<a name="blockTimeout"> </a>
 					<div class="fixedFont">
 					
-					
+					<span class="light">{Boolean}</span>
 					<b>blockTimeout</b>()
 					
 					</div>
@@ -774,7 +859,21 @@ ul.inheritsList
 						
 						
 						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> Returns the value of this instances <code>blocked</code> property.</dd>
+							
+							</dl>
 						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/atropa.SerialActor.html#blocked">atropa.SerialActor#blocked</a></dd>
+							
+							</dl>
 						
 
 					<hr />
@@ -782,7 +881,7 @@ ul.inheritsList
 					<a name="changeInterval"> </a>
 					<div class="fixedFont">
 					
-					
+					<span class="light">{Number}</span>
 					<b>changeInterval</b>(interval)
 					
 					</div>
@@ -791,6 +890,10 @@ ul.inheritsList
 						
 						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
+					
+					
+					
+					<pre class="code">var actor = new atropa.SerialActor('dummy');actor.start();    // 5 seconds after starting the polling interval will be changed.setTimeout(function(){    actor.changeInterval(2000);}, 5000);</pre>
 					
 					
 					
@@ -810,13 +913,27 @@ ul.inheritsList
 						
 						
 						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Number}</span> Returns the value of this instance's <code>intervalId</code> property.</dd>
+							
+							</dl>
 						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/atropa.SerialActor.html#intervalId">atropa.SerialActor#intervalId</a></dd>
+							
+							</dl>
 						
 
 					<hr />
 				
 					<a name="-dummyActor"> </a>
-					<div class="fixedFont">&lt;inner&gt; 
+					<div class="fixedFont">&lt;private&gt; &lt;inner&gt; 
 					
 					
 					<b>dummyActor</b>()
@@ -830,12 +947,23 @@ ul.inheritsList
 					
 					
 					
+					<pre class="code">dummyActor = function(){    console.log('actorFunction would execute');    console.log('freeing Serial Actor in 10000 ms');    setTimeout(function(){that.free();}, 10000);};</pre>
+					
+					
+					
 						
 						
 						
 						
 						
 						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/atropa.SerialActor.html#actorFunction">atropa.SerialActor#actorFunction</a></dd>
+							
+							</dl>
 						
 
 					<hr />
@@ -843,7 +971,7 @@ ul.inheritsList
 					<a name="free"> </a>
 					<div class="fixedFont">
 					
-					
+					<span class="light">{Boolean}</span>
 					<b>free</b>()
 					
 					</div>
@@ -855,12 +983,30 @@ ul.inheritsList
 					
 					
 					
+					<pre class="code">function d() {    console.log('doing stuff to things');    this.free();}var actor = new atropa.SerialActor('dummy', d);actor.interval = 2000;actor.blockTimeoutValue = 50000;actor.start();actor.block();// 5 seconds after starting the actor will be freed.setTimeout(function() {    actor.free();}, 5000);</pre>
+					
+					
+					
 						
 						
 						
 						
 						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> Returns the value of this instances <code>blocked</code> property.</dd>
+							
+							</dl>
 						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/atropa.SerialActor.html#blocked">atropa.SerialActor#blocked</a></dd>
+							
+							</dl>
 						
 
 					<hr />
@@ -868,7 +1014,7 @@ ul.inheritsList
 					<a name="start"> </a>
 					<div class="fixedFont">
 					
-					
+					<span class="light">{Number}</span>
 					<b>start</b>(interval)
 					
 					</div>
@@ -877,6 +1023,10 @@ ul.inheritsList
 						
 						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
+					
+					
+					
+					<pre class="code">var actor = new atropa.SerialActor('dummy');actor.start();</pre>
 					
 					
 					
@@ -896,12 +1046,21 @@ ul.inheritsList
 						
 						
 						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Number}</span> Returns the value of this instance's <code>intervalId</code> property.</dd>
+							
+							</dl>
+						
 						
 						
 							<dl class="detailList">
 							<dt class="heading">See:</dt>
 							
 								<dd><a href="../symbols/atropa.SerialActor.html#interval">atropa.SerialActor#interval</a></dd>
+							
+								<dd><a href="../symbols/atropa.SerialActor.html#intervalId">atropa.SerialActor#intervalId</a></dd>
 							
 							</dl>
 						
@@ -920,6 +1079,10 @@ ul.inheritsList
 						
 						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
+					
+					
+					
+					<pre class="code">var actor = new atropa.SerialActor('dummy');actor.start();    // 5 seconds after starting the actor will be stopped.setTimeout(function(){    actor.stop();}, 5000);</pre>
 					
 					
 					
@@ -954,7 +1117,7 @@ ul.inheritsList
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Thu Feb 21 2013 15:40:20 GMT-0500 (EST)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Thu Feb 21 2013 21:59:42 GMT-0500 (EST)
 		</div>
 	</body>
 </html>

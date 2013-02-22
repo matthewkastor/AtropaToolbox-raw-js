@@ -7,45 +7,45 @@
   },
   "complexity": {
     "aggregate": {
-      "line": 25,
+      "line": 48,
       "complexity": {
         "sloc": {
-          "physical": 192,
-          "logical": 58
+          "physical": 277,
+          "logical": 60
         },
         "cyclomatic": 3,
         "halstead": {
           "operators": {
             "distinct": 12,
-            "total": 148,
+            "total": 159,
             "identifiers": [
               "__stripped__"
             ]
           },
           "operands": {
-            "distinct": 46,
-            "total": 188,
+            "distinct": 49,
+            "total": 198,
             "identifiers": [
               "__stripped__"
             ]
           },
-          "length": 336,
-          "vocabulary": 58,
-          "difficulty": 24.521739130434785,
-          "volume": 1968.281614362864,
-          "effort": 48265.688282637195,
-          "bugs": 0.656093871454288,
-          "time": 2681.4271268131774
+          "length": 357,
+          "vocabulary": 61,
+          "difficulty": 24.24489795918367,
+          "volume": 2117.2732295099504,
+          "effort": 51333.073401180016,
+          "bugs": 0.7057577431699835,
+          "time": 2851.8374111766675
         }
       }
     },
     "functions": [
       {
         "name": "atropa.SerialActor",
-        "line": 25,
+        "line": 48,
         "complexity": {
           "sloc": {
-            "physical": 91,
+            "physical": 117,
             "logical": 13
           },
           "cyclomatic": 1,
@@ -76,7 +76,7 @@
       },
       {
         "name": "<anonymous>",
-        "line": 41,
+        "line": 74,
         "complexity": {
           "sloc": {
             "physical": 5,
@@ -110,7 +110,7 @@
       },
       {
         "name": "<anonymous>",
-        "line": 44,
+        "line": 77,
         "complexity": {
           "sloc": {
             "physical": 1,
@@ -144,7 +144,7 @@
       },
       {
         "name": "<anonymous>.action",
-        "line": 105,
+        "line": 154,
         "complexity": {
           "sloc": {
             "physical": 10,
@@ -178,7 +178,7 @@
       },
       {
         "name": "<anonymous>",
-        "line": 108,
+        "line": 157,
         "complexity": {
           "sloc": {
             "physical": 3,
@@ -212,45 +212,79 @@
       },
       {
         "name": "<anonymous>.block",
-        "line": 125,
+        "line": 192,
         "complexity": {
           "sloc": {
-            "physical": 7,
-            "logical": 5
+            "physical": 8,
+            "logical": 6
           },
           "cyclomatic": 1,
           "halstead": {
             "operators": {
-              "distinct": 5,
-              "total": 12,
-              "identifiers": [
-                "__stripped__"
-              ]
-            },
-            "operands": {
-              "distinct": 10,
+              "distinct": 7,
               "total": 16,
               "identifiers": [
                 "__stripped__"
               ]
             },
-            "length": 28,
-            "vocabulary": 15,
-            "difficulty": 4,
-            "volume": 109.39293667703852,
-            "effort": 437.5717467081541,
-            "bugs": 0.03646431222567951,
-            "time": 24.309541483786337
+            "operands": {
+              "distinct": 14,
+              "total": 20,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 36,
+            "vocabulary": 21,
+            "difficulty": 5,
+            "volume": 158.12342722003538,
+            "effort": 790.6171361001769,
+            "bugs": 0.05270780907334513,
+            "time": 43.923174227787605
+          }
+        }
+      },
+      {
+        "name": "<anonymous>",
+        "line": 197,
+        "complexity": {
+          "sloc": {
+            "physical": 1,
+            "logical": 1
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 2,
+              "total": 2,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 2,
+              "total": 2,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 4,
+            "vocabulary": 4,
+            "difficulty": 1,
+            "volume": 8,
+            "effort": 8,
+            "bugs": 0.0026666666666666666,
+            "time": 0.4444444444444444
           }
         }
       },
       {
         "name": "<anonymous>.blockTimeout",
-        "line": 141,
+        "line": 211,
         "complexity": {
           "sloc": {
-            "physical": 6,
-            "logical": 4
+            "physical": 5,
+            "logical": 3
           },
           "cyclomatic": 1,
           "halstead": {
@@ -262,25 +296,25 @@
               ]
             },
             "operands": {
-              "distinct": 6,
-              "total": 9,
+              "distinct": 7,
+              "total": 8,
               "identifiers": [
                 "__stripped__"
               ]
             },
-            "length": 16,
-            "vocabulary": 10,
-            "difficulty": 3,
-            "volume": 53.1508495181978,
-            "effort": 159.45254855459342,
-            "bugs": 0.017716949839399268,
-            "time": 8.858474919699635
+            "length": 15,
+            "vocabulary": 11,
+            "difficulty": 2.2857142857142856,
+            "volume": 51.89147427955947,
+            "effort": 118.6090840675645,
+            "bugs": 0.01729715809318649,
+            "time": 6.589393559309139
           }
         }
       },
       {
         "name": "<anonymous>.free",
-        "line": 155,
+        "line": 241,
         "complexity": {
           "sloc": {
             "physical": 7,
@@ -314,7 +348,7 @@
       },
       {
         "name": "<anonymous>.start",
-        "line": 173,
+        "line": 264,
         "complexity": {
           "sloc": {
             "physical": 13,
@@ -348,41 +382,41 @@
       },
       {
         "name": "<anonymous>.changeInterval",
-        "line": 196,
+        "line": 296,
         "complexity": {
           "sloc": {
-            "physical": 4,
-            "logical": 2
+            "physical": 5,
+            "logical": 3
           },
           "cyclomatic": 1,
           "halstead": {
             "operators": {
-              "distinct": 2,
-              "total": 2,
+              "distinct": 4,
+              "total": 7,
               "identifiers": [
                 "__stripped__"
               ]
             },
             "operands": {
-              "distinct": 4,
-              "total": 5,
+              "distinct": 8,
+              "total": 10,
               "identifiers": [
                 "__stripped__"
               ]
             },
-            "length": 7,
-            "vocabulary": 6,
-            "difficulty": 1.25,
-            "volume": 18.094737505048094,
-            "effort": 22.61842188131012,
-            "bugs": 0.006031579168349364,
-            "time": 1.2565789934061178
+            "length": 17,
+            "vocabulary": 12,
+            "difficulty": 2.5,
+            "volume": 60.94436251225966,
+            "effort": 152.36090628064915,
+            "bugs": 0.020314787504086555,
+            "time": 8.464494793369397
           }
         }
       },
       {
         "name": "<anonymous>.stop",
-        "line": 211,
+        "line": 319,
         "complexity": {
           "sloc": {
             "physical": 6,
@@ -415,7 +449,7 @@
         }
       }
     ],
-    "maintainability": 73.01112682654637,
+    "maintainability": 73.48991242701534,
     "module": "Toolbox\\enabled\\atropa.SerialActor.js"
   },
   "jshint": {
