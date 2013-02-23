@@ -7,76 +7,76 @@
   },
   "complexity": {
     "aggregate": {
-      "line": 20,
+      "line": 56,
       "complexity": {
         "sloc": {
-          "physical": 192,
+          "physical": 201,
           "logical": 62
         },
         "cyclomatic": 8,
         "halstead": {
           "operators": {
             "distinct": 16,
-            "total": 125,
+            "total": 122,
             "identifiers": [
               "__stripped__"
             ]
           },
           "operands": {
             "distinct": 46,
-            "total": 160,
+            "total": 156,
             "identifiers": [
               "__stripped__"
             ]
           },
-          "length": 285,
+          "length": 278,
           "vocabulary": 62,
-          "difficulty": 27.82608695652174,
-          "volume": 1696.9459484602596,
-          "effort": 47219.36552237244,
-          "bugs": 0.5656486494867532,
-          "time": 2623.2980845762468
+          "difficulty": 27.130434782608695,
+          "volume": 1655.2665742875515,
+          "effort": 44908.10184154053,
+          "bugs": 0.5517555247625172,
+          "time": 2494.8945467522517
         }
       }
     },
     "functions": [
       {
         "name": "Babbler",
-        "line": 20,
+        "line": 56,
         "complexity": {
           "sloc": {
-            "physical": 192,
+            "physical": 201,
             "logical": 15
           },
           "cyclomatic": 1,
           "halstead": {
             "operators": {
-              "distinct": 5,
-              "total": 37,
+              "distinct": 6,
+              "total": 36,
               "identifiers": [
                 "__stripped__"
               ]
             },
             "operands": {
               "distinct": 18,
-              "total": 41,
+              "total": 40,
               "identifiers": [
                 "__stripped__"
               ]
             },
-            "length": 78,
-            "vocabulary": 23,
-            "difficulty": 5.694444444444445,
-            "volume": 352.83783257244704,
-            "effort": 2009.2154354819902,
-            "bugs": 0.11761261085748234,
-            "time": 111.62307974899946
+            "length": 76,
+            "vocabulary": 24,
+            "difficulty": 6.666666666666667,
+            "volume": 348.4571500548079,
+            "effort": 2323.047667032053,
+            "bugs": 0.11615238335160265,
+            "time": 129.05820372400296
           }
         }
       },
       {
         "name": "<anonymous>.setWordCount",
-        "line": 35,
+        "line": 71,
         "complexity": {
           "sloc": {
             "physical": 10,
@@ -110,7 +110,7 @@
       },
       {
         "name": "resetWordCount",
-        "line": 56,
+        "line": 92,
         "complexity": {
           "sloc": {
             "physical": 4,
@@ -144,7 +144,7 @@
       },
       {
         "name": "getWordCount",
-        "line": 69,
+        "line": 105,
         "complexity": {
           "sloc": {
             "physical": 3,
@@ -178,7 +178,7 @@
       },
       {
         "name": "generateWord",
-        "line": 86,
+        "line": 122,
         "complexity": {
           "sloc": {
             "physical": 8,
@@ -212,7 +212,7 @@
       },
       {
         "name": "punctuate",
-        "line": 105,
+        "line": 141,
         "complexity": {
           "sloc": {
             "physical": 5,
@@ -246,7 +246,7 @@
       },
       {
         "name": "generateSentence",
-        "line": 126,
+        "line": 169,
         "complexity": {
           "sloc": {
             "physical": 20,
@@ -256,31 +256,31 @@
           "halstead": {
             "operators": {
               "distinct": 12,
-              "total": 30,
+              "total": 28,
               "identifiers": [
                 "__stripped__"
               ]
             },
             "operands": {
-              "distinct": 18,
-              "total": 43,
+              "distinct": 19,
+              "total": 40,
               "identifiers": [
                 "__stripped__"
               ]
             },
-            "length": 73,
-            "vocabulary": 30,
-            "difficulty": 14.333333333333332,
-            "volume": 358.2030134794219,
-            "effort": 5134.243193205047,
-            "bugs": 0.11940100449314063,
-            "time": 285.23573295583594
+            "length": 68,
+            "vocabulary": 31,
+            "difficulty": 12.631578947368421,
+            "volume": 336.88534910630756,
+            "effort": 4255.393883448096,
+            "bugs": 0.11229511636876918,
+            "time": 236.410771302672
           }
         }
       },
       {
         "name": "setBabble",
-        "line": 156,
+        "line": 199,
         "complexity": {
           "sloc": {
             "physical": 8,
@@ -314,7 +314,7 @@
       },
       {
         "name": "resetBabble",
-        "line": 173,
+        "line": 216,
         "complexity": {
           "sloc": {
             "physical": 4,
@@ -348,7 +348,7 @@
       },
       {
         "name": "getBabble",
-        "line": 186,
+        "line": 229,
         "complexity": {
           "sloc": {
             "physical": 3,
@@ -382,7 +382,7 @@
       },
       {
         "name": "generateBabble",
-        "line": 200,
+        "line": 246,
         "complexity": {
           "sloc": {
             "physical": 8,
@@ -415,7 +415,7 @@
         }
       }
     ],
-    "maintainability": 70.15594956609766,
+    "maintainability": 70.27687147749518,
     "module": "Toolbox\\enabled\\Babbler.js"
   },
   "jshint": {

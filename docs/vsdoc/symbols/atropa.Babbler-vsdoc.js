@@ -34,7 +34,7 @@
         }, 
         
         generateWord: function(stringMin, stringMax) {
-            /// <summary>Generates a word with a specified length.</summary>
+            /// <summary>Generates a word with a specified length. Lowers the word count by one.</summary>
             /// <param name="stringMin" type="Number">the shortest word, in characters.</param>
             /// <param name="stringMax" type="Number">The longest word, in characters.</param>
             /// <returns type="String">Returns a random string of characters
@@ -42,13 +42,20 @@
         }, 
         
         punctuate: function() {
-            /// <summary>Adds punctuation to the babble.</summary>
+            /// <summary>Provides random punctuation.</summary>
             /// <returns type="String">Returns a random punctuation
             /// character ( . ! or ? ).</returns>
         }, 
         
         generateSentence: function(sentenceMin, sentenceMax) {
-            /// <summary>Generates a sentence of specified length in words.</summary>
+            /// <summary>Generates a sentence of specified length in words. The quantity
+            ///  of words in the generated sentence will be between the minimum
+            ///  and maximum set, with the maximum capped at the current words
+            ///  count. The word count will be lowered by the
+            ///  quantity of words in the generated sentence. If the word count
+            ///  is 0 then there will be no words in the sentence. If the word
+            ///  count is 3 then the maximum possible number of words in the
+            ///  sentence will be three.</summary>
             /// <param name="sentenceMin" type="Number">The shortest sentence, in words,
             /// you would like returned.</param>
             /// <param name="sentenceMax" type="Number">The longest sentence, in words,
@@ -60,21 +67,23 @@
         setBabble: function(babbleString) {
             /// <summary>Sets the babble.</summary>
             /// <param name="babbleString" type="String">Specified babble to set.</param>
-            /// <returns type="String">Returns Babble.</returns>
+            /// <returns type="String">Returns the stored babble.</returns>
         }, 
         
         resetBabble: function() {
-            /// <summary>Resets the babble.</summary>
-            /// <returns type="String">Returns an empty string.</returns>
+            /// <summary>Clears the stored babble.</summary>
+            /// <returns type="String">Returns the stored babble.</returns>
         }, 
         
         getBabble: function() {
-            /// <summary>Gets the babble.</summary>
-            /// <returns type="String">Returns Babble.</returns>
+            /// <summary>Gets the last generated babble.</summary>
+            /// <returns type="String">Returns the stored babble.</returns>
         }, 
         
         generateBabble: function(wordsCt) {
-            /// <summary>Generates babble to a user specified length in words.</summary>
+            /// <summary>Generates babble to a user specified length in words.
+            ///  The word count will be zero after this and the stored
+            ///  babble will be set to the generated babble.</summary>
             /// <param name="wordsCt" type="Number">The desired word count for the
             /// generated babble.</param>
             /// <returns type="String">Returns babble of specified length in words.</returns>

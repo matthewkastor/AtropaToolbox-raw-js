@@ -933,7 +933,7 @@ atropa.SerialActor.prototype.stop = function() {
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
- * @version 20120909
+ * @version 20130223
  * @class This class represents a babbler
  * @param {Number} wrdCount The amount of "words" you would like
  * the babbler to produce.
@@ -941,6 +941,42 @@ atropa.SerialActor.prototype.stop = function() {
  * @requires atropa.random.integer
  * @requires atropa.string.ucFirst
  * @requires atropa.random.string
+ * @example
+ * var babbler = new atropa.Babbler(30);
+ * // resets the word count
+ * babbler.resetWordCount(10)
+ * console.log(babbler.getWordCount());
+ * 
+ * // displays a 10 word sentence of nonsense words.
+ * console.log(babbler.generateBabble(10));
+ * // displays a 3 word sentence
+ * console.log(babbler.generateBabble(3));
+ * 
+ * // displays the user stored or last generated babble
+ * console.log(babbler.getBabble());
+ * 
+ * // clears the stored babble
+ * babbler.resetBabble();
+ * console.log(babbler.getBabble());
+ * 
+ * // sets the babble
+ * babbler.setBabble('here be gibberish ');
+ * console.log(babbler.getBabble());
+ * 
+ * // append more gibberish to the current babble
+ * babbler.setBabble(babbler.getBabble() + babbler.generateBabble(5));
+ * console.log(babbler.getBabble());
+ * 
+ * // generate a sentence
+ * babbler.resetWordCount(10);
+ * console.log(babbler.generateSentence(5, 20));
+ * 
+ * // generate random punctuation
+ * console.log(babbler.punctuate());
+ * 
+ * // generate a word
+ * console.log(babbler.generateWord(3,7));
+ * console.log(babbler.generateWord(7,10));
  */
 atropa.Babbler = function Babbler(wrdCount) {
     'use strict';
@@ -995,7 +1031,7 @@ atropa.Babbler = function Babbler(wrdCount) {
         return wordCount;
     };
     /**
-     * Generates a word with a specified length.
+     * Generates a word with a specified length. Lowers the word count by one.
      * @author <a href="mailto:matthewkastor@gmail.com">
      *  Matthew Christopher Kastor-Inare III </a><br />
      *  ☭ Hial Atropa!! ☭
@@ -1017,7 +1053,7 @@ atropa.Babbler = function Babbler(wrdCount) {
         return word;
     };
     /**
-     * Adds punctuation to the babble.
+     * Provides random punctuation.
      * @author <a href="mailto:matthewkastor@gmail.com">
      *  Matthew Christopher Kastor-Inare III </a><br />
      *  ☭ Hial Atropa!! ☭
@@ -1033,7 +1069,14 @@ atropa.Babbler = function Babbler(wrdCount) {
         return punctuation;
     };
     /**
-     * Generates a sentence of specified length in words.
+     * Generates a sentence of specified length in words. The quantity
+     *  of words in the generated sentence will be between the minimum
+     *  and maximum set, with the maximum capped at the current words
+     *  count. The word count will be lowered by the
+     *  quantity of words in the generated sentence. If the word count
+     *  is 0 then there will be no words in the sentence. If the word
+     *  count is 3 then the maximum possible number of words in the
+     *  sentence will be three.
      * @author <a href="mailto:matthewkastor@gmail.com">
      *  Matthew Christopher Kastor-Inare III </a><br />
      *  ☭ Hial Atropa!! ☭
@@ -1053,7 +1096,7 @@ atropa.Babbler = function Babbler(wrdCount) {
         sentenceLength,
         sentence;
         sentenceLength = atropa.random.integer(sentenceMin, sentenceMax);
-        sentence = this.generateWord(4, 12);
+        sentence = '';
         if (sentenceLength > wordCount) {
             sentenceLength = wordCount;
         }
@@ -1076,7 +1119,7 @@ atropa.Babbler = function Babbler(wrdCount) {
      * @version 20120909
      * @methodOf atropa.Babbler#
      * @param {String} babbleString Specified babble to set.
-     * @returns {String} Returns Babble.
+     * @returns {String} Returns the stored babble.
      */
     this.setBabble = function setBabble(babbleString) {
         if (typeof babbleString === 'string') {
@@ -1087,32 +1130,34 @@ atropa.Babbler = function Babbler(wrdCount) {
         return babble;
     };
     /**
-     * Resets the babble.
+     * Clears the stored babble.
      * @author <a href="mailto:matthewkastor@gmail.com">
      *  Matthew Christopher Kastor-Inare III </a><br />
      *  ☭ Hial Atropa!! ☭
      * @version 20120909
      * @methodOf atropa.Babbler#
-     * @returns {String} Returns an empty string.
+     * @returns {String} Returns the stored babble.
      */
     this.resetBabble = function resetBabble() {
         babble = '';
         return babble;
     };
     /**
-     * Gets the babble.
+     * Gets the last generated babble.
      * @author <a href="mailto:matthewkastor@gmail.com">
      *  Matthew Christopher Kastor-Inare III </a><br />
      *  ☭ Hial Atropa!! ☭
      * @version 20120909
      * @methodOf atropa.Babbler#
-     * @returns {String} Returns Babble.
+     * @returns {String} Returns the stored babble.
      */
     this.getBabble = function getBabble() {
         return babble;
     };
     /**
      * Generates babble to a user specified length in words.
+     *  The word count will be zero after this and the stored
+     *  babble will be set to the generated babble.
      * @author <a href="mailto:matthewkastor@gmail.com">
      *  Matthew Christopher Kastor-Inare III </a><br />
      *  ☭ Hial Atropa!! ☭
@@ -1121,6 +1166,7 @@ atropa.Babbler = function Babbler(wrdCount) {
      * @param {Number} wordsCt The desired word count for the
      * generated babble.
      * @returns {String} Returns babble of specified length in words.
+     * @see atropa.Babbler#getWordCount
      */
     this.generateBabble = function generateBabble(wordsCt) {
         this.resetBabble();
@@ -1130,9 +1176,8 @@ atropa.Babbler = function Babbler(wrdCount) {
         }
         return babble;
     };
-    
-    this.resetBabble();
     this.resetWordCount(wrdCount);
+    return this;
 };
 
 

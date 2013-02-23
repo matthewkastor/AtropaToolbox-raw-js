@@ -250,7 +250,7 @@ ul.inheritsList
 <!-- ============================== class summary ========================== -->			
 			<p class="description">
 				<br />Version
-					20120909.<br />
+					20130223.<br />
 				
 				
 			
@@ -334,7 +334,7 @@ ul.inheritsList
 							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/atropa.Babbler.html#getBabble">getBabble</a></b>()
 								</div>
-								<div class="description">Gets the babble.</div>
+								<div class="description">Gets the last generated babble.</div>
 							</td>
 						</tr>
 					
@@ -352,7 +352,7 @@ ul.inheritsList
 							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/atropa.Babbler.html#punctuate">punctuate</a></b>()
 								</div>
-								<div class="description">Adds punctuation to the babble.</div>
+								<div class="description">Provides random punctuation.</div>
 							</td>
 						</tr>
 					
@@ -361,7 +361,7 @@ ul.inheritsList
 							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/atropa.Babbler.html#resetBabble">resetBabble</a></b>()
 								</div>
-								<div class="description">Resets the babble.</div>
+								<div class="description">Clears the stored babble.</div>
 							</td>
 						</tr>
 					
@@ -416,6 +416,10 @@ ul.inheritsList
 					This class represents a babbler. The babblerproduces lorum ipsum text, to user specifications.
 					<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 				</div>
+				
+				
+				
+				<pre class="code">var babbler = new atropa.Babbler(30);// resets the word countbabbler.resetWordCount(10)console.log(babbler.getWordCount());// displays a 10 word sentence of nonsense words.console.log(babbler.generateBabble(10));// displays a 3 word sentenceconsole.log(babbler.generateBabble(3));// displays the user stored or last generated babbleconsole.log(babbler.getBabble());// clears the stored babblebabbler.resetBabble();console.log(babbler.getBabble());// sets the babblebabbler.setBabble('here be gibberish ');console.log(babbler.getBabble());// append more gibberish to the current babblebabbler.setBabble(babbler.getBabble() + babbler.generateBabble(5));console.log(babbler.getBabble());// generate a sentencebabbler.resetWordCount(10);console.log(babbler.generateSentence(5, 20));// generate random punctuationconsole.log(babbler.punctuate());// generate a wordconsole.log(babbler.generateWord(3,7));console.log(babbler.generateWord(7,10));</pre>
 				
 				
 				
@@ -477,7 +481,7 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						Generates babble to a user specified length in words.
+						Generates babble to a user specified length in words. The word count will be zero after this and the stored babble will be set to the generated babble.
 						
 						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
@@ -509,6 +513,13 @@ ul.inheritsList
 						
 						
 						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd><a href="../symbols/atropa.Babbler.html#getWordCount">atropa.Babbler#getWordCount</a></dd>
+							
+							</dl>
+						
 
 					<hr />
 				
@@ -520,7 +531,7 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						Generates a sentence of specified length in words.
+						Generates a sentence of specified length in words. The quantity of words in the generated sentence will be between the minimum and maximum set, with the maximum capped at the current words count. The word count will be lowered by the quantity of words in the generated sentence. If the word count is 0 then there will be no words in the sentence. If the word count is 3 then the maximum possible number of words in the sentence will be three.
 						
 						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
@@ -578,7 +589,7 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						Generates a word with a specified length.
+						Generates a word with a specified length. Lowers the word count by one.
 						
 						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
@@ -636,7 +647,7 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						Gets the babble.
+						Gets the last generated babble.
 						
 						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
@@ -651,7 +662,7 @@ ul.inheritsList
 							<dl class="detailList">
 							<dt class="heading">Returns:</dt>
 							
-								<dd><span class="light fixedFont">{String}</span> Returns Babble.</dd>
+								<dd><span class="light fixedFont">{String}</span> Returns the stored babble.</dd>
 							
 							</dl>
 						
@@ -700,7 +711,7 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						Adds punctuation to the babble.
+						Provides random punctuation.
 						
 						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
@@ -739,7 +750,7 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						Resets the babble.
+						Clears the stored babble.
 						
 						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
@@ -754,7 +765,7 @@ ul.inheritsList
 							<dl class="detailList">
 							<dt class="heading">Returns:</dt>
 							
-								<dd><span class="light fixedFont">{String}</span> Returns an empty string.</dd>
+								<dd><span class="light fixedFont">{String}</span> Returns the stored babble.</dd>
 							
 							</dl>
 						
@@ -840,7 +851,7 @@ ul.inheritsList
 							<dl class="detailList">
 							<dt class="heading">Returns:</dt>
 							
-								<dd><span class="light fixedFont">{String}</span> Returns Babble.</dd>
+								<dd><span class="light fixedFont">{String}</span> Returns the stored babble.</dd>
 							
 							</dl>
 						
@@ -904,7 +915,7 @@ ul.inheritsList
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sat Feb 23 2013 01:04:52 GMT-0500 (EST)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sat Feb 23 2013 11:54:32 GMT-0500 (EST)
 		</div>
 	</body>
 </html>

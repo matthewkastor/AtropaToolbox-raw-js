@@ -1,12 +1,12 @@
 __report = {
   "summary": {
     "total": {
-      "sloc": 3265,
-      "maintainability": 1660.159436488763
+      "sloc": 3274,
+      "maintainability": 1660.2803584001606
     },
     "average": {
-      "sloc": 141,
-      "maintainability": "72.18"
+      "sloc": 142,
+      "maintainability": "72.19"
     }
   },
   "reports": [
@@ -166,40 +166,40 @@ __report = {
       },
       "complexity": {
         "aggregate": {
-          "line": 20,
+          "line": 56,
           "complexity": {
             "sloc": {
-              "physical": 192,
+              "physical": 201,
               "logical": 62
             },
             "cyclomatic": 8,
             "halstead": {
               "operators": {
                 "distinct": 16,
-                "total": 125,
+                "total": 122,
                 "identifiers": [
                   "__stripped__"
                 ]
               },
               "operands": {
                 "distinct": 46,
-                "total": 160,
+                "total": 156,
                 "identifiers": [
                   "__stripped__"
                 ]
               },
-              "length": 285,
+              "length": 278,
               "vocabulary": 62,
-              "difficulty": 27.82608695652174,
-              "volume": 1696.9459484602596,
-              "effort": 47219.36552237244,
-              "bugs": 0.5656486494867532,
-              "time": 2623.2980845762468
+              "difficulty": 27.130434782608695,
+              "volume": 1655.2665742875515,
+              "effort": 44908.10184154053,
+              "bugs": 0.5517555247625172,
+              "time": 2494.8945467522517
             }
           }
         },
         "module": "Toolbox\\enabled\\Babbler.js",
-        "maintainability": 70.15594956609766
+        "maintainability": 70.27687147749518
       }
     },
     {
