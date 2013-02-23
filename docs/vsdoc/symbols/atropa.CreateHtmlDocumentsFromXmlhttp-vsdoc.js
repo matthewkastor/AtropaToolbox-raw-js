@@ -15,7 +15,8 @@
                 
         newDocument: function(method, url, messageBody, callback) {
             /// <summary>Creates an HTML DOM Document and puts it in the document
-            /// queue, then executes the callback given.</summary>
+            ///  queue, then executes the callback given. Note, this does
+            ///  not work on google chrome.</summary>
             /// <param name="method" type="String">Any valid method to be used in
             /// an XMLHttpRequest.</param>
             /// <param name="url" type="String">The location of the document&apos;s source.</param>

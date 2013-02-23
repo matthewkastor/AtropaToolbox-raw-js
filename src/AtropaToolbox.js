@@ -1487,6 +1487,8 @@ atropa.CookieMonster = function CookieMonster() {
 
 /**
  * Creates HTML DOM Documents from an XMLHttpRequest object.
+ *  This was tested on Firefox, it doesn't work on google chrome.
+ *  Your mileage may vary.
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
@@ -1515,7 +1517,8 @@ atropa.CreateHtmlDocumentsFromXmlhttp = function CreateHtmlDocumentsFromXmlhttp(
     this.documentQueue = [];
     /**
      * Creates an HTML DOM Document and puts it in the document
-     * queue, then executes the callback given.
+     *  queue, then executes the callback given. Note, this does
+     *  not work on google chrome.
      * @author <a href="mailto:matthewkastor@gmail.com">
      *  Matthew Christopher Kastor-Inare III </a><br />
      *  ☭ Hial Atropa!! ☭
