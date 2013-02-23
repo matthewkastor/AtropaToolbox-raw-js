@@ -10,32 +10,32 @@
       "line": 18,
       "complexity": {
         "sloc": {
-          "physical": 198,
-          "logical": 64
+          "physical": 280,
+          "logical": 68
         },
-        "cyclomatic": 9,
+        "cyclomatic": 10,
         "halstead": {
           "operators": {
-            "distinct": 19,
-            "total": 147,
+            "distinct": 21,
+            "total": 169,
             "identifiers": [
               "__stripped__"
             ]
           },
           "operands": {
-            "distinct": 47,
-            "total": 187,
+            "distinct": 48,
+            "total": 206,
             "identifiers": [
               "__stripped__"
             ]
           },
-          "length": 334,
-          "vocabulary": 66,
-          "difficulty": 37.79787234042553,
-          "volume": 2018.8276358657233,
-          "effort": 76307.38925777568,
-          "bugs": 0.6729425452885744,
-          "time": 4239.2994032097595
+          "length": 375,
+          "vocabulary": 69,
+          "difficulty": 45.0625,
+          "volume": 2290.696671291814,
+          "effort": 103224.51875008736,
+          "bugs": 0.7635655570972713,
+          "time": 5734.695486115965
         }
       }
     },
@@ -45,7 +45,7 @@
         "line": 18,
         "complexity": {
           "sloc": {
-            "physical": 198,
+            "physical": 280,
             "logical": 14
           },
           "cyclomatic": 1,
@@ -76,41 +76,41 @@
       },
       {
         "name": "cookie2obj",
-        "line": 41,
+        "line": 45,
         "complexity": {
           "sloc": {
-            "physical": 9,
-            "logical": 6
+            "physical": 12,
+            "logical": 8
           },
-          "cyclomatic": 2,
+          "cyclomatic": 3,
           "halstead": {
             "operators": {
-              "distinct": 9,
-              "total": 20,
+              "distinct": 12,
+              "total": 36,
               "identifiers": [
                 "__stripped__"
               ]
             },
             "operands": {
-              "distinct": 11,
-              "total": 22,
+              "distinct": 14,
+              "total": 38,
               "identifiers": [
                 "__stripped__"
               ]
             },
-            "length": 42,
-            "vocabulary": 20,
-            "difficulty": 9,
-            "volume": 181.52097998526924,
-            "effort": 1633.688819867423,
-            "bugs": 0.060506993328423075,
-            "time": 90.76048999263462
+            "length": 74,
+            "vocabulary": 26,
+            "difficulty": 16.285714285714285,
+            "volume": 347.83253914244085,
+            "effort": 5664.701351748322,
+            "bugs": 0.11594417971414694,
+            "time": 314.70563065268453
           }
         }
       },
       {
         "name": "bakeCookie",
-        "line": 60,
+        "line": 79,
         "complexity": {
           "sloc": {
             "physical": 9,
@@ -144,7 +144,7 @@
       },
       {
         "name": "inspectCookies",
-        "line": 82,
+        "line": 121,
         "complexity": {
           "sloc": {
             "physical": 13,
@@ -178,41 +178,41 @@
       },
       {
         "name": "getCookieCallback",
-        "line": 109,
+        "line": 148,
         "complexity": {
           "sloc": {
-            "physical": 5,
-            "logical": 2
+            "physical": 7,
+            "logical": 4
           },
           "cyclomatic": 2,
           "halstead": {
             "operators": {
-              "distinct": 4,
-              "total": 4,
-              "identifiers": [
-                "__stripped__"
-              ]
-            },
-            "operands": {
-              "distinct": 4,
+              "distinct": 5,
               "total": 6,
               "identifiers": [
                 "__stripped__"
               ]
             },
-            "length": 10,
-            "vocabulary": 8,
-            "difficulty": 3,
-            "volume": 30,
-            "effort": 90,
-            "bugs": 0.01,
-            "time": 5
+            "operands": {
+              "distinct": 5,
+              "total": 7,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 13,
+            "vocabulary": 10,
+            "difficulty": 3.5,
+            "volume": 43.18506523353572,
+            "effort": 151.147728317375,
+            "bugs": 0.014395021744511906,
+            "time": 8.397096017631945
           }
         }
       },
       {
         "name": "getCookie",
-        "line": 126,
+        "line": 176,
         "complexity": {
           "sloc": {
             "physical": 4,
@@ -222,31 +222,31 @@
           "halstead": {
             "operators": {
               "distinct": 6,
-              "total": 7,
-              "identifiers": [
-                "__stripped__"
-              ]
-            },
-            "operands": {
-              "distinct": 7,
               "total": 9,
               "identifiers": [
                 "__stripped__"
               ]
             },
-            "length": 16,
-            "vocabulary": 13,
-            "difficulty": 3.8571428571428577,
-            "volume": 59.207035490257475,
-            "effort": 228.3699940338503,
-            "bugs": 0.019735678496752493,
-            "time": 12.687221890769461
+            "operands": {
+              "distinct": 8,
+              "total": 10,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 19,
+            "vocabulary": 14,
+            "difficulty": 3.75,
+            "volume": 72.33974351909447,
+            "effort": 271.27403819660424,
+            "bugs": 0.024113247839698156,
+            "time": 15.070779899811347
           }
         }
       },
       {
         "name": "getCookies",
-        "line": 139,
+        "line": 195,
         "complexity": {
           "sloc": {
             "physical": 18,
@@ -280,7 +280,7 @@
       },
       {
         "name": "deleteCookie",
-        "line": 167,
+        "line": 231,
         "complexity": {
           "sloc": {
             "physical": 6,
@@ -289,32 +289,32 @@
           "cyclomatic": 1,
           "halstead": {
             "operators": {
-              "distinct": 4,
-              "total": 9,
+              "distinct": 5,
+              "total": 11,
               "identifiers": [
                 "__stripped__"
               ]
             },
             "operands": {
-              "distinct": 9,
-              "total": 13,
+              "distinct": 10,
+              "total": 14,
               "identifiers": [
                 "__stripped__"
               ]
             },
-            "length": 22,
-            "vocabulary": 13,
-            "difficulty": 2.888888888888889,
-            "volume": 81.40967379910403,
-            "effort": 235.1835020863005,
-            "bugs": 0.027136557933034676,
-            "time": 13.065750115905583
+            "length": 25,
+            "vocabulary": 15,
+            "difficulty": 3.5,
+            "volume": 97.67226489021297,
+            "effort": 341.8529271157454,
+            "bugs": 0.03255742163007099,
+            "time": 18.991829284208077
           }
         }
       },
       {
         "name": "deleteCookieObj",
-        "line": 182,
+        "line": 254,
         "complexity": {
           "sloc": {
             "physical": 3,
@@ -348,7 +348,7 @@
       },
       {
         "name": "setCookie",
-        "line": 196,
+        "line": 273,
         "complexity": {
           "sloc": {
             "physical": 6,
@@ -382,7 +382,7 @@
       },
       {
         "name": "setCookieObj",
-        "line": 212,
+        "line": 294,
         "complexity": {
           "sloc": {
             "physical": 3,
@@ -415,7 +415,7 @@
         }
       }
     ],
-    "maintainability": 69.89471656664553,
+    "maintainability": 68.55878904413093,
     "module": "Toolbox\\enabled\\CookieMonster.js"
   },
   "jshint": {

@@ -1,12 +1,12 @@
 {
   "summary": {
     "total": {
-      "sloc": 3274,
-      "maintainability": 1660.2803584001606
+      "sloc": 3356,
+      "maintainability": 1658.944430877646
     },
     "average": {
-      "sloc": 142,
-      "maintainability": "72.19"
+      "sloc": 145,
+      "maintainability": "72.13"
     }
   },
   "reports": [
@@ -217,37 +217,37 @@
           "line": 18,
           "complexity": {
             "sloc": {
-              "physical": 198,
-              "logical": 64
+              "physical": 280,
+              "logical": 68
             },
-            "cyclomatic": 9,
+            "cyclomatic": 10,
             "halstead": {
               "operators": {
-                "distinct": 19,
-                "total": 147,
+                "distinct": 21,
+                "total": 169,
                 "identifiers": [
                   "__stripped__"
                 ]
               },
               "operands": {
-                "distinct": 47,
-                "total": 187,
+                "distinct": 48,
+                "total": 206,
                 "identifiers": [
                   "__stripped__"
                 ]
               },
-              "length": 334,
-              "vocabulary": 66,
-              "difficulty": 37.79787234042553,
-              "volume": 2018.8276358657233,
-              "effort": 76307.38925777568,
-              "bugs": 0.6729425452885744,
-              "time": 4239.2994032097595
+              "length": 375,
+              "vocabulary": 69,
+              "difficulty": 45.0625,
+              "volume": 2290.696671291814,
+              "effort": 103224.51875008736,
+              "bugs": 0.7635655570972713,
+              "time": 5734.695486115965
             }
           }
         },
         "module": "Toolbox\\enabled\\CookieMonster.js",
-        "maintainability": 69.89471656664553
+        "maintainability": 68.55878904413093
       }
     },
     {

@@ -333,11 +333,14 @@
         }, 
         
         inspectCookies: function(callback, args) {
-            /// <summary>Checks cookies for worms based on a user defined
-            /// callback function.</summary>
-            /// <param name="callback" type="function"></param>
-            /// <param name="args" type="Array">arguments to pass to the callback
-            /// function</param>
+            /// <summary>Filter cookies based on user specified callback.</summary>
+            /// <param name="callback" type="function">The callback function will be passed
+            ///  two arguments. The first is a cookie object from the current
+            ///  document. The second argument is the value supplied for &lt;code&gt;args&lt;/code&gt;
+            ///  if the callback function returns &lt;code&gt;true&lt;/code&gt; then the cookie
+            ///  object will be included in the return results.</param>
+            /// <param name="args" type="Array">Arguments to pass to the callback
+            /// function.</param>
             /// <returns type="Array">An array of cookie objects.</returns>
         }, 
         
@@ -354,8 +357,8 @@
             /// <summary>Gets a user requested cookie.</summary>
             /// <param name="whichKey" type="String">The cookies key (name)</param>
             /// <returns type="cookieObj|false">Returns a cookie object if
-            /// a cookie with the specified key is found or false if
-            /// it is not found.</returns>
+            ///  a cookie with the specified key is found or false if
+            ///  it is not found.</returns>
         }, 
         
         getCookies: function() {
