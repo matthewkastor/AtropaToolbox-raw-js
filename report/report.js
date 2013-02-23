@@ -214,7 +214,7 @@ __report = {
       },
       "complexity": {
         "aggregate": {
-          "line": 18,
+          "line": 19,
           "complexity": {
             "sloc": {
               "physical": 280,

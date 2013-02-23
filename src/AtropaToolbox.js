@@ -1188,9 +1188,10 @@ atropa.Babbler = function Babbler(wrdCount) {
 /**
  * This is a cookie handler.
  * @example
- *  <p><b>Reference:</b> Cookie Object:
- *  <code>{"key" : "cookieName", "val" : "cookieVal"}</code>
- *  <b>Cookie String:</b> <code>cookieName=cookieVal;</code></p>
+ * // cookie object
+ * var cookieObj = {"key" : "cookieName", "val" : "cookieVal"}
+ * // cookie string 
+ * var cookieString = cookieName=cookieVal;
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
