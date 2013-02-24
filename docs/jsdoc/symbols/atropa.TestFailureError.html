@@ -5,7 +5,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="generator" content="JsDoc Toolkit" />
 		
-		<title>JsDoc Reference - atropa.waitFor</title>
+		<title>JsDoc Reference - atropa.TestFailureError</title>
 
 		<style type="text/css">
 			/* default.css */
@@ -246,17 +246,17 @@ ul.inheritsList
 <!-- ============================== class title ============================ -->
 			<h1 class="classTitle">
 				
-				Namespace atropa.waitFor
+				Class atropa.TestFailureError
 			</h1>
 
 <!-- ============================== class summary ========================== -->			
 			<p class="description">
 				<br />Version
-					20120909.<br />
+					20130221.<br />
 				
 				
 			
-				Polling functions for quick and sloppy work.
+				Test Failure Error
 				
 				
 					<br /><i>Defined in: </i> <a href="../symbols/src/src_AtropaToolbox.js.html">AtropaToolbox.js</a>.
@@ -265,8 +265,8 @@ ul.inheritsList
 
 <!-- ============================== constructor summary ==================== -->			
 			
-			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class atropa.waitFor.">
-				<caption>Namespace Summary</caption>
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class atropa.TestFailureError.">
+				<caption>Class Summary</caption>
 				<thead>
 					<tr>
 						<th scope="col">Constructor Attributes</th>
@@ -278,9 +278,9 @@ ul.inheritsList
 						<td class="attributes">&nbsp;</td>
 						<td class="nameDescription" >
 							<div class="fixedFont">
-								<b><a href="../symbols/atropa.waitFor.html#constructor">atropa.waitFor</a></b>
+								<b><a href="../symbols/atropa.TestFailureError.html#constructor">atropa.TestFailureError</a></b>(message)
 							</div>
-							<div class="description">Polling functions for quick and sloppy work.</div>
+							<div class="description">Test Failure Error</div>
 						</td>
 					</tr>
 				</tbody>
@@ -289,36 +289,35 @@ ul.inheritsList
 
 <!-- ============================== properties summary ===================== -->
 			
-
-<!-- ============================== methods summary ======================== -->
-			
 				
 				
-				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class atropa.waitFor.">
-					<caption>Method Summary</caption>
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class atropa.TestFailureError.">
+					<caption>Field Summary</caption>
 					<thead>
 						<tr>
-							<th scope="col">Method Attributes</th>
-							<th scope="col">Method Name and Description</th>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
 						</tr>
 					</thead>
 					<tbody>
 					
 						<tr>
-							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont">atropa.waitFor.<b><a href="../symbols/atropa.waitFor.html#.element">element</a></b>(testFn, onSuccessCallback, onMaxPollCallback, pollInterval, maxPoll)
+								<div class="fixedFont">
+								<b><a href="../symbols/atropa.TestFailureError.html#message">message</a></b>
 								</div>
-								<div class="description">Wait for Element</div>
+								<div class="description">The error message to send.</div>
 							</td>
 						</tr>
 					
 						<tr>
-							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont">atropa.waitFor.<b><a href="../symbols/atropa.waitFor.html#.test">test</a></b>(testFn, onSuccessCallback, onMaxPollCallback, pollInterval, maxPoll)
+								<div class="fixedFont">
+								<b><a href="../symbols/atropa.TestFailureError.html#name">name</a></b>
 								</div>
-								<div class="description">Generic Wait for true.</div>
+								<div class="description">The name of the error.</div>
 							</td>
 						</tr>
 					
@@ -328,6 +327,9 @@ ul.inheritsList
 				
 				
 			
+
+<!-- ============================== methods summary ======================== -->
+			
 <!-- ============================== events summary ======================== -->
 			
 
@@ -335,15 +337,15 @@ ul.inheritsList
 			
 			<div class="details"><a name="constructor"> </a>
 				<div class="sectionTitle">
-					Namespace Detail
+					Class Detail
 				</div>
 				
 				<div class="fixedFont">
-						<b>atropa.waitFor</b>
+						<b>atropa.TestFailureError</b>(message)
 				</div>
 				
 				<div class="description">
-					Polling functions for quick and sloppy work.
+					Test Failure Error
 					<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 				</div>
 				
@@ -351,9 +353,27 @@ ul.inheritsList
 				
 				
 					
+						<dl class="detailList">
+						<dt class="heading">Parameters:</dt>
+						
+							<dt>
+								<span class="light fixedFont">{String}</span>  <b>message</b>
+								
+							</dt>
+								<dd>Optional. The error message to send. Defaults to <code>TestFailureError</code></dd>
+						
+						</dl>
 					
 					
 					
+					
+					
+						<dl class="detailList">
+						<dt class="heading">Returns:</dt>
+						
+								<dd><span class="light fixedFont">{Error}</span> Returns an instance of the TestFailureError</dd>
+						
+						</dl>
 					
 					
 					
@@ -363,140 +383,71 @@ ul.inheritsList
 
 <!-- ============================== field details ========================== -->		
 			
-
-<!-- ============================== method details ========================= -->		
-			
 				<div class="sectionTitle">
-					Method Detail
+					Field Detail
 				</div>
 				
-					<a name=".element"> </a>
-					<div class="fixedFont">&lt;static&gt; 
+					<a name="message"> </a>
+					<div class="fixedFont">
 					
 					
-					<span class="light">atropa.waitFor.</span><b>element</b>(testFn, onSuccessCallback, onMaxPollCallback, pollInterval, maxPoll)
+					<b>message</b>
 					
 					</div>
 					<div class="description">
-						Wait for Element
+						The error message to send.
 						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
+						
 					</div>
 					
 					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{Function}</span> <b>testFn</b>
-									
-								</dt>
-								<dd>A function which returns a reference to an HTML Element.</dd>
-							
-								<dt>
-									<span class="light fixedFont">{Function}</span> <b>onSuccessCallback</b>
-									
-								</dt>
-								<dd>Optional.</dd>
-							
-								<dt>
-									<span class="light fixedFont">{function}</span> <b>onMaxPollCallback</b>
-									
-								</dt>
-								<dd>Optional.</dd>
-							
-								<dt>
-									<span class="light fixedFont">{Integer}</span> <b>pollInterval</b>
-									
-								</dt>
-								<dd></dd>
-							
-								<dt>
-									<span class="light fixedFont">{Integer}</span> <b>maxPoll</b>
-									
-								</dt>
-								<dd></dd>
-							
-							</dl>
-						
-						
-						
+
 						
 						
 						
 						
 							<dl class="detailList">
-							<dt class="heading">See:</dt>
-							
-								<dd><a href="../symbols/atropa.waitFor.html#.test">atropa.waitFor.test</a> for more information and default values for the optional parameters.</dd>
-							
+							<dt class="heading">Default Value:</dt>
+							<dd>
+								"TestFailureError"
+							</dd>
 							</dl>
 						
 
 					<hr />
 				
-					<a name=".test"> </a>
-					<div class="fixedFont">&lt;static&gt; 
+					<a name="name"> </a>
+					<div class="fixedFont">
 					
 					
-					<span class="light">atropa.waitFor.</span><b>test</b>(testFn, onSuccessCallback, onMaxPollCallback, pollInterval, maxPoll)
+					<b>name</b>
 					
 					</div>
 					<div class="description">
-						Generic Wait for true.
+						The name of the error. Tells the user what kind of customerror has been thrown.
 						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
+						
 					</div>
 					
 					
-					
+
+						
+						
+						
 						
 							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{Function}</span> <b>testFn</b>
-									
-								</dt>
-								<dd>A function to tell when the wait is over. Must return true on success, false on failure.</dd>
-							
-								<dt>
-									<span class="light fixedFont">{Function}</span> <b>onSuccessCallback</b>
-									
-								</dt>
-								<dd>Optional. The function to run when testFn returns true. Defaults to <code>function () {} </code></dd>
-							
-								<dt>
-									<span class="light fixedFont">{function}</span> <b>onMaxPollCallback</b>
-									
-								</dt>
-								<dd>Optional. The function to run when testFn has been run maxPoll times and the wait is being given up.Defaults to <code>function () {}</code></dd>
-							
-								<dt>
-									<span class="light fixedFont">{Integer}</span> <b>pollInterval</b>
-									
-								</dt>
-								<dd>The amount of time in ms between polling testFn to see if it returns true. Defaults to 200ms.</dd>
-							
-								<dt>
-									<span class="light fixedFont">{Integer}</span> <b>maxPoll</b>
-									
-								</dt>
-								<dd>The quantity of polls at which it makes sense to give up waiting. Defaults to 50.</dd>
-							
+							<dt class="heading">Default Value:</dt>
+							<dd>
+								"atropa.TestFailureError"
+							</dd>
 							</dl>
-						
-						
-						
-						
-						
-						
 						
 
 					
 				
+			
+
+<!-- ============================== method details ========================= -->		
 			
 			
 <!-- ============================== event details ========================= -->		

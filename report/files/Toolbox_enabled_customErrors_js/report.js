@@ -10,32 +10,32 @@ __report = {
       "line": 17,
       "complexity": {
         "sloc": {
-          "physical": 19,
-          "logical": 5
+          "physical": 50,
+          "logical": 10
         },
-        "cyclomatic": 2,
+        "cyclomatic": 3,
         "halstead": {
           "operators": {
             "distinct": 5,
-            "total": 17,
+            "total": 34,
             "identifiers": [
               "__stripped__"
             ]
           },
           "operands": {
-            "distinct": 10,
-            "total": 21,
+            "distinct": 13,
+            "total": 42,
             "identifiers": [
               "__stripped__"
             ]
           },
-          "length": 38,
-          "vocabulary": 15,
-          "difficulty": 5.25,
-          "volume": 148.46184263312372,
-          "effort": 779.4246738238995,
-          "bugs": 0.04948728087770791,
-          "time": 43.30137076799442
+          "length": 76,
+          "vocabulary": 18,
+          "difficulty": 8.076923076923077,
+          "volume": 316.91430010961574,
+          "effort": 2559.692423962281,
+          "bugs": 0.10563810003653858,
+          "time": 142.20513466457115
         }
       }
     },
@@ -43,6 +43,40 @@ __report = {
       {
         "name": "InvalidArgumentTypesError",
         "line": 17,
+        "complexity": {
+          "sloc": {
+            "physical": 17,
+            "logical": 2
+          },
+          "cyclomatic": 2,
+          "halstead": {
+            "operators": {
+              "distinct": 3,
+              "total": 5,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 5,
+              "total": 8,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 13,
+            "vocabulary": 8,
+            "difficulty": 2.4000000000000004,
+            "volume": 39,
+            "effort": 93.60000000000001,
+            "bugs": 0.013,
+            "time": 5.2
+          }
+        }
+      },
+      {
+        "name": "TestFailureError",
+        "line": 48,
         "complexity": {
           "sloc": {
             "physical": 17,

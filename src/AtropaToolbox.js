@@ -1600,6 +1600,38 @@ atropa.InvalidArgumentTypesError = function InvalidArgumentTypesError(message) {
 atropa.InvalidArgumentTypesError.prototype = new Error();
 atropa.InvalidArgumentTypesError.prototype.constructor = atropa.InvalidArgumentTypesError;
 
+/**
+ * Test Failure Error
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130221
+ * @class Test Failure Error
+ * @param {String} message Optional. The error message to send. Defaults to
+ *  <code>TestFailureError</code>
+ * @returns {Error} Returns an instance of the TestFailureError
+ */
+atropa.TestFailureError = function TestFailureError(message) {
+    /**
+     * The name of the error. Tells the user what kind of custom
+     * error has been thrown.
+     * @fieldOf atropa.TestFailureError#
+     * @type {String}
+     * @default "atropa.TestFailureError"
+     */
+    this.name = "atropa.TestFailureError";
+    /**
+     * The error message to send.
+     * @fieldOf atropa.TestFailureError#
+     * @type {String}
+     * @default "TestFailureError"
+     */
+    this.message = message || "TestFailureError";
+};
+atropa.TestFailureError.prototype = new Error();
+atropa.TestFailureError.prototype.constructor = atropa.TestFailureError;
+
+
 /// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
 /*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
 /*global atropa */
@@ -2541,7 +2573,7 @@ atropa.Requester = function Requester() {
      * @type Number
      * @fieldOf atropa.Requester#
      */
-    this.timeout = 3000;
+    this.timeout = 30000;
     
     /**
      * XMLHttpRequest object used by Requester.

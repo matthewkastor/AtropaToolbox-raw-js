@@ -1,11 +1,11 @@
 __report = {
   "summary": {
     "total": {
-      "sloc": 3357,
+      "sloc": 3388,
       "maintainability": 1658.944430877646
     },
     "average": {
-      "sloc": 145,
+      "sloc": 147,
       "maintainability": "72.13"
     }
   },
@@ -313,32 +313,32 @@ __report = {
           "line": 17,
           "complexity": {
             "sloc": {
-              "physical": 19,
-              "logical": 5
+              "physical": 50,
+              "logical": 10
             },
-            "cyclomatic": 2,
+            "cyclomatic": 3,
             "halstead": {
               "operators": {
                 "distinct": 5,
-                "total": 17,
+                "total": 34,
                 "identifiers": [
                   "__stripped__"
                 ]
               },
               "operands": {
-                "distinct": 10,
-                "total": 21,
+                "distinct": 13,
+                "total": 42,
                 "identifiers": [
                   "__stripped__"
                 ]
               },
-              "length": 38,
-              "vocabulary": 15,
-              "difficulty": 5.25,
-              "volume": 148.46184263312372,
-              "effort": 779.4246738238995,
-              "bugs": 0.04948728087770791,
-              "time": 43.30137076799442
+              "length": 76,
+              "vocabulary": 18,
+              "difficulty": 8.076923076923077,
+              "volume": 316.91430010961574,
+              "effort": 2559.692423962281,
+              "bugs": 0.10563810003653858,
+              "time": 142.20513466457115
             }
           }
         },

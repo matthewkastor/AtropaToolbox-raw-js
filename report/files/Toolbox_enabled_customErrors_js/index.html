@@ -49,17 +49,17 @@
     </div>
     <div class="span6">
       <h2 class="header">Estimated # Bugs  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
-      <p class="stat">0.05</p>
+      <p class="stat">0.11</p>
     </div>
   </div>
   <div class="row">
     <div class="span6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
-      <p class="stat">5.25</p>
+      <p class="stat">8.08</p>
     </div>
     <div class="span6">
       <h2 class="header">SLOC/LSLOC <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">19 / 5</p>
+      <p class="stat">50 / 10</p>
     </div>
   </div>
 </div>
@@ -116,7 +116,38 @@ atropa.InvalidArgumentTypesError = function InvalidArgumentTypesError(message) {
     this.message = message || "InvalidArgumentTypesError";
 };
 atropa.InvalidArgumentTypesError.prototype = new Error();
-atropa.InvalidArgumentTypesError.prototype.constructor = atropa.InvalidArgumentTypesError;</textarea>
+atropa.InvalidArgumentTypesError.prototype.constructor = atropa.InvalidArgumentTypesError;
+
+/**
+ * Test Failure Error
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130221
+ * @class Test Failure Error
+ * @param {String} message Optional. The error message to send. Defaults to
+ *  <code>TestFailureError</code>
+ * @returns {Error} Returns an instance of the TestFailureError
+ */
+atropa.TestFailureError = function TestFailureError(message) {
+    /**
+     * The name of the error. Tells the user what kind of custom
+     * error has been thrown.
+     * @fieldOf atropa.TestFailureError#
+     * @type {String}
+     * @default "atropa.TestFailureError"
+     */
+    this.name = "atropa.TestFailureError";
+    /**
+     * The error message to send.
+     * @fieldOf atropa.TestFailureError#
+     * @type {String}
+     * @default "TestFailureError"
+     */
+    this.message = message || "TestFailureError";
+};
+atropa.TestFailureError.prototype = new Error();
+atropa.TestFailureError.prototype.constructor = atropa.TestFailureError;</textarea>
   </div>
 </div>
 
