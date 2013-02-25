@@ -15,7 +15,6 @@
 /// <reference path="atropa.Requester-vsdoc.js" />
 /// <reference path="atropa.SerialActor-vsdoc.js" />
 /// <reference path="atropa.string-vsdoc.js" />
-/// <reference path="atropa.TestFailureError-vsdoc.js" />
 /// <reference path="atropa.TextAnalyzer-vsdoc.js" />
 /// <reference path="atropa.url-vsdoc.js" />
 /// <reference path="atropa.waitFor-vsdoc.js" />

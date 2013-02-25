@@ -1492,10 +1492,57 @@ atropa.CookieMonster = function CookieMonster() {
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
- * @version 20120909
+ * @version 20130225
  * @class Creates HTML DOM Documents from an XMLHttpRequest object.
  * @requires atropa.Requester
  * @requires atropa.HTMLParser
+ * @example
+ * var method, url, callback, docs;
+ * 
+ * // HTTP Request method
+ * method = 'get';
+ * 
+ * // the page to fetch, this page must be accessible
+ * // security restrictions may apply
+ * url = 'docs/jsdoc/symbols/atropa.xpath.html';
+ * 
+ * // the callback funtion for when a new document is created
+ * callback = function newDocumentHandler(docref) {
+ *     try {
+ *         if (false === docref) {
+ *             // if the document could not be created throw an error
+ *             throw new Error('atropa.CreateHtmlDocumentsFromXmlhttp ' +
+ *                  'Could not create hidden document');
+ *         } else {
+ *             // if the document could be created we'll try to use it
+ *             if(docref.getElementById('index')) {
+ *                 // if the document could be used then
+ *                 // do something useful with it.
+ *                 console.log('success!');
+ *             } else {
+ *                 // if the document can not be used throw an error
+ *                 throw new Error('atropa.CreateHtmlDocumentsFromXmlhttp ' +
+ *                      'could not use the hidden document');
+ *             }
+ *         }
+ *     } catch (e) {
+ *         // catching any errors thrown and handle them.
+ *     }
+ *     // At this point the work with the document is currently finished
+ *     // the document will live in the documentQueue in case you need it
+ *     // later. This is when you will trigger any function which depends
+ *     // on this hidden document having been created.
+ *     showDocumentQueue();
+ * };
+ * 
+ * function showDocumentQueue() {
+ *     console.dir(docs.documentQueue);
+ * }
+ * 
+ * // create an instance of the class
+ * docs = new atropa.CreateHtmlDocumentsFromXmlhttp();
+ * // try to create a new hidden document
+ * docs.newDocument(method, url, null, callback);
  */
 atropa.CreateHtmlDocumentsFromXmlhttp = function CreateHtmlDocumentsFromXmlhttp() {
     "use strict";
@@ -1599,37 +1646,6 @@ atropa.InvalidArgumentTypesError = function InvalidArgumentTypesError(message) {
 };
 atropa.InvalidArgumentTypesError.prototype = new Error();
 atropa.InvalidArgumentTypesError.prototype.constructor = atropa.InvalidArgumentTypesError;
-
-/**
- * Test Failure Error
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
- *  ☭ Hial Atropa!! ☭
- * @version 20130221
- * @class Test Failure Error
- * @param {String} message Optional. The error message to send. Defaults to
- *  <code>TestFailureError</code>
- * @returns {Error} Returns an instance of the TestFailureError
- */
-atropa.TestFailureError = function TestFailureError(message) {
-    /**
-     * The name of the error. Tells the user what kind of custom
-     * error has been thrown.
-     * @fieldOf atropa.TestFailureError#
-     * @type {String}
-     * @default "atropa.TestFailureError"
-     */
-    this.name = "atropa.TestFailureError";
-    /**
-     * The error message to send.
-     * @fieldOf atropa.TestFailureError#
-     * @type {String}
-     * @default "TestFailureError"
-     */
-    this.message = message || "TestFailureError";
-};
-atropa.TestFailureError.prototype = new Error();
-atropa.TestFailureError.prototype.constructor = atropa.TestFailureError;
 
 
 /// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
