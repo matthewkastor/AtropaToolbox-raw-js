@@ -1,6 +1,15 @@
 /// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
+/*jslint
+    indent: 4,
+    maxerr: 50,
+    white: true,
+    browser: true,
+    devel: true,
+    plusplus: true,
+    regexp: true
+*/
 /*global atropa */
+// end header
 
 /**
  * This represents an XMLHTTPRequest.
@@ -31,7 +40,8 @@
  * formData.append('aFormFieldName', 'formFieldData');
  * formData.append('anotherFormFieldName', 'andData');
  * 
- * requester.makeRequest("post", "http://example.com", formData, showRequestResults);
+ * requester.makeRequest(
+ *     "post", "http://example.com", formData, showRequestResults);
  */
 atropa.Requester = function Requester() {
     "use strict";
@@ -71,7 +81,8 @@ atropa.Requester = function Requester() {
     };
     
     /**
-     * Object whose properties and values are header names and values respectively.
+     * Object whose properties and values are header names and values
+     *  respectively.
      * @type Request Headers Object
      * @fieldOf atropa.Requester#
      */
@@ -79,8 +90,8 @@ atropa.Requester = function Requester() {
     
     
     /**
-     * Set the timeout value for the request in milliseconds. The request will abort
-     *  after this amount of time has passed.
+     * Set the timeout value for the request in milliseconds. The request will
+     *  abort after this amount of time has passed.
      * @type Number
      * @fieldOf atropa.Requester#
      */
@@ -111,8 +122,8 @@ atropa.Requester = function Requester() {
      * @param {String} messageBody The body of the request.
      * @param {Object} callback The callback function to execute
      *  when readyState is 4. The callback is supplied with two arguments. The
-     *  first argument is a boolean indicating whether or not the http status was 200.
-     *  The second argument is the request object.
+     *  first argument is a boolean indicating whether or not the http status
+     *  was 200. The second argument is the request object.
      */
     this.makeRequest = function (method, url, messageBody, callback) {
         var hdr;

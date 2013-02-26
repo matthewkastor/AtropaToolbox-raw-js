@@ -63,13 +63,59 @@
     regexp: true
 */
 
-function concatFiles (arr) {
-    var fs = require('fs');
-    var out = '';
+/**
+ * Concatenates files and optionally lets you preprocess each file.
+ * @function
+ * @param {Array} arr An array of file paths to concatenate.
+ * @param {Function} processFn Optional. An optional function to preprocess
+ *  each file with. The function will be called with the string value of the
+ *  file and the path to the file. The return value of this function will be
+ *  used as the string which is concatenated.
+ * @example
+ *  function processFn (fileContents, filePath) {
+ *      if(filePath === 'some/file/path/file.txt') {
+ *          return fileContents.replace(/a/gi, 'A');
+ *      } else {
+ *          return fileContents;
+ *      }
+ *  }
+ *  var concated = concatFiles(['some/file/path/file.txt'], processFn);
+ *  console.log(concated);
+ */
+function concatFiles (arr, processFn) {
+    "use strict";
+    
+    if(typeof processFn !== 'function') {
+        processFn = function (fileContents) {
+            return fileContents;
+        };
+    }
+    
+    var fs, out, fileContents, filePath;
+    
+    fs = require('fs');
+    out = '';
+    fileContents = '';
+    filePath = '';
+    
     arr.forEach(function (item) {
-        out += fs.readFileSync(item, 'utf8');
+        fileContents = fs.readFileSync(item, 'utf8');
+        filePath = item;
+        out += processFn(fileContents, filePath);
+        fileContents = '';
+        filePath = '';
     });
     return out;
+}
+
+/**
+ * Removes everything between "///" and "// end header" inclusive.
+ * @param {String} str The string to remove the header from.
+ * @returns {String} Returns a string with the header removed.
+ */
+function removeHeader(str) {
+    var os = require('os');
+    return str.replace(/^\/\/\/[\s\S]+\/\/ end header[\s]+/, '\r\n');
 }
 
 function mkdir (dirName) {
@@ -112,7 +158,11 @@ task('makeAtropaToolbox', function () {
     components = componentNames.map(function(item){
         return path.normalize(toolboxComponentsLocation + item);
     });
-    toolbox = concatFiles(headers.concat(components));
+    toolbox = fs.readFileSync(
+        path.normalize('Toolbox/headers/atropaToolboxReferencesAndLinting.js'),
+        'utf8'
+    );
+    toolbox += concatFiles(headers.concat(components), removeHeader);
     outputFilePath = path.normalize('src/AtropaToolbox.js');
     rmdir('src');
     mkdir('src');
@@ -137,7 +187,7 @@ task('makeTestBuild', ['makeAtropaToolbox'], function () {
     components = componentNames.map(function (item) {
         return path.normalize(testComponentsLocation + item);
     });
-    testBuild = concatFiles(headers.concat(components, footers));
+    testBuild = concatFiles(headers.concat(components, footers), removeHeader);
     outputFilePath = path.normalize('testBuild/AtropaToolbox.test.js');
     rmdir('testBuild');
     mkdir('testBuild');
@@ -158,10 +208,6 @@ task('generateDocs', ['makeAtropaToolbox'], {async : true}, function () {
     mkdir('logs');
     
     register = new cmd.commandRegister.Asynchronous('Generate Docs');
-    
-    platoCmd = path.normalize('node_modules/.bin/plato') + ' --recurse ' +
-        '--title "Code Analysis of The Glorious AtropaToolbox" ' +
-        '--dir report ' + path.normalize('Toolbox/enabled');
             
     register.on('command queue begin process', function(e) {
         console.log('command queue begin process');
@@ -224,6 +270,10 @@ task('generateDocs', ['makeAtropaToolbox'], {async : true}, function () {
         return cmd.trim();
     }
     
+    platoCmd = path.normalize('node_modules/.bin/plato') + ' --recurse ' +
+        '--title "Code Analysis of The Glorious AtropaToolbox" ' +
+        '--dir report ' + path.normalize('Toolbox/enabled');
+        
     register.addCommand(platoCmd, null, logOutput);
     register.addCommand(jvsdocCmdGen('jsdoc'), null, logOutput);
     register.addCommand(jvsdocCmdGen('vsdoc'), null, logOutput);

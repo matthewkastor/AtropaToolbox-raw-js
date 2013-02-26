@@ -30,9 +30,9 @@
             /// <summary>Filter cookies based on user specified callback.</summary>
             /// <param name="callback" type="function">The callback function will be passed
             ///  two arguments. The first is a cookie object from the current
-            ///  document. The second argument is the value supplied for &lt;code&gt;args&lt;/code&gt;
-            ///  if the callback function returns &lt;code&gt;true&lt;/code&gt; then the cookie
-            ///  object will be included in the return results.</param>
+            ///  document. The second argument is the value supplied for
+            ///  &lt;code&gt;args&lt;/code&gt; if the callback function returns &lt;code&gt;true&lt;/code&gt;
+            ///  then the cookie object will be included in the return results.</param>
             /// <param name="args" type="Array">Arguments to pass to the callback
             /// function.</param>
             /// <returns type="Array">An array of cookie objects.</returns>

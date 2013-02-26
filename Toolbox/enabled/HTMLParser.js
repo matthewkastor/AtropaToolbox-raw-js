@@ -1,6 +1,15 @@
 /// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
+/*jslint
+    indent: 4,
+    maxerr: 50,
+    white: true,
+    browser: true,
+    devel: true,
+    plusplus: true,
+    regexp: true
+*/
 /*global atropa */
+// end header
 
 /**
  * Creates a new HTML Parser<br />
@@ -10,7 +19,8 @@
  *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @class Creates a new HTML Parser
- * @returns {HTML DOM Document} Returns a blank HTML Document for you to load data into
+ * @returns {HTML DOM Document} Returns a blank HTML Document for you to load
+ *  data into
  */
 atropa.HTMLParser = function HTMLParser() {
     "use strict";
@@ -27,12 +37,16 @@ atropa.HTMLParser = function HTMLParser() {
      *  ☭ Hial Atropa!! ☭
      * @version 20120909
      * @methodOf atropa.HTMLParser#
-     * @returns {HTML DOM Document} Resets the doc property of this instance and,
-     * returns a blank HTML Document for you to load data into.
+     * @returns {HTML DOM Document} Resets the doc property of this instance
+     *  and, returns a blank HTML Document for you to load data into.
      */
     this.newDocument = function () {
         var dt;
-        dt = document.implementation.createDocumentType("html", "-//W3C//DTD HTML 4.01 Transitional//EN", "http://www.w3.org/TR/html4/loose.dtd");
+        dt = document.implementation.createDocumentType(
+            "html",
+            "-//W3C//DTD HTML 4.01 Transitional//EN",
+            "http://www.w3.org/TR/html4/loose.dtd"
+        );
         this.doc = document.implementation.createDocument('', '', dt);
         return this.doc;
     };

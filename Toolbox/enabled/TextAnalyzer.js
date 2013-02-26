@@ -1,6 +1,15 @@
 /// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
+/*jslint
+    indent: 4,
+    maxerr: 50,
+    white: true,
+    browser: true,
+    devel: true,
+    plusplus: true,
+    regexp: true
+*/
 /*global atropa */
+// end header
 
 /**
  * Represents a utility for analyzing text.
@@ -94,7 +103,9 @@ atropa.TextAnalyzer.prototype.getWordFrequency = function () {
  * @returns {Object} Returns an object whose keys are phrases
  *  and whose values are the number of occurrences of the phrase.
  */
-atropa.TextAnalyzer.prototype.getPhraseFrequency = function getPhraseFrequency(phraseLength) {
+atropa.TextAnalyzer.prototype.getPhraseFrequency = function getPhraseFrequency(
+    phraseLength
+) {
     "use strict";
     phraseLength = atropa.setAsOptionalArg(2, phraseLength);
     if(2 > phraseLength) {
@@ -106,7 +117,9 @@ atropa.TextAnalyzer.prototype.getPhraseFrequency = function getPhraseFrequency(p
     
     this.words.map(function(element, index, arr) {
         counter = 1;  // element is word 1 of phraseLength
-        if(arr[index + phraseLength - 1] !== undefined) { // making sure there are enough words to concatenate a phrase of the proper length.
+        // making sure there are enough words to concatenate a phrase of the
+        // proper length.
+        if(arr[index + phraseLength - 1] !== undefined) {
             prop = String(element + ' ').toLowerCase();
             for(counter; counter !== phraseLength; counter++) {
                 prop += String(arr[index + counter] + ' ').toLowerCase();

@@ -7,10 +7,10 @@ __report = {
   },
   "complexity": {
     "aggregate": {
-      "line": 12,
+      "line": 21,
       "complexity": {
         "sloc": {
-          "physical": 171,
+          "physical": 173,
           "logical": 54
         },
         "cyclomatic": 5,
@@ -42,7 +42,7 @@ __report = {
     "functions": [
       {
         "name": "ucFirst",
-        "line": 24,
+        "line": 33,
         "complexity": {
           "sloc": {
             "physical": 5,
@@ -76,7 +76,7 @@ __report = {
       },
       {
         "name": "<anonymous>.countWords",
-        "line": 38,
+        "line": 47,
         "complexity": {
           "sloc": {
             "physical": 9,
@@ -110,7 +110,7 @@ __report = {
       },
       {
         "name": "convertEOL",
-        "line": 59,
+        "line": 68,
         "complexity": {
           "sloc": {
             "physical": 4,
@@ -144,7 +144,7 @@ __report = {
       },
       {
         "name": "offsetWhiteSpace",
-        "line": 74,
+        "line": 83,
         "complexity": {
           "sloc": {
             "physical": 7,
@@ -178,10 +178,10 @@ __report = {
       },
       {
         "name": "normalizeWhiteSpacePrefix",
-        "line": 90,
+        "line": 99,
         "complexity": {
           "sloc": {
-            "physical": 10,
+            "physical": 12,
             "logical": 7
           },
           "cyclomatic": 2,
@@ -212,7 +212,7 @@ __report = {
       },
       {
         "name": "normalizeWhiteSpace",
-        "line": 109,
+        "line": 120,
         "complexity": {
           "sloc": {
             "physical": 5,
@@ -246,7 +246,7 @@ __report = {
       },
       {
         "name": "getOffset",
-        "line": 123,
+        "line": 134,
         "complexity": {
           "sloc": {
             "physical": 12,
@@ -280,7 +280,7 @@ __report = {
       },
       {
         "name": "<anonymous>.getWords",
-        "line": 145,
+        "line": 156,
         "complexity": {
           "sloc": {
             "physical": 14,
@@ -314,7 +314,7 @@ __report = {
       },
       {
         "name": "invalidChars",
-        "line": 148,
+        "line": 159,
         "complexity": {
           "sloc": {
             "physical": 5,
@@ -348,7 +348,7 @@ __report = {
       },
       {
         "name": "escapeCdata",
-        "line": 179,
+        "line": 190,
         "complexity": {
           "sloc": {
             "physical": 4,

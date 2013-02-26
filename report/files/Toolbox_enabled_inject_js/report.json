@@ -7,10 +7,10 @@
   },
   "complexity": {
     "aggregate": {
-      "line": 14,
+      "line": 23,
       "complexity": {
         "sloc": {
-          "physical": 114,
+          "physical": 123,
           "logical": 49
         },
         "cyclomatic": 2,
@@ -42,10 +42,10 @@
     "functions": [
       {
         "name": "<anonymous>.element",
-        "line": 44,
+        "line": 56,
         "complexity": {
           "sloc": {
-            "physical": 20,
+            "physical": 22,
             "logical": 16
           },
           "cyclomatic": 2,
@@ -76,7 +76,7 @@
       },
       {
         "name": "<anonymous>",
-        "line": 51,
+        "line": 65,
         "complexity": {
           "sloc": {
             "physical": 1,
@@ -110,7 +110,7 @@
       },
       {
         "name": "<anonymous>",
-        "line": 52,
+        "line": 66,
         "complexity": {
           "sloc": {
             "physical": 1,
@@ -144,10 +144,10 @@
       },
       {
         "name": "<anonymous>.hiddenFrame",
-        "line": 79,
+        "line": 94,
         "complexity": {
           "sloc": {
-            "physical": 18,
+            "physical": 19,
             "logical": 15
           },
           "cyclomatic": 1,
@@ -178,10 +178,10 @@
       },
       {
         "name": "<anonymous>.script",
-        "line": 111,
+        "line": 128,
         "complexity": {
           "sloc": {
-            "physical": 17,
+            "physical": 18,
             "logical": 14
           },
           "cyclomatic": 1,

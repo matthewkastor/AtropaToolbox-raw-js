@@ -49,7 +49,8 @@ atropa.test.register = [];
 atropa.test.functions = {};
 
 /**
- * Default test results reporter. Replace this function with your own reporting function.
+ * Default test results reporter. Replace this function with your own reporting
+ *  function.
  */
 atropa.test.functions.report = function(results) {
     console.dir(results);

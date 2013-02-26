@@ -7,10 +7,10 @@ __report = {
   },
   "complexity": {
     "aggregate": {
-      "line": 13,
+      "line": 22,
       "complexity": {
         "sloc": {
-          "physical": 69,
+          "physical": 85,
           "logical": 26
         },
         "cyclomatic": 3,
@@ -42,10 +42,10 @@ __report = {
     "functions": [
       {
         "name": "test",
-        "line": 27,
+        "line": 41,
         "complexity": {
           "sloc": {
-            "physical": 21,
+            "physical": 25,
             "logical": 9
           },
           "cyclomatic": 1,
@@ -76,7 +76,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 31,
+        "line": 48,
         "complexity": {
           "sloc": {
             "physical": 1,
@@ -110,7 +110,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 32,
+        "line": 50,
         "complexity": {
           "sloc": {
             "physical": 1,
@@ -144,7 +144,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 36,
+        "line": 54,
         "complexity": {
           "sloc": {
             "physical": 11,
@@ -178,10 +178,10 @@ __report = {
       },
       {
         "name": "<anonymous>.element",
-        "line": 61,
+        "line": 81,
         "complexity": {
           "sloc": {
-            "physical": 21,
+            "physical": 26,
             "logical": 4
           },
           "cyclomatic": 1,
@@ -212,7 +212,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 75,
+        "line": 98,
         "complexity": {
           "sloc": {
             "physical": 5,

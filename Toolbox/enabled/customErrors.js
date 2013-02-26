@@ -1,6 +1,15 @@
 /// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
+/*jslint
+    indent: 4,
+    maxerr: 50,
+    white: true,
+    browser: true,
+    devel: true,
+    plusplus: true,
+    regexp: true
+*/
 /*global atropa */
+// end header
 
 
 /**
@@ -32,6 +41,7 @@ atropa.InvalidArgumentTypesError = function InvalidArgumentTypesError(message) {
     this.message = message || "InvalidArgumentTypesError";
 };
 atropa.InvalidArgumentTypesError.prototype = new Error();
-atropa.InvalidArgumentTypesError.prototype.constructor = atropa.InvalidArgumentTypesError;
+atropa.InvalidArgumentTypesError.prototype.constructor = 
+    atropa.InvalidArgumentTypesError;
 
 

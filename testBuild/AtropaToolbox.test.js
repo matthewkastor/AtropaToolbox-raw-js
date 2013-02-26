@@ -1,4 +1,3 @@
-/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
 
 /**
  * Atropa Toolbox
@@ -10,10 +9,6 @@
  */
 
 
-/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
-/*global XPathResult */
 
 /**
  * Container for all Glorious classes, functions, etc.
@@ -26,9 +21,6 @@ var atropa;
 atropa = {};
 
 
-/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
-/*global atropa */
 
 /**
  * This represents a filter for arguments based on type.
@@ -44,8 +36,10 @@ atropa = {};
  *     var expectedArgTypes, checker;
  *     
  *     expectedArgTypes = {};
- *     expectedArgTypes.requestWithMessage = ['string', 'string', 'string', 'function'];
- *     expectedArgTypes.requestNullMessage = ['string', 'string', 'object', 'function'];
+ *     expectedArgTypes.requestWithMessage = 
+ *          ['string', 'string', 'string', 'function'];
+ *     expectedArgTypes.requestNullMessage = 
+ *          ['string', 'string', 'object', 'function'];
  *     
  *     checker = new atropa.ArgsInfo();
  *     checker.setExpectedArgTypes(expectedArgTypes);
@@ -96,8 +90,9 @@ atropa.ArgsInfo = function ArgsInfo() {
      *  ☭ Hial Atropa!! ☭
      * @version 20120909
      * @methodOf atropa.ArgsInfo#
-     * @param {Expected Arg Types} typesObj An object containing information about the
-     * types of arguments you expect. Specifically, the object should look like the example.
+     * @param {Expected Arg Types} typesObj An object containing information
+     *  about the types of arguments you expect. Specifically, the object should
+     *  look like the example.
      * @example
      * // typesObj is expected to be of the form:
      * 
@@ -108,19 +103,23 @@ atropa.ArgsInfo = function ArgsInfo() {
      * 
      * // You may use as many named arrays as you wish and checkArgTypes will
      * // test for a match to at least one of the provided named arrays.
-     * @throws {atropa.InvalidArgumentTypesError} Throws an error if the typesObj
-     *  can not be used to set the expected argument types.
+     * @throws {atropa.InvalidArgumentTypesError} Throws an error if the
+     *  typesObj can not be used to set the expected argument types.
      */
     this.setExpectedArgTypes = function setExpectedArgTypes(typesObj) {
         var names;
         names = Object.keys(typesObj);
         if (names.length < 1) {
-            throw new atropa.InvalidArgumentTypesError('typesObj is expected to be of the form: var typesObj = ' +
-                '{ "namedArgumentTypesArray" : ["string", "function", "number"]' +
-                ', "namedAlternateArgumentTypesArray" : ["object", "function",' +
-                '"number"] }; You may use as many named arrays as you wish and' +
+            throw new atropa.InvalidArgumentTypesError(
+                'typesObj is expected to be of the form: var typesObj = ' +
+                '{ "namedArgumentTypesArray" : ' +
+                '    ["string", "function", "number"], ' +
+                '"namedAlternateArgumentTypesArray" : ' +
+                '   ["object", "function", "number"] }; ' +
+                'You may use as many named arrays as you wish and' +
                 'checkArgTypes will test for a match to at least one of the ' +
-                'provided named arrays.');
+                'provided named arrays.'
+            );
         }
         expectedArgTypes = typesObj;
     };
@@ -187,7 +186,8 @@ atropa.ArgsInfo = function ArgsInfo() {
     this.checkArgTypes = function checkArgTypes(args) {
         var expectedTypes;
         if (Object.keys(expectedArgTypes).length < 1) {
-            throw new atropa.InvalidArgumentTypesError('Expected argument types is not set. Use ' +
+            throw new atropa.InvalidArgumentTypesError(
+                'Expected argument types is not set. Use ' +
                 'setExpectedArgTypes(typesObj) to set. typesObj is an ' +
                 'object whose properties are arrays of strings representing ' +
                 'the typeof(argument) for each argument, in the exact order ' +
@@ -197,7 +197,8 @@ atropa.ArgsInfo = function ArgsInfo() {
                 'convenient way of getting the array you want to hard code ' +
                 'in for validation. Example: var typesObj = ' +
                 '{ "messageIncluded" : ["string", "function", "number"], ' +
-                '"messageNotIncluded" : ["object", "function", "number"] };');
+                '"messageNotIncluded" : ["object", "function", "number"] };'
+            );
         }
         for (expectedTypes in expectedArgTypes) {
             if (expectedArgTypes.hasOwnProperty(expectedTypes)) {
@@ -206,14 +207,12 @@ atropa.ArgsInfo = function ArgsInfo() {
                 }
             }
         }
-        throw new atropa.InvalidArgumentTypesError('invalid argument type @ atropa.ArgsInfo.checkArgTypes');
+        throw new atropa.InvalidArgumentTypesError(
+            'invalid argument type @ atropa.ArgsInfo.checkArgTypes');
     };
 };
 
 
-/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
-/*global atropa */
 
 /**
  * Utilities for handling arrays.
@@ -280,7 +279,8 @@ atropa.arrays.match = function arraysMatch(array1, array2) {
     return true;
 };
 /**
- * Subtracts one array from another array based on the unique values in both sets.
+ * Subtracts one array from another array based on the unique values in both
+ *  sets.
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
@@ -308,19 +308,22 @@ atropa.arrays.match = function arraysMatch(array1, array2) {
  * var x = [1,3,{'aProp' : 'aVal'}];
  * var y = [3,1,{'aProp' : 'aVal'}];
  * atropa.arrays.subtract(x,y);
- * // returns [{'aProp' : 'aVal'}] because the two objects are not the same object.
+ * // returns [{'aProp' : 'aVal'}] 
+ * // because the two objects are not the same object.
  * @example
  * var obj = {'aProp' : 'aVal'};
  * var x = [1,3,obj];
  * var y = [3,1,{'aProp' : 'aVal'}];
  * atropa.arrays.subtract(x,y);
- * // returns [{'aProp' : 'aVal'}] because the two objects are not the same object.
+ * // returns [{'aProp' : 'aVal'}] 
+ * // because the two objects are not the same object.
  * @example
  * var obj = {'aProp' : 'aVal'}
  * var x = [1,3,obj];
  * var y = [3,1,obj];
  * atropa.arrays.subtract(x,y);
- * // returns [] because the objects referenced in the arrays are the same object.
+ * // returns [] 
+ * // because the objects referenced in the arrays are the same object.
  */
 atropa.arrays.subtract = function(a, fromB) {
     "use strict";
@@ -347,7 +350,8 @@ atropa.arrays.subtract = function(a, fromB) {
  * @version 20130112
  * @param {Array} array1 An array.
  * @param {Array} array2 Another array.
- * @returns {Array} Returns an array of values found in both of the given arrays.
+ * @returns {Array} Returns an array of values found in both of the given
+ *  arrays.
  * @example
  * var x = [1,3,4];
  * var y = [3,1,5];
@@ -386,7 +390,7 @@ atropa.arrays.intersect = function intersect(array1, array2) {
         largeArray = array2.splice(0);
         smallArray = array1.splice(0);
     }
-    smallArray.forEach(function (item, idx, arr) {
+    smallArray.forEach(function (item) {
         var idxInLargeArray = largeArray.indexOf(item);
         if (0 <= idxInLargeArray) { // has word
             intersection.push(largeArray.splice(idxInLargeArray, 1)[0]);
@@ -477,7 +481,12 @@ atropa.arrays.getFrequency = function (arr) {
  * atropa.arrays.getUnique(x);
  * // returns ["bill", "fred", "jane"]
  * @example
- * var x = [ "bill", {"aProp" : "aValue"}, {"aGuy" : "fred"}, {"aLady" : "jane"} ];
+ * var x = [ 
+ *     "bill",
+ *     {"aProp" : "aValue"},
+ *     {"aGuy" : "fred"},
+ *     {"aLady" : "jane"}
+ * ];
  * atropa.arrays.getUnique(x);
  * // returns [ "bill", "[object Object]" ]
  */
@@ -533,17 +542,15 @@ atropa.arrays.removeEmptyElements = function (arrayWithEmptyElements) {
  * 
  * x = atropa.arrays.reindex(x);
  * console.log(x); //  [ "a", "c", undefined ]
- *    // note that the last element existed in the array,
- *    // its value was undefined but it did have a key so
- *    // the element remains in the array.
+ *    // note that the last element existed in the array, its value was
+ *    // undefined but it did have a key so the element remains in the array.
  *    //
  *    // The deleted element was in fact deleted from the array so there was no
  *    // key x[1] at all, when trying to access this non existing element the
- *    // value of undefined was returned. 
- *    // This behavior is confusing unless you
- *    // think about the arrayas an object whose properties are named by numbers.
- *    // Accessing an undefined property returns undefined regardless of
- *    // whether the property existed in the past or not.
+ *    // value of undefined was returned. This behavior is confusing unless you
+ *    // think about the arrayas an object whose properties are named by
+ *    // numbers. Accessing an undefined property returns undefined regardless
+ *    // of whether the property existed in the past or not.
  * console.log(x.length); // 3
  */
 atropa.arrays.reindex = function reindex(arr) {
@@ -563,7 +570,8 @@ atropa.arrays.reindex = function reindex(arr) {
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
  * @version 20130120
- * @param {Array} arr The array to sort. All elements of the array must be number-ish.
+ * @param {Array} arr The array to sort. All elements of the array must be
+ *  number-ish.
  * @returns {Array} Returns an array whose elements are in numeric order.
  * @example
  * var x = [3, 2, 9, 26, 10, 1, 99, 15];
@@ -582,7 +590,8 @@ atropa.arrays.sortNumerically = function sortNumerically(arr) {
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
  * @version 20130120
- * @param {Array} arr The array to sort. All elements of the array must be strings.
+ * @param {Array} arr The array to sort. All elements of the array must be
+ *  strings.
  * @returns {Array} Returns an array whose elements are in alphabetic order.
  * @example
  *  var x = ['Z','a', '1', '2', '10', 'A', 'z'];
@@ -597,13 +606,12 @@ atropa.arrays.sortAlphabetically = function sortAlphabetically(arr) {
 };
 
 
-/// <reference path="../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
-/*global atropa */
 
 /**
- * A polling class designed for executing long running processes that return nothing and have no callback parameter.
- * @class A polling class designed for executing long running processes that return nothing and have no callback parameter.
+ * A polling class designed for executing long running processes that return
+ *  nothing and have no callback parameter.
+ * @class A polling class designed for executing long running processes that
+ *  return nothing and have no callback parameter.
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
@@ -683,8 +691,8 @@ atropa.SerialActor = function(actorName, actorFunction) {
      */
     this.name = atropa.setAsOptionalArg('SerialActor', actorName);
     /**
-     * Polling interval in milliseconds. This determines how frequently the actor function will
-     *  try to execute. Defaults to 100 milliseconds.
+     * Polling interval in milliseconds. This determines how frequently the
+     *  actor function will try to execute. Defaults to 100 milliseconds.
      * @fieldOf atropa.SerialActor#
      * @type Number
      * @default 100
@@ -692,15 +700,17 @@ atropa.SerialActor = function(actorName, actorFunction) {
     this.interval = 100; // milliseconds
     /**
      * The id of the interval set to poll the actor. You should not change
-     *  this manually, use the start and stop functions instead. Defauls to undefined.
+     *  this manually, use the start and stop functions instead. Defauls to
+     *  undefined.
      * @fieldOf atropa.SerialActor#
      * @type Number
      * @default undefined
      */
     this.intervalId = undefined;
     /**
-     * The state of the SerialActor. If true, the actor will sleep. If false the actor
-     *  will execute the actor function when next polled. Defaults to false.
+     * The state of the SerialActor. If true, the actor will sleep. If false the
+     *  actor will execute the actor function when next polled. Defaults to
+     *  false.
      * @fieldOf atropa.SerialActor#
      * @type Boolean
      * @default false
@@ -717,7 +727,8 @@ atropa.SerialActor = function(actorName, actorFunction) {
     this.timeouts = [];
     /**
      * The maximum time, in milliseconds, which the actor may be blocked for.
-     *  After this duration has been reached the actor will be freed. Defaults to 60 seconds.
+     *  After this duration has been reached the actor will be freed. Defaults
+     *  to 60 seconds.
      * @fieldOf atropa.SerialActor#
      * @type Number
      * @default 60000
@@ -741,8 +752,9 @@ atropa.SerialActor = function(actorName, actorFunction) {
      */
     this.actorFunction = atropa.setAsOptionalArg(dummyActor, actorFunction);
     /**
-     * The action function is called when the actor is polled and it's blocked state is false.
-     *  This method should not be set or called manually, set the <code>actorFunction</code> instead.
+     * The action function is called when the actor is polled and it's blocked
+     *  state is false. This method should not be set or called manually, set
+     *  the <code>actorFunction</code> instead.
      * @author <a href="mailto:matthewkastor@gmail.com">
      *  Matthew Christopher Kastor-Inare III </a><br />
      *  ☭ Hial Atropa!! ☭
@@ -762,14 +774,15 @@ atropa.SerialActor = function(actorName, actorFunction) {
     };
 };
 /**
- * Prevents the actor from executing it's actorFunction.
- *  This block will timeout once the <code>blockTimeoutValue</code> has been reached.
+ * Prevents the actor from executing it's actorFunction. This block will timeout
+ *  once the <code>blockTimeoutValue</code> has been reached.
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
  * @version 20130220
  * @methodOf atropa.SerialActor#
- * @returns {Boolean} Returns the value of this instances <code>blocked</code> property.
+ * @returns {Boolean} Returns the value of this instances <code>blocked</code>
+ *  property.
  * @see atropa.SerialActor#blocked
  * @example
  * function d() {
@@ -793,18 +806,20 @@ atropa.SerialActor.prototype.block = function() {
     var that = this;
     console.log(this.name + ' block');
     this.blocked = true;
-    this.timeouts.push(setTimeout(function() {that.blockTimeout();}, that.blockTimeoutValue));
+    this.timeouts.push(
+        setTimeout(function() {that.blockTimeout();}, that.blockTimeoutValue));
     return this.blocked;
 };
 /**
- * Called when the <code>blockTimeoutValue</code> has been reached. This frees the actor
- *  and removes the timeout reference from the timeouts array.
+ * Called when the <code>blockTimeoutValue</code> has been reached. This frees
+ *  the actor and removes the timeout reference from the timeouts array.
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
  * @version 20130220
  * @methodOf atropa.SerialActor#
- * @returns {Boolean} Returns the value of this instances <code>blocked</code> property.
+ * @returns {Boolean} Returns the value of this instances <code>blocked</code>
+ *  property.
  * @see atropa.SerialActor#blocked
  */
 atropa.SerialActor.prototype.blockTimeout = function() {
@@ -819,7 +834,8 @@ atropa.SerialActor.prototype.blockTimeout = function() {
  *  ☭ Hial Atropa!! ☭
  * @version 20130220
  * @methodOf atropa.SerialActor#
- * @returns {Boolean} Returns the value of this instances <code>blocked</code> property.
+ * @returns {Boolean} Returns the value of this instances <code>blocked</code>
+ *  property.
  * @see atropa.SerialActor#blocked
  * @example
  * function d() {
@@ -851,10 +867,11 @@ atropa.SerialActor.prototype.free = function() {
  *  ☭ Hial Atropa!! ☭
  * @version 20130220
  * @methodOf atropa.SerialActor#
- * @param {Number} interval Optional. The polling interval. Defaults to the value
- *  of <code>this.interval</code>
+ * @param {Number} interval Optional. The polling interval. Defaults to the
+ *  value of <code>this.interval</code>
  * @see atropa.SerialActor#interval
- * @returns {Number} Returns the value of this instance's <code>intervalId</code> property.
+ * @returns {Number} Returns the value of this instance's
+ *  <code>intervalId</code> property.
  * @see atropa.SerialActor#intervalId
  * @example
  * var actor = new atropa.SerialActor('dummy');
@@ -882,7 +899,8 @@ atropa.SerialActor.prototype.start = function(interval) {
  * @version 20130220
  * @methodOf atropa.SerialActor#
  * @param {Number} interval The new polling interval in milliseconds.
- * @returns {Number} Returns the value of this instance's <code>intervalId</code> property.
+ * @returns {Number} Returns the value of this instance's 
+ *  <code>intervalId</code> property.
  * @see atropa.SerialActor#intervalId
  * @example
  * var actor = new atropa.SerialActor('dummy');
@@ -899,7 +917,8 @@ atropa.SerialActor.prototype.changeInterval = function(interval) {
 };
 /**
  * Stops polling the actor. Note that the actor will be freed once the
- *  <code>blockTimeoutValue</code> has been reached. This will not restart the polling.
+ *  <code>blockTimeoutValue</code> has been reached. This will not restart the
+ *  polling.
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
@@ -923,9 +942,6 @@ atropa.SerialActor.prototype.stop = function() {
 };
 
 
-/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
-/*global atropa */
 
 /**
  * This class represents a babbler. The babbler
@@ -1091,7 +1107,9 @@ atropa.Babbler = function Babbler(wrdCount) {
      * @requires atropa.random.integer
      * @requires atropa.string.ucFirst
      */
-    this.generateSentence = function generateSentence(sentenceMin, sentenceMax) {
+    this.generateSentence = function generateSentence(
+        sentenceMin, sentenceMax
+    ) {
         var word,
         sentenceLength,
         sentence;
@@ -1181,9 +1199,6 @@ atropa.Babbler = function Babbler(wrdCount) {
 };
 
 
-/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
-/*global atropa */
 
 /**
  * This is a cookie handler.
@@ -1201,8 +1216,7 @@ atropa.Babbler = function Babbler(wrdCount) {
  */
 atropa.CookieMonster = function CookieMonster() {
     'use strict';
-    var currentCookies,
-    getCookieCallback;
+    var currentCookies, getCookieCallback;
     
     /**
      * This holds the current cookie object array.
@@ -1261,9 +1275,8 @@ atropa.CookieMonster = function CookieMonster() {
      * console.log(cookieMonster.bakeCookie(cookieObj));
      */
     this.bakeCookie = function bakeCookie(cookieObj) {
-        var cookie = '',
-        key,
-        val;
+        var cookie = '', key, val;
+        
         key = cookieObj.key;
         val = cookieObj.val;
         cookie = key + '=' + val + ';';
@@ -1278,9 +1291,9 @@ atropa.CookieMonster = function CookieMonster() {
      * @methodOf atropa.CookieMonster#
      * @param {function} callback The callback function will be passed
      *  two arguments. The first is a cookie object from the current
-     *  document. The second argument is the value supplied for <code>args</code>
-     *  if the callback function returns <code>true</code> then the cookie
-     *  object will be included in the return results.
+     *  document. The second argument is the value supplied for
+     *  <code>args</code> if the callback function returns <code>true</code>
+     *  then the cookie object will be included in the return results.
      * @param {Array} args Arguments to pass to the callback
      * function.
      * @returns {Array} An array of cookie objects.
@@ -1299,13 +1312,12 @@ atropa.CookieMonster = function CookieMonster() {
      *         return false;
      *     }
      * }
-     * var cookieObjArray = cookieMonster.inspectCookies(cookieFilter, 'munching');
+     * var cookieObjArray = cookieMonster.inspectCookies(
+     *     cookieFilter, 'munching');
      * console.log(cookieObjArray);
      */
     this.inspectCookies = function inspectCookies(callback, args) {
-        var testCookie,
-        cookies,
-        jar = [];
+        var testCookie, cookies, jar = [];
         cookies = this.getCookies();
         while (cookies.length > 0) {
             testCookie = cookies.shift();
@@ -1377,10 +1389,7 @@ atropa.CookieMonster = function CookieMonster() {
      * console.log(cookieMonster.getCookies());
      */
     this.getCookies = function getCookies() {
-        var n,
-        l,
-        cookieArray,
-        cookieObj;
+        var n, l, cookieArray, cookieObj;
         currentCookies = [];
         cookieArray = document.cookie.split(";");
         for (n = 0, l = cookieArray.length; n < l; n++) {
@@ -1432,7 +1441,8 @@ atropa.CookieMonster = function CookieMonster() {
      * cookieMonster.setCookie('atropa', 'hial atropa!!');
      * console.log(document.cookie);
      * // delete a cookie
-     * cookieMonster.deleteCookieObj({ key : 'atropa', val : 'does not matter'});
+     * cookieMonster.deleteCookieObj(
+     *     {key : 'atropa', val : 'does not matter'});
      * console.log(document.cookie);
      */
     this.deleteCookieObj = function deleteCookieObj(cookieObj) {
@@ -1481,9 +1491,6 @@ atropa.CookieMonster = function CookieMonster() {
 };
 
 
-/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
-/*global atropa */
 
 /**
  * Creates HTML DOM Documents from an XMLHttpRequest object.
@@ -1544,7 +1551,8 @@ atropa.CookieMonster = function CookieMonster() {
  * // try to create a new hidden document
  * docs.newDocument(method, url, null, callback);
  */
-atropa.CreateHtmlDocumentsFromXmlhttp = function CreateHtmlDocumentsFromXmlhttp() {
+atropa.CreateHtmlDocumentsFromXmlhttp = function CreateHtmlDocumentsFromXmlhttp(
+) {
     "use strict";
     var requester,
     htmldocument,
@@ -1581,7 +1589,9 @@ atropa.CreateHtmlDocumentsFromXmlhttp = function CreateHtmlDocumentsFromXmlhttp(
      * @returns {HTML DOM Document, false} The return value is
      * given to the callback function.
      */
-    this.newDocument = function newDocument(method, url, messageBody, callback) {
+    this.newDocument = function newDocument(
+        method, url, messageBody, callback
+    ) {
         var cb;
         /**
          * Internal callback function to process data from XMLHttpRequest
@@ -1591,13 +1601,17 @@ atropa.CreateHtmlDocumentsFromXmlhttp = function CreateHtmlDocumentsFromXmlhttp(
          * @version 20120909
          * @methodOf atropa.CreateHtmlDocumentsFromXmlhttp#newDocument-
          * @private
-         * @property {true,false} boolStatus This tells whether or not the XMLHttpRequest was successful.
-         * @property {XMLHttp Response Object} responseObject This is the response object from the XMLHttp Request object.
+         * @property {true,false} boolStatus This tells whether or not the
+         *  XMLHttpRequest was successful.
+         * @property {XMLHttp Response Object} responseObject This is the
+         *  response object from the XMLHttp Request object.
          */
         cb = function (boolStatus, responseObject) {
             var result = false;
             if (boolStatus === true) {
-                if (false !== htmldocument.loadString(responseObject.responseText)) {
+                if (false !== htmldocument.loadString(
+                    responseObject.responseText))
+                {
                     result = htmldocument.doc;
                     that.documentQueue.push(result);
                 }
@@ -1610,10 +1624,6 @@ atropa.CreateHtmlDocumentsFromXmlhttp = function CreateHtmlDocumentsFromXmlhttp(
     };
 };
 
-
-/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
-/*global atropa */
 
 
 /**
@@ -1645,12 +1655,10 @@ atropa.InvalidArgumentTypesError = function InvalidArgumentTypesError(message) {
     this.message = message || "InvalidArgumentTypesError";
 };
 atropa.InvalidArgumentTypesError.prototype = new Error();
-atropa.InvalidArgumentTypesError.prototype.constructor = atropa.InvalidArgumentTypesError;
+atropa.InvalidArgumentTypesError.prototype.constructor = 
+    atropa.InvalidArgumentTypesError;
 
 
-/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
-/*global atropa */
 
 /**
  * Creates a new HTML Parser<br />
@@ -1660,7 +1668,8 @@ atropa.InvalidArgumentTypesError.prototype.constructor = atropa.InvalidArgumentT
  *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @class Creates a new HTML Parser
- * @returns {HTML DOM Document} Returns a blank HTML Document for you to load data into
+ * @returns {HTML DOM Document} Returns a blank HTML Document for you to load
+ *  data into
  */
 atropa.HTMLParser = function HTMLParser() {
     "use strict";
@@ -1677,12 +1686,16 @@ atropa.HTMLParser = function HTMLParser() {
      *  ☭ Hial Atropa!! ☭
      * @version 20120909
      * @methodOf atropa.HTMLParser#
-     * @returns {HTML DOM Document} Resets the doc property of this instance and,
-     * returns a blank HTML Document for you to load data into.
+     * @returns {HTML DOM Document} Resets the doc property of this instance
+     *  and, returns a blank HTML Document for you to load data into.
      */
     this.newDocument = function () {
         var dt;
-        dt = document.implementation.createDocumentType("html", "-//W3C//DTD HTML 4.01 Transitional//EN", "http://www.w3.org/TR/html4/loose.dtd");
+        dt = document.implementation.createDocumentType(
+            "html",
+            "-//W3C//DTD HTML 4.01 Transitional//EN",
+            "http://www.w3.org/TR/html4/loose.dtd"
+        );
         this.doc = document.implementation.createDocument('', '', dt);
         return this.doc;
     };
@@ -1711,9 +1724,6 @@ atropa.HTMLParser = function HTMLParser() {
 };
 
 
-/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
-/*global atropa */
 
 /**
  * Contains tools for injecting elements and assemblies.
@@ -1732,29 +1742,34 @@ atropa.inject = {};
  *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {String} elementType The type of element to be injected.
- * @param {HTML DOM Document} docref Optional. A reference to the document to target,
- * defaults to <code>document</code>.
- * @param {DOM Node} parentNod Optional. A reference to the parent node to target,
- * defaults to <code>docref.body</code>.
- * @param {Object} attributes Optional. An object whose properties are names of HTML attributes,
- * defaults to <code>{}</code>.
- * The value of these properties are to be strings representing the values of the HTML attributes
- * as they are to be applied to the injected element.
+ * @param {HTML DOM Document} docref Optional. A reference to the document to
+ *  target, defaults to <code>document</code>.
+ * @param {DOM Node} parentNod Optional. A reference to the parent node to
+ *  target, defaults to <code>docref.body</code>.
+ * @param {Object} attributes Optional. An object whose properties are names of
+ *  HTML attributes, defaults to <code>{}</code>. The value of these properties
+ *  are to be strings representing the values of the HTML attributes as they are
+ *  to be applied to the injected element.
  * @example Example attributes object :
  *
  * attributesObj = {
  *     "id" : "elementID",
  *     "class" : "classy"
  * };
- * @param {Function} onloadHandler Optional. If the element being injected will fire a load
- * event, this function will be called. Defaults to <code>function () {}</code>.
- * @param {Function} callback Optional. This function will be called just before the element is
- * to be appended to the page. The callback will receive the element in its current state for
- * any additional processing to be done prior to it's attachment on callback completion.
- * Defaults to <code>function () {}</code>.
- * @return {HTML Element} Returns a reference to the HTML Element created and injected.
+ * @param {Function} onloadHandler Optional. If the element being injected will
+ *  fire a load event, this function will be called. Defaults to
+ *  <code>function () {}</code>.
+ * @param {Function} callback Optional. This function will be called just before
+ *  the element is to be appended to the page. The callback will receive the
+ *  element in its current state for any additional processing to be done prior
+ *  to it's attachment on callback completion. Defaults to
+ *  <code>function () {}</code>.
+ * @return {HTML Element} Returns a reference to the HTML Element created and
+ *  injected.
  */
-atropa.inject.element = function (elementType, docref, parentNod, attributes, onloadHandler, callback) {
+atropa.inject.element = function (
+    elementType, docref, parentNod, attributes, onloadHandler, callback
+) {
     "use strict";
     var el,
     x;
@@ -1785,7 +1800,8 @@ atropa.inject.element = function (elementType, docref, parentNod, attributes, on
  * @param {HTML DOM Document} docref Optional.
  * @param {Function} callback Optional.
  * @param {DOM Node} parentNod Optional.
- * @return {HTML Element} Returns a reference to the HTML Element created and injected.
+ * @return {HTML Element} Returns a reference to the HTML Element created and
+ *  injected.
  * @see atropa.inject.element for default values and additional information
  * on optional parameters.
  */
@@ -1804,7 +1820,8 @@ atropa.inject.hiddenFrame = function (id, srcURL, docref, callback, parentNod) {
     };
     elementType = 'iframe';
     onloadHandler = callback;
-    el = atropa.inject.element(elementType, docref, parentNod, attributes, onloadHandler);
+    el = atropa.inject.element(
+        elementType, docref, parentNod, attributes, onloadHandler);
     return el;
 };
 /**
@@ -1817,7 +1834,8 @@ atropa.inject.hiddenFrame = function (id, srcURL, docref, callback, parentNod) {
  * @param {String} srcUrl The URL where the script is located.
  * @param {HTML DOM Document} docref Optional.
  * @param {Function} callback Optional.
- * @return {HTML Element} Returns a reference to the HTML Element created and injected.
+ * @return {HTML Element} Returns a reference to the HTML Element created and
+ *  injected.
  * @see atropa.inject.element for default values and additional information
  * on optional parameters.
  */
@@ -1835,14 +1853,12 @@ atropa.inject.script = function (id, srcURL, docref, callback) {
     };
     elementType = 'script';
     onloadHandler = callback;
-    el = atropa.inject.element(elementType, docref, parentNod, attributes, onloadHandler);
+    el = atropa.inject.element(
+        elementType, docref, parentNod, attributes, onloadHandler);
     return el;
 };
 
 
-/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
-/*global atropa */
 
 /**
  * Container for functions that test the state of inputs.
@@ -1936,9 +1952,6 @@ atropa.inquire.hasProperty = function (obj, prop) {
 };
 
 
-/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
-/*global atropa, XPathResult */
 
 /**
  * Utilities for handling objects.
@@ -1950,7 +1963,8 @@ atropa.inquire.hasProperty = function (obj, prop) {
  */
 atropa.objects = {};
 /**
- * Converts an object into an array of arrays to make it possible to sort and enumerate properties reliably.
+ * Converts an object into an array of arrays to make it possible to sort and
+ *  enumerate properties reliably.
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
@@ -1971,7 +1985,8 @@ atropa.objects = {};
  *  returned is because JavaScript does not guarantee the order of
  *  properties on an object so there is no relizble way to sort
  *  an objects keys or values.
- * @see "The mechanics and order of enumerating the properties [of an object] is not specified."
+ * @see "The mechanics and order of enumerating the properties [of an object]
+ *  is not specified." 
  *  <a href="http://www.ecma-international.org/ecma-262/5.1/#sec-12.6.4">
  *  http://www.ecma-international.org/ecma-262/5.1/#sec-12.6.4</a>
  */
@@ -1986,7 +2001,8 @@ atropa.objects.convertObjectToArray = function convertObjectToArray(obj) {
     return out;
 };
 /**
- * Converts an object into an array of arrays and allows for reliable sorting and enumeration.
+ * Converts an object into an array of arrays and allows for reliable sorting
+ *  and enumeration.
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
@@ -2175,7 +2191,9 @@ atropa.objects.sortValuesNumerically = function sortValuesNumerically(obj) {
  *  the value stored in element 1.
  * @see atropa.objects.sort
  */
-atropa.objects.sortValuesAlphabetically = function sortValuesAlphabetically(obj) {
+atropa.objects.sortValuesAlphabetically = function sortValuesAlphabetically(
+    obj
+) {
     "use strict";
     function sortFn(a, b) {
         return (a.localeCompare(b));
@@ -2204,7 +2222,9 @@ atropa.objects.sortValuesAlphabetically = function sortValuesAlphabetically(obj)
  *  the value stored in element 1.
  * @see atropa.objects.sort
  */
-atropa.objects.sortPropertiesNumerically = function sortPropertiesNumerically(obj) {
+atropa.objects.sortPropertiesNumerically = function sortPropertiesNumerically(
+    obj
+) {
     "use strict";
     function sortFn(a, b) {
         return (a - b);
@@ -2234,7 +2254,8 @@ atropa.objects.sortPropertiesNumerically = function sortPropertiesNumerically(ob
  *  the value stored in element 1.
  * @see atropa.objects.sort
  */
-atropa.objects.sortPropertiesAlphabetically = function sortPropertiesAlphabetically(obj) {
+atropa.objects.sortPropertiesAlphabetically = 
+function sortPropertiesAlphabetically(obj) {
     "use strict";
     function sortFn(a, b) {
         return (a.localeCompare(b));
@@ -2243,9 +2264,6 @@ atropa.objects.sortPropertiesAlphabetically = function sortPropertiesAlphabetica
 };
 
 
-/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
-/*global atropa */
 
 /**
  * Provides random strings and numbers.
@@ -2434,9 +2452,6 @@ atropa.random.pullProperty = function (obj) {
 };
 
 
-/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
-/*global atropa */
 
 /**
  * Container for regex functions.
@@ -2468,7 +2483,14 @@ atropa.regex.appendPrefixesAndSuffixes = function (word, threshold) {
     var prefixes,
     suffixes;
     prefixes = '(pre|un|re)?';
-    suffixes = '(ification|tionally|ication|ified|istic|iness|fare|tion|ance|ence|less|ally|able|ness|ized|ised|ous|ify|ing|ity|ful|ant|ate|est|ism|izm|ist|ic|al|ed|er|et|ly|rs|in|y|s|r|d)?';
+    suffixes = '(ification|' +
+                'tionally|' +
+                'ication|' +
+                'ified|istic|iness|' +
+                'fare|tion|ance|ence|less|ally|able|ness|ized|ised|' +
+                'ous|ify|ing|ity|ful|ant|ate|est|ism|izm|ist|' +
+                'ic|al|ed|er|et|ly|rs|in|' +
+                'y|s|r|d)?';
     
     threshold = threshold === undefined ? 3 : threshold;
     
@@ -2481,9 +2503,6 @@ atropa.regex.appendPrefixesAndSuffixes = function (word, threshold) {
 };
 
 
-/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
-/*global atropa */
 
 /**
  * Removes DOM Nodes.
@@ -2503,9 +2522,6 @@ atropa.removeNodeByReference = function (elementReference) {
 };
 
 
-/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
-/*global atropa */
 
 /**
  * This represents an XMLHTTPRequest.
@@ -2536,7 +2552,8 @@ atropa.removeNodeByReference = function (elementReference) {
  * formData.append('aFormFieldName', 'formFieldData');
  * formData.append('anotherFormFieldName', 'andData');
  * 
- * requester.makeRequest("post", "http://example.com", formData, showRequestResults);
+ * requester.makeRequest(
+ *     "post", "http://example.com", formData, showRequestResults);
  */
 atropa.Requester = function Requester() {
     "use strict";
@@ -2576,7 +2593,8 @@ atropa.Requester = function Requester() {
     };
     
     /**
-     * Object whose properties and values are header names and values respectively.
+     * Object whose properties and values are header names and values
+     *  respectively.
      * @type Request Headers Object
      * @fieldOf atropa.Requester#
      */
@@ -2584,8 +2602,8 @@ atropa.Requester = function Requester() {
     
     
     /**
-     * Set the timeout value for the request in milliseconds. The request will abort
-     *  after this amount of time has passed.
+     * Set the timeout value for the request in milliseconds. The request will
+     *  abort after this amount of time has passed.
      * @type Number
      * @fieldOf atropa.Requester#
      */
@@ -2616,8 +2634,8 @@ atropa.Requester = function Requester() {
      * @param {String} messageBody The body of the request.
      * @param {Object} callback The callback function to execute
      *  when readyState is 4. The callback is supplied with two arguments. The
-     *  first argument is a boolean indicating whether or not the http status was 200.
-     *  The second argument is the request object.
+     *  first argument is a boolean indicating whether or not the http status
+     *  was 200. The second argument is the request object.
      */
     this.makeRequest = function (method, url, messageBody, callback) {
         var hdr;
@@ -2660,9 +2678,6 @@ atropa.Requester = function Requester() {
 };
 
 
-/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
-/*global atropa */
 
 /**
  * Set default values for optional function parameters.
@@ -2694,9 +2709,6 @@ atropa.setAsOptionalArg = function (defaultVal, optionalArg) {
 };
 
 
-/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
-/*global atropa */
 
 /**
  * A few utilities for manipulating strings.
@@ -2783,7 +2795,9 @@ atropa.string.offsetWhiteSpace = function offsetWhiteSpace(text, offset) {
  * @param {String} text The text to process
  * @returns {String} Returns the processed text.
  */
-atropa.string.normalizeWhiteSpacePrefix = function normalizeWhiteSpacePrefix(text) {
+atropa.string.normalizeWhiteSpacePrefix = function normalizeWhiteSpacePrefix(
+    text
+) {
     'use strict';
     var prefix = text.match(/^\s*/);
     if(prefix) {
@@ -2878,9 +2892,6 @@ atropa.string.escapeCdata = function escapeCdata(text) {
 };
 
 
-/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
-/*global atropa */
 
 /**
  * Represents a utility for analyzing text.
@@ -2974,7 +2985,9 @@ atropa.TextAnalyzer.prototype.getWordFrequency = function () {
  * @returns {Object} Returns an object whose keys are phrases
  *  and whose values are the number of occurrences of the phrase.
  */
-atropa.TextAnalyzer.prototype.getPhraseFrequency = function getPhraseFrequency(phraseLength) {
+atropa.TextAnalyzer.prototype.getPhraseFrequency = function getPhraseFrequency(
+    phraseLength
+) {
     "use strict";
     phraseLength = atropa.setAsOptionalArg(2, phraseLength);
     if(2 > phraseLength) {
@@ -2986,7 +2999,9 @@ atropa.TextAnalyzer.prototype.getPhraseFrequency = function getPhraseFrequency(p
     
     this.words.map(function(element, index, arr) {
         counter = 1;  // element is word 1 of phraseLength
-        if(arr[index + phraseLength - 1] !== undefined) { // making sure there are enough words to concatenate a phrase of the proper length.
+        // making sure there are enough words to concatenate a phrase of the
+        // proper length.
+        if(arr[index + phraseLength - 1] !== undefined) {
             prop = String(element + ' ').toLowerCase();
             for(counter; counter !== phraseLength; counter++) {
                 prop += String(arr[index + counter] + ' ').toLowerCase();
@@ -3001,9 +3016,6 @@ atropa.TextAnalyzer.prototype.getPhraseFrequency = function getPhraseFrequency(p
 };
 
 
-/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
-/*global atropa */
 
 /**
  * Utilities for handling urls.
@@ -3026,9 +3038,6 @@ atropa.url.getFilename = function(url) {
 };
 
 
-/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
-/*global atropa */
 
 /**
  * Polling functions for quick and sloppy work.
@@ -3045,19 +3054,28 @@ atropa.waitFor = {};
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
  * @version 20120909
- * @param {Function} testFn A function to tell when the wait is over. Must return true on success, false on failure.
- * @param {Function} onSuccessCallback Optional. The function to run when testFn returns true. Defaults to <code>function () {} </code>
- * @param {function} onMaxPollCallback Optional. The function to run when testFn has been run maxPoll times and the wait is being given up.
+ * @param {Function} testFn A function to tell when the wait is over. Must
+ *  return true on success, false on failure.
+ * @param {Function} onSuccessCallback Optional. The function to run when testFn
+ *  returns true. Defaults to <code>function () {} </code>
+ * @param {function} onMaxPollCallback Optional. The function to run when testFn
+ *  has been run maxPoll times and the wait is being given up.
  * Defaults to <code>function () {}</code>
- * @param {Integer} pollInterval The amount of time in ms between polling testFn to see if it returns true. Defaults to 200ms.
- * @param {Integer} maxPoll The quantity of polls at which it makes sense to give up waiting. Defaults to 50.
+ * @param {Integer} pollInterval The amount of time in ms between polling testFn
+ *  to see if it returns true. Defaults to 200ms.
+ * @param {Integer} maxPoll The quantity of polls at which it makes sense to 
+ *  give up waiting. Defaults to 50.
  */
-atropa.waitFor.test = function test(testFn, onSuccessCallback, onMaxPollCallback, pollInterval, maxPoll) {
+atropa.waitFor.test = function test(
+    testFn, onSuccessCallback, onMaxPollCallback, pollInterval, maxPoll
+) {
     "use strict";
     pollInterval = atropa.setAsOptionalArg(200, pollInterval);
     maxPoll = atropa.setAsOptionalArg(50, maxPoll);
-    onMaxPollCallback = atropa.setAsOptionalArg(function () {}, onMaxPollCallback);
-    onSuccessCallback = atropa.setAsOptionalArg(function () {}, onSuccessCallback);
+    onMaxPollCallback = atropa.setAsOptionalArg(
+        function () {}, onMaxPollCallback);
+    onSuccessCallback = atropa.setAsOptionalArg(
+        function () {}, onSuccessCallback);
     var myInt,
     myCounter;
     myCounter = 0;
@@ -3079,14 +3097,18 @@ atropa.waitFor.test = function test(testFn, onSuccessCallback, onMaxPollCallback
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
  * @version 20120909
- * @param {Function} testFn A function which returns a reference to an HTML Element.
+ * @param {Function} testFn A function which returns a reference to an HTML
+ *  Element.
  * @param {Function} onSuccessCallback Optional.
  * @param {function} onMaxPollCallback Optional.
  * @param {Integer} pollInterval
  * @param {Integer} maxPoll
- * @see atropa.waitFor.test for more information and default values for the optional parameters.
+ * @see atropa.waitFor.test for more information and default values for the
+ *  optional parameters.
  */
-atropa.waitFor.element = function (testFn, onSuccessCallback, onMaxPollCallback, pollInterval, maxPoll) {
+atropa.waitFor.element = function (
+    testFn, onSuccessCallback, onMaxPollCallback, pollInterval, maxPoll
+) {
     "use strict";
     var elementTest;
     /**
@@ -3098,20 +3120,20 @@ atropa.waitFor.element = function (testFn, onSuccessCallback, onMaxPollCallback,
      * @version 20120909
      * @methodOf atropa.waitFor.element-
      * @private
-     * @returns {Boolean} Returns true or false depending on whether the object has a tag name property.
+     * @returns {Boolean} Returns true or false depending on whether the object
+     *  has a tag name property.
      */
     elementTest = function () {
         var obj;
         obj = testFn();
         return atropa.inquire.hasProperty(obj, 'tagName');
     };
-    atropa.waitFor.test(elementTest, onSuccessCallback, onMaxPollCallback, pollInterval, maxPoll);
+    atropa.waitFor.test(
+        elementTest, onSuccessCallback, onMaxPollCallback, pollInterval, maxPoll
+    );
 };
 
 
-/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
-/*global atropa */
 
 /**
  * Container for all window functions and classes.
@@ -3190,9 +3212,6 @@ atropa.window.open = function open(url, callback, testFn) {
 };
 
 
-/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
-/*global atropa */
 
 /**
  * Container for all Glorious WTFifier related functions and such.
@@ -3698,7 +3717,10 @@ atropa.wtf.wtfify = function (target, outputHTML) {
     wtfCount = 0;
     target = target.trim();
     if(true === outputHTML) {
-        target = target.replace(/(\. ?){2,}/gi, '<span style="color : brown ;"> [shit taco] </span>');
+        target = target.replace(
+            /(\. ?){2,}/gi,
+            '<span style="color : brown ;"> [shit taco] </span>'
+        );
         target = '<p> ' + target.replace(/(\r\n|\r|\n)/g,' <br/> ') + ' </p>';
     } else {
         target = target.replace(/(\. ?){2,}/gi, ' [shit taco] ');
@@ -3722,7 +3744,9 @@ atropa.wtf.wtfify = function (target, outputHTML) {
         sub2 = atropa.setAsOptionalArg('', sub2);
         var out;
         if(true === outputHTML) {
-            out = '<span style="color : red ;">' + sub1 + atropa.wtf.dictionary[word] + sub2 + '</span>';
+            out = '<span style="color : red ;">' +
+                sub1 + atropa.wtf.dictionary[word] + sub2 +
+                '</span>';
         } else {
             out = sub1 + atropa.wtf.dictionary[word] + sub2;
         }
@@ -3751,16 +3775,17 @@ atropa.wtf.wtfify = function (target, outputHTML) {
 atropa.wtf.htmlElement = function (elementReference) {
     "use strict";
     var wtfified, txt;
-    elementReference.innerHTML = elementReference.innerHTML.replace(/<br>(\s+)?\r?\n?/g, '\r\n');
+    elementReference.innerHTML = elementReference.innerHTML.replace(
+        /<br>(\s+)?\r?\n?/g, '\r\n');
     txt = elementReference.value || elementReference.textContent;
     wtfified = atropa.wtf.wtfify(txt, true);
-    elementReference.innerHTML = '<pre style="color:black; background:white; white-space:pre-wrap;">' + wtfified.txt + '</pre>';
+    elementReference.innerHTML =
+        '<pre style="color:black; background:white; white-space:pre-wrap;">' +
+        wtfified.txt +
+        '</pre>';
 };
 
 
-/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
-/*global atropa, XPathResult */
 
 /**
  * An Xpath toolkit for manipulating the DOM.
@@ -3774,16 +3799,17 @@ atropa.xpath = {};
 /**
  * Processes nodes from the DOM using an Xpath expression.
  * @example
- * <pre>
  *   // Say you wanted to touch all the anchors in window.document
  *   var xpathExpression, callback;
  *   xpathExpression = './/a';
  *   callback = function(oneNode) {
  *       oneNode.touched = true;
  *   }
- *   atropa.xpath.processNodesByXpath(xpathExpression, document, document, callback);
+ *   atropa.xpath.processNodesByXpath(
+ *       xpathExpression, document, document, callback);
  *   
- *   // Or say you have an iframe, with the id 'myFrame'. In the iframe there is a div with the id myDiv.
+ *   // Or say you have an iframe, with the id 'myFrame'. In the iframe there
+ *   // is a div with the id myDiv.
  *   // Here is how you would remove all the anchors in that div.
  *   var myFrame, xpathExpression, contextNode, docref, callback;
  *   myFrame = document.getElementById('myFrame');
@@ -3793,8 +3819,8 @@ atropa.xpath = {};
  *   callback = function(oneNode) {
  *       atropa.removeNodeByReference(oneNode);
  *   }
- *   atropa.xpath.processNodesByXpath(xpathExpression, contextNode, docref, callback);
- * </pre>
+ *   atropa.xpath.processNodesByXpath(
+ *       xpathExpression, contextNode, docref, callback);
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
@@ -3817,7 +3843,9 @@ atropa.xpath = {};
  * element as it's only argument.
  * @returns {Number} Returns the quantity of nodes processed.
  */
-atropa.xpath.processNodesByXpath = function processNodesByXpath(xpathExpression, contextNode, docref, callback) {
+atropa.xpath.processNodesByXpath = function processNodesByXpath(
+    xpathExpression, contextNode, docref, callback
+) {
     "use strict";
     docref = atropa.setAsOptionalArg(document, docref);
     contextNode = atropa.setAsOptionalArg(docref, contextNode);
@@ -3825,7 +3853,13 @@ atropa.xpath.processNodesByXpath = function processNodesByXpath(xpathExpression,
     nsl,
     i,
     nsi;
-    nodesSnapshot = docref.evaluate(xpathExpression, contextNode, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+    nodesSnapshot = docref.evaluate(
+        xpathExpression,
+        contextNode,
+        null,
+        XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
+        null
+    );
     nsl = nodesSnapshot.snapshotLength;
     for (i = 0; i < nsl; i++) {
         nsi = nodesSnapshot.snapshotItem(i);
@@ -3836,11 +3870,10 @@ atropa.xpath.processNodesByXpath = function processNodesByXpath(xpathExpression,
 /**
  * Removes nodes from the DOM using an Xpath expression.
  * @example
- * <pre>
- *   // to remove all anchors with the class "oops" inside of any div in document
+ *   // to remove all anchors with the class "oops" inside of any div in
+ *   // document
  *   var xpathExpression = ".//div//a[@class='oops']";
  *   atropa.xpath.removeNodesByXpath(xpathExpression);
- * </pre>
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
@@ -3853,12 +3886,19 @@ atropa.xpath.processNodesByXpath = function processNodesByXpath(xpathExpression,
  * @returns {Number} Returns the quantity of nodes removed.
  * @see atropa.xpath.processNodesByXpath for more information.
  */
-atropa.xpath.removeNodesByXpath = function removeNodesByXpath(xpathExpression, contextNode, docref) {
+atropa.xpath.removeNodesByXpath = function removeNodesByXpath(
+    xpathExpression, contextNode, docref
+) {
     "use strict";
     var count;
-    count = atropa.xpath.processNodesByXpath(xpathExpression, contextNode, docref, function (element) {
+    count = atropa.xpath.processNodesByXpath(
+        xpathExpression,
+        contextNode,
+        docref,
+        function (element) {
             atropa.removeNodeByReference(element);
-        });
+        }
+    );
     return count;
 };
 /**
@@ -3880,13 +3920,20 @@ atropa.xpath.removeNodesByXpath = function removeNodesByXpath(xpathExpression, c
  * @returns {Array} Returns an array whose elements are DOM Nodes
  * @see atropa.xpath.processNodesByXpath for more information.
  */
-atropa.xpath.getNodesByXpath = function getNodesByXpath(xpathExpression, contextNode, docref) {
+atropa.xpath.getNodesByXpath = function getNodesByXpath(
+    xpathExpression, contextNode, docref
+) {
     'use strict';
     var elementReferences;
     elementReferences = [];
-    atropa.xpath.processNodesByXpath(xpathExpression, contextNode, docref, function (element) {
-        elementReferences.push(element);
-    });
+    atropa.xpath.processNodesByXpath(
+        xpathExpression,
+        contextNode,
+        docref,
+        function (element) {
+            elementReferences.push(element);
+        }
+    );
     return elementReferences;
 };
 /**
@@ -3897,8 +3944,10 @@ atropa.xpath.getNodesByXpath = function getNodesByXpath(xpathExpression, context
  *  var arbStr, escapedStr, xpathExpression, foundNodes;
  *  arbStr = "Jimmy ain't never said \"Shur\" Why? I don't know!";
  *  escapedStr = atropa.xpath.escapeQuotesXpath(arbStr);
- *  // produces: concat('Jimmy ain', "'", 't never said "Shur" Why? I don', "'", 't know!')
- *  // it is much easier to deal with the variable name than it is to deal with all those quotes and commas!
+ *  // produces: concat('Jimmy ain', "'", 't never said "Shur" Why? I don', "'",
+ *  // 't know!')
+ *  // it is much easier to deal with the variable name than it is to deal with
+ *  // all those quotes and commas!
  *  xpathExpression = './/p[contains(text(),' + escapedStr + ')]';
  *  foundNodes = atropa.xpath.getNodesByXpath(xpathExpression);
  *  // found nodes will contain the p elements where the text was matched.
@@ -3970,7 +4019,8 @@ atropa.test.register = [];
 atropa.test.functions = {};
 
 /**
- * Default test results reporter. Replace this function with your own reporting function.
+ * Default test results reporter. Replace this function with your own reporting
+ *  function.
  */
 atropa.test.functions.report = function(results) {
     console.dir(results);
@@ -4014,17 +4064,22 @@ atropa.test.tests.CreateHtmlDocumentsFromXmlhttp = function () {
         try {
             if (false === docref) {
                 // if the document could not be created the test fails
-                throw new atropa.TestFailureError('atropa.CreateHtmlDocumentsFromXmlhttp', 'Could not create hidden document');
+                throw new atropa.TestFailureError(
+                    'atropa.CreateHtmlDocumentsFromXmlhttp',
+                    'Could not create hidden document');
             } else {
                 // if the document could be created we'll try to access it
                 if(docref.getElementById('index')) {
                     // if the document could be accessed and we've found
                     // an element we expected to find then the test passes
-                    atropa.test.results.pass.push(['atropa.CreateHtmlDocumentsFromXmlhttp','']);
+                    atropa.test.results.pass.push(
+                        ['atropa.CreateHtmlDocumentsFromXmlhttp','']);
                 } else {
                     // if the document could not be accessed or the element
                     // we're looking for was not present then the test fails
-                    throw new atropa.TestFailureError('atropa.CreateHtmlDocumentsFromXmlhttp', 'could not use the hidden document');
+                    throw new atropa.TestFailureError(
+                        'atropa.CreateHtmlDocumentsFromXmlhttp',
+                        'could not use the hidden document');
                 }
             }
         } catch (e) {

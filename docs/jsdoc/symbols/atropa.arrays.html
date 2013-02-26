@@ -379,7 +379,7 @@ ul.inheritsList
 							<td class="nameDescription">
 								<div class="fixedFont">atropa.arrays.<b><a href="../symbols/atropa.arrays.html#.subtract">subtract</a></b>(a, fromB)
 								</div>
-								<div class="description">Subtracts one array from another array based on the unique values in both sets.</div>
+								<div class="description">Subtracts one array from another array based on the unique values in both sets.</div>
 							</td>
 						</tr>
 					
@@ -505,7 +505,7 @@ ul.inheritsList
 					
 					<pre class="code">var x = ["bill", "fred", "jane", "fred"];atropa.arrays.getUnique(x);// returns ["bill", "fred", "jane"]</pre>
 					
-					<pre class="code">var x = [ "bill", {"aProp" : "aValue"}, {"aGuy" : "fred"}, {"aLady" : "jane"} ];atropa.arrays.getUnique(x);// returns [ "bill", "[object Object]" ]</pre>
+					<pre class="code">var x = [     "bill",    {"aProp" : "aValue"},    {"aGuy" : "fred"},    {"aLady" : "jane"}];atropa.arrays.getUnique(x);// returns [ "bill", "[object Object]" ]</pre>
 					
 					
 					
@@ -589,7 +589,7 @@ ul.inheritsList
 							<dl class="detailList">
 							<dt class="heading">Returns:</dt>
 							
-								<dd><span class="light fixedFont">{Array}</span> Returns an array of values found in both of the given arrays.</dd>
+								<dd><span class="light fixedFont">{Array}</span> Returns an array of values found in both of the given arrays.</dd>
 							
 							</dl>
 						
@@ -674,7 +674,7 @@ ul.inheritsList
 					
 					
 					
-					<pre class="code">var x = [ "a", "b", "c", undefined ];console.log(x); // [ "a", "b", "c", undefined ]console.log(x.length); // 4delete x[1]; // deletes the key from the array but             // the array length remains the same             // at this point the arrays keys are 0, 2, and 3console.log(x); // [ "a", undefined, "c", undefined ]console.log(x.length); // 4x = atropa.arrays.reindex(x);console.log(x); //  [ "a", "c", undefined ]   // note that the last element existed in the array,   // its value was undefined but it did have a key so   // the element remains in the array.   //   // The deleted element was in fact deleted from the array so there was no   // key x[1] at all, when trying to access this non existing element the   // value of undefined was returned.    // This behavior is confusing unless you   // think about the arrayas an object whose properties are named by numbers.   // Accessing an undefined property returns undefined regardless of   // whether the property existed in the past or not.console.log(x.length); // 3</pre>
+					<pre class="code">var x = [ "a", "b", "c", undefined ];console.log(x); // [ "a", "b", "c", undefined ]console.log(x.length); // 4delete x[1]; // deletes the key from the array but             // the array length remains the same             // at this point the arrays keys are 0, 2, and 3console.log(x); // [ "a", undefined, "c", undefined ]console.log(x.length); // 4x = atropa.arrays.reindex(x);console.log(x); //  [ "a", "c", undefined ]   // note that the last element existed in the array, its value was   // undefined but it did have a key so the element remains in the array.   //   // The deleted element was in fact deleted from the array so there was no   // key x[1] at all, when trying to access this non existing element the   // value of undefined was returned. This behavior is confusing unless you   // think about the arrayas an object whose properties are named by   // numbers. Accessing an undefined property returns undefined regardless   // of whether the property existed in the past or not.console.log(x.length); // 3</pre>
 					
 					
 					
@@ -780,7 +780,7 @@ ul.inheritsList
 									<span class="light fixedFont">{Array}</span> <b>arr</b>
 									
 								</dt>
-								<dd>The array to sort. All elements of the array must be strings.</dd>
+								<dd>The array to sort. All elements of the array must be strings.</dd>
 							
 							</dl>
 						
@@ -827,7 +827,7 @@ ul.inheritsList
 									<span class="light fixedFont">{Array}</span> <b>arr</b>
 									
 								</dt>
-								<dd>The array to sort. All elements of the array must be number-ish.</dd>
+								<dd>The array to sort. All elements of the array must be number-ish.</dd>
 							
 							</dl>
 						
@@ -855,7 +855,7 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						Subtracts one array from another array based on the unique values in both sets.
+						Subtracts one array from another array based on the unique values in both sets.
 						
 						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
@@ -868,11 +868,11 @@ ul.inheritsList
 					
 					<pre class="code">var x = [1,3];var y = [3,1,1,9];atropa.arrays.subtract(x,y);// returns [9]</pre>
 					
-					<pre class="code">var x = [1,3,{'aProp' : 'aVal'}];var y = [3,1,{'aProp' : 'aVal'}];atropa.arrays.subtract(x,y);// returns [{'aProp' : 'aVal'}] because the two objects are not the same object.</pre>
+					<pre class="code">var x = [1,3,{'aProp' : 'aVal'}];var y = [3,1,{'aProp' : 'aVal'}];atropa.arrays.subtract(x,y);// returns [{'aProp' : 'aVal'}] // because the two objects are not the same object.</pre>
 					
-					<pre class="code">var obj = {'aProp' : 'aVal'};var x = [1,3,obj];var y = [3,1,{'aProp' : 'aVal'}];atropa.arrays.subtract(x,y);// returns [{'aProp' : 'aVal'}] because the two objects are not the same object.</pre>
+					<pre class="code">var obj = {'aProp' : 'aVal'};var x = [1,3,obj];var y = [3,1,{'aProp' : 'aVal'}];atropa.arrays.subtract(x,y);// returns [{'aProp' : 'aVal'}] // because the two objects are not the same object.</pre>
 					
-					<pre class="code">var obj = {'aProp' : 'aVal'}var x = [1,3,obj];var y = [3,1,obj];atropa.arrays.subtract(x,y);// returns [] because the objects referenced in the arrays are the same object.</pre>
+					<pre class="code">var obj = {'aProp' : 'aVal'}var x = [1,3,obj];var y = [3,1,obj];atropa.arrays.subtract(x,y);// returns [] // because the objects referenced in the arrays are the same object.</pre>
 					
 					
 					
@@ -922,7 +922,7 @@ ul.inheritsList
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Tue Feb 26 2013 04:40:40 GMT-0500 (EST)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Tue Feb 26 2013 17:45:44 GMT-0500 (EST)
 		</div>
 	</body>
 </html>

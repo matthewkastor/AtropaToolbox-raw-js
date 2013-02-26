@@ -59,7 +59,7 @@
     </div>
     <div class="span6">
       <h2 class="header">SLOC/LSLOC <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">293 / 42</p>
+      <p class="stat">301 / 42</p>
     </div>
   </div>
 </div>
@@ -83,8 +83,17 @@
 <div class="container">
   <div class="row">
     <textarea id="file-source" class="span12">/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
+/*jslint
+    indent: 4,
+    maxerr: 50,
+    white: true,
+    browser: true,
+    devel: true,
+    plusplus: true,
+    regexp: true
+*/
 /*global atropa, XPathResult */
+// end header
 
 /**
  * Utilities for handling objects.
@@ -96,7 +105,8 @@
  */
 atropa.objects = {};
 /**
- * Converts an object into an array of arrays to make it possible to sort and enumerate properties reliably.
+ * Converts an object into an array of arrays to make it possible to sort and
+ *  enumerate properties reliably.
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
@@ -117,7 +127,8 @@ atropa.objects = {};
  *  returned is because JavaScript does not guarantee the order of
  *  properties on an object so there is no relizble way to sort
  *  an objects keys or values.
- * @see "The mechanics and order of enumerating the properties [of an object] is not specified."
+ * @see "The mechanics and order of enumerating the properties [of an object]
+ *  is not specified." 
  *  <a href="http://www.ecma-international.org/ecma-262/5.1/#sec-12.6.4">
  *  http://www.ecma-international.org/ecma-262/5.1/#sec-12.6.4</a>
  */
@@ -132,7 +143,8 @@ atropa.objects.convertObjectToArray = function convertObjectToArray(obj) {
     return out;
 };
 /**
- * Converts an object into an array of arrays and allows for reliable sorting and enumeration.
+ * Converts an object into an array of arrays and allows for reliable sorting
+ *  and enumeration.
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
@@ -321,7 +333,9 @@ atropa.objects.sortValuesNumerically = function sortValuesNumerically(obj) {
  *  the value stored in element 1.
  * @see atropa.objects.sort
  */
-atropa.objects.sortValuesAlphabetically = function sortValuesAlphabetically(obj) {
+atropa.objects.sortValuesAlphabetically = function sortValuesAlphabetically(
+    obj
+) {
     "use strict";
     function sortFn(a, b) {
         return (a.localeCompare(b));
@@ -350,7 +364,9 @@ atropa.objects.sortValuesAlphabetically = function sortValuesAlphabetically(obj)
  *  the value stored in element 1.
  * @see atropa.objects.sort
  */
-atropa.objects.sortPropertiesNumerically = function sortPropertiesNumerically(obj) {
+atropa.objects.sortPropertiesNumerically = function sortPropertiesNumerically(
+    obj
+) {
     "use strict";
     function sortFn(a, b) {
         return (a - b);
@@ -380,7 +396,8 @@ atropa.objects.sortPropertiesNumerically = function sortPropertiesNumerically(ob
  *  the value stored in element 1.
  * @see atropa.objects.sort
  */
-atropa.objects.sortPropertiesAlphabetically = function sortPropertiesAlphabetically(obj) {
+atropa.objects.sortPropertiesAlphabetically = 
+function sortPropertiesAlphabetically(obj) {
     "use strict";
     function sortFn(a, b) {
         return (a.localeCompare(b));

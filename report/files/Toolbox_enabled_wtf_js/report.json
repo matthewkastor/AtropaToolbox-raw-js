@@ -7,10 +7,10 @@
   },
   "complexity": {
     "aggregate": {
-      "line": 13,
+      "line": 22,
       "complexity": {
         "sloc": {
-          "physical": 554,
+          "physical": 563,
           "logical": 507
         },
         "cyclomatic": 6,
@@ -42,10 +42,10 @@
     "functions": [
       {
         "name": "<anonymous>.wtfify",
-        "line": 493,
+        "line": 502,
         "complexity": {
           "sloc": {
-            "physical": 59,
+            "physical": 64,
             "logical": 30
           },
           "cyclomatic": 4,
@@ -76,10 +76,10 @@
       },
       {
         "name": "<anonymous>",
-        "line": 527,
+        "line": 539,
         "complexity": {
           "sloc": {
-            "physical": 12,
+            "physical": 14,
             "logical": 9
           },
           "cyclomatic": 2,
@@ -110,10 +110,10 @@
       },
       {
         "name": "<anonymous>.htmlElement",
-        "line": 559,
+        "line": 573,
         "complexity": {
           "sloc": {
-            "physical": 8,
+            "physical": 12,
             "logical": 7
           },
           "cyclomatic": 2,

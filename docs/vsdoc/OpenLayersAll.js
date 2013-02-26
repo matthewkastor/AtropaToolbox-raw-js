@@ -85,8 +85,9 @@
                 
         setExpectedArgTypes: function(typesObj) {
             /// <summary>Sets the expected argument types.</summary>
-            /// <param name="typesObj" type="Expected Arg Types">An object containing information about the
-            /// types of arguments you expect. Specifically, the object should look like the example.</param>
+            /// <param name="typesObj" type="Expected Arg Types">An object containing information
+            ///  about the types of arguments you expect. Specifically, the object should
+            ///  look like the example.</param>
         }, 
         
         getArgTypes: function(args) {
@@ -141,7 +142,8 @@
         }, 
         
         subtract: function(a, fromB) {
-            /// <summary>Subtracts one array from another array based on the unique values in both sets.</summary>
+            /// <summary>Subtracts one array from another array based on the unique values in both
+            ///  sets.</summary>
             /// <param name="a" type="Array">The array to subtract.</param>
             /// <param name="fromB" type="Array">The array with elements duplicated in &lt;code&gt;a&lt;/code&gt;</param>
             /// <returns type="Array">Returns a new array containing only the unique
@@ -152,7 +154,8 @@
             /// <summary>Returns an array of values found in both of the given arrays.</summary>
             /// <param name="array1" type="Array">An array.</param>
             /// <param name="array2" type="Array">Another array.</param>
-            /// <returns type="Array">Returns an array of values found in both of the given arrays.</returns>
+            /// <returns type="Array">Returns an array of values found in both of the given
+            ///  arrays.</returns>
         }, 
         
         getFrequency: function(arr) {
@@ -185,13 +188,15 @@
         
         sortNumerically: function(arr) {
             /// <summary>Sorts an array&apos;s elements numerically.</summary>
-            /// <param name="arr" type="Array">The array to sort. All elements of the array must be number-ish.</param>
+            /// <param name="arr" type="Array">The array to sort. All elements of the array must be
+            ///  number-ish.</param>
             /// <returns type="Array">Returns an array whose elements are in numeric order.</returns>
         }, 
         
         sortAlphabetically: function(arr) {
             /// <summary>Sorts an array&apos;s elements lexicographically.</summary>
-            /// <param name="arr" type="Array">The array to sort. All elements of the array must be strings.</param>
+            /// <param name="arr" type="Array">The array to sort. All elements of the array must be
+            ///  strings.</param>
             /// <returns type="Array">Returns an array whose elements are in alphabetic order.</returns>
         }
         
@@ -336,9 +341,9 @@
             /// <summary>Filter cookies based on user specified callback.</summary>
             /// <param name="callback" type="function">The callback function will be passed
             ///  two arguments. The first is a cookie object from the current
-            ///  document. The second argument is the value supplied for &lt;code&gt;args&lt;/code&gt;
-            ///  if the callback function returns &lt;code&gt;true&lt;/code&gt; then the cookie
-            ///  object will be included in the return results.</param>
+            ///  document. The second argument is the value supplied for
+            ///  &lt;code&gt;args&lt;/code&gt; if the callback function returns &lt;code&gt;true&lt;/code&gt;
+            ///  then the cookie object will be included in the return results.</param>
             /// <param name="args" type="Array">Arguments to pass to the callback
             /// function.</param>
             /// <returns type="Array">An array of cookie objects.</returns>
@@ -453,8 +458,8 @@
                 
         newDocument: function() {
             /// <summary>Creates a blank HTML DOM Document.</summary>
-            /// <returns type="HTML DOM Document">Resets the doc property of this instance and,
-            /// returns a blank HTML Document for you to load data into.</returns>
+            /// <returns type="HTML DOM Document">Resets the doc property of this instance
+            ///  and, returns a blank HTML Document for you to load data into.</returns>
         }, 
         
         loadString: function(htmlstring) {
@@ -484,21 +489,24 @@
         element: function(elementType, docref, parentNod, attributes, onloadHandler, callback) {
             /// <summary>Generic Element Injector.</summary>
             /// <param name="elementType" type="String">The type of element to be injected.</param>
-            /// <param name="docref" type="HTML DOM Document">Optional. A reference to the document to target,
-            /// defaults to &lt;code&gt;document&lt;/code&gt;.</param>
-            /// <param name="parentNod" type="DOM Node">Optional. A reference to the parent node to target,
-            /// defaults to &lt;code&gt;docref.body&lt;/code&gt;.</param>
-            /// <param name="attributes" type="Object">Optional. An object whose properties are names of HTML attributes,
-            /// defaults to &lt;code&gt;{}&lt;/code&gt;.
-            /// The value of these properties are to be strings representing the values of the HTML attributes
-            /// as they are to be applied to the injected element.</param>
-            /// <param name="onloadHandler" type="Function">Optional. If the element being injected will fire a load
-            /// event, this function will be called. Defaults to &lt;code&gt;function () {}&lt;/code&gt;.</param>
-            /// <param name="callback" type="Function">Optional. This function will be called just before the element is
-            /// to be appended to the page. The callback will receive the element in its current state for
-            /// any additional processing to be done prior to it&apos;s attachment on callback completion.
-            /// Defaults to &lt;code&gt;function () {}&lt;/code&gt;.</param>
-            /// <returns type="HTML Element">Returns a reference to the HTML Element created and injected.</returns>
+            /// <param name="docref" type="HTML DOM Document">Optional. A reference to the document to
+            ///  target, defaults to &lt;code&gt;document&lt;/code&gt;.</param>
+            /// <param name="parentNod" type="DOM Node">Optional. A reference to the parent node to
+            ///  target, defaults to &lt;code&gt;docref.body&lt;/code&gt;.</param>
+            /// <param name="attributes" type="Object">Optional. An object whose properties are names of
+            ///  HTML attributes, defaults to &lt;code&gt;{}&lt;/code&gt;. The value of these properties
+            ///  are to be strings representing the values of the HTML attributes as they are
+            ///  to be applied to the injected element.</param>
+            /// <param name="onloadHandler" type="Function">Optional. If the element being injected will
+            ///  fire a load event, this function will be called. Defaults to
+            ///  &lt;code&gt;function () {}&lt;/code&gt;.</param>
+            /// <param name="callback" type="Function">Optional. This function will be called just before
+            ///  the element is to be appended to the page. The callback will receive the
+            ///  element in its current state for any additional processing to be done prior
+            ///  to it&apos;s attachment on callback completion. Defaults to
+            ///  &lt;code&gt;function () {}&lt;/code&gt;.</param>
+            /// <returns type="HTML Element">Returns a reference to the HTML Element created and
+            ///  injected.</returns>
         }, 
         
         hiddenFrame: function(id, srcUrl, docref, callback, parentNod) {
@@ -508,7 +516,8 @@
             /// <param name="docref" type="HTML DOM Document">Optional.</param>
             /// <param name="callback" type="Function">Optional.</param>
             /// <param name="parentNod" type="DOM Node">Optional.</param>
-            /// <returns type="HTML Element">Returns a reference to the HTML Element created and injected.</returns>
+            /// <returns type="HTML Element">Returns a reference to the HTML Element created and
+            ///  injected.</returns>
         }, 
         
         script: function(id, srcUrl, docref, callback) {
@@ -517,7 +526,8 @@
             /// <param name="srcUrl" type="String">The URL where the script is located.</param>
             /// <param name="docref" type="HTML DOM Document">Optional.</param>
             /// <param name="callback" type="Function">Optional.</param>
-            /// <returns type="HTML Element">Returns a reference to the HTML Element created and injected.</returns>
+            /// <returns type="HTML Element">Returns a reference to the HTML Element created and
+            ///  injected.</returns>
         }
         
     };
@@ -625,7 +635,8 @@
         /// <returns type="atropa.objects"/>
                 
         convertObjectToArray: function(obj) {
-            /// <summary>Converts an object into an array of arrays to make it possible to sort and enumerate properties reliably.</summary>
+            /// <summary>Converts an object into an array of arrays to make it possible to sort and
+            ///  enumerate properties reliably.</summary>
             /// <param name="obj" type="Object">An object.</param>
             /// <returns type="Array">Returns an array of arrays where each
             ///  nested array will have the object&apos;s key stored in element 0 and
@@ -636,7 +647,8 @@
         }, 
         
         sort: function(obj, sortFn) {
-            /// <summary>Converts an object into an array of arrays and allows for reliable sorting and enumeration.</summary>
+            /// <summary>Converts an object into an array of arrays and allows for reliable sorting
+            ///  and enumeration.</summary>
             /// <param name="obj" type="Object">An object.</param>
             /// <param name="sortFn" type="Function">Optional. The sorting function. This function will
             ///  be given two arguments. Compare the two arguments and return:
@@ -840,9 +852,10 @@
         /// <summary></summary>
         /// <field name="expArgTypes" type="Expected Arg Types">Container object for the expected argument types
         /// supplied to this.makeRequest.</field>
-        /// <field name="requestHeaders" type="Request Headers Object">Object whose properties and values are header names and values respectively.</field>
-        /// <field name="timeout" type="Number">Set the timeout value for the request in milliseconds. The request will abort
-        ///  after this amount of time has passed.</field>
+        /// <field name="requestHeaders" type="Request Headers Object">Object whose properties and values are header names and values
+        ///  respectively.</field>
+        /// <field name="timeout" type="Number">Set the timeout value for the request in milliseconds. The request will
+        ///  abort after this amount of time has passed.</field>
         /// <field name="request" type="XMLHttpRequest">XMLHttpRequest object used by Requester.</field>
         /// <returns type="atropa.Requester"/>
     };
@@ -864,8 +877,8 @@
             /// <param name="messageBody" type="String">The body of the request.</param>
             /// <param name="callback" type="Object">The callback function to execute
             ///  when readyState is 4. The callback is supplied with two arguments. The
-            ///  first argument is a boolean indicating whether or not the http status was 200.
-            ///  The second argument is the request object.</param>
+            ///  first argument is a boolean indicating whether or not the http status
+            ///  was 200. The second argument is the request object.</param>
         }
         
     };
@@ -889,16 +902,19 @@
         ///  SerialActor is free. This function must call the &lt;code&gt;free&lt;/code&gt; function
         ///  when it is finished in order to allow the actor to continue.</param>
         /// <field name="name" type="String">The name of this instance. Defaults to &quot;SerialActor&quot;</field>
-        /// <field name="interval" type="Number">Polling interval in milliseconds. This determines how frequently the actor function will
-        ///  try to execute. Defaults to 100 milliseconds.</field>
+        /// <field name="interval" type="Number">Polling interval in milliseconds. This determines how frequently the
+        ///  actor function will try to execute. Defaults to 100 milliseconds.</field>
         /// <field name="intervalId" type="Number">The id of the interval set to poll the actor. You should not change
-        ///  this manually, use the start and stop functions instead. Defauls to undefined.</field>
-        /// <field name="blocked" type="Boolean">The state of the SerialActor. If true, the actor will sleep. If false the actor
-        ///  will execute the actor function when next polled. Defaults to false.</field>
+        ///  this manually, use the start and stop functions instead. Defauls to
+        ///  undefined.</field>
+        /// <field name="blocked" type="Boolean">The state of the SerialActor. If true, the actor will sleep. If false the
+        ///  actor will execute the actor function when next polled. Defaults to
+        ///  false.</field>
         /// <field name="timeouts" type="Array">Stores id&apos;s of currently running timeout functions used to free the actor
         ///  if it has been blocked for too long.</field>
         /// <field name="blockTimeoutValue" type="Number">The maximum time, in milliseconds, which the actor may be blocked for.
-        ///  After this duration has been reached the actor will be freed. Defaults to 60 seconds.</field>
+        ///  After this duration has been reached the actor will be freed. Defaults
+        ///  to 60 seconds.</field>
         /// <field name="actorFunction" type="Function">The function to execute when the SerialActor is free. This function
         ///  must call the &lt;code&gt;free&lt;/code&gt; function when it is finished in order to
         ///  allow the actor to continue. Defaults to the &lt;code&gt;dummyActor&lt;/code&gt;
@@ -914,44 +930,51 @@
         }, 
         
         action: function() {
-            /// <summary>The action function is called when the actor is polled and it&apos;s blocked state is false.
-            ///  This method should not be set or called manually, set the &lt;code&gt;actorFunction&lt;/code&gt; instead.</summary>
+            /// <summary>The action function is called when the actor is polled and it&apos;s blocked
+            ///  state is false. This method should not be set or called manually, set
+            ///  the &lt;code&gt;actorFunction&lt;/code&gt; instead.</summary>
         }, 
         
         block: function() {
-            /// <summary>Prevents the actor from executing it&apos;s actorFunction.
-            ///  This block will timeout once the &lt;code&gt;blockTimeoutValue&lt;/code&gt; has been reached.</summary>
-            /// <returns type="Boolean">Returns the value of this instances &lt;code&gt;blocked&lt;/code&gt; property.</returns>
+            /// <summary>Prevents the actor from executing it&apos;s actorFunction. This block will timeout
+            ///  once the &lt;code&gt;blockTimeoutValue&lt;/code&gt; has been reached.</summary>
+            /// <returns type="Boolean">Returns the value of this instances &lt;code&gt;blocked&lt;/code&gt;
+            ///  property.</returns>
         }, 
         
         blockTimeout: function() {
-            /// <summary>Called when the &lt;code&gt;blockTimeoutValue&lt;/code&gt; has been reached. This frees the actor
-            ///  and removes the timeout reference from the timeouts array.</summary>
-            /// <returns type="Boolean">Returns the value of this instances &lt;code&gt;blocked&lt;/code&gt; property.</returns>
+            /// <summary>Called when the &lt;code&gt;blockTimeoutValue&lt;/code&gt; has been reached. This frees
+            ///  the actor and removes the timeout reference from the timeouts array.</summary>
+            /// <returns type="Boolean">Returns the value of this instances &lt;code&gt;blocked&lt;/code&gt;
+            ///  property.</returns>
         }, 
         
         free: function() {
             /// <summary>Frees the actor so it may execute its actor function when next polled.</summary>
-            /// <returns type="Boolean">Returns the value of this instances &lt;code&gt;blocked&lt;/code&gt; property.</returns>
+            /// <returns type="Boolean">Returns the value of this instances &lt;code&gt;blocked&lt;/code&gt;
+            ///  property.</returns>
         }, 
         
         start: function(interval) {
             /// <summary>Starts polling the actor.</summary>
-            /// <param name="interval" type="Number">Optional. The polling interval. Defaults to the value
-            ///  of &lt;code&gt;this.interval&lt;/code&gt;</param>
-            /// <returns type="Number">Returns the value of this instance&apos;s &lt;code&gt;intervalId&lt;/code&gt; property.</returns>
+            /// <param name="interval" type="Number">Optional. The polling interval. Defaults to the
+            ///  value of &lt;code&gt;this.interval&lt;/code&gt;</param>
+            /// <returns type="Number">Returns the value of this instance&apos;s
+            ///  &lt;code&gt;intervalId&lt;/code&gt; property.</returns>
         }, 
         
         changeInterval: function(interval) {
             /// <summary>Adjusts the polling interval after &lt;code&gt;start&lt;/code&gt; has
             /// been called.</summary>
             /// <param name="interval" type="Number">The new polling interval in milliseconds.</param>
-            /// <returns type="Number">Returns the value of this instance&apos;s &lt;code&gt;intervalId&lt;/code&gt; property.</returns>
+            /// <returns type="Number">Returns the value of this instance&apos;s 
+            ///  &lt;code&gt;intervalId&lt;/code&gt; property.</returns>
         }, 
         
         stop: function() {
             /// <summary>Stops polling the actor. Note that the actor will be freed once the
-            ///  &lt;code&gt;blockTimeoutValue&lt;/code&gt; has been reached. This will not restart the polling.</summary>
+            ///  &lt;code&gt;blockTimeoutValue&lt;/code&gt; has been reached. This will not restart the
+            ///  polling.</summary>
         }
         
     };
@@ -1139,17 +1162,23 @@
                 
         test: function(testFn, onSuccessCallback, onMaxPollCallback, pollInterval, maxPoll) {
             /// <summary>Generic Wait for true.</summary>
-            /// <param name="testFn" type="Function">A function to tell when the wait is over. Must return true on success, false on failure.</param>
-            /// <param name="onSuccessCallback" type="Function">Optional. The function to run when testFn returns true. Defaults to &lt;code&gt;function () {} &lt;/code&gt;</param>
-            /// <param name="onMaxPollCallback" type="function">Optional. The function to run when testFn has been run maxPoll times and the wait is being given up.
+            /// <param name="testFn" type="Function">A function to tell when the wait is over. Must
+            ///  return true on success, false on failure.</param>
+            /// <param name="onSuccessCallback" type="Function">Optional. The function to run when testFn
+            ///  returns true. Defaults to &lt;code&gt;function () {} &lt;/code&gt;</param>
+            /// <param name="onMaxPollCallback" type="function">Optional. The function to run when testFn
+            ///  has been run maxPoll times and the wait is being given up.
             /// Defaults to &lt;code&gt;function () {}&lt;/code&gt;</param>
-            /// <param name="pollInterval" type="Integer" integer="true">The amount of time in ms between polling testFn to see if it returns true. Defaults to 200ms.</param>
-            /// <param name="maxPoll" type="Integer" integer="true">The quantity of polls at which it makes sense to give up waiting. Defaults to 50.</param>
+            /// <param name="pollInterval" type="Integer" integer="true">The amount of time in ms between polling testFn
+            ///  to see if it returns true. Defaults to 200ms.</param>
+            /// <param name="maxPoll" type="Integer" integer="true">The quantity of polls at which it makes sense to 
+            ///  give up waiting. Defaults to 50.</param>
         }, 
         
         element: function(testFn, onSuccessCallback, onMaxPollCallback, pollInterval, maxPoll) {
             /// <summary>Wait for Element</summary>
-            /// <param name="testFn" type="Function">A function which returns a reference to an HTML Element.</param>
+            /// <param name="testFn" type="Function">A function which returns a reference to an HTML
+            ///  Element.</param>
             /// <param name="onSuccessCallback" type="Function">Optional.</param>
             /// <param name="onMaxPollCallback" type="function">Optional.</param>
             /// <param name="pollInterval" type="Integer" integer="true"></param>

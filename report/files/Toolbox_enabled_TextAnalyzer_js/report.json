@@ -7,10 +7,10 @@
   },
   "complexity": {
     "aggregate": {
-      "line": 18,
+      "line": 27,
       "complexity": {
         "sloc": {
-          "physical": 104,
+          "physical": 108,
           "logical": 39
         },
         "cyclomatic": 4,
@@ -42,7 +42,7 @@
     "functions": [
       {
         "name": "TextAnalyzer",
-        "line": 18,
+        "line": 27,
         "complexity": {
           "sloc": {
             "physical": 40,
@@ -76,7 +76,7 @@
       },
       {
         "name": "<anonymous>",
-        "line": 49,
+        "line": 58,
         "complexity": {
           "sloc": {
             "physical": 5,
@@ -110,7 +110,7 @@
       },
       {
         "name": "<anonymous>.getIndex",
-        "line": 68,
+        "line": 77,
         "complexity": {
           "sloc": {
             "physical": 5,
@@ -144,7 +144,7 @@
       },
       {
         "name": "<anonymous>.getWordFrequency",
-        "line": 85,
+        "line": 94,
         "complexity": {
           "sloc": {
             "physical": 5,
@@ -178,10 +178,10 @@
       },
       {
         "name": "getPhraseFrequency",
-        "line": 97,
+        "line": 106,
         "complexity": {
           "sloc": {
-            "physical": 25,
+            "physical": 29,
             "logical": 11
           },
           "cyclomatic": 2,
@@ -212,10 +212,10 @@
       },
       {
         "name": "<anonymous>",
-        "line": 107,
+        "line": 118,
         "complexity": {
           "sloc": {
-            "physical": 10,
+            "physical": 12,
             "logical": 6
           },
           "cyclomatic": 3,

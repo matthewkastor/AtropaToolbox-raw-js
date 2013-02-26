@@ -15,8 +15,8 @@
                 
         newDocument: function() {
             /// <summary>Creates a blank HTML DOM Document.</summary>
-            /// <returns type="HTML DOM Document">Resets the doc property of this instance and,
-            /// returns a blank HTML Document for you to load data into.</returns>
+            /// <returns type="HTML DOM Document">Resets the doc property of this instance
+            ///  and, returns a blank HTML Document for you to load data into.</returns>
         }, 
         
         loadString: function(htmlstring) {

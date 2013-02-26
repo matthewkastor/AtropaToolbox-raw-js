@@ -7,10 +7,10 @@
   },
   "complexity": {
     "aggregate": {
-      "line": 64,
+      "line": 73,
       "complexity": {
         "sloc": {
-          "physical": 65,
+          "physical": 72,
           "logical": 21
         },
         "cyclomatic": 3,
@@ -42,10 +42,10 @@
     "functions": [
       {
         "name": "CreateHtmlDocumentsFromXmlhttp",
-        "line": 64,
+        "line": 73,
         "complexity": {
           "sloc": {
-            "physical": 65,
+            "physical": 72,
             "logical": 9
           },
           "cyclomatic": 1,
@@ -76,10 +76,10 @@
       },
       {
         "name": "newDocument",
-        "line": 101,
+        "line": 111,
         "complexity": {
           "sloc": {
-            "physical": 27,
+            "physical": 33,
             "logical": 3
           },
           "cyclomatic": 1,
@@ -110,10 +110,10 @@
       },
       {
         "name": "<anonymous>",
-        "line": 114,
+        "line": 128,
         "complexity": {
           "sloc": {
-            "physical": 12,
+            "physical": 14,
             "logical": 8
           },
           "cyclomatic": 3,

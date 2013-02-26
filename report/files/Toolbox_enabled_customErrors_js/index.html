@@ -59,7 +59,7 @@
     </div>
     <div class="span6">
       <h2 class="header">SLOC/LSLOC <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">19 / 5</p>
+      <p class="stat">20 / 5</p>
     </div>
   </div>
 </div>
@@ -83,8 +83,17 @@
 <div class="container">
   <div class="row">
     <textarea id="file-source" class="span12">/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
+/*jslint
+    indent: 4,
+    maxerr: 50,
+    white: true,
+    browser: true,
+    devel: true,
+    plusplus: true,
+    regexp: true
+*/
 /*global atropa */
+// end header
 
 
 /**
@@ -116,7 +125,8 @@ atropa.InvalidArgumentTypesError = function InvalidArgumentTypesError(message) {
     this.message = message || "InvalidArgumentTypesError";
 };
 atropa.InvalidArgumentTypesError.prototype = new Error();
-atropa.InvalidArgumentTypesError.prototype.constructor = atropa.InvalidArgumentTypesError;</textarea>
+atropa.InvalidArgumentTypesError.prototype.constructor = 
+    atropa.InvalidArgumentTypesError;</textarea>
   </div>
 </div>
 

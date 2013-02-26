@@ -7,10 +7,10 @@
   },
   "complexity": {
     "aggregate": {
-      "line": 13,
+      "line": 22,
       "complexity": {
         "sloc": {
-          "physical": 293,
+          "physical": 301,
           "logical": 42
         },
         "cyclomatic": 2,
@@ -42,7 +42,7 @@
     "functions": [
       {
         "name": "convertObjectToArray",
-        "line": 40,
+        "line": 51,
         "complexity": {
           "sloc": {
             "physical": 10,
@@ -76,7 +76,7 @@
       },
       {
         "name": "sort",
-        "line": 111,
+        "line": 123,
         "complexity": {
           "sloc": {
             "physical": 4,
@@ -110,7 +110,7 @@
       },
       {
         "name": "sortValues",
-        "line": 145,
+        "line": 157,
         "complexity": {
           "sloc": {
             "physical": 7,
@@ -144,7 +144,7 @@
       },
       {
         "name": "valSort",
-        "line": 147,
+        "line": 159,
         "complexity": {
           "sloc": {
             "physical": 3,
@@ -178,7 +178,7 @@
       },
       {
         "name": "sortValues",
-        "line": 182,
+        "line": 194,
         "complexity": {
           "sloc": {
             "physical": 7,
@@ -212,7 +212,7 @@
       },
       {
         "name": "propSort",
-        "line": 184,
+        "line": 196,
         "complexity": {
           "sloc": {
             "physical": 3,
@@ -246,7 +246,7 @@
       },
       {
         "name": "sortValuesNumerically",
-        "line": 211,
+        "line": 223,
         "complexity": {
           "sloc": {
             "physical": 7,
@@ -280,7 +280,7 @@
       },
       {
         "name": "sortFn",
-        "line": 213,
+        "line": 225,
         "complexity": {
           "sloc": {
             "physical": 3,
@@ -314,10 +314,10 @@
       },
       {
         "name": "sortValuesAlphabetically",
-        "line": 240,
+        "line": 252,
         "complexity": {
           "sloc": {
-            "physical": 7,
+            "physical": 9,
             "logical": 3
           },
           "cyclomatic": 1,
@@ -348,7 +348,7 @@
       },
       {
         "name": "sortFn",
-        "line": 242,
+        "line": 256,
         "complexity": {
           "sloc": {
             "physical": 3,
@@ -382,10 +382,10 @@
       },
       {
         "name": "sortPropertiesNumerically",
-        "line": 269,
+        "line": 283,
         "complexity": {
           "sloc": {
-            "physical": 7,
+            "physical": 9,
             "logical": 3
           },
           "cyclomatic": 1,
@@ -416,7 +416,7 @@
       },
       {
         "name": "sortFn",
-        "line": 271,
+        "line": 287,
         "complexity": {
           "sloc": {
             "physical": 3,
@@ -450,7 +450,7 @@
       },
       {
         "name": "sortPropertiesAlphabetically",
-        "line": 299,
+        "line": 316,
         "complexity": {
           "sloc": {
             "physical": 7,
@@ -484,7 +484,7 @@
       },
       {
         "name": "sortFn",
-        "line": 301,
+        "line": 318,
         "complexity": {
           "sloc": {
             "physical": 3,

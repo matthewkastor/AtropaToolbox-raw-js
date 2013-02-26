@@ -1,6 +1,15 @@
 /// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
+/*jslint
+    indent: 4,
+    maxerr: 50,
+    white: true,
+    browser: true,
+    devel: true,
+    plusplus: true,
+    regexp: true
+*/
 /*global atropa */
+// end header
 
 /**
  * This represents a filter for arguments based on type.
@@ -16,8 +25,10 @@
  *     var expectedArgTypes, checker;
  *     
  *     expectedArgTypes = {};
- *     expectedArgTypes.requestWithMessage = ['string', 'string', 'string', 'function'];
- *     expectedArgTypes.requestNullMessage = ['string', 'string', 'object', 'function'];
+ *     expectedArgTypes.requestWithMessage = 
+ *          ['string', 'string', 'string', 'function'];
+ *     expectedArgTypes.requestNullMessage = 
+ *          ['string', 'string', 'object', 'function'];
  *     
  *     checker = new atropa.ArgsInfo();
  *     checker.setExpectedArgTypes(expectedArgTypes);
@@ -68,8 +79,9 @@ atropa.ArgsInfo = function ArgsInfo() {
      *  ☭ Hial Atropa!! ☭
      * @version 20120909
      * @methodOf atropa.ArgsInfo#
-     * @param {Expected Arg Types} typesObj An object containing information about the
-     * types of arguments you expect. Specifically, the object should look like the example.
+     * @param {Expected Arg Types} typesObj An object containing information
+     *  about the types of arguments you expect. Specifically, the object should
+     *  look like the example.
      * @example
      * // typesObj is expected to be of the form:
      * 
@@ -80,19 +92,23 @@ atropa.ArgsInfo = function ArgsInfo() {
      * 
      * // You may use as many named arrays as you wish and checkArgTypes will
      * // test for a match to at least one of the provided named arrays.
-     * @throws {atropa.InvalidArgumentTypesError} Throws an error if the typesObj
-     *  can not be used to set the expected argument types.
+     * @throws {atropa.InvalidArgumentTypesError} Throws an error if the
+     *  typesObj can not be used to set the expected argument types.
      */
     this.setExpectedArgTypes = function setExpectedArgTypes(typesObj) {
         var names;
         names = Object.keys(typesObj);
         if (names.length < 1) {
-            throw new atropa.InvalidArgumentTypesError('typesObj is expected to be of the form: var typesObj = ' +
-                '{ "namedArgumentTypesArray" : ["string", "function", "number"]' +
-                ', "namedAlternateArgumentTypesArray" : ["object", "function",' +
-                '"number"] }; You may use as many named arrays as you wish and' +
+            throw new atropa.InvalidArgumentTypesError(
+                'typesObj is expected to be of the form: var typesObj = ' +
+                '{ "namedArgumentTypesArray" : ' +
+                '    ["string", "function", "number"], ' +
+                '"namedAlternateArgumentTypesArray" : ' +
+                '   ["object", "function", "number"] }; ' +
+                'You may use as many named arrays as you wish and' +
                 'checkArgTypes will test for a match to at least one of the ' +
-                'provided named arrays.');
+                'provided named arrays.'
+            );
         }
         expectedArgTypes = typesObj;
     };
@@ -159,7 +175,8 @@ atropa.ArgsInfo = function ArgsInfo() {
     this.checkArgTypes = function checkArgTypes(args) {
         var expectedTypes;
         if (Object.keys(expectedArgTypes).length < 1) {
-            throw new atropa.InvalidArgumentTypesError('Expected argument types is not set. Use ' +
+            throw new atropa.InvalidArgumentTypesError(
+                'Expected argument types is not set. Use ' +
                 'setExpectedArgTypes(typesObj) to set. typesObj is an ' +
                 'object whose properties are arrays of strings representing ' +
                 'the typeof(argument) for each argument, in the exact order ' +
@@ -169,7 +186,8 @@ atropa.ArgsInfo = function ArgsInfo() {
                 'convenient way of getting the array you want to hard code ' +
                 'in for validation. Example: var typesObj = ' +
                 '{ "messageIncluded" : ["string", "function", "number"], ' +
-                '"messageNotIncluded" : ["object", "function", "number"] };');
+                '"messageNotIncluded" : ["object", "function", "number"] };'
+            );
         }
         for (expectedTypes in expectedArgTypes) {
             if (expectedArgTypes.hasOwnProperty(expectedTypes)) {
@@ -178,7 +196,8 @@ atropa.ArgsInfo = function ArgsInfo() {
                 }
             }
         }
-        throw new atropa.InvalidArgumentTypesError('invalid argument type @ atropa.ArgsInfo.checkArgTypes');
+        throw new atropa.InvalidArgumentTypesError(
+            'invalid argument type @ atropa.ArgsInfo.checkArgTypes');
     };
 };
 

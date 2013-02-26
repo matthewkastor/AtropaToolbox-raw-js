@@ -7,45 +7,45 @@ __report = {
   },
   "complexity": {
     "aggregate": {
-      "line": 44,
+      "line": 55,
       "complexity": {
         "sloc": {
-          "physical": 140,
+          "physical": 148,
           "logical": 36
         },
         "cyclomatic": 6,
         "halstead": {
           "operators": {
             "distinct": 15,
-            "total": 91,
+            "total": 93,
             "identifiers": [
               "__stripped__"
             ]
           },
           "operands": {
-            "distinct": 48,
-            "total": 109,
+            "distinct": 50,
+            "total": 111,
             "identifiers": [
               "__stripped__"
             ]
           },
-          "length": 200,
-          "vocabulary": 63,
-          "difficulty": 17.03125,
-          "volume": 1195.4559846999834,
-          "effort": 20360.109739421594,
-          "bugs": 0.39848532823332783,
-          "time": 1131.117207745644
+          "length": 204,
+          "vocabulary": 65,
+          "difficulty": 16.650000000000002,
+          "volume": 1228.5630338578046,
+          "effort": 20455.57451373245,
+          "bugs": 0.4095210112859349,
+          "time": 1136.4208063184694
         }
       }
     },
     "functions": [
       {
         "name": "ArgsInfo",
-        "line": 44,
+        "line": 55,
         "complexity": {
           "sloc": {
-            "physical": 140,
+            "physical": 148,
             "logical": 10
           },
           "cyclomatic": 1,
@@ -76,41 +76,41 @@ __report = {
       },
       {
         "name": "setExpectedArgTypes",
-        "line": 86,
+        "line": 98,
         "complexity": {
           "sloc": {
-            "physical": 13,
+            "physical": 17,
             "logical": 5
           },
           "cyclomatic": 2,
           "halstead": {
             "operators": {
               "distinct": 9,
-              "total": 16,
+              "total": 18,
               "identifiers": [
                 "__stripped__"
               ]
             },
             "operands": {
-              "distinct": 15,
-              "total": 19,
+              "distinct": 17,
+              "total": 21,
               "identifiers": [
                 "__stripped__"
               ]
             },
-            "length": 35,
-            "vocabulary": 24,
-            "difficulty": 5.699999999999999,
-            "volume": 160.4736875252405,
-            "effort": 914.7000188938707,
-            "bugs": 0.05349122917508017,
-            "time": 50.81666771632615
+            "length": 39,
+            "vocabulary": 26,
+            "difficulty": 5.5588235294117645,
+            "volume": 183.31714900750262,
+            "effort": 1019.027681247588,
+            "bugs": 0.061105716335834205,
+            "time": 56.61264895819934
           }
         }
       },
       {
         "name": "getArgTypes",
-        "line": 110,
+        "line": 126,
         "complexity": {
           "sloc": {
             "physical": 11,
@@ -144,7 +144,7 @@ __report = {
       },
       {
         "name": "checkArgs",
-        "line": 137,
+        "line": 153,
         "complexity": {
           "sloc": {
             "physical": 7,
@@ -178,10 +178,10 @@ __report = {
       },
       {
         "name": "checkArgTypes",
-        "line": 159,
+        "line": 175,
         "complexity": {
           "sloc": {
-            "physical": 24,
+            "physical": 27,
             "logical": 8
           },
           "cyclomatic": 4,
@@ -211,7 +211,7 @@ __report = {
         }
       }
     ],
-    "maintainability": 67.344089416983,
+    "maintainability": 67.30870502039679,
     "module": "Toolbox\\enabled\\ArgsInfo.js"
   },
   "jshint": {

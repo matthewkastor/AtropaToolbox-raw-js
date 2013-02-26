@@ -7,10 +7,10 @@ __report = {
   },
   "complexity": {
     "aggregate": {
-      "line": 17,
+      "line": 26,
       "complexity": {
         "sloc": {
-          "physical": 19,
+          "physical": 20,
           "logical": 5
         },
         "cyclomatic": 2,
@@ -42,7 +42,7 @@ __report = {
     "functions": [
       {
         "name": "InvalidArgumentTypesError",
-        "line": 17,
+        "line": 26,
         "complexity": {
           "sloc": {
             "physical": 17,

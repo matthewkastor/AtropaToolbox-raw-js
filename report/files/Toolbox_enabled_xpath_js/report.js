@@ -7,10 +7,10 @@ __report = {
   },
   "complexity": {
     "aggregate": {
-      "line": 13,
+      "line": 22,
       "complexity": {
         "sloc": {
-          "physical": 147,
+          "physical": 171,
           "logical": 33
         },
         "cyclomatic": 2,
@@ -42,10 +42,10 @@ __report = {
     "functions": [
       {
         "name": "processNodesByXpath",
-        "line": 60,
+        "line": 70,
         "complexity": {
           "sloc": {
-            "physical": 16,
+            "physical": 24,
             "logical": 13
           },
           "cyclomatic": 2,
@@ -76,10 +76,10 @@ __report = {
       },
       {
         "name": "removeNodesByXpath",
-        "line": 96,
+        "line": 113,
         "complexity": {
           "sloc": {
-            "physical": 8,
+            "physical": 15,
             "logical": 4
           },
           "cyclomatic": 1,
@@ -110,7 +110,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 99,
+        "line": 122,
         "complexity": {
           "sloc": {
             "physical": 3,
@@ -144,10 +144,10 @@ __report = {
       },
       {
         "name": "getNodesByXpath",
-        "line": 123,
+        "line": 147,
         "complexity": {
           "sloc": {
-            "physical": 9,
+            "physical": 16,
             "logical": 5
           },
           "cyclomatic": 1,
@@ -178,7 +178,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 127,
+        "line": 157,
         "complexity": {
           "sloc": {
             "physical": 3,
@@ -212,7 +212,7 @@ __report = {
       },
       {
         "name": "escapeQuotesXpath",
-        "line": 154,
+        "line": 187,
         "complexity": {
           "sloc": {
             "physical": 6,

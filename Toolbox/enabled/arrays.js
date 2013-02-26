@@ -1,6 +1,15 @@
 /// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
+/*jslint
+    indent: 4,
+    maxerr: 50,
+    white: true,
+    browser: true,
+    devel: true,
+    plusplus: true,
+    regexp: true
+*/
 /*global atropa */
+// end header
 
 /**
  * Utilities for handling arrays.
@@ -67,7 +76,8 @@ atropa.arrays.match = function arraysMatch(array1, array2) {
     return true;
 };
 /**
- * Subtracts one array from another array based on the unique values in both sets.
+ * Subtracts one array from another array based on the unique values in both
+ *  sets.
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
@@ -95,19 +105,22 @@ atropa.arrays.match = function arraysMatch(array1, array2) {
  * var x = [1,3,{'aProp' : 'aVal'}];
  * var y = [3,1,{'aProp' : 'aVal'}];
  * atropa.arrays.subtract(x,y);
- * // returns [{'aProp' : 'aVal'}] because the two objects are not the same object.
+ * // returns [{'aProp' : 'aVal'}] 
+ * // because the two objects are not the same object.
  * @example
  * var obj = {'aProp' : 'aVal'};
  * var x = [1,3,obj];
  * var y = [3,1,{'aProp' : 'aVal'}];
  * atropa.arrays.subtract(x,y);
- * // returns [{'aProp' : 'aVal'}] because the two objects are not the same object.
+ * // returns [{'aProp' : 'aVal'}] 
+ * // because the two objects are not the same object.
  * @example
  * var obj = {'aProp' : 'aVal'}
  * var x = [1,3,obj];
  * var y = [3,1,obj];
  * atropa.arrays.subtract(x,y);
- * // returns [] because the objects referenced in the arrays are the same object.
+ * // returns [] 
+ * // because the objects referenced in the arrays are the same object.
  */
 atropa.arrays.subtract = function(a, fromB) {
     "use strict";
@@ -134,7 +147,8 @@ atropa.arrays.subtract = function(a, fromB) {
  * @version 20130112
  * @param {Array} array1 An array.
  * @param {Array} array2 Another array.
- * @returns {Array} Returns an array of values found in both of the given arrays.
+ * @returns {Array} Returns an array of values found in both of the given
+ *  arrays.
  * @example
  * var x = [1,3,4];
  * var y = [3,1,5];
@@ -173,7 +187,7 @@ atropa.arrays.intersect = function intersect(array1, array2) {
         largeArray = array2.splice(0);
         smallArray = array1.splice(0);
     }
-    smallArray.forEach(function (item, idx, arr) {
+    smallArray.forEach(function (item) {
         var idxInLargeArray = largeArray.indexOf(item);
         if (0 <= idxInLargeArray) { // has word
             intersection.push(largeArray.splice(idxInLargeArray, 1)[0]);
@@ -264,7 +278,12 @@ atropa.arrays.getFrequency = function (arr) {
  * atropa.arrays.getUnique(x);
  * // returns ["bill", "fred", "jane"]
  * @example
- * var x = [ "bill", {"aProp" : "aValue"}, {"aGuy" : "fred"}, {"aLady" : "jane"} ];
+ * var x = [ 
+ *     "bill",
+ *     {"aProp" : "aValue"},
+ *     {"aGuy" : "fred"},
+ *     {"aLady" : "jane"}
+ * ];
  * atropa.arrays.getUnique(x);
  * // returns [ "bill", "[object Object]" ]
  */
@@ -320,17 +339,15 @@ atropa.arrays.removeEmptyElements = function (arrayWithEmptyElements) {
  * 
  * x = atropa.arrays.reindex(x);
  * console.log(x); //  [ "a", "c", undefined ]
- *    // note that the last element existed in the array,
- *    // its value was undefined but it did have a key so
- *    // the element remains in the array.
+ *    // note that the last element existed in the array, its value was
+ *    // undefined but it did have a key so the element remains in the array.
  *    //
  *    // The deleted element was in fact deleted from the array so there was no
  *    // key x[1] at all, when trying to access this non existing element the
- *    // value of undefined was returned. 
- *    // This behavior is confusing unless you
- *    // think about the arrayas an object whose properties are named by numbers.
- *    // Accessing an undefined property returns undefined regardless of
- *    // whether the property existed in the past or not.
+ *    // value of undefined was returned. This behavior is confusing unless you
+ *    // think about the arrayas an object whose properties are named by
+ *    // numbers. Accessing an undefined property returns undefined regardless
+ *    // of whether the property existed in the past or not.
  * console.log(x.length); // 3
  */
 atropa.arrays.reindex = function reindex(arr) {
@@ -350,7 +367,8 @@ atropa.arrays.reindex = function reindex(arr) {
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
  * @version 20130120
- * @param {Array} arr The array to sort. All elements of the array must be number-ish.
+ * @param {Array} arr The array to sort. All elements of the array must be
+ *  number-ish.
  * @returns {Array} Returns an array whose elements are in numeric order.
  * @example
  * var x = [3, 2, 9, 26, 10, 1, 99, 15];
@@ -369,7 +387,8 @@ atropa.arrays.sortNumerically = function sortNumerically(arr) {
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
  * @version 20130120
- * @param {Array} arr The array to sort. All elements of the array must be strings.
+ * @param {Array} arr The array to sort. All elements of the array must be
+ *  strings.
  * @returns {Array} Returns an array whose elements are in alphabetic order.
  * @example
  *  var x = ['Z','a', '1', '2', '10', 'A', 'z'];

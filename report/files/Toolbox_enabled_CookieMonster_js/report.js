@@ -7,10 +7,10 @@ __report = {
   },
   "complexity": {
     "aggregate": {
-      "line": 19,
+      "line": 28,
       "complexity": {
         "sloc": {
-          "physical": 280,
+          "physical": 275,
           "logical": 68
         },
         "cyclomatic": 10,
@@ -42,10 +42,10 @@ __report = {
     "functions": [
       {
         "name": "CookieMonster",
-        "line": 19,
+        "line": 28,
         "complexity": {
           "sloc": {
-            "physical": 280,
+            "physical": 275,
             "logical": 14
           },
           "cyclomatic": 1,
@@ -76,7 +76,7 @@ __report = {
       },
       {
         "name": "cookie2obj",
-        "line": 46,
+        "line": 54,
         "complexity": {
           "sloc": {
             "physical": 12,
@@ -110,10 +110,10 @@ __report = {
       },
       {
         "name": "bakeCookie",
-        "line": 80,
+        "line": 88,
         "complexity": {
           "sloc": {
-            "physical": 9,
+            "physical": 8,
             "logical": 7
           },
           "cyclomatic": 1,
@@ -144,10 +144,10 @@ __report = {
       },
       {
         "name": "inspectCookies",
-        "line": 122,
+        "line": 130,
         "complexity": {
           "sloc": {
-            "physical": 13,
+            "physical": 11,
             "logical": 9
           },
           "cyclomatic": 3,
@@ -178,7 +178,7 @@ __report = {
       },
       {
         "name": "getCookieCallback",
-        "line": 149,
+        "line": 155,
         "complexity": {
           "sloc": {
             "physical": 7,
@@ -212,7 +212,7 @@ __report = {
       },
       {
         "name": "getCookie",
-        "line": 177,
+        "line": 183,
         "complexity": {
           "sloc": {
             "physical": 4,
@@ -246,10 +246,10 @@ __report = {
       },
       {
         "name": "getCookies",
-        "line": 196,
+        "line": 202,
         "complexity": {
           "sloc": {
-            "physical": 18,
+            "physical": 15,
             "logical": 13
           },
           "cyclomatic": 4,
@@ -280,7 +280,7 @@ __report = {
       },
       {
         "name": "deleteCookie",
-        "line": 232,
+        "line": 235,
         "complexity": {
           "sloc": {
             "physical": 6,
@@ -314,7 +314,7 @@ __report = {
       },
       {
         "name": "deleteCookieObj",
-        "line": 255,
+        "line": 259,
         "complexity": {
           "sloc": {
             "physical": 3,
@@ -348,7 +348,7 @@ __report = {
       },
       {
         "name": "setCookie",
-        "line": 274,
+        "line": 278,
         "complexity": {
           "sloc": {
             "physical": 6,
@@ -382,7 +382,7 @@ __report = {
       },
       {
         "name": "setCookieObj",
-        "line": 295,
+        "line": 299,
         "complexity": {
           "sloc": {
             "physical": 3,

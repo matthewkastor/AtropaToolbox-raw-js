@@ -1,6 +1,15 @@
 /// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
+/*jslint
+    indent: 4,
+    maxerr: 50,
+    white: true,
+    browser: true,
+    devel: true,
+    plusplus: true,
+    regexp: true
+*/
 /*global atropa */
+// end header
 
 /**
  * Creates HTML DOM Documents from an XMLHttpRequest object.
@@ -61,7 +70,8 @@
  * // try to create a new hidden document
  * docs.newDocument(method, url, null, callback);
  */
-atropa.CreateHtmlDocumentsFromXmlhttp = function CreateHtmlDocumentsFromXmlhttp() {
+atropa.CreateHtmlDocumentsFromXmlhttp = function CreateHtmlDocumentsFromXmlhttp(
+) {
     "use strict";
     var requester,
     htmldocument,
@@ -98,7 +108,9 @@ atropa.CreateHtmlDocumentsFromXmlhttp = function CreateHtmlDocumentsFromXmlhttp(
      * @returns {HTML DOM Document, false} The return value is
      * given to the callback function.
      */
-    this.newDocument = function newDocument(method, url, messageBody, callback) {
+    this.newDocument = function newDocument(
+        method, url, messageBody, callback
+    ) {
         var cb;
         /**
          * Internal callback function to process data from XMLHttpRequest
@@ -108,13 +120,17 @@ atropa.CreateHtmlDocumentsFromXmlhttp = function CreateHtmlDocumentsFromXmlhttp(
          * @version 20120909
          * @methodOf atropa.CreateHtmlDocumentsFromXmlhttp#newDocument-
          * @private
-         * @property {true,false} boolStatus This tells whether or not the XMLHttpRequest was successful.
-         * @property {XMLHttp Response Object} responseObject This is the response object from the XMLHttp Request object.
+         * @property {true,false} boolStatus This tells whether or not the
+         *  XMLHttpRequest was successful.
+         * @property {XMLHttp Response Object} responseObject This is the
+         *  response object from the XMLHttp Request object.
          */
         cb = function (boolStatus, responseObject) {
             var result = false;
             if (boolStatus === true) {
-                if (false !== htmldocument.loadString(responseObject.responseText)) {
+                if (false !== htmldocument.loadString(
+                    responseObject.responseText))
+                {
                     result = htmldocument.doc;
                     that.documentQueue.push(result);
                 }

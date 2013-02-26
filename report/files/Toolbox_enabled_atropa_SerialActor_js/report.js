@@ -7,10 +7,10 @@ __report = {
   },
   "complexity": {
     "aggregate": {
-      "line": 48,
+      "line": 59,
       "complexity": {
         "sloc": {
-          "physical": 277,
+          "physical": 288,
           "logical": 60
         },
         "cyclomatic": 3,
@@ -42,10 +42,10 @@ __report = {
     "functions": [
       {
         "name": "atropa.SerialActor",
-        "line": 48,
+        "line": 59,
         "complexity": {
           "sloc": {
-            "physical": 117,
+            "physical": 121,
             "logical": 13
           },
           "cyclomatic": 1,
@@ -76,7 +76,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 74,
+        "line": 85,
         "complexity": {
           "sloc": {
             "physical": 5,
@@ -110,7 +110,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 77,
+        "line": 88,
         "complexity": {
           "sloc": {
             "physical": 1,
@@ -144,7 +144,7 @@ __report = {
       },
       {
         "name": "<anonymous>.action",
-        "line": 154,
+        "line": 169,
         "complexity": {
           "sloc": {
             "physical": 10,
@@ -178,7 +178,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 157,
+        "line": 172,
         "complexity": {
           "sloc": {
             "physical": 3,
@@ -212,10 +212,10 @@ __report = {
       },
       {
         "name": "<anonymous>.block",
-        "line": 192,
+        "line": 208,
         "complexity": {
           "sloc": {
-            "physical": 8,
+            "physical": 9,
             "logical": 6
           },
           "cyclomatic": 1,
@@ -246,7 +246,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 197,
+        "line": 214,
         "complexity": {
           "sloc": {
             "physical": 1,
@@ -280,7 +280,7 @@ __report = {
       },
       {
         "name": "<anonymous>.blockTimeout",
-        "line": 211,
+        "line": 229,
         "complexity": {
           "sloc": {
             "physical": 5,
@@ -314,7 +314,7 @@ __report = {
       },
       {
         "name": "<anonymous>.free",
-        "line": 241,
+        "line": 260,
         "complexity": {
           "sloc": {
             "physical": 7,
@@ -348,7 +348,7 @@ __report = {
       },
       {
         "name": "<anonymous>.start",
-        "line": 264,
+        "line": 284,
         "complexity": {
           "sloc": {
             "physical": 13,
@@ -382,7 +382,7 @@ __report = {
       },
       {
         "name": "<anonymous>.changeInterval",
-        "line": 296,
+        "line": 317,
         "complexity": {
           "sloc": {
             "physical": 5,
@@ -416,7 +416,7 @@ __report = {
       },
       {
         "name": "<anonymous>.stop",
-        "line": 319,
+        "line": 341,
         "complexity": {
           "sloc": {
             "physical": 6,

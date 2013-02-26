@@ -7,10 +7,10 @@
   },
   "complexity": {
     "aggregate": {
-      "line": 36,
+      "line": 46,
       "complexity": {
         "sloc": {
-          "physical": 120,
+          "physical": 121,
           "logical": 38
         },
         "cyclomatic": 5,
@@ -42,10 +42,10 @@
     "functions": [
       {
         "name": "Requester",
-        "line": 36,
+        "line": 46,
         "complexity": {
           "sloc": {
-            "physical": 120,
+            "physical": 121,
             "logical": 14
           },
           "cyclomatic": 1,
@@ -76,7 +76,7 @@
       },
       {
         "name": "<anonymous>",
-        "line": 66,
+        "line": 76,
         "complexity": {
           "sloc": {
             "physical": 6,
@@ -110,7 +110,7 @@
       },
       {
         "name": "request.abort",
-        "line": 97,
+        "line": 108,
         "complexity": {
           "sloc": {
             "physical": 4,
@@ -144,7 +144,7 @@
       },
       {
         "name": "<anonymous>.makeRequest",
-        "line": 117,
+        "line": 128,
         "complexity": {
           "sloc": {
             "physical": 38,
@@ -178,7 +178,7 @@
       },
       {
         "name": "request.onreadystatechange",
-        "line": 139,
+        "line": 150,
         "complexity": {
           "sloc": {
             "physical": 9,
@@ -212,7 +212,7 @@
       },
       {
         "name": "<anonymous>",
-        "line": 149,
+        "line": 160,
         "complexity": {
           "sloc": {
             "physical": 5,

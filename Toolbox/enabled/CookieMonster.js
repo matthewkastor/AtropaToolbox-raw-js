@@ -1,6 +1,15 @@
 /// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
+/*jslint
+    indent: 4,
+    maxerr: 50,
+    white: true,
+    browser: true,
+    devel: true,
+    plusplus: true,
+    regexp: true
+*/
 /*global atropa */
+// end header
 
 /**
  * This is a cookie handler.
@@ -18,8 +27,7 @@
  */
 atropa.CookieMonster = function CookieMonster() {
     'use strict';
-    var currentCookies,
-    getCookieCallback;
+    var currentCookies, getCookieCallback;
     
     /**
      * This holds the current cookie object array.
@@ -78,9 +86,8 @@ atropa.CookieMonster = function CookieMonster() {
      * console.log(cookieMonster.bakeCookie(cookieObj));
      */
     this.bakeCookie = function bakeCookie(cookieObj) {
-        var cookie = '',
-        key,
-        val;
+        var cookie = '', key, val;
+        
         key = cookieObj.key;
         val = cookieObj.val;
         cookie = key + '=' + val + ';';
@@ -95,9 +102,9 @@ atropa.CookieMonster = function CookieMonster() {
      * @methodOf atropa.CookieMonster#
      * @param {function} callback The callback function will be passed
      *  two arguments. The first is a cookie object from the current
-     *  document. The second argument is the value supplied for <code>args</code>
-     *  if the callback function returns <code>true</code> then the cookie
-     *  object will be included in the return results.
+     *  document. The second argument is the value supplied for
+     *  <code>args</code> if the callback function returns <code>true</code>
+     *  then the cookie object will be included in the return results.
      * @param {Array} args Arguments to pass to the callback
      * function.
      * @returns {Array} An array of cookie objects.
@@ -116,13 +123,12 @@ atropa.CookieMonster = function CookieMonster() {
      *         return false;
      *     }
      * }
-     * var cookieObjArray = cookieMonster.inspectCookies(cookieFilter, 'munching');
+     * var cookieObjArray = cookieMonster.inspectCookies(
+     *     cookieFilter, 'munching');
      * console.log(cookieObjArray);
      */
     this.inspectCookies = function inspectCookies(callback, args) {
-        var testCookie,
-        cookies,
-        jar = [];
+        var testCookie, cookies, jar = [];
         cookies = this.getCookies();
         while (cookies.length > 0) {
             testCookie = cookies.shift();
@@ -194,10 +200,7 @@ atropa.CookieMonster = function CookieMonster() {
      * console.log(cookieMonster.getCookies());
      */
     this.getCookies = function getCookies() {
-        var n,
-        l,
-        cookieArray,
-        cookieObj;
+        var n, l, cookieArray, cookieObj;
         currentCookies = [];
         cookieArray = document.cookie.split(";");
         for (n = 0, l = cookieArray.length; n < l; n++) {
@@ -249,7 +252,8 @@ atropa.CookieMonster = function CookieMonster() {
      * cookieMonster.setCookie('atropa', 'hial atropa!!');
      * console.log(document.cookie);
      * // delete a cookie
-     * cookieMonster.deleteCookieObj({ key : 'atropa', val : 'does not matter'});
+     * cookieMonster.deleteCookieObj(
+     *     {key : 'atropa', val : 'does not matter'});
      * console.log(document.cookie);
      */
     this.deleteCookieObj = function deleteCookieObj(cookieObj) {

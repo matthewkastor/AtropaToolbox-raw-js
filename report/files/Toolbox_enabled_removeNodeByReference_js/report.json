@@ -7,7 +7,7 @@
   },
   "complexity": {
     "aggregate": {
-      "line": 15,
+      "line": 24,
       "complexity": {
         "sloc": {
           "physical": 6,
@@ -42,7 +42,7 @@
     "functions": [
       {
         "name": "atropa.removeNodeByReference",
-        "line": 15,
+        "line": 24,
         "complexity": {
           "sloc": {
             "physical": 6,

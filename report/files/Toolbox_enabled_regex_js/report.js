@@ -7,75 +7,75 @@ __report = {
   },
   "complexity": {
     "aggregate": {
-      "line": 13,
+      "line": 22,
       "complexity": {
         "sloc": {
-          "physical": 33,
+          "physical": 40,
           "logical": 13
         },
         "cyclomatic": 3,
         "halstead": {
           "operators": {
             "distinct": 12,
-            "total": 26,
+            "total": 33,
             "identifiers": [
               "__stripped__"
             ]
           },
           "operands": {
-            "distinct": 17,
-            "total": 35,
+            "distinct": 24,
+            "total": 42,
             "identifiers": [
               "__stripped__"
             ]
           },
-          "length": 61,
-          "vocabulary": 29,
-          "difficulty": 12.352941176470587,
-          "volume": 296.33684070278196,
-          "effort": 3660.6315616226,
-          "bugs": 0.09877894690092733,
-          "time": 203.36842009014447
+          "length": 75,
+          "vocabulary": 36,
+          "difficulty": 10.5,
+          "volume": 387.7443751081734,
+          "effort": 4071.3159386358207,
+          "bugs": 0.12924812503605781,
+          "time": 226.18421881310115
         }
       }
     },
     "functions": [
       {
         "name": "<anonymous>.appendPrefixesAndSuffixes",
-        "line": 30,
+        "line": 39,
         "complexity": {
           "sloc": {
-            "physical": 16,
+            "physical": 23,
             "logical": 11
           },
           "cyclomatic": 3,
           "halstead": {
             "operators": {
               "distinct": 10,
-              "total": 19,
+              "total": 26,
               "identifiers": [
                 "__stripped__"
               ]
             },
             "operands": {
-              "distinct": 13,
-              "total": 28,
+              "distinct": 20,
+              "total": 35,
               "identifiers": [
                 "__stripped__"
               ]
             },
-            "length": 47,
-            "vocabulary": 23,
-            "difficulty": 10.769230769230768,
-            "volume": 212.60741193467962,
-            "effort": 2289.6182823734725,
-            "bugs": 0.07086913731155987,
-            "time": 127.20101568741514
+            "length": 61,
+            "vocabulary": 30,
+            "difficulty": 8.75,
+            "volume": 299.32032633211963,
+            "effort": 2619.052855406047,
+            "bugs": 0.09977344211070655,
+            "time": 145.50293641144705
           }
         }
       }
     ],
-    "maintainability": 61.66305006298337,
+    "maintainability": 61.394194798799816,
     "module": "Toolbox\\enabled\\regex.js"
   },
   "jshint": {

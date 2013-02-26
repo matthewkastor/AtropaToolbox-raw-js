@@ -8,9 +8,10 @@
         /// <summary></summary>
         /// <field name="expArgTypes" type="Expected Arg Types">Container object for the expected argument types
         /// supplied to this.makeRequest.</field>
-        /// <field name="requestHeaders" type="Request Headers Object">Object whose properties and values are header names and values respectively.</field>
-        /// <field name="timeout" type="Number">Set the timeout value for the request in milliseconds. The request will abort
-        ///  after this amount of time has passed.</field>
+        /// <field name="requestHeaders" type="Request Headers Object">Object whose properties and values are header names and values
+        ///  respectively.</field>
+        /// <field name="timeout" type="Number">Set the timeout value for the request in milliseconds. The request will
+        ///  abort after this amount of time has passed.</field>
         /// <field name="request" type="XMLHttpRequest">XMLHttpRequest object used by Requester.</field>
         /// <returns type="atropa.Requester"/>
     };
@@ -32,8 +33,8 @@
             /// <param name="messageBody" type="String">The body of the request.</param>
             /// <param name="callback" type="Object">The callback function to execute
             ///  when readyState is 4. The callback is supplied with two arguments. The
-            ///  first argument is a boolean indicating whether or not the http status was 200.
-            ///  The second argument is the request object.</param>
+            ///  first argument is a boolean indicating whether or not the http status
+            ///  was 200. The second argument is the request object.</param>
         }
         
     };

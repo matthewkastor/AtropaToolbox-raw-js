@@ -18,7 +18,8 @@
         }, 
         
         subtract: function(a, fromB) {
-            /// <summary>Subtracts one array from another array based on the unique values in both sets.</summary>
+            /// <summary>Subtracts one array from another array based on the unique values in both
+            ///  sets.</summary>
             /// <param name="a" type="Array">The array to subtract.</param>
             /// <param name="fromB" type="Array">The array with elements duplicated in &lt;code&gt;a&lt;/code&gt;</param>
             /// <returns type="Array">Returns a new array containing only the unique
@@ -29,7 +30,8 @@
             /// <summary>Returns an array of values found in both of the given arrays.</summary>
             /// <param name="array1" type="Array">An array.</param>
             /// <param name="array2" type="Array">Another array.</param>
-            /// <returns type="Array">Returns an array of values found in both of the given arrays.</returns>
+            /// <returns type="Array">Returns an array of values found in both of the given
+            ///  arrays.</returns>
         }, 
         
         getFrequency: function(arr) {
@@ -62,13 +64,15 @@
         
         sortNumerically: function(arr) {
             /// <summary>Sorts an array&apos;s elements numerically.</summary>
-            /// <param name="arr" type="Array">The array to sort. All elements of the array must be number-ish.</param>
+            /// <param name="arr" type="Array">The array to sort. All elements of the array must be
+            ///  number-ish.</param>
             /// <returns type="Array">Returns an array whose elements are in numeric order.</returns>
         }, 
         
         sortAlphabetically: function(arr) {
             /// <summary>Sorts an array&apos;s elements lexicographically.</summary>
-            /// <param name="arr" type="Array">The array to sort. All elements of the array must be strings.</param>
+            /// <param name="arr" type="Array">The array to sort. All elements of the array must be
+            ///  strings.</param>
             /// <returns type="Array">Returns an array whose elements are in alphabetic order.</returns>
         }
         

@@ -1,10 +1,21 @@
 /// <reference path="../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
+/*jslint 
+    indent: 4,
+    maxerr: 50,
+    white: true,
+    browser: true,
+    devel: true,
+    plusplus: true,
+    regexp: true
+*/
 /*global atropa */
+// end header
 
 /**
- * A polling class designed for executing long running processes that return nothing and have no callback parameter.
- * @class A polling class designed for executing long running processes that return nothing and have no callback parameter.
+ * A polling class designed for executing long running processes that return
+ *  nothing and have no callback parameter.
+ * @class A polling class designed for executing long running processes that
+ *  return nothing and have no callback parameter.
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
@@ -84,8 +95,8 @@ atropa.SerialActor = function(actorName, actorFunction) {
      */
     this.name = atropa.setAsOptionalArg('SerialActor', actorName);
     /**
-     * Polling interval in milliseconds. This determines how frequently the actor function will
-     *  try to execute. Defaults to 100 milliseconds.
+     * Polling interval in milliseconds. This determines how frequently the
+     *  actor function will try to execute. Defaults to 100 milliseconds.
      * @fieldOf atropa.SerialActor#
      * @type Number
      * @default 100
@@ -93,15 +104,17 @@ atropa.SerialActor = function(actorName, actorFunction) {
     this.interval = 100; // milliseconds
     /**
      * The id of the interval set to poll the actor. You should not change
-     *  this manually, use the start and stop functions instead. Defauls to undefined.
+     *  this manually, use the start and stop functions instead. Defauls to
+     *  undefined.
      * @fieldOf atropa.SerialActor#
      * @type Number
      * @default undefined
      */
     this.intervalId = undefined;
     /**
-     * The state of the SerialActor. If true, the actor will sleep. If false the actor
-     *  will execute the actor function when next polled. Defaults to false.
+     * The state of the SerialActor. If true, the actor will sleep. If false the
+     *  actor will execute the actor function when next polled. Defaults to
+     *  false.
      * @fieldOf atropa.SerialActor#
      * @type Boolean
      * @default false
@@ -118,7 +131,8 @@ atropa.SerialActor = function(actorName, actorFunction) {
     this.timeouts = [];
     /**
      * The maximum time, in milliseconds, which the actor may be blocked for.
-     *  After this duration has been reached the actor will be freed. Defaults to 60 seconds.
+     *  After this duration has been reached the actor will be freed. Defaults
+     *  to 60 seconds.
      * @fieldOf atropa.SerialActor#
      * @type Number
      * @default 60000
@@ -142,8 +156,9 @@ atropa.SerialActor = function(actorName, actorFunction) {
      */
     this.actorFunction = atropa.setAsOptionalArg(dummyActor, actorFunction);
     /**
-     * The action function is called when the actor is polled and it's blocked state is false.
-     *  This method should not be set or called manually, set the <code>actorFunction</code> instead.
+     * The action function is called when the actor is polled and it's blocked
+     *  state is false. This method should not be set or called manually, set
+     *  the <code>actorFunction</code> instead.
      * @author <a href="mailto:matthewkastor@gmail.com">
      *  Matthew Christopher Kastor-Inare III </a><br />
      *  ☭ Hial Atropa!! ☭
@@ -163,14 +178,15 @@ atropa.SerialActor = function(actorName, actorFunction) {
     };
 };
 /**
- * Prevents the actor from executing it's actorFunction.
- *  This block will timeout once the <code>blockTimeoutValue</code> has been reached.
+ * Prevents the actor from executing it's actorFunction. This block will timeout
+ *  once the <code>blockTimeoutValue</code> has been reached.
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
  * @version 20130220
  * @methodOf atropa.SerialActor#
- * @returns {Boolean} Returns the value of this instances <code>blocked</code> property.
+ * @returns {Boolean} Returns the value of this instances <code>blocked</code>
+ *  property.
  * @see atropa.SerialActor#blocked
  * @example
  * function d() {
@@ -194,18 +210,20 @@ atropa.SerialActor.prototype.block = function() {
     var that = this;
     console.log(this.name + ' block');
     this.blocked = true;
-    this.timeouts.push(setTimeout(function() {that.blockTimeout();}, that.blockTimeoutValue));
+    this.timeouts.push(
+        setTimeout(function() {that.blockTimeout();}, that.blockTimeoutValue));
     return this.blocked;
 };
 /**
- * Called when the <code>blockTimeoutValue</code> has been reached. This frees the actor
- *  and removes the timeout reference from the timeouts array.
+ * Called when the <code>blockTimeoutValue</code> has been reached. This frees
+ *  the actor and removes the timeout reference from the timeouts array.
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
  * @version 20130220
  * @methodOf atropa.SerialActor#
- * @returns {Boolean} Returns the value of this instances <code>blocked</code> property.
+ * @returns {Boolean} Returns the value of this instances <code>blocked</code>
+ *  property.
  * @see atropa.SerialActor#blocked
  */
 atropa.SerialActor.prototype.blockTimeout = function() {
@@ -220,7 +238,8 @@ atropa.SerialActor.prototype.blockTimeout = function() {
  *  ☭ Hial Atropa!! ☭
  * @version 20130220
  * @methodOf atropa.SerialActor#
- * @returns {Boolean} Returns the value of this instances <code>blocked</code> property.
+ * @returns {Boolean} Returns the value of this instances <code>blocked</code>
+ *  property.
  * @see atropa.SerialActor#blocked
  * @example
  * function d() {
@@ -252,10 +271,11 @@ atropa.SerialActor.prototype.free = function() {
  *  ☭ Hial Atropa!! ☭
  * @version 20130220
  * @methodOf atropa.SerialActor#
- * @param {Number} interval Optional. The polling interval. Defaults to the value
- *  of <code>this.interval</code>
+ * @param {Number} interval Optional. The polling interval. Defaults to the
+ *  value of <code>this.interval</code>
  * @see atropa.SerialActor#interval
- * @returns {Number} Returns the value of this instance's <code>intervalId</code> property.
+ * @returns {Number} Returns the value of this instance's
+ *  <code>intervalId</code> property.
  * @see atropa.SerialActor#intervalId
  * @example
  * var actor = new atropa.SerialActor('dummy');
@@ -283,7 +303,8 @@ atropa.SerialActor.prototype.start = function(interval) {
  * @version 20130220
  * @methodOf atropa.SerialActor#
  * @param {Number} interval The new polling interval in milliseconds.
- * @returns {Number} Returns the value of this instance's <code>intervalId</code> property.
+ * @returns {Number} Returns the value of this instance's 
+ *  <code>intervalId</code> property.
  * @see atropa.SerialActor#intervalId
  * @example
  * var actor = new atropa.SerialActor('dummy');
@@ -300,7 +321,8 @@ atropa.SerialActor.prototype.changeInterval = function(interval) {
 };
 /**
  * Stops polling the actor. Note that the actor will be freed once the
- *  <code>blockTimeoutValue</code> has been reached. This will not restart the polling.
+ *  <code>blockTimeoutValue</code> has been reached. This will not restart the
+ *  polling.
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭

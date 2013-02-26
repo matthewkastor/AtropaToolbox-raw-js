@@ -7,7 +7,7 @@ __report = {
   },
   "complexity": {
     "aggregate": {
-      "line": 13,
+      "line": 22,
       "complexity": {
         "sloc": {
           "physical": 177,
@@ -42,7 +42,7 @@ __report = {
     "functions": [
       {
         "name": "randomString",
-        "line": 27,
+        "line": 36,
         "complexity": {
           "sloc": {
             "physical": 65,
@@ -76,7 +76,7 @@ __report = {
       },
       {
         "name": "randomInteger",
-        "line": 102,
+        "line": 111,
         "complexity": {
           "sloc": {
             "physical": 4,
@@ -110,7 +110,7 @@ __report = {
       },
       {
         "name": "<anonymous>.getPropertyName",
-        "line": 117,
+        "line": 126,
         "complexity": {
           "sloc": {
             "physical": 6,
@@ -144,7 +144,7 @@ __report = {
       },
       {
         "name": "<anonymous>.getArrayKey",
-        "line": 134,
+        "line": 143,
         "complexity": {
           "sloc": {
             "physical": 4,
@@ -178,7 +178,7 @@ __report = {
       },
       {
         "name": "<anonymous>.getArrayValue",
-        "line": 148,
+        "line": 157,
         "complexity": {
           "sloc": {
             "physical": 4,
@@ -212,7 +212,7 @@ __report = {
       },
       {
         "name": "<anonymous>.pullArrayElement",
-        "line": 162,
+        "line": 171,
         "complexity": {
           "sloc": {
             "physical": 9,
@@ -246,7 +246,7 @@ __report = {
       },
       {
         "name": "<anonymous>.pullProperty",
-        "line": 181,
+        "line": 190,
         "complexity": {
           "sloc": {
             "physical": 9,

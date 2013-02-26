@@ -1,6 +1,15 @@
 /// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
+/*jslint
+    indent: 4,
+    maxerr: 50,
+    white: true,
+    browser: true,
+    devel: true,
+    plusplus: true,
+    regexp: true
+*/
 /*global atropa */
+// end header
 
 /**
  * Container for all Glorious WTFifier related functions and such.
@@ -506,7 +515,10 @@ atropa.wtf.wtfify = function (target, outputHTML) {
     wtfCount = 0;
     target = target.trim();
     if(true === outputHTML) {
-        target = target.replace(/(\. ?){2,}/gi, '<span style="color : brown ;"> [shit taco] </span>');
+        target = target.replace(
+            /(\. ?){2,}/gi,
+            '<span style="color : brown ;"> [shit taco] </span>'
+        );
         target = '<p> ' + target.replace(/(\r\n|\r|\n)/g,' <br/> ') + ' </p>';
     } else {
         target = target.replace(/(\. ?){2,}/gi, ' [shit taco] ');
@@ -530,7 +542,9 @@ atropa.wtf.wtfify = function (target, outputHTML) {
         sub2 = atropa.setAsOptionalArg('', sub2);
         var out;
         if(true === outputHTML) {
-            out = '<span style="color : red ;">' + sub1 + atropa.wtf.dictionary[word] + sub2 + '</span>';
+            out = '<span style="color : red ;">' +
+                sub1 + atropa.wtf.dictionary[word] + sub2 +
+                '</span>';
         } else {
             out = sub1 + atropa.wtf.dictionary[word] + sub2;
         }
@@ -559,10 +573,14 @@ atropa.wtf.wtfify = function (target, outputHTML) {
 atropa.wtf.htmlElement = function (elementReference) {
     "use strict";
     var wtfified, txt;
-    elementReference.innerHTML = elementReference.innerHTML.replace(/<br>(\s+)?\r?\n?/g, '\r\n');
+    elementReference.innerHTML = elementReference.innerHTML.replace(
+        /<br>(\s+)?\r?\n?/g, '\r\n');
     txt = elementReference.value || elementReference.textContent;
     wtfified = atropa.wtf.wtfify(txt, true);
-    elementReference.innerHTML = '<pre style="color:black; background:white; white-space:pre-wrap;">' + wtfified.txt + '</pre>';
+    elementReference.innerHTML =
+        '<pre style="color:black; background:white; white-space:pre-wrap;">' +
+        wtfified.txt +
+        '</pre>';
 };
 
 

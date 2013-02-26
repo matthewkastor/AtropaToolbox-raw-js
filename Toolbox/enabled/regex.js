@@ -1,6 +1,15 @@
 /// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
+/*jslint
+    indent: 4,
+    maxerr: 50,
+    white: true,
+    browser: true,
+    devel: true,
+    plusplus: true,
+    regexp: true
+*/
 /*global atropa */
+// end header
 
 /**
  * Container for regex functions.
@@ -32,7 +41,14 @@ atropa.regex.appendPrefixesAndSuffixes = function (word, threshold) {
     var prefixes,
     suffixes;
     prefixes = '(pre|un|re)?';
-    suffixes = '(ification|tionally|ication|ified|istic|iness|fare|tion|ance|ence|less|ally|able|ness|ized|ised|ous|ify|ing|ity|ful|ant|ate|est|ism|izm|ist|ic|al|ed|er|et|ly|rs|in|y|s|r|d)?';
+    suffixes = '(ification|' +
+                'tionally|' +
+                'ication|' +
+                'ified|istic|iness|' +
+                'fare|tion|ance|ence|less|ally|able|ness|ized|ised|' +
+                'ous|ify|ing|ity|ful|ant|ate|est|ism|izm|ist|' +
+                'ic|al|ed|er|et|ly|rs|in|' +
+                'y|s|r|d)?';
     
     threshold = threshold === undefined ? 3 : threshold;
     

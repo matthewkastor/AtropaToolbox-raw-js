@@ -9,7 +9,8 @@
         /// <returns type="atropa.objects"/>
                 
         convertObjectToArray: function(obj) {
-            /// <summary>Converts an object into an array of arrays to make it possible to sort and enumerate properties reliably.</summary>
+            /// <summary>Converts an object into an array of arrays to make it possible to sort and
+            ///  enumerate properties reliably.</summary>
             /// <param name="obj" type="Object">An object.</param>
             /// <returns type="Array">Returns an array of arrays where each
             ///  nested array will have the object&apos;s key stored in element 0 and
@@ -20,7 +21,8 @@
         }, 
         
         sort: function(obj, sortFn) {
-            /// <summary>Converts an object into an array of arrays and allows for reliable sorting and enumeration.</summary>
+            /// <summary>Converts an object into an array of arrays and allows for reliable sorting
+            ///  and enumeration.</summary>
             /// <param name="obj" type="Object">An object.</param>
             /// <param name="sortFn" type="Function">Optional. The sorting function. This function will
             ///  be given two arguments. Compare the two arguments and return:

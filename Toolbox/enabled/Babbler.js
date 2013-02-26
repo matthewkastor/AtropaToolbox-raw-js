@@ -1,6 +1,15 @@
 /// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-/*jslint indent: 4, maxerr: 50, white: true, browser: true, devel: true, plusplus: true, regexp: true */
+/*jslint
+    indent: 4,
+    maxerr: 50,
+    white: true,
+    browser: true,
+    devel: true,
+    plusplus: true,
+    regexp: true
+*/
 /*global atropa */
+// end header
 
 /**
  * This class represents a babbler. The babbler
@@ -166,7 +175,9 @@ atropa.Babbler = function Babbler(wrdCount) {
      * @requires atropa.random.integer
      * @requires atropa.string.ucFirst
      */
-    this.generateSentence = function generateSentence(sentenceMin, sentenceMax) {
+    this.generateSentence = function generateSentence(
+        sentenceMin, sentenceMax
+    ) {
         var word,
         sentenceLength,
         sentence;
