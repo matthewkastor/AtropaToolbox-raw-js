@@ -1,1 +1,0 @@
-"buildTools\jsdoc_toolkit-2.4.0\jsrun.bat" %*
