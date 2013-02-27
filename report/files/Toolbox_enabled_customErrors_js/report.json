@@ -10,8 +10,8 @@
       "line": 26,
       "complexity": {
         "sloc": {
-          "physical": 20,
-          "logical": 5
+          "physical": 21,
+          "logical": 6
         },
         "cyclomatic": 2,
         "halstead": {
@@ -23,19 +23,19 @@
             ]
           },
           "operands": {
-            "distinct": 10,
-            "total": 21,
+            "distinct": 11,
+            "total": 22,
             "identifiers": [
               "__stripped__"
             ]
           },
-          "length": 38,
-          "vocabulary": 15,
-          "difficulty": 5.25,
-          "volume": 148.46184263312372,
-          "effort": 779.4246738238995,
-          "bugs": 0.04948728087770791,
-          "time": 43.30137076799442
+          "length": 39,
+          "vocabulary": 16,
+          "difficulty": 5,
+          "volume": 156,
+          "effort": 780,
+          "bugs": 0.052,
+          "time": 43.333333333333336
         }
       }
     },
@@ -45,8 +45,8 @@
         "line": 26,
         "complexity": {
           "sloc": {
-            "physical": 17,
-            "logical": 2
+            "physical": 18,
+            "logical": 3
           },
           "cyclomatic": 2,
           "halstead": {
@@ -58,24 +58,24 @@
               ]
             },
             "operands": {
-              "distinct": 5,
-              "total": 8,
+              "distinct": 6,
+              "total": 9,
               "identifiers": [
                 "__stripped__"
               ]
             },
-            "length": 13,
-            "vocabulary": 8,
-            "difficulty": 2.4000000000000004,
-            "volume": 39,
-            "effort": 93.60000000000001,
-            "bugs": 0.013,
-            "time": 5.2
+            "length": 14,
+            "vocabulary": 9,
+            "difficulty": 2.25,
+            "volume": 44.37895002019238,
+            "effort": 99.85263754543286,
+            "bugs": 0.014792983340064125,
+            "time": 5.547368752524047
           }
         }
       }
     ],
-    "maintainability": 84.26205141045986,
+    "maintainability": 80.29147283564349,
     "module": "Toolbox\\enabled\\customErrors.js"
   },
   "jshint": {

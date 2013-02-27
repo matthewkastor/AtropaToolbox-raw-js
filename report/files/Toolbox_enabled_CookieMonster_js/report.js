@@ -10,32 +10,32 @@ __report = {
       "line": 28,
       "complexity": {
         "sloc": {
-          "physical": 275,
-          "logical": 68
+          "physical": 277,
+          "logical": 70
         },
         "cyclomatic": 10,
         "halstead": {
           "operators": {
             "distinct": 21,
-            "total": 169,
+            "total": 171,
             "identifiers": [
               "__stripped__"
             ]
           },
           "operands": {
-            "distinct": 48,
-            "total": 206,
+            "distinct": 49,
+            "total": 210,
             "identifiers": [
               "__stripped__"
             ]
           },
-          "length": 375,
-          "vocabulary": 69,
-          "difficulty": 45.0625,
-          "volume": 2290.696671291814,
-          "effort": 103224.51875008736,
-          "bugs": 0.7635655570972713,
-          "time": 5734.695486115965
+          "length": 381,
+          "vocabulary": 70,
+          "difficulty": 45,
+          "volume": 2335.2568294560324,
+          "effort": 105086.55732552145,
+          "bugs": 0.7784189431520108,
+          "time": 5838.1420736400805
         }
       }
     },
@@ -45,7 +45,7 @@ __report = {
         "line": 28,
         "complexity": {
           "sloc": {
-            "physical": 275,
+            "physical": 277,
             "logical": 14
           },
           "cyclomatic": 1,
@@ -181,38 +181,38 @@ __report = {
         "line": 155,
         "complexity": {
           "sloc": {
-            "physical": 7,
-            "logical": 4
+            "physical": 9,
+            "logical": 6
           },
           "cyclomatic": 2,
           "halstead": {
             "operators": {
-              "distinct": 5,
-              "total": 6,
+              "distinct": 7,
+              "total": 8,
               "identifiers": [
                 "__stripped__"
               ]
             },
             "operands": {
-              "distinct": 5,
-              "total": 7,
+              "distinct": 6,
+              "total": 11,
               "identifiers": [
                 "__stripped__"
               ]
             },
-            "length": 13,
-            "vocabulary": 10,
-            "difficulty": 3.5,
-            "volume": 43.18506523353572,
-            "effort": 151.147728317375,
-            "bugs": 0.014395021744511906,
-            "time": 8.397096017631945
+            "length": 19,
+            "vocabulary": 13,
+            "difficulty": 6.416666666666666,
+            "volume": 70.30835464468075,
+            "effort": 451.1452756367014,
+            "bugs": 0.02343611821489358,
+            "time": 25.063626424261187
           }
         }
       },
       {
         "name": "getCookie",
-        "line": 183,
+        "line": 185,
         "complexity": {
           "sloc": {
             "physical": 4,
@@ -246,7 +246,7 @@ __report = {
       },
       {
         "name": "getCookies",
-        "line": 202,
+        "line": 204,
         "complexity": {
           "sloc": {
             "physical": 15,
@@ -280,7 +280,7 @@ __report = {
       },
       {
         "name": "deleteCookie",
-        "line": 235,
+        "line": 237,
         "complexity": {
           "sloc": {
             "physical": 6,
@@ -314,7 +314,7 @@ __report = {
       },
       {
         "name": "deleteCookieObj",
-        "line": 259,
+        "line": 261,
         "complexity": {
           "sloc": {
             "physical": 3,
@@ -348,7 +348,7 @@ __report = {
       },
       {
         "name": "setCookie",
-        "line": 278,
+        "line": 280,
         "complexity": {
           "sloc": {
             "physical": 6,
@@ -382,7 +382,7 @@ __report = {
       },
       {
         "name": "setCookieObj",
-        "line": 299,
+        "line": 301,
         "complexity": {
           "sloc": {
             "physical": 3,
@@ -415,7 +415,7 @@ __report = {
         }
       }
     ],
-    "maintainability": 68.55878904413093,
+    "maintainability": 68.2365778150229,
     "module": "Toolbox\\enabled\\CookieMonster.js"
   },
   "jshint": {

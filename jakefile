@@ -1,3 +1,4 @@
+"use strict";
 /**
  * Jake will automatically look for files with a .jake extension in a 
  *  'jakelib' directory in your project, and load them (via require) after 
@@ -60,7 +61,15 @@
     browser: true,
     devel: true,
     plusplus: true,
-    regexp: true
+    regexp: true,
+    node: true,
+    stupid: true
+*/
+
+/*globals
+    desc,
+    task,
+    complete
 */
 
 /**
@@ -83,8 +92,6 @@
  *  console.log(concated);
  */
 function concatFiles (arr, processFn) {
-    "use strict";
-    
     if(typeof processFn !== 'function') {
         processFn = function (fileContents) {
             return fileContents;
@@ -114,10 +121,13 @@ function concatFiles (arr, processFn) {
  * @returns {String} Returns a string with the header removed.
  */
 function removeHeader(str) {
-    var os = require('os');
     return str.replace(/^\/\/\/[\s\S]+\/\/ end header[\s]+/, '\r\n');
 }
 
+/**
+ * Creates a directory if it does not exist.
+ * @param {String} dirName The name of the directory.
+ */
 function mkdir (dirName) {
     var fs;
     fs = require('fs');
@@ -126,24 +136,87 @@ function mkdir (dirName) {
     }
 }
 
+/**
+ * Removes a directory if it exists regardless of whether or not it is empty.
+ * @param {String} dirName the name of the directory.
+ */
 function rmdir (dirName) {
-    var fs = require('fs');
-    var wrench = require('wrench');
+    var fs, wrench;
+    
+    fs = require('fs');
+    wrench = require('wrench');
     if(fs.existsSync(dirName)) {
         wrench.rmdirSyncRecursive(dirName);
     }
 }
 
-desc('This is the default task.');
+/**
+ * Gets an AST from esprima
+ * @param {String} filePath The path to the JavaScript file you want parsed.
+ * @param {Object} optons Optional. The options argument accepted by
+ *  esprima.parse.
+ * @returns {Object} Returns an object representing the AST.
+ */
+function generateAST (filePath, options) {
+    var fs, path, esprima, location, source, ast;
+    fs = require('fs');
+    path = require('path');
+    esprima = require('esprima');
+    
+    location = path.normalize(filePath);
+    source = fs.readFileSync(location);
+    ast = esprima.parse(source, options);
+    
+    return ast;
+}
+
+function simplifyJs(pathName, options) {
+    var fs, path, escodegen, ast, out;
+    
+    options = options || {
+        format: {
+            indent: {
+                style: '    ',
+                base: 0
+            },
+            json: false,
+            renumber: false,
+            hexadecimal: false,
+            quotes: 'single',
+            escapeless: false,
+            compact: false,
+            parentheses: true,
+            semicolons: true
+        },
+        parse: null,
+        comment: false,
+        sourceMap: undefined
+    };
+    
+    fs = require('fs');
+    path = require('path');
+    escodegen = require('escodegen');
+    
+    out = fs.readFileSync(
+        path.normalize('Toolbox/headers/atropaToolboxLinting.js'),
+        'utf8'
+    );
+    
+    out += escodegen.generate(generateAST(pathName), options);
+    
+    return out;
+}
+
+desc('An alias for the build task.');
 task('default', ['build'], function () {
 });
 
-desc('This builds everything');
-task('build', ['makeTestBuild', 'generateDocs'], function () {
+desc('Builds everything.');
+task('build', ['makeTestBuild', 'generateDocs', 'min'], function () {
     console.log('built');
 });
 
-desc('This generates AtropaToolbox.js from sources in Toolbox/enabled.');
+desc('Generates AtropaToolbox.js.');
 task('makeAtropaToolbox', function () {
     var fs, path, headers, toolboxComponentsLocation, componentNames,
         components, toolbox, outputFilePath;
@@ -159,7 +232,7 @@ task('makeAtropaToolbox', function () {
         return path.normalize(toolboxComponentsLocation + item);
     });
     toolbox = fs.readFileSync(
-        path.normalize('Toolbox/headers/atropaToolboxReferencesAndLinting.js'),
+        path.normalize('Toolbox/headers/atropaToolboxLinting.js'),
         'utf8'
     );
     toolbox += concatFiles(headers.concat(components), removeHeader);
@@ -169,7 +242,7 @@ task('makeAtropaToolbox', function () {
     fs.writeFileSync(outputFilePath, toolbox, 'utf8');
 });
 
-desc('This generates AtropaToolbox.test.js from sources');
+desc('Generates AtropaToolbox.test.js.');
 task('makeTestBuild', ['makeAtropaToolbox'], function () {
     var fs, path, headers, footers, testComponentsLocation, componentNames,
         components, testBuild, outputFilePath;
@@ -188,13 +261,30 @@ task('makeTestBuild', ['makeAtropaToolbox'], function () {
         return path.normalize(testComponentsLocation + item);
     });
     testBuild = concatFiles(headers.concat(components, footers), removeHeader);
-    outputFilePath = path.normalize('testBuild/AtropaToolbox.test.js');
-    rmdir('testBuild');
-    mkdir('testBuild');
+    outputFilePath = path.normalize('src/AtropaToolbox.test.js');
     fs.writeFileSync(outputFilePath, testBuild, 'utf8');
 });
 
-desc('This generates jsdoc-toolkit docs');
+desc('Generates AtropaToolbox.min.js.');
+task('min', ['makeAtropaToolbox'], function (options) {
+    var fs, path, simple;
+    
+    fs = require('fs');
+    path = require('path');
+    
+    simple = simplifyJs(path.normalize('src/AtropaToolbox.js'), options);
+    
+    fs.writeFileSync(path.normalize('src/AtropaToolbox.min.js'), simple, 'utf8');
+});
+
+desc('Displays an AST of the AtropaToolbox.');
+task('generateAST', ['makeAtropaToolbox'], function (options) {
+    var ast = generateAST('src/AtropaToolbox.js', options);
+    ast = JSON.stringify(ast, null, '    ');
+    console.log(ast);
+});
+
+desc('Generates docs/jsdoc and docs/vsdoc.');
 task('generateDocs', ['makeAtropaToolbox'], {async : true}, function () {
     var path, cmd, register, platoCmd;
     
@@ -255,8 +345,9 @@ task('generateDocs', ['makeAtropaToolbox'], {async : true}, function () {
         return dQuote(path.normalize(str));
     }
     function jvsdocCmdGen (jOrV) {
-        var jsdocToolkitLoc = path.resolve('buildTools/jsdoc_toolkit-2.4.0/');
-        var cmd = 'java -jar ' +
+        var jsdocToolkitLoc, cmd;
+        jsdocToolkitLoc = path.resolve('buildTools/jsdoc_toolkit-2.4.0/');
+        cmd = 'java -jar ' +
             pathArg(jsdocToolkitLoc + '/jsrun.jar') +
             pathArg(jsdocToolkitLoc + '/app/run.js') +
             '-r=10 ' +
@@ -265,7 +356,7 @@ task('generateDocs', ['makeAtropaToolbox'], {async : true}, function () {
             '-d=' + pathArg('docs/' + jOrV) +
             '-o=' + pathArg('logs/' + jOrV + '-toolkit-error-log.txt') +
             '-t=' + pathArg(jsdocToolkitLoc + '/templates/' + jOrV) +
-            dQuote('src');
+            dQuote(path.normalize('src/AtropaToolbox.js'));
         
         return cmd.trim();
     }
@@ -279,3 +370,42 @@ task('generateDocs', ['makeAtropaToolbox'], {async : true}, function () {
     register.addCommand(jvsdocCmdGen('vsdoc'), null, logOutput);
     register.process();
 });
+
+desc('Update JsLint');
+task('JsLintUpdate', function () {
+    var jslint = require('atropa-jslint');
+    jslint.update();
+});
+
+desc('Rollback JsLint Update');
+task('JsLintRollbackUpdate', function () {
+    var jslint = require('atropa-jslint');
+    jslint.rollbackUpdate();
+});
+
+desc('Runs JsLint on AtropaToolbox.js');
+task('RunJsLint', ['makeAtropaToolbox'], function () {
+    var os, fs, path, jslint, source;
+    
+    os = require('os');
+    fs = require('fs');
+    path = require('path');
+    jslint = require('atropa-jslint');
+    
+    source = fs.readFileSync(path.normalize('src/AtropaToolbox.js'), 'utf8');
+    if(jslint.JSLINT(source)) {
+        console.log('Success, no errors to report.');
+    } else {
+        jslint.JSLINT.errors.forEach(function (error) {
+            console.error(
+                '* Error:' + os.EOL +
+                '    Reason: ' + error.reason + os.EOL +
+                '    Evidence: ' + error.evidence + os.EOL +
+                '    Line: ' + error.line + os.EOL +
+                '    Char: ' + error.character + os.EOL + os.EOL);
+        });
+    }
+    
+});
+
+

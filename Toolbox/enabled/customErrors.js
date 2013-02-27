@@ -24,6 +24,7 @@
  * @returns {Error} Returns an instance of the InvalidArgumentTypesError
  */
 atropa.InvalidArgumentTypesError = function InvalidArgumentTypesError(message) {
+    'use strict';
     /**
      * The name of the error. Tells the user what kind of custom
      * error has been thrown.

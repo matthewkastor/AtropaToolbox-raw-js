@@ -1,5 +1,3 @@
-/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-
 /*jslint
     indent: 4,
     maxerr: 50,
@@ -1355,11 +1353,13 @@ atropa.CookieMonster = function CookieMonster() {
      * then the callback returns true.
      */
     getCookieCallback = function getCookieCallback(testCookie, args) {
+        var out;
         if (testCookie.key === args) {
-            return true;
+            out = true;
         } else {
-            return false;
+            out = false;
         }
+        return out;
     };
     /**
      * Gets a user requested cookie.
@@ -1651,6 +1651,7 @@ atropa.CreateHtmlDocumentsFromXmlhttp = function CreateHtmlDocumentsFromXmlhttp(
  * @returns {Error} Returns an instance of the InvalidArgumentTypesError
  */
 atropa.InvalidArgumentTypesError = function InvalidArgumentTypesError(message) {
+    'use strict';
     /**
      * The name of the error. Tells the user what kind of custom
      * error has been thrown.
@@ -3717,11 +3718,12 @@ atropa.wtf.dictionary = {
 atropa.wtf.wtfify = function (target, outputHTML) {
     "use strict";
     var regexValue,
-    replacementText,
-    oldWord,
-    wtfCount,
-    wordCount,
-    ret;
+        replacementText,
+        oldWord,
+        wtfCount,
+        wordCount,
+        ret,
+        word;
     
     if(true !== outputHTML) {
         outputHTML = false;
@@ -3765,7 +3767,7 @@ atropa.wtf.wtfify = function (target, outputHTML) {
         }
         return out;
     };
-    for (var word in atropa.wtf.dictionary) {
+    for (word in atropa.wtf.dictionary) {
         if (atropa.wtf.dictionary.hasOwnProperty(word)) {
             oldWord = atropa.regex.appendPrefixesAndSuffixes(word);
             regexValue = new RegExp(oldWord, 'gi');

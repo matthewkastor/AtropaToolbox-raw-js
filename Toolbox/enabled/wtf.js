@@ -502,11 +502,12 @@ atropa.wtf.dictionary = {
 atropa.wtf.wtfify = function (target, outputHTML) {
     "use strict";
     var regexValue,
-    replacementText,
-    oldWord,
-    wtfCount,
-    wordCount,
-    ret;
+        replacementText,
+        oldWord,
+        wtfCount,
+        wordCount,
+        ret,
+        word;
     
     if(true !== outputHTML) {
         outputHTML = false;
@@ -550,7 +551,7 @@ atropa.wtf.wtfify = function (target, outputHTML) {
         }
         return out;
     };
-    for (var word in atropa.wtf.dictionary) {
+    for (word in atropa.wtf.dictionary) {
         if (atropa.wtf.dictionary.hasOwnProperty(word)) {
             oldWord = atropa.regex.appendPrefixesAndSuffixes(word);
             regexValue = new RegExp(oldWord, 'gi');

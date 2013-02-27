@@ -153,11 +153,13 @@ atropa.CookieMonster = function CookieMonster() {
      * then the callback returns true.
      */
     getCookieCallback = function getCookieCallback(testCookie, args) {
+        var out;
         if (testCookie.key === args) {
-            return true;
+            out = true;
         } else {
-            return false;
+            out = false;
         }
+        return out;
     };
     /**
      * Gets a user requested cookie.

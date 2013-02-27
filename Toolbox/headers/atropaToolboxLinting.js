@@ -1,5 +1,3 @@
-/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
-
 /*jslint
     indent: 4,
     maxerr: 50,
