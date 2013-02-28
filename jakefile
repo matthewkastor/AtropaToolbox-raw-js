@@ -408,4 +408,9 @@ task('RunJsLint', ['makeAtropaToolbox'], function () {
     
 });
 
+desc('Starts the documentation server');
+task('docServ', function () {
+    var atropaServer = require('atropa-server');
+    atropaServer.start(9995);
+});
 
