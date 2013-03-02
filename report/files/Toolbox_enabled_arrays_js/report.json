@@ -17,25 +17,25 @@
         "halstead": {
           "operators": {
             "distinct": 20,
-            "total": 173,
+            "total": 175,
             "identifiers": [
               "__stripped__"
             ]
           },
           "operands": {
             "distinct": 55,
-            "total": 215,
+            "total": 216,
             "identifiers": [
               "__stripped__"
             ]
           },
-          "length": 388,
+          "length": 391,
           "vocabulary": 75,
-          "difficulty": 39.09090909090909,
-          "volume": 2416.7816519124017,
-          "effort": 94474.1918474848,
-          "bugs": 0.8055938839708006,
-          "time": 5248.566213749156
+          "difficulty": 39.27272727272727,
+          "volume": 2435.4681079838892,
+          "effort": 95647.47478627638,
+          "bugs": 0.8118227026612964,
+          "time": 5313.748599237577
         }
       }
     },
@@ -324,25 +324,25 @@
           "halstead": {
             "operators": {
               "distinct": 3,
-              "total": 6,
-              "identifiers": [
-                "__stripped__"
-              ]
-            },
-            "operands": {
-              "distinct": 7,
               "total": 8,
               "identifiers": [
                 "__stripped__"
               ]
             },
-            "length": 14,
-            "vocabulary": 10,
-            "difficulty": 1.7142857142857142,
-            "volume": 46.50699332842308,
-            "effort": 79.7262742772967,
-            "bugs": 0.01550233110947436,
-            "time": 4.4292374598498165
+            "operands": {
+              "distinct": 8,
+              "total": 9,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 17,
+            "vocabulary": 11,
+            "difficulty": 1.6875,
+            "volume": 58.81033751683406,
+            "effort": 99.24244455965747,
+            "bugs": 0.019603445838944685,
+            "time": 5.513469142203193
           }
         }
       },
@@ -585,7 +585,7 @@
         }
       }
     ],
-    "maintainability": 74.16852172276423,
+    "maintainability": 74.16444671553445,
     "module": "Toolbox\\enabled\\arrays.js"
   },
   "jshint": {

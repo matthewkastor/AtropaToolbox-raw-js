@@ -289,7 +289,7 @@ atropa.arrays.getFrequency = function (arr) {
  */
 atropa.arrays.getUnique = function (largeArray) {
     "use strict";
-    return Object.keys(atropa.arrays.getFrequency(largeArray));
+    return Object.keys(atropa.arrays.getFrequency(largeArray)).sort();
 };
 /**
  * Removes empty strings from the given array.

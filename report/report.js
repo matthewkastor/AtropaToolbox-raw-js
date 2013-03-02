@@ -1,12 +1,12 @@
 __report = {
   "summary": {
     "total": {
-      "sloc": 3479,
-      "maintainability": 1654.3344417354654
+      "sloc": 3491,
+      "maintainability": 1651.96911124985
     },
     "average": {
       "sloc": 151,
-      "maintainability": "71.93"
+      "maintainability": "71.82"
     }
   },
   "reports": [
@@ -25,37 +25,37 @@ __report = {
           "line": 55,
           "complexity": {
             "sloc": {
-              "physical": 148,
-              "logical": 36
+              "physical": 160,
+              "logical": 44
             },
-            "cyclomatic": 6,
+            "cyclomatic": 8,
             "halstead": {
               "operators": {
-                "distinct": 15,
-                "total": 93,
+                "distinct": 17,
+                "total": 103,
                 "identifiers": [
                   "__stripped__"
                 ]
               },
               "operands": {
-                "distinct": 50,
-                "total": 111,
+                "distinct": 56,
+                "total": 123,
                 "identifiers": [
                   "__stripped__"
                 ]
               },
-              "length": 204,
-              "vocabulary": 65,
-              "difficulty": 16.650000000000002,
-              "volume": 1228.5630338578046,
-              "effort": 20455.57451373245,
-              "bugs": 0.4095210112859349,
-              "time": 1136.4208063184694
+              "length": 226,
+              "vocabulary": 73,
+              "difficulty": 18.669642857142858,
+              "volume": 1398.9003503068839,
+              "effort": 26116.969932961554,
+              "bugs": 0.46630011676896127,
+              "time": 1450.9427740534197
             }
           }
         },
         "module": "Toolbox\\enabled\\ArgsInfo.js",
-        "maintainability": 67.30870502039679
+        "maintainability": 64.94744954201123
       }
     },
     {
@@ -80,30 +80,30 @@ __report = {
             "halstead": {
               "operators": {
                 "distinct": 20,
-                "total": 173,
+                "total": 175,
                 "identifiers": [
                   "__stripped__"
                 ]
               },
               "operands": {
                 "distinct": 55,
-                "total": 215,
+                "total": 216,
                 "identifiers": [
                   "__stripped__"
                 ]
               },
-              "length": 388,
+              "length": 391,
               "vocabulary": 75,
-              "difficulty": 39.09090909090909,
-              "volume": 2416.7816519124017,
-              "effort": 94474.1918474848,
-              "bugs": 0.8055938839708006,
-              "time": 5248.566213749156
+              "difficulty": 39.27272727272727,
+              "volume": 2435.4681079838892,
+              "effort": 95647.47478627638,
+              "bugs": 0.8118227026612964,
+              "time": 5313.748599237577
             }
           }
         },
         "module": "Toolbox\\enabled\\arrays.js",
-        "maintainability": 74.16852172276423
+        "maintainability": 74.16444671553445
       }
     },
     {

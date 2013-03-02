@@ -1,0 +1,293 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=utf-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/*jslint
+<span class='line'>  2</span>     indent: 4,
+<span class='line'>  3</span>     maxerr: 50,
+<span class='line'>  4</span>     white: true,
+<span class='line'>  5</span>     node: true,
+<span class='line'>  6</span>     stupid: true
+<span class='line'>  7</span> */</span><span class="WHIT">
+<span class='line'>  8</span> </span><span class="COMM">/*global Mustache */</span><span class="WHIT">
+<span class='line'>  9</span> 
+<span class='line'> 10</span> </span><span class="COMM">// templates.example, templates.includes</span><span class="WHIT">
+<span class='line'> 11</span> 
+<span class='line'> 12</span> </span><span class="COMM">/**
+<span class='line'> 13</span>  * @file This file contains the base MustacheComb class.
+<span class='line'> 14</span>  * @author &lt;a href="matthewkastor@gmail.com">Matthew Kastor&lt;/a>
+<span class='line'> 15</span>  * @version 20121030
+<span class='line'> 16</span>  * @requires events
+<span class='line'> 17</span>  * @requires util
+<span class='line'> 18</span>  * @requires fs
+<span class='line'> 19</span>  * @requires path
+<span class='line'> 20</span>  * @requires mustache
+<span class='line'> 21</span>  * @requires textTransformers
+<span class='line'> 22</span>  * @exports MustacheComb
+<span class='line'> 23</span>  */</span><span class="WHIT">
+<span class='line'> 24</span> 
+<span class='line'> 25</span> </span><span class="STRN">'use strict'</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 26</span> </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">events</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">util</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">fs</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">path</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 27</span> 
+<span class='line'> 28</span> </span><span class="NAME">events</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">require</span><span class="PUNC">(</span><span class="STRN">'events'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 29</span> </span><span class="NAME">util</span><span class="WHIT">   </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">require</span><span class="PUNC">(</span><span class="STRN">'util'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 30</span> </span><span class="NAME">fs</span><span class="WHIT">     </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">require</span><span class="PUNC">(</span><span class="STRN">'fs'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 31</span> </span><span class="NAME">path</span><span class="WHIT">   </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">require</span><span class="PUNC">(</span><span class="STRN">'path'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 32</span> 
+<span class='line'> 33</span> </span><span class="COMM">/**
+<span class='line'> 34</span>  * The Base MustacheComb class. The templates
+<span class='line'> 35</span>  *  and tag handlers shown in their registries will be loaded so, if
+<span class='line'> 36</span>  *  you want to use this class directly then you'll need to reference
+<span class='line'> 37</span>  *  your own tag handler and template registries.
+<span class='line'> 38</span>  * @class
+<span class='line'> 39</span>  * @param {Array} views An array of view objects. Defaults to an empty array.
+<span class='line'> 40</span>  * @requires events
+<span class='line'> 41</span>  * @requires util
+<span class='line'> 42</span>  * @requires fs
+<span class='line'> 43</span>  * @requires path
+<span class='line'> 44</span>  * @requires mustache
+<span class='line'> 45</span>  * @requires textTransformers
+<span class='line'> 46</span>  * @example
+<span class='line'> 47</span>  *  var MustacheComb, comb;
+<span class='line'> 48</span>  *  
+<span class='line'> 49</span>  *  MustacheComb = require('atropa-mustache-comb').MustacheComb;
+<span class='line'> 50</span>  *  
+<span class='line'> 51</span>  *  comb = new MustacheComb();
+<span class='line'> 52</span>  *  
+<span class='line'> 53</span>  *  // adds handling of "thingy" tags.
+<span class='line'> 54</span>  *  // this function must be appended to the prototype in order
+<span class='line'> 55</span>  *  // for the addTagHandlerFunction to work properly
+<span class='line'> 56</span>  *  // "thingy" tags will be replaced with their original text content
+<span class='line'> 57</span>  *  // concatenated with "woop woop!!"
+<span class='line'> 58</span>  *  MustacheComb.prototype.formatThingy = function (text) {
+<span class='line'> 59</span>  *      return text + ' woop woop!!';
+<span class='line'> 60</span>  *  };
+<span class='line'> 61</span>  *  comb.addTagHandlerFunction('thingy', 'formatThingy');
+<span class='line'> 62</span>  *  
+<span class='line'> 63</span>  *  // adds "wonderful" template by string
+<span class='line'> 64</span>  *   comb.addTemplateByString('wonderful', 'OMFG!! OMFG!! {{greatNews}}\r\n' +
+<span class='line'> 65</span>  *       '{{#thingy}}Ain\'t it great news{{/thingy}}\r\n{{>sig}}');
+<span class='line'> 66</span>  *  
+<span class='line'> 67</span>  *  // you could also just add string templates directly to the templates
+<span class='line'> 68</span>  *  // property
+<span class='line'> 69</span>  *  // comb.templates.wonderful = 'OMFG!! OMFG!! {{greatNews}}\r\n' +
+<span class='line'> 70</span>  *  //     '{{#thingy}}Ain\'t it great news{{/thingy}}\r\n{{>sig}}';
+<span class='line'> 71</span>  *  
+<span class='line'> 72</span>  *  // if the wonderful template were in a file called wonderful.mustache
+<span class='line'> 73</span>  *  // then we could add it with
+<span class='line'> 74</span>  *  // comb.addTemplateByFile('wonderful', 'wonderful.mustache', 'utf8');
+<span class='line'> 75</span>  *  
+<span class='line'> 76</span>  *  // a view is just an object.
+<span class='line'> 77</span>  *  var sticker = {};
+<span class='line'> 78</span>  *  sticker.greatNews = 'I got a free sticker!';
+<span class='line'> 79</span>  *  sticker.signature = 'Huzzah!';
+<span class='line'> 80</span>  *  
+<span class='line'> 81</span>  *  // add a view by pushing it onto the views array
+<span class='line'> 82</span>  *  comb.views.push(
+<span class='line'> 83</span>  *      sticker,
+<span class='line'> 84</span>  *      { 'greatNews' : 'I got a coconut!', 'signature' : 'Jimmy!' },
+<span class='line'> 85</span>  *      { 'greatNews' : 'I got a penny!', 'signature' : 'Jane!' }
+<span class='line'> 86</span>  *  );
+<span class='line'> 87</span>  *  
+<span class='line'> 88</span>  *  // to render views you need to define a renderer function
+<span class='line'> 89</span>  *  // this renderer function does not have to be appended to the
+<span class='line'> 90</span>  *  // MustacheComb prototype but I find it convenient to do so.
+<span class='line'> 91</span>  *  // the renderer function will take a view, and render it to the screen,
+<span class='line'> 92</span>  *  // to a file, or however you see fit. This renderer function will
+<span class='line'> 93</span>  *  // then be given as the argument to renderViews which will pass it
+<span class='line'> 94</span>  *  // each view. Or you can do something more complex and confusing.
+<span class='line'> 95</span>  *  
+<span class='line'> 96</span>  *  MustacheComb.prototype.renderer = function renderer(view) {
+<span class='line'> 97</span>  *      var out, mustacheTemplateParts;
+<span class='line'> 98</span>  *      // the generic page structure used repeatedly.
+<span class='line'> 99</span>  *      mustacheTemplateParts = {
+<span class='line'>100</span>  *          "sig" : view.signature
+<span class='line'>101</span>  *      };
+<span class='line'>102</span>  *      out = this.Mustache.to_html(
+<span class='line'>103</span>  *          this.templates.wonderful,
+<span class='line'>104</span>  *          this.mustacheTagHandlers,
+<span class='line'>105</span>  *          mustacheTemplateParts);
+<span class='line'>106</span>  *      console.log(out);
+<span class='line'>107</span>  *  };
+<span class='line'>108</span>  *  
+<span class='line'>109</span>  *  comb.renderViews(comb.renderer);
+<span class='line'>110</span>  *  
+<span class='line'>111</span>  */</span><span class="WHIT">
+<span class='line'>112</span> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">MustacheComb</span><span class="PUNC">(</span><span class="NAME">views</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>113</span> </span><span class="WHIT">    </span><span class="NAME">events.EventEmitter.call</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>114</span> </span><span class="WHIT">    
+<span class='line'>115</span>     </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">my</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">this</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>116</span> </span><span class="WHIT">    
+<span class='line'>117</span>     </span><span class="NAME">my.textTransformers</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">require</span><span class="PUNC">(</span><span class="STRN">'atropa-text-transformers'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>118</span> </span><span class="WHIT">    </span><span class="NAME">my.Mustache</span><span class="WHIT">        </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">require</span><span class="PUNC">(</span><span class="STRN">'mustache'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>119</span> </span><span class="WHIT">    </span><span class="NAME">my.views</span><span class="WHIT">           </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">views</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>120</span> </span><span class="WHIT">    
+<span class='line'>121</span>     </span><span class="COMM">/**
+<span class='line'>122</span>      * Contains functions for handling mustache tags.
+<span class='line'>123</span>      * @type {Object}
+<span class='line'>124</span>      */</span><span class="WHIT">
+<span class='line'>125</span> </span><span class="WHIT">    </span><span class="NAME">my.mustacheTagHandlers</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>126</span> </span><span class="WHIT">    
+<span class='line'>127</span>     </span><span class="COMM">/**
+<span class='line'>128</span>      * Mustache Templates
+<span class='line'>129</span>      * @type {Object}
+<span class='line'>130</span>      */</span><span class="WHIT">
+<span class='line'>131</span> </span><span class="WHIT">    </span><span class="NAME">my.templates</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>132</span> </span><span class="WHIT">        </span><span class="STRN">"example"</span><span class="WHIT">  </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">"&lt;pre>{{{codeBody}}}&lt;/pre>"</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>133</span> </span><span class="WHIT">        </span><span class="STRN">"includes"</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">"{{>includes}}"</span><span class="WHIT">
+<span class='line'>134</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>135</span> </span><span class="WHIT">    
+<span class='line'>136</span>     </span><span class="COMM">/**
+<span class='line'>137</span>      * Adds a template file to the templates object.
+<span class='line'>138</span>      * @param {String} templateName The template name will become the property of
+<span class='line'>139</span>      *  this.templates which refers to the template loaded.
+<span class='line'>140</span>      * @param {String} pathToTemplate The path to the template file.
+<span class='line'>141</span>      * @param {String} encoding The encoding of the template file. Valid values are the same as
+<span class='line'>142</span>      *  valid values for fs.readFileSync. Defaults to utf8.
+<span class='line'>143</span>      */</span><span class="WHIT">
+<span class='line'>144</span> </span><span class="WHIT">    </span><span class="NAME">my.addTemplateByFile</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">templateName</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">pathToTemplate</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">encoding</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>145</span> </span><span class="WHIT">        </span><span class="NAME">encoding</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">encoding</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="STRN">'utf8'</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>146</span> </span><span class="WHIT">        </span><span class="NAME">my.templates</span><span class="PUNC">[</span><span class="NAME">templateName</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">String</span><span class="PUNC">(</span><span class="NAME">fs.readFileSync</span><span class="PUNC">(</span><span class="NAME">path.resolve</span><span class="PUNC">(</span><span class="NAME">pathToTemplate</span><span class="PUNC">)</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">encoding</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>147</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>148</span> </span><span class="WHIT">    
+<span class='line'>149</span>     </span><span class="COMM">/**
+<span class='line'>150</span>      * Adds a template string to the templates object.
+<span class='line'>151</span>      * @param {String} templateName The template name will become the property of
+<span class='line'>152</span>      *  this.templates which refers to the template loaded.
+<span class='line'>153</span>      * @param {String} template The template.
+<span class='line'>154</span>      */</span><span class="WHIT">
+<span class='line'>155</span> </span><span class="WHIT">    </span><span class="NAME">my.addTemplateByString</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">templateName</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">template</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>156</span> </span><span class="WHIT">        </span><span class="NAME">my.templates</span><span class="PUNC">[</span><span class="NAME">templateName</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">template</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>157</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>158</span> </span><span class="WHIT">    
+<span class='line'>159</span>     </span><span class="COMM">/**
+<span class='line'>160</span>      * Adds a handler function for mustache tags. You will be responsible
+<span class='line'>161</span>      *  for generating whatever you want the tag to be replaced with. In
+<span class='line'>162</span>      *  general, the text can be run through mustache to parse any tags in
+<span class='line'>163</span>      *  it or tags can be used as markers for where you're going to
+<span class='line'>164</span>      *  programatically generate content and insert it.
+<span class='line'>165</span>      * @function
+<span class='line'>166</span>      * @param {String} handles The name of the tag to handle {{#whatever}}{{/whatever}}
+<span class='line'>167</span>      * @param {String} func The name of a function which has been added
+<span class='line'>168</span>      *  to the MustacheComb prototype. It will receive two arguments: text, and
+<span class='line'>169</span>      *  whatever. Text is the text content from within the mustache tag.
+<span class='line'>170</span>      * @see MustacheComb
+<span class='line'>171</span>      */</span><span class="WHIT">
+<span class='line'>172</span> </span><span class="WHIT">    </span><span class="NAME">my.addTagHandlerFunction</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">handles</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">func</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>173</span> </span><span class="WHIT">        </span><span class="NAME">my.mustacheTagHandlers</span><span class="PUNC">[</span><span class="NAME">handles</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>174</span> </span><span class="WHIT">            </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">text</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">whatever</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>175</span> </span><span class="WHIT">                </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">my</span><span class="PUNC">[</span><span class="NAME">func</span><span class="PUNC">]</span><span class="PUNC">(</span><span class="NAME">text</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">whatever</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>176</span> </span><span class="WHIT">            </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>177</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>178</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>179</span> </span><span class="WHIT">    
+<span class='line'>180</span>     </span><span class="NAME">my.addTagHandlerFunction</span><span class="PUNC">(</span><span class="STRN">'example'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">'formatExample'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>181</span> </span><span class="WHIT">    </span><span class="NAME">my.addTagHandlerFunction</span><span class="PUNC">(</span><span class="STRN">'include'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">'mustacheIncluder'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>182</span> </span><span class="WHIT">    </span><span class="NAME">my.addTagHandlerFunction</span><span class="PUNC">(</span><span class="STRN">'includeExample'</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">'includeExample'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>183</span> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>184</span> </span><span class="NAME">util.inherits</span><span class="PUNC">(</span><span class="NAME">MustacheComb</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">events.EventEmitter</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>185</span> 
+<span class='line'>186</span> </span><span class="COMM">/**
+<span class='line'>187</span>  * Tag handler for the example tag. Formats the text for html
+<span class='line'>188</span>  *  and prettification.
+<span class='line'>189</span>  * @function`
+<span class='line'>190</span>  * @param {String} text A string of text (example code) to process.
+<span class='line'>191</span>  */</span><span class="WHIT">
+<span class='line'>192</span> </span><span class="NAME">MustacheComb.prototype.formatExample</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">formatExample</span><span class="PUNC">(</span><span class="NAME">text</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>193</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">my</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">parts</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">offset</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">code</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">html</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>194</span> </span><span class="WHIT">    
+<span class='line'>195</span>     </span><span class="NAME">my</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">this</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>196</span> </span><span class="WHIT">    
+<span class='line'>197</span>     </span><span class="COMM">// normalizing line endings</span><span class="WHIT">
+<span class='line'>198</span> </span><span class="WHIT">    </span><span class="NAME">text</span><span class="WHIT">  </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">my.textTransformers.convertEOL</span><span class="PUNC">(</span><span class="NAME">text</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">'\n'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>199</span> </span><span class="WHIT">    </span><span class="COMM">// creating an array of lines.</span><span class="WHIT">
+<span class='line'>200</span> </span><span class="WHIT">    </span><span class="NAME">parts</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">text.split</span><span class="PUNC">(</span><span class="STRN">'\n'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>201</span> </span><span class="WHIT">    </span><span class="COMM">// converting any tabs in white space preceeding the line, into four spaces.</span><span class="WHIT">
+<span class='line'>202</span> </span><span class="WHIT">    </span><span class="NAME">parts</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">parts.map</span><span class="PUNC">(</span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">text</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>203</span> </span><span class="WHIT">        </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">my.textTransformers.normalizeWhiteSpace</span><span class="PUNC">(</span><span class="NAME">text</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>204</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>205</span> </span><span class="WHIT">    </span><span class="COMM">// Since indentation in the article is directly transferred to the displayed </span><span class="WHIT">
+<span class='line'>206</span> </span><span class="WHIT">    </span><span class="COMM">// example, we may need to remove some white space. (thinks of shift+tab).</span><span class="WHIT">
+<span class='line'>207</span> </span><span class="WHIT">    </span><span class="NAME">offset</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">my.textTransformers.getOffset</span><span class="PUNC">(</span><span class="NAME">parts</span><span class="PUNC">[</span><span class="NUMB">0</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>208</span> </span><span class="WHIT">    </span><span class="NAME">parts</span><span class="WHIT">  </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">parts.map</span><span class="PUNC">(</span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">text</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>209</span> </span><span class="WHIT">        </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">my.textTransformers.offsetWhiteSpace</span><span class="PUNC">(</span><span class="NAME">text</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">offset</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>210</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>211</span> </span><span class="WHIT">    </span><span class="COMM">// creating a string from an array of lines.</span><span class="WHIT">
+<span class='line'>212</span> </span><span class="WHIT">    </span><span class="NAME">code</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">parts.join</span><span class="PUNC">(</span><span class="STRN">'\n'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>213</span> </span><span class="WHIT">    </span><span class="COMM">// filtering out characters that screw up the html.</span><span class="WHIT">
+<span class='line'>214</span> </span><span class="WHIT">    </span><span class="NAME">code</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">code.replace</span><span class="PUNC">(</span><span class="REGX">/[&lt;]/g</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">'&lt;'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>215</span> </span><span class="WHIT">    </span><span class="COMM">// Formatting the data into html.</span><span class="WHIT">
+<span class='line'>216</span> </span><span class="WHIT">    </span><span class="NAME">html</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">my.Mustache.to_html</span><span class="PUNC">(</span><span class="WHIT">
+<span class='line'>217</span> </span><span class="WHIT">        </span><span class="NAME">my.templates.example</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>218</span> </span><span class="WHIT">        </span><span class="NAME">codeBody</span><span class="WHIT">  </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">code</span><span class="WHIT">
+<span class='line'>219</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>220</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">html</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>221</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>222</span> 
+<span class='line'>223</span> </span><span class="COMM">/**
+<span class='line'>224</span>  * Base Function for including files. Fetches file contents.
+<span class='line'>225</span>  * @param {String} relPath The path to the file to include.
+<span class='line'>226</span>  * @returns Returns the contents of the file or an html link to the unreadable
+<span class='line'>227</span>  *  path.
+<span class='line'>228</span>  */</span><span class="WHIT">
+<span class='line'>229</span> </span><span class="NAME">MustacheComb.prototype.includeFile</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">includeFile</span><span class="PUNC">(</span><span class="NAME">relPath</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>230</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">out</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>231</span> </span><span class="WHIT">        
+<span class='line'>232</span>     </span><span class="NAME">relPath</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">relPath.trim</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>233</span> </span><span class="WHIT">    
+<span class='line'>234</span>     </span><span class="KEYW">try</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>235</span> </span><span class="WHIT">        </span><span class="NAME">out</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">String</span><span class="PUNC">(</span><span class="NAME">fs.readFileSync</span><span class="PUNC">(</span><span class="NAME">relPath</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>236</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT"> </span><span class="KEYW">catch</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">e</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>237</span> </span><span class="WHIT">        </span><span class="NAME">console.log</span><span class="PUNC">(</span><span class="STRN">'  MustacheComb.includeFile : '</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>238</span> </span><span class="WHIT">        </span><span class="NAME">console.log</span><span class="PUNC">(</span><span class="NAME">String</span><span class="PUNC">(</span><span class="NAME">e</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>239</span> </span><span class="WHIT">        </span><span class="NAME">out</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">'&lt;p>File not found at &lt;a href="'</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">relPath</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="STRN">'">&lt;code>'</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">relPath</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="STRN">'&lt;/code>&lt;/a>&lt;/p>'</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>240</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>241</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">out</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>242</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>243</span> 
+<span class='line'>244</span> </span><span class="COMM">/**
+<span class='line'>245</span>  * Function for including example code from files.
+<span class='line'>246</span>  * @param {String} text The path to the file to include.
+<span class='line'>247</span>  * @returns Returns the contents of the file formatted for HTML.
+<span class='line'>248</span>  */</span><span class="WHIT">
+<span class='line'>249</span> </span><span class="NAME">MustacheComb.prototype.includeExample</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">includeExample</span><span class="PUNC">(</span><span class="NAME">relPath</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>250</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">out</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>251</span> </span><span class="WHIT">    </span><span class="NAME">out</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.includeFile</span><span class="PUNC">(</span><span class="NAME">relPath</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>252</span> </span><span class="WHIT">    </span><span class="NAME">out</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.formatExample</span><span class="PUNC">(</span><span class="NAME">out</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>253</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">out</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>254</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>255</span> 
+<span class='line'>256</span> </span><span class="COMM">/**
+<span class='line'>257</span>  * Function for including files. Files may contain mustache tags.
+<span class='line'>258</span>  * @param {String} text The path to the file to include.
+<span class='line'>259</span>  * @returns Returns the contents of the file.
+<span class='line'>260</span>  */</span><span class="WHIT">
+<span class='line'>261</span> </span><span class="NAME">MustacheComb.prototype.mustacheIncluder</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">mustacheIncluder</span><span class="PUNC">(</span><span class="NAME">relPath</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>262</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">out</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>263</span> </span><span class="WHIT">    </span><span class="COMM">// the text of the include tag is a path.</span><span class="WHIT">
+<span class='line'>264</span> </span><span class="WHIT">    </span><span class="NAME">out</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.includeFile</span><span class="PUNC">(</span><span class="NAME">relPath</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>265</span> </span><span class="WHIT">    </span><span class="COMM">// Run the output through Mustache to parse any mustache tags it may contain.</span><span class="WHIT">
+<span class='line'>266</span> </span><span class="WHIT">    </span><span class="NAME">out</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.Mustache.to_html</span><span class="PUNC">(</span><span class="NAME">this.templates.includes</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">this.mustacheTagHandlers</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="NAME">includes</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">out</span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>267</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">out</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>268</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>269</span> 
+<span class='line'>270</span> </span><span class="COMM">/**
+<span class='line'>271</span>  * Renders views from this.views objects array.
+<span class='line'>272</span>  * @function
+<span class='line'>273</span>  * @property {Function} callback A callback function to perform on each view.
+<span class='line'>274</span>  *  The callback receives  the rendered view. The callback could write the view
+<span class='line'>275</span>  *  to a file, store it in a variable, etc.
+<span class='line'>276</span>  */</span><span class="WHIT">
+<span class='line'>277</span> </span><span class="NAME">MustacheComb.prototype.renderViews</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">renderViews</span><span class="PUNC">(</span><span class="NAME">callback</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>278</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">my</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">this</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>279</span> </span><span class="WHIT">    </span><span class="NAME">this.views.forEach</span><span class="PUNC">(</span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">view</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>280</span> </span><span class="WHIT">        </span><span class="NAME">my.emit</span><span class="PUNC">(</span><span class="STRN">'view render attempt '</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="STRN">"view"</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">view</span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>281</span> </span><span class="WHIT">        </span><span class="NAME">callback.call</span><span class="PUNC">(</span><span class="NAME">my</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">view</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>282</span> </span><span class="WHIT">        </span><span class="NAME">my.emit</span><span class="PUNC">(</span><span class="STRN">'view rendered '</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="STRN">"view"</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">view</span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>283</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>284</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>285</span> 
+<span class='line'>286</span> </span><span class="NAME">exports.MustacheComb</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">MustacheComb</span><span class="PUNC">;</span></pre></body></html>

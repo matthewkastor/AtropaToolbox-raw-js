@@ -36,7 +36,7 @@
             /// created argument types object.</param>
             /// <param name="args" type="arguments">an arguments object.</param>
             /// <returns type="Boolean">Returns true if the expected types match for type
-            /// and in the same order as the received types.</returns>
+            ///  and are in the same order as the received types.</returns>
         }, 
         
         checkArgTypes: function(args) {

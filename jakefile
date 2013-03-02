@@ -212,9 +212,18 @@ task('default', ['build'], function () {
 });
 
 desc('Builds everything.');
-task('build', ['makeTestBuild', 'generateDocs', 'min'], function () {
-    console.log('built');
-});
+task(
+    'build',
+    [
+        'makeAtropaToolbox',
+        'generateDocs',
+        'min',
+        'jasmineRunnerGen'
+    ],
+    function () {
+        console.log('built');
+    }
+);
 
 desc('Generates AtropaToolbox.js.');
 task('makeAtropaToolbox', function () {
@@ -241,7 +250,7 @@ task('makeAtropaToolbox', function () {
     mkdir('src');
     fs.writeFileSync(outputFilePath, toolbox, 'utf8');
 });
-
+/*
 desc('Generates AtropaToolbox.test.js.');
 task('makeTestBuild', ['makeAtropaToolbox'], function () {
     var fs, path, headers, footers, testComponentsLocation, componentNames,
@@ -264,7 +273,7 @@ task('makeTestBuild', ['makeAtropaToolbox'], function () {
     outputFilePath = path.normalize('src/AtropaToolbox.test.js');
     fs.writeFileSync(outputFilePath, testBuild, 'utf8');
 });
-
+*/
 desc('Generates AtropaToolbox.min.js.');
 task('min', ['makeAtropaToolbox'], function (options) {
     var fs, path, simple;
@@ -341,7 +350,7 @@ task('generateDocs', ['makeAtropaToolbox'], {async : true}, function () {
     function dQuote (arg) {
         return '"' + arg + '" ';
     }
-    function pathArg(str) {
+    function pathArg (str) {
         return dQuote(path.normalize(str));
     }
     function jvsdocCmdGen (jOrV) {
@@ -405,12 +414,58 @@ task('RunJsLint', ['makeAtropaToolbox'], function () {
                 '    Char: ' + error.character + os.EOL + os.EOL);
         });
     }
-    
 });
 
-desc('Starts the documentation server');
-task('docServ', function () {
-    var atropaServer = require('atropa-server');
-    atropaServer.start(9995);
+desc('Starts the doc server at docServ[port] or 8888.');
+task('docServ', function (port) {
+    
+    port = port || 8888;
+    
+    var fs, path, cmd, atropaServer, gen, register;
+    
+    fs = require('fs');
+    path = require('path');
+    cmd = require('atropa-cmd');
+    atropaServer = require('atropa-server');
+    gen = require('./buildTools/mustache/RedirectToLocalhost.mustache.js');
+    
+    function logOutput(err, stdout, stderr) {
+        if(stdout) {
+            console.log(stdout);
+        }
+        if(stderr) {
+            console.error(stderr);
+        }
+        if(err) {
+            console.error(err);
+        }
+    }
+    
+    gen.generateRedirectToLocalhostHtml(port);
+    
+    register = new cmd.commandRegister.Asynchronous(
+        'Load documentation server');
+    register.on('command queue processed', function(e) {
+        setTimeout(function () {
+            try {
+                fs.unlink('RedirectToLocalhost.html');
+            } catch (e) {
+                console.error(e);
+            }
+        }, 1000);
+    });
+    register.addCommand('RedirectToLocalhost.html', null, logOutput);
+    register.process();
+    
+    atropaServer.start(port);
 });
+
+desc('Regenerates AtropaToolboxTests.html');
+task('jasmineRunnerGen', function () {
+    var path, gen;
+    path = require('path');
+    gen = require('./buildTools/mustache/AtropaToolboxTests.mustache.js');
+    gen.generateAtropaToolboxTestsHtml();
+});
+
 

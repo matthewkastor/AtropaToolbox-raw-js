@@ -96,9 +96,22 @@ atropa.ArgsInfo = function ArgsInfo() {
      *  typesObj can not be used to set the expected argument types.
      */
     this.setExpectedArgTypes = function setExpectedArgTypes(typesObj) {
-        var names;
-        names = Object.keys(typesObj);
-        if (names.length < 1) {
+        var error, names;
+        
+        error = false;
+        
+        if(atropa.inquire.isObjectNotNull(typesObj)) {
+            names = Object.keys(typesObj);
+            if (names.length > 0) {
+                expectedArgTypes = typesObj;
+            } else {
+                error = true;
+            }
+        } else {
+            error = true;
+        }
+        
+        if(error) {
             throw new atropa.InvalidArgumentTypesError(
                 'typesObj is expected to be of the form: var typesObj = ' +
                 '{ "namedArgumentTypesArray" : ' +
@@ -110,7 +123,6 @@ atropa.ArgsInfo = function ArgsInfo() {
                 'provided named arrays.'
             );
         }
-        expectedArgTypes = typesObj;
     };
     /**
      * Gets the types of arguments.
@@ -147,7 +159,7 @@ atropa.ArgsInfo = function ArgsInfo() {
      * created argument types object.
      * @param {arguments} args an arguments object.
      * @returns {Boolean} Returns true if the expected types match for type
-     * and in the same order as the received types.
+     *  and are in the same order as the received types.
      * @requires atropa.arrays.match
      */
     checkArgs = function checkArgs(expectedTypesArray, args) {

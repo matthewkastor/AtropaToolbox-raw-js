@@ -45,21 +45,21 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
-      <p class="stat">67.31</p>
+      <p class="stat">64.95</p>
     </div>
     <div class="span6">
       <h2 class="header">Estimated # Bugs  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
-      <p class="stat">0.41</p>
+      <p class="stat">0.47</p>
     </div>
   </div>
   <div class="row">
     <div class="span6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
-      <p class="stat">16.65</p>
+      <p class="stat">18.67</p>
     </div>
     <div class="span6">
       <h2 class="header">SLOC/LSLOC <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">148 / 36</p>
+      <p class="stat">160 / 44</p>
     </div>
   </div>
 </div>
@@ -180,9 +180,22 @@ atropa.ArgsInfo = function ArgsInfo() {
      *  typesObj can not be used to set the expected argument types.
      */
     this.setExpectedArgTypes = function setExpectedArgTypes(typesObj) {
-        var names;
-        names = Object.keys(typesObj);
-        if (names.length < 1) {
+        var error, names;
+        
+        error = false;
+        
+        if(atropa.inquire.isObjectNotNull(typesObj)) {
+            names = Object.keys(typesObj);
+            if (names.length > 0) {
+                expectedArgTypes = typesObj;
+            } else {
+                error = true;
+            }
+        } else {
+            error = true;
+        }
+        
+        if(error) {
             throw new atropa.InvalidArgumentTypesError(
                 'typesObj is expected to be of the form: var typesObj = ' +
                 '{ "namedArgumentTypesArray" : ' +
@@ -194,7 +207,6 @@ atropa.ArgsInfo = function ArgsInfo() {
                 'provided named arrays.'
             );
         }
-        expectedArgTypes = typesObj;
     };
     /**
      * Gets the types of arguments.
@@ -231,7 +243,7 @@ atropa.ArgsInfo = function ArgsInfo() {
      * created argument types object.
      * @param {arguments} args an arguments object.
      * @returns {Boolean} Returns true if the expected types match for type
-     * and in the same order as the received types.
+     *  and are in the same order as the received types.
      * @requires atropa.arrays.match
      */
     checkArgs = function checkArgs(expectedTypesArray, args) {
