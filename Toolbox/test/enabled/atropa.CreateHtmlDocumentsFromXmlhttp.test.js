@@ -16,7 +16,7 @@ describe("atropa.CreateHtmlDocumentsFromXmlhttp", function() {
             
             beforeEach(function (){
                 method = 'get';
-                url = '/index.html';
+                url = './index.html';
                 docs = new atropa.CreateHtmlDocumentsFromXmlhttp();
                 
                 runs(function () {
@@ -26,7 +26,7 @@ describe("atropa.CreateHtmlDocumentsFromXmlhttp", function() {
                 
                 waitsFor(function () {
                     return callback.mostRecentCall.args !== undefined;
-                }, 'the document queue length to increase', 1000);
+                }, 'the document queue length to increase', 10000);
             });
             
             it("must call the callback", function() {
