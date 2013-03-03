@@ -26,7 +26,7 @@ describe("atropa.CreateHtmlDocumentsFromXmlhttp", function() {
     try {
         docs = new atropa.CreateHtmlDocumentsFromXmlhttp();
         
-        describe('if supported', function () {
+        describe('where supported', function () {
             
             describe('newDocument', function () {
                 
@@ -113,7 +113,7 @@ describe("atropa.CreateHtmlDocumentsFromXmlhttp", function() {
             });
         });
     } catch (e) {
-        describe('if not supported', function () {
+        describe('where not supported', function () {
             it('must throw if class is not supported in this environment',
                 function () {
                     function x () {

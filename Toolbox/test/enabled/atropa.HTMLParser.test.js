@@ -21,7 +21,7 @@ describe('atropa.HTMLParser', function () {
     try {
         parser = new atropa.HTMLParser();
         
-        describe('if supported', function () {
+        describe('where supported', function () {
             beforeEach(function () {
                 parser = new atropa.HTMLParser();
             });
@@ -96,7 +96,7 @@ describe('atropa.HTMLParser', function () {
             });
         });
     } catch (e) {
-        describe('if not supported', function () {
+        describe('where not supported', function () {
             it('must throw if class is not supported in this environment',
                 function () {
                     function x () {
