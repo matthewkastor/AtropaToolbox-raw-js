@@ -17,11 +17,11 @@
             ///  element order.</returns>
         }, 
         
-        subtract: function(a, fromB) {
+        subtract: function(a, (minuend)) {
             /// <summary>Subtracts one array from another array based on the unique values in both
             ///  sets.</summary>
-            /// <param name="a" type="Array">The array to subtract.</param>
-            /// <param name="fromB" type="Array">The array with elements duplicated in &lt;code&gt;a&lt;/code&gt;</param>
+            /// <param name="a" type="Array">(subtrahend) The array to subtract.</param>
+            /// <param name="(minuend)" type="Array">fromB The array with elements duplicated in &lt;code&gt;a&lt;/code&gt;</param>
             /// <returns type="Array">Returns a new array containing only the unique
             ///  values found in &lt;code&gt;fromB&lt;/code&gt; that are not present in &lt;code&gt;a&lt;/code&gt;</returns>
         }, 
@@ -74,6 +74,16 @@
             /// <param name="arr" type="Array">The array to sort. All elements of the array must be
             ///  strings.</param>
             /// <returns type="Array">Returns an array whose elements are in alphabetic order.</returns>
+        }, 
+        
+        "delete": function(arr, index) {
+            /// <summary>Deletes the given element from the array at the given index. It basically
+            ///  does what you would expect the delete operator to do, except the delete
+            ///  operator doesn&apos;t do what you would expect.</summary>
+            /// <param name="arr" type="Array">The array.</param>
+            /// <param name="index" type="Number">The index of the element to delete.</param>
+            /// <returns type="">Returns an array with the element removed, contiguous keys, and
+            ///  whose length is 1 less than the input array.</returns>
         }
         
     };

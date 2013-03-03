@@ -1,126 +1,151 @@
 "use strict";
+/*jslint
+    indent: 4,
+    maxerr: 50,
+    white: true
+*/
+/*globals
+    atropa,
+    describe,
+    it,
+    expect
+*/
 describe('atropa.arrays', function () {
-    var aa = atropa.arrays;
+    var aa, show;
+    
+    aa = atropa.arrays;
+    show = JSON.stringify;
+    
+    /**
+     * the last arg is the function to test.
+     * Second to last arg is the expected return value of the function under
+     *  test.
+     * All previous args will be passed to the function under test.
+     */
+    function whenGivenReturn() {
+        "use strict";
+        var arr, given, ret, fn, givenTxt;
+        arr = Array.prototype.splice.call(arguments, 0);
+        fn = arr.pop();
+        ret = arr.pop();
+        given = arr;
+        givenTxt = show(given);
+        givenTxt = givenTxt.substring(1, givenTxt.length - 1);
+        it('given  ' + givenTxt + ' return ' + show(ret), function () {
+            expect(fn.apply(null, given)).toEqual(ret);
+        });
+    }
+    
     it('must exist', function () {
         expect(atropa.arrays).not.toEqual(undefined);
     });
     
     describe('match', function () {
-        it('given [1,2], [1,1,3] return false', function () {
-            expect(aa.match([1,2], [1,1,3])).toEqual(false);
-        });
-        it('given [1,2], [1,2] return true', function () {
-            expect(aa.match([1,2], [1,2])).toEqual(true);
-        });
-        it('given [1,2], [2,1] return false', function () {
-            expect(aa.match([1,2], [2,1])).toEqual(false);
-        });
-        it('given [1,{"aProp" : "aValue"}], [1,{"aProp" : "aValue"}] ' +
-                'return false',
+        
+        var obj = {"aProp" : "aValue"};
+        
+        it('returns true if elements in both arrays are in the same ' +
+            'order and are strictly equal to one another',
             function () {
-                expect(aa.match([1,{"aProp" : "aValue"}],
-                    [1,{"aProp" : "aValue"}])).toEqual(false);
+                expect(aa.match([obj], [obj])).toEqual(true);
+                expect(aa.match([1,2], [1,2])).toEqual(true);
+                expect(aa.match(['apple'], ['apple'])).toEqual(true);
             }
         );
-        it('given [1, obj], [1, obj] when obj = {"aProp" : "aValue"}; ' +
-                'return true',
+        it('returns false if elements in both arrays are not in the same ' +
+            'order or are not strictly equal to one another',
             function () {
-                var obj = {"aProp" : "aValue"};
-                expect(aa.match([1, obj], [1, obj])).toEqual(true);
+                expect(aa.match(['1'], [1])).toEqual(false);
+                expect(aa.match([2], [1])).toEqual(false);
+                expect(aa.match([1,2], [2,1])).toEqual(false);
+            }
+        );
+        it('returns false when comparing arrays containing object literals ' +
+            'because object literals are neither strictly equal to ' +
+            'one another nor to other objects',
+            function () {
+                expect(aa.match([{"aProp" : "aValue"}],
+                        [{"aProp" : "aValue"}])).toEqual(false);
+                expect(aa.match([{"aProp" : "aValue"}], [obj])).toEqual(false);
             }
         );
     });
 
     describe('subtract', function () {
-        it('given [1,2], [1,1,3] return [3]', function () {
-            expect(aa.subtract([1,2], [1,1,3])).toEqual([3]);
-        });
-        it('given [1,3], [3,1] return []', function () {
-            expect(aa.subtract([1,3], [3,1])).toEqual([]);
-        });
-        it('given [1,3], [3,1,1,9] return [9]', function () {
-            expect(aa.subtract([1,3], [3,1,1,9])).toEqual([9]);
-        });
-        it('given [1,3,{"aProp" : "aVal"}], [3,1,{"aProp" : "aVal"}] ' +
-                'return [{"aProp" : "aVal"}]',
+        it('returns an array consisting of all elements of the minuend not ' +
+            'found in the subtrahend',
             function () {
-                expect(aa.subtract(
-                    [1,3,{"aProp" : "aVal"}],
-                    [3,1,{"aProp" : "aVal"}]
-                )).toEqual(
+                expect(aa.subtract([1,2], [1,1,3,3])).toEqual([3,3]);
+            }
+        );
+        it('will not remove corresponding object literals because they are ' +
+            'distinctly different objects',
+            function () {
+                expect(
+                    aa.subtract([{"aProp" : "aVal"}], [{"aProp" : "aVal"}])
+                ).toEqual(
                     [{"aProp" : "aVal"}]
                 );
             }
         );
-        it('given [1,3,obj], [3,1,{"aProp" : "aVal"}] ' +
-                'where obj = {"aProp" : "aVal"} ' +
-                'return [{"aProp" : "aVal"}]',
+        it('will not remove object literals corresponding to object ' +
+            'references because they are distinct objects',
             function () {
                 var obj = {'aProp' : 'aVal'};
-                expect(aa.subtract(
-                    [1,3,obj],
-                    [3,1,{"aProp" : "aVal"}]
-                )).toEqual(
+                expect(
+                    aa.subtract([obj], [{"aProp" : "aVal"}])
+                ).toEqual(
                     [{"aProp" : "aVal"}]
                 );
             }
         );
-        it('given [1,3,obj], [3,1,obj] ' +
-                'where obj = {"aProp" : "aVal"} ' +
-                'return []',
+        it('will remove object references that point to the same object',
             function () {
                 var obj = {'aProp' : 'aVal'};
-                expect(aa.subtract(
-                    [1,3,obj],
-                    [3,1,obj]
-                )).toEqual([]);
+                expect(aa.subtract([obj], [obj])).toEqual([]);
             }
         );
     });
 
     describe('intersect', function () {
-        it('given [1,3,4], [3,1,5] ' +
-                'return [1,3]',
+        it('returns an array containing an element corresponding to each ' +
+            'set of matching elements found in the arrays',
             function () {
                 expect(aa.intersect([1,3,4], [3,1,5])).toEqual([1,3]);
             }
         );
-        it('given [1,1,3,4], [3,1,1,5] ' +
-                'return [1,1,3]',
+        it('does not return an array of unique values',
             function () {
                 expect(aa.intersect([1,1,3,4], [3,1,1,5])).toEqual([1,1,3]);
             }
         );
-        it('given [1,3,obj], [3,1,obj] ' +
-                'where obj = {"aProp" : "aVal"} ' +
-                'return [1,3,{"aProp" : "aVal"}]',
+        it('considers object references pointing to the same object to be an ' +
+            'intersection',
             function () {
                 var obj = {'aProp' : 'aVal'};
-                expect(aa.intersect(
-                    [1,3,obj],
-                    [3,1,obj]
-                )).toEqual(
+                expect(
+                    aa.intersect([1,3,obj], [3,1,obj])
+                ).toEqual(
                     [1,3,{"aProp" : "aVal"}]
                 );
             }
         );
-        it('given [1,3,{"aProp" : "aVal"}], [3,1,obj] ' +
-                'where obj = {"aProp" : "aVal"} ' +
-                'return [1,3]',
+        it('does not consider object literals and references with ' +
+            'identical definitions to be an intersection',
             function () {
                 var obj = {'aProp' : 'aVal'};
-                expect(aa.intersect(
-                    [1,3,{"aProp" : "aVal"}], [3,1,obj]
-                )).toEqual([1,3]);
+                expect(
+                    aa.intersect([1,3,{"aProp" : "aVal"}], [3,1,obj])
+                ).toEqual([1,3]);
             }
         );
-        it('given [1,3,{"aProp" : "aVal"}], [3,1,{"aProp" : "aVal"}] ' +
-                'return [1,3]',
+        
+        it('does not consider identical object literals to be an intersection',
             function () {
-                expect(aa.intersect(
-                    [1,3,{"aProp" : "aVal"}],
-                    [3,1,{"aProp" : "aVal"}]
-                )).toEqual(
+                expect(
+                    aa.intersect([1,3,{"aProp" : "aVal"}],
+                        [3,1,{"aProp" : "aVal"}])
+                ).toEqual(
                     [1,3]
                 );
             }
@@ -128,137 +153,128 @@ describe('atropa.arrays', function () {
     });
 
     describe('getFrequency', function () {
-        it('given [1,1,1,1,1,3,3] ' +
-                'return {"1": 5,"3": 2}',
-            function () {
-                expect(aa.getFrequency(
-                    [1,1,1,1,1,3,3]
-                )).toEqual(
+        it('returns an object whose keys correspond to unique values from ' +
+            'the given array and whose values are a count of the number of ' +
+            'occurrences of that unique value', function () {
+                expect(
+                    aa.getFrequency([1,1,1,1,1,3,3])
+                ).toEqual(
                     {"1": 5,"3": 2}
                 );
-            }
-        );
-        it('given ["bill", "fred", "fred", "jane"] ' +
-                'return {"bill": 1,"fred": 2,"jane": 1}',
+            });
+        it('considers everything in terms of string values so all given ' +
+            'objects are regarded as an occurrence of "[object Object]"',
             function () {
-                expect(aa.getFrequency(
-                    ["bill", "fred", "fred", "jane"]
-                )).toEqual(
-                    {"bill": 1,"fred": 2,"jane": 1}
-                );
-            }
-        );
-        it('given [1,3,{"aProp" : "aVal"}] ' +
-                'return {"1": 1,"3": 1,"[object Object]": 1}',
-            function () {
-                expect(aa.getFrequency(
-                    [1,3,{"aProp" : "aVal"}]
-                )).toEqual(
-                    {"1": 1,"3": 1,"[object Object]": 1}
-                );
-            }
-        );
-        it('given [1,3,obj,otherObj,{"aDoughnut" : "sprinkles"}] ' +
-                'where obj =  {"aProp" : "aVal"} and otherObj = {} ' +
-                'return {"1": 1,"3": 1,"[object Object]": 3}',
-            function () {
-                var obj = {'aProp' : 'aVal'};
-                var otherObj = {};
-                expect(aa.getFrequency(
-                    [1,3,obj,otherObj,{"aDoughnut" : "sprinkles"}]
-                )).toEqual(
-                    {"1": 1,"3": 1,"[object Object]": 3}
-                );
+                expect(
+                    aa.getFrequency(
+                        [1,3,{"aProp" : "aVal"},{},{"aDoughnut" : "sprinkles"}])
+                ).toEqual({"1": 1,"3": 1,"[object Object]": 3});
             }
         );
     });
 
     describe('getUnique', function () {
-        it('given [1,1,1,4,4,3,6] ' +
-                'return [ "1", "4", "3", "6" ]',
-            function () {
-                expect(aa.getUnique([
-                    1,1,1,4,4,3,6
-                ])).toEqual([
-                    "1", "3", "4", "6"
-                ]);
+        it('returns an array of strings corresponding to the unique elements ' +
+            'of the given array', function () {
+                expect(
+                    aa.getUnique([1,1,1,4,4,3,6])
+                ).toEqual([ "1", "3", "4", "6" ]);
             }
         );
-        it('given ["bill", "fred", "jane", "fred"] ' +
-                'return ["bill", "fred", "jane"]',
-            function () {
-                expect(aa.getUnique([
-                    "bill", "fred", "jane", "fred"
-                ])).toEqual([
-                    "bill", "fred", "jane"
-                ]);
-            }
-        );
-        it('given ["bill", {"aProp":"aValue"},' +
-                '{"aGuy":"fred"},{"aLady":"jane"}] ' +
-                'return [ "bill", "[object Object]"]',
-            function () {
-            expect(aa.getUnique([ 
-                "bill",
-                {"aProp" : "aValue"},
-                {"aGuy" : "fred"},
-                {"aLady" : "jane"}
-            ])).toEqual([
-                "[object Object]",
-                "bill"
-            ]);
-        });
         
+        it('considers everything in terms of string values so all given ' +
+            'objects are regarded as an occurrence of "[object Object]"',
+            function () {
+                expect(
+                    aa.getUnique(
+                        [
+                            "bill",
+                            {"aProp":"aValue"},
+                            {"aGuy":"fred"},
+                            {"aLady":"jane"}
+                        ]
+                    )
+                ).toEqual([ "[object Object]", "bill" ]);
+            }
+        );
     });
 
     describe('removeEmptyElements', function () {
-        it('given [ 10, , 5, "", \'\', 7 ] return [10, 5, 7]',
+        it('returns an array of non empty elements from the given array',
             function () {
-                var x = [ 10, , 5, "", '', 7 ];
-                console.log('starting length ' + x.length);
-                expect(x.length).toEqual(6);
-                x = atropa.arrays.removeEmptyElements(x);
-                expect(x.length).toEqual(3);
-                expect(x).toEqual([10,5,7]);
+                expect(aa.removeEmptyElements([ 10, , 5, "", '', 7])
+                ).toEqual([10, 5, 7]);
+            }
+        );
+        it('does not remove elements explicitly set to undefined or null',
+            function () {
+                expect(aa.removeEmptyElements([ null, undefined ])
+                ).toEqual([null, undefined]);
+            }
+        );
+        it('does remove deleted elements',
+            function () {
+                var x;
+                x = ['a','b'];
+                delete x[0];
+                expect(x.length).toEqual(2);
+                expect(x).toEqual([undefined,'b']);
+                x = aa.removeEmptyElements(x);
+                expect(x.length).toEqual(1);
+                expect(x).toEqual(['b']);
+                
             }
         );
     });
 
     describe('reindex', function () {
-        it('must reindex the array', function () {
-            var x = [ "a", "b", "c", undefined ];
-            expect(x.length).toEqual(4);
-            
-            delete x[1]; // deletes the key from the array but
-                         // the array length remains the same
-                         // at this point the arrays keys are 0, 2, and 3
-                        // [ "a", undefined, "c", undefined ]
-            expect(x.length).toEqual(4);
-            
-            x = atropa.arrays.reindex(x);
-            expect(x).toEqual([ "a", "c", undefined ]);
-            expect(x.length).toEqual(3);
-        });
+        var x;
+        x = [ "a", "b", "c", undefined, null ];
+        it('returns an array whose keys are contiguous and whose elements ' +
+            'correspond to the elements of the given array which have not ' +
+            'been deleted',
+            function () {
+                delete x[1];
+                expect(x).toEqual([ "a", undefined, "c", undefined, null ]);
+                x = aa.reindex(x);
+                expect(x).toEqual([ "a", "c", undefined, null ]);
+            }
+        );
     });
 
     describe('sortNumerically', function () {
-        var x = [3, 2, 9, 26, 10, 1, 99, 15];
-        it('must exist', function () {
-            expect(
-                aa.sortNumerically(x)
-            ).toEqual(
-                [ 1, 2, 3, 9, 10, 15, 26, 99 ]
-            );
-        });
+        it('sorts arrays composed of numeric elements numerically',
+            function () {
+                expect(
+                    aa.sortNumerically(
+                        [3, 2, 9, 26, 10, 1, 99, 15])
+                ).toEqual([ 1, 2, 3, 9, 10, 15, 26, 99 ]);
+            }
+        );
     });
 
     describe('sortAlphabetically', function () {
-        it('must exist', function () {
-            var x = ['Z','a', '1', '2', '10', 'A', 'z'];
-            console.log( atropa.arrays.sortAlphabetically(x) );
-            // logs ["1", "10", "2", "a", "A", "z", "Z"]
-            expect(aa.sortAlphabetically(x)).toEqual(["1", "10", "2", "a", "A", "z", "Z"]);
-        });
+        it('sorts arrays composed of string elements alphabetically',
+            function () {
+                expect(
+                    aa.sortAlphabetically(
+                        ['Z','a', '1', '2', '10', 'A', 'z'])
+                ).toEqual(["1", "10", "2", "a", "A", "z", "Z"]);
+            }
+        );
+    });
+    
+    describe('deleteElement', function () {
+        it('Returns an array with the element removed, contiguous keys, and ' +
+            'whose length is 1 less than the input array',
+            function () {
+                var x = ['a', 'b', 'c'];
+                expect(x.length).toEqual(3);
+                x = aa.deleteElement(x, 1);
+                expect(x).toEqual(['a','c']);
+                expect(x.length).toEqual(2);
+            }
+        );
     });
 });
 

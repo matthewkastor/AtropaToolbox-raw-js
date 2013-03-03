@@ -10,32 +10,32 @@ __report = {
       "line": 22,
       "complexity": {
         "sloc": {
-          "physical": 382,
-          "logical": 73
+          "physical": 396,
+          "logical": 77
         },
         "cyclomatic": 10,
         "halstead": {
           "operators": {
-            "distinct": 20,
-            "total": 175,
+            "distinct": 21,
+            "total": 185,
             "identifiers": [
               "__stripped__"
             ]
           },
           "operands": {
-            "distinct": 55,
-            "total": 216,
+            "distinct": 57,
+            "total": 229,
             "identifiers": [
               "__stripped__"
             ]
           },
-          "length": 391,
-          "vocabulary": 75,
-          "difficulty": 39.27272727272727,
-          "volume": 2435.4681079838892,
-          "effort": 95647.47478627638,
-          "bugs": 0.8118227026612964,
-          "time": 5313.748599237577
+          "length": 414,
+          "vocabulary": 78,
+          "difficulty": 42.18421052631579,
+          "volume": 2602.156518608971,
+          "effort": 109769.9184034258,
+          "bugs": 0.8673855062029904,
+          "time": 6098.328800190323
         }
       }
     },
@@ -583,9 +583,43 @@ __report = {
             "time": 2.87218055635684
           }
         }
+      },
+      {
+        "name": "<anonymous>.deleteElement",
+        "line": 413,
+        "complexity": {
+          "sloc": {
+            "physical": 5,
+            "logical": 3
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 4,
+              "total": 6,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 6,
+              "total": 9,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 15,
+            "vocabulary": 10,
+            "difficulty": 3,
+            "volume": 49.82892142331044,
+            "effort": 149.4867642699313,
+            "bugs": 0.016609640474436815,
+            "time": 8.304820237218406
+          }
+        }
       }
     ],
-    "maintainability": 74.16444671553445,
+    "maintainability": 74.39125670735304,
     "module": "Toolbox\\enabled\\arrays.js"
   },
   "jshint": {

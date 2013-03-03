@@ -82,8 +82,8 @@ atropa.arrays.match = function arraysMatch(array1, array2) {
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
  * @version 20130112
- * @param {Array} a The array to subtract.
- * @param {Array} fromB The array with elements duplicated in <code>a</code>
+ * @param {Array} a (subtrahend) The array to subtract.
+ * @param {Array} (minuend) fromB The array with elements duplicated in <code>a</code>
  * @returns {Array} Returns a new array containing only the unique
  *  values found in <code>fromB</code> that are not present in <code>a</code>
  * @example
@@ -400,6 +400,20 @@ atropa.arrays.sortAlphabetically = function sortAlphabetically(arr) {
     return arr.sort(function (a, b) {
         return a.localeCompare(b);
     });
+};
+/**
+ * Deletes the given element from the array at the given index. It basically
+ *  does what you would expect the delete operator to do, except the delete
+ *  operator doesn't do what you would expect.
+ * @param {Array} arr The array.
+ * @param {Number} index The index of the element to delete.
+ * @returns Returns an array with the element removed, contiguous keys, and
+ *  whose length is 1 less than the input array.
+ */
+atropa.arrays.deleteElement = function (arr, index) {
+    "use strict";
+    delete arr[index];
+    return atropa.arrays.reindex(arr);
 };
 
 

@@ -45,21 +45,21 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
-      <p class="stat">74.16</p>
+      <p class="stat">74.39</p>
     </div>
     <div class="span6">
       <h2 class="header">Estimated # Bugs  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
-      <p class="stat">0.81</p>
+      <p class="stat">0.87</p>
     </div>
   </div>
   <div class="row">
     <div class="span6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
-      <p class="stat">39.27</p>
+      <p class="stat">42.18</p>
     </div>
     <div class="span6">
       <h2 class="header">SLOC/LSLOC <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">382 / 73</p>
+      <p class="stat">396 / 77</p>
     </div>
   </div>
 </div>
@@ -166,8 +166,8 @@ atropa.arrays.match = function arraysMatch(array1, array2) {
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
  * @version 20130112
- * @param {Array} a The array to subtract.
- * @param {Array} fromB The array with elements duplicated in <code>a</code>
+ * @param {Array} a (subtrahend) The array to subtract.
+ * @param {Array} (minuend) fromB The array with elements duplicated in <code>a</code>
  * @returns {Array} Returns a new array containing only the unique
  *  values found in <code>fromB</code> that are not present in <code>a</code>
  * @example
@@ -484,6 +484,20 @@ atropa.arrays.sortAlphabetically = function sortAlphabetically(arr) {
     return arr.sort(function (a, b) {
         return a.localeCompare(b);
     });
+};
+/**
+ * Deletes the given element from the array at the given index. It basically
+ *  does what you would expect the delete operator to do, except the delete
+ *  operator doesn't do what you would expect.
+ * @param {Array} arr The array.
+ * @param {Number} index The index of the element to delete.
+ * @returns Returns an array with the element removed, contiguous keys, and
+ *  whose length is 1 less than the input array.
+ */
+atropa.arrays.deleteElement = function (arr, index) {
+    "use strict";
+    delete arr[index];
+    return atropa.arrays.reindex(arr);
 };</textarea>
   </div>
 </div>
