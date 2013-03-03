@@ -26,6 +26,10 @@
             /// an HTML DOM Document or false.</param>
             /// <returns type="HTML DOM Document|false">The return value is
             /// given to the callback function.</returns>
+        }, 
+        
+        init: function() {
+            /// <summary></summary>
         }
         
     };

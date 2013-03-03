@@ -1,12 +1,12 @@
 __report = {
   "summary": {
     "total": {
-      "sloc": 3505,
-      "maintainability": 1652.1959212416687
+      "sloc": 3589,
+      "maintainability": 1639.174548330221
     },
     "average": {
-      "sloc": 152,
-      "maintainability": "71.83"
+      "sloc": 156,
+      "maintainability": "71.27"
     }
   },
   "reports": [
@@ -262,40 +262,40 @@ __report = {
       },
       "complexity": {
         "aggregate": {
-          "line": 73,
+          "line": 74,
           "complexity": {
             "sloc": {
-              "physical": 72,
-              "logical": 21
+              "physical": 95,
+              "logical": 32
             },
-            "cyclomatic": 3,
+            "cyclomatic": 5,
             "halstead": {
               "operators": {
-                "distinct": 11,
-                "total": 39,
+                "distinct": 15,
+                "total": 77,
                 "identifiers": [
                   "__stripped__"
                 ]
               },
               "operands": {
-                "distinct": 27,
-                "total": 56,
+                "distinct": 39,
+                "total": 96,
                 "identifiers": [
                   "__stripped__"
                 ]
               },
-              "length": 95,
-              "vocabulary": 38,
-              "difficulty": 11.407407407407407,
-              "volume": 498.5531137771406,
-              "effort": 5687.198483087381,
-              "bugs": 0.16618437125904686,
-              "time": 315.9554712826323
+              "length": 173,
+              "vocabulary": 54,
+              "difficulty": 18.461538461538463,
+              "volume": 995.5955378742801,
+              "effort": 18380.225314602096,
+              "bugs": 0.3318651792914267,
+              "time": 1021.1236285890053
             }
           }
         },
         "module": "Toolbox\\enabled\\CreateHtmlDocumentsFromXmlhttp.js",
-        "maintainability": 68.88300186566276
+        "maintainability": 65.7627532514454
       }
     },
     {
@@ -358,40 +358,40 @@ __report = {
       },
       "complexity": {
         "aggregate": {
-          "line": 25,
+          "line": 26,
           "complexity": {
             "sloc": {
-              "physical": 51,
-              "logical": 17
+              "physical": 112,
+              "logical": 46
             },
-            "cyclomatic": 2,
+            "cyclomatic": 6,
             "halstead": {
               "operators": {
-                "distinct": 9,
-                "total": 44,
+                "distinct": 16,
+                "total": 120,
                 "identifiers": [
                   "__stripped__"
                 ]
               },
               "operands": {
-                "distinct": 23,
-                "total": 53,
+                "distinct": 55,
+                "total": 130,
                 "identifiers": [
                   "__stripped__"
                 ]
               },
-              "length": 97,
-              "vocabulary": 32,
-              "difficulty": 10.369565217391305,
-              "volume": 485,
-              "effort": 5029.239130434783,
-              "bugs": 0.16166666666666665,
-              "time": 279.4021739130435
+              "length": 250,
+              "vocabulary": 71,
+              "difficulty": 18.90909090909091,
+              "volume": 1537.4367798761705,
+              "effort": 29071.5318376585,
+              "bugs": 0.5124789266253902,
+              "time": 1615.0851020921389
             }
           }
         },
         "module": "Toolbox\\enabled\\HTMLParser.js",
-        "maintainability": 71.20663350589837
+        "maintainability": 61.305509208668084
       }
     },
     {

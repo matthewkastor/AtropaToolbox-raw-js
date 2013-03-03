@@ -7,76 +7,110 @@ __report = {
   },
   "complexity": {
     "aggregate": {
-      "line": 25,
+      "line": 26,
       "complexity": {
         "sloc": {
-          "physical": 51,
-          "logical": 17
+          "physical": 112,
+          "logical": 46
         },
-        "cyclomatic": 2,
+        "cyclomatic": 6,
         "halstead": {
           "operators": {
-            "distinct": 9,
-            "total": 44,
+            "distinct": 16,
+            "total": 120,
             "identifiers": [
               "__stripped__"
             ]
           },
           "operands": {
-            "distinct": 23,
-            "total": 53,
+            "distinct": 55,
+            "total": 130,
             "identifiers": [
               "__stripped__"
             ]
           },
-          "length": 97,
-          "vocabulary": 32,
-          "difficulty": 10.369565217391305,
-          "volume": 485,
-          "effort": 5029.239130434783,
-          "bugs": 0.16166666666666665,
-          "time": 279.4021739130435
+          "length": 250,
+          "vocabulary": 71,
+          "difficulty": 18.90909090909091,
+          "volume": 1537.4367798761705,
+          "effort": 29071.5318376585,
+          "bugs": 0.5124789266253902,
+          "time": 1615.0851020921389
         }
       }
     },
     "functions": [
       {
         "name": "HTMLParser",
-        "line": 25,
+        "line": 26,
         "complexity": {
           "sloc": {
-            "physical": 51,
-            "logical": 6
+            "physical": 112,
+            "logical": 14
           },
-          "cyclomatic": 1,
+          "cyclomatic": 3,
           "halstead": {
             "operators": {
-              "distinct": 6,
-              "total": 12,
+              "distinct": 12,
+              "total": 32,
               "identifiers": [
                 "__stripped__"
               ]
             },
             "operands": {
-              "distinct": 6,
-              "total": 13,
+              "distinct": 16,
+              "total": 31,
               "identifiers": [
                 "__stripped__"
               ]
             },
-            "length": 25,
-            "vocabulary": 12,
-            "difficulty": 6.5,
-            "volume": 89.62406251802891,
-            "effort": 582.556406367188,
-            "bugs": 0.029874687506009637,
-            "time": 32.36424479817711
+            "length": 63,
+            "vocabulary": 28,
+            "difficulty": 11.625,
+            "volume": 302.86336008962905,
+            "effort": 3520.7865610419376,
+            "bugs": 0.10095445336320968,
+            "time": 195.59925339121875
+          }
+        }
+      },
+      {
+        "name": "selfTest",
+        "line": 39,
+        "complexity": {
+          "sloc": {
+            "physical": 41,
+            "logical": 21
+          },
+          "cyclomatic": 3,
+          "halstead": {
+            "operators": {
+              "distinct": 10,
+              "total": 56,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 36,
+              "total": 59,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 115,
+            "vocabulary": 46,
+            "difficulty": 8.194444444444445,
+            "volume": 635.2096249465565,
+            "effort": 5205.189982200949,
+            "bugs": 0.21173654164885217,
+            "time": 289.17722123338604
           }
         }
       },
       {
         "name": "<anonymous>.newDocument",
-        "line": 43,
+        "line": 96,
         "complexity": {
           "sloc": {
             "physical": 10,
@@ -110,7 +144,7 @@ __report = {
       },
       {
         "name": "<anonymous>.loadString",
-        "line": 64,
+        "line": 117,
         "complexity": {
           "sloc": {
             "physical": 9,
@@ -143,7 +177,7 @@ __report = {
         }
       }
     ],
-    "maintainability": 71.20663350589837,
+    "maintainability": 61.305509208668084,
     "module": "Toolbox\\enabled\\HTMLParser.js"
   },
   "jshint": {

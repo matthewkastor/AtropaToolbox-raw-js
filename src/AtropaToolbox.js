@@ -31,7 +31,14 @@
 var atropa;
 atropa = {};
 
-
+/**
+ * Container for gobal data related to the classes and functions.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @namespace Container for gobal data related to the classes and functions.
+ */
+atropa.data = {};
 
 /**
  * This represents a filter for arguments based on type.
@@ -1542,6 +1549,7 @@ atropa.CookieMonster = function CookieMonster() {
  * @class Creates HTML DOM Documents from an XMLHttpRequest object.
  * @requires atropa.Requester
  * @requires atropa.HTMLParser
+ * @requires atropa.data
  * @example
  * var method, url, callback, docs;
  * 
@@ -1597,8 +1605,6 @@ atropa.CreateHtmlDocumentsFromXmlhttp = function CreateHtmlDocumentsFromXmlhttp(
     htmldocument,
     that;
     that = this;
-    requester = new atropa.Requester();
-    htmldocument = new atropa.HTMLParser();
     /**
      * Queue of documents created by this instance.
      * @author <a href="mailto:matthewkastor@gmail.com">
@@ -1661,6 +1667,31 @@ atropa.CreateHtmlDocumentsFromXmlhttp = function CreateHtmlDocumentsFromXmlhttp(
         };
         requester.makeRequest(method, url, messageBody, cb);
     };
+    
+    function init () {
+        if(atropa.data.CreateHtmlDocumentsFromXmlhttp === undefined) {
+            atropa.data.CreateHtmlDocumentsFromXmlhttp = {};
+        }
+        
+        if(atropa.data.CreateHtmlDocumentsFromXmlhttp.support === 'unsupported') {
+            throw new Error(atropa.data.CreateHtmlDocumentsFromXmlhttp.error);
+        }
+        
+        try {
+            requester = new atropa.Requester();
+            htmldocument = new atropa.HTMLParser();
+        } catch (e) {
+            atropa.data.CreateHtmlDocumentsFromXmlhttp.support = 'unsupported';
+            atropa.data.CreateHtmlDocumentsFromXmlhttp.error = 
+                'The atropa.CreateHtmlDocumentsFromXmlhttp ' +
+                'class requires the atropa.HTMLParser and the ' +
+                'atropa.Requester one of which has thrown the following ' +
+                'error: ' + e;
+            throw new Error(atropa.data.CreateHtmlDocumentsFromXmlhttp.error);
+        }
+    }
+    
+    init();
 };
 
 
@@ -1710,9 +1741,62 @@ atropa.InvalidArgumentTypesError.prototype.constructor =
  * @class Creates a new HTML Parser
  * @returns {HTML DOM Document} Returns a blank HTML Document for you to load
  *  data into
+ * @requires atropa.data
  */
 atropa.HTMLParser = function HTMLParser() {
     "use strict";
+    var my = this;
+    /**
+     * Tests if this class will work in the current environment and throws
+     *  an error if it won't.
+     * @private
+     * @methodOf atropa.HTMLParser#
+     * @return Returns true or throws an error if this class is not supported
+     *  in the current environment.
+     * @throws {Error} Throws errors if this class can not be used in the
+     *  current environment.
+     */
+    function selfTest() {
+        atropa.data.HTMLParser = {};
+        try {
+            my.newDocument();
+            
+            try {
+                if (my.doc.nodeType !== 9) {
+                    throw new Error('the document nodeType returned an ' +
+                        'unexpected value');
+                }
+            } catch (e) {
+                throw new Error('atropa.HTMLParser can not create a new ' +
+                    'document because: ' + e);
+            }
+            
+            try {
+                my.loadString(
+                    '<head></head><body><p id="testPara">test</p></body>'
+                );
+            } catch (f) {
+                throw new Error('atropa.HTMLParser can not load ' +
+                    'the hidden document from string because: ' + f);
+            }
+            
+            try {
+                if (my.doc.getElementById('testPara').textContent !== 'test') {
+                    throw new Error('the test textContent was not the ' +
+                        'expected value');
+                }
+            } catch (g) {
+                throw new Error('atropa.HTMLParser can not access ' +
+                    'or manipulate the hidden document because: ' + g);
+            }
+        } catch (h) {
+            atropa.data.HTMLParser.support = 'unsupported';
+            atropa.data.HTMLParser.error = 'The atropa.HTMLParser Class can ' +
+                'not be used, it is not supported by the current environment ' +
+                'because: ' + h;
+            throw new Error(atropa.data.HTMLParser.error);
+        }
+    }
     /**
      * Holds the created HTML DOM Document.
      * @type HTML DOM Document
@@ -1759,8 +1843,17 @@ atropa.HTMLParser = function HTMLParser() {
         this.doc.documentElement.innerHTML = htmlstring;
         return this.doc;
     };
-    this.newDocument();
-    return this;
+    
+    if(atropa.data.HTMLParser === undefined) {
+        selfTest();
+    } else {
+        if(atropa.data.HTMLParser.support === 'unsupported') {
+            throw new Error(atropa.data.HTMLParser.error);
+        } else {
+            this.newDocument();
+            return this;
+        }
+    }
 };
 
 

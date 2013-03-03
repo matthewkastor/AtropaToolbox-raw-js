@@ -22,6 +22,7 @@
  * @class Creates HTML DOM Documents from an XMLHttpRequest object.
  * @requires atropa.Requester
  * @requires atropa.HTMLParser
+ * @requires atropa.data
  * @example
  * var method, url, callback, docs;
  * 
@@ -77,8 +78,6 @@ atropa.CreateHtmlDocumentsFromXmlhttp = function CreateHtmlDocumentsFromXmlhttp(
     htmldocument,
     that;
     that = this;
-    requester = new atropa.Requester();
-    htmldocument = new atropa.HTMLParser();
     /**
      * Queue of documents created by this instance.
      * @author <a href="mailto:matthewkastor@gmail.com">
@@ -141,6 +140,31 @@ atropa.CreateHtmlDocumentsFromXmlhttp = function CreateHtmlDocumentsFromXmlhttp(
         };
         requester.makeRequest(method, url, messageBody, cb);
     };
+    
+    function init () {
+        if(atropa.data.CreateHtmlDocumentsFromXmlhttp === undefined) {
+            atropa.data.CreateHtmlDocumentsFromXmlhttp = {};
+        }
+        
+        if(atropa.data.CreateHtmlDocumentsFromXmlhttp.support === 'unsupported') {
+            throw new Error(atropa.data.CreateHtmlDocumentsFromXmlhttp.error);
+        }
+        
+        try {
+            requester = new atropa.Requester();
+            htmldocument = new atropa.HTMLParser();
+        } catch (e) {
+            atropa.data.CreateHtmlDocumentsFromXmlhttp.support = 'unsupported';
+            atropa.data.CreateHtmlDocumentsFromXmlhttp.error = 
+                'The atropa.CreateHtmlDocumentsFromXmlhttp ' +
+                'class requires the atropa.HTMLParser and the ' +
+                'atropa.Requester one of which has thrown the following ' +
+                'error: ' + e;
+            throw new Error(atropa.data.CreateHtmlDocumentsFromXmlhttp.error);
+        }
+    }
+    
+    init();
 };
 
 

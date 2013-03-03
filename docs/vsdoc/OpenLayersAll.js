@@ -26,6 +26,7 @@
 
     window.atropa = {
         /// <summary></summary>
+        /// <field name="data" type="">Container for gobal data related to the classes and functions.</field>
         /// <field name="arrays" type="">Utilities for handling arrays.</field>
         /// <field name="inject" type="">Contains tools for injecting elements and assemblies.
         /// into the page.</field>
@@ -441,6 +442,10 @@
             /// an HTML DOM Document or false.</param>
             /// <returns type="HTML DOM Document|false">The return value is
             /// given to the callback function.</returns>
+        }, 
+        
+        init: function() {
+            /// <summary></summary>
         }
         
     };
@@ -449,6 +454,25 @@
     $x.__typeName = "atropa.CreateHtmlDocumentsFromXmlhttp";
 })(this);
 
+
+  
+/* vsdoc for atropa.data */
+
+(function (window) {
+    window.atropa = window.atropa || {};
+
+    window.atropa.data = {
+        /// <summary></summary>
+        /// <returns type="atropa.data"/>
+                
+    };
+
+    var $x = window.atropa.data;
+    $x.__namespace = "true";
+    $x.__typeName = "atropa.data";
+})(this);
+
+  
 
   
   
@@ -466,6 +490,13 @@
     var $x = window.atropa.HTMLParser;
     $x.prototype = {
                 
+        selfTest: function() {
+            /// <summary>Tests if this class will work in the current environment and throws
+            ///  an error if it won&apos;t.</summary>
+            /// <returns type="">Returns true or throws an error if this class is not supported
+            ///  in the current environment.</returns>
+        }, 
+        
         newDocument: function() {
             /// <summary>Creates a blank HTML DOM Document.</summary>
             /// <returns type="HTML DOM Document">Resets the doc property of this instance

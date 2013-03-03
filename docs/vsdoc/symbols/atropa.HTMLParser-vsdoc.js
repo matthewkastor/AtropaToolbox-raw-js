@@ -13,6 +13,13 @@
     var $x = window.atropa.HTMLParser;
     $x.prototype = {
                 
+        selfTest: function() {
+            /// <summary>Tests if this class will work in the current environment and throws
+            ///  an error if it won&apos;t.</summary>
+            /// <returns type="">Returns true or throws an error if this class is not supported
+            ///  in the current environment.</returns>
+        }, 
+        
         newDocument: function() {
             /// <summary>Creates a blank HTML DOM Document.</summary>
             /// <returns type="HTML DOM Document">Resets the doc property of this instance

@@ -5,6 +5,7 @@
 /// <reference path="atropa.Babbler-vsdoc.js" />
 /// <reference path="atropa.CookieMonster-vsdoc.js" />
 /// <reference path="atropa.CreateHtmlDocumentsFromXmlhttp-vsdoc.js" />
+/// <reference path="atropa.data-vsdoc.js" />
 /// <reference path="atropa.HTMLParser-vsdoc.js" />
 /// <reference path="atropa.inject-vsdoc.js" />
 /// <reference path="atropa.inquire-vsdoc.js" />

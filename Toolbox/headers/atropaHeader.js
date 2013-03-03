@@ -22,4 +22,11 @@
 var atropa;
 atropa = {};
 
-
+/**
+ * Container for gobal data related to the classes and functions.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @namespace Container for gobal data related to the classes and functions.
+ */
+atropa.data = {};
