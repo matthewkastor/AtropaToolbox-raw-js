@@ -1,4 +1,20 @@
 "use strict";
+/*jslint
+    indent: 4,
+    maxerr: 50,
+    white: true
+*/
+/*globals
+    atropa,
+    describe,
+    it,
+    expect,
+    beforeEach,
+    runs,
+    jasmine,
+    waitsFor
+*/
+
 describe("atropa.CreateHtmlDocumentsFromXmlhttp", function() {
     it("must exist", function() {
         expect(atropa.CreateHtmlDocumentsFromXmlhttp).not.toEqual(undefined);
@@ -44,18 +60,18 @@ describe("atropa.CreateHtmlDocumentsFromXmlhttp", function() {
             });
             
             it('must produce a document which may be manipulated', function () {
-                var doc = docs.documentQueue[0]
-                function make(element) {
-                    return doc.createElement(element);
-                }
-                function append(element) {
-                    doc.documentElement.appendChild(element);
-                }
-                var p = make('p');
+                var doc, p;
+                doc = docs.documentQueue[0];
+                p = doc.createElement('p');
                 p.textContent = 'test';
                 p.setAttribute('id', 'testPara');
                 doc.body.appendChild(p);
-                expect(doc.getElementById('testPara').textContent).toEqual('test');
+                
+                expect(
+                    doc.getElementById('testPara').textContent
+                ).toEqual(
+                    'test'
+                );
             });
         });
         

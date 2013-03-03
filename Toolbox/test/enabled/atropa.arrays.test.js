@@ -10,31 +10,9 @@
     it,
     expect
 */
+
 describe('atropa.arrays', function () {
-    var aa, show;
-    
-    aa = atropa.arrays;
-    show = JSON.stringify;
-    
-    /**
-     * the last arg is the function to test.
-     * Second to last arg is the expected return value of the function under
-     *  test.
-     * All previous args will be passed to the function under test.
-     */
-    function whenGivenReturn() {
-        "use strict";
-        var arr, given, ret, fn, givenTxt;
-        arr = Array.prototype.splice.call(arguments, 0);
-        fn = arr.pop();
-        ret = arr.pop();
-        given = arr;
-        givenTxt = show(given);
-        givenTxt = givenTxt.substring(1, givenTxt.length - 1);
-        it('given  ' + givenTxt + ' return ' + show(ret), function () {
-            expect(fn.apply(null, given)).toEqual(ret);
-        });
-    }
+    var aa = atropa.arrays;
     
     it('must exist', function () {
         expect(atropa.arrays).not.toEqual(undefined);

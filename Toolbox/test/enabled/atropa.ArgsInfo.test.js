@@ -1,4 +1,16 @@
 "use strict";
+/*jslint
+    indent: 4,
+    maxerr: 50,
+    white: true
+*/
+/*globals
+    atropa,
+    describe,
+    it,
+    expect
+*/
+
 describe('atropa.ArgsInfo', function () {
     it('must exist', function () {
         expect(atropa.ArgsInfo).not.toEqual(undefined);
@@ -9,15 +21,15 @@ describe('atropa.ArgsInfo', function () {
         
         it('must throw when called with no arguments', function () {
             function noArgs () {
-                checker.setExpectedArgTypes()
-            };
+                checker.setExpectedArgTypes();
+            }
             expect(noArgs).toThrow();
         });
         
     });
     
     describe('getArgTypes', function () {
-        var checker, input, types;
+        var checker, types;
         
         checker = new atropa.ArgsInfo();
         
@@ -74,7 +86,6 @@ describe('atropa.ArgsInfo', function () {
                 }
                 
                 result = d('wee', 10);
-                console.log(result);
                 expect(result).toEqual('basic');
             }
         );
