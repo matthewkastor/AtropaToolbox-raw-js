@@ -228,8 +228,8 @@ MustacheComb.prototype.formatExample = function formatExample(text) {
  */
 MustacheComb.prototype.includeFile = function includeFile(relPath) {
     var out;
-        
-    relPath = relPath.trim();
+    
+    relPath = path.normalize(relPath.trim());
     
     try {
         out = String(fs.readFileSync(relPath));

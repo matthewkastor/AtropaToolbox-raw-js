@@ -24,6 +24,7 @@
  * @version 20130223
  * @class This represents a cookie handler
  * @returns {CookieMonster} A cookie handler.
+ * @requires atropa.data
  */
 atropa.CookieMonster = function CookieMonster() {
     'use strict';
@@ -301,6 +302,33 @@ atropa.CookieMonster = function CookieMonster() {
     this.setCookieObj = function setCookieObj(cookieObj) {
         return this.setCookie(cookieObj.key, cookieObj.val);
     };
+
+    function init () {
+        function unsupported(e) {
+            atropa.data.CookieMonster.error = 
+                'The atropa.CookieMonster ' +
+                'class requires that document.cookie exists. ' + e;
+            atropa.data.CookieMonster.support = 'unsupported';
+            throw new Error(atropa.data.CookieMonster.error);
+        }
+        
+        if(atropa.data.CookieMonster === undefined) {
+            atropa.data.CookieMonster = {};
+        }
+        
+        if(atropa.data.CookieMonster.support === 'unsupported') {
+            throw new Error(atropa.data.CookieMonster.error);
+        }
+        
+        try {
+            if(document.cookie === undefined) {
+                unsupported('document.cookie is undefined.');
+            }
+        } catch (e) {
+            unsupported(e);
+        }
+    }
+    init();
 };
 
 

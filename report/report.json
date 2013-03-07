@@ -1,12 +1,12 @@
 {
   "summary": {
     "total": {
-      "sloc": 3589,
-      "maintainability": 1639.174548330221
+      "sloc": 3616,
+      "maintainability": 1638.7843458617963
     },
     "average": {
-      "sloc": 156,
-      "maintainability": "71.27"
+      "sloc": 157,
+      "maintainability": "71.25"
     }
   },
   "reports": [
@@ -214,40 +214,40 @@
       },
       "complexity": {
         "aggregate": {
-          "line": 28,
+          "line": 29,
           "complexity": {
             "sloc": {
-              "physical": 277,
-              "logical": 70
+              "physical": 304,
+              "logical": 85
             },
-            "cyclomatic": 10,
+            "cyclomatic": 13,
             "halstead": {
               "operators": {
-                "distinct": 21,
-                "total": 171,
+                "distinct": 24,
+                "total": 213,
                 "identifiers": [
                   "__stripped__"
                 ]
               },
               "operands": {
-                "distinct": 49,
-                "total": 210,
+                "distinct": 61,
+                "total": 257,
                 "identifiers": [
                   "__stripped__"
                 ]
               },
-              "length": 381,
-              "vocabulary": 70,
-              "difficulty": 45,
-              "volume": 2335.2568294560324,
-              "effort": 105086.55732552145,
-              "bugs": 0.7784189431520108,
-              "time": 5838.1420736400805
+              "length": 470,
+              "vocabulary": 85,
+              "difficulty": 50.55737704918033,
+              "volume": 3012.4137399847205,
+              "effort": 152299.737280539,
+              "bugs": 1.0041379133282402,
+              "time": 8461.096515585501
             }
           }
         },
         "module": "Toolbox\\enabled\\CookieMonster.js",
-        "maintainability": 68.2365778150229
+        "maintainability": 67.84637534659817
       }
     },
     {

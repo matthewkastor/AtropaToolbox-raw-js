@@ -1257,6 +1257,7 @@ atropa.Babbler = function Babbler(wrdCount) {
  * @version 20130223
  * @class This represents a cookie handler
  * @returns {CookieMonster} A cookie handler.
+ * @requires atropa.data
  */
 atropa.CookieMonster = function CookieMonster() {
     'use strict';
@@ -1534,6 +1535,33 @@ atropa.CookieMonster = function CookieMonster() {
     this.setCookieObj = function setCookieObj(cookieObj) {
         return this.setCookie(cookieObj.key, cookieObj.val);
     };
+
+    function init () {
+        function unsupported(e) {
+            atropa.data.CookieMonster.error = 
+                'The atropa.CookieMonster ' +
+                'class requires that document.cookie exists. ' + e;
+            atropa.data.CookieMonster.support = 'unsupported';
+            throw new Error(atropa.data.CookieMonster.error);
+        }
+        
+        if(atropa.data.CookieMonster === undefined) {
+            atropa.data.CookieMonster = {};
+        }
+        
+        if(atropa.data.CookieMonster.support === 'unsupported') {
+            throw new Error(atropa.data.CookieMonster.error);
+        }
+        
+        try {
+            if(document.cookie === undefined) {
+                unsupported('document.cookie is undefined.');
+            }
+        } catch (e) {
+            unsupported(e);
+        }
+    }
+    init();
 };
 
 
@@ -3910,7 +3938,7 @@ atropa.wtf.htmlElement = function (elementReference) {
     "use strict";
     var wtfified, txt;
     elementReference.innerHTML = elementReference.innerHTML.replace(
-        /<br>(\s+)?\r?\n?/g, '\r\n');
+        /<br>(\s+)?(\r\n|\r|\n)?/g, '\r\n');
     txt = elementReference.value || elementReference.textContent;
     wtfified = atropa.wtf.wtfify(txt, true);
     elementReference.innerHTML =

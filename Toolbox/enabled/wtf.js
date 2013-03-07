@@ -575,7 +575,7 @@ atropa.wtf.htmlElement = function (elementReference) {
     "use strict";
     var wtfified, txt;
     elementReference.innerHTML = elementReference.innerHTML.replace(
-        /<br>(\s+)?\r?\n?/g, '\r\n');
+        /<br>(\s+)?(\r\n|\r|\n)?/g, '\r\n');
     txt = elementReference.value || elementReference.textContent;
     wtfified = atropa.wtf.wtfify(txt, true);
     elementReference.innerHTML =

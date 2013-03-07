@@ -462,10 +462,25 @@ task('docServ', function (port) {
 
 desc('Regenerates AtropaToolboxTests.html');
 task('jasmineRunnerGen', function () {
-    var path, gen;
-    path = require('path');
-    gen = require('./buildTools/mustache/AtropaToolboxTests.mustache.js');
-    gen.generateAtropaToolboxTestsHtml();
+    var JasmineSpecRunnerGenerator, specRunner;
+    
+    JasmineSpecRunnerGenerator = require(
+         'atropa-jasmine-spec-runner-generator-html');
+    
+    specRunner = new JasmineSpecRunnerGenerator(
+         'jasmine/', 'AtropaToolboxTests.html', 'AtropaToolbox Test Suite');
+    
+    specRunner.sourceFiles = ['src/AtropaToolbox.js']
+    
+    specRunner.addSpecs('./Toolbox/test/enabled/', 'Toolbox/test/enabled/');
+    
+    // specRunner.generate(console.log);
+    
+    specRunner.generateFile(
+        function () {
+            console.log('Generated AtropaToolboxTests.html');
+        }
+    );
 });
 
 

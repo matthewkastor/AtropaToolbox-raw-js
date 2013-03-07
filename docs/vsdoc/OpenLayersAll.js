@@ -404,6 +404,10 @@
             /// <summary>Sets a cookie per user specifications as an object.
             /// The cookie will expire when the browser is closed.</summary>
             /// <param name="cookieObj" type="cookieObj">A cookie object.</param>
+        }, 
+        
+        init: function() {
+            /// <summary></summary>
         }
         
     };
