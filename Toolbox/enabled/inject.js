@@ -11,14 +11,30 @@
 /*global atropa */
 // end header
 
+
+atropa.requires(
+    'inject',
+    function () {
+        "use strict";
+        if(document.createElement === undefined) {
+            return false;
+        }
+        return true;
+    },
+    'The atropa.inject class requires the window object present in web ' +
+        'browsers in order to be useful. atropa.inject is not supported in ' +
+        'this environment'
+);
+
 /**
  * Contains tools for injecting elements and assemblies.
  * into the page.
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
- * @version 20120909
+ * @version 20130308
  * @namespace Contains tools for injecting elements and assemblies.
+ * @requires atropa.data
  */
 atropa.inject = {};
 /**
@@ -57,6 +73,8 @@ atropa.inject.element = function (
     elementType, docref, parentNod, attributes, onloadHandler, callback
 ) {
     "use strict";
+    atropa.supportCheck('inject');
+    
     var el,
     x;
     docref = atropa.setAsOptionalArg(document, docref);
@@ -93,6 +111,8 @@ atropa.inject.element = function (
  */
 atropa.inject.hiddenFrame = function (id, srcURL, docref, callback, parentNod) {
     "use strict";
+    atropa.supportCheck('inject');
+    
     var attributes,
     elementType,
     onloadHandler,
@@ -127,6 +147,8 @@ atropa.inject.hiddenFrame = function (id, srcURL, docref, callback, parentNod) {
  */
 atropa.inject.script = function (id, srcURL, docref, callback) {
     "use strict";
+    atropa.supportCheck('inject');
+    
     var attributes,
     elementType,
     parentNod,
