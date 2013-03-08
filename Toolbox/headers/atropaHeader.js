@@ -28,12 +28,13 @@ atropa = {};
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
  * @version 20130308
- * @param {String} className The fully qualified name of the class.
+ * @param {String} className The name of the class.
  * @param {String} errorMessage Optional. A custom error message. Defaults to
  *  atropa.data[className].error
  */
 atropa.supportCheck = function (className, errorMessage) {
     "use strict";
+    className = String(className);
     errorMessage = errorMessage || atropa.data[className].error;
     errorMessage = String(errorMessage);
     
@@ -49,17 +50,17 @@ atropa.supportCheck = function (className, errorMessage) {
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
  * @version 20130308
- * @param {String} className The fully qualified name of the class.
+ * @param {String} className The name of the class.
  * @param {Function} requirementFn A function to test whether or not the class
  *  is supported in this environment. If supported, returns true otherwise
  *  return false.
  * @param {String} errorMessage The error message to use when this class or its
  *  methods are called in unsupported environments. Defaults to:
- *  'The ' + className + ' class is unsupported in this environment.';
+ *  'The atropa.' + className + ' class is unsupported in this environment.';
  */
 atropa.requires = function (className, requirementFn, errorMessage) {
     "use strict";
-    errorMessage = errorMessage || 'The ' + className +
+    errorMessage = errorMessage || 'The atropa.' + className +
         ' class is unsupported in this environment.';
     errorMessage = String(errorMessage);
     
@@ -69,9 +70,12 @@ atropa.requires = function (className, requirementFn, errorMessage) {
         atropa.data[className] = {};
     }
     
-    if(requirementFn()) {
+    var test = requirementFn();
+    
+    atropa.data[className].error = errorMessage;
+    
+    if(test === false) {
         atropa.data[className].support = 'unsupported';
-        atropa.data[className].error = errorMessage;
     }
 };
 /**
