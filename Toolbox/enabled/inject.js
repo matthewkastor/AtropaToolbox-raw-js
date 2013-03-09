@@ -82,6 +82,7 @@ atropa.inject.element = function (
     attributes = atropa.setAsOptionalArg({}, attributes);
     onloadHandler = atropa.setAsOptionalArg(function () {}, onloadHandler);
     callback = atropa.setAsOptionalArg(function () {}, callback);
+    
     el = docref.createElement(elementType);
     for (x in attributes) {
         if (attributes.hasOwnProperty(x)) {
@@ -98,37 +99,40 @@ atropa.inject.element = function (
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
- * @version 20120909
+ * @version 20130308
  * @param {String} id The id of the element to be injected.
  * @param {String} srcUrl The URL to load in the iframe.
- * @param {HTML DOM Document} docref Optional.
- * @param {Function} callback Optional.
- * @param {DOM Node} parentNod Optional.
+ * @param {HTML DOM Document} docref Optional. Reference to the document to
+ *  inject the iframe in. Defaults to document.
+ * @param {Function} onloadHandler Optional. The onload handler for the iframe.
+ * @param {DOM Node} parentNod Optional. Referenct to the parent node to
+ *  append the iframe to. Defaults to docref.body
+ * @param {Function} callback Optional. Callback function for preprocessing
+ *  the iframe prior to injection. Called with a reference to the iframe.
  * @return {HTML Element} Returns a reference to the HTML Element created and
  *  injected.
- * @see atropa.inject.element for default values and additional information
- * on optional parameters.
+ * @see atropa.inject.element
  */
-atropa.inject.hiddenFrame = function (id, srcURL, docref, callback, parentNod) {
+atropa.inject.hiddenFrame = function (
+    id, srcURL, docref, onloadHandler, parentNod, callback
+) {
     "use strict";
     atropa.supportCheck('inject');
     
-    var attributes,
-    elementType,
-    onloadHandler,
-    el;
-    attributes = {
-        "id" : id,
-        "src" : srcURL,
-        "width" : "0px",
-        "height" : "0px",
-        "border" : "0px"
-    };
-    elementType = 'iframe';
-    onloadHandler = callback;
-    el = atropa.inject.element(
-        elementType, docref, parentNod, attributes, onloadHandler);
-    return el;
+    return atropa.inject.element(
+        'iframe',
+        docref,
+        parentNod,
+        {
+            "id" : id,
+            "src" : srcURL,
+            "width" : "0px",
+            "height" : "0px",
+            "border" : "0px"
+        },
+        onloadHandler,
+        callback
+    );
 };
 /**
  * Script Injector.
@@ -138,12 +142,13 @@ atropa.inject.hiddenFrame = function (id, srcURL, docref, callback, parentNod) {
  * @version 20120909
  * @param {String} id The id of the element to be injected.
  * @param {String} srcUrl The URL where the script is located.
- * @param {HTML DOM Document} docref Optional.
- * @param {Function} callback Optional.
+ * @param {HTML DOM Document} docref Optional. The document to inject the
+ *  script into. Defaults to document.
+ * @param {Function} callback Optional. A function to execute once the script
+ *  has loaded. Defaults to function () {};
  * @return {HTML Element} Returns a reference to the HTML Element created and
  *  injected.
- * @see atropa.inject.element for default values and additional information
- * on optional parameters.
+ * @see atropa.inject.element
  */
 atropa.inject.script = function (id, srcURL, docref, callback) {
     "use strict";

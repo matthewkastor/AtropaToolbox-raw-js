@@ -2,7 +2,8 @@
 /*jslint
     indent: 4,
     maxerr: 50,
-    white: true
+    white: true,
+    browser: true
 */
 /*globals
     atropa,
@@ -12,7 +13,8 @@
     beforeEach,
     runs,
     jasmine,
-    waitsFor
+    waitsFor,
+    dummy
 */
 
 describe("atropa.inject", function() {
@@ -40,7 +42,7 @@ describe("atropa.inject", function() {
                         'attributes'   : { 'id': 'myId' },
                         'onloadHandler': null,
                         'callback'     : null
-                    }
+                    };
                 });
                 
                 it("must be able to inject an element of a specific type " +
@@ -118,7 +120,6 @@ describe("atropa.inject", function() {
                         );
                         
                         frameDoc = frame.contentWindow.document;
-                        console.log(frameDoc);
                         expect(
                             frameDoc.getElementById(
                                 settings.attributes.id
@@ -134,6 +135,7 @@ describe("atropa.inject", function() {
                     function() {
                         
                         settings.attributes.id = 'test3';
+                        settings.parentNod = document.getElementById('test1');
                         
                         el = atropa.inject.element (
                             settings.elementType,
@@ -144,67 +146,305 @@ describe("atropa.inject", function() {
                             settings.callback
                         );
                         
-                        expect(false).toEqual(true);
+                        expect(
+                            document.getElementById('test3').parentNode
+                        ).toEqual(
+                            document.getElementById('test1')
+                        );
                     }
                 );
                 
                 it("must be able to set an onload handler on the injected " +
                         "element",
                     function() {
+                        var handled = false;
                         
+                        settings.elementType = 'iframe';
                         settings.attributes.id = 'test4';
+                        settings.attributes.width = '0px';
+                        settings.attributes.height = '0px';
+                        settings.onloadHandler = function () {
+                            handled = true;
+                        };
                         
-                        el = atropa.inject.element (
-                            settings.elementType,
-                            settings.docref,
-                            settings.parentNod,
-                            settings.attributes,
-                            settings.onloadHandler,
-                            settings.callback
+                        runs(function () {
+                            el = atropa.inject.element (
+                                settings.elementType,
+                                settings.docref,
+                                settings.parentNod,
+                                settings.attributes,
+                                settings.onloadHandler,
+                                settings.callback
+                            );
+                        });
+                        
+                        waitsFor(
+                            function () {
+                                return handled;
+                            },
+                            'The onload function must be called',
+                            250
                         );
                         
-                        expect(false).toEqual(true);
+                        runs(function () {
+                            expect(handled).toEqual(true);
+                        });
+                        
                     }
                 );
                 
-                it("must feed the element to a callback function just prior" +
+                it("must feed the element to a callback function just prior " +
                         "to appending the element to the page",
                     function() {
+                        var callbackFired = false;
                         
                         settings.attributes.id = 'test5';
+                        settings.callback = function (element) {
+                            callbackFired = (
+                                element.nodeName.toLowerCase() === 'div'
+                            );
+                        };
+                        runs(function () {
+                            el = atropa.inject.element (
+                                settings.elementType,
+                                settings.docref,
+                                settings.parentNod,
+                                settings.attributes,
+                                settings.onloadHandler,
+                                settings.callback
+                            );
+                        });
                         
-                        el = atropa.inject.element (
-                            settings.elementType,
-                            settings.docref,
-                            settings.parentNod,
-                            settings.attributes,
-                            settings.onloadHandler,
-                            settings.callback
+                        waitsFor(
+                            function () {
+                                return callbackFired;
+                            },
+                            'The callback must receive a reference to the ' +
+                                'injected element',
+                            1000
                         );
                         
-                        expect(false).toEqual(true);
+                        runs(function () {
+                            expect(callbackFired).toEqual(true);
+                        });
                     }
                 );
                 
             });
+            
             describe('hiddenFrame', function () {
-                it("fails", function() {
-                    expect(false).toEqual(true);
+                var el,
+                    settings = {},
+                    handled = false,
+                    callbackFired = false;
+                
+                beforeEach(function () {
+                    el = '';
+                    handled = false;
+                    callbackFired = false;
+                    settings = {
+                        'id'           : null,
+                        'srcURL'       : 'http://localhost/',
+                        'docref'       : null,
+                        'onloadHandler': null,
+                        'parentNod'    : null,
+                        'callback'     : null
+                    };
                 });
+                
+                it("must return a reference to the injected frame",
+                    function() {
+                        settings.id = 'injectHiddenFrame1';
+                        el = atropa.inject.hiddenFrame(
+                            settings.id,
+                            settings.srcURL,
+                            settings.docref,
+                            settings.onloadHandler,
+                            settings.parentNod,
+                            settings.callback
+                        );
+                        expect(el.src).toEqual(settings.srcURL);
+                        expect(
+                            document.getElementById(
+                                settings.id).getAttribute('id')
+                        ).toEqual(
+                            settings.id
+                        );
+                        expect(el.tagName.toLowerCase()).toEqual('iframe');
+                    }
+                );
+                
+                it("must append the frame to the given parent node",
+                    function() {
+                        settings.id = 'injectHiddenFrame2';
+                        settings.parentNod = document.body;
+                        el = atropa.inject.hiddenFrame(
+                            settings.id,
+                            settings.srcURL,
+                            settings.docref,
+                            settings.onloadHandler,
+                            settings.parentNod,
+                            settings.callback
+                        );
+                        expect(
+                            el.parentNode
+                        ).toEqual(
+                            settings.parentNod
+                        );
+                    }
+                );
+                
+                it("must set the onload handler of the injected frame",
+                    function() {
+                        runs(function () {
+                            settings.id = 'injectHiddenFrame3';
+                            settings.onloadHandler = function () {
+                                handled = true;
+                            };
+                            el = atropa.inject.hiddenFrame(
+                                settings.id,
+                                settings.srcURL,
+                                settings.docref,
+                                settings.onloadHandler,
+                                settings.parentNod,
+                                settings.callback
+                            );
+                        });
+                        
+                        waitsFor(function () {
+                            return handled;
+                        }, 'The onload handler should fire.', 200);
+                        
+                        runs(function () {
+                            expect(
+                                handled
+                            ).toEqual(
+                                true
+                            );
+                        });
+                    }
+                );
+                
+                it("must call the callback before injecting the frame",
+                    function() {
+                        runs(function () {
+                            settings.id = 'injectHiddenFrame4';
+                            settings.callback = function (element) {
+                                callbackFired = (element.nodeType === 1);
+                            };
+                            el = atropa.inject.hiddenFrame(
+                                settings.id,
+                                settings.srcURL,
+                                settings.docref,
+                                settings.onloadHandler,
+                                settings.parentNod,
+                                settings.callback
+                            );
+                        });
+                        
+                        waitsFor(function () {
+                            return callbackFired;
+                        }, 'The callback should be fired', 200);
+                        
+                        runs(function () {
+                            expect(
+                                callbackFired
+                            ).toEqual(
+                                true
+                            );
+                        });
+                    }
+                );
             });
+            
             describe('script', function () {
-                it("fails", function() {
-                    expect(false).toEqual(true);
+                var el,
+                    settings = {},
+                    callbackFired = false;
+                
+                beforeEach(function () {
+                    el = '';
+                    callbackFired = false;
+                    settings = {
+                        'id'           : null,
+                        'srcURL'       : 'Toolbox/test/dummyScript.js',
+                        'docref'       : null,
+                        'callback'     : null
+                    };
                 });
+                
+                it("must return a reference to the injected script",
+                    function() {
+                        settings.id = 'injectScript1';
+                        el = atropa.inject.script(
+                            settings.id,
+                            settings.srcURL,
+                            settings.docref,
+                            settings.callback
+                        );
+                        expect(el.src).toMatch(settings.srcURL);
+                        expect(
+                            document.getElementById(
+                                settings.id).getAttribute('id')
+                        ).toEqual(
+                            settings.id
+                        );
+                        expect(el.tagName.toLowerCase()).toEqual('script');
+                    }
+                );
+                
+                it("must append the script to the given document",
+                    function() {
+                        settings.id = 'injectScript2';
+                        settings.docref = document;
+                        el = atropa.inject.script(
+                            settings.id,
+                            settings.srcURL,
+                            settings.docref,
+                            settings.callback
+                        );
+                        expect(
+                            el.ownerDocument
+                        ).toEqual(
+                            settings.docref
+                        );
+                    }
+                );
+                
+                it("must call the callback after the script has loaded.",
+                    function() {
+                        runs(function () {
+                            settings.id = 'injectScript3';
+                            settings.callback = function () {
+                                callbackFired = true;
+                            };
+                            el = atropa.inject.script(
+                                settings.id,
+                                settings.srcURL,
+                                settings.docref,
+                                settings.callback
+                            );
+                        });
+                        
+                        waitsFor(function () {
+                            return callbackFired;
+                        }, 'The callback should fire.', 200);
+                        
+                        runs(function () {
+                            expect(callbackFired).toEqual(true);
+                            expect(dummy()).toEqual('dummy');
+                        });
+                    }
+                );
             });
+            
         });
     } catch (e) {
-        console.log(e);
         describe('class is not supported in this environment', function () {
             it('it must throw an error',
                 function () {
                     function x () {
-                        atropa.supportCheck('atropa.inject');
+                        atropa.supportCheck('inject');
                     }
                     expect(x).toThrow();
                 }
