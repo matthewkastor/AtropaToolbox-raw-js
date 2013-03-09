@@ -313,7 +313,7 @@ describe("atropa.inject", function() {
                         
                         waitsFor(function () {
                             return handled;
-                        }, 'The onload handler should fire.', 200);
+                        }, 'The onload handler should fire.', 1000);
                         
                         runs(function () {
                             expect(
@@ -344,7 +344,7 @@ describe("atropa.inject", function() {
                         
                         waitsFor(function () {
                             return callbackFired;
-                        }, 'The callback should be fired', 200);
+                        }, 'The callback should be fired', 1000);
                         
                         runs(function () {
                             expect(
@@ -428,7 +428,7 @@ describe("atropa.inject", function() {
                         
                         waitsFor(function () {
                             return callbackFired;
-                        }, 'The callback should fire.', 200);
+                        }, 'The callback should fire.', 1000);
                         
                         runs(function () {
                             expect(callbackFired).toEqual(true);
