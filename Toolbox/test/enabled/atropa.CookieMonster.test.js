@@ -46,18 +46,6 @@ describe('atropa.CookieMonster', function () {
                 });
             });
             
-            describe('cookie2obj', function () {
-                it('converts a cookie string into an object', function () {
-                    var cookieObj = cookieMonster.cookie2obj(
-                        'atropa=hial atropa!!;');
-                    expect(
-                        cookieObj
-                    ).toEqual(
-                        { key : 'atropa', val : 'hial atropa!!' }
-                    );
-                });
-            });
-            
             describe('bakeCookie', function () {
                 it('converts a cookie object to a cookie string', function () {
                     var cs = cookieMonster.bakeCookie(
