@@ -1,11 +1,11 @@
 {
   "summary": {
     "total": {
-      "sloc": 3651,
+      "sloc": 3734,
       "maintainability": 1641.1645505151168
     },
     "average": {
-      "sloc": 158,
+      "sloc": 162,
       "maintainability": "71.35"
     }
   },
@@ -409,7 +409,7 @@
           "line": 15,
           "complexity": {
             "sloc": {
-              "physical": 158,
+              "physical": 241,
               "logical": 49
             },
             "cyclomatic": 3,

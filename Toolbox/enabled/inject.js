@@ -35,6 +35,8 @@ atropa.requires(
  * @version 20130308
  * @namespace Contains tools for injecting elements and assemblies.
  * @requires atropa.data
+ * @requires atropa.supportCheck
+ * @requires atropa.setAsOptionalArg
  */
 atropa.inject = {};
 /**
@@ -68,6 +70,49 @@ atropa.inject = {};
  *  <code>function () {}</code>.
  * @return {HTML Element} Returns a reference to the HTML Element created and
  *  injected.
+ * @see <a href="http://www.w3.org/Security/wiki/Same_Origin_Policy">
+ * http://www.w3.org/Security/wiki/Same_Origin_Policy</a>
+ * @example
+ *  // this will inject a div element into the document body.
+ *  var el = atropa.inject.element ('div');
+ *  
+ *  // This will inject a div with the id "myId" into the element referenced by
+ *  // "container"
+ *  var el = atropa.inject.element (
+ *      'div', document, container, { 'id': 'myId' }, null, null
+ *  );
+ *  
+ *  // this will inject a div into the document of an iframe referenced with "fdoc"
+ *  // Just before the div is injected the callback will be called and the element
+ *  // may be augmented. When the callback returns the element will be injected.
+ *  var fdoc = document.getElementById('someFrame').contentWindow.document;
+ *  
+ *  var el = atropa.inject.element (
+ *      'div', fdoc, fdoc.body, { 'id': 'myId' },
+ *      null,
+ *      function (myDiv) {
+ *          myDiv.textContent = 'I could have attached event handlers';
+ *      }
+ *  );
+ *  
+ *  // this will inject an iframe into the document
+ *  // once the iframe's document has finished loading the onload handler will be
+ *  // called. If the document and the iframe are on the same domain, scripts on
+ *  // the frame and the parent document will be able to commuincate with each
+ *  // other.
+ *  function iframeHasLoaded (message) {
+ *      console.log(message);
+ *  }
+ *  
+ *  var el = atropa.inject.element (
+ *      'iframe', document, document.body,
+ *      { 'id': 'myId', 'src' : 'http://localhost' },
+ *      function () {
+ *          iframeHasLoaded('hey look at that, the frame is ready!');
+ *          // what could I do with the frame? anything I want!
+ *      },
+ *      null
+ *  );
  */
 atropa.inject.element = function (
     elementType, docref, parentNod, attributes, onloadHandler, callback
@@ -112,6 +157,19 @@ atropa.inject.element = function (
  * @return {HTML Element} Returns a reference to the HTML Element created and
  *  injected.
  * @see atropa.inject.element
+ * @see <a href="http://www.w3.org/Security/wiki/Same_Origin_Policy">
+ * http://www.w3.org/Security/wiki/Same_Origin_Policy</a>
+ * @example
+ *  el = atropa.inject.hiddenFrame(
+ *      'injectHiddenFrame3',
+ *      'http://localhost/',
+ *      null,
+ *      function () {
+ *          console.log('hey look at that, the frame is ready!');
+ *      },
+ *      null,
+ *      null
+ *  );
  */
 atropa.inject.hiddenFrame = function (
     id, srcURL, docref, onloadHandler, parentNod, callback
@@ -149,6 +207,31 @@ atropa.inject.hiddenFrame = function (
  * @return {HTML Element} Returns a reference to the HTML Element created and
  *  injected.
  * @see atropa.inject.element
+ * @see <a href="http://www.w3.org/Security/wiki/Same_Origin_Policy">
+ * http://www.w3.org/Security/wiki/Same_Origin_Policy</a>
+ * @example
+ *  // Given a script "dummy.js" located at "http://localhost/dummy.js"
+ *  // you can fetch the script and execute functions from within it
+ *  // as soon as it has loaded into the page.
+ *  
+ *  // contents of "dummy.js"
+ *  function dummy() {
+ *      return 'dummy';
+ *  }
+ *  
+ *  // injecting "dummy.js" into any page. The script tag isn't restricted by
+ *  // the same origin policy. Host your script anywhere and inject it to any
+ *  // page on the net that you want to.
+ *  el = atropa.inject.script(
+ *      'injectScript',
+ *      'http://localhost/',
+ *      document,
+ *      function () {
+ *          console.log(dummy());
+ *      }
+ *  );
+ *  // you may also load scripts into iframes by replacing the third parameter
+ *  // with a reference to the iframe's document object.
  */
 atropa.inject.script = function (id, srcURL, docref, callback) {
     "use strict";
