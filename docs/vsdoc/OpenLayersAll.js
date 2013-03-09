@@ -42,6 +42,27 @@
         /// <field name="xpath" type="">An Xpath toolkit for manipulating the DOM.</field>
         /// <returns type="atropa"/>
                 
+        supportCheck: function(className, errorMessage) {
+            /// <summary>Checks whether this class has been marked as unsupported and throws an 
+            ///  error if it has.</summary>
+            /// <param name="className" type="String">The name of the class.</param>
+            /// <param name="errorMessage" type="String">Optional. A custom error message. Defaults to
+            ///  atropa.data[className].error</param>
+        }, 
+        
+        requires: function(className, requirementFn, errorMessage) {
+            /// <summary>Tests whether the class is supported in this environment. Sets
+            ///  atropa.data[className]&apos;s support to unsupported and error to errorMessage
+            ///  if the requirementFn returns false.</summary>
+            /// <param name="className" type="String">The name of the class.</param>
+            /// <param name="requirementFn" type="Function">A function to test whether or not the class
+            ///  is supported in this environment. If supported, returns true otherwise
+            ///  return false.</param>
+            /// <param name="errorMessage" type="String">The error message to use when this class or its
+            ///  methods are called in unsupported environments. Defaults to:
+            ///  &apos;The atropa.&apos; + className + &apos; class is unsupported in this environment.&apos;;</param>
+        }, 
+        
         removeNodeByReference: function(elementReference) {
             /// <summary>Removes DOM Nodes.</summary>
             /// <param name="elementReference" type="DOM Node">A reference to the DOM Node you want
@@ -554,13 +575,17 @@
             ///  injected.</returns>
         }, 
         
-        hiddenFrame: function(id, srcUrl, docref, callback, parentNod) {
+        hiddenFrame: function(id, srcUrl, docref, onloadHandler, parentNod, callback) {
             /// <summary>Hidden Iframe Injector.</summary>
             /// <param name="id" type="String">The id of the element to be injected.</param>
             /// <param name="srcUrl" type="String">The URL to load in the iframe.</param>
-            /// <param name="docref" type="HTML DOM Document">Optional.</param>
-            /// <param name="callback" type="Function">Optional.</param>
-            /// <param name="parentNod" type="DOM Node">Optional.</param>
+            /// <param name="docref" type="HTML DOM Document">Optional. Reference to the document to
+            ///  inject the iframe in. Defaults to document.</param>
+            /// <param name="onloadHandler" type="Function">Optional. The onload handler for the iframe.</param>
+            /// <param name="parentNod" type="DOM Node">Optional. Referenct to the parent node to
+            ///  append the iframe to. Defaults to docref.body</param>
+            /// <param name="callback" type="Function">Optional. Callback function for preprocessing
+            ///  the iframe prior to injection. Called with a reference to the iframe.</param>
             /// <returns type="HTML Element">Returns a reference to the HTML Element created and
             ///  injected.</returns>
         }, 
@@ -569,8 +594,10 @@
             /// <summary>Script Injector.</summary>
             /// <param name="id" type="String">The id of the element to be injected.</param>
             /// <param name="srcUrl" type="String">The URL where the script is located.</param>
-            /// <param name="docref" type="HTML DOM Document">Optional.</param>
-            /// <param name="callback" type="Function">Optional.</param>
+            /// <param name="docref" type="HTML DOM Document">Optional. The document to inject the
+            ///  script into. Defaults to document.</param>
+            /// <param name="callback" type="Function">Optional. A function to execute once the script
+            ///  has loaded. Defaults to function () {};</param>
             /// <returns type="HTML Element">Returns a reference to the HTML Element created and
             ///  injected.</returns>
         }

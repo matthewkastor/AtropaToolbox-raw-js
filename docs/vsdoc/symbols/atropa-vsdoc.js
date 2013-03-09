@@ -22,6 +22,27 @@
         /// <field name="xpath" type="">An Xpath toolkit for manipulating the DOM.</field>
         /// <returns type="atropa"/>
                 
+        supportCheck: function(className, errorMessage) {
+            /// <summary>Checks whether this class has been marked as unsupported and throws an 
+            ///  error if it has.</summary>
+            /// <param name="className" type="String">The name of the class.</param>
+            /// <param name="errorMessage" type="String">Optional. A custom error message. Defaults to
+            ///  atropa.data[className].error</param>
+        }, 
+        
+        requires: function(className, requirementFn, errorMessage) {
+            /// <summary>Tests whether the class is supported in this environment. Sets
+            ///  atropa.data[className]&apos;s support to unsupported and error to errorMessage
+            ///  if the requirementFn returns false.</summary>
+            /// <param name="className" type="String">The name of the class.</param>
+            /// <param name="requirementFn" type="Function">A function to test whether or not the class
+            ///  is supported in this environment. If supported, returns true otherwise
+            ///  return false.</param>
+            /// <param name="errorMessage" type="String">The error message to use when this class or its
+            ///  methods are called in unsupported environments. Defaults to:
+            ///  &apos;The atropa.&apos; + className + &apos; class is unsupported in this environment.&apos;;</param>
+        }, 
+        
         removeNodeByReference: function(elementReference) {
             /// <summary>Removes DOM Nodes.</summary>
             /// <param name="elementReference" type="DOM Node">A reference to the DOM Node you want
