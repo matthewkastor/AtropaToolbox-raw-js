@@ -17,7 +17,7 @@
         isObject: function(x) {
             /// <summary>Checks whether the input is an object.</summary>
             /// <param name="x" type="Mixed">Any input that may or may not be an object.</param>
-            /// <returns type="Boolean">Returns true if typeof(x) === &apos;objeect&apos;.</returns>
+            /// <returns type="Boolean">Returns true if typeof(x) === &apos;object&apos;.</returns>
         }, 
         
         isObjectNotNull: function(x) {
