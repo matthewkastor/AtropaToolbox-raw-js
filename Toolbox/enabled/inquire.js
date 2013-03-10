@@ -40,7 +40,7 @@ atropa.inquire.isNull = function (x) {
  *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {Mixed} x Any input that may or may not be an object.
- * @returns {Boolean} Returns true if typeof(x) === 'objeect'.
+ * @returns {Boolean} Returns true if typeof(x) === 'object'.
  */
 atropa.inquire.isObject = function (x) {
     "use strict";
