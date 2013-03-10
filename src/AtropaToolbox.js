@@ -2357,15 +2357,15 @@ atropa.objects.convertObjectToArray = function convertObjectToArray(obj) {
  *  
  *  // logs:
  *  // sorted by value: [
- *      ["document2", 25],
- *      ["document3", 150],
- *      ["document1", 300]
- *  ]
+ *  //     ["document2", 25],
+ *  //     ["document3", 150],
+ *  //     ["document1", 300]
+ *  // ]
  *  // sorted by properties: [
- *      ["document1", 300],
- *      ["document2", 25],
- *      ["document3", 150]
- *  ]
+ *  //     ["document1", 300],
+ *  //     ["document2", 25],
+ *  //     ["document3", 150]
+ *  // ]
  * @example
  *  Lexicographic sorting:
  *  This    [1, 2, 10, 'A', 'a','Z', 'z']
@@ -2482,7 +2482,7 @@ atropa.objects.sortProperties = function sortValues(obj, sortFn) {
  *      "document2" : 25
  *  };
  *  console.log( atropa.objects.sortValuesNumerically(wordsCounted) );
- *  [["document2", 25], ["document3", 150], ["document1", 300]]
+ *  // logs [["document2", 25], ["document3", 150], ["document1", 300]]
  * @param {Object} obj A simple object where the properties
  *  all have numeric-ish values.
  * @returns {Array} Returns an array of arrays where each
@@ -2511,7 +2511,7 @@ atropa.objects.sortValuesNumerically = function sortValuesNumerically(obj) {
  *      "1" : "Document M"
  *  };
  *  console.log( atropa.objects.sortValuesAlphabetically(wordsCounted) );
- *  [["3", "Document A"], ["1", "Document M"], ["2", "Document Z"]]
+ *  // logs [["3", "Document A"], ["1", "Document M"], ["2", "Document Z"]]
  * @param {Object} obj A simple object where the properties
  *  all have string values.
  * @returns {Array} Returns an array of arrays where each
