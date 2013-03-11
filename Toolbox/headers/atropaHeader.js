@@ -60,6 +60,8 @@ atropa.supportCheck = function (className, errorMessage) {
  */
 atropa.requires = function (className, requirementFn, errorMessage) {
     "use strict";
+    var test = false;
+    
     errorMessage = errorMessage || 'The atropa.' + className +
         ' class is unsupported in this environment.';
     errorMessage = String(errorMessage);
@@ -70,7 +72,11 @@ atropa.requires = function (className, requirementFn, errorMessage) {
         atropa.data[className] = {};
     }
     
-    var test = requirementFn();
+    try {
+        test = requirementFn();
+    } catch (e) {
+        test = false;
+    }
     
     atropa.data[className].error = errorMessage;
     
