@@ -2681,7 +2681,7 @@ atropa.random.string = function randomString(stringLength, characterClass) {
     return randomstring;
 };
 /**
- * Generates a random number.
+ * Generates a random number between the specified min and max value.
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭

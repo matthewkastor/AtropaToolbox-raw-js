@@ -2616,10 +2616,10 @@
 <span class='line'>2609</span>  *  ☭ Hial Atropa!! ☭
 <span class='line'>2610</span>  * @version 20120909
 <span class='line'>2611</span>  * @param {Number} stringLength This is the length of the string.
-<span class='line'>2612</span>  * @param {String} characterClass May be one of:
-<span class='line'>2613</span>  * numeric, caps, lower, alpha, alphanumeric, punctuation, vowel, constant
-<span class='line'>2614</span>  * This is the type of characters you want
-<span class='line'>2615</span>  * returned to you.
+<span class='line'>2612</span>  * @param {String} characterClass Optional. May be one of:
+<span class='line'>2613</span>  *  numeric, caps, lower, alpha, alphanumeric, punctuation, vowel, consonant
+<span class='line'>2614</span>  *  This is the type of characters you want returned to you. Defaults to
+<span class='line'>2615</span>  *  alphanumeric.
 <span class='line'>2616</span>  * @return {String} A random string of specified length and composition.
 <span class='line'>2617</span>  */</span><span class="WHIT">
 <span class='line'>2618</span> </span><span class="NAME">atropa.random.string</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">randomString</span><span class="PUNC">(</span><span class="NAME">stringLength</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">characterClass</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
@@ -2688,7 +2688,7 @@
 <span class='line'>2681</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">randomstring</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'>2682</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'>2683</span> </span><span class="COMM">/**
-<span class='line'>2684</span>  * Generates a random number.
+<span class='line'>2684</span>  * Generates a random number between the specified min and max value.
 <span class='line'>2685</span>  * @author &lt;a href="mailto:matthewkastor@gmail.com">
 <span class='line'>2686</span>  *  Matthew Christopher Kastor-Inare III &lt;/a>&lt;br />
 <span class='line'>2687</span>  *  ☭ Hial Atropa!! ☭

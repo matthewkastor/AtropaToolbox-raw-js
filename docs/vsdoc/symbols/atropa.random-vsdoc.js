@@ -11,15 +11,15 @@
         string: function(stringLength, characterClass) {
             /// <summary>Gives you a random string whose length and characters you specify.</summary>
             /// <param name="stringLength" type="Number">This is the length of the string.</param>
-            /// <param name="characterClass" type="String">May be one of:
-            /// numeric, caps, lower, alpha, alphanumeric, punctuation, vowel, constant
-            /// This is the type of characters you want
-            /// returned to you.</param>
+            /// <param name="characterClass" type="String">Optional. May be one of:
+            ///  numeric, caps, lower, alpha, alphanumeric, punctuation, vowel, consonant
+            ///  This is the type of characters you want returned to you. Defaults to
+            ///  alphanumeric.</param>
             /// <returns type="String">A random string of specified length and composition.</returns>
         }, 
         
         integer: function(min, max) {
-            /// <summary>Generates a random number.</summary>
+            /// <summary>Generates a random number between the specified min and max value.</summary>
             /// <param name="min" type="Number">The lowest number you want returned</param>
             /// <param name="max" type="Number">The highest number you want returned</param>
             /// <returns type="Number">A random number within the specified range.</returns>
