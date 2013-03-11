@@ -7,75 +7,109 @@ __report = {
   },
   "complexity": {
     "aggregate": {
-      "line": 24,
+      "line": 14,
       "complexity": {
         "sloc": {
-          "physical": 6,
-          "logical": 4
+          "physical": 31,
+          "logical": 10
         },
-        "cyclomatic": 2,
+        "cyclomatic": 3,
         "halstead": {
           "operators": {
-            "distinct": 6,
-            "total": 8,
+            "distinct": 9,
+            "total": 19,
             "identifiers": [
               "__stripped__"
             ]
           },
           "operands": {
-            "distinct": 8,
-            "total": 11,
+            "distinct": 17,
+            "total": 26,
             "identifiers": [
               "__stripped__"
             ]
           },
-          "length": 19,
-          "vocabulary": 14,
-          "difficulty": 4.125,
-          "volume": 72.33974351909447,
-          "effort": 298.4014420162647,
-          "bugs": 0.024113247839698156,
-          "time": 16.577857889792483
+          "length": 45,
+          "vocabulary": 26,
+          "difficulty": 6.88235294117647,
+          "volume": 211.51978731634918,
+          "effort": 1455.7538303536971,
+          "bugs": 0.07050659577211639,
+          "time": 80.87521279742762
         }
       }
     },
     "functions": [
       {
-        "name": "atropa.removeNodeByReference",
-        "line": 24,
+        "name": "<anonymous>",
+        "line": 16,
         "complexity": {
           "sloc": {
-            "physical": 6,
-            "logical": 3
+            "physical": 7,
+            "logical": 4
           },
           "cyclomatic": 2,
           "halstead": {
             "operators": {
-              "distinct": 4,
-              "total": 5,
+              "distinct": 3,
+              "total": 4,
               "identifiers": [
                 "__stripped__"
               ]
             },
             "operands": {
               "distinct": 5,
-              "total": 8,
+              "total": 5,
               "identifiers": [
                 "__stripped__"
               ]
             },
-            "length": 13,
-            "vocabulary": 9,
-            "difficulty": 3.2,
-            "volume": 41.20902501875006,
-            "effort": 131.8688800600002,
-            "bugs": 0.013736341672916687,
-            "time": 7.326048892222234
+            "length": 9,
+            "vocabulary": 8,
+            "difficulty": 1.5,
+            "volume": 27,
+            "effort": 40.5,
+            "bugs": 0.009,
+            "time": 2.25
+          }
+        }
+      },
+      {
+        "name": "atropa.removeNodeByReference",
+        "line": 38,
+        "complexity": {
+          "sloc": {
+            "physical": 7,
+            "logical": 4
+          },
+          "cyclomatic": 2,
+          "halstead": {
+            "operators": {
+              "distinct": 4,
+              "total": 7,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 8,
+              "total": 11,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 18,
+            "vocabulary": 12,
+            "difficulty": 2.75,
+            "volume": 64.52932501298082,
+            "effort": 177.45564378569725,
+            "bugs": 0.02150977500432694,
+            "time": 9.85864687698318
           }
         }
       }
     ],
-    "maintainability": 79.73524759277224,
+    "maintainability": 77.39116589207818,
     "module": "Toolbox\\enabled\\removeNodeByReference.js"
   },
   "jshint": {
