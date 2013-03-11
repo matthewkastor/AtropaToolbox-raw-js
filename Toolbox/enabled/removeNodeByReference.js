@@ -11,6 +11,20 @@
 /*global atropa */
 // end header
 
+atropa.requires(
+    'removeNodeByReference',
+    function () {
+        "use strict";
+        if(document === undefined) {
+            return false;
+        }
+        return true;
+    },
+    'atropa.removeNodeByReference requires the window object present in web ' +
+        'browsers in order to be useful. This function is not supported in ' +
+        'this environment'
+);
+
 /**
  * Removes DOM Nodes.
  * @author <a href="mailto:matthewkastor@gmail.com">
@@ -23,6 +37,7 @@
  */
 atropa.removeNodeByReference = function (elementReference) {
     "use strict";
+    atropa.supportCheck('removeNodeByReference');
     if(elementReference !== undefined) {
         elementReference.parentNode.removeChild(elementReference);
     }
