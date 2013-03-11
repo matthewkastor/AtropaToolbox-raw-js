@@ -12,7 +12,7 @@
 */
 
 describe("atropa", function() {
-  it("must exist", function() {
-    expect(atropa).not.toEqual(undefined);
-  });
+    it("must exist", function() {
+        expect(atropa).not.toEqual(undefined);
+    });
 });
