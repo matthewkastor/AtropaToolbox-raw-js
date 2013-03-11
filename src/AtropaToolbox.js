@@ -69,6 +69,8 @@ atropa.supportCheck = function (className, errorMessage) {
  */
 atropa.requires = function (className, requirementFn, errorMessage) {
     "use strict";
+    var test = false;
+    
     errorMessage = errorMessage || 'The atropa.' + className +
         ' class is unsupported in this environment.';
     errorMessage = String(errorMessage);
@@ -79,7 +81,11 @@ atropa.requires = function (className, requirementFn, errorMessage) {
         atropa.data[className] = {};
     }
     
-    var test = requirementFn();
+    try {
+        test = requirementFn();
+    } catch (e) {
+        test = false;
+    }
     
     atropa.data[className].error = errorMessage;
     
@@ -2832,6 +2838,20 @@ atropa.regex.appendPrefixesAndSuffixes = function (word, threshold) {
 
 
 
+atropa.requires(
+    'removeNodeByReference',
+    function () {
+        "use strict";
+        if(document === undefined) {
+            return false;
+        }
+        return true;
+    },
+    'atropa.removeNodeByReference requires the window object present in web ' +
+        'browsers in order to be useful. This function is not supported in ' +
+        'this environment'
+);
+
 /**
  * Removes DOM Nodes.
  * @author <a href="mailto:matthewkastor@gmail.com">
@@ -2844,6 +2864,7 @@ atropa.regex.appendPrefixesAndSuffixes = function (word, threshold) {
  */
 atropa.removeNodeByReference = function (elementReference) {
     "use strict";
+    atropa.supportCheck('removeNodeByReference');
     if(elementReference !== undefined) {
         elementReference.parentNode.removeChild(elementReference);
     }
