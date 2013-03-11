@@ -2609,10 +2609,10 @@ atropa.random = {};
  *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {Number} stringLength This is the length of the string.
- * @param {String} characterClass May be one of:
- * numeric, caps, lower, alpha, alphanumeric, punctuation, vowel, constant
- * This is the type of characters you want
- * returned to you.
+ * @param {String} characterClass Optional. May be one of:
+ *  numeric, caps, lower, alpha, alphanumeric, punctuation, vowel, consonant
+ *  This is the type of characters you want returned to you. Defaults to
+ *  alphanumeric.
  * @return {String} A random string of specified length and composition.
  */
 atropa.random.string = function randomString(stringLength, characterClass) {
