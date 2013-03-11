@@ -1,7 +1,7 @@
 __report = {
   "summary": {
     "total": {
-      "sloc": 3759,
+      "sloc": 3760,
       "maintainability": 1638.8204688144228
     },
     "average": {
@@ -793,7 +793,7 @@ __report = {
           "line": 21,
           "complexity": {
             "sloc": {
-              "physical": 173,
+              "physical": 174,
               "logical": 54
             },
             "cyclomatic": 5,

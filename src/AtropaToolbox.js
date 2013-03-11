@@ -3092,7 +3092,7 @@ atropa.string.ucFirst = function ucFirst(string) {
  * @param {String} someText Plain text.
  * @return {Number} Returns the count of words in someText.
  */
-atropa.string.countWords = function (someText) {
+atropa.string.countWords = function countWords(someText) {
     "use strict";
     var wordCount,
     re;
@@ -3200,6 +3200,7 @@ atropa.string.getOffset = function getOffset(text) {
  * @param {String} text The text to analyze.
  * @returns {Array} Returns an array of the words in
  *  the given text.
+ * @requires atropa.arrays.removeEmptyElements
  */
 atropa.string.getWords = function (text) {
     "use strict";

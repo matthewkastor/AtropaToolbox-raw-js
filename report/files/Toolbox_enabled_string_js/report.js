@@ -10,7 +10,7 @@ __report = {
       "line": 21,
       "complexity": {
         "sloc": {
-          "physical": 173,
+          "physical": 174,
           "logical": 54
         },
         "cyclomatic": 5,
@@ -75,7 +75,7 @@ __report = {
         }
       },
       {
-        "name": "<anonymous>.countWords",
+        "name": "countWords",
         "line": 47,
         "complexity": {
           "sloc": {
@@ -280,7 +280,7 @@ __report = {
       },
       {
         "name": "<anonymous>.getWords",
-        "line": 156,
+        "line": 157,
         "complexity": {
           "sloc": {
             "physical": 14,
@@ -314,7 +314,7 @@ __report = {
       },
       {
         "name": "invalidChars",
-        "line": 159,
+        "line": 160,
         "complexity": {
           "sloc": {
             "physical": 5,
@@ -348,7 +348,7 @@ __report = {
       },
       {
         "name": "escapeCdata",
-        "line": 190,
+        "line": 191,
         "complexity": {
           "sloc": {
             "physical": 4,
