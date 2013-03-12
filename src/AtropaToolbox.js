@@ -3501,10 +3501,10 @@ atropa.waitFor = {};
  * @param {function} onMaxPollCallback Optional. The function to run when testFn
  *  has been run maxPoll times and the wait is being given up.
  * Defaults to <code>function () {}</code>
- * @param {Integer} pollInterval The amount of time in ms between polling testFn
- *  to see if it returns true. Defaults to 200ms.
- * @param {Integer} maxPoll The quantity of polls at which it makes sense to 
- *  give up waiting. Defaults to 50.
+ * @param {Integer} pollInterval Optional. The amount of time in ms between
+ *  polling testFn to see if it returns true. Defaults to 200ms.
+ * @param {Integer} maxPoll Optional. The quantity of polls at which it makes
+ *  sense to give up waiting. Defaults to 50.
  */
 atropa.waitFor.test = function test(
     testFn, onSuccessCallback, onMaxPollCallback, pollInterval, maxPoll
@@ -3539,10 +3539,10 @@ atropa.waitFor.test = function test(
  * @version 20120909
  * @param {Function} testFn A function which returns a reference to an HTML
  *  Element.
- * @param {Function} onSuccessCallback Optional.
- * @param {function} onMaxPollCallback Optional.
- * @param {Integer} pollInterval
- * @param {Integer} maxPoll
+ * @param {Function} Optional. onSuccessCallback
+ * @param {function} Optional. onMaxPollCallback 
+ * @param {Integer} Optional. pollInterval
+ * @param {Integer} Optional. maxPoll
  * @see atropa.waitFor.test for more information and default values for the
  *  optional parameters.
  */
