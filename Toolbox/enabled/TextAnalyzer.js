@@ -17,7 +17,7 @@
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
- * @version 20130118
+ * @version 20130311
  * @class Represents a utility for analyzing text.
  * @param {String} text The text to analyze.
  * @returns {TextAnalyzer} Returns an instance of the text analyzer.
@@ -76,7 +76,7 @@ atropa.TextAnalyzer = function TextAnalyzer(text) {
     * Matthew Christopher Kastor-Inare III </a><br />
     * ☭ Hial Atropa!! ☭
     * @private
-    * @version 20130118
+    * @version 20130311
     * @methodOf atropa.TextAnalyzer-
     */
     construct = function () {

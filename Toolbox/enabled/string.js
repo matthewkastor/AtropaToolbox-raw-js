@@ -40,7 +40,7 @@ atropa.string.ucFirst = function ucFirst(string) {
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
- * @version 20120909
+ * @version 20130311
  * @param {String} someText Plain text.
  * @return {Number} Returns the count of words in someText.
  */
