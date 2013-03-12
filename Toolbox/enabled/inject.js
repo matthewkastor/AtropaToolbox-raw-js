@@ -37,6 +37,7 @@ atropa.requires(
  * @requires atropa.data
  * @requires atropa.supportCheck
  * @requires atropa.setAsOptionalArg
+ * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.inject">tests</a>
  */
 atropa.inject = {};
 /**

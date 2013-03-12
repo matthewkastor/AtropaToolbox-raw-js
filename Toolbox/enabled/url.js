@@ -18,6 +18,7 @@
  *  ☭ Hial Atropa!! ☭
  * @version 20130311
  * @namespace Utilities for handling urls.
+ * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.url">tests</a>
  */
 atropa.url = {};
 /**

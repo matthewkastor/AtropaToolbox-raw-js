@@ -25,6 +25,7 @@
  * @requires atropa.random.integer
  * @requires atropa.string.ucFirst
  * @requires atropa.random.string
+ * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.Babbler">tests</a>
  * @example
  * var babbler = new atropa.Babbler(30);
  * // resets the word count

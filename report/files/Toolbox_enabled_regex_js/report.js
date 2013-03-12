@@ -7,7 +7,7 @@ __report = {
   },
   "complexity": {
     "aggregate": {
-      "line": 22,
+      "line": 23,
       "complexity": {
         "sloc": {
           "physical": 40,
@@ -42,7 +42,7 @@ __report = {
     "functions": [
       {
         "name": "<anonymous>.appendPrefixesAndSuffixes",
-        "line": 39,
+        "line": 40,
         "complexity": {
           "sloc": {
             "physical": 23,

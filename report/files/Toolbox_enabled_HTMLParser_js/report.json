@@ -7,7 +7,7 @@
   },
   "complexity": {
     "aggregate": {
-      "line": 26,
+      "line": 27,
       "complexity": {
         "sloc": {
           "physical": 112,
@@ -42,7 +42,7 @@
     "functions": [
       {
         "name": "HTMLParser",
-        "line": 26,
+        "line": 27,
         "complexity": {
           "sloc": {
             "physical": 112,
@@ -76,7 +76,7 @@
       },
       {
         "name": "selfTest",
-        "line": 39,
+        "line": 40,
         "complexity": {
           "sloc": {
             "physical": 41,
@@ -110,7 +110,7 @@
       },
       {
         "name": "<anonymous>.newDocument",
-        "line": 96,
+        "line": 97,
         "complexity": {
           "sloc": {
             "physical": 10,
@@ -144,7 +144,7 @@
       },
       {
         "name": "<anonymous>.loadString",
-        "line": 117,
+        "line": 118,
         "complexity": {
           "sloc": {
             "physical": 9,

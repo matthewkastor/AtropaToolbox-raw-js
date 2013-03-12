@@ -7,7 +7,7 @@
   },
   "complexity": {
     "aggregate": {
-      "line": 22,
+      "line": 23,
       "complexity": {
         "sloc": {
           "physical": 564,
@@ -42,7 +42,7 @@
     "functions": [
       {
         "name": "<anonymous>.wtfify",
-        "line": 502,
+        "line": 503,
         "complexity": {
           "sloc": {
             "physical": 65,
@@ -76,7 +76,7 @@
       },
       {
         "name": "<anonymous>",
-        "line": 540,
+        "line": 541,
         "complexity": {
           "sloc": {
             "physical": 14,
@@ -110,7 +110,7 @@
       },
       {
         "name": "<anonymous>.htmlElement",
-        "line": 574,
+        "line": 575,
         "complexity": {
           "sloc": {
             "physical": 12,
@@ -150,7 +150,7 @@
     "messages": [
       {
         "severity": "error",
-        "line": 554,
+        "line": 555,
         "column": 10,
         "message": "Bad for in variable 'word'.",
         "source": "Bad for in variable '{a}'."

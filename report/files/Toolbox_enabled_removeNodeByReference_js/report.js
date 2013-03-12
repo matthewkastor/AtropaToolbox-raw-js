@@ -10,7 +10,7 @@ __report = {
       "line": 14,
       "complexity": {
         "sloc": {
-          "physical": 31,
+          "physical": 32,
           "logical": 10
         },
         "cyclomatic": 3,
@@ -76,7 +76,7 @@ __report = {
       },
       {
         "name": "atropa.removeNodeByReference",
-        "line": 38,
+        "line": 39,
         "complexity": {
           "sloc": {
             "physical": 7,

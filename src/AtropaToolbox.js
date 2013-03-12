@@ -121,6 +121,7 @@ atropa.data = {};
  * @class This represents a filter for arguments based on type.
  * @returns {ArgsInfo} Returns an ArgsInfo filter.
  * @requires atropa.arrays.match
+ * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.ArgsInfo">tests</a>
  * @example
  * function myClassyConstructor(takes, a, few, args) {
  *     var expectedArgTypes, checker;
@@ -323,6 +324,7 @@ atropa.ArgsInfo = function ArgsInfo() {
  *  ☭ Hial Atropa!! ☭
  * @version 20130221
  * @namespace Utilities for handling arrays.
+ * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.arrays">tests</a>
  */
 atropa.arrays = {};
 /**
@@ -738,6 +740,7 @@ atropa.arrays.deleteElement = function (arr, index) {
  *  when it is finished in order to allow the actor to continue.
  * @returns {atropa.SerialActor} Returns an <code>atropa.SerialActor</code>
  *  instance.
+ * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.SerialActor">tests</a>
  * @example
  * function dummyActor(){
  *     var that = this;
@@ -1073,6 +1076,7 @@ atropa.SerialActor.prototype.stop = function() {
  * @requires atropa.random.integer
  * @requires atropa.string.ucFirst
  * @requires atropa.random.string
+ * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.Babbler">tests</a>
  * @example
  * var babbler = new atropa.Babbler(30);
  * // resets the word count
@@ -1330,6 +1334,7 @@ atropa.Babbler = function Babbler(wrdCount) {
  * @class This represents a cookie handler
  * @returns {CookieMonster} A cookie handler.
  * @requires atropa.data
+ * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.CookieMonster">tests</a>
  */
 atropa.CookieMonster = function CookieMonster() {
     'use strict';
@@ -1650,6 +1655,7 @@ atropa.CookieMonster = function CookieMonster() {
  * @requires atropa.Requester
  * @requires atropa.HTMLParser
  * @requires atropa.data
+ * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.CreateHtmlDocumentsFromXmlhttp">tests</a>
  * @example
  * var method, url, callback, docs;
  * 
@@ -1806,6 +1812,7 @@ atropa.CreateHtmlDocumentsFromXmlhttp = function CreateHtmlDocumentsFromXmlhttp(
  * @param {String} message Optional. The error message to send. Defaults to
  *  <code>InvalidArgumentTypesError</code>
  * @returns {Error} Returns an instance of the InvalidArgumentTypesError
+ * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.customErrors">tests</a>
  */
 atropa.InvalidArgumentTypesError = function InvalidArgumentTypesError(message) {
     'use strict';
@@ -1842,6 +1849,7 @@ atropa.InvalidArgumentTypesError.prototype.constructor =
  * @returns {HTML DOM Document} Returns a blank HTML Document for you to load
  *  data into
  * @requires atropa.data
+ * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.HTMLParser">tests</a>
  */
 atropa.HTMLParser = function HTMLParser() {
     "use strict";
@@ -1983,6 +1991,7 @@ atropa.requires(
  * @requires atropa.data
  * @requires atropa.supportCheck
  * @requires atropa.setAsOptionalArg
+ * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.inject">tests</a>
  */
 atropa.inject = {};
 /**
@@ -2209,6 +2218,7 @@ atropa.inject.script = function (id, srcURL, docref, callback) {
  *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @namespace Container for functions that test the state of inputs.
+ * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.inquire">tests</a>
  */
 atropa.inquire = {};
 /**
@@ -2302,6 +2312,7 @@ atropa.inquire.hasProperty = function (obj, prop) {
  *  ☭ Hial Atropa!! ☭
  * @version 20130121
  * @namespace Utilities for handling objects.
+ * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.objects">tests</a>
  */
 atropa.objects = {};
 /**
@@ -2614,6 +2625,7 @@ function sortPropertiesAlphabetically(obj) {
  *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @namespace Provides random strings and numbers.
+ * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.random">tests</a>
  */
 atropa.random = {};
 /**
@@ -2802,6 +2814,7 @@ atropa.random.pullProperty = function (obj) {
  *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @namespace Container for regex functions.
+ * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.regex">tests</a>
  */
 atropa.regex = {};
 /**
@@ -2869,6 +2882,7 @@ atropa.requires(
  * @function
  * @param {DOM Node} elementReference A reference to the DOM Node you want
  * to remove.
+ * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.removeNodeByReference">tests</a>
  */
 atropa.removeNodeByReference = function (elementReference) {
     "use strict";
@@ -2889,6 +2903,7 @@ atropa.removeNodeByReference = function (elementReference) {
  * @class This represents an XMLHttpRequest.
  * @returns {Requester} Returns a requester object.
  * @requires atropa.ArgsInfo#checkArgTypes
+ * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.Requester">tests</a>
  * @example
  * var requester, formData;
  * 
@@ -3088,6 +3103,7 @@ atropa.Requester = function Requester() {
  * @returns {Mixed} Returns the default value supplied when the optional
  * argument is undefined or null. Otherwise, the supplied optional argument
  * is returned.
+ * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.setAsOptionalArg">tests</a>
  */
 atropa.setAsOptionalArg = function (defaultVal, optionalArg) {
     "use strict";
@@ -3105,6 +3121,7 @@ atropa.setAsOptionalArg = function (defaultVal, optionalArg) {
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
  * @namespace A few utilities for manipulating strings.
+ * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.string">tests</a>
  */
 atropa.string = {};
 /**
@@ -3297,6 +3314,7 @@ atropa.string.escapeCdata = function escapeCdata(text) {
  * @requires atropa.string
  * @requires atropa.arrays
  * @requires atropa.setAsOptionalArg
+ * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.TextAnalyzer">tests</a>
  */
 atropa.TextAnalyzer = function TextAnalyzer(text) {
     "use strict";
@@ -3440,6 +3458,7 @@ atropa.TextAnalyzer.prototype.getPhraseFrequency = function getPhraseFrequency(
  *  ☭ Hial Atropa!! ☭
  * @version 20130311
  * @namespace Utilities for handling urls.
+ * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.url">tests</a>
  */
 atropa.url = {};
 /**
@@ -3466,6 +3485,7 @@ atropa.url.getFilename = function(url) {
  *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @namespace Polling functions for quick and sloppy work.
+ * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.waitFor">tests</a>
  */
 atropa.waitFor = {};
 /**
@@ -3561,6 +3581,7 @@ atropa.waitFor.element = function (
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
  * @namespace Container for all window functions and classes.
+ * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.window">tests</a>
  */
 atropa.window = {};
 /**
@@ -3640,6 +3661,7 @@ atropa.window.open = function open(url, callback, testFn) {
  *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @namespace Container for all Glorious WTFifier related functions and such.
+ * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.wtf">tests</a>
  */
 atropa.wtf = {};
 /**
@@ -4215,6 +4237,7 @@ atropa.wtf.htmlElement = function (elementReference) {
  *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @namespace An Xpath toolkit for manipulating the DOM.
+ * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.xpath">tests</a>
  */
 atropa.xpath = {};
 /**

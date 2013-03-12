@@ -7,7 +7,7 @@ __report = {
   },
   "complexity": {
     "aggregate": {
-      "line": 74,
+      "line": 75,
       "complexity": {
         "sloc": {
           "physical": 95,
@@ -42,7 +42,7 @@ __report = {
     "functions": [
       {
         "name": "CreateHtmlDocumentsFromXmlhttp",
-        "line": 74,
+        "line": 75,
         "complexity": {
           "sloc": {
             "physical": 95,
@@ -76,7 +76,7 @@ __report = {
       },
       {
         "name": "newDocument",
-        "line": 110,
+        "line": 111,
         "complexity": {
           "sloc": {
             "physical": 33,
@@ -110,7 +110,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 127,
+        "line": 128,
         "complexity": {
           "sloc": {
             "physical": 14,
@@ -144,7 +144,7 @@ __report = {
       },
       {
         "name": "init",
-        "line": 144,
+        "line": 145,
         "complexity": {
           "sloc": {
             "physical": 22,

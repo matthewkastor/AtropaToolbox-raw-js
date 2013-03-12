@@ -7,7 +7,7 @@
   },
   "complexity": {
     "aggregate": {
-      "line": 22,
+      "line": 23,
       "complexity": {
         "sloc": {
           "physical": 177,
@@ -42,7 +42,7 @@
     "functions": [
       {
         "name": "randomString",
-        "line": 36,
+        "line": 37,
         "complexity": {
           "sloc": {
             "physical": 65,
@@ -76,7 +76,7 @@
       },
       {
         "name": "randomInteger",
-        "line": 111,
+        "line": 112,
         "complexity": {
           "sloc": {
             "physical": 4,
@@ -110,7 +110,7 @@
       },
       {
         "name": "<anonymous>.getPropertyName",
-        "line": 126,
+        "line": 127,
         "complexity": {
           "sloc": {
             "physical": 6,
@@ -144,7 +144,7 @@
       },
       {
         "name": "<anonymous>.getArrayKey",
-        "line": 143,
+        "line": 144,
         "complexity": {
           "sloc": {
             "physical": 4,
@@ -178,7 +178,7 @@
       },
       {
         "name": "<anonymous>.getArrayValue",
-        "line": 157,
+        "line": 158,
         "complexity": {
           "sloc": {
             "physical": 4,
@@ -212,7 +212,7 @@
       },
       {
         "name": "<anonymous>.pullArrayElement",
-        "line": 171,
+        "line": 172,
         "complexity": {
           "sloc": {
             "physical": 9,
@@ -246,7 +246,7 @@
       },
       {
         "name": "<anonymous>.pullProperty",
-        "line": 190,
+        "line": 191,
         "complexity": {
           "sloc": {
             "physical": 9,

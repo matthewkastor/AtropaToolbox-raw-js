@@ -7,7 +7,7 @@ __report = {
   },
   "complexity": {
     "aggregate": {
-      "line": 22,
+      "line": 23,
       "complexity": {
         "sloc": {
           "physical": 301,
@@ -42,7 +42,7 @@ __report = {
     "functions": [
       {
         "name": "convertObjectToArray",
-        "line": 51,
+        "line": 52,
         "complexity": {
           "sloc": {
             "physical": 10,
@@ -76,7 +76,7 @@ __report = {
       },
       {
         "name": "sort",
-        "line": 123,
+        "line": 124,
         "complexity": {
           "sloc": {
             "physical": 4,
@@ -110,7 +110,7 @@ __report = {
       },
       {
         "name": "sortValues",
-        "line": 157,
+        "line": 158,
         "complexity": {
           "sloc": {
             "physical": 7,
@@ -144,7 +144,7 @@ __report = {
       },
       {
         "name": "valSort",
-        "line": 159,
+        "line": 160,
         "complexity": {
           "sloc": {
             "physical": 3,
@@ -178,7 +178,7 @@ __report = {
       },
       {
         "name": "sortValues",
-        "line": 194,
+        "line": 195,
         "complexity": {
           "sloc": {
             "physical": 7,
@@ -212,7 +212,7 @@ __report = {
       },
       {
         "name": "propSort",
-        "line": 196,
+        "line": 197,
         "complexity": {
           "sloc": {
             "physical": 3,
@@ -246,7 +246,7 @@ __report = {
       },
       {
         "name": "sortValuesNumerically",
-        "line": 223,
+        "line": 224,
         "complexity": {
           "sloc": {
             "physical": 7,
@@ -280,7 +280,7 @@ __report = {
       },
       {
         "name": "sortFn",
-        "line": 225,
+        "line": 226,
         "complexity": {
           "sloc": {
             "physical": 3,
@@ -314,7 +314,7 @@ __report = {
       },
       {
         "name": "sortValuesAlphabetically",
-        "line": 252,
+        "line": 253,
         "complexity": {
           "sloc": {
             "physical": 9,
@@ -348,7 +348,7 @@ __report = {
       },
       {
         "name": "sortFn",
-        "line": 256,
+        "line": 257,
         "complexity": {
           "sloc": {
             "physical": 3,
@@ -382,7 +382,7 @@ __report = {
       },
       {
         "name": "sortPropertiesNumerically",
-        "line": 283,
+        "line": 284,
         "complexity": {
           "sloc": {
             "physical": 9,
@@ -416,7 +416,7 @@ __report = {
       },
       {
         "name": "sortFn",
-        "line": 287,
+        "line": 288,
         "complexity": {
           "sloc": {
             "physical": 3,
@@ -450,7 +450,7 @@ __report = {
       },
       {
         "name": "sortPropertiesAlphabetically",
-        "line": 316,
+        "line": 317,
         "complexity": {
           "sloc": {
             "physical": 7,
@@ -484,7 +484,7 @@ __report = {
       },
       {
         "name": "sortFn",
-        "line": 318,
+        "line": 319,
         "complexity": {
           "sloc": {
             "physical": 3,

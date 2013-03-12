@@ -7,7 +7,7 @@ __report = {
   },
   "complexity": {
     "aggregate": {
-      "line": 46,
+      "line": 47,
       "complexity": {
         "sloc": {
           "physical": 153,
@@ -42,7 +42,7 @@ __report = {
     "functions": [
       {
         "name": "Requester",
-        "line": 46,
+        "line": 47,
         "complexity": {
           "sloc": {
             "physical": 153,
@@ -76,7 +76,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 76,
+        "line": 77,
         "complexity": {
           "sloc": {
             "physical": 6,
@@ -110,7 +110,7 @@ __report = {
       },
       {
         "name": "request.abort",
-        "line": 108,
+        "line": 109,
         "complexity": {
           "sloc": {
             "physical": 4,
@@ -144,7 +144,7 @@ __report = {
       },
       {
         "name": "<anonymous>.makeRequest",
-        "line": 129,
+        "line": 130,
         "complexity": {
           "sloc": {
             "physical": 43,
@@ -178,7 +178,7 @@ __report = {
       },
       {
         "name": "request.onreadystatechange",
-        "line": 156,
+        "line": 157,
         "complexity": {
           "sloc": {
             "physical": 9,
@@ -212,7 +212,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 166,
+        "line": 167,
         "complexity": {
           "sloc": {
             "physical": 5,
@@ -246,7 +246,7 @@ __report = {
       },
       {
         "name": "init",
-        "line": 173,
+        "line": 174,
         "complexity": {
           "sloc": {
             "physical": 24,
@@ -280,7 +280,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 181,
+        "line": 182,
         "complexity": {
           "sloc": {
             "physical": 10,
@@ -314,7 +314,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 184,
+        "line": 185,
         "complexity": {
           "sloc": {
             "physical": 5,

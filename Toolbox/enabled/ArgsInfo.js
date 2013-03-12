@@ -20,6 +20,7 @@
  * @class This represents a filter for arguments based on type.
  * @returns {ArgsInfo} Returns an ArgsInfo filter.
  * @requires atropa.arrays.match
+ * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.ArgsInfo">tests</a>
  * @example
  * function myClassyConstructor(takes, a, few, args) {
  *     var expectedArgTypes, checker;

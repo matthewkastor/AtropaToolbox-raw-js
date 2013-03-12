@@ -7,7 +7,7 @@ __report = {
   },
   "complexity": {
     "aggregate": {
-      "line": 55,
+      "line": 56,
       "complexity": {
         "sloc": {
           "physical": 160,
@@ -42,7 +42,7 @@ __report = {
     "functions": [
       {
         "name": "ArgsInfo",
-        "line": 55,
+        "line": 56,
         "complexity": {
           "sloc": {
             "physical": 160,
@@ -76,7 +76,7 @@ __report = {
       },
       {
         "name": "setExpectedArgTypes",
-        "line": 98,
+        "line": 99,
         "complexity": {
           "sloc": {
             "physical": 29,
@@ -110,7 +110,7 @@ __report = {
       },
       {
         "name": "getArgTypes",
-        "line": 138,
+        "line": 139,
         "complexity": {
           "sloc": {
             "physical": 11,
@@ -144,7 +144,7 @@ __report = {
       },
       {
         "name": "checkArgs",
-        "line": 165,
+        "line": 166,
         "complexity": {
           "sloc": {
             "physical": 7,
@@ -178,7 +178,7 @@ __report = {
       },
       {
         "name": "checkArgTypes",
-        "line": 187,
+        "line": 188,
         "complexity": {
           "sloc": {
             "physical": 27,

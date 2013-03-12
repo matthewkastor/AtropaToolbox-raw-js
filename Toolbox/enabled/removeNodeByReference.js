@@ -34,6 +34,7 @@ atropa.requires(
  * @function
  * @param {DOM Node} elementReference A reference to the DOM Node you want
  * to remove.
+ * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.removeNodeByReference">tests</a>
  */
 atropa.removeNodeByReference = function (elementReference) {
     "use strict";

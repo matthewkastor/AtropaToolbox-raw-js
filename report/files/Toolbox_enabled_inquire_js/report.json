@@ -7,7 +7,7 @@
   },
   "complexity": {
     "aggregate": {
-      "line": 22,
+      "line": 23,
       "complexity": {
         "sloc": {
           "physical": 82,
@@ -42,7 +42,7 @@
     "functions": [
       {
         "name": "<anonymous>.isNull",
-        "line": 32,
+        "line": 33,
         "complexity": {
           "sloc": {
             "physical": 4,
@@ -76,7 +76,7 @@
       },
       {
         "name": "<anonymous>.isObject",
-        "line": 45,
+        "line": 46,
         "complexity": {
           "sloc": {
             "physical": 4,
@@ -110,7 +110,7 @@
       },
       {
         "name": "<anonymous>.isObjectNotNull",
-        "line": 60,
+        "line": 61,
         "complexity": {
           "sloc": {
             "physical": 4,
@@ -144,7 +144,7 @@
       },
       {
         "name": "<anonymous>.hasProperty",
-        "line": 79,
+        "line": 80,
         "complexity": {
           "sloc": {
             "physical": 7,
@@ -178,7 +178,7 @@
       },
       {
         "name": "<anonymous>.isEmptyString",
-        "line": 96,
+        "line": 97,
         "complexity": {
           "sloc": {
             "physical": 8,

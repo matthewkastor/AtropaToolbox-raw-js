@@ -18,6 +18,7 @@
  *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @namespace Polling functions for quick and sloppy work.
+ * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.waitFor">tests</a>
  */
 atropa.waitFor = {};
 /**

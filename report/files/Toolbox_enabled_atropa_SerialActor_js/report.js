@@ -7,7 +7,7 @@ __report = {
   },
   "complexity": {
     "aggregate": {
-      "line": 59,
+      "line": 60,
       "complexity": {
         "sloc": {
           "physical": 288,
@@ -42,7 +42,7 @@ __report = {
     "functions": [
       {
         "name": "atropa.SerialActor",
-        "line": 59,
+        "line": 60,
         "complexity": {
           "sloc": {
             "physical": 121,
@@ -76,7 +76,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 85,
+        "line": 86,
         "complexity": {
           "sloc": {
             "physical": 5,
@@ -110,7 +110,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 88,
+        "line": 89,
         "complexity": {
           "sloc": {
             "physical": 1,
@@ -144,7 +144,7 @@ __report = {
       },
       {
         "name": "<anonymous>.action",
-        "line": 169,
+        "line": 170,
         "complexity": {
           "sloc": {
             "physical": 10,
@@ -178,7 +178,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 172,
+        "line": 173,
         "complexity": {
           "sloc": {
             "physical": 3,
@@ -212,7 +212,7 @@ __report = {
       },
       {
         "name": "<anonymous>.block",
-        "line": 208,
+        "line": 209,
         "complexity": {
           "sloc": {
             "physical": 9,
@@ -246,7 +246,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 214,
+        "line": 215,
         "complexity": {
           "sloc": {
             "physical": 1,
@@ -280,7 +280,7 @@ __report = {
       },
       {
         "name": "<anonymous>.blockTimeout",
-        "line": 229,
+        "line": 230,
         "complexity": {
           "sloc": {
             "physical": 5,
@@ -314,7 +314,7 @@ __report = {
       },
       {
         "name": "<anonymous>.free",
-        "line": 260,
+        "line": 261,
         "complexity": {
           "sloc": {
             "physical": 7,
@@ -348,7 +348,7 @@ __report = {
       },
       {
         "name": "<anonymous>.start",
-        "line": 284,
+        "line": 285,
         "complexity": {
           "sloc": {
             "physical": 13,
@@ -382,7 +382,7 @@ __report = {
       },
       {
         "name": "<anonymous>.changeInterval",
-        "line": 317,
+        "line": 318,
         "complexity": {
           "sloc": {
             "physical": 5,
@@ -416,7 +416,7 @@ __report = {
       },
       {
         "name": "<anonymous>.stop",
-        "line": 341,
+        "line": 342,
         "complexity": {
           "sloc": {
             "physical": 6,

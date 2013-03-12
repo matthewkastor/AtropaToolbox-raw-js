@@ -20,6 +20,7 @@
  * @class This represents an XMLHttpRequest.
  * @returns {Requester} Returns a requester object.
  * @requires atropa.ArgsInfo#checkArgTypes
+ * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.Requester">tests</a>
  * @example
  * var requester, formData;
  * 

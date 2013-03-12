@@ -17,6 +17,7 @@
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
  * @namespace Container for all window functions and classes.
+ * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.window">tests</a>
  */
 atropa.window = {};
 /**

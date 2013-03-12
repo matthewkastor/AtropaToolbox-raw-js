@@ -7,7 +7,7 @@
   },
   "complexity": {
     "aggregate": {
-      "line": 26,
+      "line": 27,
       "complexity": {
         "sloc": {
           "physical": 21,
@@ -42,7 +42,7 @@
     "functions": [
       {
         "name": "InvalidArgumentTypesError",
-        "line": 26,
+        "line": 27,
         "complexity": {
           "sloc": {
             "physical": 18,

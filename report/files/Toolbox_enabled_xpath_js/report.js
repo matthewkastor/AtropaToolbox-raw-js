@@ -7,7 +7,7 @@ __report = {
   },
   "complexity": {
     "aggregate": {
-      "line": 22,
+      "line": 23,
       "complexity": {
         "sloc": {
           "physical": 171,
@@ -42,7 +42,7 @@ __report = {
     "functions": [
       {
         "name": "processNodesByXpath",
-        "line": 70,
+        "line": 71,
         "complexity": {
           "sloc": {
             "physical": 24,
@@ -76,7 +76,7 @@ __report = {
       },
       {
         "name": "removeNodesByXpath",
-        "line": 113,
+        "line": 114,
         "complexity": {
           "sloc": {
             "physical": 15,
@@ -110,7 +110,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 122,
+        "line": 123,
         "complexity": {
           "sloc": {
             "physical": 3,
@@ -144,7 +144,7 @@ __report = {
       },
       {
         "name": "getNodesByXpath",
-        "line": 147,
+        "line": 148,
         "complexity": {
           "sloc": {
             "physical": 16,
@@ -178,7 +178,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 157,
+        "line": 158,
         "complexity": {
           "sloc": {
             "physical": 3,
@@ -212,7 +212,7 @@ __report = {
       },
       {
         "name": "escapeQuotesXpath",
-        "line": 187,
+        "line": 188,
         "complexity": {
           "sloc": {
             "physical": 6,

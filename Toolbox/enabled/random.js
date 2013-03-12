@@ -18,6 +18,7 @@
  *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @namespace Provides random strings and numbers.
+ * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.random">tests</a>
  */
 atropa.random = {};
 /**

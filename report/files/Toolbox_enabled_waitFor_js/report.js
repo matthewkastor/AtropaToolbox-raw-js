@@ -7,7 +7,7 @@ __report = {
   },
   "complexity": {
     "aggregate": {
-      "line": 22,
+      "line": 23,
       "complexity": {
         "sloc": {
           "physical": 85,
@@ -42,7 +42,7 @@ __report = {
     "functions": [
       {
         "name": "test",
-        "line": 41,
+        "line": 42,
         "complexity": {
           "sloc": {
             "physical": 25,
@@ -76,7 +76,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 48,
+        "line": 49,
         "complexity": {
           "sloc": {
             "physical": 1,
@@ -110,7 +110,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 50,
+        "line": 51,
         "complexity": {
           "sloc": {
             "physical": 1,
@@ -144,7 +144,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 54,
+        "line": 55,
         "complexity": {
           "sloc": {
             "physical": 11,
@@ -178,7 +178,7 @@ __report = {
       },
       {
         "name": "<anonymous>.element",
-        "line": 81,
+        "line": 82,
         "complexity": {
           "sloc": {
             "physical": 26,
@@ -212,7 +212,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 98,
+        "line": 99,
         "complexity": {
           "sloc": {
             "physical": 5,

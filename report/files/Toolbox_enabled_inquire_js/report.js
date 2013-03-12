@@ -7,7 +7,7 @@ __report = {
   },
   "complexity": {
     "aggregate": {
-      "line": 22,
+      "line": 23,
       "complexity": {
         "sloc": {
           "physical": 82,
@@ -42,7 +42,7 @@ __report = {
     "functions": [
       {
         "name": "<anonymous>.isNull",
-        "line": 32,
+        "line": 33,
         "complexity": {
           "sloc": {
             "physical": 4,
@@ -76,7 +76,7 @@ __report = {
       },
       {
         "name": "<anonymous>.isObject",
-        "line": 45,
+        "line": 46,
         "complexity": {
           "sloc": {
             "physical": 4,
@@ -110,7 +110,7 @@ __report = {
       },
       {
         "name": "<anonymous>.isObjectNotNull",
-        "line": 60,
+        "line": 61,
         "complexity": {
           "sloc": {
             "physical": 4,
@@ -144,7 +144,7 @@ __report = {
       },
       {
         "name": "<anonymous>.hasProperty",
-        "line": 79,
+        "line": 80,
         "complexity": {
           "sloc": {
             "physical": 7,
@@ -178,7 +178,7 @@ __report = {
       },
       {
         "name": "<anonymous>.isEmptyString",
-        "line": 96,
+        "line": 97,
         "complexity": {
           "sloc": {
             "physical": 8,
