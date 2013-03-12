@@ -46,12 +46,14 @@ atropa.string.ucFirst = function ucFirst(string) {
  */
 atropa.string.countWords = function countWords(someText) {
     "use strict";
-    var wordCount,
-    re;
-    wordCount = 0;
-    re = /\s+/gi;
-    wordCount = someText.split(re);
-    return wordCount.length;
+    var wordCount, re, len = 0;
+    if(someText !== undefined && someText !== '' && someText !== null) {
+        wordCount = 0;
+        re = /\s+/gi;
+        wordCount = someText.split(re);
+        len = wordCount.length;
+    }
+    return len;
 };
 
 /**
