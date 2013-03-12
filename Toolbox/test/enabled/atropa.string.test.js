@@ -35,6 +35,14 @@ describe("atropa.string", function() {
         it('must count the words in the given string', function () {
             expect(atropa.string.countWords('wee wee')).toEqual(2);
         });
+        it('must return 0 if the given text is undefined, null, or empty ' +
+                'string',
+            function () {
+                expect(atropa.string.countWords('')).toEqual(0);
+                expect(atropa.string.countWords(undefined)).toEqual(0);
+                expect(atropa.string.countWords(null)).toEqual(0);
+            }
+        )
     });
     
     describe('convertEol', function () {
