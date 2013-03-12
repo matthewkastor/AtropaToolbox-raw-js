@@ -7,110 +7,178 @@
   },
   "complexity": {
     "aggregate": {
-      "line": 27,
+      "line": 28,
       "complexity": {
         "sloc": {
-          "physical": 108,
-          "logical": 39
+          "physical": 132,
+          "logical": 47
         },
-        "cyclomatic": 4,
+        "cyclomatic": 5,
         "halstead": {
           "operators": {
-            "distinct": 15,
-            "total": 124,
+            "distinct": 16,
+            "total": 148,
             "identifiers": [
               "__stripped__"
             ]
           },
           "operands": {
-            "distinct": 42,
-            "total": 151,
+            "distinct": 54,
+            "total": 181,
             "identifiers": [
               "__stripped__"
             ]
           },
-          "length": 275,
-          "vocabulary": 57,
-          "difficulty": 26.964285714285715,
-          "volume": 1604.0447538953042,
-          "effort": 43251.9210425341,
-          "bugs": 0.5346815846317681,
-          "time": 2402.8845023630056
+          "length": 329,
+          "vocabulary": 70,
+          "difficulty": 26.814814814814813,
+          "volume": 2016.5341125748942,
+          "effort": 54072.988796452715,
+          "bugs": 0.6721780375249647,
+          "time": 3004.0549331362618
         }
       }
     },
     "functions": [
       {
         "name": "TextAnalyzer",
-        "line": 27,
+        "line": 28,
         "complexity": {
           "sloc": {
-            "physical": 40,
-            "logical": 9
+            "physical": 64,
+            "logical": 11
           },
           "cyclomatic": 1,
           "halstead": {
             "operators": {
-              "distinct": 7,
-              "total": 16,
+              "distinct": 8,
+              "total": 29,
               "identifiers": [
                 "__stripped__"
               ]
             },
             "operands": {
-              "distinct": 13,
-              "total": 22,
+              "distinct": 21,
+              "total": 38,
               "identifiers": [
                 "__stripped__"
               ]
             },
-            "length": 38,
-            "vocabulary": 20,
-            "difficulty": 5.923076923076923,
-            "volume": 164.2332676057198,
-            "effort": 972.7662773569557,
-            "bugs": 0.05474442253523993,
-            "time": 54.04257096427531
+            "length": 67,
+            "vocabulary": 29,
+            "difficulty": 7.238095238095238,
+            "volume": 325.48472667354736,
+            "effort": 2355.889450208533,
+            "bugs": 0.10849490889118245,
+            "time": 130.8827472338074
           }
         }
       },
       {
         "name": "<anonymous>",
-        "line": 58,
+        "line": 40,
         "complexity": {
           "sloc": {
-            "physical": 5,
+            "physical": 10,
             "logical": 3
           },
           "cyclomatic": 1,
           "halstead": {
             "operators": {
-              "distinct": 3,
-              "total": 18,
+              "distinct": 6,
+              "total": 6,
               "identifiers": [
                 "__stripped__"
               ]
             },
             "operands": {
-              "distinct": 10,
-              "total": 22,
+              "distinct": 5,
+              "total": 6,
               "identifiers": [
                 "__stripped__"
               ]
             },
-            "length": 40,
-            "vocabulary": 13,
-            "difficulty": 3.3000000000000003,
-            "volume": 148.0175887256437,
-            "effort": 488.4580427946242,
-            "bugs": 0.04933919624188123,
-            "time": 27.136557933034677
+            "length": 12,
+            "vocabulary": 11,
+            "difficulty": 3.5999999999999996,
+            "volume": 41.51317942364757,
+            "effort": 149.44744592513123,
+            "bugs": 0.01383772647454919,
+            "time": 8.302635884729513
+          }
+        }
+      },
+      {
+        "name": "<anonymous>",
+        "line": 43,
+        "complexity": {
+          "sloc": {
+            "physical": 5,
+            "logical": 2
+          },
+          "cyclomatic": 2,
+          "halstead": {
+            "operators": {
+              "distinct": 3,
+              "total": 3,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 4,
+              "total": 5,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 8,
+            "vocabulary": 7,
+            "difficulty": 1.875,
+            "volume": 22.458839376460833,
+            "effort": 42.11032383086406,
+            "bugs": 0.007486279792153611,
+            "time": 2.3394624350480036
+          }
+        }
+      },
+      {
+        "name": "<anonymous>",
+        "line": 82,
+        "complexity": {
+          "sloc": {
+            "physical": 6,
+            "logical": 4
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 3,
+              "total": 20,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 12,
+              "total": 25,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 45,
+            "vocabulary": 15,
+            "difficulty": 3.125,
+            "volume": 175.81007680238335,
+            "effort": 549.4064900074479,
+            "bugs": 0.05860335893412778,
+            "time": 30.522582778191552
           }
         }
       },
       {
         "name": "<anonymous>.getIndex",
-        "line": 77,
+        "line": 102,
         "complexity": {
           "sloc": {
             "physical": 5,
@@ -144,7 +212,7 @@
       },
       {
         "name": "<anonymous>.getWordFrequency",
-        "line": 94,
+        "line": 119,
         "complexity": {
           "sloc": {
             "physical": 5,
@@ -178,7 +246,7 @@
       },
       {
         "name": "getPhraseFrequency",
-        "line": 106,
+        "line": 131,
         "complexity": {
           "sloc": {
             "physical": 29,
@@ -212,7 +280,7 @@
       },
       {
         "name": "<anonymous>",
-        "line": 118,
+        "line": 143,
         "complexity": {
           "sloc": {
             "physical": 12,
@@ -245,7 +313,7 @@
         }
       }
     ],
-    "maintainability": 69.03561409878411,
+    "maintainability": 69.9808444145508,
     "module": "Toolbox\\enabled\\TextAnalyzer.js"
   },
   "jshint": {

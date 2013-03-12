@@ -71,26 +71,34 @@ atropa.requires = function (className, requirementFn, errorMessage) {
     "use strict";
     var test = false;
     
-    errorMessage = errorMessage || 'The atropa.' + className +
-        ' class is unsupported in this environment.';
-    errorMessage = String(errorMessage);
-    
-    requirementFn = requirementFn || function () { return false; };
+    if(typeof className !== 'string') {
+        throw new Error('atropa.requires requires the class name to be ' +
+            'specified');
+    }
     
     if(atropa.data[className] === undefined) {
         atropa.data[className] = {};
-    }
-    
-    try {
-        test = requirementFn();
-    } catch (e) {
-        test = false;
-    }
-    
-    atropa.data[className].error = errorMessage;
-    
-    if(test === false) {
-        atropa.data[className].support = 'unsupported';
+        
+        if(typeof requirementFn !== 'function') {
+            requirementFn = function () { return false; };
+        }
+        
+        if(typeof errorMessage !== 'string') {
+            errorMessage = 'The atropa.' + className +
+                ' class is unsupported in this environment.';
+        }
+        
+        try {
+            test = requirementFn();
+        } catch (e) {
+            test = false;
+        }
+        
+        atropa.data[className].error = errorMessage;
+        
+        if(test === false) {
+            atropa.data[className].support = 'unsupported';
+        }
     }
 };
 /**
@@ -3094,12 +3102,14 @@ atropa.string.ucFirst = function ucFirst(string) {
  */
 atropa.string.countWords = function countWords(someText) {
     "use strict";
-    var wordCount,
-    re;
-    wordCount = 0;
-    re = /\s+/gi;
-    wordCount = someText.split(re);
-    return wordCount.length;
+    var wordCount, re, len = 0;
+    if(someText !== undefined && someText !== '' && someText !== null) {
+        wordCount = 0;
+        re = /\s+/gi;
+        wordCount = someText.split(re);
+        len = wordCount.length;
+    }
+    return len;
 };
 
 /**
@@ -3258,13 +3268,36 @@ atropa.string.escapeCdata = function escapeCdata(text) {
  */
 atropa.TextAnalyzer = function TextAnalyzer(text) {
     "use strict";
-    var that = this, construct;
+    var that = this;
+    var construct;
+    var prerequisites = [
+        atropa.string,
+        atropa.arrays,
+        atropa.setAsOptionalArg
+    ];
+    
+    atropa.requires(
+        'TextAnalyzer',
+        function () {
+            var supported = true;
+            
+            prerequisites.forEach(function (prerequisite) {
+                if(prerequisite === undefined) {
+                    supported = false;
+                }
+            });
+            return supported;
+        },
+        'atropa.TextAnalyzer requires ' + prerequisites +
+        ' in order to be useful. This class is not supported in ' +
+            'this environment'
+    );
     /**
     * The supplied text. Defaults to an empty string.
     * @type String
     * @fieldOf atropa.TextAnalyzer#
     */
-    this.text = atropa.setAsOptionalArg('', String(text));
+    this.text = String(atropa.setAsOptionalArg('', text));
     /**
     * Gives the count of words in the text. Defaults to 0.
     * @type Number
@@ -3288,11 +3321,12 @@ atropa.TextAnalyzer = function TextAnalyzer(text) {
     * @methodOf atropa.TextAnalyzer-
     */
     construct = function () {
+        atropa.supportCheck('TextAnalyzer');
         that.text = atropa.string.convertEol(that.text, '\n');
         that.wordCount = atropa.string.countWords(that.text);
         that.words = atropa.string.getWords(that.text);
     };
-
+    
     construct();
     return this;
 };
