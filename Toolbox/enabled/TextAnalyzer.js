@@ -6,7 +6,8 @@
     browser: true,
     devel: true,
     plusplus: true,
-    regexp: true
+    regexp: true,
+    vars: true
 */
 /*global atropa */
 // end header
@@ -26,13 +27,36 @@
  */
 atropa.TextAnalyzer = function TextAnalyzer(text) {
     "use strict";
-    var that = this, construct;
+    var that = this;
+    var construct;
+    var prerequisites = [
+        atropa.string,
+        atropa.arrays,
+        atropa.setAsOptionalArg
+    ];
+    
+    atropa.requires(
+        'TextAnalyzer',
+        function () {
+            var supported = true;
+            
+            prerequisites.forEach(function (prerequisite) {
+                if(prerequisite === undefined) {
+                    supported = false;
+                }
+            });
+            return supported;
+        },
+        'atropa.TextAnalyzer requires ' + prerequisites +
+        ' in order to be useful. This class is not supported in ' +
+            'this environment'
+    );
     /**
     * The supplied text. Defaults to an empty string.
     * @type String
     * @fieldOf atropa.TextAnalyzer#
     */
-    this.text = atropa.setAsOptionalArg('', String(text));
+    this.text = String(atropa.setAsOptionalArg('', text));
     /**
     * Gives the count of words in the text. Defaults to 0.
     * @type Number
@@ -56,11 +80,12 @@ atropa.TextAnalyzer = function TextAnalyzer(text) {
     * @methodOf atropa.TextAnalyzer-
     */
     construct = function () {
+        atropa.supportCheck('TextAnalyzer');
         that.text = atropa.string.convertEol(that.text, '\n');
         that.wordCount = atropa.string.countWords(that.text);
         that.words = atropa.string.getWords(that.text);
     };
-
+    
     construct();
     return this;
 };
