@@ -2881,12 +2881,12 @@ atropa.removeNodeByReference = function (elementReference) {
 
 
 /**
- * This represents an XMLHTTPRequest.
+ * This represents an XMLHttpRequest.
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
- * @version 20120909
- * @class This represents an XMLHTTPRequest.
+ * @version 20130311
+ * @class This represents an XMLHttpRequest.
  * @returns {Requester} Returns a requester object.
  * @requires atropa.ArgsInfo#checkArgTypes
  * @example
@@ -2915,8 +2915,8 @@ atropa.removeNodeByReference = function (elementReference) {
 atropa.Requester = function Requester() {
     "use strict";
     var expArgTypes,
-    checkRequest,
-    request;
+        checkRequest,
+        request;
     
     /**
      * Container object for the expected argument types
@@ -2984,7 +2984,7 @@ atropa.Requester = function Requester() {
      * @author <a href="mailto:matthewkastor@gmail.com">
      *  Matthew Christopher Kastor-Inare III </a><br />
      *  ☭ Hial Atropa!! ☭
-     * @version 20120909
+     * @version 20130311
      * @methodOf atropa.Requester#
      * @param {String} method The HTTP method to be used for this request.
      * @param {String} url The URL to send the request to.
@@ -2993,10 +2993,16 @@ atropa.Requester = function Requester() {
      *  when readyState is 4. The callback is supplied with two arguments. The
      *  first argument is a boolean indicating whether or not the http status
      *  was 200. The second argument is the request object.
+     * @throws atropa.Requester.makeRequest unexpected argument type
      */
     this.makeRequest = function (method, url, messageBody, callback) {
         var hdr;
-        checkRequest(arguments);
+        try {
+            checkRequest(arguments);
+        } catch (e) {
+            throw new Error('atropa.Requester.makeRequest unexpected ' +
+                'argument type');
+        }
         request.aborted = false;
         request.open(method, url, true);
         for (hdr in this.requestHeaders) {
@@ -3032,6 +3038,32 @@ atropa.Requester = function Requester() {
             }
         }, this.timeout);
     };
+    
+    function init () {
+        var prerequisites = [
+            atropa.ArgsInfo,
+            XMLHttpRequest
+        ];
+        
+        atropa.requires(
+            'Requester',
+            function () {
+                var supported = true;
+                
+                prerequisites.forEach(function (prerequisite) {
+                    if(prerequisite === undefined) {
+                        supported = false;
+                    }
+                });
+                return supported;
+            },
+            'atropa.Requester requires ' + prerequisites +
+            ' in order to be useful. This class is not supported in ' +
+                'this environment'
+        );
+        atropa.supportCheck('Requester');
+    }
+    init();
 };
 
 
@@ -3096,7 +3128,7 @@ atropa.string.ucFirst = function ucFirst(string) {
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
- * @version 20120909
+ * @version 20130311
  * @param {String} someText Plain text.
  * @return {Number} Returns the count of words in someText.
  */
@@ -3258,7 +3290,7 @@ atropa.string.escapeCdata = function escapeCdata(text) {
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
- * @version 20130118
+ * @version 20130311
  * @class Represents a utility for analyzing text.
  * @param {String} text The text to analyze.
  * @returns {TextAnalyzer} Returns an instance of the text analyzer.
@@ -3317,7 +3349,7 @@ atropa.TextAnalyzer = function TextAnalyzer(text) {
     * Matthew Christopher Kastor-Inare III </a><br />
     * ☭ Hial Atropa!! ☭
     * @private
-    * @version 20130118
+    * @version 20130311
     * @methodOf atropa.TextAnalyzer-
     */
     construct = function () {

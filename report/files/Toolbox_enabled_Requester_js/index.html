@@ -45,21 +45,21 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
-      <p class="stat">69.30</p>
+      <p class="stat">70.21</p>
     </div>
     <div class="span6">
       <h2 class="header">Estimated # Bugs  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
-      <p class="stat">0.39</p>
+      <p class="stat">0.54</p>
     </div>
   </div>
   <div class="row">
     <div class="span6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
-      <p class="stat">16.76</p>
+      <p class="stat">19.54</p>
     </div>
     <div class="span6">
       <h2 class="header">SLOC/LSLOC <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">121 / 38</p>
+      <p class="stat">153 / 51</p>
     </div>
   </div>
 </div>
@@ -96,12 +96,12 @@
 // end header
 
 /**
- * This represents an XMLHTTPRequest.
+ * This represents an XMLHttpRequest.
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
- * @version 20120909
- * @class This represents an XMLHTTPRequest.
+ * @version 20130311
+ * @class This represents an XMLHttpRequest.
  * @returns {Requester} Returns a requester object.
  * @requires atropa.ArgsInfo#checkArgTypes
  * @example
@@ -130,8 +130,8 @@
 atropa.Requester = function Requester() {
     "use strict";
     var expArgTypes,
-    checkRequest,
-    request;
+        checkRequest,
+        request;
     
     /**
      * Container object for the expected argument types
@@ -199,7 +199,7 @@ atropa.Requester = function Requester() {
      * @author <a href="mailto:matthewkastor@gmail.com">
      *  Matthew Christopher Kastor-Inare III </a><br />
      *  ☭ Hial Atropa!! ☭
-     * @version 20120909
+     * @version 20130311
      * @methodOf atropa.Requester#
      * @param {String} method The HTTP method to be used for this request.
      * @param {String} url The URL to send the request to.
@@ -208,10 +208,16 @@ atropa.Requester = function Requester() {
      *  when readyState is 4. The callback is supplied with two arguments. The
      *  first argument is a boolean indicating whether or not the http status
      *  was 200. The second argument is the request object.
+     * @throws atropa.Requester.makeRequest unexpected argument type
      */
     this.makeRequest = function (method, url, messageBody, callback) {
         var hdr;
-        checkRequest(arguments);
+        try {
+            checkRequest(arguments);
+        } catch (e) {
+            throw new Error('atropa.Requester.makeRequest unexpected ' +
+                'argument type');
+        }
         request.aborted = false;
         request.open(method, url, true);
         for (hdr in this.requestHeaders) {
@@ -247,6 +253,32 @@ atropa.Requester = function Requester() {
             }
         }, this.timeout);
     };
+    
+    function init () {
+        var prerequisites = [
+            atropa.ArgsInfo,
+            XMLHttpRequest
+        ];
+        
+        atropa.requires(
+            'Requester',
+            function () {
+                var supported = true;
+                
+                prerequisites.forEach(function (prerequisite) {
+                    if(prerequisite === undefined) {
+                        supported = false;
+                    }
+                });
+                return supported;
+            },
+            'atropa.Requester requires ' + prerequisites +
+            ' in order to be useful. This class is not supported in ' +
+                'this environment'
+        );
+        atropa.supportCheck('Requester');
+    }
+    init();
 };</textarea>
   </div>
 </div>
