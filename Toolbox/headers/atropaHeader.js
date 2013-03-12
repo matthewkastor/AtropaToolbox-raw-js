@@ -62,26 +62,34 @@ atropa.requires = function (className, requirementFn, errorMessage) {
     "use strict";
     var test = false;
     
-    errorMessage = errorMessage || 'The atropa.' + className +
-        ' class is unsupported in this environment.';
-    errorMessage = String(errorMessage);
-    
-    requirementFn = requirementFn || function () { return false; };
+    if(typeof className !== 'string') {
+        throw new Error('atropa.requires requires the class name to be ' +
+            'specified');
+    }
     
     if(atropa.data[className] === undefined) {
         atropa.data[className] = {};
-    }
-    
-    try {
-        test = requirementFn();
-    } catch (e) {
-        test = false;
-    }
-    
-    atropa.data[className].error = errorMessage;
-    
-    if(test === false) {
-        atropa.data[className].support = 'unsupported';
+        
+        if(typeof requirementFn !== 'function') {
+            requirementFn = function () { return false; };
+        }
+        
+        if(typeof errorMessage !== 'string') {
+            errorMessage = 'The atropa.' + className +
+                ' class is unsupported in this environment.';
+        }
+        
+        try {
+            test = requirementFn();
+        } catch (e) {
+            test = false;
+        }
+        
+        atropa.data[className].error = errorMessage;
+        
+        if(test === false) {
+            atropa.data[className].support = 'unsupported';
+        }
     }
 };
 /**
