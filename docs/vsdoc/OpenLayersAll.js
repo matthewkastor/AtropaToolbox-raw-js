@@ -1249,20 +1249,20 @@
             /// <param name="onMaxPollCallback" type="function">Optional. The function to run when testFn
             ///  has been run maxPoll times and the wait is being given up.
             /// Defaults to &lt;code&gt;function () {}&lt;/code&gt;</param>
-            /// <param name="pollInterval" type="Integer" integer="true">The amount of time in ms between polling testFn
-            ///  to see if it returns true. Defaults to 200ms.</param>
-            /// <param name="maxPoll" type="Integer" integer="true">The quantity of polls at which it makes sense to 
-            ///  give up waiting. Defaults to 50.</param>
+            /// <param name="pollInterval" type="Integer" integer="true">Optional. The amount of time in ms between
+            ///  polling testFn to see if it returns true. Defaults to 200ms.</param>
+            /// <param name="maxPoll" type="Integer" integer="true">Optional. The quantity of polls at which it makes
+            ///  sense to give up waiting. Defaults to 50.</param>
         }, 
         
-        element: function(testFn, onSuccessCallback, onMaxPollCallback, pollInterval, maxPoll) {
+        element: function(testFn, Optional., Optional., Optional., Optional.) {
             /// <summary>Wait for Element</summary>
             /// <param name="testFn" type="Function">A function which returns a reference to an HTML
             ///  Element.</param>
-            /// <param name="onSuccessCallback" type="Function">Optional.</param>
-            /// <param name="onMaxPollCallback" type="function">Optional.</param>
-            /// <param name="pollInterval" type="Integer" integer="true"></param>
-            /// <param name="maxPoll" type="Integer" integer="true"></param>
+            /// <param name="Optional." type="Function">onSuccessCallback</param>
+            /// <param name="Optional." type="function">onMaxPollCallback</param>
+            /// <param name="Optional." type="Integer" integer="true">pollInterval</param>
+            /// <param name="Optional." type="Integer" integer="true">maxPoll</param>
         }
         
     };

@@ -3508,10 +3508,10 @@
 <span class='line'>3501</span>  * @param {function} onMaxPollCallback Optional. The function to run when testFn
 <span class='line'>3502</span>  *  has been run maxPoll times and the wait is being given up.
 <span class='line'>3503</span>  * Defaults to &lt;code>function () {}&lt;/code>
-<span class='line'>3504</span>  * @param {Integer} pollInterval The amount of time in ms between polling testFn
-<span class='line'>3505</span>  *  to see if it returns true. Defaults to 200ms.
-<span class='line'>3506</span>  * @param {Integer} maxPoll The quantity of polls at which it makes sense to 
-<span class='line'>3507</span>  *  give up waiting. Defaults to 50.
+<span class='line'>3504</span>  * @param {Integer} pollInterval Optional. The amount of time in ms between
+<span class='line'>3505</span>  *  polling testFn to see if it returns true. Defaults to 200ms.
+<span class='line'>3506</span>  * @param {Integer} maxPoll Optional. The quantity of polls at which it makes
+<span class='line'>3507</span>  *  sense to give up waiting. Defaults to 50.
 <span class='line'>3508</span>  */</span><span class="WHIT">
 <span class='line'>3509</span> </span><span class="NAME">atropa.waitFor.test</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">test</span><span class="PUNC">(</span><span class="WHIT">
 <span class='line'>3510</span> </span><span class="WHIT">    </span><span class="NAME">testFn</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">onSuccessCallback</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">onMaxPollCallback</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">pollInterval</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">maxPoll</span><span class="WHIT">
@@ -3546,10 +3546,10 @@
 <span class='line'>3539</span>  * @version 20120909
 <span class='line'>3540</span>  * @param {Function} testFn A function which returns a reference to an HTML
 <span class='line'>3541</span>  *  Element.
-<span class='line'>3542</span>  * @param {Function} onSuccessCallback Optional.
-<span class='line'>3543</span>  * @param {function} onMaxPollCallback Optional.
-<span class='line'>3544</span>  * @param {Integer} pollInterval
-<span class='line'>3545</span>  * @param {Integer} maxPoll
+<span class='line'>3542</span>  * @param {Function} Optional. onSuccessCallback
+<span class='line'>3543</span>  * @param {function} Optional. onMaxPollCallback 
+<span class='line'>3544</span>  * @param {Integer} Optional. pollInterval
+<span class='line'>3545</span>  * @param {Integer} Optional. maxPoll
 <span class='line'>3546</span>  * @see atropa.waitFor.test for more information and default values for the
 <span class='line'>3547</span>  *  optional parameters.
 <span class='line'>3548</span>  */</span><span class="WHIT">
