@@ -45,21 +45,21 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
-      <p class="stat">76.65</p>
+      <p class="stat">76.13</p>
     </div>
     <div class="span6">
       <h2 class="header">Estimated # Bugs  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
-      <p class="stat">0.12</p>
+      <p class="stat">0.18</p>
     </div>
   </div>
   <div class="row">
     <div class="span6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
-      <p class="stat">12.11</p>
+      <p class="stat">11.98</p>
     </div>
     <div class="span6">
       <h2 class="header">SLOC/LSLOC <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">68 / 17</p>
+      <p class="stat">92 / 23</p>
     </div>
   </div>
 </div>
@@ -95,6 +95,20 @@
 /*global atropa */
 // end header
 
+atropa.requires(
+    'window',
+    function () {
+        "use strict";
+        if(document === undefined) {
+            return false;
+        }
+        return true;
+    },
+    'atropa.window requires the window object present in web ' +
+        'browsers in order to be useful. This function is not supported in ' +
+        'this environment'
+);
+
 /**
  * Container for all window functions and classes.
  * @author <a href="mailto:matthewkastor@gmail.com">
@@ -114,16 +128,17 @@ atropa.window = {};
  * @function
  * @param {String} url The url to load in the window.
  * @param {Function} callback The callback function to execute when
- *  the window has loaded. This callback will receive one argument,
- *  a reference to the opened window.
- * @param {Function} testFn Optional. An alternate test for windows
- *  containing too many slow loading external resources. The callback
- *  will be given a reference to the opened window as its first artument.
- *  Return something truthy and the callback will fire, return
+ *  the windows document.readystate === 'complete'. This callback will receive
+ *  one argument, a reference to the opened window and will be fired before the
+ *  window navigates to the given url.
+ * @param {Function} testFn Optional. An alternate test for when you want to
+ *  wait for the window to navigate to the given url before firing the callback.
+ *  The callback will be given a reference to the opened window as its first
+ *  argument. Return something truthy and the callback will fire, return
  *  something falsy and continue waiting. Your test will be tried
  *  every 250ms until it returns something truthy.
  * @returns {Object} Returns a reference to the opened window.
- * @link <a href="http://www.w3.org/Security/wiki/Same_Origin_Policy">
+ * @see <a href="http://www.w3.org/Security/wiki/Same_Origin_Policy">
  * Same Origin Policy</a>
  * @example
  * // note, this example must be run in the context of google.com
@@ -147,6 +162,7 @@ atropa.window = {};
  */
 atropa.window.open = function open(url, callback, testFn) {
     "use strict";
+    atropa.supportCheck('window');
     var win;
     
     function defaultTestFn(win){

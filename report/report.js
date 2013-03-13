@@ -1,12 +1,12 @@
 __report = {
   "summary": {
     "total": {
-      "sloc": 3824,
-      "maintainability": 1626.553063730564
+      "sloc": 3848,
+      "maintainability": 1626.0354579735374
     },
     "average": {
-      "sloc": 166,
-      "maintainability": "70.72"
+      "sloc": 167,
+      "maintainability": "70.70"
     }
   },
   "reports": [
@@ -982,40 +982,40 @@ __report = {
       },
       "complexity": {
         "aggregate": {
-          "line": 22,
+          "line": 14,
           "complexity": {
             "sloc": {
-              "physical": 68,
-              "logical": 17
+              "physical": 92,
+              "logical": 23
             },
-            "cyclomatic": 2,
+            "cyclomatic": 3,
             "halstead": {
               "operators": {
-                "distinct": 10,
-                "total": 30,
+                "distinct": 11,
+                "total": 41,
                 "identifiers": [
                   "__stripped__"
                 ]
               },
               "operands": {
-                "distinct": 19,
-                "total": 46,
+                "distinct": 28,
+                "total": 61,
                 "identifiers": [
                   "__stripped__"
                 ]
               },
-              "length": 76,
-              "vocabulary": 29,
-              "difficulty": 12.105263157894736,
-              "volume": 369.2065556296955,
-              "effort": 4469.342515517366,
-              "bugs": 0.12306885187656517,
-              "time": 248.29680641763147
+              "length": 102,
+              "vocabulary": 39,
+              "difficulty": 11.982142857142856,
+              "volume": 539.1110263239493,
+              "effort": 6459.705333274464,
+              "bugs": 0.17970367544131644,
+              "time": 358.872518515248
             }
           }
         },
         "module": "Toolbox\\enabled\\window.js",
-        "maintainability": 76.65184599873965
+        "maintainability": 76.13424024171316
       }
     },
     {
