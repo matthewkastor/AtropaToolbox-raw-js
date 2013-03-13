@@ -55,9 +55,11 @@
         }, 
         
         requires: function(className, requirementFn, errorMessage) {
-            /// <summary>Tests whether the class is supported in this environment. Sets
+            /// <summary>Pushes a requirement check into atropa.data.requirements. The test
+            ///  tests whether the class is supported in this environment. Sets
             ///  atropa.data[className]&apos;s support to unsupported and error to errorMessage
-            ///  if the requirementFn returns false.</summary>
+            ///  if the requirementFn returns false. The requirement checks will all be run
+            ///  after the library has loaded.</summary>
             /// <param name="className" type="String">The name of the class.</param>
             /// <param name="requirementFn" type="Function">A function to test whether or not the class
             ///  is supported in this environment. If supported, returns true otherwise
@@ -955,10 +957,6 @@
             ///  when readyState is 4. The callback is supplied with two arguments. The
             ///  first argument is a boolean indicating whether or not the http status
             ///  was 200. The second argument is the request object.</param>
-        }, 
-        
-        init: function() {
-            /// <summary></summary>
         }
         
     };

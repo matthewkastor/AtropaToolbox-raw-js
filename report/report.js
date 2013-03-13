@@ -1,12 +1,12 @@
 __report = {
   "summary": {
     "total": {
-      "sloc": 3848,
-      "maintainability": 1626.0354579735374
+      "sloc": 3902,
+      "maintainability": 1710.6805999064889
     },
     "average": {
-      "sloc": 167,
-      "maintainability": "70.70"
+      "sloc": 162,
+      "maintainability": "71.28"
     }
   },
   "reports": [
@@ -694,11 +694,11 @@ __report = {
       },
       "complexity": {
         "aggregate": {
-          "line": 47,
+          "line": 14,
           "complexity": {
             "sloc": {
-              "physical": 153,
-              "logical": 51
+              "physical": 187,
+              "logical": 52
             },
             "cyclomatic": 6,
             "halstead": {
@@ -710,24 +710,24 @@ __report = {
                 ]
               },
               "operands": {
-                "distinct": 61,
+                "distinct": 60,
                 "total": 149,
                 "identifiers": [
                   "__stripped__"
                 ]
               },
               "length": 258,
-              "vocabulary": 77,
-              "difficulty": 19.540983606557376,
-              "volume": 1616.8309274992846,
-              "effort": 31594.466648838476,
-              "bugs": 0.5389436424997616,
-              "time": 1755.248147157693
+              "vocabulary": 76,
+              "difficulty": 19.866666666666667,
+              "volume": 1611.9652984684453,
+              "effort": 32024.377262906448,
+              "bugs": 0.5373217661561485,
+              "time": 1779.1320701614693
             }
           }
         },
         "module": "Toolbox\\enabled\\Requester.js",
-        "maintainability": 70.20782577594329
+        "maintainability": 70.46460056929223
       }
     },
     {
@@ -838,40 +838,40 @@ __report = {
       },
       "complexity": {
         "aggregate": {
-          "line": 29,
+          "line": 15,
           "complexity": {
             "sloc": {
-              "physical": 132,
-              "logical": 47
+              "physical": 149,
+              "logical": 49
             },
             "cyclomatic": 5,
             "halstead": {
               "operators": {
                 "distinct": 16,
-                "total": 148,
+                "total": 150,
                 "identifiers": [
                   "__stripped__"
                 ]
               },
               "operands": {
                 "distinct": 54,
-                "total": 181,
+                "total": 182,
                 "identifiers": [
                   "__stripped__"
                 ]
               },
-              "length": 329,
+              "length": 332,
               "vocabulary": 70,
-              "difficulty": 26.814814814814813,
-              "volume": 2016.5341125748942,
-              "effort": 54072.988796452715,
-              "bugs": 0.6721780375249647,
-              "time": 3004.0549331362618
+              "difficulty": 26.962962962962962,
+              "volume": 2034.9219616257292,
+              "effort": 54867.52548383448,
+              "bugs": 0.6783073205419097,
+              "time": 3048.1958602130267
             }
           }
         },
         "module": "Toolbox\\enabled\\TextAnalyzer.js",
-        "maintainability": 69.9808444145508
+        "maintainability": 71.51629264405454
       }
     },
     {
@@ -1112,6 +1112,54 @@ __report = {
         },
         "module": "Toolbox\\enabled\\xpath.js",
         "maintainability": 72.3752268821262
+      }
+    },
+    {
+      "info": {
+        "file": "Toolbox\\enabled\\z.js",
+        "fileShort": "Toolbox\\enabled\\z.js",
+        "fileSafe": "Toolbox_enabled_z_js",
+        "link": "files/Toolbox_enabled_z_js/index.html"
+      },
+      "jshint": {
+        "messages": 0
+      },
+      "complexity": {
+        "aggregate": {
+          "line": 1,
+          "complexity": {
+            "sloc": {
+              "physical": 3,
+              "logical": 2
+            },
+            "cyclomatic": 2,
+            "halstead": {
+              "operators": {
+                "distinct": 4,
+                "total": 10,
+                "identifiers": [
+                  "__stripped__"
+                ]
+              },
+              "operands": {
+                "distinct": 6,
+                "total": 9,
+                "identifiers": [
+                  "__stripped__"
+                ]
+              },
+              "length": 19,
+              "vocabulary": 10,
+              "difficulty": 3,
+              "volume": 63.11663380285989,
+              "effort": 189.34990140857965,
+              "bugs": 0.021038877934286628,
+              "time": 10.519438967143314
+            }
+          }
+        },
+        "module": "Toolbox\\enabled\\z.js",
+        "maintainability": 82.85291891009861
       }
     }
   ]

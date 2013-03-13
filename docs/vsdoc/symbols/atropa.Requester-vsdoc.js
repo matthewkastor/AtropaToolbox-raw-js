@@ -35,10 +35,6 @@
             ///  when readyState is 4. The callback is supplied with two arguments. The
             ///  first argument is a boolean indicating whether or not the http status
             ///  was 200. The second argument is the request object.</param>
-        }, 
-        
-        init: function() {
-            /// <summary></summary>
         }
         
     };
