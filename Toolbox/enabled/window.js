@@ -11,6 +11,20 @@
 /*global atropa */
 // end header
 
+atropa.requires(
+    'window',
+    function () {
+        "use strict";
+        if(document === undefined) {
+            return false;
+        }
+        return true;
+    },
+    'atropa.window requires the window object present in web ' +
+        'browsers in order to be useful. This function is not supported in ' +
+        'this environment'
+);
+
 /**
  * Container for all window functions and classes.
  * @author <a href="mailto:matthewkastor@gmail.com">
@@ -30,16 +44,17 @@ atropa.window = {};
  * @function
  * @param {String} url The url to load in the window.
  * @param {Function} callback The callback function to execute when
- *  the window has loaded. This callback will receive one argument,
- *  a reference to the opened window.
- * @param {Function} testFn Optional. An alternate test for windows
- *  containing too many slow loading external resources. The callback
- *  will be given a reference to the opened window as its first artument.
- *  Return something truthy and the callback will fire, return
+ *  the windows document.readystate === 'complete'. This callback will receive
+ *  one argument, a reference to the opened window and will be fired before the
+ *  window navigates to the given url.
+ * @param {Function} testFn Optional. An alternate test for when you want to
+ *  wait for the window to navigate to the given url before firing the callback.
+ *  The callback will be given a reference to the opened window as its first
+ *  argument. Return something truthy and the callback will fire, return
  *  something falsy and continue waiting. Your test will be tried
  *  every 250ms until it returns something truthy.
  * @returns {Object} Returns a reference to the opened window.
- * @link <a href="http://www.w3.org/Security/wiki/Same_Origin_Policy">
+ * @see <a href="http://www.w3.org/Security/wiki/Same_Origin_Policy">
  * Same Origin Policy</a>
  * @example
  * // note, this example must be run in the context of google.com
@@ -63,6 +78,7 @@ atropa.window = {};
  */
 atropa.window.open = function open(url, callback, testFn) {
     "use strict";
+    atropa.supportCheck('window');
     var win;
     
     function defaultTestFn(win){
