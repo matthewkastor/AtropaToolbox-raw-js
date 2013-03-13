@@ -12,24 +12,8 @@
 /*global atropa */
 // end header
 
-/**
- * Represents a utility for analyzing text.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
- *  ☭ Hial Atropa!! ☭
- * @version 20130311
- * @class Represents a utility for analyzing text.
- * @param {String} text The text to analyze.
- * @returns {TextAnalyzer} Returns an instance of the text analyzer.
- * @requires atropa.string
- * @requires atropa.arrays
- * @requires atropa.setAsOptionalArg
- * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.TextAnalyzer">tests</a>
- */
-atropa.TextAnalyzer = function TextAnalyzer(text) {
+(function () {
     "use strict";
-    var that = this;
-    var construct;
     var prerequisites = [
         atropa.string,
         atropa.arrays,
@@ -52,6 +36,26 @@ atropa.TextAnalyzer = function TextAnalyzer(text) {
         ' in order to be useful. This class is not supported in ' +
             'this environment'
     );
+}());
+
+/**
+ * Represents a utility for analyzing text.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130311
+ * @class Represents a utility for analyzing text.
+ * @param {String} text The text to analyze.
+ * @returns {TextAnalyzer} Returns an instance of the text analyzer.
+ * @requires atropa.string
+ * @requires atropa.arrays
+ * @requires atropa.setAsOptionalArg
+ * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.TextAnalyzer">tests</a>
+ */
+atropa.TextAnalyzer = function TextAnalyzer(text) {
+    "use strict";
+    var that = this;
+    var construct;
     /**
     * The supplied text. Defaults to an empty string.
     * @type String

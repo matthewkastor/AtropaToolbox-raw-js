@@ -11,6 +11,31 @@
 /*global atropa */
 // end header
 
+(function () {
+    "use strict";
+    var prerequisites = [
+        atropa.ArgsInfo,
+        XMLHttpRequest
+    ];
+
+    atropa.requires(
+        'Requester',
+        function () {
+            var supported = true;
+            
+            prerequisites.forEach(function (prerequisite) {
+                if(prerequisite === undefined) {
+                    supported = false;
+                }
+            });
+            return supported;
+        },
+        'atropa.Requester requires ' + prerequisites +
+        ' in order to be useful. This class is not supported in ' +
+            'this environment'
+    );
+}());
+
 /**
  * This represents an XMLHttpRequest.
  * @author <a href="mailto:matthewkastor@gmail.com">
@@ -171,31 +196,7 @@ atropa.Requester = function Requester() {
         }, this.timeout);
     };
     
-    function init () {
-        var prerequisites = [
-            atropa.ArgsInfo,
-            XMLHttpRequest
-        ];
-        
-        atropa.requires(
-            'Requester',
-            function () {
-                var supported = true;
-                
-                prerequisites.forEach(function (prerequisite) {
-                    if(prerequisite === undefined) {
-                        supported = false;
-                    }
-                });
-                return supported;
-            },
-            'atropa.Requester requires ' + prerequisites +
-            ' in order to be useful. This class is not supported in ' +
-                'this environment'
-        );
-        atropa.supportCheck('Requester');
-    }
-    init();
+    atropa.supportCheck('Requester');
 };
 
 

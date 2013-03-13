@@ -43,9 +43,11 @@ atropa.supportCheck = function (className, errorMessage) {
     }
 };
 /**
- * Tests whether the class is supported in this environment. Sets
+ * Pushes a requirement check into atropa.data.requirements. The test
+ *  tests whether the class is supported in this environment. Sets
  *  atropa.data[className]'s support to unsupported and error to errorMessage
- *  if the requirementFn returns false.
+ *  if the requirementFn returns false. The requirement checks will all be run
+ *  after the library has loaded.
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
@@ -60,37 +62,40 @@ atropa.supportCheck = function (className, errorMessage) {
  */
 atropa.requires = function (className, requirementFn, errorMessage) {
     "use strict";
-    var test = false;
+    var check = function () {
+        var test = false;
+        if(typeof className !== 'string') {
+            throw new Error('atropa.requires requires the class name to be ' +
+                'specified');
+        }
+        
+        if(atropa.data[className] === undefined) {
+            atropa.data[className] = {};
+            
+            if(typeof requirementFn !== 'function') {
+                requirementFn = function () { return false; };
+            }
+            
+            if(typeof errorMessage !== 'string') {
+                errorMessage = 'The atropa.' + className +
+                    ' class is unsupported in this environment.';
+            }
+            
+            try {
+                test = requirementFn();
+            } catch (e) {
+                test = false;
+            }
+            
+            atropa.data[className].error = errorMessage;
+            
+            if(test === false) {
+                atropa.data[className].support = 'unsupported';
+            }
+        }
+    };
     
-    if(typeof className !== 'string') {
-        throw new Error('atropa.requires requires the class name to be ' +
-            'specified');
-    }
-    
-    if(atropa.data[className] === undefined) {
-        atropa.data[className] = {};
-        
-        if(typeof requirementFn !== 'function') {
-            requirementFn = function () { return false; };
-        }
-        
-        if(typeof errorMessage !== 'string') {
-            errorMessage = 'The atropa.' + className +
-                ' class is unsupported in this environment.';
-        }
-        
-        try {
-            test = requirementFn();
-        } catch (e) {
-            test = false;
-        }
-        
-        atropa.data[className].error = errorMessage;
-        
-        if(test === false) {
-            atropa.data[className].support = 'unsupported';
-        }
-    }
+    atropa.data.requirements.push(check);
 };
 /**
  * Container for gobal data related to the classes and functions.
@@ -100,5 +105,7 @@ atropa.requires = function (className, requirementFn, errorMessage) {
  * @namespace Container for gobal data related to the classes and functions.
  */
 atropa.data = {};
+
+atropa.data.requirements = [];
 
 
