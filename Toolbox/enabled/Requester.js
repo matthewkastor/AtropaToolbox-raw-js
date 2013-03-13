@@ -13,26 +13,22 @@
 
 (function () {
     "use strict";
-    var prerequisites = [
-        atropa.ArgsInfo,
-        XMLHttpRequest
-    ];
-
     atropa.requires(
         'Requester',
         function () {
             var supported = true;
             
-            prerequisites.forEach(function (prerequisite) {
+            [
+                atropa.ArgsInfo,
+                XMLHttpRequest
+            ].forEach(function (prerequisite) {
                 if(prerequisite === undefined) {
                     supported = false;
                 }
             });
             return supported;
         },
-        'atropa.Requester requires ' + prerequisites +
-        ' in order to be useful. This class is not supported in ' +
-            'this environment'
+        'This class is not supported in this environment'
     );
 }());
 

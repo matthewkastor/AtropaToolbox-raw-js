@@ -15,50 +15,42 @@
 
 (function () {
     "use strict";
-    var prerequisites = [
-        atropa.regex,
-        atropa.string.countWords,
-        atropa.setAsOptionalArg
-    ];
-    
     atropa.requires(
         'wtf',
         function () {
             var supported = true;
             
-            prerequisites.forEach(function (prerequisite) {
+            [
+                atropa.regex,
+                atropa.string.countWords,
+                atropa.setAsOptionalArg
+            ].forEach(function (prerequisite) {
                 if(prerequisite === undefined) {
                     supported = false;
                 }
             });
             return supported;
         },
-        'atropa.wtf requires ' + prerequisites +
-        ' in order to be useful. This class is not supported in ' +
-            'this environment'
+        'This class is not supported in this environment'
     );
 }());
 
 (function () {
     "use strict";
-    var prerequisites = [
-        window
-    ];
-    
     atropa.requires(
         'wtfHtmlElement',
         function () {
             var supported = true;
             
-            prerequisites.forEach(function (prerequisite) {
+            [
+                window
+            ].forEach(function (prerequisite) {
                 if(prerequisite === undefined) {
                     supported = false;
                 }
             });
             return supported;
         },
-        'atropa.wtf.htmlElement requires ' + prerequisites +
-        ' in order to be useful. ' +
         'This class is not supported in this environment'
     );
 }());

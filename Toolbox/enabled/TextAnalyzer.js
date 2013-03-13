@@ -14,27 +14,23 @@
 
 (function () {
     "use strict";
-    var prerequisites = [
-        atropa.string,
-        atropa.arrays,
-        atropa.setAsOptionalArg
-    ];
-    
     atropa.requires(
         'TextAnalyzer',
         function () {
             var supported = true;
             
-            prerequisites.forEach(function (prerequisite) {
+            [
+                atropa.string,
+                atropa.arrays,
+                atropa.setAsOptionalArg
+            ].forEach(function (prerequisite) {
                 if(prerequisite === undefined) {
                     supported = false;
                 }
             });
             return supported;
         },
-        'atropa.TextAnalyzer requires ' + prerequisites +
-        ' in order to be useful. This class is not supported in ' +
-            'this environment'
+        'This class is not supported in this environment'
     );
 }());
 
