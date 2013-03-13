@@ -252,7 +252,7 @@ ul.inheritsList
 <!-- ============================== class summary ========================== -->			
 			<p class="description">
 				<br />Version
-					20120909.<br />
+					20130313.<br />
 				
 				
 			
@@ -316,7 +316,7 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&lt;static&gt; &nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont">atropa.xpath.<b><a href="../symbols/atropa.xpath.html#.getNodesByXpath">getNodesByXpath</a></b>(xpathExpression, contxtNode, docref)
+								<div class="fixedFont">atropa.xpath.<b><a href="../symbols/atropa.xpath.html#.getNodesByXpath">getNodesByXpath</a></b>(xpathExpression, contextNode, docref)
 								</div>
 								<div class="description">Selects nodes from the DOM using an Xpath expression.</div>
 							</td>
@@ -325,7 +325,7 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&lt;static&gt; &nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont">atropa.xpath.<b><a href="../symbols/atropa.xpath.html#.processNodesByXpath">processNodesByXpath</a></b>(xpathExpression, contxtNode, docref, callback)
+								<div class="fixedFont">atropa.xpath.<b><a href="../symbols/atropa.xpath.html#.processNodesByXpath">processNodesByXpath</a></b>(xpathExpression, contextNode, docref, callback)
 								</div>
 								<div class="description">Processes nodes from the DOM using an Xpath expression.</div>
 							</td>
@@ -334,7 +334,7 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&lt;static&gt; &nbsp;</td>
 							<td class="nameDescription">
-								<div class="fixedFont">atropa.xpath.<b><a href="../symbols/atropa.xpath.html#.removeNodesByXpath">removeNodesByXpath</a></b>(xpathExpression, contxtNode, docref)
+								<div class="fixedFont">atropa.xpath.<b><a href="../symbols/atropa.xpath.html#.removeNodesByXpath">removeNodesByXpath</a></b>(xpathExpression, contextNode, docref)
 								</div>
 								<div class="description">Removes nodes from the DOM using an Xpath expression.</div>
 							</td>
@@ -446,7 +446,7 @@ ul.inheritsList
 					<div class="fixedFont">&lt;static&gt; 
 					
 					<span class="light">{Array}</span>
-					<span class="light">atropa.xpath.</span><b>getNodesByXpath</b>(xpathExpression, contxtNode, docref)
+					<span class="light">atropa.xpath.</span><b>getNodesByXpath</b>(xpathExpression, contextNode, docref)
 					
 					</div>
 					<div class="description">
@@ -472,16 +472,16 @@ ul.inheritsList
 								<dd>An Xpath expression as a string</dd>
 							
 								<dt>
-									<span class="light fixedFont">{DOM Node}</span> <b>contxtNode</b>
+									<span class="light fixedFont">{DOM Node}</span> <b>contextNode</b>
 									
 								</dt>
-								<dd>The node which is to serve as the rootfor the supplied Xpath expression. Defaults to the document's root node.</dd>
+								<dd>Optional. The node which is to serve as the rootfor the supplied Xpath expression. Defaults to the document's root node.</dd>
 							
 								<dt>
 									<span class="light fixedFont">{DOM Document}</span> <b>docref</b>
 									
 								</dt>
-								<dd>A reference to the document youare searching, defaults to document.</dd>
+								<dd>Optional. A reference to the document youare searching, defaults to document.</dd>
 							
 							</dl>
 						
@@ -512,7 +512,7 @@ ul.inheritsList
 					<div class="fixedFont">&lt;static&gt; 
 					
 					<span class="light">{Number}</span>
-					<span class="light">atropa.xpath.</span><b>processNodesByXpath</b>(xpathExpression, contxtNode, docref, callback)
+					<span class="light">atropa.xpath.</span><b>processNodesByXpath</b>(xpathExpression, contextNode, docref, callback)
 					
 					</div>
 					<div class="description">
@@ -523,7 +523,7 @@ ul.inheritsList
 					
 					
 					
-					<pre class="code">  // Say you wanted to touch all the anchors in window.document  var xpathExpression, callback;  xpathExpression = './/a';  callback = function(oneNode) {      oneNode.touched = true;  }  atropa.xpath.processNodesByXpath(      xpathExpression, document, document, callback);    // Or say you have an iframe, with the id 'myFrame'. In the iframe there  // is a div with the id myDiv.  // Here is how you would remove all the anchors in that div.  var myFrame, xpathExpression, contextNode, docref, callback;  myFrame = document.getElementById('myFrame');  docref = myFrame.contentWindow.document;  contextNode = docref.getElementById('myDiv');  xpathExpression = './/a';  callback = function(oneNode) {      atropa.removeNodeByReference(oneNode);  }  atropa.xpath.processNodesByXpath(      xpathExpression, contextNode, docref, callback);</pre>
+					<pre class="code">  // Say you wanted to touch all the anchors and links in window.document  var xpathExpression, callback;  xpathExpression = './/a';  callback = function(oneNode) {      oneNode.touched = true;  }  atropa.xpath.processNodesByXpath(      xpathExpression, document, document, callback);    // Or say you have an iframe, with the id 'myFrame'. In the iframe there  // is a div with the id myDiv.  // Here is how you would remove all the anchors in that div.  var myFrame, xpathExpression, contextNode, docref, callback;  myFrame = document.getElementById('myFrame');  docref = myFrame.contentWindow.document;  contextNode = docref.getElementById('myDiv');  xpathExpression = './/a';  callback = function(oneNode) {      atropa.removeNodeByReference(oneNode);  }  atropa.xpath.processNodesByXpath(      xpathExpression, contextNode, docref, callback);</pre>
 					
 					
 					
@@ -538,16 +538,16 @@ ul.inheritsList
 								<dd>An Xpath expression as a string</dd>
 							
 								<dt>
-									<span class="light fixedFont">{DOM Node}</span> <b>contxtNode</b>
+									<span class="light fixedFont">{DOM Node}</span> <b>contextNode</b>
 									
 								</dt>
-								<dd>The node which is to serve as the rootfor the supplied Xpath expression. Defaults to whatever docref is.If you are using a relative path such as <code>.//a</code> and, you onlywant the anchors that are descendants of another element, you wouldsupply a reference to that element for this argument. When using acontext node, the docref argument must refer to the context node'scontaining document.</dd>
+								<dd>Optional. The node which is to serve as the rootfor the supplied Xpath expression. Defaults to whatever docref is.If you are using a relative path such as <code>.//a</code> and, you onlywant the anchors that are descendants of another element, you wouldsupply a reference to that element for this argument. When using acontext node, the docref argument must refer to the context node'scontaining document.</dd>
 							
 								<dt>
 									<span class="light fixedFont">{DOM Document}</span> <b>docref</b>
 									
 								</dt>
-								<dd>A reference to the document youare searching, defaults to document. If you have created a separateDOMDocument with the <code>atropa.HTMLParser</code>, an iframe, or bysome other means, you would put a reference to that document here toindicate that you intend to use that document's root.</dd>
+								<dd>Optional. A reference to the document youare searching, defaults to document. If you have created a separateDOMDocument with the <code>atropa.HTMLParser</code>, an iframe, or bysome other means, you would put a reference to that document here toindicate that you intend to use that document's root.</dd>
 							
 								<dt>
 									<span class="light fixedFont">{Function}</span> <b>callback</b>
@@ -577,7 +577,7 @@ ul.inheritsList
 					<div class="fixedFont">&lt;static&gt; 
 					
 					<span class="light">{Number}</span>
-					<span class="light">atropa.xpath.</span><b>removeNodesByXpath</b>(xpathExpression, contxtNode, docref)
+					<span class="light">atropa.xpath.</span><b>removeNodesByXpath</b>(xpathExpression, contextNode, docref)
 					
 					</div>
 					<div class="description">
@@ -603,16 +603,16 @@ ul.inheritsList
 								<dd>An Xpath expression as a string</dd>
 							
 								<dt>
-									<span class="light fixedFont">{DOM Node}</span> <b>contxtNode</b>
+									<span class="light fixedFont">{DOM Node}</span> <b>contextNode</b>
 									
 								</dt>
-								<dd>The node which is to serve as the rootfor the supplied Xpath expression. Defaults to whatever docref is.</dd>
+								<dd>Optional. The node which is to serve as the rootfor the supplied Xpath expression. Defaults to whatever docref is.</dd>
 							
 								<dt>
 									<span class="light fixedFont">{DOM Document}</span> <b>docref</b>
 									
 								</dt>
-								<dd>A reference to the document youare searching, defaults to document.</dd>
+								<dd>Optional. A reference to the document youare searching, defaults to document.</dd>
 							
 							</dl>
 						
@@ -651,7 +651,7 @@ ul.inheritsList
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Wed Mar 13 2013 15:26:39 GMT-0400 (EDT)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Wed Mar 13 2013 17:24:55 GMT-0400 (EDT)
 		</div>
 	</body>
 </html>

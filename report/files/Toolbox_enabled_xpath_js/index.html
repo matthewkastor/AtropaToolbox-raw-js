@@ -45,21 +45,21 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
-      <p class="stat">72.38</p>
+      <p class="stat">73.52</p>
     </div>
     <div class="span6">
       <h2 class="header">Estimated # Bugs  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
-      <p class="stat">0.33</p>
+      <p class="stat">0.45</p>
     </div>
   </div>
   <div class="row">
     <div class="span6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
-      <p class="stat">17.11</p>
+      <p class="stat">19.64</p>
     </div>
     <div class="span6">
       <h2 class="header">SLOC/LSLOC <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">171 / 33</p>
+      <p class="stat">204 / 46</p>
     </div>
   </div>
 </div>
@@ -95,12 +95,34 @@
 /*global atropa, XPathResult */
 // end header
 
+
+(function () {
+    "use strict";
+    atropa.requires(
+        'xpath',
+        function () {
+            var supported = true;
+            
+            [
+                window,
+                document.evaluate
+            ].forEach(function (prerequisite) {
+                if(prerequisite === undefined) {
+                    supported = false;
+                }
+            });
+            return supported;
+        },
+        'This class is not supported in this environment'
+    );
+}());
+
 /**
  * An Xpath toolkit for manipulating the DOM.
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
- * @version 20120909
+ * @version 20130313
  * @namespace An Xpath toolkit for manipulating the DOM.
  * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.xpath">tests</a>
  */
@@ -108,7 +130,7 @@ atropa.xpath = {};
 /**
  * Processes nodes from the DOM using an Xpath expression.
  * @example
- *   // Say you wanted to touch all the anchors in window.document
+ *   // Say you wanted to touch all the anchors and links in window.document
  *   var xpathExpression, callback;
  *   xpathExpression = './/a';
  *   callback = function(oneNode) {
@@ -133,16 +155,16 @@ atropa.xpath = {};
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
- * @version 20120909
+ * @version 20130313
  * @param {String} xpathExpression An Xpath expression as a string
- * @param {DOM Node} contxtNode The node which is to serve as the root
+ * @param {DOM Node} contextNode Optional. The node which is to serve as the root
  * for the supplied Xpath expression. Defaults to whatever docref is.
  * If you are using a relative path such as <code>.//a</code> and, you only
  * want the anchors that are descendants of another element, you would
  * supply a reference to that element for this argument. When using a
  * context node, the docref argument must refer to the context node's
  * containing document.
- * @param {DOM Document} docref A reference to the document you
+ * @param {DOM Document} docref Optional. A reference to the document you
  * are searching, defaults to document. If you have created a separate
  * DOMDocument with the <code>atropa.HTMLParser</code>, an iframe, or by
  * some other means, you would put a reference to that document here to
@@ -156,6 +178,7 @@ atropa.xpath.processNodesByXpath = function processNodesByXpath(
     xpathExpression, contextNode, docref, callback
 ) {
     "use strict";
+    atropa.supportCheck('xpath');
     docref = atropa.setAsOptionalArg(document, docref);
     contextNode = atropa.setAsOptionalArg(docref, contextNode);
     var nodesSnapshot,
@@ -186,11 +209,11 @@ atropa.xpath.processNodesByXpath = function processNodesByXpath(
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
- * @version 20120909
+ * @version 20130313
  * @param {String} xpathExpression An Xpath expression as a string
- * @param {DOM Node} contxtNode The node which is to serve as the root
+ * @param {DOM Node} contextNode Optional. The node which is to serve as the root
  * for the supplied Xpath expression. Defaults to whatever docref is.
- * @param {DOM Document} docref A reference to the document you
+ * @param {DOM Document} docref Optional. A reference to the document you
  * are searching, defaults to document.
  * @returns {Number} Returns the quantity of nodes removed.
  * @see atropa.xpath.processNodesByXpath for more information.
@@ -199,6 +222,7 @@ atropa.xpath.removeNodesByXpath = function removeNodesByXpath(
     xpathExpression, contextNode, docref
 ) {
     "use strict";
+    atropa.supportCheck('xpath');
     var count;
     count = atropa.xpath.processNodesByXpath(
         xpathExpression,
@@ -220,11 +244,11 @@ atropa.xpath.removeNodesByXpath = function removeNodesByXpath(
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
- * @version 20120909
+ * @version 20130313
  * @param {String} xpathExpression An Xpath expression as a string
- * @param {DOM Node} contxtNode The node which is to serve as the root
+ * @param {DOM Node} contextNode Optional. The node which is to serve as the root
  * for the supplied Xpath expression. Defaults to the document's root node.
- * @param {DOM Document} docref A reference to the document you
+ * @param {DOM Document} docref Optional. A reference to the document you
  * are searching, defaults to document.
  * @returns {Array} Returns an array whose elements are DOM Nodes
  * @see atropa.xpath.processNodesByXpath for more information.
@@ -233,6 +257,7 @@ atropa.xpath.getNodesByXpath = function getNodesByXpath(
     xpathExpression, contextNode, docref
 ) {
     'use strict';
+    atropa.supportCheck('xpath');
     var elementReferences;
     elementReferences = [];
     atropa.xpath.processNodesByXpath(

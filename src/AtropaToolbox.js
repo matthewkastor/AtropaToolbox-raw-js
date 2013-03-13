@@ -2903,26 +2903,22 @@ atropa.removeNodeByReference = function (elementReference) {
 
 (function () {
     "use strict";
-    var prerequisites = [
-        atropa.ArgsInfo,
-        XMLHttpRequest
-    ];
-
     atropa.requires(
         'Requester',
         function () {
             var supported = true;
             
-            prerequisites.forEach(function (prerequisite) {
+            [
+                atropa.ArgsInfo,
+                XMLHttpRequest
+            ].forEach(function (prerequisite) {
                 if(prerequisite === undefined) {
                     supported = false;
                 }
             });
             return supported;
         },
-        'atropa.Requester requires ' + prerequisites +
-        ' in order to be useful. This class is not supported in ' +
-            'this environment'
+        'This class is not supported in this environment'
     );
 }());
 
@@ -3312,27 +3308,23 @@ atropa.string.escapeCdata = function escapeCdata(text) {
 
 (function () {
     "use strict";
-    var prerequisites = [
-        atropa.string,
-        atropa.arrays,
-        atropa.setAsOptionalArg
-    ];
-    
     atropa.requires(
         'TextAnalyzer',
         function () {
             var supported = true;
             
-            prerequisites.forEach(function (prerequisite) {
+            [
+                atropa.string,
+                atropa.arrays,
+                atropa.setAsOptionalArg
+            ].forEach(function (prerequisite) {
                 if(prerequisite === undefined) {
                     supported = false;
                 }
             });
             return supported;
         },
-        'atropa.TextAnalyzer requires ' + prerequisites +
-        ' in order to be useful. This class is not supported in ' +
-            'this environment'
+        'This class is not supported in this environment'
     );
 }());
 
@@ -3684,50 +3676,42 @@ atropa.window.open = function open(url, callback, testFn) {
 
 (function () {
     "use strict";
-    var prerequisites = [
-        atropa.regex,
-        atropa.string.countWords,
-        atropa.setAsOptionalArg
-    ];
-    
     atropa.requires(
         'wtf',
         function () {
             var supported = true;
             
-            prerequisites.forEach(function (prerequisite) {
+            [
+                atropa.regex,
+                atropa.string.countWords,
+                atropa.setAsOptionalArg
+            ].forEach(function (prerequisite) {
                 if(prerequisite === undefined) {
                     supported = false;
                 }
             });
             return supported;
         },
-        'atropa.wtf requires ' + prerequisites +
-        ' in order to be useful. This class is not supported in ' +
-            'this environment'
+        'This class is not supported in this environment'
     );
 }());
 
 (function () {
     "use strict";
-    var prerequisites = [
-        window
-    ];
-    
     atropa.requires(
         'wtfHtmlElement',
         function () {
             var supported = true;
             
-            prerequisites.forEach(function (prerequisite) {
+            [
+                window
+            ].forEach(function (prerequisite) {
                 if(prerequisite === undefined) {
                     supported = false;
                 }
             });
             return supported;
         },
-        'atropa.wtf.htmlElement requires ' + prerequisites +
-        ' in order to be useful. ' +
         'This class is not supported in this environment'
     );
 }());
@@ -4315,12 +4299,33 @@ atropa.wtf.htmlElement = function (elementReference) {
 
 
 
+(function () {
+    "use strict";
+    atropa.requires(
+        'xpath',
+        function () {
+            var supported = true;
+            
+            [
+                window,
+                document.evaluate
+            ].forEach(function (prerequisite) {
+                if(prerequisite === undefined) {
+                    supported = false;
+                }
+            });
+            return supported;
+        },
+        'This class is not supported in this environment'
+    );
+}());
+
 /**
  * An Xpath toolkit for manipulating the DOM.
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
- * @version 20120909
+ * @version 20130313
  * @namespace An Xpath toolkit for manipulating the DOM.
  * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.xpath">tests</a>
  */
@@ -4328,7 +4333,7 @@ atropa.xpath = {};
 /**
  * Processes nodes from the DOM using an Xpath expression.
  * @example
- *   // Say you wanted to touch all the anchors in window.document
+ *   // Say you wanted to touch all the anchors and links in window.document
  *   var xpathExpression, callback;
  *   xpathExpression = './/a';
  *   callback = function(oneNode) {
@@ -4353,16 +4358,16 @@ atropa.xpath = {};
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
- * @version 20120909
+ * @version 20130313
  * @param {String} xpathExpression An Xpath expression as a string
- * @param {DOM Node} contxtNode The node which is to serve as the root
+ * @param {DOM Node} contextNode Optional. The node which is to serve as the root
  * for the supplied Xpath expression. Defaults to whatever docref is.
  * If you are using a relative path such as <code>.//a</code> and, you only
  * want the anchors that are descendants of another element, you would
  * supply a reference to that element for this argument. When using a
  * context node, the docref argument must refer to the context node's
  * containing document.
- * @param {DOM Document} docref A reference to the document you
+ * @param {DOM Document} docref Optional. A reference to the document you
  * are searching, defaults to document. If you have created a separate
  * DOMDocument with the <code>atropa.HTMLParser</code>, an iframe, or by
  * some other means, you would put a reference to that document here to
@@ -4376,6 +4381,7 @@ atropa.xpath.processNodesByXpath = function processNodesByXpath(
     xpathExpression, contextNode, docref, callback
 ) {
     "use strict";
+    atropa.supportCheck('xpath');
     docref = atropa.setAsOptionalArg(document, docref);
     contextNode = atropa.setAsOptionalArg(docref, contextNode);
     var nodesSnapshot,
@@ -4406,11 +4412,11 @@ atropa.xpath.processNodesByXpath = function processNodesByXpath(
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
- * @version 20120909
+ * @version 20130313
  * @param {String} xpathExpression An Xpath expression as a string
- * @param {DOM Node} contxtNode The node which is to serve as the root
+ * @param {DOM Node} contextNode Optional. The node which is to serve as the root
  * for the supplied Xpath expression. Defaults to whatever docref is.
- * @param {DOM Document} docref A reference to the document you
+ * @param {DOM Document} docref Optional. A reference to the document you
  * are searching, defaults to document.
  * @returns {Number} Returns the quantity of nodes removed.
  * @see atropa.xpath.processNodesByXpath for more information.
@@ -4419,6 +4425,7 @@ atropa.xpath.removeNodesByXpath = function removeNodesByXpath(
     xpathExpression, contextNode, docref
 ) {
     "use strict";
+    atropa.supportCheck('xpath');
     var count;
     count = atropa.xpath.processNodesByXpath(
         xpathExpression,
@@ -4440,11 +4447,11 @@ atropa.xpath.removeNodesByXpath = function removeNodesByXpath(
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
- * @version 20120909
+ * @version 20130313
  * @param {String} xpathExpression An Xpath expression as a string
- * @param {DOM Node} contxtNode The node which is to serve as the root
+ * @param {DOM Node} contextNode Optional. The node which is to serve as the root
  * for the supplied Xpath expression. Defaults to the document's root node.
- * @param {DOM Document} docref A reference to the document you
+ * @param {DOM Document} docref Optional. A reference to the document you
  * are searching, defaults to document.
  * @returns {Array} Returns an array whose elements are DOM Nodes
  * @see atropa.xpath.processNodesByXpath for more information.
@@ -4453,6 +4460,7 @@ atropa.xpath.getNodesByXpath = function getNodesByXpath(
     xpathExpression, contextNode, docref
 ) {
     'use strict';
+    atropa.supportCheck('xpath');
     var elementReferences;
     elementReferences = [];
     atropa.xpath.processNodesByXpath(
