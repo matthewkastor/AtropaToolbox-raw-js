@@ -1331,9 +1331,10 @@
         
         htmlElement: function(elementReference) {
             /// <summary>WTFifies the &lt;code&gt;textContent&lt;/code&gt; or &lt;code&gt;value&lt;/code&gt; of the
-            ///  given element and replaces the element with a pre block
+            ///  given element and replaces the element&apos;s innerHTML with a pre block
             ///  containing the results of WTFification.</summary>
             /// <param name="elementReference" type="HTMLElement">A reference to an HTML Element.</param>
+            /// <returns type="HTMLElement">Returns the given element after wtfification.</returns>
         }
         
     };
