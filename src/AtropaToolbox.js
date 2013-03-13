@@ -3311,6 +3311,7 @@ atropa.string.escapeCdata = function escapeCdata(text) {
 
 
 (function () {
+    "use strict";
     var prerequisites = [
         atropa.string,
         atropa.arrays,
@@ -3681,6 +3682,56 @@ atropa.window.open = function open(url, callback, testFn) {
 
 
 
+(function () {
+    "use strict";
+    var prerequisites = [
+        atropa.regex,
+        atropa.string.countWords,
+        atropa.setAsOptionalArg
+    ];
+    
+    atropa.requires(
+        'wtf',
+        function () {
+            var supported = true;
+            
+            prerequisites.forEach(function (prerequisite) {
+                if(prerequisite === undefined) {
+                    supported = false;
+                }
+            });
+            return supported;
+        },
+        'atropa.wtf requires ' + prerequisites +
+        ' in order to be useful. This class is not supported in ' +
+            'this environment'
+    );
+}());
+
+(function () {
+    "use strict";
+    var prerequisites = [
+        window
+    ];
+    
+    atropa.requires(
+        'wtfHtmlElement',
+        function () {
+            var supported = true;
+            
+            prerequisites.forEach(function (prerequisite) {
+                if(prerequisite === undefined) {
+                    supported = false;
+                }
+            });
+            return supported;
+        },
+        'atropa.wtf.htmlElement requires ' + prerequisites +
+        ' in order to be useful. ' +
+        'This class is not supported in this environment'
+    );
+}());
+
 /**
  * Container for all Glorious WTFifier related functions and such.
  * @author <a href="mailto:matthewkastor@gmail.com">
@@ -3689,6 +3740,7 @@ atropa.window.open = function open(url, callback, testFn) {
  * @version 20120909
  * @namespace Container for all Glorious WTFifier related functions and such.
  * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.wtf">tests</a>
+ * @requires atropa.regex
  */
 atropa.wtf = {};
 /**
@@ -4172,6 +4224,8 @@ atropa.wtf.dictionary = {
  */
 atropa.wtf.wtfify = function (target, outputHTML) {
     "use strict";
+    atropa.supportCheck('wtf');
+    
     var regexValue,
         replacementText,
         oldWord,
@@ -4186,6 +4240,7 @@ atropa.wtf.wtfify = function (target, outputHTML) {
     ret = {};
     wtfCount = 0;
     target = target.trim();
+    wordCount = atropa.string.countWords(target);
     if(true === outputHTML) {
         target = target.replace(
             /(\. ?){2,}/gi,
@@ -4195,7 +4250,6 @@ atropa.wtf.wtfify = function (target, outputHTML) {
     } else {
         target = target.replace(/(\. ?){2,}/gi, ' [shit taco] ');
     }
-    wordCount = atropa.string.countWords(target);
     /**
      * Accepts plain text input and Gloriously WTFifies it.
      * @author <a href="mailto:matthewkastor@gmail.com">
@@ -4237,13 +4291,16 @@ atropa.wtf.wtfify = function (target, outputHTML) {
 };
 /**
  * WTFifies the <code>textContent</code> or <code>value</code> of the
- *  given element and replaces the element with a pre block
+ *  given element and replaces the element's innerHTML with a pre block
  *  containing the results of WTFification.
  * @param {HTMLElement} elementReference A reference to an HTML Element.
- * @version 20130112
+ * @returns {HTMLElement} Returns the given element after wtfification.
+ * @version 20130313
  */
 atropa.wtf.htmlElement = function (elementReference) {
     "use strict";
+    atropa.supportCheck('wtfHtmlElement');
+    
     var wtfified, txt;
     elementReference.innerHTML = elementReference.innerHTML.replace(
         /<br>(\s+)?(\r\n|\r|\n)?/g, '\r\n');
@@ -4253,6 +4310,7 @@ atropa.wtf.htmlElement = function (elementReference) {
         '<pre style="color:black; background:white; white-space:pre-wrap;">' +
         wtfified.txt +
         '</pre>';
+    return elementReference;
 };
 
 
@@ -4439,6 +4497,9 @@ atropa.xpath.escapeQuotesXpath = function escapeQuotesXpath(string) {
 };
 
 
+
 while(atropa.data.requirements.length > 0) {
     atropa.data.requirements.pop()();
 }
+
+
