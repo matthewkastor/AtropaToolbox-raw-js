@@ -41,18 +41,21 @@ atropa.string.ucFirst = function ucFirst(string) {
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
- * @version 20130311
+ * @version 20130313
  * @param {String} someText Plain text.
  * @return {Number} Returns the count of words in someText.
  */
 atropa.string.countWords = function countWords(someText) {
     "use strict";
     var wordCount, re, len = 0;
-    if(someText !== undefined && someText !== '' && someText !== null) {
-        wordCount = 0;
-        re = /\s+/gi;
-        wordCount = someText.split(re);
-        len = wordCount.length;
+    if(someText !== undefined && someText !== null) {
+        someText = someText.trim();
+        if(someText !== '') {
+            wordCount = 0;
+            re = /\s+/gi;
+            wordCount = someText.split(re);
+            len = wordCount.length;
+        }
     }
     return len;
 };
