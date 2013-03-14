@@ -30,7 +30,7 @@
             });
             return supported;
         },
-        'This class is not supported in this environment'
+        'atropa.TextAnalyzer class is not supported in this environment'
     );
 }());
 

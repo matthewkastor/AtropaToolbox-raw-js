@@ -29,7 +29,7 @@
             });
             return supported;
         },
-        'This class is not supported in this environment'
+        'atropa.xpath class is not supported in this environment'
     );
 }());
 
