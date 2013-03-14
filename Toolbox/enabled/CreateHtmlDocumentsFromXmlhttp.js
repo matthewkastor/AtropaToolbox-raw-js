@@ -11,6 +11,24 @@
 /*global atropa */
 // end header
 
+atropa.requires(
+    'CreateHtmlDocumentsFromXmlhttp',
+    function () {
+        var supported = true;
+        
+        [
+            atropa.Requester,
+            atropa.HTMLParser
+        ].forEach(function (prerequisite) {
+            if(prerequisite === undefined) {
+                supported = false;
+            }
+        });
+        return supported;
+    },
+    'atropa.CreateHtmlDocumentsFromXmlhttp class is not supported in this environment'
+);
+
 /**
  * Creates HTML DOM Documents from an XMLHttpRequest object.
  *  This was tested on Firefox, it doesn't work on google chrome.
@@ -142,25 +160,14 @@ atropa.CreateHtmlDocumentsFromXmlhttp = function CreateHtmlDocumentsFromXmlhttp(
         requester.makeRequest(method, url, messageBody, cb);
     };
     
+    
     function init () {
-        if(atropa.data.CreateHtmlDocumentsFromXmlhttp === undefined) {
-            atropa.data.CreateHtmlDocumentsFromXmlhttp = {};
-        }
-        
-        if(atropa.data.CreateHtmlDocumentsFromXmlhttp.support === 'unsupported') {
-            throw new Error(atropa.data.CreateHtmlDocumentsFromXmlhttp.error);
-        }
-        
         try {
+            atropa.supportCheck('CreateHtmlDocumentsFromXmlhttp');
             requester = new atropa.Requester();
             htmldocument = new atropa.HTMLParser();
         } catch (e) {
             atropa.data.CreateHtmlDocumentsFromXmlhttp.support = 'unsupported';
-            atropa.data.CreateHtmlDocumentsFromXmlhttp.error = 
-                'The atropa.CreateHtmlDocumentsFromXmlhttp ' +
-                'class requires the atropa.HTMLParser and the ' +
-                'atropa.Requester one of which has thrown the following ' +
-                'error: ' + e;
             throw new Error(atropa.data.CreateHtmlDocumentsFromXmlhttp.error);
         }
     }

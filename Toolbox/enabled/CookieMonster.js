@@ -11,6 +11,23 @@
 /*global atropa */
 // end header
 
+atropa.requires(
+    'CookieMonster',
+    function () {
+        var supported = true;
+        
+        [
+            document.cookie
+        ].forEach(function (prerequisite) {
+            if(prerequisite === undefined) {
+                supported = false;
+            }
+        });
+        return supported;
+    },
+    'atropa.CookieMonster class is not supported in this environment'
+);
+
 /**
  * This is a cookie handler.
  * @example
@@ -303,33 +320,8 @@ atropa.CookieMonster = function CookieMonster() {
     this.setCookieObj = function setCookieObj(cookieObj) {
         return this.setCookie(cookieObj.key, cookieObj.val);
     };
-
-    function init () {
-        function unsupported(e) {
-            atropa.data.CookieMonster.error = 
-                'The atropa.CookieMonster ' +
-                'class requires that document.cookie exists. ' + e;
-            atropa.data.CookieMonster.support = 'unsupported';
-            throw new Error(atropa.data.CookieMonster.error);
-        }
-        
-        if(atropa.data.CookieMonster === undefined) {
-            atropa.data.CookieMonster = {};
-        }
-        
-        if(atropa.data.CookieMonster.support === 'unsupported') {
-            throw new Error(atropa.data.CookieMonster.error);
-        }
-        
-        try {
-            if(document.cookie === undefined) {
-                unsupported('document.cookie is undefined.');
-            }
-        } catch (e) {
-            unsupported(e);
-        }
-    }
-    init();
+    
+    atropa.supportCheck('CookieMonster');
 };
 
 

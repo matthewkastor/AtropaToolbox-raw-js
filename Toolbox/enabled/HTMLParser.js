@@ -11,6 +11,25 @@
 /*global atropa */
 // end header
 
+atropa.requires(
+    'HTMLParser',
+    function () {
+        "use strict";
+        var supported = true;
+        
+        [
+            document.implementation.createDocumentType,
+            document.implementation.createDocument
+        ].forEach(function (prerequisite) {
+            if(prerequisite === undefined) {
+                supported = false;
+            }
+        });
+        return supported;
+    },
+    'atropa.HTMLParser class is not supported in this environment'
+);
+
 /**
  * Creates a new HTML Parser<br />
  * Carry out DOM operations without loading content to the active document.
@@ -27,57 +46,7 @@
 atropa.HTMLParser = function HTMLParser() {
     "use strict";
     var my = this;
-    /**
-     * Tests if this class will work in the current environment and throws
-     *  an error if it won't.
-     * @private
-     * @methodOf atropa.HTMLParser#
-     * @return Returns true or throws an error if this class is not supported
-     *  in the current environment.
-     * @throws {Error} Throws errors if this class can not be used in the
-     *  current environment.
-     */
-    function selfTest() {
-        atropa.data.HTMLParser = {};
-        try {
-            my.newDocument();
-            
-            try {
-                if (my.doc.nodeType !== 9) {
-                    throw new Error('the document nodeType returned an ' +
-                        'unexpected value');
-                }
-            } catch (e) {
-                throw new Error('atropa.HTMLParser can not create a new ' +
-                    'document because: ' + e);
-            }
-            
-            try {
-                my.loadString(
-                    '<head></head><body><p id="testPara">test</p></body>'
-                );
-            } catch (f) {
-                throw new Error('atropa.HTMLParser can not load ' +
-                    'the hidden document from string because: ' + f);
-            }
-            
-            try {
-                if (my.doc.getElementById('testPara').textContent !== 'test') {
-                    throw new Error('the test textContent was not the ' +
-                        'expected value');
-                }
-            } catch (g) {
-                throw new Error('atropa.HTMLParser can not access ' +
-                    'or manipulate the hidden document because: ' + g);
-            }
-        } catch (h) {
-            atropa.data.HTMLParser.support = 'unsupported';
-            atropa.data.HTMLParser.error = 'The atropa.HTMLParser Class can ' +
-                'not be used, it is not supported by the current environment ' +
-                'because: ' + h;
-            throw new Error(atropa.data.HTMLParser.error);
-        }
-    }
+    
     /**
      * Holds the created HTML DOM Document.
      * @type HTML DOM Document
@@ -101,8 +70,13 @@ atropa.HTMLParser = function HTMLParser() {
             "-//W3C//DTD HTML 4.01 Transitional//EN",
             "http://www.w3.org/TR/html4/loose.dtd"
         );
-        this.doc = document.implementation.createDocument('', '', dt);
-        return this.doc;
+        my.doc = document.implementation.createDocument('', '', dt);
+        if (my.doc.nodeType !== 9) {
+            atropa.data.HTMLParser.support = 'unsupported';
+            throw new Error(atropa.data.HTMLParser.error +
+                'the document nodeType returned an unexpected value');
+        }
+        return my.doc;
     };
     /**
      * Creates a new HTML DOM Document and loads the given string into it.
@@ -119,22 +93,40 @@ atropa.HTMLParser = function HTMLParser() {
         if (!htmlstring) {
             return false;
         }
-        this.newDocument();
-        this.doc.appendChild(this.doc.createElement('html'));
-        this.doc.documentElement.innerHTML = htmlstring;
-        return this.doc;
+        
+        try {
+            my.newDocument();
+            my.doc.appendChild(my.doc.createElement('html'));
+            my.doc.documentElement.innerHTML = htmlstring;
+        } catch (e) {
+            atropa.data.HTMLParser.support = 'unsupported';
+            throw new Error(atropa.data.HTMLParser.error +
+                'atropa.HTMLParser can not load ' +
+                'the hidden document from string because: ' + e);
+        }
+        return my.doc;
     };
     
-    if(atropa.data.HTMLParser === undefined) {
-        selfTest();
-    } else {
-        if(atropa.data.HTMLParser.support === 'unsupported') {
-            throw new Error(atropa.data.HTMLParser.error);
-        } else {
-            this.newDocument();
-            return this;
+    function init () {
+        var eqTest;
+        atropa.supportCheck('HTMLParser');
+        try {
+            eqTest = my.loadString(
+                '<head></head><body><p>test</p></body>'
+            ).body.textContent;
+        } catch (e) {
+            atropa.data.HTMLParser.support = 'unsupported';
+            throw new Error(atropa.data.HTMLParser.error + e);
         }
+        if('test' !== eqTest) {
+            atropa.data.HTMLParser.support = 'unsupported';
+            throw new Error(atropa.data.HTMLParser.error);
+        }
+        my.newDocument();
     }
+    
+    init();
+    
 };
 
 
