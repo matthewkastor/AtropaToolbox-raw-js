@@ -11,13 +11,32 @@
 /*global atropa */
 // end header
 
+atropa.requires(
+    'Babbler',
+    function () {
+        var supported = true;
+        
+        [
+            atropa.random.integer,
+            atropa.string.ucFirst,
+            atropa.random.string
+        ].forEach(function (prerequisite) {
+            if(prerequisite === undefined) {
+                supported = false;
+            }
+        });
+        return supported;
+    },
+    'atropa.Babbler class is not supported in this environment'
+);
+
 /**
  * This class represents a babbler. The babbler
  * produces lorum ipsum text, to user specifications.
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
- * @version 20130223
+ * @version 20130313
  * @class This class represents a babbler
  * @param {Number} wrdCount The amount of "words" you would like
  * the babbler to produce.
@@ -65,14 +84,15 @@
  */
 atropa.Babbler = function Babbler(wrdCount) {
     'use strict';
-    var babble = '',
-    wordCount = 0;
+    var my = this,
+        babble = '',
+        wordCount = 0;
     /**
      * Sets the word count.
      * @author <a href="mailto:matthewkastor@gmail.com">
      *  Matthew Christopher Kastor-Inare III </a><br />
      *  ☭ Hial Atropa!! ☭
-     * @version 20120909
+     * @version 20130313
      * @methodOf atropa.Babbler#
      * @param {Number} wrdCount The amount of "words" which you want the
      * babbler to produce.
@@ -80,9 +100,7 @@ atropa.Babbler = function Babbler(wrdCount) {
      */
     this.setWordCount = function (wrdCount) {
         if (typeof wrdCount !== 'number') {
-            if (typeof wordCount !== 'number') {
-                wordCount = 250;
-            }
+            wordCount = 250;
         } else {
             wordCount = wrdCount;
         }
@@ -93,14 +111,14 @@ atropa.Babbler = function Babbler(wrdCount) {
      * @author <a href="mailto:matthewkastor@gmail.com">
      *  Matthew Christopher Kastor-Inare III </a><br />
      *  ☭ Hial Atropa!! ☭
-     * @version 20120909
+     * @version 20130313
      * @methodOf atropa.Babbler#
      * @param {Number} wordCount The amount of "words" you would like
      * to set for this babbler.
      * @returns {Number} Returns the set word count for this babbler.
      */
     this.resetWordCount = function resetWordCount(wordCount) {
-        this.setWordCount(wordCount);
+        my.setWordCount(wordCount);
         return wordCount;
     };
     /**
@@ -165,7 +183,7 @@ atropa.Babbler = function Babbler(wrdCount) {
      * @author <a href="mailto:matthewkastor@gmail.com">
      *  Matthew Christopher Kastor-Inare III </a><br />
      *  ☭ Hial Atropa!! ☭
-     * @version 20120909
+     * @version 20130313
      * @methodOf atropa.Babbler#
      * @param {Number} sentenceMin The shortest sentence, in words,
      * you would like returned.
@@ -189,21 +207,21 @@ atropa.Babbler = function Babbler(wrdCount) {
         }
         for (sentenceLength; sentenceLength > 0; sentenceLength--) {
             if (wordCount > 0) {
-                word = this.generateWord(4, 12);
+                word = my.generateWord(4, 12);
                 sentence += ' ' + word;
             } else {
                 sentenceLength = 0;
             }
         }
-        sentence += this.punctuate();
-        return atropa.string.ucFirst(sentence);
+        sentence += my.punctuate();
+        return atropa.string.ucFirst(sentence.trim());
     };
     /**
      * Sets the babble.
      * @author <a href="mailto:matthewkastor@gmail.com">
      *  Matthew Christopher Kastor-Inare III </a><br />
      *  ☭ Hial Atropa!! ☭
-     * @version 20120909
+     * @version 20130313
      * @methodOf atropa.Babbler#
      * @param {String} babbleString Specified babble to set.
      * @returns {String} Returns the stored babble.
@@ -212,7 +230,7 @@ atropa.Babbler = function Babbler(wrdCount) {
         if (typeof babbleString === 'string') {
             babble = babbleString;
         } else {
-            this.resetBabble();
+            my.resetBabble();
         }
         return babble;
     };
@@ -256,15 +274,16 @@ atropa.Babbler = function Babbler(wrdCount) {
      * @see atropa.Babbler#getWordCount
      */
     this.generateBabble = function generateBabble(wordsCt) {
-        this.resetBabble();
-        this.resetWordCount(wordsCt);
+        my.resetBabble();
+        my.resetWordCount(wordsCt);
         for (wordCount; wordCount > 0; babble += ' ') {
-            this.setBabble(babble + this.generateSentence(5, 20));
+            my.setBabble(babble + my.generateSentence(5, 20));
         }
         return babble;
     };
+    
+    atropa.supportCheck('Babbler');
     this.resetWordCount(wrdCount);
-    return this;
 };
 
 
