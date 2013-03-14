@@ -1069,13 +1069,32 @@ atropa.SerialActor.prototype.stop = function() {
 
 
 
+atropa.requires(
+    'Babbler',
+    function () {
+        var supported = true;
+        
+        [
+            atropa.random.integer,
+            atropa.string.ucFirst,
+            atropa.random.string
+        ].forEach(function (prerequisite) {
+            if(prerequisite === undefined) {
+                supported = false;
+            }
+        });
+        return supported;
+    },
+    'atropa.Babbler class is not supported in this environment'
+);
+
 /**
  * This class represents a babbler. The babbler
  * produces lorum ipsum text, to user specifications.
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
- * @version 20130223
+ * @version 20130313
  * @class This class represents a babbler
  * @param {Number} wrdCount The amount of "words" you would like
  * the babbler to produce.
@@ -1123,14 +1142,15 @@ atropa.SerialActor.prototype.stop = function() {
  */
 atropa.Babbler = function Babbler(wrdCount) {
     'use strict';
-    var babble = '',
-    wordCount = 0;
+    var my = this,
+        babble = '',
+        wordCount = 0;
     /**
      * Sets the word count.
      * @author <a href="mailto:matthewkastor@gmail.com">
      *  Matthew Christopher Kastor-Inare III </a><br />
      *  ☭ Hial Atropa!! ☭
-     * @version 20120909
+     * @version 20130313
      * @methodOf atropa.Babbler#
      * @param {Number} wrdCount The amount of "words" which you want the
      * babbler to produce.
@@ -1138,9 +1158,7 @@ atropa.Babbler = function Babbler(wrdCount) {
      */
     this.setWordCount = function (wrdCount) {
         if (typeof wrdCount !== 'number') {
-            if (typeof wordCount !== 'number') {
-                wordCount = 250;
-            }
+            wordCount = 250;
         } else {
             wordCount = wrdCount;
         }
@@ -1151,14 +1169,14 @@ atropa.Babbler = function Babbler(wrdCount) {
      * @author <a href="mailto:matthewkastor@gmail.com">
      *  Matthew Christopher Kastor-Inare III </a><br />
      *  ☭ Hial Atropa!! ☭
-     * @version 20120909
+     * @version 20130313
      * @methodOf atropa.Babbler#
      * @param {Number} wordCount The amount of "words" you would like
      * to set for this babbler.
      * @returns {Number} Returns the set word count for this babbler.
      */
     this.resetWordCount = function resetWordCount(wordCount) {
-        this.setWordCount(wordCount);
+        my.setWordCount(wordCount);
         return wordCount;
     };
     /**
@@ -1223,7 +1241,7 @@ atropa.Babbler = function Babbler(wrdCount) {
      * @author <a href="mailto:matthewkastor@gmail.com">
      *  Matthew Christopher Kastor-Inare III </a><br />
      *  ☭ Hial Atropa!! ☭
-     * @version 20120909
+     * @version 20130313
      * @methodOf atropa.Babbler#
      * @param {Number} sentenceMin The shortest sentence, in words,
      * you would like returned.
@@ -1247,21 +1265,21 @@ atropa.Babbler = function Babbler(wrdCount) {
         }
         for (sentenceLength; sentenceLength > 0; sentenceLength--) {
             if (wordCount > 0) {
-                word = this.generateWord(4, 12);
+                word = my.generateWord(4, 12);
                 sentence += ' ' + word;
             } else {
                 sentenceLength = 0;
             }
         }
-        sentence += this.punctuate();
-        return atropa.string.ucFirst(sentence);
+        sentence += my.punctuate();
+        return atropa.string.ucFirst(sentence.trim());
     };
     /**
      * Sets the babble.
      * @author <a href="mailto:matthewkastor@gmail.com">
      *  Matthew Christopher Kastor-Inare III </a><br />
      *  ☭ Hial Atropa!! ☭
-     * @version 20120909
+     * @version 20130313
      * @methodOf atropa.Babbler#
      * @param {String} babbleString Specified babble to set.
      * @returns {String} Returns the stored babble.
@@ -1270,7 +1288,7 @@ atropa.Babbler = function Babbler(wrdCount) {
         if (typeof babbleString === 'string') {
             babble = babbleString;
         } else {
-            this.resetBabble();
+            my.resetBabble();
         }
         return babble;
     };
@@ -1314,18 +1332,36 @@ atropa.Babbler = function Babbler(wrdCount) {
      * @see atropa.Babbler#getWordCount
      */
     this.generateBabble = function generateBabble(wordsCt) {
-        this.resetBabble();
-        this.resetWordCount(wordsCt);
+        my.resetBabble();
+        my.resetWordCount(wordsCt);
         for (wordCount; wordCount > 0; babble += ' ') {
-            this.setBabble(babble + this.generateSentence(5, 20));
+            my.setBabble(babble + my.generateSentence(5, 20));
         }
         return babble;
     };
+    
+    atropa.supportCheck('Babbler');
     this.resetWordCount(wrdCount);
-    return this;
 };
 
 
+
+atropa.requires(
+    'CookieMonster',
+    function () {
+        var supported = true;
+        
+        [
+            document.cookie
+        ].forEach(function (prerequisite) {
+            if(prerequisite === undefined) {
+                supported = false;
+            }
+        });
+        return supported;
+    },
+    'atropa.CookieMonster class is not supported in this environment'
+);
 
 /**
  * This is a cookie handler.
@@ -1619,36 +1655,29 @@ atropa.CookieMonster = function CookieMonster() {
     this.setCookieObj = function setCookieObj(cookieObj) {
         return this.setCookie(cookieObj.key, cookieObj.val);
     };
-
-    function init () {
-        function unsupported(e) {
-            atropa.data.CookieMonster.error = 
-                'The atropa.CookieMonster ' +
-                'class requires that document.cookie exists. ' + e;
-            atropa.data.CookieMonster.support = 'unsupported';
-            throw new Error(atropa.data.CookieMonster.error);
-        }
-        
-        if(atropa.data.CookieMonster === undefined) {
-            atropa.data.CookieMonster = {};
-        }
-        
-        if(atropa.data.CookieMonster.support === 'unsupported') {
-            throw new Error(atropa.data.CookieMonster.error);
-        }
-        
-        try {
-            if(document.cookie === undefined) {
-                unsupported('document.cookie is undefined.');
-            }
-        } catch (e) {
-            unsupported(e);
-        }
-    }
-    init();
+    
+    atropa.supportCheck('CookieMonster');
 };
 
 
+
+atropa.requires(
+    'CreateHtmlDocumentsFromXmlhttp',
+    function () {
+        var supported = true;
+        
+        [
+            atropa.Requester,
+            atropa.HTMLParser
+        ].forEach(function (prerequisite) {
+            if(prerequisite === undefined) {
+                supported = false;
+            }
+        });
+        return supported;
+    },
+    'atropa.CreateHtmlDocumentsFromXmlhttp class is not supported in this environment'
+);
 
 /**
  * Creates HTML DOM Documents from an XMLHttpRequest object.
@@ -1781,25 +1810,14 @@ atropa.CreateHtmlDocumentsFromXmlhttp = function CreateHtmlDocumentsFromXmlhttp(
         requester.makeRequest(method, url, messageBody, cb);
     };
     
+    
     function init () {
-        if(atropa.data.CreateHtmlDocumentsFromXmlhttp === undefined) {
-            atropa.data.CreateHtmlDocumentsFromXmlhttp = {};
-        }
-        
-        if(atropa.data.CreateHtmlDocumentsFromXmlhttp.support === 'unsupported') {
-            throw new Error(atropa.data.CreateHtmlDocumentsFromXmlhttp.error);
-        }
-        
         try {
+            atropa.supportCheck('CreateHtmlDocumentsFromXmlhttp');
             requester = new atropa.Requester();
             htmldocument = new atropa.HTMLParser();
         } catch (e) {
             atropa.data.CreateHtmlDocumentsFromXmlhttp.support = 'unsupported';
-            atropa.data.CreateHtmlDocumentsFromXmlhttp.error = 
-                'The atropa.CreateHtmlDocumentsFromXmlhttp ' +
-                'class requires the atropa.HTMLParser and the ' +
-                'atropa.Requester one of which has thrown the following ' +
-                'error: ' + e;
             throw new Error(atropa.data.CreateHtmlDocumentsFromXmlhttp.error);
         }
     }
@@ -1845,6 +1863,25 @@ atropa.InvalidArgumentTypesError.prototype.constructor =
 
 
 
+atropa.requires(
+    'HTMLParser',
+    function () {
+        "use strict";
+        var supported = true;
+        
+        [
+            document.implementation.createDocumentType,
+            document.implementation.createDocument
+        ].forEach(function (prerequisite) {
+            if(prerequisite === undefined) {
+                supported = false;
+            }
+        });
+        return supported;
+    },
+    'atropa.HTMLParser class is not supported in this environment'
+);
+
 /**
  * Creates a new HTML Parser<br />
  * Carry out DOM operations without loading content to the active document.
@@ -1861,57 +1898,7 @@ atropa.InvalidArgumentTypesError.prototype.constructor =
 atropa.HTMLParser = function HTMLParser() {
     "use strict";
     var my = this;
-    /**
-     * Tests if this class will work in the current environment and throws
-     *  an error if it won't.
-     * @private
-     * @methodOf atropa.HTMLParser#
-     * @return Returns true or throws an error if this class is not supported
-     *  in the current environment.
-     * @throws {Error} Throws errors if this class can not be used in the
-     *  current environment.
-     */
-    function selfTest() {
-        atropa.data.HTMLParser = {};
-        try {
-            my.newDocument();
-            
-            try {
-                if (my.doc.nodeType !== 9) {
-                    throw new Error('the document nodeType returned an ' +
-                        'unexpected value');
-                }
-            } catch (e) {
-                throw new Error('atropa.HTMLParser can not create a new ' +
-                    'document because: ' + e);
-            }
-            
-            try {
-                my.loadString(
-                    '<head></head><body><p id="testPara">test</p></body>'
-                );
-            } catch (f) {
-                throw new Error('atropa.HTMLParser can not load ' +
-                    'the hidden document from string because: ' + f);
-            }
-            
-            try {
-                if (my.doc.getElementById('testPara').textContent !== 'test') {
-                    throw new Error('the test textContent was not the ' +
-                        'expected value');
-                }
-            } catch (g) {
-                throw new Error('atropa.HTMLParser can not access ' +
-                    'or manipulate the hidden document because: ' + g);
-            }
-        } catch (h) {
-            atropa.data.HTMLParser.support = 'unsupported';
-            atropa.data.HTMLParser.error = 'The atropa.HTMLParser Class can ' +
-                'not be used, it is not supported by the current environment ' +
-                'because: ' + h;
-            throw new Error(atropa.data.HTMLParser.error);
-        }
-    }
+    
     /**
      * Holds the created HTML DOM Document.
      * @type HTML DOM Document
@@ -1935,8 +1922,13 @@ atropa.HTMLParser = function HTMLParser() {
             "-//W3C//DTD HTML 4.01 Transitional//EN",
             "http://www.w3.org/TR/html4/loose.dtd"
         );
-        this.doc = document.implementation.createDocument('', '', dt);
-        return this.doc;
+        my.doc = document.implementation.createDocument('', '', dt);
+        if (my.doc.nodeType !== 9) {
+            atropa.data.HTMLParser.support = 'unsupported';
+            throw new Error(atropa.data.HTMLParser.error +
+                'the document nodeType returned an unexpected value');
+        }
+        return my.doc;
     };
     /**
      * Creates a new HTML DOM Document and loads the given string into it.
@@ -1953,22 +1945,40 @@ atropa.HTMLParser = function HTMLParser() {
         if (!htmlstring) {
             return false;
         }
-        this.newDocument();
-        this.doc.appendChild(this.doc.createElement('html'));
-        this.doc.documentElement.innerHTML = htmlstring;
-        return this.doc;
+        
+        try {
+            my.newDocument();
+            my.doc.appendChild(my.doc.createElement('html'));
+            my.doc.documentElement.innerHTML = htmlstring;
+        } catch (e) {
+            atropa.data.HTMLParser.support = 'unsupported';
+            throw new Error(atropa.data.HTMLParser.error +
+                'atropa.HTMLParser can not load ' +
+                'the hidden document from string because: ' + e);
+        }
+        return my.doc;
     };
     
-    if(atropa.data.HTMLParser === undefined) {
-        selfTest();
-    } else {
-        if(atropa.data.HTMLParser.support === 'unsupported') {
-            throw new Error(atropa.data.HTMLParser.error);
-        } else {
-            this.newDocument();
-            return this;
+    function init () {
+        var eqTest;
+        atropa.supportCheck('HTMLParser');
+        try {
+            eqTest = my.loadString(
+                '<head></head><body><p>test</p></body>'
+            ).body.textContent;
+        } catch (e) {
+            atropa.data.HTMLParser.support = 'unsupported';
+            throw new Error(atropa.data.HTMLParser.error + e);
         }
+        if('test' !== eqTest) {
+            atropa.data.HTMLParser.support = 'unsupported';
+            throw new Error(atropa.data.HTMLParser.error);
+        }
+        my.newDocument();
     }
+    
+    init();
+    
 };
 
 
@@ -2918,7 +2928,7 @@ atropa.removeNodeByReference = function (elementReference) {
             });
             return supported;
         },
-        'This class is not supported in this environment'
+        'atropa.Requester class is not supported in this environment'
     );
 }());
 
@@ -3149,18 +3159,21 @@ atropa.string.ucFirst = function ucFirst(string) {
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
- * @version 20130311
+ * @version 20130313
  * @param {String} someText Plain text.
  * @return {Number} Returns the count of words in someText.
  */
 atropa.string.countWords = function countWords(someText) {
     "use strict";
     var wordCount, re, len = 0;
-    if(someText !== undefined && someText !== '' && someText !== null) {
-        wordCount = 0;
-        re = /\s+/gi;
-        wordCount = someText.split(re);
-        len = wordCount.length;
+    if(someText !== undefined && someText !== null) {
+        someText = someText.trim();
+        if(someText !== '') {
+            wordCount = 0;
+            re = /\s+/gi;
+            wordCount = someText.split(re);
+            len = wordCount.length;
+        }
     }
     return len;
 };
@@ -3324,7 +3337,7 @@ atropa.string.escapeCdata = function escapeCdata(text) {
             });
             return supported;
         },
-        'This class is not supported in this environment'
+        'atropa.TextAnalyzer class is not supported in this environment'
     );
 }());
 
@@ -3692,7 +3705,7 @@ atropa.window.open = function open(url, callback, testFn) {
             });
             return supported;
         },
-        'This class is not supported in this environment'
+        'atropa.wtf class is not supported in this environment'
     );
 }());
 
@@ -3712,7 +3725,7 @@ atropa.window.open = function open(url, callback, testFn) {
             });
             return supported;
         },
-        'This class is not supported in this environment'
+        'atropa.wtf class is not supported in this environment'
     );
 }());
 
@@ -4316,7 +4329,7 @@ atropa.wtf.htmlElement = function (elementReference) {
             });
             return supported;
         },
-        'This class is not supported in this environment'
+        'atropa.xpath class is not supported in this environment'
     );
 }());
 

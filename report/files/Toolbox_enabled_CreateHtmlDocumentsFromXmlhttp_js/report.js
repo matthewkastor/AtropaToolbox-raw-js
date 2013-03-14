@@ -7,45 +7,113 @@ __report = {
   },
   "complexity": {
     "aggregate": {
-      "line": 75,
+      "line": 14,
       "complexity": {
         "sloc": {
-          "physical": 95,
-          "logical": 32
+          "physical": 163,
+          "logical": 35
         },
-        "cyclomatic": 5,
+        "cyclomatic": 4,
         "halstead": {
           "operators": {
-            "distinct": 15,
-            "total": 77,
+            "distinct": 14,
+            "total": 68,
             "identifiers": [
               "__stripped__"
             ]
           },
           "operands": {
-            "distinct": 39,
-            "total": 96,
+            "distinct": 42,
+            "total": 92,
             "identifiers": [
               "__stripped__"
             ]
           },
-          "length": 173,
-          "vocabulary": 54,
-          "difficulty": 18.461538461538463,
-          "volume": 995.5955378742801,
-          "effort": 18380.225314602096,
-          "bugs": 0.3318651792914267,
-          "time": 1021.1236285890053
+          "length": 160,
+          "vocabulary": 56,
+          "difficulty": 15.333333333333336,
+          "volume": 929.1767875292168,
+          "effort": 14247.377408781325,
+          "bugs": 0.30972559584307224,
+          "time": 791.5209671545181
         }
       }
     },
     "functions": [
       {
-        "name": "CreateHtmlDocumentsFromXmlhttp",
-        "line": 75,
+        "name": "<anonymous>",
+        "line": 16,
         "complexity": {
           "sloc": {
-            "physical": 95,
+            "physical": 13,
+            "logical": 4
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 7,
+              "total": 9,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 7,
+              "total": 10,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 19,
+            "vocabulary": 14,
+            "difficulty": 5,
+            "volume": 72.33974351909447,
+            "effort": 361.6987175954723,
+            "bugs": 0.024113247839698156,
+            "time": 20.09437319974846
+          }
+        }
+      },
+      {
+        "name": "<anonymous>",
+        "line": 22,
+        "complexity": {
+          "sloc": {
+            "physical": 5,
+            "logical": 2
+          },
+          "cyclomatic": 2,
+          "halstead": {
+            "operators": {
+              "distinct": 3,
+              "total": 3,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 4,
+              "total": 5,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 8,
+            "vocabulary": 7,
+            "difficulty": 1.875,
+            "volume": 22.458839376460833,
+            "effort": 42.11032383086406,
+            "bugs": 0.007486279792153611,
+            "time": 2.3394624350480036
+          }
+        }
+      },
+      {
+        "name": "CreateHtmlDocumentsFromXmlhttp",
+        "line": 93,
+        "complexity": {
+          "sloc": {
+            "physical": 84,
             "logical": 9
           },
           "cyclomatic": 1,
@@ -76,7 +144,7 @@ __report = {
       },
       {
         "name": "newDocument",
-        "line": 111,
+        "line": 129,
         "complexity": {
           "sloc": {
             "physical": 33,
@@ -110,7 +178,7 @@ __report = {
       },
       {
         "name": "<anonymous>",
-        "line": 128,
+        "line": 146,
         "complexity": {
           "sloc": {
             "physical": 14,
@@ -144,40 +212,40 @@ __report = {
       },
       {
         "name": "init",
-        "line": 145,
+        "line": 164,
         "complexity": {
           "sloc": {
-            "physical": 22,
-            "logical": 11
+            "physical": 10,
+            "logical": 7
           },
-          "cyclomatic": 3,
+          "cyclomatic": 1,
           "halstead": {
             "operators": {
-              "distinct": 9,
-              "total": 42,
+              "distinct": 6,
+              "total": 18,
               "identifiers": [
                 "__stripped__"
               ]
             },
             "operands": {
-              "distinct": 18,
-              "total": 44,
+              "distinct": 14,
+              "total": 20,
               "identifiers": [
                 "__stripped__"
               ]
             },
-            "length": 86,
-            "vocabulary": 27,
-            "difficulty": 11,
-            "volume": 408.92032518605834,
-            "effort": 4498.123577046642,
-            "bugs": 0.13630677506201944,
-            "time": 249.895754280369
+            "length": 38,
+            "vocabulary": 20,
+            "difficulty": 4.285714285714286,
+            "volume": 164.2332676057198,
+            "effort": 703.8568611673705,
+            "bugs": 0.05474442253523993,
+            "time": 39.103158953742806
           }
         }
       }
     ],
-    "maintainability": 65.7627532514454,
+    "maintainability": 71.38246732788345,
     "module": "Toolbox\\enabled\\CreateHtmlDocumentsFromXmlhttp.js"
   },
   "jshint": {

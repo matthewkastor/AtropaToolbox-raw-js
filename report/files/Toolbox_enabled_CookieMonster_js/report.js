@@ -7,46 +7,114 @@ __report = {
   },
   "complexity": {
     "aggregate": {
-      "line": 30,
+      "line": 14,
       "complexity": {
         "sloc": {
-          "physical": 304,
-          "logical": 85
+          "physical": 312,
+          "logical": 78
         },
-        "cyclomatic": 13,
+        "cyclomatic": 11,
         "halstead": {
           "operators": {
-            "distinct": 24,
-            "total": 213,
+            "distinct": 21,
+            "total": 187,
             "identifiers": [
               "__stripped__"
             ]
           },
           "operands": {
-            "distinct": 61,
-            "total": 257,
+            "distinct": 57,
+            "total": 231,
             "identifiers": [
               "__stripped__"
             ]
           },
-          "length": 470,
-          "vocabulary": 85,
-          "difficulty": 50.55737704918033,
-          "volume": 3012.4137399847205,
-          "effort": 152299.737280539,
-          "bugs": 1.0041379133282402,
-          "time": 8461.096515585501
+          "length": 418,
+          "vocabulary": 78,
+          "difficulty": 42.55263157894736,
+          "volume": 2627.29812748442,
+          "effort": 111798.44926690281,
+          "bugs": 0.8757660424948067,
+          "time": 6211.0249592723785
         }
       }
     },
     "functions": [
       {
-        "name": "CookieMonster",
-        "line": 30,
+        "name": "<anonymous>",
+        "line": 16,
         "complexity": {
           "sloc": {
-            "physical": 304,
-            "logical": 16
+            "physical": 12,
+            "logical": 4
+          },
+          "cyclomatic": 1,
+          "halstead": {
+            "operators": {
+              "distinct": 7,
+              "total": 8,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 6,
+              "total": 8,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 16,
+            "vocabulary": 13,
+            "difficulty": 4.666666666666666,
+            "volume": 59.207035490257475,
+            "effort": 276.29949895453484,
+            "bugs": 0.019735678496752493,
+            "time": 15.349972164140825
+          }
+        }
+      },
+      {
+        "name": "<anonymous>",
+        "line": 21,
+        "complexity": {
+          "sloc": {
+            "physical": 5,
+            "logical": 2
+          },
+          "cyclomatic": 2,
+          "halstead": {
+            "operators": {
+              "distinct": 3,
+              "total": 3,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "operands": {
+              "distinct": 4,
+              "total": 5,
+              "identifiers": [
+                "__stripped__"
+              ]
+            },
+            "length": 8,
+            "vocabulary": 7,
+            "difficulty": 1.875,
+            "volume": 22.458839376460833,
+            "effort": 42.11032383086406,
+            "bugs": 0.007486279792153611,
+            "time": 2.3394624350480036
+          }
+        }
+      },
+      {
+        "name": "CookieMonster",
+        "line": 47,
+        "complexity": {
+          "sloc": {
+            "physical": 279,
+            "logical": 15
           },
           "cyclomatic": 1,
           "halstead": {
@@ -58,25 +126,25 @@ __report = {
               ]
             },
             "operands": {
-              "distinct": 15,
-              "total": 36,
+              "distinct": 17,
+              "total": 37,
               "identifiers": [
                 "__stripped__"
               ]
             },
-            "length": 70,
-            "vocabulary": 21,
-            "difficulty": 7.199999999999999,
-            "volume": 307.4622195945133,
-            "effort": 2213.7279810804953,
-            "bugs": 0.10248740653150443,
-            "time": 122.98488783780529
+            "length": 71,
+            "vocabulary": 23,
+            "difficulty": 6.529411764705882,
+            "volume": 321.1728988800479,
+            "effort": 2097.0701044520774,
+            "bugs": 0.10705763296001597,
+            "time": 116.50389469178208
           }
         }
       },
       {
         "name": "cookie2obj",
-        "line": 56,
+        "line": 73,
         "complexity": {
           "sloc": {
             "physical": 12,
@@ -110,7 +178,7 @@ __report = {
       },
       {
         "name": "bakeCookie",
-        "line": 90,
+        "line": 107,
         "complexity": {
           "sloc": {
             "physical": 8,
@@ -144,7 +212,7 @@ __report = {
       },
       {
         "name": "inspectCookies",
-        "line": 132,
+        "line": 149,
         "complexity": {
           "sloc": {
             "physical": 11,
@@ -178,7 +246,7 @@ __report = {
       },
       {
         "name": "getCookieCallback",
-        "line": 157,
+        "line": 174,
         "complexity": {
           "sloc": {
             "physical": 9,
@@ -212,7 +280,7 @@ __report = {
       },
       {
         "name": "getCookie",
-        "line": 187,
+        "line": 204,
         "complexity": {
           "sloc": {
             "physical": 4,
@@ -246,7 +314,7 @@ __report = {
       },
       {
         "name": "getCookies",
-        "line": 206,
+        "line": 223,
         "complexity": {
           "sloc": {
             "physical": 15,
@@ -280,7 +348,7 @@ __report = {
       },
       {
         "name": "deleteCookie",
-        "line": 239,
+        "line": 256,
         "complexity": {
           "sloc": {
             "physical": 6,
@@ -314,7 +382,7 @@ __report = {
       },
       {
         "name": "deleteCookieObj",
-        "line": 263,
+        "line": 280,
         "complexity": {
           "sloc": {
             "physical": 3,
@@ -348,7 +416,7 @@ __report = {
       },
       {
         "name": "setCookie",
-        "line": 282,
+        "line": 299,
         "complexity": {
           "sloc": {
             "physical": 6,
@@ -382,7 +450,7 @@ __report = {
       },
       {
         "name": "setCookieObj",
-        "line": 303,
+        "line": 320,
         "complexity": {
           "sloc": {
             "physical": 3,
@@ -413,77 +481,9 @@ __report = {
             "time": 4.199999999999999
           }
         }
-      },
-      {
-        "name": "init",
-        "line": 307,
-        "complexity": {
-          "sloc": {
-            "physical": 25,
-            "logical": 10
-          },
-          "cyclomatic": 4,
-          "halstead": {
-            "operators": {
-              "distinct": 10,
-              "total": 25,
-              "identifiers": [
-                "__stripped__"
-              ]
-            },
-            "operands": {
-              "distinct": 14,
-              "total": 27,
-              "identifiers": [
-                "__stripped__"
-              ]
-            },
-            "length": 52,
-            "vocabulary": 24,
-            "difficulty": 9.642857142857142,
-            "volume": 238.41805003750017,
-            "effort": 2299.0311967901803,
-            "bugs": 0.07947268334583339,
-            "time": 127.72395537723224
-          }
-        }
-      },
-      {
-        "name": "unsupported",
-        "line": 308,
-        "complexity": {
-          "sloc": {
-            "physical": 7,
-            "logical": 3
-          },
-          "cyclomatic": 1,
-          "halstead": {
-            "operators": {
-              "distinct": 5,
-              "total": 15,
-              "identifiers": [
-                "__stripped__"
-              ]
-            },
-            "operands": {
-              "distinct": 10,
-              "total": 18,
-              "identifiers": [
-                "__stripped__"
-              ]
-            },
-            "length": 33,
-            "vocabulary": 15,
-            "difficulty": 4.5,
-            "volume": 128.92738965508113,
-            "effort": 580.1732534478651,
-            "bugs": 0.04297579655169371,
-            "time": 32.23184741377028
-          }
-        }
       }
     ],
-    "maintainability": 67.84637534659817,
+    "maintainability": 69.14166606269926,
     "module": "Toolbox\\enabled\\CookieMonster.js"
   },
   "jshint": {

@@ -10,32 +10,32 @@
       "line": 22,
       "complexity": {
         "sloc": {
-          "physical": 176,
-          "logical": 57
+          "physical": 179,
+          "logical": 59
         },
-        "cyclomatic": 6,
+        "cyclomatic": 7,
         "halstead": {
           "operators": {
             "distinct": 19,
-            "total": 136,
+            "total": 139,
             "identifiers": [
               "__stripped__"
             ]
           },
           "operands": {
-            "distinct": 61,
-            "total": 176,
+            "distinct": 62,
+            "total": 179,
             "identifiers": [
               "__stripped__"
             ]
           },
-          "length": 312,
-          "vocabulary": 80,
-          "difficulty": 27.40983606557377,
-          "volume": 1972.4415656048568,
-          "effort": 54064.2999621528,
-          "bugs": 0.6574805218682857,
-          "time": 3003.5722201196
+          "length": 318,
+          "vocabulary": 81,
+          "difficulty": 27.42741935483871,
+          "volume": 2016.0723009173107,
+          "effort": 55295.66044693366,
+          "bugs": 0.6720241003057702,
+          "time": 3071.981135940759
         }
       }
     },
@@ -79,38 +79,38 @@
         "line": 48,
         "complexity": {
           "sloc": {
-            "physical": 11,
-            "logical": 10
+            "physical": 14,
+            "logical": 12
           },
-          "cyclomatic": 2,
+          "cyclomatic": 3,
           "halstead": {
             "operators": {
               "distinct": 8,
-              "total": 16,
+              "total": 19,
               "identifiers": [
                 "__stripped__"
               ]
             },
             "operands": {
-              "distinct": 12,
-              "total": 24,
+              "distinct": 13,
+              "total": 27,
               "identifiers": [
                 "__stripped__"
               ]
             },
-            "length": 40,
-            "vocabulary": 20,
-            "difficulty": 8,
-            "volume": 172.8771237954945,
-            "effort": 1383.016990363956,
-            "bugs": 0.0576257079318315,
-            "time": 76.834277242442
+            "length": 46,
+            "vocabulary": 21,
+            "difficulty": 8.307692307692308,
+            "volume": 202.04660144782298,
+            "effort": 1678.5409966434527,
+            "bugs": 0.06734886714927432,
+            "time": 93.25227759130293
           }
         }
       },
       {
         "name": "convertEOL",
-        "line": 71,
+        "line": 74,
         "complexity": {
           "sloc": {
             "physical": 4,
@@ -144,7 +144,7 @@
       },
       {
         "name": "offsetWhiteSpace",
-        "line": 86,
+        "line": 89,
         "complexity": {
           "sloc": {
             "physical": 7,
@@ -178,7 +178,7 @@
       },
       {
         "name": "normalizeWhiteSpacePrefix",
-        "line": 102,
+        "line": 105,
         "complexity": {
           "sloc": {
             "physical": 12,
@@ -212,7 +212,7 @@
       },
       {
         "name": "normalizeWhiteSpace",
-        "line": 123,
+        "line": 126,
         "complexity": {
           "sloc": {
             "physical": 5,
@@ -246,7 +246,7 @@
       },
       {
         "name": "getOffset",
-        "line": 137,
+        "line": 140,
         "complexity": {
           "sloc": {
             "physical": 12,
@@ -280,7 +280,7 @@
       },
       {
         "name": "<anonymous>.getWords",
-        "line": 160,
+        "line": 163,
         "complexity": {
           "sloc": {
             "physical": 14,
@@ -314,7 +314,7 @@
       },
       {
         "name": "invalidChars",
-        "line": 163,
+        "line": 166,
         "complexity": {
           "sloc": {
             "physical": 5,
@@ -348,7 +348,7 @@
       },
       {
         "name": "escapeCdata",
-        "line": 194,
+        "line": 197,
         "complexity": {
           "sloc": {
             "physical": 4,
@@ -381,7 +381,7 @@
         }
       }
     ],
-    "maintainability": 72.2910218842269,
+    "maintainability": 71.80031980054714,
     "module": "Toolbox\\enabled\\string.js"
   },
   "jshint": {
