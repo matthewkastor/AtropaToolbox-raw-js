@@ -14,6 +14,7 @@
     jasmine,
     waitsFor
 */
+// end header
 
 describe("atropa.CreateHtmlDocumentsFromXmlhttp", function() {
     

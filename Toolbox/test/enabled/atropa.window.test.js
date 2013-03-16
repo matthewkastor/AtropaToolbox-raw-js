@@ -18,6 +18,7 @@
     dummy,
     spyOn
 */
+// end header
 
 describe("atropa.window", function() {
     

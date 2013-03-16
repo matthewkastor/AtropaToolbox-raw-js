@@ -18,6 +18,7 @@
     waitsFor,
     dummy
 */
+// end header
 
 describe("atropa.url", function() {
 

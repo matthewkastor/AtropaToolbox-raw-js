@@ -10,6 +10,7 @@
     it,
     expect
 */
+// end header
 
 describe("atropa", function() {
     it("must exist", function() {

@@ -10,6 +10,7 @@
     it,
     expect
 */
+// end header
 
 describe('atropa.arrays', function () {
     var aa = atropa.arrays;

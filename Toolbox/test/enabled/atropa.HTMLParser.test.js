@@ -11,6 +11,8 @@
     expect,
     beforeEach
 */
+// end header
+
 describe('atropa.HTMLParser', function () {
     var parser;
     

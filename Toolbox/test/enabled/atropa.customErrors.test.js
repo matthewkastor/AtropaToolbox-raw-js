@@ -10,6 +10,8 @@
     it,
     expect
 */
+// end header
+
 describe('atropa.InvalidArgumentTypesError', function () {
     var errInstance = new atropa.InvalidArgumentTypesError();
     it('must exist', function () {

@@ -15,6 +15,7 @@
     jasmine,
     waitsFor
 */
+// end header
 
 describe('atropa.CookieMonster', function () {
     var cookieMonster;

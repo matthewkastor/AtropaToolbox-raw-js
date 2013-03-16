@@ -16,6 +16,7 @@
     waitsFor,
     dummy
 */
+// end header
 
 describe("atropa.objects", function() {
 

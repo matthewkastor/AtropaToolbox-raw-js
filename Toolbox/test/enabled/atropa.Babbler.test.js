@@ -17,6 +17,7 @@
     waitsFor,
     spyOn
 */
+// end header
 
 describe("atropa.Babbler", function() {
     var babbler;

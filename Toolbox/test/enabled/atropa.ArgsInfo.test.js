@@ -10,6 +10,7 @@
     it,
     expect
 */
+// end header
 
 describe('atropa.ArgsInfo', function () {
     it('must exist', function () {

@@ -13,6 +13,8 @@
     runs,
     waitsFor
 */
+// end header
+
 describe('atropa.Requester', function () {
     var requester;
     
