@@ -1,3 +1,4 @@
+/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
 /*jslint
     indent: 4,
     maxerr: 50,
@@ -5,7 +6,8 @@
     browser: true,
     devel: true,
     plusplus: true,
-    regexp: true
+    regexp: true,
+    vars: true
 */
 /*global XPathResult */
 // end header
@@ -893,7 +895,7 @@ atropa.SerialActor = function(actorName, actorFunction) {
             that.block();
             setTimeout(function() {
                 that.actorFunction();
-            }, 100);
+            }, 10);
         } else {
             console.log(that.name + ' sleeping for ' + that.interval + ' ms');
         }

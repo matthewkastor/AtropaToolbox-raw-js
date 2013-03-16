@@ -55,7 +55,7 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
-      <p class="stat">24.24</p>
+      <p class="stat">23.76</p>
     </div>
     <div class="span6">
       <h2 class="header">SLOC/LSLOC <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
@@ -256,7 +256,7 @@ atropa.SerialActor = function(actorName, actorFunction) {
             that.block();
             setTimeout(function() {
                 that.actorFunction();
-            }, 100);
+            }, 10);
         } else {
             console.log(that.name + ' sleeping for ' + that.interval + ' ms');
         }

@@ -23,19 +23,19 @@ __report = {
             ]
           },
           "operands": {
-            "distinct": 49,
+            "distinct": 50,
             "total": 198,
             "identifiers": [
               "__stripped__"
             ]
           },
           "length": 357,
-          "vocabulary": 61,
-          "difficulty": 24.24489795918367,
-          "volume": 2117.2732295099504,
-          "effort": 51333.073401180016,
-          "bugs": 0.7057577431699835,
-          "time": 2851.8374111766675
+          "vocabulary": 62,
+          "difficulty": 23.759999999999998,
+          "volume": 2125.648082808115,
+          "effort": 50505.398447520805,
+          "bugs": 0.7085493609360383,
+          "time": 2805.8554693067113
         }
       }
     },
