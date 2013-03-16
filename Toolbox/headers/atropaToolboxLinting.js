@@ -5,7 +5,8 @@
     browser: true,
     devel: true,
     plusplus: true,
-    regexp: true
+    regexp: true,
+    vars: true
 */
 /*global XPathResult */
 // end header
