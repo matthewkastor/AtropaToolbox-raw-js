@@ -172,7 +172,7 @@ atropa.SerialActor = function(actorName, actorFunction) {
             that.block();
             setTimeout(function() {
                 that.actorFunction();
-            }, 100);
+            }, 10);
         } else {
             console.log(that.name + ' sleeping for ' + that.interval + ' ms');
         }
