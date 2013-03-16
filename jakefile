@@ -171,7 +171,7 @@ function generateAST (filePath, options) {
 }
 
 function simplifyJs(pathName, options) {
-    var fs, path, escodegen, ast, out;
+    var fs, path, escodegen, out;
     
     options = options || {
         format: {
@@ -211,7 +211,7 @@ desc('An alias for the build task.');
 task('default', ['build'], function () {
 });
 
-desc('Builds everything.');
+desc('Builds AtropaToolbox, test runner, and docs.');
 task(
     'build',
     [
@@ -240,7 +240,8 @@ task('makeAtropaToolbox', function () {
     components = componentNames.map(function(item){
         return path.normalize(toolboxComponentsLocation + item);
     });
-    toolbox = fs.readFileSync(
+    toolbox = '/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>\r\n';
+    toolbox += fs.readFileSync(
         path.normalize('Toolbox/headers/atropaToolboxLinting.js'),
         'utf8'
     );
@@ -250,30 +251,7 @@ task('makeAtropaToolbox', function () {
     mkdir('src');
     fs.writeFileSync(outputFilePath, toolbox, 'utf8');
 });
-/*
-desc('Generates AtropaToolbox.test.js.');
-task('makeTestBuild', ['makeAtropaToolbox'], function () {
-    var fs, path, headers, footers, testComponentsLocation, componentNames,
-        components, testBuild, outputFilePath;
-    fs = require('fs');
-    path = require('path');
-    headers = [
-        path.normalize('src/AtropaToolbox.js'),
-        path.normalize('Toolbox/test/atropa.test.js')
-    ];
-    footers = [
-        path.normalize('Toolbox/test/atropa.test.runner.js')
-    ];
-    testComponentsLocation = path.normalize('Toolbox/test/enabled/');
-    componentNames = fs.readdirSync(testComponentsLocation);
-    components = componentNames.map(function (item) {
-        return path.normalize(testComponentsLocation + item);
-    });
-    testBuild = concatFiles(headers.concat(components, footers), removeHeader);
-    outputFilePath = path.normalize('src/AtropaToolbox.test.js');
-    fs.writeFileSync(outputFilePath, testBuild, 'utf8');
-});
-*/
+
 desc('Generates AtropaToolbox.min.js.');
 task('min', ['makeAtropaToolbox'], function (options) {
     var fs, path, simple;
@@ -445,7 +423,7 @@ task('docServ', function (port) {
     
     register = new cmd.commandRegister.Asynchronous(
         'Load documentation server');
-    register.on('command queue processed', function(e) {
+    register.on('command queue processed', function() {
         setTimeout(function () {
             try {
                 fs.unlink('RedirectToLocalhost.html');
@@ -470,7 +448,7 @@ task('jasmineRunnerGen', function () {
     specRunner = new JasmineSpecRunnerGenerator(
          'jasmine/', 'AtropaToolboxTests.html', 'AtropaToolbox Test Suite');
     
-    specRunner.sourceFiles = ['src/AtropaToolbox.js']
+    specRunner.sourceFiles = ['src/AtropaToolbox.js'];
     
     specRunner.addSpecs('./Toolbox/test/enabled/', 'Toolbox/test/enabled/');
     
