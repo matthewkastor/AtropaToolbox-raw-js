@@ -2,7 +2,7 @@
 
 /**
  * @file Utilities for executing commandlines.
- * @author <a href="matthewkastor@gmail.com">Matthew Kastor</a>
+ * @author <a href="mailto:matthewkastor@gmail.com">Matthew Kastor</a>
  * @version 0.1.0
  * @requires fs
  * @requires events

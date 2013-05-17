@@ -435,7 +435,7 @@ task('docServ', function (port) {
     register.addCommand('RedirectToLocalhost.html', null, logOutput);
     register.process();
     
-    atropaServer.start(port);
+    atropaServer.start(port, __dirname);
 });
 
 desc('Regenerates AtropaToolboxTests.html');

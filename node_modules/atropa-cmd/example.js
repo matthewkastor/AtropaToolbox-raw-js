@@ -36,11 +36,19 @@ function showOffCommandRegister(register) {
         console.log();
     });
     
-    function logStdout(err, stdout, stderr) {
-        console.log(stdout);
+    function logOutput(err, stdout, stderr) {
+        if(stdout) {
+            console.log(stdout);
+        }
+        if(stderr) {
+            console.error(stderr);
+        }
+        if(err) {
+            console.error(err);
+        }
     }
 
     register.addCommand('dir', 'C:\\Users\\kastor\\Desktop', logStdout);
-    register.addCommand('tree /A', 'C:\\Users\\kastor\\Desktop', logStdout);
+    register.addCommand('ping google.com', null, logStdout);
     register.process();
 }

@@ -54,7 +54,7 @@
   					script.setAttribute('src', url);
   					head.appendChild(script);
   				}
-  				if (/\/Atropa/gi.test(document.location.pathname)) {
+  				if (/(\/Atropa|WTF-O-Vision Example.html)/gi.test(decodeURI(document.location.pathname))) {
 					loadScript('./src/AtropaToolbox.js');
   				} else {
   					loadScript('./src/WTF-O-Vision.js');
