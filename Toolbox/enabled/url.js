@@ -16,7 +16,7 @@
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
- * @version 20130311
+ * @version 20130713
  * @namespace Utilities for handling urls.
  * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.url">tests</a>
  */
@@ -29,7 +29,12 @@ atropa.url = {};
  */
 atropa.url.getFilename = function(url) {
     "use strict";
-    var filename = String(url).replace(/^(.*:\/\/.*\/)/,'');
+    var filename;
+    try {
+        filename = String(url).replace(/.*:\/\/[^\/]+/, '').replace(/[#|?].*$/, '').match(/[^\/]+$/)[0];
+    } catch (e) {
+        filename = '';
+    }
     if(url === filename) {
         filename = '';
     }
