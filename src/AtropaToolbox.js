@@ -2313,7 +2313,7 @@ atropa.inquire.hasProperty = function (obj, prop) {
  * @returns {Boolean} Returns true if str is an empty string,
  *  otherwise returns false.
  */
- atropa.inquire.isEmptyString = function (str) {
+atropa.inquire.isEmptyString = function (str) {
     "use strict";
     var out = false;
     if ('' === str) {
@@ -4280,6 +4280,8 @@ atropa.wtf.wtfify = function (target, outputHTML) {
         }
         return out;
     };
+    // word is defined in the containing scope and
+    // is not global, jshint is wrong
     for (word in atropa.wtf.dictionary) {
         if (atropa.wtf.dictionary.hasOwnProperty(word)) {
             oldWord = atropa.regex.appendPrefixesAndSuffixes(word);
@@ -4531,3 +4533,8 @@ while(atropa.data.requirements.length > 0) {
 }
 
 
+try {
+    module.exports = atropa;
+} catch (e) {
+    // module.exports does not exist.
+}
