@@ -599,6 +599,8 @@ atropa.wtf.wtfify = function (target, outputHTML) {
         }
         return out;
     };
+    // word is defined in the containing scope and
+    // is not global, jshint is wrong
     for (word in atropa.wtf.dictionary) {
         if (atropa.wtf.dictionary.hasOwnProperty(word)) {
             oldWord = atropa.regex.appendPrefixesAndSuffixes(word);
