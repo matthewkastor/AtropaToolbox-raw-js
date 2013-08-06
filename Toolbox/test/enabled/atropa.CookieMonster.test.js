@@ -113,7 +113,7 @@ describe('atropa.CookieMonster', function () {
             describe('getCookies', function () {
                 it('get all cookies', function () {
                     var cookies = cookieMonster.getCookies();
-                    expect(cookies.length).toEqual(2);
+                    expect(cookies.length >= 2).toEqual(true);
                     expect(cookies[0].key).toEqual('atropa');
                     expect(cookies[1].key).toEqual('katjii');
                 });
