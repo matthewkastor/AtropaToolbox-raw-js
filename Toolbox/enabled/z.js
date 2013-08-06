@@ -17,3 +17,8 @@ while(atropa.data.requirements.length > 0) {
 }
 
 
+try {
+    module.exports = atropa;
+} catch (e) {
+    // module.exports does not exist.
+}
