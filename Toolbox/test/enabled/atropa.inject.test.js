@@ -264,7 +264,11 @@ describe("atropa.inject", function() {
                             settings.parentNod,
                             settings.callback
                         );
-                        expect(el.src).toEqual(settings.srcURL);
+                        expect(
+                            el.src.replace(/\/$/, '')
+                        ).toEqual(
+                            settings.srcURL.replace(/\/$/, '')
+                        );
                         expect(
                             document.getElementById(
                                 settings.id).getAttribute('id')
