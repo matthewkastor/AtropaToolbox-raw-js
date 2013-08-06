@@ -94,7 +94,7 @@ atropa.inquire.hasProperty = function (obj, prop) {
  * @returns {Boolean} Returns true if str is an empty string,
  *  otherwise returns false.
  */
- atropa.inquire.isEmptyString = function (str) {
+atropa.inquire.isEmptyString = function (str) {
     "use strict";
     var out = false;
     if ('' === str) {
