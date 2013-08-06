@@ -49,7 +49,7 @@
     </div>
     <div class="span6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">622</p>
+      <p class="stat">624</p>
     </div>
   </div>
   <div class="row historical">
@@ -691,6 +691,8 @@ atropa.wtf.wtfify = function (target, outputHTML) {
         }
         return out;
     };
+    // word is defined in the containing scope and
+    // is not global, jshint is wrong
     for (word in atropa.wtf.dictionary) {
         if (atropa.wtf.dictionary.hasOwnProperty(word)) {
             oldWord = atropa.regex.appendPrefixesAndSuffixes(word);

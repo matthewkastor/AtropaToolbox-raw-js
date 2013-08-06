@@ -2320,7 +2320,7 @@
 <span class='line'>2313</span>  * @returns {Boolean} Returns true if str is an empty string,
 <span class='line'>2314</span>  *  otherwise returns false.
 <span class='line'>2315</span>  */</span><span class="WHIT">
-<span class='line'>2316</span> </span><span class="WHIT"> </span><span class="NAME">atropa.inquire.isEmptyString</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">str</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>2316</span> </span><span class="NAME">atropa.inquire.isEmptyString</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">str</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
 <span class='line'>2317</span> </span><span class="WHIT">    </span><span class="STRN">"use strict"</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'>2318</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">out</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'>2319</span> </span><span class="WHIT">    </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="STRN">''</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="NAME">str</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
@@ -4287,255 +4287,261 @@
 <span class='line'>4280</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
 <span class='line'>4281</span> </span><span class="WHIT">        </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">out</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'>4282</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4283</span> </span><span class="WHIT">    </span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">word</span><span class="WHIT"> </span><span class="KEYW">in</span><span class="WHIT"> </span><span class="NAME">atropa.wtf.dictionary</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>4284</span> </span><span class="WHIT">        </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">atropa.wtf.dictionary.hasOwnProperty</span><span class="PUNC">(</span><span class="NAME">word</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>4285</span> </span><span class="WHIT">            </span><span class="NAME">oldWord</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">atropa.regex.appendPrefixesAndSuffixes</span><span class="PUNC">(</span><span class="NAME">word</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4286</span> </span><span class="WHIT">            </span><span class="NAME">regexValue</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">RegExp</span><span class="PUNC">(</span><span class="NAME">oldWord</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">'gi'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4287</span> </span><span class="WHIT">            </span><span class="NAME">target</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">target.replace</span><span class="PUNC">(</span><span class="NAME">regexValue</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">replacementText</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4288</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>4289</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>4290</span> </span><span class="WHIT">    </span><span class="NAME">ret.wtfCount</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">wtfCount</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4291</span> </span><span class="WHIT">    </span><span class="NAME">ret.wordCount</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">wordCount</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4292</span> </span><span class="WHIT">    </span><span class="NAME">ret.score</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">wtfCount</span><span class="WHIT"> </span><span class="PUNC">/</span><span class="WHIT"> </span><span class="NAME">wordCount</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4293</span> </span><span class="WHIT">    </span><span class="NAME">ret.txt</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">target</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4294</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">ret</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4295</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4296</span> </span><span class="COMM">/**
-<span class='line'>4297</span>  * WTFifies the &lt;code>textContent&lt;/code> or &lt;code>value&lt;/code> of the
-<span class='line'>4298</span>  *  given element and replaces the element's innerHTML with a pre block
-<span class='line'>4299</span>  *  containing the results of WTFification.
-<span class='line'>4300</span>  * @param {HTMLElement} elementReference A reference to an HTML Element.
-<span class='line'>4301</span>  * @returns {HTMLElement} Returns the given element after wtfification.
-<span class='line'>4302</span>  * @version 20130313
-<span class='line'>4303</span>  */</span><span class="WHIT">
-<span class='line'>4304</span> </span><span class="NAME">atropa.wtf.htmlElement</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">elementReference</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>4305</span> </span><span class="WHIT">    </span><span class="STRN">"use strict"</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4306</span> </span><span class="WHIT">    </span><span class="NAME">atropa.supportCheck</span><span class="PUNC">(</span><span class="STRN">'wtfHtmlElement'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4307</span> </span><span class="WHIT">    </span><span class="WHIT">
-<span class='line'>4308</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">wtfified</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">txt</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4309</span> </span><span class="WHIT">    </span><span class="NAME">elementReference.innerHTML</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">elementReference.innerHTML.replace</span><span class="PUNC">(</span><span class="WHIT">
-<span class='line'>4310</span> </span><span class="WHIT">        </span><span class="REGX">/&lt;br>(\s+)?(\r\n|\r|\n)?/g</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">'\r\n'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4311</span> </span><span class="WHIT">    </span><span class="NAME">txt</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">elementReference.value</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">elementReference.textContent</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4312</span> </span><span class="WHIT">    </span><span class="NAME">wtfified</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">atropa.wtf.wtfify</span><span class="PUNC">(</span><span class="NAME">txt</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4313</span> </span><span class="WHIT">    </span><span class="NAME">elementReference.innerHTML</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
-<span class='line'>4314</span> </span><span class="WHIT">        </span><span class="STRN">'&lt;pre style="color:black; background:white; white-space:pre-wrap;">'</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT">
-<span class='line'>4315</span> </span><span class="WHIT">        </span><span class="NAME">wtfified.txt</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT">
-<span class='line'>4316</span> </span><span class="WHIT">        </span><span class="STRN">'&lt;/pre>'</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4317</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">elementReference</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4318</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4319</span> 
-<span class='line'>4320</span> 
+<span class='line'>4283</span> </span><span class="WHIT">    </span><span class="COMM">// word is defined in the containing scope and</span><span class="WHIT">
+<span class='line'>4284</span> </span><span class="WHIT">    </span><span class="COMM">// is not global, jshint is wrong</span><span class="WHIT">
+<span class='line'>4285</span> </span><span class="WHIT">    </span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">word</span><span class="WHIT"> </span><span class="KEYW">in</span><span class="WHIT"> </span><span class="NAME">atropa.wtf.dictionary</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>4286</span> </span><span class="WHIT">        </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">atropa.wtf.dictionary.hasOwnProperty</span><span class="PUNC">(</span><span class="NAME">word</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>4287</span> </span><span class="WHIT">            </span><span class="NAME">oldWord</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">atropa.regex.appendPrefixesAndSuffixes</span><span class="PUNC">(</span><span class="NAME">word</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4288</span> </span><span class="WHIT">            </span><span class="NAME">regexValue</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">RegExp</span><span class="PUNC">(</span><span class="NAME">oldWord</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">'gi'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4289</span> </span><span class="WHIT">            </span><span class="NAME">target</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">target.replace</span><span class="PUNC">(</span><span class="NAME">regexValue</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">replacementText</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4290</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>4291</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>4292</span> </span><span class="WHIT">    </span><span class="NAME">ret.wtfCount</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">wtfCount</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4293</span> </span><span class="WHIT">    </span><span class="NAME">ret.wordCount</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">wordCount</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4294</span> </span><span class="WHIT">    </span><span class="NAME">ret.score</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">wtfCount</span><span class="WHIT"> </span><span class="PUNC">/</span><span class="WHIT"> </span><span class="NAME">wordCount</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4295</span> </span><span class="WHIT">    </span><span class="NAME">ret.txt</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">target</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4296</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">ret</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4297</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4298</span> </span><span class="COMM">/**
+<span class='line'>4299</span>  * WTFifies the &lt;code>textContent&lt;/code> or &lt;code>value&lt;/code> of the
+<span class='line'>4300</span>  *  given element and replaces the element's innerHTML with a pre block
+<span class='line'>4301</span>  *  containing the results of WTFification.
+<span class='line'>4302</span>  * @param {HTMLElement} elementReference A reference to an HTML Element.
+<span class='line'>4303</span>  * @returns {HTMLElement} Returns the given element after wtfification.
+<span class='line'>4304</span>  * @version 20130313
+<span class='line'>4305</span>  */</span><span class="WHIT">
+<span class='line'>4306</span> </span><span class="NAME">atropa.wtf.htmlElement</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">elementReference</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>4307</span> </span><span class="WHIT">    </span><span class="STRN">"use strict"</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4308</span> </span><span class="WHIT">    </span><span class="NAME">atropa.supportCheck</span><span class="PUNC">(</span><span class="STRN">'wtfHtmlElement'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4309</span> </span><span class="WHIT">    </span><span class="WHIT">
+<span class='line'>4310</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">wtfified</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">txt</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4311</span> </span><span class="WHIT">    </span><span class="NAME">elementReference.innerHTML</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">elementReference.innerHTML.replace</span><span class="PUNC">(</span><span class="WHIT">
+<span class='line'>4312</span> </span><span class="WHIT">        </span><span class="REGX">/&lt;br>(\s+)?(\r\n|\r|\n)?/g</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">'\r\n'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4313</span> </span><span class="WHIT">    </span><span class="NAME">txt</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">elementReference.value</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="NAME">elementReference.textContent</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4314</span> </span><span class="WHIT">    </span><span class="NAME">wtfified</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">atropa.wtf.wtfify</span><span class="PUNC">(</span><span class="NAME">txt</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4315</span> </span><span class="WHIT">    </span><span class="NAME">elementReference.innerHTML</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT">
+<span class='line'>4316</span> </span><span class="WHIT">        </span><span class="STRN">'&lt;pre style="color:black; background:white; white-space:pre-wrap;">'</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT">
+<span class='line'>4317</span> </span><span class="WHIT">        </span><span class="NAME">wtfified.txt</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT">
+<span class='line'>4318</span> </span><span class="WHIT">        </span><span class="STRN">'&lt;/pre>'</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4319</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">elementReference</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4320</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'>4321</span> 
-<span class='line'>4322</span> </span><span class="PUNC">(</span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>4323</span> </span><span class="WHIT">    </span><span class="STRN">"use strict"</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4324</span> </span><span class="WHIT">    </span><span class="NAME">atropa.requires</span><span class="PUNC">(</span><span class="WHIT">
-<span class='line'>4325</span> </span><span class="WHIT">        </span><span class="STRN">'xpath'</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'>4326</span> </span><span class="WHIT">        </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>4327</span> </span><span class="WHIT">            </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">supported</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4328</span> </span><span class="WHIT">            </span><span class="WHIT">
-<span class='line'>4329</span> </span><span class="WHIT">            </span><span class="PUNC">[</span><span class="WHIT">
-<span class='line'>4330</span> </span><span class="WHIT">                </span><span class="NAME">window</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'>4331</span> </span><span class="WHIT">                </span><span class="NAME">document.evaluate</span><span class="WHIT">
-<span class='line'>4332</span> </span><span class="WHIT">            </span><span class="PUNC">]</span><span class="PUNC">.</span><span class="NAME">forEach</span><span class="PUNC">(</span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">prerequisite</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>4333</span> </span><span class="WHIT">                </span><span class="KEYW">if</span><span class="PUNC">(</span><span class="NAME">prerequisite</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="NAME">undefined</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>4334</span> </span><span class="WHIT">                    </span><span class="NAME">supported</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4335</span> </span><span class="WHIT">                </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>4336</span> </span><span class="WHIT">            </span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4337</span> </span><span class="WHIT">            </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">supported</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4338</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'>4339</span> </span><span class="WHIT">        </span><span class="STRN">'atropa.xpath class is not supported in this environment'</span><span class="WHIT">
-<span class='line'>4340</span> </span><span class="WHIT">    </span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4341</span> </span><span class="PUNC">}</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4342</span> 
-<span class='line'>4343</span> </span><span class="COMM">/**
-<span class='line'>4344</span>  * An Xpath toolkit for manipulating the DOM.
-<span class='line'>4345</span>  * @author &lt;a href="mailto:matthewkastor@gmail.com">
-<span class='line'>4346</span>  *  Matthew Christopher Kastor-Inare III &lt;/a>&lt;br />
-<span class='line'>4347</span>  *  ☭ Hial Atropa!! ☭
-<span class='line'>4348</span>  * @version 20130313
-<span class='line'>4349</span>  * @namespace An Xpath toolkit for manipulating the DOM.
-<span class='line'>4350</span>  * @see &lt;a href="../../../AtropaToolboxTests.html?spec=atropa.xpath">tests&lt;/a>
-<span class='line'>4351</span>  */</span><span class="WHIT">
-<span class='line'>4352</span> </span><span class="NAME">atropa.xpath</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4353</span> </span><span class="COMM">/**
-<span class='line'>4354</span>  * Processes nodes from the DOM using an Xpath expression.
-<span class='line'>4355</span>  * @example
-<span class='line'>4356</span>  *   // Say you wanted to touch all the anchors and links in window.document
-<span class='line'>4357</span>  *   var xpathExpression, callback;
-<span class='line'>4358</span>  *   xpathExpression = './/a';
-<span class='line'>4359</span>  *   callback = function(oneNode) {
-<span class='line'>4360</span>  *       oneNode.touched = true;
-<span class='line'>4361</span>  *   }
-<span class='line'>4362</span>  *   atropa.xpath.processNodesByXpath(
-<span class='line'>4363</span>  *       xpathExpression, document, document, callback);
-<span class='line'>4364</span>  *   
-<span class='line'>4365</span>  *   // Or say you have an iframe, with the id 'myFrame'. In the iframe there
-<span class='line'>4366</span>  *   // is a div with the id myDiv.
-<span class='line'>4367</span>  *   // Here is how you would remove all the anchors in that div.
-<span class='line'>4368</span>  *   var myFrame, xpathExpression, contextNode, docref, callback;
-<span class='line'>4369</span>  *   myFrame = document.getElementById('myFrame');
-<span class='line'>4370</span>  *   docref = myFrame.contentWindow.document;
-<span class='line'>4371</span>  *   contextNode = docref.getElementById('myDiv');
-<span class='line'>4372</span>  *   xpathExpression = './/a';
-<span class='line'>4373</span>  *   callback = function(oneNode) {
-<span class='line'>4374</span>  *       atropa.removeNodeByReference(oneNode);
-<span class='line'>4375</span>  *   }
-<span class='line'>4376</span>  *   atropa.xpath.processNodesByXpath(
-<span class='line'>4377</span>  *       xpathExpression, contextNode, docref, callback);
-<span class='line'>4378</span>  * @author &lt;a href="mailto:matthewkastor@gmail.com">
-<span class='line'>4379</span>  *  Matthew Christopher Kastor-Inare III &lt;/a>&lt;br />
-<span class='line'>4380</span>  *  ☭ Hial Atropa!! ☭
-<span class='line'>4381</span>  * @version 20130313
-<span class='line'>4382</span>  * @param {String} xpathExpression An Xpath expression as a string
-<span class='line'>4383</span>  * @param {DOM Node} contextNode Optional. The node which is to serve as the root
-<span class='line'>4384</span>  * for the supplied Xpath expression. Defaults to whatever docref is.
-<span class='line'>4385</span>  * If you are using a relative path such as &lt;code>.//a&lt;/code> and, you only
-<span class='line'>4386</span>  * want the anchors that are descendants of another element, you would
-<span class='line'>4387</span>  * supply a reference to that element for this argument. When using a
-<span class='line'>4388</span>  * context node, the docref argument must refer to the context node's
-<span class='line'>4389</span>  * containing document.
-<span class='line'>4390</span>  * @param {DOM Document} docref Optional. A reference to the document you
-<span class='line'>4391</span>  * are searching, defaults to document. If you have created a separate
-<span class='line'>4392</span>  * DOMDocument with the &lt;code>atropa.HTMLParser&lt;/code>, an iframe, or by
-<span class='line'>4393</span>  * some other means, you would put a reference to that document here to
-<span class='line'>4394</span>  * indicate that you intend to use that document's root.
-<span class='line'>4395</span>  * @param {Function} callback A function applied to every element found
-<span class='line'>4396</span>  * using the supplied xpath expression. The callback receives a single
-<span class='line'>4397</span>  * element as it's only argument.
-<span class='line'>4398</span>  * @returns {Number} Returns the quantity of nodes processed.
-<span class='line'>4399</span>  */</span><span class="WHIT">
-<span class='line'>4400</span> </span><span class="NAME">atropa.xpath.processNodesByXpath</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">processNodesByXpath</span><span class="PUNC">(</span><span class="WHIT">
-<span class='line'>4401</span> </span><span class="WHIT">    </span><span class="NAME">xpathExpression</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">contextNode</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">docref</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">callback</span><span class="WHIT">
-<span class='line'>4402</span> </span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>4403</span> </span><span class="WHIT">    </span><span class="STRN">"use strict"</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4404</span> </span><span class="WHIT">    </span><span class="NAME">atropa.supportCheck</span><span class="PUNC">(</span><span class="STRN">'xpath'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4405</span> </span><span class="WHIT">    </span><span class="NAME">docref</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">atropa.setAsOptionalArg</span><span class="PUNC">(</span><span class="NAME">document</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">docref</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4406</span> </span><span class="WHIT">    </span><span class="NAME">contextNode</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">atropa.setAsOptionalArg</span><span class="PUNC">(</span><span class="NAME">docref</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">contextNode</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4407</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">nodesSnapshot</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'>4408</span> </span><span class="WHIT">    </span><span class="NAME">nsl</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'>4409</span> </span><span class="WHIT">    </span><span class="NAME">i</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'>4410</span> </span><span class="WHIT">    </span><span class="NAME">nsi</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4411</span> </span><span class="WHIT">    </span><span class="NAME">nodesSnapshot</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">docref.evaluate</span><span class="PUNC">(</span><span class="WHIT">
-<span class='line'>4412</span> </span><span class="WHIT">        </span><span class="NAME">xpathExpression</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'>4413</span> </span><span class="WHIT">        </span><span class="NAME">contextNode</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'>4414</span> </span><span class="WHIT">        </span><span class="KEYW">null</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'>4415</span> </span><span class="WHIT">        </span><span class="NAME">XPathResult.ORDERED_NODE_SNAPSHOT_TYPE</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'>4416</span> </span><span class="WHIT">        </span><span class="KEYW">null</span><span class="WHIT">
-<span class='line'>4417</span> </span><span class="WHIT">    </span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4418</span> </span><span class="WHIT">    </span><span class="NAME">nsl</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">nodesSnapshot.snapshotLength</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4419</span> </span><span class="WHIT">    </span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">i</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="WHIT"> </span><span class="PUNC">&lt;</span><span class="WHIT"> </span><span class="NAME">nsl</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">++</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>4420</span> </span><span class="WHIT">        </span><span class="NAME">nsi</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">nodesSnapshot.snapshotItem</span><span class="PUNC">(</span><span class="NAME">i</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4421</span> </span><span class="WHIT">        </span><span class="NAME">callback</span><span class="PUNC">(</span><span class="NAME">nsi</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4422</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>4423</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4424</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4425</span> </span><span class="COMM">/**
-<span class='line'>4426</span>  * Removes nodes from the DOM using an Xpath expression.
-<span class='line'>4427</span>  * @example
-<span class='line'>4428</span>  *   // to remove all anchors with the class "oops" inside of any div in
-<span class='line'>4429</span>  *   // document
-<span class='line'>4430</span>  *   var xpathExpression = ".//div//a[@class='oops']";
-<span class='line'>4431</span>  *   atropa.xpath.removeNodesByXpath(xpathExpression);
-<span class='line'>4432</span>  * @author &lt;a href="mailto:matthewkastor@gmail.com">
-<span class='line'>4433</span>  *  Matthew Christopher Kastor-Inare III &lt;/a>&lt;br />
-<span class='line'>4434</span>  *  ☭ Hial Atropa!! ☭
-<span class='line'>4435</span>  * @version 20130313
-<span class='line'>4436</span>  * @param {String} xpathExpression An Xpath expression as a string
-<span class='line'>4437</span>  * @param {DOM Node} contextNode Optional. The node which is to serve as the root
-<span class='line'>4438</span>  * for the supplied Xpath expression. Defaults to whatever docref is.
-<span class='line'>4439</span>  * @param {DOM Document} docref Optional. A reference to the document you
-<span class='line'>4440</span>  * are searching, defaults to document.
-<span class='line'>4441</span>  * @returns {Number} Returns the quantity of nodes removed.
-<span class='line'>4442</span>  * @see atropa.xpath.processNodesByXpath for more information.
-<span class='line'>4443</span>  */</span><span class="WHIT">
-<span class='line'>4444</span> </span><span class="NAME">atropa.xpath.removeNodesByXpath</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">removeNodesByXpath</span><span class="PUNC">(</span><span class="WHIT">
-<span class='line'>4445</span> </span><span class="WHIT">    </span><span class="NAME">xpathExpression</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">contextNode</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">docref</span><span class="WHIT">
-<span class='line'>4446</span> </span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>4447</span> </span><span class="WHIT">    </span><span class="STRN">"use strict"</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4448</span> </span><span class="WHIT">    </span><span class="NAME">atropa.supportCheck</span><span class="PUNC">(</span><span class="STRN">'xpath'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4449</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">count</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4450</span> </span><span class="WHIT">    </span><span class="NAME">count</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">atropa.xpath.processNodesByXpath</span><span class="PUNC">(</span><span class="WHIT">
-<span class='line'>4451</span> </span><span class="WHIT">        </span><span class="NAME">xpathExpression</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'>4452</span> </span><span class="WHIT">        </span><span class="NAME">contextNode</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'>4453</span> </span><span class="WHIT">        </span><span class="NAME">docref</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'>4454</span> </span><span class="WHIT">        </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">element</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>4455</span> </span><span class="WHIT">            </span><span class="NAME">atropa.removeNodeByReference</span><span class="PUNC">(</span><span class="NAME">element</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4456</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>4457</span> </span><span class="WHIT">    </span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4458</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">count</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4459</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4460</span> </span><span class="COMM">/**
-<span class='line'>4461</span>  * Selects nodes from the DOM using an Xpath expression.
-<span class='line'>4462</span>  * @example
-<span class='line'>4463</span>  * &lt;pre>
-<span class='line'>4464</span>  *   // To get all the elements in the document with a src attribute:
-<span class='line'>4465</span>  *   var srcElements = atropa.xpath.getNodesByXpath('[@src]');
-<span class='line'>4466</span>  * &lt;/pre>
-<span class='line'>4467</span>  * @author &lt;a href="mailto:matthewkastor@gmail.com">
-<span class='line'>4468</span>  *  Matthew Christopher Kastor-Inare III &lt;/a>&lt;br />
-<span class='line'>4469</span>  *  ☭ Hial Atropa!! ☭
-<span class='line'>4470</span>  * @version 20130313
-<span class='line'>4471</span>  * @param {String} xpathExpression An Xpath expression as a string
-<span class='line'>4472</span>  * @param {DOM Node} contextNode Optional. The node which is to serve as the root
-<span class='line'>4473</span>  * for the supplied Xpath expression. Defaults to the document's root node.
-<span class='line'>4474</span>  * @param {DOM Document} docref Optional. A reference to the document you
-<span class='line'>4475</span>  * are searching, defaults to document.
-<span class='line'>4476</span>  * @returns {Array} Returns an array whose elements are DOM Nodes
-<span class='line'>4477</span>  * @see atropa.xpath.processNodesByXpath for more information.
-<span class='line'>4478</span>  */</span><span class="WHIT">
-<span class='line'>4479</span> </span><span class="NAME">atropa.xpath.getNodesByXpath</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">getNodesByXpath</span><span class="PUNC">(</span><span class="WHIT">
-<span class='line'>4480</span> </span><span class="WHIT">    </span><span class="NAME">xpathExpression</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">contextNode</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">docref</span><span class="WHIT">
-<span class='line'>4481</span> </span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>4482</span> </span><span class="WHIT">    </span><span class="STRN">'use strict'</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4483</span> </span><span class="WHIT">    </span><span class="NAME">atropa.supportCheck</span><span class="PUNC">(</span><span class="STRN">'xpath'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4484</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">elementReferences</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4485</span> </span><span class="WHIT">    </span><span class="NAME">elementReferences</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4486</span> </span><span class="WHIT">    </span><span class="NAME">atropa.xpath.processNodesByXpath</span><span class="PUNC">(</span><span class="WHIT">
-<span class='line'>4487</span> </span><span class="WHIT">        </span><span class="NAME">xpathExpression</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'>4488</span> </span><span class="WHIT">        </span><span class="NAME">contextNode</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'>4489</span> </span><span class="WHIT">        </span><span class="NAME">docref</span><span class="PUNC">,</span><span class="WHIT">
-<span class='line'>4490</span> </span><span class="WHIT">        </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">element</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>4491</span> </span><span class="WHIT">            </span><span class="NAME">elementReferences.push</span><span class="PUNC">(</span><span class="NAME">element</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4492</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>4493</span> </span><span class="WHIT">    </span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4494</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">elementReferences</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4495</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4496</span> </span><span class="COMM">/**
-<span class='line'>4497</span>  * Escapes single quotes (apostrope) in Xpath queries.
-<span class='line'>4498</span>  * @example
-<span class='line'>4499</span>  * &lt;pre>
-<span class='line'>4500</span>  *  // this is useful for using arbitrary strings in your queries.
-<span class='line'>4501</span>  *  var arbStr, escapedStr, xpathExpression, foundNodes;
-<span class='line'>4502</span>  *  arbStr = "Jimmy ain't never said \"Shur\" Why? I don't know!";
-<span class='line'>4503</span>  *  escapedStr = atropa.xpath.escapeQuotesXpath(arbStr);
-<span class='line'>4504</span>  *  // produces: concat('Jimmy ain', "'", 't never said "Shur" Why? I don', "'",
-<span class='line'>4505</span>  *  // 't know!')
-<span class='line'>4506</span>  *  // it is much easier to deal with the variable name than it is to deal with
-<span class='line'>4507</span>  *  // all those quotes and commas!
-<span class='line'>4508</span>  *  xpathExpression = './/p[contains(text(),' + escapedStr + ')]';
-<span class='line'>4509</span>  *  foundNodes = atropa.xpath.getNodesByXpath(xpathExpression);
-<span class='line'>4510</span>  *  // found nodes will contain the p elements where the text was matched.
-<span class='line'>4511</span>  * &lt;/pre>
-<span class='line'>4512</span>  * @author &lt;a href="mailto:matthewkastor@gmail.com">
-<span class='line'>4513</span>  *  Matthew Christopher Kastor-Inare III &lt;/a>&lt;br />
-<span class='line'>4514</span>  *  ☭ Hial Atropa!! ☭
-<span class='line'>4515</span>  * @version 20120909
-<span class='line'>4516</span>  * @param {String} string An Xpath query
-<span class='line'>4517</span>  * @returns {String} Returns a string representing a concat function in Xpath
-<span class='line'>4518</span>  * which will effectively work in escaping quotes in your xpath query.
-<span class='line'>4519</span>  */</span><span class="WHIT">
-<span class='line'>4520</span> </span><span class="NAME">atropa.xpath.escapeQuotesXpath</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">escapeQuotesXpath</span><span class="PUNC">(</span><span class="NAME">string</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>4521</span> </span><span class="WHIT">    </span><span class="STRN">'use strict'</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4522</span> </span><span class="WHIT">    </span><span class="NAME">string</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">string.replace</span><span class="PUNC">(</span><span class="REGX">/\'/g</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"', \"'\", '"</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4523</span> </span><span class="WHIT">    </span><span class="NAME">string</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">string.replace</span><span class="PUNC">(</span><span class="REGX">/^(.*)$/g</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"concat('$1')"</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4524</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">string</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4525</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4526</span> 
-<span class='line'>4527</span> 
+<span class='line'>4322</span> 
+<span class='line'>4323</span> 
+<span class='line'>4324</span> </span><span class="PUNC">(</span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>4325</span> </span><span class="WHIT">    </span><span class="STRN">"use strict"</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4326</span> </span><span class="WHIT">    </span><span class="NAME">atropa.requires</span><span class="PUNC">(</span><span class="WHIT">
+<span class='line'>4327</span> </span><span class="WHIT">        </span><span class="STRN">'xpath'</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>4328</span> </span><span class="WHIT">        </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>4329</span> </span><span class="WHIT">            </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">supported</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4330</span> </span><span class="WHIT">            </span><span class="WHIT">
+<span class='line'>4331</span> </span><span class="WHIT">            </span><span class="PUNC">[</span><span class="WHIT">
+<span class='line'>4332</span> </span><span class="WHIT">                </span><span class="NAME">window</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>4333</span> </span><span class="WHIT">                </span><span class="NAME">document.evaluate</span><span class="WHIT">
+<span class='line'>4334</span> </span><span class="WHIT">            </span><span class="PUNC">]</span><span class="PUNC">.</span><span class="NAME">forEach</span><span class="PUNC">(</span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">prerequisite</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>4335</span> </span><span class="WHIT">                </span><span class="KEYW">if</span><span class="PUNC">(</span><span class="NAME">prerequisite</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="NAME">undefined</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>4336</span> </span><span class="WHIT">                    </span><span class="NAME">supported</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4337</span> </span><span class="WHIT">                </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>4338</span> </span><span class="WHIT">            </span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4339</span> </span><span class="WHIT">            </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">supported</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4340</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>4341</span> </span><span class="WHIT">        </span><span class="STRN">'atropa.xpath class is not supported in this environment'</span><span class="WHIT">
+<span class='line'>4342</span> </span><span class="WHIT">    </span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4343</span> </span><span class="PUNC">}</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4344</span> 
+<span class='line'>4345</span> </span><span class="COMM">/**
+<span class='line'>4346</span>  * An Xpath toolkit for manipulating the DOM.
+<span class='line'>4347</span>  * @author &lt;a href="mailto:matthewkastor@gmail.com">
+<span class='line'>4348</span>  *  Matthew Christopher Kastor-Inare III &lt;/a>&lt;br />
+<span class='line'>4349</span>  *  ☭ Hial Atropa!! ☭
+<span class='line'>4350</span>  * @version 20130313
+<span class='line'>4351</span>  * @namespace An Xpath toolkit for manipulating the DOM.
+<span class='line'>4352</span>  * @see &lt;a href="../../../AtropaToolboxTests.html?spec=atropa.xpath">tests&lt;/a>
+<span class='line'>4353</span>  */</span><span class="WHIT">
+<span class='line'>4354</span> </span><span class="NAME">atropa.xpath</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4355</span> </span><span class="COMM">/**
+<span class='line'>4356</span>  * Processes nodes from the DOM using an Xpath expression.
+<span class='line'>4357</span>  * @example
+<span class='line'>4358</span>  *   // Say you wanted to touch all the anchors and links in window.document
+<span class='line'>4359</span>  *   var xpathExpression, callback;
+<span class='line'>4360</span>  *   xpathExpression = './/a';
+<span class='line'>4361</span>  *   callback = function(oneNode) {
+<span class='line'>4362</span>  *       oneNode.touched = true;
+<span class='line'>4363</span>  *   }
+<span class='line'>4364</span>  *   atropa.xpath.processNodesByXpath(
+<span class='line'>4365</span>  *       xpathExpression, document, document, callback);
+<span class='line'>4366</span>  *   
+<span class='line'>4367</span>  *   // Or say you have an iframe, with the id 'myFrame'. In the iframe there
+<span class='line'>4368</span>  *   // is a div with the id myDiv.
+<span class='line'>4369</span>  *   // Here is how you would remove all the anchors in that div.
+<span class='line'>4370</span>  *   var myFrame, xpathExpression, contextNode, docref, callback;
+<span class='line'>4371</span>  *   myFrame = document.getElementById('myFrame');
+<span class='line'>4372</span>  *   docref = myFrame.contentWindow.document;
+<span class='line'>4373</span>  *   contextNode = docref.getElementById('myDiv');
+<span class='line'>4374</span>  *   xpathExpression = './/a';
+<span class='line'>4375</span>  *   callback = function(oneNode) {
+<span class='line'>4376</span>  *       atropa.removeNodeByReference(oneNode);
+<span class='line'>4377</span>  *   }
+<span class='line'>4378</span>  *   atropa.xpath.processNodesByXpath(
+<span class='line'>4379</span>  *       xpathExpression, contextNode, docref, callback);
+<span class='line'>4380</span>  * @author &lt;a href="mailto:matthewkastor@gmail.com">
+<span class='line'>4381</span>  *  Matthew Christopher Kastor-Inare III &lt;/a>&lt;br />
+<span class='line'>4382</span>  *  ☭ Hial Atropa!! ☭
+<span class='line'>4383</span>  * @version 20130313
+<span class='line'>4384</span>  * @param {String} xpathExpression An Xpath expression as a string
+<span class='line'>4385</span>  * @param {DOM Node} contextNode Optional. The node which is to serve as the root
+<span class='line'>4386</span>  * for the supplied Xpath expression. Defaults to whatever docref is.
+<span class='line'>4387</span>  * If you are using a relative path such as &lt;code>.//a&lt;/code> and, you only
+<span class='line'>4388</span>  * want the anchors that are descendants of another element, you would
+<span class='line'>4389</span>  * supply a reference to that element for this argument. When using a
+<span class='line'>4390</span>  * context node, the docref argument must refer to the context node's
+<span class='line'>4391</span>  * containing document.
+<span class='line'>4392</span>  * @param {DOM Document} docref Optional. A reference to the document you
+<span class='line'>4393</span>  * are searching, defaults to document. If you have created a separate
+<span class='line'>4394</span>  * DOMDocument with the &lt;code>atropa.HTMLParser&lt;/code>, an iframe, or by
+<span class='line'>4395</span>  * some other means, you would put a reference to that document here to
+<span class='line'>4396</span>  * indicate that you intend to use that document's root.
+<span class='line'>4397</span>  * @param {Function} callback A function applied to every element found
+<span class='line'>4398</span>  * using the supplied xpath expression. The callback receives a single
+<span class='line'>4399</span>  * element as it's only argument.
+<span class='line'>4400</span>  * @returns {Number} Returns the quantity of nodes processed.
+<span class='line'>4401</span>  */</span><span class="WHIT">
+<span class='line'>4402</span> </span><span class="NAME">atropa.xpath.processNodesByXpath</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">processNodesByXpath</span><span class="PUNC">(</span><span class="WHIT">
+<span class='line'>4403</span> </span><span class="WHIT">    </span><span class="NAME">xpathExpression</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">contextNode</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">docref</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">callback</span><span class="WHIT">
+<span class='line'>4404</span> </span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>4405</span> </span><span class="WHIT">    </span><span class="STRN">"use strict"</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4406</span> </span><span class="WHIT">    </span><span class="NAME">atropa.supportCheck</span><span class="PUNC">(</span><span class="STRN">'xpath'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4407</span> </span><span class="WHIT">    </span><span class="NAME">docref</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">atropa.setAsOptionalArg</span><span class="PUNC">(</span><span class="NAME">document</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">docref</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4408</span> </span><span class="WHIT">    </span><span class="NAME">contextNode</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">atropa.setAsOptionalArg</span><span class="PUNC">(</span><span class="NAME">docref</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">contextNode</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4409</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">nodesSnapshot</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>4410</span> </span><span class="WHIT">    </span><span class="NAME">nsl</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>4411</span> </span><span class="WHIT">    </span><span class="NAME">i</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>4412</span> </span><span class="WHIT">    </span><span class="NAME">nsi</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4413</span> </span><span class="WHIT">    </span><span class="NAME">nodesSnapshot</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">docref.evaluate</span><span class="PUNC">(</span><span class="WHIT">
+<span class='line'>4414</span> </span><span class="WHIT">        </span><span class="NAME">xpathExpression</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>4415</span> </span><span class="WHIT">        </span><span class="NAME">contextNode</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>4416</span> </span><span class="WHIT">        </span><span class="KEYW">null</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>4417</span> </span><span class="WHIT">        </span><span class="NAME">XPathResult.ORDERED_NODE_SNAPSHOT_TYPE</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>4418</span> </span><span class="WHIT">        </span><span class="KEYW">null</span><span class="WHIT">
+<span class='line'>4419</span> </span><span class="WHIT">    </span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4420</span> </span><span class="WHIT">    </span><span class="NAME">nsl</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">nodesSnapshot.snapshotLength</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4421</span> </span><span class="WHIT">    </span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">i</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="WHIT"> </span><span class="PUNC">&lt;</span><span class="WHIT"> </span><span class="NAME">nsl</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">++</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>4422</span> </span><span class="WHIT">        </span><span class="NAME">nsi</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">nodesSnapshot.snapshotItem</span><span class="PUNC">(</span><span class="NAME">i</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4423</span> </span><span class="WHIT">        </span><span class="NAME">callback</span><span class="PUNC">(</span><span class="NAME">nsi</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4424</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>4425</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4426</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4427</span> </span><span class="COMM">/**
+<span class='line'>4428</span>  * Removes nodes from the DOM using an Xpath expression.
+<span class='line'>4429</span>  * @example
+<span class='line'>4430</span>  *   // to remove all anchors with the class "oops" inside of any div in
+<span class='line'>4431</span>  *   // document
+<span class='line'>4432</span>  *   var xpathExpression = ".//div//a[@class='oops']";
+<span class='line'>4433</span>  *   atropa.xpath.removeNodesByXpath(xpathExpression);
+<span class='line'>4434</span>  * @author &lt;a href="mailto:matthewkastor@gmail.com">
+<span class='line'>4435</span>  *  Matthew Christopher Kastor-Inare III &lt;/a>&lt;br />
+<span class='line'>4436</span>  *  ☭ Hial Atropa!! ☭
+<span class='line'>4437</span>  * @version 20130313
+<span class='line'>4438</span>  * @param {String} xpathExpression An Xpath expression as a string
+<span class='line'>4439</span>  * @param {DOM Node} contextNode Optional. The node which is to serve as the root
+<span class='line'>4440</span>  * for the supplied Xpath expression. Defaults to whatever docref is.
+<span class='line'>4441</span>  * @param {DOM Document} docref Optional. A reference to the document you
+<span class='line'>4442</span>  * are searching, defaults to document.
+<span class='line'>4443</span>  * @returns {Number} Returns the quantity of nodes removed.
+<span class='line'>4444</span>  * @see atropa.xpath.processNodesByXpath for more information.
+<span class='line'>4445</span>  */</span><span class="WHIT">
+<span class='line'>4446</span> </span><span class="NAME">atropa.xpath.removeNodesByXpath</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">removeNodesByXpath</span><span class="PUNC">(</span><span class="WHIT">
+<span class='line'>4447</span> </span><span class="WHIT">    </span><span class="NAME">xpathExpression</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">contextNode</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">docref</span><span class="WHIT">
+<span class='line'>4448</span> </span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>4449</span> </span><span class="WHIT">    </span><span class="STRN">"use strict"</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4450</span> </span><span class="WHIT">    </span><span class="NAME">atropa.supportCheck</span><span class="PUNC">(</span><span class="STRN">'xpath'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4451</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">count</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4452</span> </span><span class="WHIT">    </span><span class="NAME">count</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">atropa.xpath.processNodesByXpath</span><span class="PUNC">(</span><span class="WHIT">
+<span class='line'>4453</span> </span><span class="WHIT">        </span><span class="NAME">xpathExpression</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>4454</span> </span><span class="WHIT">        </span><span class="NAME">contextNode</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>4455</span> </span><span class="WHIT">        </span><span class="NAME">docref</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>4456</span> </span><span class="WHIT">        </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">element</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>4457</span> </span><span class="WHIT">            </span><span class="NAME">atropa.removeNodeByReference</span><span class="PUNC">(</span><span class="NAME">element</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4458</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>4459</span> </span><span class="WHIT">    </span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4460</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">count</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4461</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4462</span> </span><span class="COMM">/**
+<span class='line'>4463</span>  * Selects nodes from the DOM using an Xpath expression.
+<span class='line'>4464</span>  * @example
+<span class='line'>4465</span>  * &lt;pre>
+<span class='line'>4466</span>  *   // To get all the elements in the document with a src attribute:
+<span class='line'>4467</span>  *   var srcElements = atropa.xpath.getNodesByXpath('[@src]');
+<span class='line'>4468</span>  * &lt;/pre>
+<span class='line'>4469</span>  * @author &lt;a href="mailto:matthewkastor@gmail.com">
+<span class='line'>4470</span>  *  Matthew Christopher Kastor-Inare III &lt;/a>&lt;br />
+<span class='line'>4471</span>  *  ☭ Hial Atropa!! ☭
+<span class='line'>4472</span>  * @version 20130313
+<span class='line'>4473</span>  * @param {String} xpathExpression An Xpath expression as a string
+<span class='line'>4474</span>  * @param {DOM Node} contextNode Optional. The node which is to serve as the root
+<span class='line'>4475</span>  * for the supplied Xpath expression. Defaults to the document's root node.
+<span class='line'>4476</span>  * @param {DOM Document} docref Optional. A reference to the document you
+<span class='line'>4477</span>  * are searching, defaults to document.
+<span class='line'>4478</span>  * @returns {Array} Returns an array whose elements are DOM Nodes
+<span class='line'>4479</span>  * @see atropa.xpath.processNodesByXpath for more information.
+<span class='line'>4480</span>  */</span><span class="WHIT">
+<span class='line'>4481</span> </span><span class="NAME">atropa.xpath.getNodesByXpath</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">getNodesByXpath</span><span class="PUNC">(</span><span class="WHIT">
+<span class='line'>4482</span> </span><span class="WHIT">    </span><span class="NAME">xpathExpression</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">contextNode</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">docref</span><span class="WHIT">
+<span class='line'>4483</span> </span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>4484</span> </span><span class="WHIT">    </span><span class="STRN">'use strict'</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4485</span> </span><span class="WHIT">    </span><span class="NAME">atropa.supportCheck</span><span class="PUNC">(</span><span class="STRN">'xpath'</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4486</span> </span><span class="WHIT">    </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">elementReferences</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4487</span> </span><span class="WHIT">    </span><span class="NAME">elementReferences</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4488</span> </span><span class="WHIT">    </span><span class="NAME">atropa.xpath.processNodesByXpath</span><span class="PUNC">(</span><span class="WHIT">
+<span class='line'>4489</span> </span><span class="WHIT">        </span><span class="NAME">xpathExpression</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>4490</span> </span><span class="WHIT">        </span><span class="NAME">contextNode</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>4491</span> </span><span class="WHIT">        </span><span class="NAME">docref</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>4492</span> </span><span class="WHIT">        </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">element</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>4493</span> </span><span class="WHIT">            </span><span class="NAME">elementReferences.push</span><span class="PUNC">(</span><span class="NAME">element</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4494</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>4495</span> </span><span class="WHIT">    </span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4496</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">elementReferences</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4497</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4498</span> </span><span class="COMM">/**
+<span class='line'>4499</span>  * Escapes single quotes (apostrope) in Xpath queries.
+<span class='line'>4500</span>  * @example
+<span class='line'>4501</span>  * &lt;pre>
+<span class='line'>4502</span>  *  // this is useful for using arbitrary strings in your queries.
+<span class='line'>4503</span>  *  var arbStr, escapedStr, xpathExpression, foundNodes;
+<span class='line'>4504</span>  *  arbStr = "Jimmy ain't never said \"Shur\" Why? I don't know!";
+<span class='line'>4505</span>  *  escapedStr = atropa.xpath.escapeQuotesXpath(arbStr);
+<span class='line'>4506</span>  *  // produces: concat('Jimmy ain', "'", 't never said "Shur" Why? I don', "'",
+<span class='line'>4507</span>  *  // 't know!')
+<span class='line'>4508</span>  *  // it is much easier to deal with the variable name than it is to deal with
+<span class='line'>4509</span>  *  // all those quotes and commas!
+<span class='line'>4510</span>  *  xpathExpression = './/p[contains(text(),' + escapedStr + ')]';
+<span class='line'>4511</span>  *  foundNodes = atropa.xpath.getNodesByXpath(xpathExpression);
+<span class='line'>4512</span>  *  // found nodes will contain the p elements where the text was matched.
+<span class='line'>4513</span>  * &lt;/pre>
+<span class='line'>4514</span>  * @author &lt;a href="mailto:matthewkastor@gmail.com">
+<span class='line'>4515</span>  *  Matthew Christopher Kastor-Inare III &lt;/a>&lt;br />
+<span class='line'>4516</span>  *  ☭ Hial Atropa!! ☭
+<span class='line'>4517</span>  * @version 20120909
+<span class='line'>4518</span>  * @param {String} string An Xpath query
+<span class='line'>4519</span>  * @returns {String} Returns a string representing a concat function in Xpath
+<span class='line'>4520</span>  * which will effectively work in escaping quotes in your xpath query.
+<span class='line'>4521</span>  */</span><span class="WHIT">
+<span class='line'>4522</span> </span><span class="NAME">atropa.xpath.escapeQuotesXpath</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">escapeQuotesXpath</span><span class="PUNC">(</span><span class="NAME">string</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>4523</span> </span><span class="WHIT">    </span><span class="STRN">'use strict'</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4524</span> </span><span class="WHIT">    </span><span class="NAME">string</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">string.replace</span><span class="PUNC">(</span><span class="REGX">/\'/g</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"', \"'\", '"</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4525</span> </span><span class="WHIT">    </span><span class="NAME">string</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">string.replace</span><span class="PUNC">(</span><span class="REGX">/^(.*)$/g</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"concat('$1')"</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4526</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">string</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4527</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
 <span class='line'>4528</span> 
-<span class='line'>4529</span> </span><span class="KEYW">while</span><span class="PUNC">(</span><span class="NAME">atropa.data.requirements.length</span><span class="WHIT"> </span><span class="PUNC">></span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>4530</span> </span><span class="WHIT">    </span><span class="NAME">atropa.data.requirements.pop</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>4531</span> </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>4532</span> 
-<span class='line'>4533</span> 
-<span class='line'>4534</span> </span></pre></body></html>
+<span class='line'>4529</span> 
+<span class='line'>4530</span> 
+<span class='line'>4531</span> </span><span class="KEYW">while</span><span class="PUNC">(</span><span class="NAME">atropa.data.requirements.length</span><span class="WHIT"> </span><span class="PUNC">></span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>4532</span> </span><span class="WHIT">    </span><span class="NAME">atropa.data.requirements.pop</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4533</span> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>4534</span> 
+<span class='line'>4535</span> 
+<span class='line'>4536</span> </span><span class="KEYW">try</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>4537</span> </span><span class="WHIT">    </span><span class="NAME">module.exports</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">atropa</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>4538</span> </span><span class="PUNC">}</span><span class="WHIT"> </span><span class="KEYW">catch</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">e</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>4539</span> </span><span class="WHIT">    </span><span class="COMM">// module.exports does not exist.</span><span class="WHIT">
+<span class='line'>4540</span> </span><span class="PUNC">}</span></pre></body></html>
