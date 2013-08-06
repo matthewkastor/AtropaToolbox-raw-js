@@ -245,7 +245,7 @@ describe("atropa.inject", function() {
                     callbackFired = false;
                     settings = {
                         'id'           : null,
-                        'srcURL'       : 'http://localhost/',
+                        'srcURL'       : document.location.href,
                         'docref'       : null,
                         'onloadHandler': null,
                         'parentNod'    : null,
