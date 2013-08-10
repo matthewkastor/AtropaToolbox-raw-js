@@ -26,6 +26,53 @@ describe("atropa.string", function() {
         expect(atropa.string).not.toEqual(undefined);
     });
     
+    describe('removeRepeatedWord', function () {
+        it('must replace repeated words with a single word', function () {
+            expect(atropa.string.removeRepeatedWord('wee wee x')).toEqual('wee x');
+        });
+        it('must replace repeated phrases with a single phrase', function () {
+            expect(
+                atropa.string.removeRepeatedWord('be wee wee x')
+            ).toEqual('be wee x');
+        });
+    });
+    
+    describe('lineBreaksToParagraphTags', function () {
+        it('must create paragraph breaks at every occurrence of two consecutive line breaks', function () {
+            expect(
+                atropa.string.lineBreaksToParagraphTags('n\n\nn')
+            ).toEqual('<p>n</p><p>n</p>');
+            expect(
+                atropa.string.lineBreaksToParagraphTags('rn\r\n\r\nrn')
+            ).toEqual('<p>rn</p><p>rn</p>');
+            expect(
+                atropa.string.lineBreaksToParagraphTags('r\r\rr')
+            ).toEqual('<p>r</p><p>r</p>');
+        });
+    });
+    
+    describe('lineBreaksToBreakTags', function () {
+        it('must create break tags at every line break', function () {
+            expect(
+                atropa.string.lineBreaksToBreakTags('rn\r\nrn\r\n')
+            ).toEqual('rn<br>rn<br>');
+            expect(
+                atropa.string.lineBreaksToBreakTags('n\nn\n')
+            ).toEqual('n<br>n<br>');
+            expect(
+                atropa.string.lineBreaksToBreakTags('r\rr\r')
+            ).toEqual('r<br>r<br>');
+        });
+    });
+    
+    describe('normalizeEol', function () {
+        it('must normalize line breaks to `\n`', function () {
+            expect(
+                atropa.string.normalizeEol('rn\r\nr\rn\n')
+            ).toEqual('rn\nr\nn\n');
+        });
+    });
+    
     describe('ucFirst', function () {
         it('must capitalize the first letter of the given string', function () {
             expect(atropa.string.ucFirst('wee')).toEqual('Wee');
