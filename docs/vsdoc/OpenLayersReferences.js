@@ -13,6 +13,7 @@
 /// <reference path="atropa.objects-vsdoc.js" />
 /// <reference path="atropa.random-vsdoc.js" />
 /// <reference path="atropa.regex-vsdoc.js" />
+/// <reference path="atropa.regex.patterns-vsdoc.js" />
 /// <reference path="atropa.Requester-vsdoc.js" />
 /// <reference path="atropa.SerialActor-vsdoc.js" />
 /// <reference path="atropa.string-vsdoc.js" />

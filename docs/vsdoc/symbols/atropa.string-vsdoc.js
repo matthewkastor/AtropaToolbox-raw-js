@@ -8,6 +8,31 @@
         /// <summary></summary>
         /// <returns type="atropa.string"/>
                 
+        removeRepeatedWord: function(string) {
+            /// <summary>Replaces repeated words and phrases with a single word or phrase.</summary>
+            /// <param name="string" type="String">The string to remove repeated words from.</param>
+            /// <returns type="String">Returns the given string with repeated words and
+            ///  phrases removed.</returns>
+        }, 
+        
+        lineBreaksToParagraphTags: function(string) {
+            /// <summary>Creates paragraph breaks at every occurrence of two consecutive line breaks.</summary>
+            /// <param name="string" type="String">The string to insert paragraph tags into.</param>
+            /// <returns type="String">Returns the given string with paragraph breaks inserted.</returns>
+        }, 
+        
+        lineBreaksToBreakTags: function(string) {
+            /// <summary>Creates break tags at every line break.</summary>
+            /// <param name="string" type="String">The string to insert break tags into.</param>
+            /// <returns type="String">Returns the given string with break tags inserted.</returns>
+        }, 
+        
+        normalizeEol: function(string) {
+            /// <summary>Normalizes line breaks to `\n`.</summary>
+            /// <param name="string" type="String">The string to normalize.</param>
+            /// <returns type="String">Returns the given string with normalized line breaks.</returns>
+        }, 
+        
         ucFirst: function(string) {
             /// <summary>Converts the first character of a given string to
             /// uppercase.</summary>

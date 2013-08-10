@@ -6,6 +6,7 @@
 
     window.atropa.regex = {
         /// <summary></summary>
+        /// <field name="patterns" type="">Regex patterns.</field>
         /// <returns type="atropa.regex"/>
                 
         appendPrefixesAndSuffixes: function(word, threshold) {

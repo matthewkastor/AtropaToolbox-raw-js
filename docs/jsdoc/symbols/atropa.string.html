@@ -219,6 +219,8 @@ ul.inheritsList
 	
 	<li><a href="../symbols/atropa.regex.html">atropa.regex</a></li>
 	
+	<li><a href="../symbols/atropa.regex.patterns.html">atropa.regex.patterns</a></li>
+	
 	<li><a href="../symbols/atropa.Requester.html">atropa.Requester</a></li>
 	
 	<li><a href="../symbols/atropa.SerialActor.html">atropa.SerialActor</a></li>
@@ -350,6 +352,33 @@ ul.inheritsList
 						<tr>
 							<td class="attributes">&lt;static&gt; &nbsp;</td>
 							<td class="nameDescription">
+								<div class="fixedFont">atropa.string.<b><a href="../symbols/atropa.string.html#.lineBreaksToBreakTags">lineBreaksToBreakTags</a></b>(string)
+								</div>
+								<div class="description">Creates break tags at every line break.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">atropa.string.<b><a href="../symbols/atropa.string.html#.lineBreaksToParagraphTags">lineBreaksToParagraphTags</a></b>(string)
+								</div>
+								<div class="description">Creates paragraph breaks at every occurrence of two consecutive line breaks.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">atropa.string.<b><a href="../symbols/atropa.string.html#.normalizeEol">normalizeEol</a></b>(string)
+								</div>
+								<div class="description">Normalizes line breaks to `\n`.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
 								<div class="fixedFont">atropa.string.<b><a href="../symbols/atropa.string.html#.normalizeWhiteSpace">normalizeWhiteSpace</a></b>(text)
 								</div>
 								<div class="description">Converts all tabs into four spaces.</div>
@@ -371,6 +400,15 @@ ul.inheritsList
 								<div class="fixedFont">atropa.string.<b><a href="../symbols/atropa.string.html#.offsetWhiteSpace">offsetWhiteSpace</a></b>(text, offset)
 								</div>
 								<div class="description">Removes a quantity of leading spaces specified by offset.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">atropa.string.<b><a href="../symbols/atropa.string.html#.removeRepeatedWord">removeRepeatedWord</a></b>(string)
+								</div>
+								<div class="description">Replaces repeated words and phrases with a single word or phrase.</div>
 							</td>
 						</tr>
 					
@@ -416,6 +454,13 @@ ul.inheritsList
 					
 					
 					
+					
+						<dl class="detailList">
+						<dt class="heading">Requires:</dt>
+						
+							<dd><a href="../symbols/atropa.regex.patterns.html">atropa.regex.patterns</a></dd>
+						
+						</dl>
 					
 					
 						<dl class="detailList">
@@ -675,6 +720,135 @@ ul.inheritsList
 
 					<hr />
 				
+					<a name=".lineBreaksToBreakTags"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">atropa.string.</span><b>lineBreaksToBreakTags</b>(string)
+					
+					</div>
+					<div class="description">
+						Creates break tags at every line break.
+						
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>string</b>
+									
+								</dt>
+								<dd>The string to insert break tags into.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> Returns the given string with break tags inserted.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".lineBreaksToParagraphTags"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">atropa.string.</span><b>lineBreaksToParagraphTags</b>(string)
+					
+					</div>
+					<div class="description">
+						Creates paragraph breaks at every occurrence of two consecutive line breaks.
+						
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>string</b>
+									
+								</dt>
+								<dd>The string to insert paragraph tags into.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> Returns the given string with paragraph breaks inserted.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".normalizeEol"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">atropa.string.</span><b>normalizeEol</b>(string)
+					
+					</div>
+					<div class="description">
+						Normalizes line breaks to `\n`.
+						
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>string</b>
+									
+								</dt>
+								<dd>The string to normalize.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> Returns the given string with normalized line breaks.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
 					<a name=".normalizeWhiteSpace"> </a>
 					<div class="fixedFont">&lt;static&gt; 
 					
@@ -810,6 +984,49 @@ ul.inheritsList
 
 					<hr />
 				
+					<a name=".removeRepeatedWord"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">atropa.string.</span><b>removeRepeatedWord</b>(string)
+					
+					</div>
+					<div class="description">
+						Replaces repeated words and phrases with a single word or phrase.
+						
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>string</b>
+									
+								</dt>
+								<dd>The string to remove repeated words from.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{String}</span> Returns the given string with repeated words and phrases removed.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
 					<a name=".ucFirst"> </a>
 					<div class="fixedFont">&lt;static&gt; 
 					
@@ -865,7 +1082,7 @@ ul.inheritsList
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Mon Aug 05 2013 21:14:12 GMT-0400 (EDT)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sat Aug 10 2013 13:45:48 GMT-0400 (EDT)
 		</div>
 	</body>
 </html>

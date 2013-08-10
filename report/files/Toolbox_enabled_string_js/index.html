@@ -45,11 +45,11 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
-      <p class="stat">71.80</p>
+      <p class="stat">73.48</p>
     </div>
     <div class="span6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">179</p>
+      <p class="stat">234</p>
     </div>
   </div>
   <div class="row historical">
@@ -63,11 +63,11 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
-      <p class="stat">27.43</p>
+      <p class="stat">29.96</p>
     </div>
     <div class="span6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
-      <p class="stat">0.67</p>
+      <p class="stat">0.96</p>
     </div>
   </div>
 </div>
@@ -109,9 +109,66 @@
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
  * @namespace A few utilities for manipulating strings.
+ * @requires atropa.regex.patterns
  * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.string">tests</a>
  */
 atropa.string = {};
+/**
+ * Replaces repeated words and phrases with a single word or phrase.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130701
+ * @param {String} string The string to remove repeated words from.
+ * @returns {String} Returns the given string with repeated words and
+ *  phrases removed.
+ */
+atropa.string.removeRepeatedWord = function removeRepeatedWord (string) {
+    "use strict";
+    return string.replace(atropa.regex.patterns.repeatedWords, '$1');
+};
+/**
+ * Creates paragraph breaks at every occurrence of two consecutive line breaks.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130701
+ * @param {String} string The string to insert paragraph tags into.
+ * @returns {String} Returns the given string with paragraph breaks inserted.
+ */
+atropa.string.lineBreaksToParagraphTags = function lineBreaksToParagraphTags (string) {
+    "use strict";
+    var out = string.replace(atropa.regex.patterns.paragraphBreaks, '</p><p>');
+    out = '<p>' + out.trim() + '</p>';
+    out = out.replace(/\s+<\/(p|br)>/g, '</$1>');
+    return out;
+};
+/**
+ * Creates break tags at every line break.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130701
+ * @param {String} string The string to insert break tags into.
+ * @returns {String} Returns the given string with break tags inserted.
+ */
+atropa.string.lineBreaksToBreakTags = function lineBreaksToBreakTags (string) {
+    "use strict";
+    return string.replace(atropa.regex.patterns.lineBreaks, '<br>');
+};
+/**
+ * Normalizes line breaks to `\n`.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130701
+ * @param {String} string The string to normalize.
+ * @returns {String} Returns the given string with normalized line breaks.
+ */
+atropa.string.normalizeEol = function normalizeEol (string) {
+    "use strict";
+    return string.replace(atropa.regex.patterns.lineBreaks, '\n');
+};
 /**
  * Converts the first character of a given string to
  * uppercase.
@@ -151,7 +208,6 @@ atropa.string.countWords = function countWords(someText) {
     }
     return len;
 };
-
 /**
  * Converts end of line markers into whatever you want. 
  * Automatically detects any of \r\n, \n, or \r and 
@@ -165,7 +221,7 @@ atropa.string.countWords = function countWords(someText) {
  */
 atropa.string.convertEol = function convertEOL(text, newEOL) {
     'use strict';
-    return text.replace(/(\r\n|\n|\r)/g, newEOL);
+    return text.replace(atropa.regex.patterns.lineBreaks, newEOL);
 };
 
 /**

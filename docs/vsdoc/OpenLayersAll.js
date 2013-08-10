@@ -888,6 +888,7 @@
 
     window.atropa.regex = {
         /// <summary></summary>
+        /// <field name="patterns" type="">Regex patterns.</field>
         /// <returns type="atropa.regex"/>
                 
         appendPrefixesAndSuffixes: function(word, threshold) {
@@ -908,6 +909,28 @@
     var $x = window.atropa.regex;
     $x.__namespace = "true";
     $x.__typeName = "atropa.regex";
+})(this);
+
+  
+
+  
+/* vsdoc for atropa.regex.patterns */
+
+(function (window) {
+    window.atropa.regex = window.atropa.regex || {};
+
+    window.atropa.regex.patterns = {
+        /// <summary></summary>
+        /// <field name="repeatedWords" type="">finds repeated words and phrases</field>
+        /// <field name="paragraphBreaks" type="">finds paragraph breaks</field>
+        /// <field name="lineBreaks" type="">finds line breaks</field>
+        /// <returns type="atropa.regex.patterns"/>
+                
+    };
+
+    var $x = window.atropa.regex.patterns;
+    $x.__namespace = "true";
+    $x.__typeName = "atropa.regex.patterns";
 })(this);
 
   
@@ -1065,6 +1088,31 @@
         /// <summary></summary>
         /// <returns type="atropa.string"/>
                 
+        removeRepeatedWord: function(string) {
+            /// <summary>Replaces repeated words and phrases with a single word or phrase.</summary>
+            /// <param name="string" type="String">The string to remove repeated words from.</param>
+            /// <returns type="String">Returns the given string with repeated words and
+            ///  phrases removed.</returns>
+        }, 
+        
+        lineBreaksToParagraphTags: function(string) {
+            /// <summary>Creates paragraph breaks at every occurrence of two consecutive line breaks.</summary>
+            /// <param name="string" type="String">The string to insert paragraph tags into.</param>
+            /// <returns type="String">Returns the given string with paragraph breaks inserted.</returns>
+        }, 
+        
+        lineBreaksToBreakTags: function(string) {
+            /// <summary>Creates break tags at every line break.</summary>
+            /// <param name="string" type="String">The string to insert break tags into.</param>
+            /// <returns type="String">Returns the given string with break tags inserted.</returns>
+        }, 
+        
+        normalizeEol: function(string) {
+            /// <summary>Normalizes line breaks to `\n`.</summary>
+            /// <param name="string" type="String">The string to normalize.</param>
+            /// <returns type="String">Returns the given string with normalized line breaks.</returns>
+        }, 
+        
         ucFirst: function(string) {
             /// <summary>Converts the first character of a given string to
             /// uppercase.</summary>
