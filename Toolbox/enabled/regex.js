@@ -22,6 +22,21 @@
  */
 atropa.regex = {};
 /**
+ * Regex patterns.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @namespace Regex patterns.
+ */
+atropa.regex.patterns = {
+    /** finds repeated words and phrases */
+    repeatedWords : /(\b.{3,}\b)\s*(\1)/g,
+    /** finds paragraph breaks */
+    paragraphBreaks : /(\r\n\r\n|\n\n|\r\r)/g,
+    /** finds line breaks */
+    lineBreaks : /(\r\n|\r|\n)/g
+};
+/**
  * Appends common prefix, suffix, and word boundary regex strings to
  * the supplied word.
  * @author <a href="mailto:matthewkastor@gmail.com">
