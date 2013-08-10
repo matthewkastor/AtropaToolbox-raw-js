@@ -2837,6 +2837,21 @@ atropa.random.pullProperty = function (obj) {
  */
 atropa.regex = {};
 /**
+ * Regex patterns.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @namespace Regex patterns.
+ */
+atropa.regex.patterns = {
+    /** finds repeated words and phrases */
+    repeatedWords : /(\b.{3,}\b)\s*(\1)/g,
+    /** finds paragraph breaks */
+    paragraphBreaks : /(\r\n\r\n|\n\n|\r\r)/g,
+    /** finds line breaks */
+    lineBreaks : /(\r\n|\r|\n)/g
+};
+/**
  * Appends common prefix, suffix, and word boundary regex strings to
  * the supplied word.
  * @author <a href="mailto:matthewkastor@gmail.com">
@@ -3137,9 +3152,66 @@ atropa.setAsOptionalArg = function (defaultVal, optionalArg) {
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
  * @namespace A few utilities for manipulating strings.
+ * @requires atropa.regex.patterns
  * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.string">tests</a>
  */
 atropa.string = {};
+/**
+ * Replaces repeated words and phrases with a single word or phrase.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130701
+ * @param {String} string The string to remove repeated words from.
+ * @returns {String} Returns the given string with repeated words and
+ *  phrases removed.
+ */
+atropa.string.removeRepeatedWord = function removeRepeatedWord (string) {
+    "use strict";
+    return string.replace(atropa.regex.patterns.repeatedWords, '$1');
+};
+/**
+ * Creates paragraph breaks at every occurrence of two consecutive line breaks.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130701
+ * @param {String} string The string to insert paragraph tags into.
+ * @returns {String} Returns the given string with paragraph breaks inserted.
+ */
+atropa.string.lineBreaksToParagraphTags = function lineBreaksToParagraphTags (string) {
+    "use strict";
+    var out = string.replace(atropa.regex.patterns.paragraphBreaks, '</p><p>');
+    out = '<p>' + out.trim() + '</p>';
+    out = out.replace(/\s+<\/(p|br)>/g, '</$1>');
+    return out;
+};
+/**
+ * Creates break tags at every line break.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130701
+ * @param {String} string The string to insert break tags into.
+ * @returns {String} Returns the given string with break tags inserted.
+ */
+atropa.string.lineBreaksToBreakTags = function lineBreaksToBreakTags (string) {
+    "use strict";
+    return string.replace(atropa.regex.patterns.lineBreaks, '<br>');
+};
+/**
+ * Normalizes line breaks to `\n`.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130701
+ * @param {String} string The string to normalize.
+ * @returns {String} Returns the given string with normalized line breaks.
+ */
+atropa.string.normalizeEol = function normalizeEol (string) {
+    "use strict";
+    return string.replace(atropa.regex.patterns.lineBreaks, '\n');
+};
 /**
  * Converts the first character of a given string to
  * uppercase.
@@ -3179,7 +3251,6 @@ atropa.string.countWords = function countWords(someText) {
     }
     return len;
 };
-
 /**
  * Converts end of line markers into whatever you want. 
  * Automatically detects any of \r\n, \n, or \r and 
@@ -3193,7 +3264,7 @@ atropa.string.countWords = function countWords(someText) {
  */
 atropa.string.convertEol = function convertEOL(text, newEOL) {
     'use strict';
-    return text.replace(/(\r\n|\n|\r)/g, newEOL);
+    return text.replace(atropa.regex.patterns.lineBreaks, newEOL);
 };
 
 /**
