@@ -24,7 +24,7 @@ Documentation is located in the `docs/jsdoc` folder and appear exactly as they d
 
 Yes.
 
-To rebuild this project you'll need to have [Node](http://nodejs.org/) and [Java](http://www.java.com/) installed and available in your path. Then run `jake` from this directory. To see a list of Jake tasks run `jake -T`. You may have to adjust the path in `jake` or `jake.bat` to get them to work if you've already installed jake somewhere else and it isn't in the `node_modules` folder of this project.
+To rebuild this project you'll need to have [Node](http://nodejs.org/) and [Java](http://www.java.com/) installed and available in your path. Then run `jake` from this directory. To see a list of Jake tasks run `jake -T`. You may have to adjust the path in `jake` or `jake.bat` to get them to work if you've already installed jake somewhere else and it isn't in the `node_modules` folder of this project. Also, if you've installed Plato in an alternate location you will have to specify the path to plato at the top of `jakefile`.
 
 The built AtropaToolbox is located at `src/AtropaToolbox.js`. To hack this project, edit or add files to `Toolbox/enabled`. Tests are added or edited in `Toolbox/test/enabled` and are run by [jasmine](http://pivotal.github.io/jasmine/). After you've modified or added files rebuild by running `jake` from this directory.
 

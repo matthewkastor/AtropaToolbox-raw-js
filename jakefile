@@ -1,4 +1,5 @@
 "use strict";
+var platoLocation = 'node_modules/.bin/plato';
 /**
  * Jake will automatically look for files with a .jake extension in a 
  *  'jakelib' directory in your project, and load them (via require) after 
@@ -348,7 +349,7 @@ task('generateDocs', ['makeAtropaToolbox'], {async : true}, function () {
         return cmd.trim();
     }
     
-    platoCmd = path.normalize('node_modules/.bin/plato') + ' --recurse ' +
+    platoCmd = path.normalize(platoLocation) + ' --recurse ' +
         '--title "Code Analysis of The Glorious AtropaToolbox" ' +
         '--dir report ' + path.normalize('Toolbox/enabled');
         
