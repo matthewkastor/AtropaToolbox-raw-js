@@ -90,7 +90,7 @@
 
 <div class="container">
   <div class="row">
-    <textarea id="file-source" class="span12">/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
+    <textarea id="file-source" class="span12">/// &lt;reference path=&quot;../../docs/vsdoc/OpenLayersAll.js&quot;/&gt;
 /*jslint
     indent: 4,
     maxerr: 50,
@@ -105,44 +105,44 @@
 
 /**
  * Utilities for handling objects.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130121
  * @namespace Utilities for handling objects.
- * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.objects">tests</a>
+ * @see &lt;a href=&quot;../../../AtropaToolboxTests.html?spec=atropa.objects&quot;&gt;tests&lt;/a&gt;
  */
 atropa.objects = {};
 /**
  * Converts an object into an array of arrays to make it possible to sort and
  *  enumerate properties reliably.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130120
  * @methodOf atropa.objects.
  * @example
  *  var x = {
- *      "stuffing" : "cotton",
- *      "nose" : "button",
- *      "name" : "bear"
+ *      &quot;stuffing&quot; : &quot;cotton&quot;,
+ *      &quot;nose&quot; : &quot;button&quot;,
+ *      &quot;name&quot; : &quot;bear&quot;
  *  };
  *  console.log( atropa.objects.convertObjectToArray(x) );
- *  // logs [["stuffing", "cotton"], ["nose", "button"], ["name", "bear"]]
+ *  // logs [[&quot;stuffing&quot;, &quot;cotton&quot;], [&quot;nose&quot;, &quot;button&quot;], [&quot;name&quot;, &quot;bear&quot;]]
  * @param {Object} obj An object.
  * @returns {Array} Returns an array of arrays where each
- *  nested array will have the object's key stored in element 0 and
+ *  nested array will have the object&#039;s key stored in element 0 and
  *  the value stored in element 1. The reason an array of arrays is
  *  returned is because JavaScript does not guarantee the order of
  *  properties on an object so there is no relizble way to sort
  *  an objects keys or values.
- * @see "The mechanics and order of enumerating the properties [of an object]
- *  is not specified." 
- *  <a href="http://www.ecma-international.org/ecma-262/5.1/#sec-12.6.4">
- *  http://www.ecma-international.org/ecma-262/5.1/#sec-12.6.4</a>
+ * @see &quot;The mechanics and order of enumerating the properties [of an object]
+ *  is not specified.&quot; 
+ *  &lt;a href=&quot;http://www.ecma-international.org/ecma-262/5.1/#sec-12.6.4&quot;&gt;
+ *  http://www.ecma-international.org/ecma-262/5.1/#sec-12.6.4&lt;/a&gt;
  */
 atropa.objects.convertObjectToArray = function convertObjectToArray(obj) {
-    "use strict";
+    &quot;use strict&quot;;
     var prop, out = [];
     for (prop in obj) {
         if (obj.hasOwnProperty(prop)) {
@@ -154,16 +154,16 @@ atropa.objects.convertObjectToArray = function convertObjectToArray(obj) {
 /**
  * Converts an object into an array of arrays and allows for reliable sorting
  *  and enumeration.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130120
  * @example
  *  var wordsCounted, sortedByValues, sortedByProperties;
  *  wordsCounted = {
- *      "document3" : 150,
- *      "document1" : 300,
- *      "document2" : 25
+ *      &quot;document3&quot; : 150,
+ *      &quot;document1&quot; : 300,
+ *      &quot;document2&quot; : 25
  *  };
  *  // sorting by property value as numbers
  *  function valSort(a, b) {
@@ -175,24 +175,24 @@ atropa.objects.convertObjectToArray = function convertObjectToArray(obj) {
  *  }
  *  sortedByValues = atropa.objects.sort(wordsCounted, valSort);
  *  sortedByProperties = atropa.objects.sort(wordsCounted, propSort);
- *  console.log('sorted by value: ', sortedByValues);
- *  console.log('sorted by properties: ', sortedByProperties);
+ *  console.log(&#039;sorted by value: &#039;, sortedByValues);
+ *  console.log(&#039;sorted by properties: &#039;, sortedByProperties);
  *  
  *  // logs:
  *  // sorted by value: [
- *  //     ["document2", 25],
- *  //     ["document3", 150],
- *  //     ["document1", 300]
+ *  //     [&quot;document2&quot;, 25],
+ *  //     [&quot;document3&quot;, 150],
+ *  //     [&quot;document1&quot;, 300]
  *  // ]
  *  // sorted by properties: [
- *  //     ["document1", 300],
- *  //     ["document2", 25],
- *  //     ["document3", 150]
+ *  //     [&quot;document1&quot;, 300],
+ *  //     [&quot;document2&quot;, 25],
+ *  //     [&quot;document3&quot;, 150]
  *  // ]
  * @example
  *  Lexicographic sorting:
- *  This    [1, 2, 10, 'A', 'a','Z', 'z']
- *  becomes [1, 10, 2, "A", "Z", "a", "z"]
+ *  This    [1, 2, 10, &#039;A&#039;, &#039;a&#039;,&#039;Z&#039;, &#039;z&#039;]
+ *  becomes [1, 10, 2, &quot;A&quot;, &quot;Z&quot;, &quot;a&quot;, &quot;z&quot;]
  * @param {Object} obj An object.
  * @param {Function} sortFn Optional. The sorting function. This function will
  *  be given two arguments. Compare the two arguments and return:
@@ -200,7 +200,7 @@ atropa.objects.convertObjectToArray = function convertObjectToArray(obj) {
  *  is greater than the second, or less than zero if the second
  *  argument is greater than the first. If the sorting function
  *  is not given, the array will be sorted lexographically by
- *  each elements <code>toString</code> value.
+ *  each elements &lt;code&gt;toString&lt;/code&gt; value.
  * @returns {Array} Returns an array of arrays where each
  *  nested array will have the objects key stored in element 0 and
  *  the value stored in element 1. The reason an array of arrays is
@@ -208,34 +208,34 @@ atropa.objects.convertObjectToArray = function convertObjectToArray(obj) {
  *  properties on an object so there is no relizble way to sort
  *  an objects keys or values.
  * @see atropa.objects.convertObjectToArray
- * @see <a href="http://www.ecma-international.org/ecma-262/5.1/#sec-15.4.4.11">
- *  http://www.ecma-international.org/ecma-262/5.1/#sec-15.4.4.11</a>
- * @see <a href="https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/sort">
- *  https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/sort</a>
+ * @see &lt;a href=&quot;http://www.ecma-international.org/ecma-262/5.1/#sec-15.4.4.11&quot;&gt;
+ *  http://www.ecma-international.org/ecma-262/5.1/#sec-15.4.4.11&lt;/a&gt;
+ * @see &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/sort&quot;&gt;
+ *  https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Array/sort&lt;/a&gt;
  */
 atropa.objects.sort = function sort(obj, sortFn) {
-    "use strict";
+    &quot;use strict&quot;;
     return atropa.objects.convertObjectToArray(obj).sort(sortFn);
 };
 /**
  * Sorts an object by its values using a user defined algorithm.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130120
  * @example
  *  var wordsCounted;
  *  wordsCounted = {
- *      "document3" : 150,
- *      "document1" : 300,
- *      "document2" : 25
+ *      &quot;document3&quot; : 150,
+ *      &quot;document1&quot; : 300,
+ *      &quot;document2&quot; : 25
  *  };
  *  // sorting by values as numbers
  *  function sortFn(a, b) {
  *      return a - b;
  *  }
  *  console.log( atropa.objects.sortValues(wordsCounted, sortFn) );
- *  // logs: [["document2", 25], ["document3", 150], ["document1", 300]]
+ *  // logs: [[&quot;document2&quot;, 25], [&quot;document3&quot;, 150], [&quot;document1&quot;, 300]]
  * @param {Object} obj An object.
  * @param {Function} sortFn The sorting function. This function will
  *  be given two arguments. Compare the two arguments and return:
@@ -248,7 +248,7 @@ atropa.objects.sort = function sort(obj, sortFn) {
  * @see atropa.objects.sort
  */
 atropa.objects.sortValues = function sortValues(obj, sortFn) {
-    "use strict";
+    &quot;use strict&quot;;
     var valSort = function(a, b) {
         return sortFn(a[1], b[1]);
     };
@@ -256,23 +256,23 @@ atropa.objects.sortValues = function sortValues(obj, sortFn) {
 };
 /**
  * Sorts an object by its properties using a user defined algorithm.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130120
  * @example
  *  var wordsCounted;
  *  wordsCounted = {
- *      "document3" : 150,
- *      "document1" : 300,
- *      "document2" : 25
+ *      &quot;document3&quot; : 150,
+ *      &quot;document1&quot; : 300,
+ *      &quot;document2&quot; : 25
  *  };
  *  // sorting by property names as strings
  *  function sortFn(a, b) {
  *      return a.localeCompare(b);
  *  }
  *  console.log( atropa.objects.sortProperties(wordsCounted, sortFn) );
- *  // logs: [["document1", 300], ["document2", 25], ["document3", 150]]
+ *  // logs: [[&quot;document1&quot;, 300], [&quot;document2&quot;, 25], [&quot;document3&quot;, 150]]
  * @param {Object} obj An object.
  * @param {Function} sortFn The sorting function. This function will
  *  be given two arguments. Compare the two arguments and return:
@@ -285,7 +285,7 @@ atropa.objects.sortValues = function sortValues(obj, sortFn) {
  * @see atropa.objects.sort
  */
 atropa.objects.sortProperties = function sortValues(obj, sortFn) {
-    "use strict";
+    &quot;use strict&quot;;
     var propSort = function(a, b) {
         return sortFn(a[0], b[0]);
     };
@@ -293,19 +293,19 @@ atropa.objects.sortProperties = function sortValues(obj, sortFn) {
 };
 /**
  * Sorts an object by its values numerically.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130120
  * @example
  *  var wordsCounted;
  *  wordsCounted = {
- *      "document3" : 150,
- *      "document1" : 300,
- *      "document2" : 25
+ *      &quot;document3&quot; : 150,
+ *      &quot;document1&quot; : 300,
+ *      &quot;document2&quot; : 25
  *  };
  *  console.log( atropa.objects.sortValuesNumerically(wordsCounted) );
- *  // logs [["document2", 25], ["document3", 150], ["document1", 300]]
+ *  // logs [[&quot;document2&quot;, 25], [&quot;document3&quot;, 150], [&quot;document1&quot;, 300]]
  * @param {Object} obj A simple object where the properties
  *  all have numeric-ish values.
  * @returns {Array} Returns an array of arrays where each
@@ -314,7 +314,7 @@ atropa.objects.sortProperties = function sortValues(obj, sortFn) {
  * @see atropa.objects.sort
  */
 atropa.objects.sortValuesNumerically = function sortValuesNumerically(obj) {
-    "use strict";
+    &quot;use strict&quot;;
     function sortFn(a, b) {
         return (a - b);
     }
@@ -322,19 +322,19 @@ atropa.objects.sortValuesNumerically = function sortValuesNumerically(obj) {
 };
 /**
  * Sorts an object by its values lexicographically.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130120
  * @example
  *  var wordsCounted;
  *  wordsCounted = {
- *      "3" : "Document A",
- *      "2" : "Document Z",
- *      "1" : "Document M"
+ *      &quot;3&quot; : &quot;Document A&quot;,
+ *      &quot;2&quot; : &quot;Document Z&quot;,
+ *      &quot;1&quot; : &quot;Document M&quot;
  *  };
  *  console.log( atropa.objects.sortValuesAlphabetically(wordsCounted) );
- *  // logs [["3", "Document A"], ["1", "Document M"], ["2", "Document Z"]]
+ *  // logs [[&quot;3&quot;, &quot;Document A&quot;], [&quot;1&quot;, &quot;Document M&quot;], [&quot;2&quot;, &quot;Document Z&quot;]]
  * @param {Object} obj A simple object where the properties
  *  all have string values.
  * @returns {Array} Returns an array of arrays where each
@@ -345,7 +345,7 @@ atropa.objects.sortValuesNumerically = function sortValuesNumerically(obj) {
 atropa.objects.sortValuesAlphabetically = function sortValuesAlphabetically(
     obj
 ) {
-    "use strict";
+    &quot;use strict&quot;;
     function sortFn(a, b) {
         return (a.localeCompare(b));
     }
@@ -353,19 +353,19 @@ atropa.objects.sortValuesAlphabetically = function sortValuesAlphabetically(
 };
 /**
  * Sorts an object by its properties numerically.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130120
  * @example
  *  var wordsCounted;
  *  wordsCounted = {
- *      "3" : "Document A",
- *      "2" : "Document Z",
- *      "1" : "Document M"
+ *      &quot;3&quot; : &quot;Document A&quot;,
+ *      &quot;2&quot; : &quot;Document Z&quot;,
+ *      &quot;1&quot; : &quot;Document M&quot;
  *  };
  *  console.log( atropa.objects.sortPropertiesNumerically(wordsCounted) );
- *  // logs: [["1", "Document M"], ["2", "Document Z"], ["3", "Document A"]]
+ *  // logs: [[&quot;1&quot;, &quot;Document M&quot;], [&quot;2&quot;, &quot;Document Z&quot;], [&quot;3&quot;, &quot;Document A&quot;]]
  * @param {Object} obj A simple object where the properties
  *  all have numeric-ish values.
  * @returns {Array} Returns an array of arrays where each
@@ -376,7 +376,7 @@ atropa.objects.sortValuesAlphabetically = function sortValuesAlphabetically(
 atropa.objects.sortPropertiesNumerically = function sortPropertiesNumerically(
     obj
 ) {
-    "use strict";
+    &quot;use strict&quot;;
     function sortFn(a, b) {
         return (a - b);
     }
@@ -384,20 +384,20 @@ atropa.objects.sortPropertiesNumerically = function sortPropertiesNumerically(
 };
 /**
  * Sorts an object by its properties lexicographically.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130120
  * @example
  *  var wordsCounted;
  *  wordsCounted = {
- *      "Document A" : "2",
- *      "Document Z" : "1",
- *      "Document M" : "3"
+ *      &quot;Document A&quot; : &quot;2&quot;,
+ *      &quot;Document Z&quot; : &quot;1&quot;,
+ *      &quot;Document M&quot; : &quot;3&quot;
  *  };
  *  console.log( atropa.objects.sortPropertiesAlphabetically(wordsCounted) );
  *  
- *  // logs: [["Document A", "2"], ["Document M", "3"], ["Document Z", "1"]]
+ *  // logs: [[&quot;Document A&quot;, &quot;2&quot;], [&quot;Document M&quot;, &quot;3&quot;], [&quot;Document Z&quot;, &quot;1&quot;]]
  * @param {Object} obj A simple object where the properties
  *  all have string values.
  * @returns {Array} Returns an array of arrays where each
@@ -407,7 +407,7 @@ atropa.objects.sortPropertiesNumerically = function sortPropertiesNumerically(
  */
 atropa.objects.sortPropertiesAlphabetically = 
 function sortPropertiesAlphabetically(obj) {
-    "use strict";
+    &quot;use strict&quot;;
     function sortFn(a, b) {
         return (a.localeCompare(b));
     }

@@ -90,7 +90,7 @@
 
 <div class="container">
   <div class="row">
-    <textarea id="file-source" class="span12">/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
+    <textarea id="file-source" class="span12">/// &lt;reference path=&quot;../../docs/vsdoc/OpenLayersAll.js&quot;/&gt;
 /*jslint
     indent: 4,
     maxerr: 50,
@@ -105,18 +105,18 @@
 
 /**
  * Container for regex functions.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @namespace Container for regex functions.
- * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.regex">tests</a>
+ * @see &lt;a href=&quot;../../../AtropaToolboxTests.html?spec=atropa.regex&quot;&gt;tests&lt;/a&gt;
  */
 atropa.regex = {};
 /**
  * Regex patterns.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @namespace Regex patterns.
  */
@@ -131,8 +131,8 @@ atropa.regex.patterns = {
 /**
  * Appends common prefix, suffix, and word boundary regex strings to
  * the supplied word.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130110
  * @param {String} word The word to append prefix and suffix to
@@ -145,25 +145,25 @@ atropa.regex.patterns = {
  * words.
  */
 atropa.regex.appendPrefixesAndSuffixes = function (word, threshold) {
-    "use strict";
+    &quot;use strict&quot;;
     var prefixes,
     suffixes;
-    prefixes = '(pre|un|re)?';
-    suffixes = '(ification|' +
-                'tionally|' +
-                'ication|' +
-                'ified|istic|iness|' +
-                'fare|tion|ance|ence|less|ally|able|ness|ized|ised|' +
-                'ous|ify|ing|ity|ful|ant|ate|est|ism|izm|ist|' +
-                'ic|al|ed|er|et|ly|rs|in|' +
-                'y|s|r|d)?';
+    prefixes = &#039;(pre|un|re)?&#039;;
+    suffixes = &#039;(ification|&#039; +
+                &#039;tionally|&#039; +
+                &#039;ication|&#039; +
+                &#039;ified|istic|iness|&#039; +
+                &#039;fare|tion|ance|ence|less|ally|able|ness|ized|ised|&#039; +
+                &#039;ous|ify|ing|ity|ful|ant|ate|est|ism|izm|ist|&#039; +
+                &#039;ic|al|ed|er|et|ly|rs|in|&#039; +
+                &#039;y|s|r|d)?&#039;;
     
     threshold = threshold === undefined ? 3 : threshold;
     
-    if (word.length > threshold) {
-        word = '\\b' + prefixes + word + suffixes + '\\b';
+    if (word.length &gt; threshold) {
+        word = &#039;\\b&#039; + prefixes + word + suffixes + &#039;\\b&#039;;
     } else {
-        word = '\\b()' + word + '()\\b';
+        word = &#039;\\b()&#039; + word + &#039;()\\b&#039;;
     }
     return word;
 };</textarea>

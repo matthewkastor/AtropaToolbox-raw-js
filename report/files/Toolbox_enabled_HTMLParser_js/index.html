@@ -90,7 +90,7 @@
 
 <div class="container">
   <div class="row">
-    <textarea id="file-source" class="span12">/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
+    <textarea id="file-source" class="span12">/// &lt;reference path=&quot;../../docs/vsdoc/OpenLayersAll.js&quot;/&gt;
 /*jslint
     indent: 4,
     maxerr: 50,
@@ -104,9 +104,9 @@
 // end header
 
 atropa.requires(
-    'HTMLParser',
+    &#039;HTMLParser&#039;,
     function () {
-        "use strict";
+        &quot;use strict&quot;;
         var supported = true;
         
         [
@@ -119,24 +119,24 @@ atropa.requires(
         });
         return supported;
     },
-    'atropa.HTMLParser class is not supported in this environment'
+    &#039;atropa.HTMLParser class is not supported in this environment&#039;
 );
 
 /**
- * Creates a new HTML Parser<br />
+ * Creates a new HTML Parser&lt;br /&gt;
  * Carry out DOM operations without loading content to the active document.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @class Creates a new HTML Parser
  * @returns {HTML DOM Document} Returns a blank HTML Document for you to load
  *  data into
  * @requires atropa.data
- * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.HTMLParser">tests</a>
+ * @see &lt;a href=&quot;../../../AtropaToolboxTests.html?spec=atropa.HTMLParser&quot;&gt;tests&lt;/a&gt;
  */
 atropa.HTMLParser = function HTMLParser() {
-    "use strict";
+    &quot;use strict&quot;;
     var my = this;
     
     /**
@@ -147,8 +147,8 @@ atropa.HTMLParser = function HTMLParser() {
     this.doc = {};
     /**
      * Creates a blank HTML DOM Document.
-     * @author <a href="mailto:matthewkastor@gmail.com">
-     *  Matthew Christopher Kastor-Inare III </a><br />
+     * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+     *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
      *  ☭ Hial Atropa!! ☭
      * @version 20120909
      * @methodOf atropa.HTMLParser#
@@ -158,22 +158,22 @@ atropa.HTMLParser = function HTMLParser() {
     this.newDocument = function () {
         var dt;
         dt = document.implementation.createDocumentType(
-            "html",
-            "-//W3C//DTD HTML 4.01 Transitional//EN",
-            "http://www.w3.org/TR/html4/loose.dtd"
+            &quot;html&quot;,
+            &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;,
+            &quot;http://www.w3.org/TR/html4/loose.dtd&quot;
         );
-        my.doc = document.implementation.createDocument('', '', dt);
+        my.doc = document.implementation.createDocument(&#039;&#039;, &#039;&#039;, dt);
         if (my.doc.nodeType !== 9) {
-            atropa.data.HTMLParser.support = 'unsupported';
+            atropa.data.HTMLParser.support = &#039;unsupported&#039;;
             throw new Error(atropa.data.HTMLParser.error +
-                'the document nodeType returned an unexpected value');
+                &#039;the document nodeType returned an unexpected value&#039;);
         }
         return my.doc;
     };
     /**
      * Creates a new HTML DOM Document and loads the given string into it.
-     * @author <a href="mailto:matthewkastor@gmail.com">
-     *  Matthew Christopher Kastor-Inare III </a><br />
+     * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+     *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
      *  ☭ Hial Atropa!! ☭
      * @version 20120909
      * @methodOf atropa.HTMLParser#
@@ -188,30 +188,30 @@ atropa.HTMLParser = function HTMLParser() {
         
         try {
             my.newDocument();
-            my.doc.appendChild(my.doc.createElement('html'));
+            my.doc.appendChild(my.doc.createElement(&#039;html&#039;));
             my.doc.documentElement.innerHTML = htmlstring;
         } catch (e) {
-            atropa.data.HTMLParser.support = 'unsupported';
+            atropa.data.HTMLParser.support = &#039;unsupported&#039;;
             throw new Error(atropa.data.HTMLParser.error +
-                'atropa.HTMLParser can not load ' +
-                'the hidden document from string because: ' + e);
+                &#039;atropa.HTMLParser can not load &#039; +
+                &#039;the hidden document from string because: &#039; + e);
         }
         return my.doc;
     };
     
     function init () {
         var eqTest;
-        atropa.supportCheck('HTMLParser');
+        atropa.supportCheck(&#039;HTMLParser&#039;);
         try {
             eqTest = my.loadString(
-                '<head></head><body><p>test</p></body>'
+                &#039;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;test&lt;/p&gt;&lt;/body&gt;&#039;
             ).body.textContent;
         } catch (e) {
-            atropa.data.HTMLParser.support = 'unsupported';
+            atropa.data.HTMLParser.support = &#039;unsupported&#039;;
             throw new Error(atropa.data.HTMLParser.error + e);
         }
-        if('test' !== eqTest) {
-            atropa.data.HTMLParser.support = 'unsupported';
+        if(&#039;test&#039; !== eqTest) {
+            atropa.data.HTMLParser.support = &#039;unsupported&#039;;
             throw new Error(atropa.data.HTMLParser.error);
         }
         my.newDocument();

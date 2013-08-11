@@ -90,7 +90,7 @@
 
 <div class="container">
   <div class="row">
-    <textarea id="file-source" class="span12">/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
+    <textarea id="file-source" class="span12">/// &lt;reference path=&quot;../../docs/vsdoc/OpenLayersAll.js&quot;/&gt;
 /*jslint
     indent: 4,
     maxerr: 50,
@@ -105,12 +105,12 @@
 
 /**
  * Utilities for handling urls.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130713
  * @namespace Utilities for handling urls.
- * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.url">tests</a>
+ * @see &lt;a href=&quot;../../../AtropaToolboxTests.html?spec=atropa.url&quot;&gt;tests&lt;/a&gt;
  */
 atropa.url = {};
 /**
@@ -120,15 +120,15 @@ atropa.url = {};
  * @returns {String} Returns everything after the last / in the url.
  */
 atropa.url.getFilename = function(url) {
-    "use strict";
+    &quot;use strict&quot;;
     var filename;
     try {
-        filename = String(url).replace(/.*:\/\/[^\/]+/, '').replace(/[#|?].*$/, '').match(/[^\/]+$/)[0];
+        filename = String(url).replace(/.*:\/\/[^\/]+/, &#039;&#039;).replace(/[#|?].*$/, &#039;&#039;).match(/[^\/]+$/)[0];
     } catch (e) {
-        filename = '';
+        filename = &#039;&#039;;
     }
     if(url === filename) {
-        filename = '';
+        filename = &#039;&#039;;
     }
     return filename;
 };</textarea>

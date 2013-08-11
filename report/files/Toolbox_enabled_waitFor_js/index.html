@@ -90,7 +90,7 @@
 
 <div class="container">
   <div class="row">
-    <textarea id="file-source" class="span12">/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
+    <textarea id="file-source" class="span12">/// &lt;reference path=&quot;../../docs/vsdoc/OpenLayersAll.js&quot;/&gt;
 /*jslint
     indent: 4,
     maxerr: 50,
@@ -105,27 +105,27 @@
 
 /**
  * Polling functions for quick and sloppy work.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @namespace Polling functions for quick and sloppy work.
- * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.waitFor">tests</a>
+ * @see &lt;a href=&quot;../../../AtropaToolboxTests.html?spec=atropa.waitFor&quot;&gt;tests&lt;/a&gt;
  */
 atropa.waitFor = {};
 /**
  * Generic Wait for true.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {Function} testFn A function to tell when the wait is over. Must
  *  return true on success, false on failure.
  * @param {Function} onSuccessCallback Optional. The function to run when testFn
- *  returns true. Defaults to <code>function () {} </code>
+ *  returns true. Defaults to &lt;code&gt;function () {} &lt;/code&gt;
  * @param {function} onMaxPollCallback Optional. The function to run when testFn
  *  has been run maxPoll times and the wait is being given up.
- * Defaults to <code>function () {}</code>
+ * Defaults to &lt;code&gt;function () {}&lt;/code&gt;
  * @param {Integer} pollInterval Optional. The amount of time in ms between
  *  polling testFn to see if it returns true. Defaults to 200ms.
  * @param {Integer} maxPoll Optional. The quantity of polls at which it makes
@@ -134,7 +134,7 @@ atropa.waitFor = {};
 atropa.waitFor.test = function test(
     testFn, onSuccessCallback, onMaxPollCallback, pollInterval, maxPoll
 ) {
-    "use strict";
+    &quot;use strict&quot;;
     pollInterval = atropa.setAsOptionalArg(200, pollInterval);
     maxPoll = atropa.setAsOptionalArg(50, maxPoll);
     onMaxPollCallback = atropa.setAsOptionalArg(
@@ -158,8 +158,8 @@ atropa.waitFor.test = function test(
 };
 /**
  * Wait for Element
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {Function} testFn A function which returns a reference to an HTML
@@ -174,13 +174,13 @@ atropa.waitFor.test = function test(
 atropa.waitFor.element = function (
     testFn, onSuccessCallback, onMaxPollCallback, pollInterval, maxPoll
 ) {
-    "use strict";
+    &quot;use strict&quot;;
     var elementTest;
     /**
      * Creates an HTML DOM Document and puts it in the document
      * queue, then executes the callback given.
-     * @author <a href="mailto:matthewkastor@gmail.com">
-     *  Matthew Christopher Kastor-Inare III </a><br />
+     * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+     *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
      *  ☭ Hial Atropa!! ☭
      * @version 20120909
      * @methodOf atropa.waitFor.element-
@@ -191,7 +191,7 @@ atropa.waitFor.element = function (
     elementTest = function () {
         var obj;
         obj = testFn();
-        return atropa.inquire.hasProperty(obj, 'tagName');
+        return atropa.inquire.hasProperty(obj, &#039;tagName&#039;);
     };
     atropa.waitFor.test(
         elementTest, onSuccessCallback, onMaxPollCallback, pollInterval, maxPoll

@@ -90,7 +90,7 @@
 
 <div class="container">
   <div class="row">
-    <textarea id="file-source" class="span12">/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
+    <textarea id="file-source" class="span12">/// &lt;reference path=&quot;../../docs/vsdoc/OpenLayersAll.js&quot;/&gt;
 /*jslint
     indent: 4,
     maxerr: 50,
@@ -104,39 +104,39 @@
 // end header
 
 atropa.requires(
-    'window',
+    &#039;window&#039;,
     function () {
-        "use strict";
+        &quot;use strict&quot;;
         if(document === undefined) {
             return false;
         }
         return true;
     },
-    'atropa.window requires the window object present in web ' +
-        'browsers in order to be useful. This function is not supported in ' +
-        'this environment'
+    &#039;atropa.window requires the window object present in web &#039; +
+        &#039;browsers in order to be useful. This function is not supported in &#039; +
+        &#039;this environment&#039;
 );
 
 /**
  * Container for all window functions and classes.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @namespace Container for all window functions and classes.
- * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.window">tests</a>
+ * @see &lt;a href=&quot;../../../AtropaToolboxTests.html?spec=atropa.window&quot;&gt;tests&lt;/a&gt;
  */
 atropa.window = {};
 /**
  * Opens a new window and fires a callback once the window has loaded.
  *  Optionally, a test function may be provided to fire the callback.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130222
  * @function
  * @param {String} url The url to load in the window.
  * @param {Function} callback The callback function to execute when
- *  the windows document.readystate === 'complete'. This callback will receive
+ *  the windows document.readystate === &#039;complete&#039;. This callback will receive
  *  one argument, a reference to the opened window and will be fired before the
  *  window navigates to the given url.
  * @param {Function} testFn Optional. An alternate test for when you want to
@@ -146,16 +146,16 @@ atropa.window = {};
  *  something falsy and continue waiting. Your test will be tried
  *  every 250ms until it returns something truthy.
  * @returns {Object} Returns a reference to the opened window.
- * @see <a href="http://www.w3.org/Security/wiki/Same_Origin_Policy">
- * Same Origin Policy</a>
+ * @see &lt;a href=&quot;http://www.w3.org/Security/wiki/Same_Origin_Policy&quot;&gt;
+ * Same Origin Policy&lt;/a&gt;
  * @example
  * // note, this example must be run in the context of google.com
  * // because of cross domain security restrictions.
  * 
  * function cb(win) {
  *     // setting a search term in the box on google.
- *     var searchTerm = '"hial atropa!!" site:github.com';
- *     var searchBox = win.document.getElementById('gbqfq');
+ *     var searchTerm = &#039;&quot;hial atropa!!&quot; site:github.com&#039;;
+ *     var searchBox = win.document.getElementById(&#039;gbqfq&#039;);
  *     searchBox.value = searchTerm;
  * }
  * 
@@ -163,18 +163,18 @@ atropa.window = {};
  *     // returns null or a reference to the element
  *     // this will be called about 4 times per second
  *     // until the element is found.
- *     return win.document.getElementById('gbqfq');
+ *     return win.document.getElementById(&#039;gbqfq&#039;);
  * }
  * 
- * atropa.window.open('http://www.google.com', cb, testFn);
+ * atropa.window.open(&#039;http://www.google.com&#039;, cb, testFn);
  */
 atropa.window.open = function open(url, callback, testFn) {
-    "use strict";
-    atropa.supportCheck('window');
+    &quot;use strict&quot;;
+    atropa.supportCheck(&#039;window&#039;);
     var win;
     
     function defaultTestFn(win){
-        return win.document.readyState === 'complete';
+        return win.document.readyState === &#039;complete&#039;;
     }
     
     testFn = atropa.setAsOptionalArg(defaultTestFn, testFn);

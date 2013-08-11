@@ -90,7 +90,7 @@
 
 <div class="container">
   <div class="row">
-    <textarea id="file-source" class="span12">/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
+    <textarea id="file-source" class="span12">/// &lt;reference path=&quot;../../docs/vsdoc/OpenLayersAll.js&quot;/&gt;
 /*jslint
     indent: 4,
     maxerr: 50,
@@ -104,9 +104,9 @@
 // end header
 
 (function () {
-    "use strict";
+    &quot;use strict&quot;;
     atropa.requires(
-        'Requester',
+        &#039;Requester&#039;,
         function () {
             var supported = true;
             
@@ -120,45 +120,45 @@
             });
             return supported;
         },
-        'atropa.Requester class is not supported in this environment'
+        &#039;atropa.Requester class is not supported in this environment&#039;
     );
 }());
 
 /**
  * This represents an XMLHttpRequest.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130311
  * @class This represents an XMLHttpRequest.
  * @returns {Requester} Returns a requester object.
  * @requires atropa.ArgsInfo#checkArgTypes
- * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.Requester">tests</a>
+ * @see &lt;a href=&quot;../../../AtropaToolboxTests.html?spec=atropa.Requester&quot;&gt;tests&lt;/a&gt;
  * @example
  * var requester, formData;
  * 
  * requester = new atropa.Requester();
  * requester.timeout = 10000; // requests will abort after 10 seconds.
  * requester.requestHeaders = {
- *     "aHeader" : "headerValue",
- *     "anotherHeader" : "andValue"
+ *     &quot;aHeader&quot; : &quot;headerValue&quot;,
+ *     &quot;anotherHeader&quot; : &quot;andValue&quot;
  * };
  * 
  * function showRequestResults(status, request) {
- *     console.log("Status: ' + status);
+ *     console.log(&quot;Status: &#039; + status);
  *     console.dir(request); // console dir may or may not
  *                        // be supported in your environment.
  * }
  * 
  * formData = new FormData();
- * formData.append('aFormFieldName', 'formFieldData');
- * formData.append('anotherFormFieldName', 'andData');
+ * formData.append(&#039;aFormFieldName&#039;, &#039;formFieldData&#039;);
+ * formData.append(&#039;anotherFormFieldName&#039;, &#039;andData&#039;);
  * 
  * requester.makeRequest(
- *     "post", "http://example.com", formData, showRequestResults);
+ *     &quot;post&quot;, &quot;http://example.com&quot;, formData, showRequestResults);
  */
 atropa.Requester = function Requester() {
-    "use strict";
+    &quot;use strict&quot;;
     var expArgTypes,
         checkRequest,
         request;
@@ -171,13 +171,13 @@ atropa.Requester = function Requester() {
      * @fieldOf atropa.Requester-
      */
     expArgTypes = {};
-    expArgTypes.requestWithMessage = ['string', 'string', 'string', 'function'];
-    expArgTypes.requestNullMessage = ['string', 'string', 'object', 'function'];
+    expArgTypes.requestWithMessage = [&#039;string&#039;, &#039;string&#039;, &#039;string&#039;, &#039;function&#039;];
+    expArgTypes.requestNullMessage = [&#039;string&#039;, &#039;string&#039;, &#039;object&#039;, &#039;function&#039;];
     
     /**
      * Used to check the arguments types supplied to this.makeRequest.
-     * @author <a href="mailto:matthewkastor@gmail.com">
-     *  Matthew Christopher Kastor-Inare III </a><br />
+     * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+     *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
      *  ☭ Hial Atropa!! ☭
      * @version 20120909
      * @private
@@ -226,8 +226,8 @@ atropa.Requester = function Requester() {
     
     /**
      * Makes an AJAX request.
-     * @author <a href="mailto:matthewkastor@gmail.com">
-     *  Matthew Christopher Kastor-Inare III </a><br />
+     * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+     *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
      *  ☭ Hial Atropa!! ☭
      * @version 20130311
      * @methodOf atropa.Requester#
@@ -245,8 +245,8 @@ atropa.Requester = function Requester() {
         try {
             checkRequest(arguments);
         } catch (e) {
-            throw new Error('atropa.Requester.makeRequest unexpected ' +
-                'argument type');
+            throw new Error(&#039;atropa.Requester.makeRequest unexpected &#039; +
+                &#039;argument type&#039;);
         }
         request.aborted = false;
         request.open(method, url, true);
@@ -260,8 +260,8 @@ atropa.Requester = function Requester() {
          * Event listener function for the AJAX request.
          * This is what actually fires the callback supplied
          * to makeRequest.
-         * @author <a href="mailto:matthewkastor@gmail.com">
-         *  Matthew Christopher Kastor-Inare III </a><br />
+         * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+         *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
          *  ☭ Hial Atropa!! ☭
          * @version 20120909
          * @methodOf atropa.Requester-request
@@ -284,7 +284,7 @@ atropa.Requester = function Requester() {
         }, this.timeout);
     };
     
-    atropa.supportCheck('Requester');
+    atropa.supportCheck(&#039;Requester&#039;);
 };</textarea>
   </div>
 </div>

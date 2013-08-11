@@ -90,7 +90,7 @@
 
 <div class="container">
   <div class="row">
-    <textarea id="file-source" class="span12">/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
+    <textarea id="file-source" class="span12">/// &lt;reference path=&quot;../../docs/vsdoc/OpenLayersAll.js&quot;/&gt;
 /*jslint
     indent: 4,
     maxerr: 50,
@@ -106,33 +106,33 @@
 
 /**
  * Invalid Argument Types Error
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130221
  * @class Invalid Argument Types Error
  * @param {String} message Optional. The error message to send. Defaults to
- *  <code>InvalidArgumentTypesError</code>
+ *  &lt;code&gt;InvalidArgumentTypesError&lt;/code&gt;
  * @returns {Error} Returns an instance of the InvalidArgumentTypesError
- * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.customErrors">tests</a>
+ * @see &lt;a href=&quot;../../../AtropaToolboxTests.html?spec=atropa.customErrors&quot;&gt;tests&lt;/a&gt;
  */
 atropa.InvalidArgumentTypesError = function InvalidArgumentTypesError(message) {
-    'use strict';
+    &#039;use strict&#039;;
     /**
      * The name of the error. Tells the user what kind of custom
      * error has been thrown.
      * @fieldOf atropa.InvalidArgumentTypesError#
      * @type {String}
-     * @default "atropa.InvalidArgumentTypesError"
+     * @default &quot;atropa.InvalidArgumentTypesError&quot;
      */
-    this.name = "atropa.InvalidArgumentTypesError";
+    this.name = &quot;atropa.InvalidArgumentTypesError&quot;;
     /**
      * The error message to send.
      * @fieldOf atropa.InvalidArgumentTypesError#
      * @type {String}
-     * @default "InvalidArgumentTypesError"
+     * @default &quot;InvalidArgumentTypesError&quot;
      */
-    this.message = message || "InvalidArgumentTypesError";
+    this.message = message || &quot;InvalidArgumentTypesError&quot;;
 };
 atropa.InvalidArgumentTypesError.prototype = new Error();
 atropa.InvalidArgumentTypesError.prototype.constructor = 

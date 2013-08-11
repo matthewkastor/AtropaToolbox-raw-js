@@ -90,7 +90,7 @@
 
 <div class="container">
   <div class="row">
-    <textarea id="file-source" class="span12">/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
+    <textarea id="file-source" class="span12">/// &lt;reference path=&quot;../../docs/vsdoc/OpenLayersAll.js&quot;/&gt;
 /*jslint
     indent: 4,
     maxerr: 50,
@@ -104,7 +104,7 @@
 // end header
 
 atropa.requires(
-    'CookieMonster',
+    &#039;CookieMonster&#039;,
     function () {
         var supported = true;
         
@@ -117,27 +117,27 @@ atropa.requires(
         });
         return supported;
     },
-    'atropa.CookieMonster class is not supported in this environment'
+    &#039;atropa.CookieMonster class is not supported in this environment&#039;
 );
 
 /**
  * This is a cookie handler.
  * @example
  * // cookie object
- * var cookieObj = {"key" : "cookieName", "val" : "cookieVal"}
+ * var cookieObj = {&quot;key&quot; : &quot;cookieName&quot;, &quot;val&quot; : &quot;cookieVal&quot;}
  * // cookie string 
  * var cookieString = cookieName=cookieVal;
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130223
  * @class This represents a cookie handler
  * @returns {CookieMonster} A cookie handler.
  * @requires atropa.data
- * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.CookieMonster">tests</a>
+ * @see &lt;a href=&quot;../../../AtropaToolboxTests.html?spec=atropa.CookieMonster&quot;&gt;tests&lt;/a&gt;
  */
 atropa.CookieMonster = function CookieMonster() {
-    'use strict';
+    &#039;use strict&#039;;
     var currentCookies, getCookieCallback;
     
     /**
@@ -149,17 +149,17 @@ atropa.CookieMonster = function CookieMonster() {
     currentCookies = [];
     /**
      * Converts a cookie string into an object.
-     * @author <a href="mailto:matthewkastor@gmail.com">
-     *  Matthew Christopher Kastor-Inare III </a><br />
+     * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+     *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
      *  ☭ Hial Atropa!! ☭
      * @version 20130223
      * @methodOf atropa.CookieMonster#
      * @param {String} cookie A cookie represented as a string
-     * <code>cookieName=cookieVal;</code>
+     * &lt;code&gt;cookieName=cookieVal;&lt;/code&gt;
      * @returns {cookieObj} Returns a cookie object.
      * @example
      * var cookieMonster = new atropa.CookieMonster();
-     * var cookieObj = cookieMonster.cookie2obj('atropa=hial atropa!!;');
+     * var cookieObj = cookieMonster.cookie2obj(&#039;atropa=hial atropa!!;&#039;);
      * console.log(cookieObj);
      */
     this.cookie2obj = function cookie2obj(cookie) {
@@ -167,17 +167,17 @@ atropa.CookieMonster = function CookieMonster() {
         if (!cookie) {
             return false;
         }
-        cookieObj.key = cookie.substr(0, cookie.indexOf("=")).trim();
-        cookieObj.val = cookie.substr(cookie.indexOf("=") + 1);
-        if(cookieObj.val.substr(-1) === ';') {
+        cookieObj.key = cookie.substr(0, cookie.indexOf(&quot;=&quot;)).trim();
+        cookieObj.val = cookie.substr(cookie.indexOf(&quot;=&quot;) + 1);
+        if(cookieObj.val.substr(-1) === &#039;;&#039;) {
             cookieObj.val = cookieObj.val.substr(0, cookieObj.val.length - 1);
         }
         return cookieObj;
     };
     /**
      * Converts a cookie object to a cookie string.
-     * @author <a href="mailto:matthewkastor@gmail.com">
-     *  Matthew Christopher Kastor-Inare III </a><br />
+     * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+     *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
      *  ☭ Hial Atropa!! ☭
      * @version 20120909
      * @methodOf atropa.CookieMonster#
@@ -186,35 +186,35 @@ atropa.CookieMonster = function CookieMonster() {
      * @example
      * var cookieMonster = new atropa.CookieMonster();
      * // creating a cookie
-     * cookieMonster.setCookie('atropa', 'hial atropa!!');
+     * cookieMonster.setCookie(&#039;atropa&#039;, &#039;hial atropa!!&#039;);
      * console.log(document.cookie);
      * 
      * // getting a cookie object
-     * var cookieObj = cookieMonster.getCookie('atropa');
+     * var cookieObj = cookieMonster.getCookie(&#039;atropa&#039;);
      * console.log(cookieObj);
      * 
      * // convert the cookie object to a string
      * console.log(cookieMonster.bakeCookie(cookieObj));
      */
     this.bakeCookie = function bakeCookie(cookieObj) {
-        var cookie = '', key, val;
+        var cookie = &#039;&#039;, key, val;
         
         key = cookieObj.key;
         val = cookieObj.val;
-        cookie = key + '=' + val + ';';
+        cookie = key + &#039;=&#039; + val + &#039;;&#039;;
         return cookie;
     };
     /**
      * Filter cookies based on user specified callback.
-     * @author <a href="mailto:matthewkastor@gmail.com">
-     *  Matthew Christopher Kastor-Inare III </a><br />
+     * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+     *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
      *  ☭ Hial Atropa!! ☭
      * @version 20130223
      * @methodOf atropa.CookieMonster#
      * @param {function} callback The callback function will be passed
      *  two arguments. The first is a cookie object from the current
      *  document. The second argument is the value supplied for
-     *  <code>args</code> if the callback function returns <code>true</code>
+     *  &lt;code&gt;args&lt;/code&gt; if the callback function returns &lt;code&gt;true&lt;/code&gt;
      *  then the cookie object will be included in the return results.
      * @param {Array} args Arguments to pass to the callback
      * function.
@@ -222,8 +222,8 @@ atropa.CookieMonster = function CookieMonster() {
      * @example
      * var cookieMonster = new atropa.CookieMonster();
      * // creating a few cookies
-     * cookieMonster.setCookie('atropa', 'hial atropa!!');
-     * cookieMonster.setCookie('katjii', 'munching');
+     * cookieMonster.setCookie(&#039;atropa&#039;, &#039;hial atropa!!&#039;);
+     * cookieMonster.setCookie(&#039;katjii&#039;, &#039;munching&#039;);
      * console.log(document.cookie);
      * 
      * // filter cookies
@@ -235,13 +235,13 @@ atropa.CookieMonster = function CookieMonster() {
      *     }
      * }
      * var cookieObjArray = cookieMonster.inspectCookies(
-     *     cookieFilter, 'munching');
+     *     cookieFilter, &#039;munching&#039;);
      * console.log(cookieObjArray);
      */
     this.inspectCookies = function inspectCookies(callback, args) {
         var testCookie, cookies, jar = [];
         cookies = this.getCookies();
-        while (cookies.length > 0) {
+        while (cookies.length &gt; 0) {
             testCookie = cookies.shift();
             if (callback(testCookie, args) === true) {
                 jar.push(testCookie);
@@ -252,8 +252,8 @@ atropa.CookieMonster = function CookieMonster() {
     /**
      * Internal callback function used while getting the current
      * cookies.
-     * @author <a href="mailto:matthewkastor@gmail.com">
-     *  Matthew Christopher Kastor-Inare III </a><br />
+     * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+     *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
      *  ☭ Hial Atropa!! ☭
      * @version 20130223
      * @private
@@ -274,8 +274,8 @@ atropa.CookieMonster = function CookieMonster() {
     };
     /**
      * Gets a user requested cookie.
-     * @author <a href="mailto:matthewkastor@gmail.com">
-     *  Matthew Christopher Kastor-Inare III </a><br />
+     * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+     *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
      *  ☭ Hial Atropa!! ☭
      * @version 20130223
      * @methodOf atropa.CookieMonster#
@@ -286,10 +286,10 @@ atropa.CookieMonster = function CookieMonster() {
      * @example
      * var cookieMonster = new atropa.CookieMonster();
      * // creating a cookie
-     * cookieMonster.setCookie('atropa', 'hial atropa!!');
+     * cookieMonster.setCookie(&#039;atropa&#039;, &#039;hial atropa!!&#039;);
      * console.log(document.cookie);
      * // get a specific cookie
-     * var cookieObj = cookieMonster.getCookie('atropa');
+     * var cookieObj = cookieMonster.getCookie(&#039;atropa&#039;);
      * console.log(cookieObj.key);
      * console.log(cookieObj.val);
      */
@@ -299,8 +299,8 @@ atropa.CookieMonster = function CookieMonster() {
     };
     /**
      * Get all cookies.
-     * @author <a href="mailto:matthewkastor@gmail.com">
-     *  Matthew Christopher Kastor-Inare III </a><br />
+     * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+     *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
      *  ☭ Hial Atropa!! ☭
      * @version 20120909
      * @methodOf atropa.CookieMonster#
@@ -308,15 +308,15 @@ atropa.CookieMonster = function CookieMonster() {
      * @example
      * var cookieMonster = new atropa.CookieMonster();
      * // creating a cookie
-     * cookieMonster.setCookie('atropa', 'hial atropa!!');
+     * cookieMonster.setCookie(&#039;atropa&#039;, &#039;hial atropa!!&#039;);
      * // get all cookie objects in an array
      * console.log(cookieMonster.getCookies());
      */
     this.getCookies = function getCookies() {
         var n, l, cookieArray, cookieObj;
         currentCookies = [];
-        cookieArray = document.cookie.split(";");
-        for (n = 0, l = cookieArray.length; n < l; n++) {
+        cookieArray = document.cookie.split(&quot;;&quot;);
+        for (n = 0, l = cookieArray.length; n &lt; l; n++) {
             cookieObj = false;
             if (cookieArray[n]) {
                 cookieObj = this.cookie2obj(cookieArray[n]);
@@ -329,8 +329,8 @@ atropa.CookieMonster = function CookieMonster() {
     };
     /**
      * Deletes a specified cookie by user submitted string.
-     * @author <a href="mailto:matthewkastor@gmail.com">
-     *  Matthew Christopher Kastor-Inare III </a><br />
+     * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+     *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
      *  ☭ Hial Atropa!! ☭
      * @version 20130223
      * @methodOf atropa.CookieMonster#
@@ -339,22 +339,22 @@ atropa.CookieMonster = function CookieMonster() {
      * @example
      * var cookieMonster = new atropa.CookieMonster();
      * // creating the cookie to delete
-     * cookieMonster.setCookie('atropa', 'hial atropa!!');
+     * cookieMonster.setCookie(&#039;atropa&#039;, &#039;hial atropa!!&#039;);
      * console.log(document.cookie);
      * // delete a cookie
-     * cookieMonster.deleteCookie('atropa');
+     * cookieMonster.deleteCookie(&#039;atropa&#039;);
      * console.log(document.cookie);
      */
     this.deleteCookie = function deleteCookie(whichKey) {
         var cookieObj = {};
         cookieObj.key = whichKey;
-        cookieObj.val = ';expires=Thu, 2 Aug 2001 20:47:11 UTC';
+        cookieObj.val = &#039;;expires=Thu, 2 Aug 2001 20:47:11 UTC&#039;;
         document.cookie = this.bakeCookie(cookieObj);
     };
     /**
      * Deletes a specified cookie by user submitted cookieObj.
-     * @author <a href="mailto:matthewkastor@gmail.com">
-     *  Matthew Christopher Kastor-Inare III </a><br />
+     * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+     *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
      *  ☭ Hial Atropa!! ☭
      * @version 20120909
      * @methodOf atropa.CookieMonster#
@@ -362,11 +362,11 @@ atropa.CookieMonster = function CookieMonster() {
      * @example
      * var cookieMonster = new atropa.CookieMonster();
      * // creating the cookie to delete
-     * cookieMonster.setCookie('atropa', 'hial atropa!!');
+     * cookieMonster.setCookie(&#039;atropa&#039;, &#039;hial atropa!!&#039;);
      * console.log(document.cookie);
      * // delete a cookie
      * cookieMonster.deleteCookieObj(
-     *     {key : 'atropa', val : 'does not matter'});
+     *     {key : &#039;atropa&#039;, val : &#039;does not matter&#039;});
      * console.log(document.cookie);
      */
     this.deleteCookieObj = function deleteCookieObj(cookieObj) {
@@ -375,8 +375,8 @@ atropa.CookieMonster = function CookieMonster() {
     /**
      * Sets a cookie per user specifications as strings. The cookie
      * will expire when the browser is closed.
-     * @author <a href="mailto:matthewkastor@gmail.com">
-     *  Matthew Christopher Kastor-Inare III </a><br />
+     * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+     *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
      *  ☭ Hial Atropa!! ☭
      * @version 20120909
      * @methodOf atropa.CookieMonster#
@@ -385,7 +385,7 @@ atropa.CookieMonster = function CookieMonster() {
      * @example
      * var cookieMonster = new atropa.CookieMonster();
      * // set a cookie
-     * cookieMonster.setCookie('atropa', 'hial');
+     * cookieMonster.setCookie(&#039;atropa&#039;, &#039;hial&#039;);
      * console.log(document.cookie);
      */
     this.setCookie = function setCookie(whichKey, setTo) {
@@ -397,8 +397,8 @@ atropa.CookieMonster = function CookieMonster() {
     /**
      * Sets a cookie per user specifications as an object.
      * The cookie will expire when the browser is closed.
-     * @author <a href="mailto:matthewkastor@gmail.com">
-     *  Matthew Christopher Kastor-Inare III </a><br />
+     * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+     *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
      *  ☭ Hial Atropa!! ☭
      * @version 20120909
      * @methodOf atropa.CookieMonster#
@@ -406,14 +406,14 @@ atropa.CookieMonster = function CookieMonster() {
      * @example
      * var cookieMonster = new atropa.CookieMonster();
      * // set a cookie
-     * cookieMonster.setCookieObj({key : 'atropa', val : 'hial atropa!!'});
+     * cookieMonster.setCookieObj({key : &#039;atropa&#039;, val : &#039;hial atropa!!&#039;});
      * console.log(document.cookie);
      */
     this.setCookieObj = function setCookieObj(cookieObj) {
         return this.setCookie(cookieObj.key, cookieObj.val);
     };
     
-    atropa.supportCheck('CookieMonster');
+    atropa.supportCheck(&#039;CookieMonster&#039;);
 };</textarea>
   </div>
 </div>

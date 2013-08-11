@@ -90,7 +90,7 @@
 
 <div class="container">
   <div class="row">
-    <textarea id="file-source" class="span12">/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
+    <textarea id="file-source" class="span12">/// &lt;reference path=&quot;../../docs/vsdoc/OpenLayersAll.js&quot;/&gt;
 /*jslint
     indent: 4,
     maxerr: 50,
@@ -105,18 +105,18 @@
 
 /**
  * A few utilities for manipulating strings.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @namespace A few utilities for manipulating strings.
  * @requires atropa.regex.patterns
- * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.string">tests</a>
+ * @see &lt;a href=&quot;../../../AtropaToolboxTests.html?spec=atropa.string&quot;&gt;tests&lt;/a&gt;
  */
 atropa.string = {};
 /**
  * Replaces repeated words and phrases with a single word or phrase.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130701
  * @param {String} string The string to remove repeated words from.
@@ -124,82 +124,82 @@ atropa.string = {};
  *  phrases removed.
  */
 atropa.string.removeRepeatedWord = function removeRepeatedWord (string) {
-    "use strict";
-    return string.replace(atropa.regex.patterns.repeatedWords, '$1');
+    &quot;use strict&quot;;
+    return string.replace(atropa.regex.patterns.repeatedWords, &#039;$1&#039;);
 };
 /**
  * Creates paragraph breaks at every occurrence of two consecutive line breaks.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130701
  * @param {String} string The string to insert paragraph tags into.
  * @returns {String} Returns the given string with paragraph breaks inserted.
  */
 atropa.string.lineBreaksToParagraphTags = function lineBreaksToParagraphTags (string) {
-    "use strict";
-    var out = string.replace(atropa.regex.patterns.paragraphBreaks, '</p><p>');
-    out = '<p>' + out.trim() + '</p>';
-    out = out.replace(/\s+<\/(p|br)>/g, '</$1>');
+    &quot;use strict&quot;;
+    var out = string.replace(atropa.regex.patterns.paragraphBreaks, &#039;&lt;/p&gt;&lt;p&gt;&#039;);
+    out = &#039;&lt;p&gt;&#039; + out.trim() + &#039;&lt;/p&gt;&#039;;
+    out = out.replace(/\s+&lt;\/(p|br)&gt;/g, &#039;&lt;/$1&gt;&#039;);
     return out;
 };
 /**
  * Creates break tags at every line break.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130701
  * @param {String} string The string to insert break tags into.
  * @returns {String} Returns the given string with break tags inserted.
  */
 atropa.string.lineBreaksToBreakTags = function lineBreaksToBreakTags (string) {
-    "use strict";
-    return string.replace(atropa.regex.patterns.lineBreaks, '<br>');
+    &quot;use strict&quot;;
+    return string.replace(atropa.regex.patterns.lineBreaks, &#039;&lt;br&gt;&#039;);
 };
 /**
  * Normalizes line breaks to `\n`.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130701
  * @param {String} string The string to normalize.
  * @returns {String} Returns the given string with normalized line breaks.
  */
 atropa.string.normalizeEol = function normalizeEol (string) {
-    "use strict";
-    return string.replace(atropa.regex.patterns.lineBreaks, '\n');
+    &quot;use strict&quot;;
+    return string.replace(atropa.regex.patterns.lineBreaks, &#039;\n&#039;);
 };
 /**
  * Converts the first character of a given string to
  * uppercase.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {String} string The string for which you want the
  * first letter to be in upper case.
- * @returns {String} The given string with it's first letter capitalized.
+ * @returns {String} The given string with it&#039;s first letter capitalized.
  */
 atropa.string.ucFirst = function ucFirst(string) {
-    "use strict";
+    &quot;use strict&quot;;
     string = string.charAt(0).toUpperCase() + string.slice(1);
     return string;
 };
 /**
  * Counts words.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130313
  * @param {String} someText Plain text.
  * @return {Number} Returns the count of words in someText.
  */
 atropa.string.countWords = function countWords(someText) {
-    "use strict";
+    &quot;use strict&quot;;
     var wordCount, re, len = 0;
-    if(someText !== undefined && someText !== null) {
+    if(someText !== undefined &amp;&amp; someText !== null) {
         someText = someText.trim();
-        if(someText !== '') {
+        if(someText !== &#039;&#039;) {
             wordCount = 0;
             re = /\s+/gi;
             wordCount = someText.split(re);
@@ -212,22 +212,22 @@ atropa.string.countWords = function countWords(someText) {
  * Converts end of line markers into whatever you want. 
  * Automatically detects any of \r\n, \n, or \r and 
  * replaces it with the user specified EOL marker.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @param {String} text The text you want processed.
  * @param {String} newEOL The replacement for the current EOL marks.
  * @returns {String} Returns the processed text.
  */
 atropa.string.convertEol = function convertEOL(text, newEOL) {
-    'use strict';
+    &#039;use strict&#039;;
     return text.replace(atropa.regex.patterns.lineBreaks, newEOL);
 };
 
 /**
  * Removes a quantity of leading spaces specified by offset.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @param {String} text The text to process.
  * @param {Number} offset The amount of spaces you want removed 
@@ -235,17 +235,17 @@ atropa.string.convertEol = function convertEOL(text, newEOL) {
  * @returns Returns the processed text.
  */
 atropa.string.offsetWhiteSpace = function offsetWhiteSpace(text, offset) {
-    'use strict';
+    &#039;use strict&#039;;
     var regx;
-    regx = new RegExp('^ {' + offset + '}');
-    text = text.replace(regx, '');
+    regx = new RegExp(&#039;^ {&#039; + offset + &#039;}&#039;);
+    text = text.replace(regx, &#039;&#039;);
     return text;
 };
 
 /**
  * Converts all tabs in leading whitespace into four spaces.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @param {String} text The text to process
  * @returns {String} Returns the processed text.
@@ -253,11 +253,11 @@ atropa.string.offsetWhiteSpace = function offsetWhiteSpace(text, offset) {
 atropa.string.normalizeWhiteSpacePrefix = function normalizeWhiteSpacePrefix(
     text
 ) {
-    'use strict';
+    &#039;use strict&#039;;
     var prefix = text.match(/^\s*/);
     if(prefix) {
         prefix = prefix[0];
-        prefix = prefix.replace(/\t/g, '    ');
+        prefix = prefix.replace(/\t/g, &#039;    &#039;);
         text = text.replace(/^\s*/, prefix);
     }
     return text;
@@ -265,33 +265,33 @@ atropa.string.normalizeWhiteSpacePrefix = function normalizeWhiteSpacePrefix(
 
 /**
  * Converts all tabs into four spaces.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @param {String} text The text to process
  * @returns {String} Returns the processed text.
  */
 atropa.string.normalizeWhiteSpace = function normalizeWhiteSpace(text) {
-    'use strict';
-    text = text.replace(/\t/g, '    ');
+    &#039;use strict&#039;;
+    text = text.replace(/\t/g, &#039;    &#039;);
     return text;
 };
 
 /**
  * Counts the number of leading space or tab characters but not both.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @param {String} text The text to analyze.
  * @returns {Number} Returns the quantity of leading spaces or tabs.
  */
 atropa.string.getOffset = function getOffset(text) {
-    'use strict';
+    &#039;use strict&#039;;
     var offset = 0,
         leadingChar = text.charAt(0);
         
-    if( leadingChar === ' ' || leadingChar === '\t') {
-        while(text.charAt(offset) === leadingChar && offset < text.length) {
+    if( leadingChar === &#039; &#039; || leadingChar === &#039;\t&#039;) {
+        while(text.charAt(offset) === leadingChar &amp;&amp; offset &lt; text.length) {
             offset++;
         }
     }
@@ -299,8 +299,8 @@ atropa.string.getOffset = function getOffset(text) {
 };
 /**
  * Breaks a string into an array of words.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130118
  * @param {String} text The text to analyze.
@@ -309,42 +309,42 @@ atropa.string.getOffset = function getOffset(text) {
  * @requires atropa.arrays.removeEmptyElements
  */
 atropa.string.getWords = function (text) {
-    "use strict";
+    &quot;use strict&quot;;
     var out = [];
     function invalidChars(element) {
-        var matched = /^[\-'’`]+$/.test(element);
+        var matched = /^[\-&#039;’`]+$/.test(element);
         // invert the result of test. throw out elements that match.
         return !matched;
     }
     out = atropa.arrays.removeEmptyElements(
-        text.split(/[^A-Za-z\-'’`]+/gi)
+        text.split(/[^A-Za-z\-&#039;’`]+/gi)
     );
     out = out.filter(invalidChars);
     return out;
 };
 /**
- * Escapes <code>CDATA</code> sections in text
+ * Escapes &lt;code&gt;CDATA&lt;/code&gt; sections in text
  *  so that the text may be embedded into a 
- *  <code>CDATA</code> section. This should be run
+ *  &lt;code&gt;CDATA&lt;/code&gt; section. This should be run
  *  on any text which may contain the string 
- *  <code>]]></code> since said string will effectively
- *  end the <code>CDATA</code> section prematurely.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ *  &lt;code&gt;]]&gt;&lt;/code&gt; since said string will effectively
+ *  end the &lt;code&gt;CDATA&lt;/code&gt; section prematurely.
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130118
  * @param {String} text The text containing 
- *  <code>CDATA</code> sections to escape.
+ *  &lt;code&gt;CDATA&lt;/code&gt; sections to escape.
  * @returns {Array} Returns a string with escaped
- *  <code>CDATA</code> sections.
- * @see <a href="http://en.wikipedia.org/wiki/CDATA#Nesting">
- *  http://en.wikipedia.org/wiki/CDATA#Nesting</a>
- * @see <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=98168">
- *  https://bugzilla.mozilla.org/show_bug.cgi?id=98168</a>
+ *  &lt;code&gt;CDATA&lt;/code&gt; sections.
+ * @see &lt;a href=&quot;http://en.wikipedia.org/wiki/CDATA#Nesting&quot;&gt;
+ *  http://en.wikipedia.org/wiki/CDATA#Nesting&lt;/a&gt;
+ * @see &lt;a href=&quot;https://bugzilla.mozilla.org/show_bug.cgi?id=98168&quot;&gt;
+ *  https://bugzilla.mozilla.org/show_bug.cgi?id=98168&lt;/a&gt;
  */
 atropa.string.escapeCdata = function escapeCdata(text) {
-    "use strict";
-    return String(text).replace(/\]\]>/g, ']]]]><![CDATA[>');
+    &quot;use strict&quot;;
+    return String(text).replace(/\]\]&gt;/g, &#039;]]]]&gt;&lt;![CDATA[&gt;&#039;);
 };</textarea>
   </div>
 </div>

@@ -90,7 +90,7 @@
 
 <div class="container">
   <div class="row">
-    <textarea id="file-source" class="span12">/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
+    <textarea id="file-source" class="span12">/// &lt;reference path=&quot;../../docs/vsdoc/OpenLayersAll.js&quot;/&gt;
 /*jslint
     indent: 4,
     maxerr: 50,
@@ -105,18 +105,18 @@
 
 /**
  * Utilities for handling arrays.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130221
  * @namespace Utilities for handling arrays.
- * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.arrays">tests</a>
+ * @see &lt;a href=&quot;../../../AtropaToolboxTests.html?spec=atropa.arrays&quot;&gt;tests&lt;/a&gt;
  */
 atropa.arrays = {};
 /**
  * Compares two arrays based on size, contents, and element order.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {Array} array1 One array you want compared to another.
@@ -140,13 +140,13 @@ atropa.arrays = {};
  * atropa.arrays.match(x,y);
  * // returns false because the elements are not in the same order.
  * @example
- * var x = [1,{'aProp' : 'aValue'}];
- * var y = [1,{'aProp' : 'aValue'}];
+ * var x = [1,{&#039;aProp&#039; : &#039;aValue&#039;}];
+ * var y = [1,{&#039;aProp&#039; : &#039;aValue&#039;}];
  * atropa.arrays.match(x,y);
  * // returns false because even though the object looks the same, the
  * // two objects are in fact distinct objects.
  * @example
- * var obj = {'aProp' : 'aValue'};
+ * var obj = {&#039;aProp&#039; : &#039;aValue&#039;};
  * var x = [1,obj];
  * var y = [1,obj];
  * atropa.arrays.match(x,y);
@@ -154,14 +154,14 @@ atropa.arrays = {};
  * // in fact the same object.
  */
 atropa.arrays.match = function arraysMatch(array1, array2) {
-    "use strict";
+    &quot;use strict&quot;;
     var x,
     l;
     if (array1.length !== array2.length) {
         return false;
     }
     l = array1.length;
-    for (x = 0; x < l; x += 1) {
+    for (x = 0; x &lt; l; x += 1) {
         if (array1[x] !== array2[x]) {
             return false;
         }
@@ -171,14 +171,14 @@ atropa.arrays.match = function arraysMatch(array1, array2) {
 /**
  * Subtracts one array from another array based on the unique values in both
  *  sets.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130112
  * @param {Array} a (subtrahend) The array to subtract.
- * @param {Array} (minuend) fromB The array with elements duplicated in <code>a</code>
+ * @param {Array} (minuend) fromB The array with elements duplicated in &lt;code&gt;a&lt;/code&gt;
  * @returns {Array} Returns a new array containing only the unique
- *  values found in <code>fromB</code> that are not present in <code>a</code>
+ *  values found in &lt;code&gt;fromB&lt;/code&gt; that are not present in &lt;code&gt;a&lt;/code&gt;
  * @example
  * var x = [1,2];
  * var y = [1,1,3];
@@ -195,20 +195,20 @@ atropa.arrays.match = function arraysMatch(array1, array2) {
  * atropa.arrays.subtract(x,y);
  * // returns [9]
  * @example
- * var x = [1,3,{'aProp' : 'aVal'}];
- * var y = [3,1,{'aProp' : 'aVal'}];
+ * var x = [1,3,{&#039;aProp&#039; : &#039;aVal&#039;}];
+ * var y = [3,1,{&#039;aProp&#039; : &#039;aVal&#039;}];
  * atropa.arrays.subtract(x,y);
- * // returns [{'aProp' : 'aVal'}] 
+ * // returns [{&#039;aProp&#039; : &#039;aVal&#039;}] 
  * // because the two objects are not the same object.
  * @example
- * var obj = {'aProp' : 'aVal'};
+ * var obj = {&#039;aProp&#039; : &#039;aVal&#039;};
  * var x = [1,3,obj];
- * var y = [3,1,{'aProp' : 'aVal'}];
+ * var y = [3,1,{&#039;aProp&#039; : &#039;aVal&#039;}];
  * atropa.arrays.subtract(x,y);
- * // returns [{'aProp' : 'aVal'}] 
+ * // returns [{&#039;aProp&#039; : &#039;aVal&#039;}] 
  * // because the two objects are not the same object.
  * @example
- * var obj = {'aProp' : 'aVal'}
+ * var obj = {&#039;aProp&#039; : &#039;aVal&#039;}
  * var x = [1,3,obj];
  * var y = [3,1,obj];
  * atropa.arrays.subtract(x,y);
@@ -216,7 +216,7 @@ atropa.arrays.match = function arraysMatch(array1, array2) {
  * // because the objects referenced in the arrays are the same object.
  */
 atropa.arrays.subtract = function(a, fromB) {
-    "use strict";
+    &quot;use strict&quot;;
     var the = {};
     the.result = [];
     fromB.forEach(function(item){
@@ -234,8 +234,8 @@ atropa.arrays.subtract = function(a, fromB) {
 };
 /**
  * Returns an array of values found in both of the given arrays.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130112
  * @param {Array} array1 An array.
@@ -253,27 +253,27 @@ atropa.arrays.subtract = function(a, fromB) {
  * atropa.arrays.intersect(x,y);
  * // returns [1,1,3]
  * @example
- * var obj = {'aProp' : 'aVal'};
+ * var obj = {&#039;aProp&#039; : &#039;aVal&#039;};
  * var x = [1,3,obj];
  * var y = [3,1,obj];
  * atropa.arrays.intersect(x,y);
- * // returns [1,3,{'aProp' : 'aVal'}]
+ * // returns [1,3,{&#039;aProp&#039; : &#039;aVal&#039;}]
  * @example
- * var obj = {'aProp' : 'aVal'};
- * var x = [1,3,{'aProp' : 'aVal'}];
+ * var obj = {&#039;aProp&#039; : &#039;aVal&#039;};
+ * var x = [1,3,{&#039;aProp&#039; : &#039;aVal&#039;}];
  * var y = [3,1,obj];
  * atropa.arrays.intersect(x,y);
  * // returns [1,3] because the two objects are not the same object.
  * @example
- * var x = [1,3,{'aProp' : 'aVal'}];
- * var y = [3,1,{'aProp' : 'aVal'}];
+ * var x = [1,3,{&#039;aProp&#039; : &#039;aVal&#039;}];
+ * var y = [3,1,{&#039;aProp&#039; : &#039;aVal&#039;}];
  * atropa.arrays.intersect(x,y);
  * // returns [1,3] because the two objects are not the same object.
  */
 atropa.arrays.intersect = function intersect(array1, array2) {
-    "use strict";
+    &quot;use strict&quot;;
     var smallArray, largeArray, intersection = [];
-    if(array1.length > array2.length) {
+    if(array1.length &gt; array2.length) {
         largeArray = array1.splice(0);
         smallArray = array2.splice(0);
     } else {
@@ -282,7 +282,7 @@ atropa.arrays.intersect = function intersect(array1, array2) {
     }
     smallArray.forEach(function (item) {
         var idxInLargeArray = largeArray.indexOf(item);
-        if (0 <= idxInLargeArray) { // has word
+        if (0 &lt;= idxInLargeArray) { // has word
             intersection.push(largeArray.splice(idxInLargeArray, 1)[0]);
         }
     });
@@ -290,8 +290,8 @@ atropa.arrays.intersect = function intersect(array1, array2) {
 };
 /**
  * Calculates the frequency of items occurring in an array.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130118
  * @param {Array} arr The array to calculate frequencies from.
@@ -303,46 +303,46 @@ atropa.arrays.intersect = function intersect(array1, array2) {
  * var x = [1,1,1,1,1,3,3];
  * atropa.arrays.getFrequency(x);
  * // returns {
- * //     "1": 5,
- * //     "3": 2
+ * //     &quot;1&quot;: 5,
+ * //     &quot;3&quot;: 2
  * // }
  * @example
- * var x = ["bill", "fred", "fred", "jane"];
+ * var x = [&quot;bill&quot;, &quot;fred&quot;, &quot;fred&quot;, &quot;jane&quot;];
  * atropa.arrays.getFrequency(x);
  * // returns {
- * //     "bill": 1,
- * //     "fred": 2,
- * //     "jane": 1
+ * //     &quot;bill&quot;: 1,
+ * //     &quot;fred&quot;: 2,
+ * //     &quot;jane&quot;: 1
  * // }
  * @example
- * var x = [1,3,{'aProp' : 'aVal'}];
+ * var x = [1,3,{&#039;aProp&#039; : &#039;aVal&#039;}];
  * atropa.arrays.getFrequency(x);
  * // returns {
- * //     "1": 1,
- * //     "3": 1,
- * //     "[object Object]": 1
+ * //     &quot;1&quot;: 1,
+ * //     &quot;3&quot;: 1,
+ * //     &quot;[object Object]&quot;: 1
  * // }
  * @example
- * var obj = {'aProp' : 'aVal'};
+ * var obj = {&#039;aProp&#039; : &#039;aVal&#039;};
  * var otherObj = {};
- * var x = [1,3,obj,otherObj,{'aDoughnut' : 'sprinkles'}];
+ * var x = [1,3,obj,otherObj,{&#039;aDoughnut&#039; : &#039;sprinkles&#039;}];
  * atropa.arrays.getFrequency(x);
  * // returns {
- * //     "1": 1,
- * //     "3": 1,
- * //     "[object Object]": 3
+ * //     &quot;1&quot;: 1,
+ * //     &quot;3&quot;: 1,
+ * //     &quot;[object Object]&quot;: 3
  * // }
  * @example
- * var x = [1,3,"toString"];
+ * var x = [1,3,&quot;toString&quot;];
  * atropa.arrays.getFrequency(x);
  * // returns {
- * //     "1": 1,
- * //     "3": 1,
- * //     "toString": "function toString() {\n    [native code]\n}1"
+ * //     &quot;1&quot;: 1,
+ * //     &quot;3&quot;: 1,
+ * //     &quot;toString&quot;: &quot;function toString() {\n    [native code]\n}1&quot;
  * // }
  */
 atropa.arrays.getFrequency = function (arr) {
-    "use strict";
+    &quot;use strict&quot;;
     var out = arr.reduce(function (acc, curr) {
         if (acc[curr] === undefined) {
             acc[curr] = 1;
@@ -355,8 +355,8 @@ atropa.arrays.getFrequency = function (arr) {
 };
 /**
  * Gets Unique values from an array.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130118
  * @param {Array} largeArray The array with duplicate values in it.
@@ -365,73 +365,73 @@ atropa.arrays.getFrequency = function (arr) {
  * @example
  * var x = [1,1,1,4,4,3,6];
  * atropa.arrays.getUnique(x);
- * // returns [ "1", "4", "3", "6" ]
+ * // returns [ &quot;1&quot;, &quot;4&quot;, &quot;3&quot;, &quot;6&quot; ]
  * @example
- * var x = ["bill", "fred", "jane", "fred"];
+ * var x = [&quot;bill&quot;, &quot;fred&quot;, &quot;jane&quot;, &quot;fred&quot;];
  * atropa.arrays.getUnique(x);
- * // returns ["bill", "fred", "jane"]
+ * // returns [&quot;bill&quot;, &quot;fred&quot;, &quot;jane&quot;]
  * @example
  * var x = [ 
- *     "bill",
- *     {"aProp" : "aValue"},
- *     {"aGuy" : "fred"},
- *     {"aLady" : "jane"}
+ *     &quot;bill&quot;,
+ *     {&quot;aProp&quot; : &quot;aValue&quot;},
+ *     {&quot;aGuy&quot; : &quot;fred&quot;},
+ *     {&quot;aLady&quot; : &quot;jane&quot;}
  * ];
  * atropa.arrays.getUnique(x);
- * // returns [ "bill", "[object Object]" ]
+ * // returns [ &quot;bill&quot;, &quot;[object Object]&quot; ]
  */
 atropa.arrays.getUnique = function (largeArray) {
-    "use strict";
+    &quot;use strict&quot;;
     return Object.keys(atropa.arrays.getFrequency(largeArray)).sort();
 };
 /**
  * Removes empty strings from the given array.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130118
  * @param {Array} arrayWithEmptyElements The array with empty strings in it.
  * @returns {Array} Returns a new array with empty strings removed.
  * @example
- * var x = [ 10, , 5, "", '', 7 ];
- * console.log('starting length ' + x.length);
+ * var x = [ 10, , 5, &quot;&quot;, &#039;&#039;, 7 ];
+ * console.log(&#039;starting length &#039; + x.length);
  * console.log(x);
  * x = atropa.arrays.removeEmptyElements(x);
- * console.log('ending length ' + x.length);
+ * console.log(&#039;ending length &#039; + x.length);
  * console.log(x);
  * // displays the following
  * // starting length 6
- * // [10, undefined, 5, "", "", 7]
+ * // [10, undefined, 5, &quot;&quot;, &quot;&quot;, 7]
  * // ending length 3
  * // [10, 5, 7]
  */
 atropa.arrays.removeEmptyElements = function (arrayWithEmptyElements) {
-    "use strict";
+    &quot;use strict&quot;;
     return arrayWithEmptyElements.filter(function (item) {
         return !atropa.inquire.isEmptyString(item);
     });
 };
 /**
  * Reindexes an array.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130118
  * @param {Array} arr The array with discontinuous keys.
  * @returns {Array} Returns an array with continuous keys.
  * @example
- * var x = [ "a", "b", "c", undefined ];
- * console.log(x); // [ "a", "b", "c", undefined ]
+ * var x = [ &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, undefined ];
+ * console.log(x); // [ &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, undefined ]
  * console.log(x.length); // 4
  * 
  * delete x[1]; // deletes the key from the array but
  *              // the array length remains the same
  *              // at this point the arrays keys are 0, 2, and 3
- * console.log(x); // [ "a", undefined, "c", undefined ]
+ * console.log(x); // [ &quot;a&quot;, undefined, &quot;c&quot;, undefined ]
  * console.log(x.length); // 4
  * 
  * x = atropa.arrays.reindex(x);
- * console.log(x); //  [ "a", "c", undefined ]
+ * console.log(x); //  [ &quot;a&quot;, &quot;c&quot;, undefined ]
  *    // note that the last element existed in the array, its value was
  *    // undefined but it did have a key so the element remains in the array.
  *    //
@@ -444,7 +444,7 @@ atropa.arrays.removeEmptyElements = function (arrayWithEmptyElements) {
  * console.log(x.length); // 3
  */
 atropa.arrays.reindex = function reindex(arr) {
-    "use strict";
+    &quot;use strict&quot;;
     var idx, out;
     out = [];
     for(idx in arr) {
@@ -455,9 +455,9 @@ atropa.arrays.reindex = function reindex(arr) {
     return out;
 };
 /**
- * Sorts an array's elements numerically.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * Sorts an array&#039;s elements numerically.
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130120
  * @param {Array} arr The array to sort. All elements of the array must be
@@ -469,27 +469,27 @@ atropa.arrays.reindex = function reindex(arr) {
  * // logs [1, 2, 3, 9, 10, 15, 26, 99]
  */
 atropa.arrays.sortNumerically = function sortNumerically(arr) {
-    "use strict";
+    &quot;use strict&quot;;
     return arr.sort(function (a, b) {
         return (a - b);
     });
 };
 /**
- * Sorts an array's elements lexicographically.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * Sorts an array&#039;s elements lexicographically.
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130120
  * @param {Array} arr The array to sort. All elements of the array must be
  *  strings.
  * @returns {Array} Returns an array whose elements are in alphabetic order.
  * @example
- *  var x = ['Z','a', '1', '2', '10', 'A', 'z'];
+ *  var x = [&#039;Z&#039;,&#039;a&#039;, &#039;1&#039;, &#039;2&#039;, &#039;10&#039;, &#039;A&#039;, &#039;z&#039;];
  *  console.log( atropa.arrays.sortAlphabetically(x) );
- *  // logs ["1", "10", "2", "a", "A", "z", "Z"]
+ *  // logs [&quot;1&quot;, &quot;10&quot;, &quot;2&quot;, &quot;a&quot;, &quot;A&quot;, &quot;z&quot;, &quot;Z&quot;]
  */
 atropa.arrays.sortAlphabetically = function sortAlphabetically(arr) {
-    "use strict";
+    &quot;use strict&quot;;
     return arr.sort(function (a, b) {
         return a.localeCompare(b);
     });
@@ -497,14 +497,14 @@ atropa.arrays.sortAlphabetically = function sortAlphabetically(arr) {
 /**
  * Deletes the given element from the array at the given index. It basically
  *  does what you would expect the delete operator to do, except the delete
- *  operator doesn't do what you would expect.
+ *  operator doesn&#039;t do what you would expect.
  * @param {Array} arr The array.
  * @param {Number} index The index of the element to delete.
  * @returns Returns an array with the element removed, contiguous keys, and
  *  whose length is 1 less than the input array.
  */
 atropa.arrays.deleteElement = function (arr, index) {
-    "use strict";
+    &quot;use strict&quot;;
     delete arr[index];
     return atropa.arrays.reindex(arr);
 };</textarea>

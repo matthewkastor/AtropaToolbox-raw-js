@@ -90,7 +90,7 @@
 
 <div class="container">
   <div class="row">
-    <textarea id="file-source" class="span12">/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
+    <textarea id="file-source" class="span12">/// &lt;reference path=&quot;../../docs/vsdoc/OpenLayersAll.js&quot;/&gt;
 /*jslint
     indent: 4,
     maxerr: 50,
@@ -105,91 +105,91 @@
 
 
 atropa.requires(
-    'inject',
+    &#039;inject&#039;,
     function () {
-        "use strict";
+        &quot;use strict&quot;;
         if(document.createElement === undefined) {
             return false;
         }
         return true;
     },
-    'The atropa.inject class requires the window object present in web ' +
-        'browsers in order to be useful. atropa.inject is not supported in ' +
-        'this environment'
+    &#039;The atropa.inject class requires the window object present in web &#039; +
+        &#039;browsers in order to be useful. atropa.inject is not supported in &#039; +
+        &#039;this environment&#039;
 );
 
 /**
  * Contains tools for injecting elements and assemblies.
  * into the page.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130308
  * @namespace Contains tools for injecting elements and assemblies.
  * @requires atropa.data
  * @requires atropa.supportCheck
  * @requires atropa.setAsOptionalArg
- * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.inject">tests</a>
+ * @see &lt;a href=&quot;../../../AtropaToolboxTests.html?spec=atropa.inject&quot;&gt;tests&lt;/a&gt;
  */
 atropa.inject = {};
 /**
  * Generic Element Injector.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {String} elementType The type of element to be injected.
  * @param {HTML DOM Document} docref Optional. A reference to the document to
- *  target, defaults to <code>document</code>.
+ *  target, defaults to &lt;code&gt;document&lt;/code&gt;.
  * @param {DOM Node} parentNod Optional. A reference to the parent node to
- *  target, defaults to <code>docref.body</code>.
+ *  target, defaults to &lt;code&gt;docref.body&lt;/code&gt;.
  * @param {Object} attributes Optional. An object whose properties are names of
- *  HTML attributes, defaults to <code>{}</code>. The value of these properties
+ *  HTML attributes, defaults to &lt;code&gt;{}&lt;/code&gt;. The value of these properties
  *  are to be strings representing the values of the HTML attributes as they are
  *  to be applied to the injected element.
  * @example Example attributes object :
  *
  * attributesObj = {
- *     "id" : "elementID",
- *     "class" : "classy"
+ *     &quot;id&quot; : &quot;elementID&quot;,
+ *     &quot;class&quot; : &quot;classy&quot;
  * };
  * @param {Function} onloadHandler Optional. If the element being injected will
  *  fire a load event, this function will be called. Defaults to
- *  <code>function () {}</code>.
+ *  &lt;code&gt;function () {}&lt;/code&gt;.
  * @param {Function} callback Optional. This function will be called just before
  *  the element is to be appended to the page. The callback will receive the
  *  element in its current state for any additional processing to be done prior
- *  to it's attachment on callback completion. Defaults to
- *  <code>function () {}</code>.
+ *  to it&#039;s attachment on callback completion. Defaults to
+ *  &lt;code&gt;function () {}&lt;/code&gt;.
  * @return {HTML Element} Returns a reference to the HTML Element created and
  *  injected.
- * @see <a href="http://www.w3.org/Security/wiki/Same_Origin_Policy">
- * http://www.w3.org/Security/wiki/Same_Origin_Policy</a>
+ * @see &lt;a href=&quot;http://www.w3.org/Security/wiki/Same_Origin_Policy&quot;&gt;
+ * http://www.w3.org/Security/wiki/Same_Origin_Policy&lt;/a&gt;
  * @example
  *  // this will inject a div element into the document body.
- *  var el = atropa.inject.element ('div');
+ *  var el = atropa.inject.element (&#039;div&#039;);
  *  
- *  // This will inject a div with the id "myId" into the element referenced by
- *  // "container"
+ *  // This will inject a div with the id &quot;myId&quot; into the element referenced by
+ *  // &quot;container&quot;
  *  var el = atropa.inject.element (
- *      'div', document, container, { 'id': 'myId' }, null, null
+ *      &#039;div&#039;, document, container, { &#039;id&#039;: &#039;myId&#039; }, null, null
  *  );
  *  
- *  // this will inject a div into the document of an iframe referenced with "fdoc"
+ *  // this will inject a div into the document of an iframe referenced with &quot;fdoc&quot;
  *  // Just before the div is injected the callback will be called and the element
  *  // may be augmented. When the callback returns the element will be injected.
- *  var fdoc = document.getElementById('someFrame').contentWindow.document;
+ *  var fdoc = document.getElementById(&#039;someFrame&#039;).contentWindow.document;
  *  
  *  var el = atropa.inject.element (
- *      'div', fdoc, fdoc.body, { 'id': 'myId' },
+ *      &#039;div&#039;, fdoc, fdoc.body, { &#039;id&#039;: &#039;myId&#039; },
  *      null,
  *      function (myDiv) {
- *          myDiv.textContent = 'I could have attached event handlers';
+ *          myDiv.textContent = &#039;I could have attached event handlers&#039;;
  *      }
  *  );
  *  
  *  // this will inject an iframe into the document
- *  // once the iframe's document has finished loading the onload handler will be
+ *  // once the iframe&#039;s document has finished loading the onload handler will be
  *  // called. If the document and the iframe are on the same domain, scripts on
  *  // the frame and the parent document will be able to commuincate with each
  *  // other.
@@ -198,10 +198,10 @@ atropa.inject = {};
  *  }
  *  
  *  var el = atropa.inject.element (
- *      'iframe', document, document.body,
- *      { 'id': 'myId', 'src' : 'http://localhost' },
+ *      &#039;iframe&#039;, document, document.body,
+ *      { &#039;id&#039;: &#039;myId&#039;, &#039;src&#039; : &#039;http://localhost&#039; },
  *      function () {
- *          iframeHasLoaded('hey look at that, the frame is ready!');
+ *          iframeHasLoaded(&#039;hey look at that, the frame is ready!&#039;);
  *          // what could I do with the frame? anything I want!
  *      },
  *      null
@@ -210,8 +210,8 @@ atropa.inject = {};
 atropa.inject.element = function (
     elementType, docref, parentNod, attributes, onloadHandler, callback
 ) {
-    "use strict";
-    atropa.supportCheck('inject');
+    &quot;use strict&quot;;
+    atropa.supportCheck(&#039;inject&#039;);
     
     var el,
     x;
@@ -227,15 +227,15 @@ atropa.inject.element = function (
             el.setAttribute(x, attributes[x]);
         }
     }
-    el.addEventListener('load', onloadHandler, true);
+    el.addEventListener(&#039;load&#039;, onloadHandler, true);
     callback(el);
     parentNod.appendChild(el);
     return el;
 };
 /**
  * Hidden Iframe Injector.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130308
  * @param {String} id The id of the element to be injected.
@@ -250,15 +250,15 @@ atropa.inject.element = function (
  * @return {HTML Element} Returns a reference to the HTML Element created and
  *  injected.
  * @see atropa.inject.element
- * @see <a href="http://www.w3.org/Security/wiki/Same_Origin_Policy">
- * http://www.w3.org/Security/wiki/Same_Origin_Policy</a>
+ * @see &lt;a href=&quot;http://www.w3.org/Security/wiki/Same_Origin_Policy&quot;&gt;
+ * http://www.w3.org/Security/wiki/Same_Origin_Policy&lt;/a&gt;
  * @example
  *  el = atropa.inject.hiddenFrame(
- *      'injectHiddenFrame3',
- *      'http://localhost/',
+ *      &#039;injectHiddenFrame3&#039;,
+ *      &#039;http://localhost/&#039;,
  *      null,
  *      function () {
- *          console.log('hey look at that, the frame is ready!');
+ *          console.log(&#039;hey look at that, the frame is ready!&#039;);
  *      },
  *      null,
  *      null
@@ -267,19 +267,19 @@ atropa.inject.element = function (
 atropa.inject.hiddenFrame = function (
     id, srcURL, docref, onloadHandler, parentNod, callback
 ) {
-    "use strict";
-    atropa.supportCheck('inject');
+    &quot;use strict&quot;;
+    atropa.supportCheck(&#039;inject&#039;);
     
     return atropa.inject.element(
-        'iframe',
+        &#039;iframe&#039;,
         docref,
         parentNod,
         {
-            "id" : id,
-            "src" : srcURL,
-            "width" : "0px",
-            "height" : "0px",
-            "border" : "0px"
+            &quot;id&quot; : id,
+            &quot;src&quot; : srcURL,
+            &quot;width&quot; : &quot;0px&quot;,
+            &quot;height&quot; : &quot;0px&quot;,
+            &quot;border&quot; : &quot;0px&quot;
         },
         onloadHandler,
         callback
@@ -287,8 +287,8 @@ atropa.inject.hiddenFrame = function (
 };
 /**
  * Script Injector.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {String} id The id of the element to be injected.
@@ -300,35 +300,35 @@ atropa.inject.hiddenFrame = function (
  * @return {HTML Element} Returns a reference to the HTML Element created and
  *  injected.
  * @see atropa.inject.element
- * @see <a href="http://www.w3.org/Security/wiki/Same_Origin_Policy">
- * http://www.w3.org/Security/wiki/Same_Origin_Policy</a>
+ * @see &lt;a href=&quot;http://www.w3.org/Security/wiki/Same_Origin_Policy&quot;&gt;
+ * http://www.w3.org/Security/wiki/Same_Origin_Policy&lt;/a&gt;
  * @example
- *  // Given a script "dummy.js" located at "http://localhost/dummy.js"
+ *  // Given a script &quot;dummy.js&quot; located at &quot;http://localhost/dummy.js&quot;
  *  // you can fetch the script and execute functions from within it
  *  // as soon as it has loaded into the page.
  *  
- *  // contents of "dummy.js"
+ *  // contents of &quot;dummy.js&quot;
  *  function dummy() {
- *      return 'dummy';
+ *      return &#039;dummy&#039;;
  *  }
  *  
- *  // injecting "dummy.js" into any page. The script tag isn't restricted by
+ *  // injecting &quot;dummy.js&quot; into any page. The script tag isn&#039;t restricted by
  *  // the same origin policy. Host your script anywhere and inject it to any
  *  // page on the net that you want to.
  *  el = atropa.inject.script(
- *      'injectScript',
- *      'http://localhost/',
+ *      &#039;injectScript&#039;,
+ *      &#039;http://localhost/&#039;,
  *      document,
  *      function () {
  *          console.log(dummy());
  *      }
  *  );
  *  // you may also load scripts into iframes by replacing the third parameter
- *  // with a reference to the iframe's document object.
+ *  // with a reference to the iframe&#039;s document object.
  */
 atropa.inject.script = function (id, srcURL, docref, callback) {
-    "use strict";
-    atropa.supportCheck('inject');
+    &quot;use strict&quot;;
+    atropa.supportCheck(&#039;inject&#039;);
     
     var attributes,
     elementType,
@@ -336,11 +336,11 @@ atropa.inject.script = function (id, srcURL, docref, callback) {
     onloadHandler,
     el;
     attributes = {
-        "id" : id,
-        "type" : "text/javascript",
-        "src" : srcURL
+        &quot;id&quot; : id,
+        &quot;type&quot; : &quot;text/javascript&quot;,
+        &quot;src&quot; : srcURL
     };
-    elementType = 'script';
+    elementType = &#039;script&#039;;
     onloadHandler = callback;
     el = atropa.inject.element(
         elementType, docref, parentNod, attributes, onloadHandler);

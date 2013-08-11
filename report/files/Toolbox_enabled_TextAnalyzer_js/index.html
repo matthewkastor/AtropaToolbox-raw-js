@@ -90,7 +90,7 @@
 
 <div class="container">
   <div class="row">
-    <textarea id="file-source" class="span12">/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
+    <textarea id="file-source" class="span12">/// &lt;reference path=&quot;../../docs/vsdoc/OpenLayersAll.js&quot;/&gt;
 /*jslint
     indent: 4,
     maxerr: 50,
@@ -105,9 +105,9 @@
 // end header
 
 (function () {
-    "use strict";
+    &quot;use strict&quot;;
     atropa.requires(
-        'TextAnalyzer',
+        &#039;TextAnalyzer&#039;,
         function () {
             var supported = true;
             
@@ -122,14 +122,14 @@
             });
             return supported;
         },
-        'atropa.TextAnalyzer class is not supported in this environment'
+        &#039;atropa.TextAnalyzer class is not supported in this environment&#039;
     );
 }());
 
 /**
  * Represents a utility for analyzing text.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130311
  * @class Represents a utility for analyzing text.
@@ -138,10 +138,10 @@
  * @requires atropa.string
  * @requires atropa.arrays
  * @requires atropa.setAsOptionalArg
- * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.TextAnalyzer">tests</a>
+ * @see &lt;a href=&quot;../../../AtropaToolboxTests.html?spec=atropa.TextAnalyzer&quot;&gt;tests&lt;/a&gt;
  */
 atropa.TextAnalyzer = function TextAnalyzer(text) {
-    "use strict";
+    &quot;use strict&quot;;
     var that = this;
     var construct;
     /**
@@ -149,7 +149,7 @@ atropa.TextAnalyzer = function TextAnalyzer(text) {
     * @type String
     * @fieldOf atropa.TextAnalyzer#
     */
-    this.text = String(atropa.setAsOptionalArg('', text));
+    this.text = String(atropa.setAsOptionalArg(&#039;&#039;, text));
     /**
     * Gives the count of words in the text. Defaults to 0.
     * @type Number
@@ -165,16 +165,16 @@ atropa.TextAnalyzer = function TextAnalyzer(text) {
     this.words = [];
     /**
     * Sets the basic properties of the text analyzer.
-    * @author <a href="mailto:matthewkastor@gmail.com">
-    * Matthew Christopher Kastor-Inare III </a><br />
+    * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+    * Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
     * ☭ Hial Atropa!! ☭
     * @private
     * @version 20130311
     * @methodOf atropa.TextAnalyzer-
     */
     construct = function () {
-        atropa.supportCheck('TextAnalyzer');
-        that.text = atropa.string.convertEol(that.text, '\n');
+        atropa.supportCheck(&#039;TextAnalyzer&#039;);
+        that.text = atropa.string.convertEol(that.text, &#039;\n&#039;);
         that.wordCount = atropa.string.countWords(that.text);
         that.words = atropa.string.getWords(that.text);
     };
@@ -184,8 +184,8 @@ atropa.TextAnalyzer = function TextAnalyzer(text) {
 };
 /**
  * Gets an index of the text.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130118
  * @methodOf atropa.TextAnalyzer#
@@ -193,15 +193,15 @@ atropa.TextAnalyzer = function TextAnalyzer(text) {
  *  derived from the text given.
  */
 atropa.TextAnalyzer.prototype.getIndex = function () {
-    "use strict";
+    &quot;use strict&quot;;
     this.words = atropa.arrays.reindex(this.words);
     return atropa.arrays.getUnique(this.words);
 };
 /**
  * Get the frequency data for each unique word in
  *  the text.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130118
  * @methodOf atropa.TextAnalyzer#
@@ -210,7 +210,7 @@ atropa.TextAnalyzer.prototype.getIndex = function () {
  *  values are the count of each words occurrence.
  */
 atropa.TextAnalyzer.prototype.getWordFrequency = function () {
-    "use strict";
+    &quot;use strict&quot;;
     this.words = atropa.arrays.reindex(this.words);
     return atropa.arrays.getFrequency(this.words);
 };
@@ -224,9 +224,9 @@ atropa.TextAnalyzer.prototype.getWordFrequency = function () {
 atropa.TextAnalyzer.prototype.getPhraseFrequency = function getPhraseFrequency(
     phraseLength
 ) {
-    "use strict";
+    &quot;use strict&quot;;
     phraseLength = atropa.setAsOptionalArg(2, phraseLength);
-    if(2 > phraseLength) {
+    if(2 &gt; phraseLength) {
         phraseLength = 2;
     }
     var counter = 0, prop, out = [];
@@ -238,9 +238,9 @@ atropa.TextAnalyzer.prototype.getPhraseFrequency = function getPhraseFrequency(
         // making sure there are enough words to concatenate a phrase of the
         // proper length.
         if(arr[index + phraseLength - 1] !== undefined) {
-            prop = String(element + ' ').toLowerCase();
+            prop = String(element + &#039; &#039;).toLowerCase();
             for(counter; counter !== phraseLength; counter++) {
-                prop += String(arr[index + counter] + ' ').toLowerCase();
+                prop += String(arr[index + counter] + &#039; &#039;).toLowerCase();
             }
             out.push(prop.trim());
         }

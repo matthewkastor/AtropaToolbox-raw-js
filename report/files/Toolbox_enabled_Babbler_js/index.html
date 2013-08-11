@@ -90,7 +90,7 @@
 
 <div class="container">
   <div class="row">
-    <textarea id="file-source" class="span12">/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
+    <textarea id="file-source" class="span12">/// &lt;reference path=&quot;../../docs/vsdoc/OpenLayersAll.js&quot;/&gt;
 /*jslint
     indent: 4,
     maxerr: 50,
@@ -104,7 +104,7 @@
 // end header
 
 atropa.requires(
-    'Babbler',
+    &#039;Babbler&#039;,
     function () {
         var supported = true;
         
@@ -119,24 +119,24 @@ atropa.requires(
         });
         return supported;
     },
-    'atropa.Babbler class is not supported in this environment'
+    &#039;atropa.Babbler class is not supported in this environment&#039;
 );
 
 /**
  * This class represents a babbler. The babbler
  * produces lorum ipsum text, to user specifications.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20130313
  * @class This class represents a babbler
- * @param {Number} wrdCount The amount of "words" you would like
+ * @param {Number} wrdCount The amount of &quot;words&quot; you would like
  * the babbler to produce.
  * @returns {Babbler} Returns a babbler.
  * @requires atropa.random.integer
  * @requires atropa.string.ucFirst
  * @requires atropa.random.string
- * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.Babbler">tests</a>
+ * @see &lt;a href=&quot;../../../AtropaToolboxTests.html?spec=atropa.Babbler&quot;&gt;tests&lt;/a&gt;
  * @example
  * var babbler = new atropa.Babbler(30);
  * // resets the word count
@@ -156,7 +156,7 @@ atropa.requires(
  * console.log(babbler.getBabble());
  * 
  * // sets the babble
- * babbler.setBabble('here be gibberish ');
+ * babbler.setBabble(&#039;here be gibberish &#039;);
  * console.log(babbler.getBabble());
  * 
  * // append more gibberish to the current babble
@@ -175,23 +175,23 @@ atropa.requires(
  * console.log(babbler.generateWord(7,10));
  */
 atropa.Babbler = function Babbler(wrdCount) {
-    'use strict';
+    &#039;use strict&#039;;
     var my = this,
-        babble = '',
+        babble = &#039;&#039;,
         wordCount = 0;
     /**
      * Sets the word count.
-     * @author <a href="mailto:matthewkastor@gmail.com">
-     *  Matthew Christopher Kastor-Inare III </a><br />
+     * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+     *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
      *  ☭ Hial Atropa!! ☭
      * @version 20130313
      * @methodOf atropa.Babbler#
-     * @param {Number} wrdCount The amount of "words" which you want the
+     * @param {Number} wrdCount The amount of &quot;words&quot; which you want the
      * babbler to produce.
      * @returns {Number} Returns the set word count for this babbler.
      */
     this.setWordCount = function (wrdCount) {
-        if (typeof wrdCount !== 'number') {
+        if (typeof wrdCount !== &#039;number&#039;) {
             wordCount = 250;
         } else {
             wordCount = wrdCount;
@@ -200,12 +200,12 @@ atropa.Babbler = function Babbler(wrdCount) {
     };
     /**
      * Resets the word count for this babbler.
-     * @author <a href="mailto:matthewkastor@gmail.com">
-     *  Matthew Christopher Kastor-Inare III </a><br />
+     * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+     *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
      *  ☭ Hial Atropa!! ☭
      * @version 20130313
      * @methodOf atropa.Babbler#
-     * @param {Number} wordCount The amount of "words" you would like
+     * @param {Number} wordCount The amount of &quot;words&quot; you would like
      * to set for this babbler.
      * @returns {Number} Returns the set word count for this babbler.
      */
@@ -215,8 +215,8 @@ atropa.Babbler = function Babbler(wrdCount) {
     };
     /**
      * Gets the current word count.
-     * @author <a href="mailto:matthewkastor@gmail.com">
-     *  Matthew Christopher Kastor-Inare III </a><br />
+     * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+     *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
      *  ☭ Hial Atropa!! ☭
      * @version 20120909
      * @methodOf atropa.Babbler#
@@ -227,8 +227,8 @@ atropa.Babbler = function Babbler(wrdCount) {
     };
     /**
      * Generates a word with a specified length. Lowers the word count by one.
-     * @author <a href="mailto:matthewkastor@gmail.com">
-     *  Matthew Christopher Kastor-Inare III </a><br />
+     * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+     *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
      *  ☭ Hial Atropa!! ☭
      * @version 20120909
      * @methodOf atropa.Babbler#
@@ -243,14 +243,14 @@ atropa.Babbler = function Babbler(wrdCount) {
         var wordLength,
         word;
         wordLength = atropa.random.integer(stringMin, stringMax);
-        word = atropa.random.string(wordLength, 'lower');
+        word = atropa.random.string(wordLength, &#039;lower&#039;);
         wordCount--;
         return word;
     };
     /**
      * Provides random punctuation.
-     * @author <a href="mailto:matthewkastor@gmail.com">
-     *  Matthew Christopher Kastor-Inare III </a><br />
+     * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+     *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
      *  ☭ Hial Atropa!! ☭
      * @version 20120909
      * @methodOf atropa.Babbler#
@@ -260,7 +260,7 @@ atropa.Babbler = function Babbler(wrdCount) {
      */
     this.punctuate = function punctuate() {
         var punctuation;
-        punctuation = atropa.random.string(1, 'punctuation');
+        punctuation = atropa.random.string(1, &#039;punctuation&#039;);
         return punctuation;
     };
     /**
@@ -272,8 +272,8 @@ atropa.Babbler = function Babbler(wrdCount) {
      *  is 0 then there will be no words in the sentence. If the word
      *  count is 3 then the maximum possible number of words in the
      *  sentence will be three.
-     * @author <a href="mailto:matthewkastor@gmail.com">
-     *  Matthew Christopher Kastor-Inare III </a><br />
+     * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+     *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
      *  ☭ Hial Atropa!! ☭
      * @version 20130313
      * @methodOf atropa.Babbler#
@@ -281,7 +281,7 @@ atropa.Babbler = function Babbler(wrdCount) {
      * you would like returned.
      * @param {Number} sentenceMax The longest sentence, in words,
      * you would like returned.
-     * @returns {String} Returns a "sentence" within the specified
+     * @returns {String} Returns a &quot;sentence&quot; within the specified
      * range of length.
      * @requires atropa.random.integer
      * @requires atropa.string.ucFirst
@@ -293,14 +293,14 @@ atropa.Babbler = function Babbler(wrdCount) {
         sentenceLength,
         sentence;
         sentenceLength = atropa.random.integer(sentenceMin, sentenceMax);
-        sentence = '';
-        if (sentenceLength > wordCount) {
+        sentence = &#039;&#039;;
+        if (sentenceLength &gt; wordCount) {
             sentenceLength = wordCount;
         }
-        for (sentenceLength; sentenceLength > 0; sentenceLength--) {
-            if (wordCount > 0) {
+        for (sentenceLength; sentenceLength &gt; 0; sentenceLength--) {
+            if (wordCount &gt; 0) {
                 word = my.generateWord(4, 12);
-                sentence += ' ' + word;
+                sentence += &#039; &#039; + word;
             } else {
                 sentenceLength = 0;
             }
@@ -310,8 +310,8 @@ atropa.Babbler = function Babbler(wrdCount) {
     };
     /**
      * Sets the babble.
-     * @author <a href="mailto:matthewkastor@gmail.com">
-     *  Matthew Christopher Kastor-Inare III </a><br />
+     * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+     *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
      *  ☭ Hial Atropa!! ☭
      * @version 20130313
      * @methodOf atropa.Babbler#
@@ -319,7 +319,7 @@ atropa.Babbler = function Babbler(wrdCount) {
      * @returns {String} Returns the stored babble.
      */
     this.setBabble = function setBabble(babbleString) {
-        if (typeof babbleString === 'string') {
+        if (typeof babbleString === &#039;string&#039;) {
             babble = babbleString;
         } else {
             my.resetBabble();
@@ -328,21 +328,21 @@ atropa.Babbler = function Babbler(wrdCount) {
     };
     /**
      * Clears the stored babble.
-     * @author <a href="mailto:matthewkastor@gmail.com">
-     *  Matthew Christopher Kastor-Inare III </a><br />
+     * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+     *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
      *  ☭ Hial Atropa!! ☭
      * @version 20120909
      * @methodOf atropa.Babbler#
      * @returns {String} Returns the stored babble.
      */
     this.resetBabble = function resetBabble() {
-        babble = '';
+        babble = &#039;&#039;;
         return babble;
     };
     /**
      * Gets the last generated babble.
-     * @author <a href="mailto:matthewkastor@gmail.com">
-     *  Matthew Christopher Kastor-Inare III </a><br />
+     * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+     *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
      *  ☭ Hial Atropa!! ☭
      * @version 20120909
      * @methodOf atropa.Babbler#
@@ -355,8 +355,8 @@ atropa.Babbler = function Babbler(wrdCount) {
      * Generates babble to a user specified length in words.
      *  The word count will be zero after this and the stored
      *  babble will be set to the generated babble.
-     * @author <a href="mailto:matthewkastor@gmail.com">
-     *  Matthew Christopher Kastor-Inare III </a><br />
+     * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+     *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
      *  ☭ Hial Atropa!! ☭
      * @version 20120909
      * @methodOf atropa.Babbler#
@@ -368,13 +368,13 @@ atropa.Babbler = function Babbler(wrdCount) {
     this.generateBabble = function generateBabble(wordsCt) {
         my.resetBabble();
         my.resetWordCount(wordsCt);
-        for (wordCount; wordCount > 0; babble += ' ') {
+        for (wordCount; wordCount &gt; 0; babble += &#039; &#039;) {
             my.setBabble(babble + my.generateSentence(5, 20));
         }
         return babble;
     };
     
-    atropa.supportCheck('Babbler');
+    atropa.supportCheck(&#039;Babbler&#039;);
     this.resetWordCount(wrdCount);
 };</textarea>
   </div>

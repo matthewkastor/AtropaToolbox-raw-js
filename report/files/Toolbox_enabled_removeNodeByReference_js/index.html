@@ -90,7 +90,7 @@
 
 <div class="container">
   <div class="row">
-    <textarea id="file-source" class="span12">/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
+    <textarea id="file-source" class="span12">/// &lt;reference path=&quot;../../docs/vsdoc/OpenLayersAll.js&quot;/&gt;
 /*jslint
     indent: 4,
     maxerr: 50,
@@ -104,33 +104,33 @@
 // end header
 
 atropa.requires(
-    'removeNodeByReference',
+    &#039;removeNodeByReference&#039;,
     function () {
-        "use strict";
+        &quot;use strict&quot;;
         if(document === undefined) {
             return false;
         }
         return true;
     },
-    'atropa.removeNodeByReference requires the window object present in web ' +
-        'browsers in order to be useful. This function is not supported in ' +
-        'this environment'
+    &#039;atropa.removeNodeByReference requires the window object present in web &#039; +
+        &#039;browsers in order to be useful. This function is not supported in &#039; +
+        &#039;this environment&#039;
 );
 
 /**
  * Removes DOM Nodes.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @function
  * @param {DOM Node} elementReference A reference to the DOM Node you want
  * to remove.
- * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.removeNodeByReference">tests</a>
+ * @see &lt;a href=&quot;../../../AtropaToolboxTests.html?spec=atropa.removeNodeByReference&quot;&gt;tests&lt;/a&gt;
  */
 atropa.removeNodeByReference = function (elementReference) {
-    "use strict";
-    atropa.supportCheck('removeNodeByReference');
+    &quot;use strict&quot;;
+    atropa.supportCheck(&#039;removeNodeByReference&#039;);
     if(elementReference !== undefined) {
         elementReference.parentNode.removeChild(elementReference);
     }

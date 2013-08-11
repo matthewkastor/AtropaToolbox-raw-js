@@ -90,7 +90,7 @@
 
 <div class="container">
   <div class="row">
-    <textarea id="file-source" class="span12">/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
+    <textarea id="file-source" class="span12">/// &lt;reference path=&quot;../../docs/vsdoc/OpenLayersAll.js&quot;/&gt;
 /*jslint
     indent: 4,
     maxerr: 50,
@@ -106,16 +106,16 @@
 /**
  * Set default values for optional function parameters.
  * @example
- * <pre>
+ * &lt;pre&gt;
  *   // To set a default value for an optional parameter
  *   function(optionalArg) {
- *       var defaultVal = 'hello there!';
+ *       var defaultVal = &#039;hello there!&#039;;
  *       optionalArg = atropa.setAsOptionalArg(defaultVal, optionalArg);
  *       return optionalArg;
  *   }
- * </pre>
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * &lt;/pre&gt;
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {Mixed} defaultVal The default value to set.
@@ -123,10 +123,10 @@
  * @returns {Mixed} Returns the default value supplied when the optional
  * argument is undefined or null. Otherwise, the supplied optional argument
  * is returned.
- * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.setAsOptionalArg">tests</a>
+ * @see &lt;a href=&quot;../../../AtropaToolboxTests.html?spec=atropa.setAsOptionalArg&quot;&gt;tests&lt;/a&gt;
  */
 atropa.setAsOptionalArg = function (defaultVal, optionalArg) {
-    "use strict";
+    &quot;use strict&quot;;
     if (optionalArg === undefined || optionalArg === null) {
         optionalArg = defaultVal;
     }

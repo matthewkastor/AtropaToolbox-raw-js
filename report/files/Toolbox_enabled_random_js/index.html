@@ -90,7 +90,7 @@
 
 <div class="container">
   <div class="row">
-    <textarea id="file-source" class="span12">/// <reference path="../../docs/vsdoc/OpenLayersAll.js"/>
+    <textarea id="file-source" class="span12">/// &lt;reference path=&quot;../../docs/vsdoc/OpenLayersAll.js&quot;/&gt;
 /*jslint
     indent: 4,
     maxerr: 50,
@@ -105,18 +105,18 @@
 
 /**
  * Provides random strings and numbers.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @namespace Provides random strings and numbers.
- * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.random">tests</a>
+ * @see &lt;a href=&quot;../../../AtropaToolboxTests.html?spec=atropa.random&quot;&gt;tests&lt;/a&gt;
  */
 atropa.random = {};
 /**
  * Gives you a random string whose length and characters you specify.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {Number} stringLength This is the length of the string.
@@ -127,7 +127,7 @@ atropa.random = {};
  * @return {String} A random string of specified length and composition.
  */
 atropa.random.string = function randomString(stringLength, characterClass) {
-    'use strict';
+    &#039;use strict&#039;;
     var numeric,
     vowel,
     consonant,
@@ -142,38 +142,38 @@ atropa.random.string = function randomString(stringLength, characterClass) {
     i,
     character;
     
-    numeric = '0123456789';
-    vowel = 'aeiouy';
-    consonant = 'bcdfghjklmnpqrstvwxz';
+    numeric = &#039;0123456789&#039;;
+    vowel = &#039;aeiouy&#039;;
+    consonant = &#039;bcdfghjklmnpqrstvwxz&#039;;
     lower = vowel + consonant;
     caps = lower.toUpperCase();
     alpha = caps + lower;
     alphanumeric = numeric + caps + lower;
-    punctuation = '.?!';
-    randomstring = '';
+    punctuation = &#039;.?!&#039;;
+    randomstring = &#039;&#039;;
     switch (characterClass) {
-    case 'numeric':
+    case &#039;numeric&#039;:
         chars = numeric;
         break;
-    case 'caps':
+    case &#039;caps&#039;:
         chars = caps;
         break;
-    case 'lower':
+    case &#039;lower&#039;:
         chars = lower;
         break;
-    case 'alpha':
+    case &#039;alpha&#039;:
         chars = alpha;
         break;
-    case 'alphanumeric':
+    case &#039;alphanumeric&#039;:
         chars = alphanumeric;
         break;
-    case 'punctuation':
+    case &#039;punctuation&#039;:
         chars = punctuation;
         break;
-    case 'vowel':
+    case &#039;vowel&#039;:
         chars = vowel;
         break;
-    case 'consonant':
+    case &#039;consonant&#039;:
         chars = consonant;
         break;
     default:
@@ -185,7 +185,7 @@ atropa.random.string = function randomString(stringLength, characterClass) {
     } else {
         string_length = stringLength;
     }
-    for (i = 0; i < string_length; i++) {
+    for (i = 0; i &lt; string_length; i++) {
         character = Math.floor(Math.random() * chars.length);
         randomstring += chars[character];
     }
@@ -193,8 +193,8 @@ atropa.random.string = function randomString(stringLength, characterClass) {
 };
 /**
  * Generates a random number between the specified min and max value.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {Number} min The lowest number you want returned
@@ -202,13 +202,13 @@ atropa.random.string = function randomString(stringLength, characterClass) {
  * @returns {Number} A random number within the specified range.
  */
 atropa.random.integer = function randomInteger(min, max) {
-    'use strict';
+    &#039;use strict&#039;;
     return Math.floor(Math.random() * (max - min + 1) + min);
 };
 /**
  * Get a random property name from the given object.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {Object} obj The object to select a random
@@ -217,30 +217,30 @@ atropa.random.integer = function randomInteger(min, max) {
  *  given object.
  */
 atropa.random.getPropertyName = function (obj) {
-    "use strict";
+    &quot;use strict&quot;;
     var arr;
     arr = Object.keys(obj);
     return arr[atropa.random.getArrayKey(arr)];
 };
 /**
  * Get a random key from the given array.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {Array} arr The array to select a random
  *  key from. The keys of the array must be contiguous.
  * @return {Number} A random integer between 0 and
- *  <code>arr.length</code>
+ *  &lt;code&gt;arr.length&lt;/code&gt;
  */
 atropa.random.getArrayKey = function (arr) {
-    "use strict";
+    &quot;use strict&quot;;
     return Math.floor(Math.random() * arr.length);
 };
 /**
  * Get a random value from the given array.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {Array} arr The array to select a random
@@ -248,13 +248,13 @@ atropa.random.getArrayKey = function (arr) {
  * @return {Mixed} A random value from the given array.
  */
 atropa.random.getArrayValue = function (arr) {
-    "use strict";
+    &quot;use strict&quot;;
     return arr[atropa.random.getArrayKey(arr)];
 };
 /**
  * Remove a random element from the given array.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {Array} arr The array to remove a random
@@ -262,7 +262,7 @@ atropa.random.getArrayValue = function (arr) {
  * @return {Mixed} A random value from the given array.
  */
 atropa.random.pullArrayElement = function (arr) {
-    "use strict";
+    &quot;use strict&quot;;
     var k,
     d;
     k = atropa.random.getArrayKey(arr);
@@ -272,8 +272,8 @@ atropa.random.pullArrayElement = function (arr) {
 };
 /**
  * Remove a random property from the given object.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
+ * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
+ *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
  *  ☭ Hial Atropa!! ☭
  * @version 20120909
  * @param {Object} obj The object to remove a random
@@ -281,7 +281,7 @@ atropa.random.pullArrayElement = function (arr) {
  * @return {Mixed} A random value from the given object.
  */
 atropa.random.pullProperty = function (obj) {
-    "use strict";
+    &quot;use strict&quot;;
     var pName,
     objData;
     pName = atropa.random.getPropertyName(obj);
