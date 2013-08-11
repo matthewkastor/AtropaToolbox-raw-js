@@ -280,7 +280,7 @@ task('generateDocs', ['makeAtropaToolbox'], {async : true}, function () {
     
     rmdir('logs');
     rmdir('docs');
-    rmdir('report');
+    //rmdir('report');
     
     mkdir('logs');
     
