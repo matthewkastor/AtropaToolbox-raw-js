@@ -271,7 +271,7 @@ task('generateAST', ['makeAtropaToolbox'], function (options) {
     console.log(ast);
 });
 
-desc('Generates docs/jsdoc and docs/vsdoc.');
+desc('Generates reports docs/jsdoc and docs/vsdoc.');
 task('generateDocs', ['makeAtropaToolbox'], {async : true}, function () {
     var path, cmd, register, platoCmd;
     
