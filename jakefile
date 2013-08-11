@@ -430,7 +430,7 @@ task('docServ', function (port) {
             } catch (e) {
                 console.error(e);
             }
-        }, 1000);
+        }, 10000);
     });
     register.addCommand('RedirectToLocalhost.html', null, logOutput);
     register.process();
