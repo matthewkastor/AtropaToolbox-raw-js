@@ -240,7 +240,7 @@ atropa.inject.script = function (id, srcURL, docref, callback) {
     
     var attributes,
     elementType,
-    parentNod,
+    parentNod = null,
     onloadHandler,
     el;
     attributes = {
