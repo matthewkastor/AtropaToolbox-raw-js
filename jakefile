@@ -247,6 +247,10 @@ task('makeAtropaToolbox', function () {
         'utf8'
     );
     toolbox += concatFiles(headers.concat(components), removeHeader);
+    toolbox += fs.readFileSync(
+        path.normalize('Toolbox/footers/atropaFooter.js'),
+        'utf8'
+    );
     outputFilePath = path.normalize('src/AtropaToolbox.js');
     rmdir('src');
     mkdir('src');
