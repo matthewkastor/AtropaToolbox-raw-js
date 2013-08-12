@@ -73,7 +73,7 @@ atropa.requires = function (className, requirementFn, errorMessage) {
             atropa.data[className] = {};
             
             if(typeof requirementFn !== 'function') {
-                requirementFn = function () { return false; };
+                requirementFn = false;
             }
             
             if(typeof errorMessage !== 'string') {
