@@ -9,10 +9,6 @@
         /// <summary></summary>
         /// <returns type="_global_"/>
                 
-        requirementFn: function() {
-            /// <summary></summary>
-        }
-        
     };
 
     var $x = window._global_;
