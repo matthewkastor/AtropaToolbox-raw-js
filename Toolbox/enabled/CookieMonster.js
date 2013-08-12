@@ -14,6 +14,7 @@
 atropa.requires(
     'CookieMonster',
     function () {
+        "use strict";
         var supported = true;
         
         [

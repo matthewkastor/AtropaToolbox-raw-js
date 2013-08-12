@@ -14,6 +14,7 @@
 atropa.requires(
     'CreateHtmlDocumentsFromXmlhttp',
     function () {
+        "use strict";
         var supported = true;
         
         [

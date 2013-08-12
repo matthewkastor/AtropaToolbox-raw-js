@@ -14,6 +14,7 @@
 atropa.requires(
     'Babbler',
     function () {
+        "use strict";
         var supported = true;
         
         [
