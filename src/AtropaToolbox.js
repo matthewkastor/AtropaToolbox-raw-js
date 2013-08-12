@@ -9,7 +9,7 @@
     regexp: true,
     vars: true
 */
-/*global XPathResult */
+/*global XPathResult, module */
 // end header
 
 /**
@@ -1074,6 +1074,7 @@ atropa.SerialActor.prototype.stop = function() {
 atropa.requires(
     'Babbler',
     function () {
+        "use strict";
         var supported = true;
         
         [
@@ -1351,6 +1352,7 @@ atropa.Babbler = function Babbler(wrdCount) {
 atropa.requires(
     'CookieMonster',
     function () {
+        "use strict";
         var supported = true;
         
         [
@@ -1666,6 +1668,7 @@ atropa.CookieMonster = function CookieMonster() {
 atropa.requires(
     'CreateHtmlDocumentsFromXmlhttp',
     function () {
+        "use strict";
         var supported = true;
         
         [
@@ -2213,7 +2216,7 @@ atropa.inject.script = function (id, srcURL, docref, callback) {
     
     var attributes,
     elementType,
-    parentNod,
+    parentNod = null,
     onloadHandler,
     el;
     attributes = {
@@ -4598,7 +4601,6 @@ atropa.xpath.escapeQuotesXpath = function escapeQuotesXpath(string) {
 };
 
 
-
 while(atropa.data.requirements.length > 0) {
     atropa.data.requirements.pop()();
 }
@@ -4606,6 +4608,8 @@ while(atropa.data.requirements.length > 0) {
 
 try {
     module.exports = atropa;
-} catch (e) {
+} catch (ignore) {
     // module.exports does not exist.
 }
+
+
