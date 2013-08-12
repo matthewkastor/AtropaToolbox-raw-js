@@ -8,5 +8,5 @@
     regexp: true,
     vars: true
 */
-/*global XPathResult */
+/*global XPathResult, module */
 // end header
