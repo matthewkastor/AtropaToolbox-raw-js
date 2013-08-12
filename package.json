@@ -1,7 +1,7 @@
 {
                     
     "name"          : "atropa-toolbox",
-    "version"       : "2013.08.12-1533",
+    "version"       : "2013.08.12-1832",
     "main"          : "./src/AtropaToolbox.min.js",
     "description"   : "The Glorious AtropaToolbox's JavaScript bits",
     "keywords"      : ["atropa"],
