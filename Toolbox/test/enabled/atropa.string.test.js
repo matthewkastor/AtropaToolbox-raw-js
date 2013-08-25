@@ -79,6 +79,14 @@ describe("atropa.string", function() {
         });
     });
     
+    describe('camelize', function () {
+        it('must convert the given string to camel case', function () {
+            expect(
+                atropa.string.camelize('get it together')
+            ).toEqual('getItTogether');
+        });
+    });
+    
     describe('countWords', function () {
         it('must count the words in the given string', function () {
             expect(atropa.string.countWords('wee wee')).toEqual(2);
