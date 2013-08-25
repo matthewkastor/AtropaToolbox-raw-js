@@ -108,4 +108,7 @@ atropa.data = {};
 
 atropa.data.requirements = [];
 
-
+atropa.nop = function nop () {
+    "use strict";
+    return null;
+};
