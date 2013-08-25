@@ -37,7 +37,7 @@
 
 <div class="jumbotron">
   <div class="container">
-    <h1>Toolbox\enabled\wtf.js</h1>
+    <h1>Toolbox\enabled\wtf.dictionary.js</h1>
   </div>
 </div>
 
@@ -45,11 +45,11 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
-      <p class="stat">65.77</p>
+      <p class="stat">21.46</p>
     </div>
     <div class="span6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">626</p>
+      <p class="stat">459</p>
     </div>
   </div>
   <div class="row historical">
@@ -63,11 +63,11 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
-      <p class="stat">11.41</p>
+      <p class="stat">2.09</p>
     </div>
     <div class="span6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
-      <p class="stat">5.76</p>
+      <p class="stat">4.50</p>
     </div>
   </div>
 </div>
@@ -105,61 +105,6 @@
 // end header
 
 
-(function () {
-    &quot;use strict&quot;;
-    atropa.requires(
-        &#039;wtf&#039;,
-        function () {
-            var supported = true;
-            
-            [
-                atropa.regex,
-                atropa.string.countWords,
-                atropa.setAsOptionalArg,
-                atropa.wtf.dictionary
-            ].forEach(function (prerequisite) {
-                if(prerequisite === undefined) {
-                    supported = false;
-                }
-            });
-            return supported;
-        },
-        &#039;atropa.wtf class is not supported in this environment&#039;
-    );
-}());
-
-(function () {
-    &quot;use strict&quot;;
-    atropa.requires(
-        &#039;wtfHtmlElement&#039;,
-        function () {
-            var supported = true;
-            
-            [
-                window
-            ].forEach(function (prerequisite) {
-                if(prerequisite === undefined) {
-                    supported = false;
-                }
-            });
-            return supported;
-        },
-        &#039;atropa.wtf class is not supported in this environment&#039;
-    );
-}());
-
-/**
- * Container for all Glorious WTFifier related functions and such.
- * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
- *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
- *  ☭ Hial Atropa!! ☭
- * @version 20120909
- * @namespace Container for all Glorious WTFifier related functions and such.
- * @see &lt;a href=&quot;../../../AtropaToolboxTests.html?spec=atropa.wtf&quot;&gt;tests&lt;/a&gt;
- * @requires atropa.regex
- * @requires atropa.wtf.dictionary
- */
-atropa.wtf = {};
 /**
  * The Glorious WTFification Dictionary: Turning Shit
  * Into Polished Turds.
@@ -626,110 +571,6 @@ atropa.wtf.dictionary = {
     &quot;ours&quot; : &quot;theirs&quot;,
     &quot;i&quot; : &quot;Kevin&quot;,
     &quot;you&quot; : &quot;Retards&quot;
-};
-/**
- * Accepts plain text input and Gloriously WTFifies it.
- * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
- *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
- *  ☭ Hial Atropa!! ☭
- * @version 20130110
- * @param {String} target The text to WTFify.
- * @param {Boolean} outputHTML Specifies if you want the output
- *  in HTML format. If false, will output plain text. Defaults
- *  to false.
- * @return {String} Returns Genuine WTFified text.
- */
-atropa.wtf.wtfify = function (target, outputHTML) {
-    &quot;use strict&quot;;
-    atropa.supportCheck(&#039;wtf&#039;);
-    
-    var regexValue,
-        replacementText,
-        oldWord,
-        wtfCount,
-        wordCount,
-        ret,
-        word;
-    
-    if(true !== outputHTML) {
-        outputHTML = false;
-    }
-    ret = {};
-    wtfCount = 0;
-    target = target.trim();
-    wordCount = atropa.string.countWords(target);
-    if(true === outputHTML) {
-        target = target.replace(
-            /(\. ?){2,}/gi,
-            &#039;&lt;span style=&quot;color : brown ;&quot;&gt; [shit taco] &lt;/span&gt;&#039;
-        );
-        target = &#039;&lt;p&gt; &#039; + target.replace(/(\r\n|\r|\n)/g,&#039; &lt;br/&gt; &#039;) + &#039; &lt;/p&gt;&#039;;
-    } else {
-        target = target.replace(/(\. ?){2,}/gi, &#039; [shit taco] &#039;);
-    }
-    /**
-     * Accepts plain text input and Gloriously WTFifies it.
-     * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
-     *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
-     *  ☭ Hial Atropa!! ☭
-     * @version 20130112
-     * @methodOf atropa.wtf.wtfify-
-     * @private
-     * @param {String} m First matched pattern in string searched.
-     * @param {String} sub1 First matched subpattern in string searched.
-     * @param {String} sub2 Second matched subpattern in string searched.
-     */
-    replacementText = function (m, sub1, sub2) {
-        wtfCount++;
-        sub1 = atropa.setAsOptionalArg(&#039;&#039;, sub1);
-        sub2 = atropa.setAsOptionalArg(&#039;&#039;, sub2);
-        var out;
-        if(true === outputHTML) {
-            out = &#039;&lt;span style=&quot;color : red ;&quot;&gt;&#039; +
-                sub1 + atropa.wtf.dictionary[word] + sub2 +
-                &#039;&lt;/span&gt;&#039;;
-        } else {
-            out = sub1 + atropa.wtf.dictionary[word] + sub2;
-        }
-        return out;
-    };
-    // word is defined in the containing scope and
-    // is not global, jshint is wrong
-    for (word in atropa.wtf.dictionary) {
-        if (atropa.wtf.dictionary.hasOwnProperty(word)) {
-            oldWord = atropa.regex.appendPrefixesAndSuffixes(word);
-            regexValue = new RegExp(oldWord, &#039;gi&#039;);
-            target = target.replace(regexValue, replacementText);
-        }
-    }
-    ret.wtfCount = wtfCount;
-    ret.wordCount = wordCount;
-    ret.score = wtfCount / wordCount;
-    ret.txt = target;
-    return ret;
-};
-/**
- * WTFifies the &lt;code&gt;textContent&lt;/code&gt; or &lt;code&gt;value&lt;/code&gt; of the
- *  given element and replaces the element&#039;s innerHTML with a pre block
- *  containing the results of WTFification.
- * @param {HTMLElement} elementReference A reference to an HTML Element.
- * @returns {HTMLElement} Returns the given element after wtfification.
- * @version 20130313
- */
-atropa.wtf.htmlElement = function (elementReference) {
-    &quot;use strict&quot;;
-    atropa.supportCheck(&#039;wtfHtmlElement&#039;);
-    
-    var wtfified, txt;
-    elementReference.innerHTML = elementReference.innerHTML.replace(
-        /&lt;br&gt;(\s+)?(\r\n|\r|\n)?/g, &#039;\r\n&#039;);
-    txt = elementReference.value || elementReference.textContent;
-    wtfified = atropa.wtf.wtfify(txt, true);
-    elementReference.innerHTML =
-        &#039;&lt;pre style=&quot;color:black; background:white; white-space:pre-wrap;&quot;&gt;&#039; +
-        wtfified.txt +
-        &#039;&lt;/pre&gt;&#039;;
-    return elementReference;
 };</textarea>
   </div>
 </div>
