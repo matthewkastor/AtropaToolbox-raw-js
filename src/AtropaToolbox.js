@@ -3799,7 +3799,8 @@ atropa.window.open = function open(url, callback, testFn) {
             [
                 atropa.regex,
                 atropa.string.countWords,
-                atropa.setAsOptionalArg
+                atropa.setAsOptionalArg,
+                atropa.wtf.dictionary
             ].forEach(function (prerequisite) {
                 if(prerequisite === undefined) {
                     supported = false;
@@ -3840,6 +3841,7 @@ atropa.window.open = function open(url, callback, testFn) {
  * @namespace Container for all Glorious WTFifier related functions and such.
  * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.wtf">tests</a>
  * @requires atropa.regex
+ * @requires atropa.wtf.dictionary
  */
 atropa.wtf = {};
 /**
