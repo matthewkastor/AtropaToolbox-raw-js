@@ -126,8 +126,8 @@ atropa.inject.element = function (
     docref = atropa.setAsOptionalArg(document, docref);
     parentNod = atropa.setAsOptionalArg(docref.body, parentNod);
     attributes = atropa.setAsOptionalArg({}, attributes);
-    onloadHandler = atropa.setAsOptionalArg(function () {}, onloadHandler);
-    callback = atropa.setAsOptionalArg(function () {}, callback);
+    onloadHandler = atropa.setAsOptionalArg(atropa.nop, onloadHandler);
+    callback = atropa.setAsOptionalArg(atropa.nop, callback);
     
     el = docref.createElement(elementType);
     for (x in attributes) {
