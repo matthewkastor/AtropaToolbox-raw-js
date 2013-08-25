@@ -41,6 +41,12 @@
             /// <returns type="String">The given string with it&apos;s first letter capitalized.</returns>
         }, 
         
+        camelize: function(string) {
+            /// <summary>Converts the given string to camel case.</summary>
+            /// <param name="string" type="String">The string to camelize.</param>
+            /// <returns type="String">The camelized string.</returns>
+        }, 
+        
         countWords: function(someText) {
             /// <summary>Counts words.</summary>
             /// <param name="someText" type="String">Plain text.</param>

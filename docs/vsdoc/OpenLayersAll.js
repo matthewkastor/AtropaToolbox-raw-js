@@ -65,6 +65,10 @@
             ///  &apos;The atropa.&apos; + className + &apos; class is unsupported in this environment.&apos;;</param>
         }, 
         
+        nop: function() {
+            /// <summary></summary>
+        }, 
+        
         removeNodeByReference: function(elementReference) {
             /// <summary>Removes DOM Nodes.</summary>
             /// <param name="elementReference" type="DOM Node">A reference to the DOM Node you want
@@ -1115,6 +1119,12 @@
             /// <param name="string" type="String">The string for which you want the
             /// first letter to be in upper case.</param>
             /// <returns type="String">The given string with it&apos;s first letter capitalized.</returns>
+        }, 
+        
+        camelize: function(string) {
+            /// <summary>Converts the given string to camel case.</summary>
+            /// <param name="string" type="String">The string to camelize.</param>
+            /// <returns type="String">The camelized string.</returns>
         }, 
         
         countWords: function(someText) {
