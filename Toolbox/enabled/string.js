@@ -101,6 +101,9 @@ atropa.string.ucFirst = function ucFirst(string) {
  * @version 20130823
  * @param {String} string The string to camelize.
  * @returns {String} The camelized string.
+ * @example
+ *  atropa.string.camelize('get it together');
+ *  // returns "getItTogether"
  */
 atropa.string.camelize = function camelize (str) {
     "use strict";
