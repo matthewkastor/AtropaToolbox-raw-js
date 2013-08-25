@@ -45,24 +45,22 @@ atropa.waitFor.test = function test(
     "use strict";
     pollInterval = atropa.setAsOptionalArg(200, pollInterval);
     maxPoll = atropa.setAsOptionalArg(50, maxPoll);
-    onMaxPollCallback = atropa.setAsOptionalArg(
-        function () {}, onMaxPollCallback);
-    onSuccessCallback = atropa.setAsOptionalArg(
-        function () {}, onSuccessCallback);
-    var myInt,
-    myCounter;
-    myCounter = 0;
-    myInt = setInterval(function () {
-            myCounter++;
-            if (testFn()) {
-                clearInterval(myInt);
-                onSuccessCallback();
-            }
-            if (myCounter === maxPoll) {
-                clearInterval(myInt);
-                onMaxPollCallback();
-            }
-        }, pollInterval);
+    onMaxPollCallback = atropa.setAsOptionalArg(atropa.nop, onMaxPollCallback);
+    onSuccessCallback = atropa.setAsOptionalArg(atropa.nop, onSuccessCallback);
+    var myInt;
+    var myCounter = 0;
+    function waitForTestRecursor () {
+        myCounter++;
+        if (testFn()) {
+            clearInterval(myInt);
+            onSuccessCallback();
+        }
+        if (myCounter === maxPoll) {
+            clearInterval(myInt);
+            onMaxPollCallback();
+        }
+    }
+    myInt = setInterval(waitForTestRecursor, pollInterval);
 };
 /**
  * Wait for Element
@@ -83,7 +81,6 @@ atropa.waitFor.element = function (
     testFn, onSuccessCallback, onMaxPollCallback, pollInterval, maxPoll
 ) {
     "use strict";
-    var elementTest;
     /**
      * Creates an HTML DOM Document and puts it in the document
      * queue, then executes the callback given.
@@ -96,11 +93,9 @@ atropa.waitFor.element = function (
      * @returns {Boolean} Returns true or false depending on whether the object
      *  has a tag name property.
      */
-    elementTest = function () {
-        var obj;
-        obj = testFn();
-        return atropa.inquire.hasProperty(obj, 'tagName');
-    };
+    function elementTest () {
+        return atropa.inquire.hasProperty(testFn, 'tagName');
+    }
     atropa.waitFor.test(
         elementTest, onSuccessCallback, onMaxPollCallback, pollInterval, maxPoll
     );
