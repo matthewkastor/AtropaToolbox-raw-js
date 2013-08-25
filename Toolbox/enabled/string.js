@@ -94,6 +94,26 @@ atropa.string.ucFirst = function ucFirst(string) {
     return string;
 };
 /**
+ * Converts the given string to camel case.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @version 20130823
+ * @param {String} string The string to camelize.
+ * @returns {String} The camelized string.
+ */
+atropa.string.camelize = function camelize (str) {
+    "use strict";
+    var arr, out;
+    arr = str.split(' ');
+    out = arr.shift();
+    arr = arr.map(function (item) {
+        return atropa.string.ucFirst(item);
+    });
+    out += arr.join('');
+    return out;
+};
+/**
  * Counts words.
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
