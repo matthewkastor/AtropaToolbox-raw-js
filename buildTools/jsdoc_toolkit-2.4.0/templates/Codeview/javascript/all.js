@@ -27,6 +27,7 @@ if (typeof(wbos.CssTools) == "undefined") {
 
 
 /**
+ * Fallback for CSS advanced media query
  * @namespace Fallback for CSS advanced media query
  * @class
  * @since 1.0 - 2010-09-10
@@ -190,6 +191,7 @@ wbos.CssTools.MediaQueryFallBack = ( function() {
 
 
 /**
+ * Adds a function to an event of a single element. Use this if
  * @namespace Adds a function to an event of a single element. Use this if
  * you don't want to use jQuery
  * @class
@@ -243,6 +245,7 @@ if (typeof(codeview) == "undefined") {
 
 
 /**
+ * Enables filtering in class lists
  * @namespace Enables filtering in class lists
  * @class
  * @since 1.0 - 2010-11-08
