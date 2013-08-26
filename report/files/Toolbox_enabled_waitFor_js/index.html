@@ -67,7 +67,7 @@
     </div>
     <div class="span6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
-      <p class="stat">0.21</p>
+      <p class="stat">0.22</p>
     </div>
   </div>
 </div>
@@ -186,7 +186,7 @@ atropa.waitFor.element = function (
      *  has a tag name property.
      */
     function elementTest () {
-        return atropa.inquire.hasProperty(testFn, &#039;tagName&#039;);
+        return atropa.inquire.hasProperty(testFn(), &#039;tagName&#039;);
     }
     atropa.waitFor.test(
         elementTest, onSuccessCallback, onMaxPollCallback, pollInterval, maxPoll
