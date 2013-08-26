@@ -94,7 +94,7 @@ atropa.waitFor.element = function (
      *  has a tag name property.
      */
     function elementTest () {
-        return atropa.inquire.hasProperty(testFn, 'tagName');
+        return atropa.inquire.hasProperty(testFn(), 'tagName');
     }
     atropa.waitFor.test(
         elementTest, onSuccessCallback, onMaxPollCallback, pollInterval, maxPoll
