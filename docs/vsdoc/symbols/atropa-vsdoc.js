@@ -17,7 +17,6 @@
         /// <field name="string" type="">A few utilities for manipulating strings.</field>
         /// <field name="url" type="">Utilities for handling urls.</field>
         /// <field name="waitFor" type="">Polling functions for quick and sloppy work.</field>
-        /// <field name="window" type="">Container for all window functions and classes.</field>
         /// <field name="wtf" type="">Container for all Glorious WTFifier related functions and such.</field>
         /// <field name="xpath" type="">An Xpath toolkit for manipulating the DOM.</field>
         /// <returns type="atropa"/>

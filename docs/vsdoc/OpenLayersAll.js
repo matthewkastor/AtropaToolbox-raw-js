@@ -37,7 +37,6 @@
         /// <field name="string" type="">A few utilities for manipulating strings.</field>
         /// <field name="url" type="">Utilities for handling urls.</field>
         /// <field name="waitFor" type="">Polling functions for quick and sloppy work.</field>
-        /// <field name="window" type="">Container for all window functions and classes.</field>
         /// <field name="wtf" type="">Container for all Glorious WTFifier related functions and such.</field>
         /// <field name="xpath" type="">An Xpath toolkit for manipulating the DOM.</field>
         /// <returns type="atropa"/>
@@ -1315,42 +1314,6 @@
     var $x = window.atropa.waitFor;
     $x.__namespace = "true";
     $x.__typeName = "atropa.waitFor";
-})(this);
-
-  
-
-  
-/* vsdoc for atropa.window */
-
-(function (window) {
-    window.atropa = window.atropa || {};
-
-    window.atropa.window = {
-        /// <summary></summary>
-        /// <returns type="atropa.window"/>
-                
-        open: function(url, callback, testFn) {
-            /// <summary>Opens a new window and fires a callback once the window has loaded.
-            ///  Optionally, a test function may be provided to fire the callback.</summary>
-            /// <param name="url" type="String">The url to load in the window.</param>
-            /// <param name="callback" type="Function">The callback function to execute when
-            ///  the windows document.readystate === &apos;complete&apos;. This callback will receive
-            ///  one argument, a reference to the opened window and will be fired before the
-            ///  window navigates to the given url.</param>
-            /// <param name="testFn" type="Function">Optional. An alternate test for when you want to
-            ///  wait for the window to navigate to the given url before firing the callback.
-            ///  The callback will be given a reference to the opened window as its first
-            ///  argument. Return something truthy and the callback will fire, return
-            ///  something falsy and continue waiting. Your test will be tried
-            ///  every 250ms until it returns something truthy.</param>
-            /// <returns type="Object">Returns a reference to the opened window.</returns>
-        }
-        
-    };
-
-    var $x = window.atropa.window;
-    $x.__namespace = "true";
-    $x.__typeName = "atropa.window";
 })(this);
 
   

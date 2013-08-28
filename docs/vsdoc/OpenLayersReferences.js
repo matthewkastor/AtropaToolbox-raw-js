@@ -20,7 +20,6 @@
 /// <reference path="atropa.TextAnalyzer-vsdoc.js" />
 /// <reference path="atropa.url-vsdoc.js" />
 /// <reference path="atropa.waitFor-vsdoc.js" />
-/// <reference path="atropa.window-vsdoc.js" />
 /// <reference path="atropa.wtf-vsdoc.js" />
 /// <reference path="atropa.xpath-vsdoc.js" />
 
