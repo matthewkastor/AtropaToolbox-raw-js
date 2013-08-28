@@ -2,7 +2,8 @@
 /*jslint
     indent: 4,
     maxerr: 50,
-    white: true
+    white: true,
+    vars: true
 */
 /*globals
     atropa,
@@ -36,7 +37,7 @@ describe('atropa.Requester', function () {
                         expect(thrower).toThrow('atropa.Requester.' +
                             'makeRequest unexpected argument type');
                     }
-                )
+                );
                 it('must make an XMLHttpRequest', function () {
                     var stat = false;
                     var requestStatus;
@@ -61,7 +62,7 @@ describe('atropa.Requester', function () {
                     runs(function () {
                         expect(requestStatus).toEqual(true);
                         expect(requestData.responseText).toMatch(
-                            /atropa.Requester/);
+                            /atropa\.Requester/);
                     });
                 });
                 
