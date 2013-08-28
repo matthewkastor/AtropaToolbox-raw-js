@@ -15,12 +15,26 @@ atropa.requires(
     'window',
     function () {
         "use strict";
-        if(document === undefined) {
+        if(window === undefined) {
             return false;
         }
         return true;
     },
     'atropa.window requires the window object present in web ' +
+        'browsers in order to be useful. This function is not supported in ' +
+        'this environment'
+);
+
+atropa.requires(
+    'windowOpen',
+    function () {
+        "use strict";
+        if(window.open === undefined) {
+            return false;
+        }
+        return true;
+    },
+    'atropa.window.open requires the window object present in web ' +
         'browsers in order to be useful. This function is not supported in ' +
         'this environment'
 );
@@ -78,7 +92,7 @@ atropa.window = {};
  */
 atropa.window.open = function open(url, callback, testFn) {
     "use strict";
-    atropa.supportCheck('window');
+    atropa.supportCheck('windowOpen');
     var win;
     
     function defaultTestFn(win){
@@ -100,6 +114,10 @@ atropa.window.open = function open(url, callback, testFn) {
     }
     
     win = opens(url);
+    if(!win) {
+        atropa.data.windowOpen.support = 'unsupported';
+        throw new Error('Could not open a window. atropa.window.open is not supported in this environment.');
+    }
     setTimeout(blks, 0, win);
     return win;
 };
