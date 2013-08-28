@@ -116,7 +116,8 @@ atropa.window.open = function open(url, callback, testFn) {
     win = opens(url);
     if(!win) {
         atropa.data.windowOpen.support = 'unsupported';
-        throw new Error('Could not open a window. atropa.window.open is not supported in this environment.');
+        throw new Error('Could not open a window. atropa.window.open is not ' +
+            'supported in this environment.');
     }
     setTimeout(blks, 0, win);
     return win;
