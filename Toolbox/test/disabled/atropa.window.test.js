@@ -76,7 +76,7 @@ describe("atropa.window", function() {
                     
                     waitsFor(function () {
                         return callbackFired;
-                    }, 'the callback did not fire', 300);
+                    }, 'the callback did not fire', 2000);
                     
                     runs(function () {
                         try {
