@@ -57,15 +57,21 @@ describe("atropa.window", function() {
                     spyOn(settings, 'testFn').andCallThrough();
                 });
                 
-                it('must call the callback', function () {
+                it('must call the callback or throw', function () {
                     var win;
                     settings.url = 'about:blank';
                     
                     runs(function () {
-                        win = atropa.window.open(
-                            settings.url,
-                            settings.callback
-                        );
+                        try {
+                            win = atropa.window.open(
+                                settings.url,
+                                settings.callback,
+                                settings.testFn
+                            );
+                        } catch (e) {
+                            settings.callback();
+                            expect(e.message).toMatch(/is not supported in this environment/);
+                        }
                     });
                     
                     waitsFor(function () {
@@ -73,36 +79,17 @@ describe("atropa.window", function() {
                     }, 'the callback did not fire', 300);
                     
                     runs(function () {
-                        expect(win.document.body.nodeType).toEqual(1);
-                        expect(settings.callback).toHaveBeenCalledWith(win);
-                        expect(callbackFired).toEqual(true);
-                        win.close();
-                    });
-                });
-                
-                it('must use the testFn if supplied', function () {
-                    var win;
-                    
-                    runs(function () {
-                        win = atropa.window.open(
-                            settings.url,
-                            settings.callback,
-                            settings.testFn
-                        );
-                    });
-                    
-                    waitsFor(function () {
-                        return callbackFired;
-                    }, 'the callback did not fire', 3000);
-                    
-                    runs(function () {
-                        expect(win.document.body.nodeType).toEqual(1);
-                        expect(settings.callback).toHaveBeenCalledWith(win);
-                        expect(callbackFired).toEqual(true);
-                        expect(title).toEqual(
-                            'AtropaToolbox\'s Raw JS'
-                        );
-                        win.close();
+                        try {
+                            expect(win.document.body.nodeType).toEqual(1);
+                            expect(settings.callback).toHaveBeenCalledWith(win);
+                            expect(callbackFired).toEqual(true);
+                            expect(title).toEqual(
+                                'AtropaToolbox\'s Raw JS'
+                            );
+                            win.close();
+                        } catch (e) {
+                            expect(e.message).toMatch(/undefined/);
+                        }
                     });
                 });
             });
