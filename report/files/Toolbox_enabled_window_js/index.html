@@ -45,11 +45,11 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
-      <p class="stat">76.13</p>
+      <p class="stat">73.48</p>
     </div>
     <div class="span6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">92</p>
+      <p class="stat">111</p>
     </div>
   </div>
   <div class="row historical">
@@ -63,11 +63,11 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
-      <p class="stat">11.98</p>
+      <p class="stat">15.70</p>
     </div>
     <div class="span6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
-      <p class="stat">0.18</p>
+      <p class="stat">0.27</p>
     </div>
   </div>
 </div>
@@ -107,12 +107,26 @@ atropa.requires(
     &#039;window&#039;,
     function () {
         &quot;use strict&quot;;
-        if(document === undefined) {
+        if(window === undefined) {
             return false;
         }
         return true;
     },
     &#039;atropa.window requires the window object present in web &#039; +
+        &#039;browsers in order to be useful. This function is not supported in &#039; +
+        &#039;this environment&#039;
+);
+
+atropa.requires(
+    &#039;windowOpen&#039;,
+    function () {
+        &quot;use strict&quot;;
+        if(window.open === undefined) {
+            return false;
+        }
+        return true;
+    },
+    &#039;atropa.window.open requires the window object present in web &#039; +
         &#039;browsers in order to be useful. This function is not supported in &#039; +
         &#039;this environment&#039;
 );
@@ -170,7 +184,7 @@ atropa.window = {};
  */
 atropa.window.open = function open(url, callback, testFn) {
     &quot;use strict&quot;;
-    atropa.supportCheck(&#039;window&#039;);
+    atropa.supportCheck(&#039;windowOpen&#039;);
     var win;
     
     function defaultTestFn(win){
@@ -192,6 +206,11 @@ atropa.window.open = function open(url, callback, testFn) {
     }
     
     win = opens(url);
+    if(!win) {
+        atropa.data.windowOpen.support = &#039;unsupported&#039;;
+        throw new Error(&#039;Could not open a window. atropa.window.open is not &#039; +
+            &#039;supported in this environment.&#039;);
+    }
     setTimeout(blks, 0, win);
     return win;
 };</textarea>
