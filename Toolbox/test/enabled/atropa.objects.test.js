@@ -135,18 +135,12 @@ describe("atropa.objects", function() {
     });
     
     describe('sortValuesAlphabetically', function () {
+        function x () {
+            atropa.objects.sortValuesAlphabetically();
+        }
         it("must sort an objects properties by values lexicographically",
             function () {
-                var wordsCounted = {
-                    "3" : "Document A",
-                    "2" : "Document Z",
-                    "1" : "Document M"
-                };
-                expect(
-                    atropa.objects.sortValuesAlphabetically(wordsCounted)
-                ).toEqual(
-                    [["3", "Document A"], ["1", "Document M"], ["2", "Document Z"]]
-                );
+                expect(x).toThrow("String.prototype.localeCompare is not standardized");
             }
         );
     });
