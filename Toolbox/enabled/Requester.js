@@ -67,6 +67,7 @@
  */
 atropa.Requester = function Requester() {
     "use strict";
+    atropa.supportCheck('Requester');
     var expArgTypes,
         checkRequest,
         request;
@@ -191,8 +192,6 @@ atropa.Requester = function Requester() {
             }
         }, this.timeout);
     };
-    
-    atropa.supportCheck('Requester');
 };
 
 
