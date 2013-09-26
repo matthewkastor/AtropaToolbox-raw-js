@@ -3705,8 +3705,7 @@ atropa.waitFor.element = function (
             [
                 atropa.regex,
                 atropa.string.countWords,
-                atropa.setAsOptionalArg,
-                atropa.wtf.dictionary
+                atropa.setAsOptionalArg
             ].forEach(function (prerequisite) {
                 if(prerequisite === undefined) {
                     supported = false;
