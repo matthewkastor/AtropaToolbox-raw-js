@@ -716,9 +716,7 @@ atropa.arrays.sortNumerically = function sortNumerically(arr) {
  */
 atropa.arrays.sortAlphabetically = function sortAlphabetically(arr) {
     "use strict";
-    return arr.sort(function (a, b) {
-        return a.localeCompare(b);
-    });
+    throw new Error("String.prototype.localeCompare is not standardized");
 };
 /**
  * Deletes the given element from the array at the given index. It basically
