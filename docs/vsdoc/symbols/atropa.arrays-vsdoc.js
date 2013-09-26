@@ -70,10 +70,21 @@
         }, 
         
         sortAlphabetically: function(arr) {
-            /// <summary>Sorts an array&apos;s elements lexicographically.</summary>
-            /// <param name="arr" type="Array">The array to sort. All elements of the array must be
-            ///  strings.</param>
-            /// <returns type="Array">Returns an array whose elements are in alphabetic order.</returns>
+            /// <summary>Throws an error, &lt;code&gt;String.prototype.localeCompare&lt;/code&gt; is not 
+            ///  standardized.
+            /// 
+            ///  Yes, localeCompare is in the standard but, at this time the actual
+            ///  comparison is implementation dependant. This means that &quot;alphabetical order&quot;
+            ///  can be different on different platforms. What I found was that in node the
+            ///  array of &lt;code&gt;[&apos;a&apos;,&apos;Z&apos;,&apos;A&apos;,&apos;z&apos;]&lt;/code&gt; would be sorted to
+            ///  &lt;code&gt;[&apos;A&apos;,&apos;Z&apos;,&apos;a&apos;,&apos;z&quot;]&lt;/code&gt;, while on
+            ///  firefox it would be sorted to &lt;code&gt;[&apos;a&apos;,&apos;A&apos;,&apos;z&apos;,&apos;Z&apos;]&lt;/code&gt;. Who knows if
+            ///  another implementor would sort it &lt;code&gt;[&apos;A&apos;,&apos;a&apos;,&apos;Z&apos;,&apos;z&apos;]&lt;/code&gt;?
+            /// 
+            /// In order to provide a reliable implementation I would have to create my own
+            ///  implementation of &lt;code&gt;String.prototype.localeCompare&lt;/code&gt; and that&apos;s
+            ///  just too much work for me to do alone.</summary>
+            /// <param name="arr" type=""></param>
         }, 
         
         "delete": function(arr, index) {
