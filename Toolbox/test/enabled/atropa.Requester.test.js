@@ -71,15 +71,15 @@ describe('atropa.Requester', function () {
         });
     } catch (e) {
         describe('class is not supported in this environment', function () {
+            function x () {
+                try {
+                    requester = new atropa.Requester();
+                } catch (e) {
+                    return e;
+                }
+            }
             it('must throw "[...] is not supported in this environment"',
                 function () {
-                    function x () {
-                        try {
-                            requester = new atropa.Requester();
-                        } catch (e) {
-                            return e;
-                        }
-                    }
                     expect(x()).toMatch(/is not supported in this environment/);
                 }
             );

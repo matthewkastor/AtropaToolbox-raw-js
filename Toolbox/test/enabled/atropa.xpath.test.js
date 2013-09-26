@@ -121,15 +121,15 @@ describe("atropa.xpath", function() {
             
             function getThrowCheck(fn) {
                 return function () {
+                    function x () {
+                        try {
+                            atropa.xpath[fn]();
+                        } catch (e) {
+                            return e;
+                        }
+                    }
                     it('must throw "[...] is not supported in this environment"',
                         function () {
-                            function x () {
-                                try {
-                                    atropa.xpath[fn]();
-                                } catch (e) {
-                                    return e;
-                                }
-                            }
                             expect(x()).toMatch(/is not supported in this environment/);
                         }
                     );

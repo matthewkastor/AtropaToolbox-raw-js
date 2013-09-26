@@ -87,16 +87,15 @@ describe("atropa.Babbler", function() {
         });
     } catch (e) {
         describe('class is not supported in this environment', function () {
-            
+            function x () {
+                try {
+                    var y = new atropa.Babbler();
+                } catch (e) {
+                    return e;
+                }
+            }
             it('must throw "[...] is not supported in this environment"',
                 function () {
-                    function x () {
-                        try {
-                            var y = new atropa.Babbler();
-                        } catch (e) {
-                            return e;
-                        }
-                    }
                     expect(x()).toMatch(/is not supported in this environment/);
                 }
             );

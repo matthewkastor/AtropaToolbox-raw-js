@@ -99,11 +99,11 @@ describe('atropa.HTMLParser', function () {
         });
     } catch (e) {
         describe('class is not supported in this environment', function () {
+            function x () {
+                parser = new atropa.HTMLParser();
+            }
             it('must throw if class is not supported in this environment',
                 function () {
-                    function x () {
-                        parser = new atropa.HTMLParser();
-                    }
                     expect(x).toThrow();
                 }
             );

@@ -152,15 +152,15 @@ describe('atropa.TextAnalyzer', function () {
         });
     } catch (e) {
         describe('class is not supported in this environment', function () {
+            function x () {
+                try {
+                    analyzer = new atropa.TextAnalyzer();
+                } catch (e) {
+                    return e;
+                }
+            }
             it('must throw "[...] is not supported in this environment"',
                 function () {
-                    function x () {
-                        try {
-                            analyzer = new atropa.TextAnalyzer();
-                        } catch (e) {
-                            return e;
-                        }
-                    }
                     expect(x()).toMatch(/is not supported in this environment/);
                 }
             );
