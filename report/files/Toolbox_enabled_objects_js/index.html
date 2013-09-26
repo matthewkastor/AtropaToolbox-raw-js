@@ -45,11 +45,11 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
-      <p class="stat">81.53</p>
+      <p class="stat">81.25</p>
     </div>
     <div class="span6">
       <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC"></i></h2>
-      <p class="stat">301</p>
+      <p class="stat">282</p>
     </div>
   </div>
   <div class="row historical">
@@ -63,11 +63,11 @@
   <div class="row">
     <div class="span6">
       <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty"></i></a></h2>
-      <p class="stat">31.90</p>
+      <p class="stat">31.50</p>
     </div>
     <div class="span6">
       <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
-      <p class="stat">0.43</p>
+      <p class="stat">0.39</p>
     </div>
   </div>
 </div>
@@ -321,35 +321,25 @@ atropa.objects.sortValuesNumerically = function sortValuesNumerically(obj) {
     return atropa.objects.sortValues(obj, sortFn);
 };
 /**
- * Sorts an object by its values lexicographically.
- * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
- *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
- *  ☭ Hial Atropa!! ☭
- * @version 20130120
- * @example
- *  var wordsCounted;
- *  wordsCounted = {
- *      &quot;3&quot; : &quot;Document A&quot;,
- *      &quot;2&quot; : &quot;Document Z&quot;,
- *      &quot;1&quot; : &quot;Document M&quot;
- *  };
- *  console.log( atropa.objects.sortValuesAlphabetically(wordsCounted) );
- *  // logs [[&quot;3&quot;, &quot;Document A&quot;], [&quot;1&quot;, &quot;Document M&quot;], [&quot;2&quot;, &quot;Document Z&quot;]]
- * @param {Object} obj A simple object where the properties
- *  all have string values.
- * @returns {Array} Returns an array of arrays where each
- *  nested array will have the objects key stored in element 0 and
- *  the value stored in element 1.
- * @see atropa.objects.sort
+ * Throws an error, &lt;code&gt;String.prototype.localeCompare&lt;/code&gt; is not 
+ *  standardized.
+ * 
+ *  Yes, localeCompare is in the standard but, at this time the actual
+ *  comparison is implementation dependant. This means that &quot;alphabetical order&quot;
+ *  can be different on different platforms. What I found was that in node the
+ *  array of &lt;code&gt;[&#039;a&#039;,&#039;Z&#039;,&#039;A&#039;,&#039;z&#039;]&lt;/code&gt; would be sorted to
+ *  &lt;code&gt;[&#039;A&#039;,&#039;Z&#039;,&#039;a&#039;,&#039;z&quot;]&lt;/code&gt;, while on
+ *  firefox it would be sorted to &lt;code&gt;[&#039;a&#039;,&#039;A&#039;,&#039;z&#039;,&#039;Z&#039;]&lt;/code&gt;. Who knows if
+ *  another implementor would sort it &lt;code&gt;[&#039;A&#039;,&#039;a&#039;,&#039;Z&#039;,&#039;z&#039;]&lt;/code&gt;?
+ * 
+ * In order to provide a reliable implementation I would have to create my own
+ *  implementation of &lt;code&gt;String.prototype.localeCompare&lt;/code&gt; and that&#039;s
+ *  just too much work for me to do alone.
+ * @throws {Error} &quot;String.prototype.localeCompare is not standardized&quot;
  */
-atropa.objects.sortValuesAlphabetically = function sortValuesAlphabetically(
-    obj
-) {
+atropa.objects.sortValuesAlphabetically = function sortValuesAlphabetically() {
     &quot;use strict&quot;;
-    function sortFn(a, b) {
-        return (a.localeCompare(b));
-    }
-    return atropa.objects.sortValues(obj, sortFn);
+    throw new Error(&quot;String.prototype.localeCompare is not standardized&quot;);
 };
 /**
  * Sorts an object by its properties numerically.
@@ -383,35 +373,26 @@ atropa.objects.sortPropertiesNumerically = function sortPropertiesNumerically(
     return atropa.objects.sortProperties(obj, sortFn);
 };
 /**
- * Sorts an object by its properties lexicographically.
- * @author &lt;a href=&quot;mailto:matthewkastor@gmail.com&quot;&gt;
- *  Matthew Christopher Kastor-Inare III &lt;/a&gt;&lt;br /&gt;
- *  ☭ Hial Atropa!! ☭
- * @version 20130120
- * @example
- *  var wordsCounted;
- *  wordsCounted = {
- *      &quot;Document A&quot; : &quot;2&quot;,
- *      &quot;Document Z&quot; : &quot;1&quot;,
- *      &quot;Document M&quot; : &quot;3&quot;
- *  };
- *  console.log( atropa.objects.sortPropertiesAlphabetically(wordsCounted) );
- *  
- *  // logs: [[&quot;Document A&quot;, &quot;2&quot;], [&quot;Document M&quot;, &quot;3&quot;], [&quot;Document Z&quot;, &quot;1&quot;]]
- * @param {Object} obj A simple object where the properties
- *  all have string values.
- * @returns {Array} Returns an array of arrays where each
- *  nested array will have the objects key stored in element 0 and
- *  the value stored in element 1.
- * @see atropa.objects.sort
+ * Throws an error, &lt;code&gt;String.prototype.localeCompare&lt;/code&gt; is not 
+ *  standardized.
+ * 
+ *  Yes, localeCompare is in the standard but, at this time the actual
+ *  comparison is implementation dependant. This means that &quot;alphabetical order&quot;
+ *  can be different on different platforms. What I found was that in node the
+ *  array of &lt;code&gt;[&#039;a&#039;,&#039;Z&#039;,&#039;A&#039;,&#039;z&#039;]&lt;/code&gt; would be sorted to
+ *  &lt;code&gt;[&#039;A&#039;,&#039;Z&#039;,&#039;a&#039;,&#039;z&quot;]&lt;/code&gt;, while on
+ *  firefox it would be sorted to &lt;code&gt;[&#039;a&#039;,&#039;A&#039;,&#039;z&#039;,&#039;Z&#039;]&lt;/code&gt;. Who knows if
+ *  another implementor would sort it &lt;code&gt;[&#039;A&#039;,&#039;a&#039;,&#039;Z&#039;,&#039;z&#039;]&lt;/code&gt;?
+ * 
+ * In order to provide a reliable implementation I would have to create my own
+ *  implementation of &lt;code&gt;String.prototype.localeCompare&lt;/code&gt; and that&#039;s
+ *  just too much work for me to do alone.
+ * @throws {Error} &quot;String.prototype.localeCompare is not standardized&quot;
  */
 atropa.objects.sortPropertiesAlphabetically = 
 function sortPropertiesAlphabetically(obj) {
     &quot;use strict&quot;;
-    function sortFn(a, b) {
-        return (a.localeCompare(b));
-    }
-    return atropa.objects.sortProperties(obj, sortFn);
+    throw new Error(&quot;String.prototype.localeCompare is not standardized&quot;);
 };</textarea>
   </div>
 </div>
