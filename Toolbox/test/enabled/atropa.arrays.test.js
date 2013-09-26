@@ -233,7 +233,7 @@ describe('atropa.arrays', function () {
     });
 
     describe('sortAlphabetically', function () {
-        it('sorts arrays composed of string elements alphabetically',
+        it('throws an error',
             function () {
                 expect(function () {
                     aa.sortAlphabetically(
