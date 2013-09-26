@@ -229,35 +229,25 @@ atropa.objects.sortValuesNumerically = function sortValuesNumerically(obj) {
     return atropa.objects.sortValues(obj, sortFn);
 };
 /**
- * Sorts an object by its values lexicographically.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
- *  ☭ Hial Atropa!! ☭
- * @version 20130120
- * @example
- *  var wordsCounted;
- *  wordsCounted = {
- *      "3" : "Document A",
- *      "2" : "Document Z",
- *      "1" : "Document M"
- *  };
- *  console.log( atropa.objects.sortValuesAlphabetically(wordsCounted) );
- *  // logs [["3", "Document A"], ["1", "Document M"], ["2", "Document Z"]]
- * @param {Object} obj A simple object where the properties
- *  all have string values.
- * @returns {Array} Returns an array of arrays where each
- *  nested array will have the objects key stored in element 0 and
- *  the value stored in element 1.
- * @see atropa.objects.sort
+ * Throws an error, <code>String.prototype.localeCompare</code> is not 
+ *  standardized.
+ * 
+ *  Yes, localeCompare is in the standard but, at this time the actual
+ *  comparison is implementation dependant. This means that "alphabetical order"
+ *  can be different on different platforms. What I found was that in node the
+ *  array of <code>['a','Z','A','z']</code> would be sorted to
+ *  <code>['A','Z','a','z"]</code>, while on
+ *  firefox it would be sorted to <code>['a','A','z','Z']</code>. Who knows if
+ *  another implementor would sort it <code>['A','a','Z','z']</code>?
+ * 
+ * In order to provide a reliable implementation I would have to create my own
+ *  implementation of <code>String.prototype.localeCompare</code> and that's
+ *  just too much work for me to do alone.
+ * @throws {Error} "String.prototype.localeCompare is not standardized"
  */
-atropa.objects.sortValuesAlphabetically = function sortValuesAlphabetically(
-    obj
-) {
+atropa.objects.sortValuesAlphabetically = function sortValuesAlphabetically() {
     "use strict";
-    function sortFn(a, b) {
-        return (a.localeCompare(b));
-    }
-    return atropa.objects.sortValues(obj, sortFn);
+    throw new Error("String.prototype.localeCompare is not standardized");
 };
 /**
  * Sorts an object by its properties numerically.
@@ -291,35 +281,26 @@ atropa.objects.sortPropertiesNumerically = function sortPropertiesNumerically(
     return atropa.objects.sortProperties(obj, sortFn);
 };
 /**
- * Sorts an object by its properties lexicographically.
- * @author <a href="mailto:matthewkastor@gmail.com">
- *  Matthew Christopher Kastor-Inare III </a><br />
- *  ☭ Hial Atropa!! ☭
- * @version 20130120
- * @example
- *  var wordsCounted;
- *  wordsCounted = {
- *      "Document A" : "2",
- *      "Document Z" : "1",
- *      "Document M" : "3"
- *  };
- *  console.log( atropa.objects.sortPropertiesAlphabetically(wordsCounted) );
- *  
- *  // logs: [["Document A", "2"], ["Document M", "3"], ["Document Z", "1"]]
- * @param {Object} obj A simple object where the properties
- *  all have string values.
- * @returns {Array} Returns an array of arrays where each
- *  nested array will have the objects key stored in element 0 and
- *  the value stored in element 1.
- * @see atropa.objects.sort
+ * Throws an error, <code>String.prototype.localeCompare</code> is not 
+ *  standardized.
+ * 
+ *  Yes, localeCompare is in the standard but, at this time the actual
+ *  comparison is implementation dependant. This means that "alphabetical order"
+ *  can be different on different platforms. What I found was that in node the
+ *  array of <code>['a','Z','A','z']</code> would be sorted to
+ *  <code>['A','Z','a','z"]</code>, while on
+ *  firefox it would be sorted to <code>['a','A','z','Z']</code>. Who knows if
+ *  another implementor would sort it <code>['A','a','Z','z']</code>?
+ * 
+ * In order to provide a reliable implementation I would have to create my own
+ *  implementation of <code>String.prototype.localeCompare</code> and that's
+ *  just too much work for me to do alone.
+ * @throws {Error} "String.prototype.localeCompare is not standardized"
  */
 atropa.objects.sortPropertiesAlphabetically = 
 function sortPropertiesAlphabetically(obj) {
     "use strict";
-    function sortFn(a, b) {
-        return (a.localeCompare(b));
-    }
-    return atropa.objects.sortProperties(obj, sortFn);
+    throw new Error("String.prototype.localeCompare is not standardized");
 };
 
 

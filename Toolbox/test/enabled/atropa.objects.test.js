@@ -138,7 +138,7 @@ describe("atropa.objects", function() {
         function x () {
             atropa.objects.sortValuesAlphabetically();
         }
-        it("must sort an objects properties by values lexicographically",
+        it("throws an error",
             function () {
                 expect(x).toThrow("String.prototype.localeCompare is not standardized");
             }
@@ -163,18 +163,12 @@ describe("atropa.objects", function() {
     });
     
     describe('sortPropertiesAlphabetically', function () {
-        it("must sort an objects properties lexicographically",
+        function x () {
+            atropa.objects.sortPropertiesAlphabetically();
+        }
+        it("throws an error",
             function () {
-                var wordsCounted = {
-                    "Document A" : "2",
-                    "Document Z" : "1",
-                    "Document M" : "3"
-                };
-                expect(
-                    atropa.objects.sortPropertiesAlphabetically(wordsCounted)
-                ).toEqual(
-                    [["Document A", "2"], ["Document M", "3"], ["Document Z", "1"]]
-                );
+                expect(x).toThrow("String.prototype.localeCompare is not standardized");
             }
         );
     });
