@@ -235,10 +235,10 @@ describe('atropa.arrays', function () {
     describe('sortAlphabetically', function () {
         it('sorts arrays composed of string elements alphabetically',
             function () {
-                expect(
+                expect(function () {
                     aa.sortAlphabetically(
                         ['Z','a', '1', '2', '10', 'A', 'z'])
-                ).toEqual(["1", "10", "2", "a", "A", "z", "Z"]);
+                }).toThrow("String.prototype.localeCompare is not standardized");
             }
         );
     });
