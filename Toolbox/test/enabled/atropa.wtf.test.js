@@ -118,16 +118,15 @@ describe("atropa.wtf", function() {
                 });
             });
         } catch (e) {
-            describe('class is not supported in this environment', function () {
+            describe('class is not supported in this environment', function () {    function x () {
+                    try {
+                        atropa.wtf.htmlElement('I am the bestest poet ever.');
+                    } catch (e) {
+                        return e;
+                    }
+                }
                 it('must throw "[...] is not supported in this environment"',
                     function () {
-                        function x () {
-                            try {
-                                atropa.wtf.htmlElement('I am the bestest poet ever.');
-                            } catch (e) {
-                                return e;
-                            }
-                        }
                         expect(x()).toMatch(/is not supported in this environment/);
                     }
                 );
