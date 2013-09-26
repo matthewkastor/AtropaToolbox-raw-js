@@ -143,11 +143,11 @@ describe('atropa.CookieMonster', function () {
         });
     } catch (e) {
         describe('class is not supported in this environment', function () {
+            function x () {
+                return new atropa.CookieMonster();
+            }
             it('must throw if class is not supported in this environment',
                 function () {
-                    function x () {
-                        return new atropa.CookieMonster();
-                    }
                     expect(x).toThrow();
                 }
             );
