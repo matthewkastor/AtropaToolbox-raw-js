@@ -1,5 +1,7 @@
 logs/
 RedirectToLocalhost.html
+*npm-debug.log
+
 ############
 ## Windows
 ############
