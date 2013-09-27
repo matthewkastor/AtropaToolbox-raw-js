@@ -27,8 +27,7 @@
                 }
             });
             return supported;
-        },
-        'atropa.Requester class is not supported in this environment'
+        }
     );
 }());
 

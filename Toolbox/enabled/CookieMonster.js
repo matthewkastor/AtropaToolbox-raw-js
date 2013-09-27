@@ -25,8 +25,7 @@ atropa.requires(
             }
         });
         return supported;
-    },
-    'atropa.CookieMonster class is not supported in this environment'
+    }
 );
 
 /**

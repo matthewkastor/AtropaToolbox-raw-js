@@ -52,7 +52,7 @@ describe("atropa.removeNodeByReference", function() {
             }
             it('it must throw an error',
                 function () {
-                    expect(x).toThrow();
+                    expect(x).toThrow('The atropa.removeNodeByReference class is unsupported in this environment.');
                 }
             );
             it('must set atropa.data.removeNodeByReference.support to ' +

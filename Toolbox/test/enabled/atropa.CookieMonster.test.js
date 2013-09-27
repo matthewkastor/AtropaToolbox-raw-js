@@ -148,7 +148,7 @@ describe('atropa.CookieMonster', function () {
             }
             it('must throw if class is not supported in this environment',
                 function () {
-                    expect(x).toThrow();
+                    expect(x).toThrow('The atropa.CookieMonster class is unsupported in this environment.');
                 }
             );
             it('must set atropa.data.CookieMonster.support to "unsupported"',

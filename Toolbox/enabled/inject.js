@@ -20,10 +20,7 @@ atropa.requires(
             return false;
         }
         return true;
-    },
-    'The atropa.inject class requires the window object present in web ' +
-        'browsers in order to be useful. atropa.inject is not supported in ' +
-        'this environment'
+    }
 );
 
 /**

@@ -28,8 +28,7 @@
                 }
             });
             return supported;
-        },
-        'atropa.xpath class is not supported in this environment'
+        }
     );
 }());
 

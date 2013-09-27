@@ -27,8 +27,7 @@ atropa.requires(
             }
         });
         return supported;
-    },
-    'atropa.Babbler class is not supported in this environment'
+    }
 );
 
 /**

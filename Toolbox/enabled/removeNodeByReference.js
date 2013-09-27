@@ -19,10 +19,7 @@ atropa.requires(
             return false;
         }
         return true;
-    },
-    'atropa.removeNodeByReference requires the window object present in web ' +
-        'browsers in order to be useful. This function is not supported in ' +
-        'this environment'
+    }
 );
 
 /**

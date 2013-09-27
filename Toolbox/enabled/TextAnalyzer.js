@@ -29,8 +29,7 @@
                 }
             });
             return supported;
-        },
-        'atropa.TextAnalyzer class is not supported in this environment'
+        }
     );
 }());
 

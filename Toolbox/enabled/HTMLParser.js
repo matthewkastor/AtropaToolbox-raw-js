@@ -26,8 +26,7 @@ atropa.requires(
             }
         });
         return supported;
-    },
-    'atropa.HTMLParser class is not supported in this environment'
+    }
 );
 
 /**

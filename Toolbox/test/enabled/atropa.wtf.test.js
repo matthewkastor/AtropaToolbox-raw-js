@@ -118,16 +118,13 @@ describe("atropa.wtf", function() {
                 });
             });
         } catch (e) {
-            describe('class is not supported in this environment', function () {    function x () {
-                    try {
-                        atropa.wtf.htmlElement('I am the bestest poet ever.');
-                    } catch (e) {
-                        return e;
-                    }
+            describe('class is not supported in this environment', function () {
+                function x () {
+                    atropa.wtf.htmlElement('I am the bestest poet ever.');
                 }
                 it('must throw "[...] is not supported in this environment"',
                     function () {
-                        expect(x()).toMatch(/is not supported in this environment/);
+                        expect(x).toThrow('The atropa.wtfHtmlElement class is unsupported in this environment.');
                     }
                 );
                 it('must set atropa.data.wtfHtmlElement.support to "unsupported"',

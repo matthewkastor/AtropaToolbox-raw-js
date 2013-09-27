@@ -122,15 +122,11 @@ describe("atropa.xpath", function() {
             function getThrowCheck(fn) {
                 return function () {
                     function x () {
-                        try {
-                            atropa.xpath[fn]();
-                        } catch (e) {
-                            return e;
-                        }
+                        atropa.xpath[fn]();
                     }
                     it('must throw "[...] is not supported in this environment"',
                         function () {
-                            expect(x()).toMatch(/is not supported in this environment/);
+                            expect(x).toThrow('The atropa.xpath class is unsupported in this environment.')
                         }
                     );
                 };

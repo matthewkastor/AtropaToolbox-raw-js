@@ -104,7 +104,7 @@ describe('atropa.HTMLParser', function () {
             }
             it('must throw if class is not supported in this environment',
                 function () {
-                    expect(x).toThrow();
+                    expect(x).toThrow('The atropa.HTMLParser class is unsupported in this environment.');
                 }
             );
             it('must set atropa.data.HTMLParser.support to "unsupported"',

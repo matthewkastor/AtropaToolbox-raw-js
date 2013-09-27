@@ -30,8 +30,7 @@
                 }
             });
             return supported;
-        },
-        'atropa.wtf class is not supported in this environment'
+        }
     );
 }());
 
@@ -50,8 +49,7 @@
                 }
             });
             return supported;
-        },
-        'atropa.wtf class is not supported in this environment'
+        }
     );
 }());
 

@@ -75,12 +75,8 @@ atropa.requires = function (className, requirementFn, errorMessage) {
             if(typeof requirementFn !== 'function') {
                 requirementFn = false;
             }
-            
-            if(typeof errorMessage !== 'string') {
-                errorMessage = 'The atropa.' + className +
+            errorMessage = errorMessage || 'The atropa.' + className +
                     ' class is unsupported in this environment.';
-            }
-            
             try {
                 test = requirementFn();
             } catch (e) {

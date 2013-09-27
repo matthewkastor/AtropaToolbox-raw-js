@@ -451,7 +451,7 @@ describe("atropa.inject", function() {
             }
             it('it must throw an error',
                 function () {
-                    expect(x).toThrow();
+                    expect(x).toThrow('The atropa.inject class is unsupported in this environment.');
                 }
             );
             it('must set atropa.data.inject.support to "unsupported"',
