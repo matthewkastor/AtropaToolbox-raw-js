@@ -86,12 +86,8 @@ atropa.requires = function (className, requirementFn, errorMessage) {
             if(typeof requirementFn !== 'function') {
                 requirementFn = false;
             }
-            
-            if(typeof errorMessage !== 'string') {
-                errorMessage = 'The atropa.' + className +
+            errorMessage = errorMessage || 'The atropa.' + className +
                     ' class is unsupported in this environment.';
-            }
-            
             try {
                 test = requirementFn();
             } catch (e) {
@@ -1091,8 +1087,7 @@ atropa.requires(
             }
         });
         return supported;
-    },
-    'atropa.Babbler class is not supported in this environment'
+    }
 );
 
 /**
@@ -1367,8 +1362,7 @@ atropa.requires(
             }
         });
         return supported;
-    },
-    'atropa.CookieMonster class is not supported in this environment'
+    }
 );
 
 /**
@@ -1684,8 +1678,7 @@ atropa.requires(
             }
         });
         return supported;
-    },
-    'atropa.CreateHtmlDocumentsFromXmlhttp class is not supported in this environment'
+    }
 );
 
 /**
@@ -1887,8 +1880,7 @@ atropa.requires(
             }
         });
         return supported;
-    },
-    'atropa.HTMLParser class is not supported in this environment'
+    }
 );
 
 /**
@@ -2000,10 +1992,7 @@ atropa.requires(
             return false;
         }
         return true;
-    },
-    'The atropa.inject class requires the window object present in web ' +
-        'browsers in order to be useful. atropa.inject is not supported in ' +
-        'this environment'
+    }
 );
 
 /**
@@ -2889,10 +2878,7 @@ atropa.requires(
             return false;
         }
         return true;
-    },
-    'atropa.removeNodeByReference requires the window object present in web ' +
-        'browsers in order to be useful. This function is not supported in ' +
-        'this environment'
+    }
 );
 
 /**
@@ -2932,8 +2918,7 @@ atropa.removeNodeByReference = function (elementReference) {
                 }
             });
             return supported;
-        },
-        'atropa.Requester class is not supported in this environment'
+        }
     );
 }());
 
@@ -2972,6 +2957,7 @@ atropa.removeNodeByReference = function (elementReference) {
  */
 atropa.Requester = function Requester() {
     "use strict";
+    atropa.supportCheck('Requester');
     var expArgTypes,
         checkRequest,
         request;
@@ -3096,8 +3082,6 @@ atropa.Requester = function Requester() {
             }
         }, this.timeout);
     };
-    
-    atropa.supportCheck('Requester');
 };
 
 
@@ -3420,8 +3404,7 @@ atropa.string.escapeCdata = function escapeCdata(text) {
                 }
             });
             return supported;
-        },
-        'atropa.TextAnalyzer class is not supported in this environment'
+        }
     );
 }());
 
@@ -3693,8 +3676,7 @@ atropa.waitFor.element = function (
                 }
             });
             return supported;
-        },
-        'atropa.wtf class is not supported in this environment'
+        }
     );
 }());
 
@@ -3713,8 +3695,7 @@ atropa.waitFor.element = function (
                 }
             });
             return supported;
-        },
-        'atropa.wtf class is not supported in this environment'
+        }
     );
 }());
 
@@ -4320,8 +4301,7 @@ atropa.wtf.htmlElement = function (elementReference) {
                 }
             });
             return supported;
-        },
-        'atropa.xpath class is not supported in this environment'
+        }
     );
 }());
 
