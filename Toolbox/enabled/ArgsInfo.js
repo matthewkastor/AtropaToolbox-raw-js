@@ -93,7 +93,7 @@ atropa.ArgsInfo = function ArgsInfo() {
      * 
      * // You may use as many named arrays as you wish and checkArgTypes will
      * // test for a match to at least one of the provided named arrays.
-     * @throws {atropa.InvalidArgumentTypesError} Throws an error if the
+     * @throws {atropa.customErrors.InvalidArgumentTypesError} Throws an error if the
      *  typesObj can not be used to set the expected argument types.
      */
     this.setExpectedArgTypes = function setExpectedArgTypes(typesObj) {
@@ -113,7 +113,7 @@ atropa.ArgsInfo = function ArgsInfo() {
         }
         
         if(error) {
-            throw new atropa.InvalidArgumentTypesError(
+            throw new atropa.customErrors.InvalidArgumentTypesError(
                 'typesObj is expected to be of the form: var typesObj = ' +
                 '{ "namedArgumentTypesArray" : ' +
                 '    ["string", "function", "number"], ' +
@@ -181,14 +181,14 @@ atropa.ArgsInfo = function ArgsInfo() {
      * @param {arguments} args An arguments object
      * @returns {String} The user assigned key which matches the
      * arguments supplied, or throws an error.
-     * @throws {atropa.InvalidArgumentTypesError} Throws an error if no matching
+     * @throws {atropa.customErrors.InvalidArgumentTypesError} Throws an error if no matching
      *  pattern of argument types can be found for <code>args</code>
      * @see atropa.ArgsInfo#setExpectedArgTypes
      */
     this.checkArgTypes = function checkArgTypes(args) {
         var expectedTypes;
         if (Object.keys(expectedArgTypes).length < 1) {
-            throw new atropa.InvalidArgumentTypesError(
+            throw new atropa.customErrors.InvalidArgumentTypesError(
                 'Expected argument types is not set. Use ' +
                 'setExpectedArgTypes(typesObj) to set. typesObj is an ' +
                 'object whose properties are arrays of strings representing ' +
@@ -209,7 +209,7 @@ atropa.ArgsInfo = function ArgsInfo() {
                 }
             }
         }
-        throw new atropa.InvalidArgumentTypesError(
+        throw new atropa.customErrors.InvalidArgumentTypesError(
             'invalid argument type @ atropa.ArgsInfo.checkArgTypes');
     };
 };

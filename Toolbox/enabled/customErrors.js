@@ -10,7 +10,15 @@
 */
 /*global atropa */
 // end header
-
+/**
+ * Container for custom Errors.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @namespace Container for custom Errors.
+ * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.customErrors">tests</a>
+ */
+atropa.customErrors = {};
 
 /**
  * Invalid Argument Types Error
@@ -22,28 +30,27 @@
  * @param {String} message Optional. The error message to send. Defaults to
  *  <code>InvalidArgumentTypesError</code>
  * @returns {Error} Returns an instance of the InvalidArgumentTypesError
- * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.customErrors">tests</a>
  */
-atropa.InvalidArgumentTypesError = function InvalidArgumentTypesError(message) {
+atropa.customErrors.InvalidArgumentTypesError = function InvalidArgumentTypesError(message) {
     'use strict';
     /**
      * The name of the error. Tells the user what kind of custom
      * error has been thrown.
-     * @fieldOf atropa.InvalidArgumentTypesError#
+     * @fieldOf atropa.customErrors.InvalidArgumentTypesError#
      * @type {String}
-     * @default "atropa.InvalidArgumentTypesError"
+     * @default "atropa.customErrors.InvalidArgumentTypesError"
      */
-    this.name = "atropa.InvalidArgumentTypesError";
+    this.name = "atropa.customErrors.InvalidArgumentTypesError";
     /**
      * The error message to send.
-     * @fieldOf atropa.InvalidArgumentTypesError#
+     * @fieldOf atropa.customErrors.InvalidArgumentTypesError#
      * @type {String}
      * @default "InvalidArgumentTypesError"
      */
     this.message = message || "InvalidArgumentTypesError";
 };
-atropa.InvalidArgumentTypesError.prototype = new Error();
-atropa.InvalidArgumentTypesError.prototype.constructor = 
-    atropa.InvalidArgumentTypesError;
+atropa.customErrors.InvalidArgumentTypesError.prototype = new Error();
+atropa.customErrors.InvalidArgumentTypesError.prototype.constructor = 
+    atropa.customErrors.InvalidArgumentTypesError;
 
 

@@ -12,18 +12,18 @@
 */
 // end header
 
-describe('atropa.InvalidArgumentTypesError', function () {
-    var errInstance = new atropa.InvalidArgumentTypesError();
+describe('atropa.customErrors.InvalidArgumentTypesError', function () {
+    var errInstance = new atropa.customErrors.InvalidArgumentTypesError();
     it('must exist', function () {
-        expect(atropa.InvalidArgumentTypesError).not.toEqual(undefined);
+        expect(atropa.customErrors.InvalidArgumentTypesError).not.toEqual(undefined);
     });
     
-    it('has a default name of "atropa.InvalidArgumentTypesError"',
+    it('has a default name of "atropa.customErrors.InvalidArgumentTypesError"',
         function () {
             expect(
                 errInstance.name
             ).toEqual(
-                'atropa.InvalidArgumentTypesError'
+                'atropa.customErrors.InvalidArgumentTypesError'
             );
         }
     );
@@ -33,7 +33,7 @@ describe('atropa.InvalidArgumentTypesError', function () {
     });
     
     it('allows the user to specify the error message', function() {
-        var errInstance = new atropa.InvalidArgumentTypesError(
+        var errInstance = new atropa.customErrors.InvalidArgumentTypesError(
             'custom message'
         );
         expect(errInstance.message).toEqual('custom message');
