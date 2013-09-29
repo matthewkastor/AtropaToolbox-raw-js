@@ -202,7 +202,7 @@ atropa.ArgsInfo = function ArgsInfo() {
      * 
      * // You may use as many named arrays as you wish and checkArgTypes will
      * // test for a match to at least one of the provided named arrays.
-     * @throws {atropa.InvalidArgumentTypesError} Throws an error if the
+     * @throws {atropa.customErrors.InvalidArgumentTypesError} Throws an error if the
      *  typesObj can not be used to set the expected argument types.
      */
     this.setExpectedArgTypes = function setExpectedArgTypes(typesObj) {
@@ -222,7 +222,7 @@ atropa.ArgsInfo = function ArgsInfo() {
         }
         
         if(error) {
-            throw new atropa.InvalidArgumentTypesError(
+            throw new atropa.customErrors.InvalidArgumentTypesError(
                 'typesObj is expected to be of the form: var typesObj = ' +
                 '{ "namedArgumentTypesArray" : ' +
                 '    ["string", "function", "number"], ' +
@@ -290,14 +290,14 @@ atropa.ArgsInfo = function ArgsInfo() {
      * @param {arguments} args An arguments object
      * @returns {String} The user assigned key which matches the
      * arguments supplied, or throws an error.
-     * @throws {atropa.InvalidArgumentTypesError} Throws an error if no matching
+     * @throws {atropa.customErrors.InvalidArgumentTypesError} Throws an error if no matching
      *  pattern of argument types can be found for <code>args</code>
      * @see atropa.ArgsInfo#setExpectedArgTypes
      */
     this.checkArgTypes = function checkArgTypes(args) {
         var expectedTypes;
         if (Object.keys(expectedArgTypes).length < 1) {
-            throw new atropa.InvalidArgumentTypesError(
+            throw new atropa.customErrors.InvalidArgumentTypesError(
                 'Expected argument types is not set. Use ' +
                 'setExpectedArgTypes(typesObj) to set. typesObj is an ' +
                 'object whose properties are arrays of strings representing ' +
@@ -318,7 +318,7 @@ atropa.ArgsInfo = function ArgsInfo() {
                 }
             }
         }
-        throw new atropa.InvalidArgumentTypesError(
+        throw new atropa.customErrors.InvalidArgumentTypesError(
             'invalid argument type @ atropa.ArgsInfo.checkArgTypes');
     };
 };
@@ -1830,6 +1830,16 @@ atropa.CreateHtmlDocumentsFromXmlhttp = function CreateHtmlDocumentsFromXmlhttp(
 
 
 /**
+ * Container for custom Errors.
+ * @author <a href="mailto:matthewkastor@gmail.com">
+ *  Matthew Christopher Kastor-Inare III </a><br />
+ *  ☭ Hial Atropa!! ☭
+ * @namespace Container for custom Errors.
+ * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.customErrors">tests</a>
+ */
+atropa.customErrors = {};
+
+/**
  * Invalid Argument Types Error
  * @author <a href="mailto:matthewkastor@gmail.com">
  *  Matthew Christopher Kastor-Inare III </a><br />
@@ -1839,29 +1849,28 @@ atropa.CreateHtmlDocumentsFromXmlhttp = function CreateHtmlDocumentsFromXmlhttp(
  * @param {String} message Optional. The error message to send. Defaults to
  *  <code>InvalidArgumentTypesError</code>
  * @returns {Error} Returns an instance of the InvalidArgumentTypesError
- * @see <a href="../../../AtropaToolboxTests.html?spec=atropa.customErrors">tests</a>
  */
-atropa.InvalidArgumentTypesError = function InvalidArgumentTypesError(message) {
+atropa.customErrors.InvalidArgumentTypesError = function InvalidArgumentTypesError(message) {
     'use strict';
     /**
      * The name of the error. Tells the user what kind of custom
      * error has been thrown.
-     * @fieldOf atropa.InvalidArgumentTypesError#
+     * @fieldOf atropa.customErrors.InvalidArgumentTypesError#
      * @type {String}
-     * @default "atropa.InvalidArgumentTypesError"
+     * @default "atropa.customErrors.InvalidArgumentTypesError"
      */
-    this.name = "atropa.InvalidArgumentTypesError";
+    this.name = "atropa.customErrors.InvalidArgumentTypesError";
     /**
      * The error message to send.
-     * @fieldOf atropa.InvalidArgumentTypesError#
+     * @fieldOf atropa.customErrors.InvalidArgumentTypesError#
      * @type {String}
      * @default "InvalidArgumentTypesError"
      */
     this.message = message || "InvalidArgumentTypesError";
 };
-atropa.InvalidArgumentTypesError.prototype = new Error();
-atropa.InvalidArgumentTypesError.prototype.constructor = 
-    atropa.InvalidArgumentTypesError;
+atropa.customErrors.InvalidArgumentTypesError.prototype = new Error();
+atropa.customErrors.InvalidArgumentTypesError.prototype.constructor = 
+    atropa.customErrors.InvalidArgumentTypesError;
 
 
 

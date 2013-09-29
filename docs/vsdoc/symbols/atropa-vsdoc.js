@@ -8,6 +8,7 @@
         /// <summary></summary>
         /// <field name="data" type="">Container for gobal data related to the classes and functions.</field>
         /// <field name="arrays" type="">Utilities for handling arrays.</field>
+        /// <field name="customErrors" type="">Container for custom Errors.</field>
         /// <field name="inject" type="">Contains tools for injecting elements and assemblies.
         /// into the page.</field>
         /// <field name="inquire" type="">Container for functions that test the state of inputs.</field>

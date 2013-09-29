@@ -28,6 +28,7 @@
         /// <summary></summary>
         /// <field name="data" type="">Container for gobal data related to the classes and functions.</field>
         /// <field name="arrays" type="">Utilities for handling arrays.</field>
+        /// <field name="customErrors" type="">Container for custom Errors.</field>
         /// <field name="inject" type="">Contains tools for injecting elements and assemblies.
         /// into the page.</field>
         /// <field name="inquire" type="">Container for functions that test the state of inputs.</field>
@@ -493,6 +494,52 @@
 
 
   
+/* vsdoc for atropa.customErrors */
+
+(function (window) {
+    window.atropa = window.atropa || {};
+
+    window.atropa.customErrors = {
+        /// <summary></summary>
+        /// <returns type="atropa.customErrors"/>
+                
+    };
+
+    var $x = window.atropa.customErrors;
+    $x.__namespace = "true";
+    $x.__typeName = "atropa.customErrors";
+})(this);
+
+  
+
+  
+  
+/* vsdoc for atropa.customErrors.InvalidArgumentTypesError */
+
+(function (window) {
+    window.atropa.customErrors = window.atropa.customErrors || {};
+
+    window.atropa.customErrors.InvalidArgumentTypesError = function(message){
+        /// <summary></summary>
+        /// <param name="message" type="String">Optional. The error message to send. Defaults to
+        ///  &lt;code&gt;InvalidArgumentTypesError&lt;/code&gt;</param>
+        /// <field name="name" type="">The name of the error. Tells the user what kind of custom
+        /// error has been thrown.</field>
+        /// <field name="message" type="">The error message to send.</field>
+        /// <returns type="atropa.customErrors.InvalidArgumentTypesError"/>
+    };
+
+    var $x = window.atropa.customErrors.InvalidArgumentTypesError;
+    $x.prototype = {
+                
+    };
+
+    $x.__class = "true";
+    $x.__typeName = "atropa.customErrors.InvalidArgumentTypesError";
+})(this);
+
+
+  
 /* vsdoc for atropa.data */
 
 (function (window) {
@@ -677,33 +724,6 @@
 })(this);
 
   
-
-  
-  
-/* vsdoc for atropa.InvalidArgumentTypesError */
-
-(function (window) {
-    window.atropa = window.atropa || {};
-
-    window.atropa.InvalidArgumentTypesError = function(message){
-        /// <summary></summary>
-        /// <param name="message" type="String">Optional. The error message to send. Defaults to
-        ///  &lt;code&gt;InvalidArgumentTypesError&lt;/code&gt;</param>
-        /// <field name="name" type="">The name of the error. Tells the user what kind of custom
-        /// error has been thrown.</field>
-        /// <field name="message" type="">The error message to send.</field>
-        /// <returns type="atropa.InvalidArgumentTypesError"/>
-    };
-
-    var $x = window.atropa.InvalidArgumentTypesError;
-    $x.prototype = {
-                
-    };
-
-    $x.__class = "true";
-    $x.__typeName = "atropa.InvalidArgumentTypesError";
-})(this);
-
 
   
 /* vsdoc for atropa.objects */
