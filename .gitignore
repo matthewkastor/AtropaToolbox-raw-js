@@ -1,6 +1,7 @@
 logs/
-RedirectToLocalhost.html
+node_modules/
 *npm-debug.log
+dev/hidden/
 
 ############
 ## Windows

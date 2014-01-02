@@ -1,36 +1,67 @@
 {
   "name": "atropa-toolbox",
-  "version": "2013.9.27",
-  "main": "./src/AtropaToolbox.min.js",
+  "version": "2013.12.31",
+  "main": "./src/atropa-toolbox.js",
   "description": "The Glorious AtropaToolbox's JavaScript bits",
-  "keywords": [
-    "atropa"
-  ],
-  "homepage": "https://github.com/matthewkastor/AtropaToolbox-raw-js/",
-  "bugs": "https://github.com/matthewkastor/AtropaToolbox-raw-js/issues",
   "author": {
     "name": "Matthew Kastor",
     "email": "matthewkastor@gmail.com",
     "url": "https://plus.google.com/100898583798552211130"
   },
+  "homepage": "https://github.com/matthewkastor/AtropaToolbox-raw-js/",
+  "bugs": "https://github.com/matthewkastor/AtropaToolbox-raw-js/issues",
   "repository": {
     "type": "git",
     "url": "git://github.com/matthewkastor/AtropaToolbox-raw-js.git"
   },
-  "engines": {
-    "node": ">=0.8.14"
+  "license": "gpl-3.0",
+  "scripts": {
+    "start": "node dev/server.js",
+    "lint": "atropa-jslint ./src/atropa-toolbox.js",
+    "srcFormat": "atropa-jsformatter ./src/atropa-toolbox.js ./src/atropa-toolbox.js",
+    "buildTestsWebpage": "node dev/testsWebpageGenerator.js",
+    "buildBrowserModule": "node dev/browserify.js",
+    "generateReport": "plato --title \"Analysis of\" --recurse -d report src",
+    "buildDocs": "jsdoc-toolkit -v -d=./docs/jsdoc/ -r -s node_modules/atropa-header/src/ node_modules/atropa-ArgsInfo/src/ node_modules/atropa-arrays/src/ node_modules/atropa-Babbler/src/ node_modules/atropa-CookieMonster/src/ node_modules/atropa-CreateHtmlDocumentsFromXmlhttp/src/ node_modules/atropa-customErrors/src/ node_modules/atropa-HTMLParser/src/ node_modules/atropa-inject/src/ node_modules/atropa-inquire/src/ node_modules/atropa-objects/src/ node_modules/atropa-random/src/ node_modules/atropa-regex/src/ node_modules/atropa-removeNodeByReference/src/ node_modules/atropa-Requester/src/ node_modules/atropa-SerialActor/src/ node_modules/atropa-setAsOptionalArg/src/ node_modules/atropa-string/src/ node_modules/atropa-TextAnalyzer/src/ node_modules/atropa-url/src/ node_modules/atropa-waitFor/src/ node_modules/atropa-wtf/src/ node_modules/atropa-xpath/src/ src/",
+    "buildVsdocs": "jsdoc-toolkit -v -d=./docs/vsdoc/ -t=./dev/vsdoc/ -r -s node_modules/atropa-header/src/ node_modules/atropa-ArgsInfo/src/ node_modules/atropa-arrays/src/ node_modules/atropa-Babbler/src/ node_modules/atropa-CookieMonster/src/ node_modules/atropa-CreateHtmlDocumentsFromXmlhttp/src/ node_modules/atropa-customErrors/src/ node_modules/atropa-HTMLParser/src/ node_modules/atropa-inject/src/ node_modules/atropa-inquire/src/ node_modules/atropa-objects/src/ node_modules/atropa-random/src/ node_modules/atropa-regex/src/ node_modules/atropa-removeNodeByReference/src/ node_modules/atropa-Requester/src/ node_modules/atropa-SerialActor/src/ node_modules/atropa-setAsOptionalArg/src/ node_modules/atropa-string/src/ node_modules/atropa-TextAnalyzer/src/ node_modules/atropa-url/src/ node_modules/atropa-waitFor/src/ node_modules/atropa-wtf/src/ node_modules/atropa-xpath/src/ src/",
+    "test": "jasmine-node specs/ node_modules/atropa-ArgsInfo/specs/ node_modules/atropa-arrays/specs/ node_modules/atropa-Babbler/specs/ node_modules/atropa-CookieMonster/specs/ node_modules/atropa-CreateHtmlDocumentsFromXmlhttp/specs/ node_modules/atropa-customErrors/specs/ node_modules/atropa-header/specs/ node_modules/atropa-HTMLParser/specs/ node_modules/atropa-inject/specs/ node_modules/atropa-inquire/specs/ node_modules/atropa-objects/specs/ node_modules/atropa-random/specs/ node_modules/atropa-regex/specs/ node_modules/atropa-removeNodeByReference/specs/ node_modules/atropa-Requester/specs/ node_modules/atropa-SerialActor/specs/ node_modules/atropa-setAsOptionalArg/specs/ node_modules/atropa-string/specs/ node_modules/atropa-TextAnalyzer/specs/ node_modules/atropa-url/specs/ node_modules/atropa-waitFor/specs/ node_modules/atropa-wtf/specs/ node_modules/atropa-xpath/specs/"
+  },
+  "keywords": [
+    "atropa"
+  ],
+  "devDependencies": {
+    "atropa-jsformatter": ">=0.1.2",
+    "atropa-jslint": ">=0.1.2",
+    "atropa-server": "git+https://github.com/matthewkastor/atropa-server.git#master",
+    "browserify": ">=2.29.1",
+    "jasmine-node": ">=1.11.0",
+    "jsdoc-toolkit": "git+https://github.com/matthewkastor/node-jsdoc-toolkit.git#fix-tests",
+    "atropa-jasmine-spec-runner-generator-html": ">=0.1.0-2",
+    "plato": ">=0.6.2"
   },
   "dependencies": {
-    "atropa-cmd": ">=0.1.3-2",
-    "atropa-jasmine-spec-runner-generator-html": ">=0.1.0-2",
-    "atropa-jslint": ">=0.0.9-2",
-    "atropa-mustache-comb": ">=0.1.7",
-    "atropa-server": ">=0.1.1-1",
-    "escodegen": ">=0.0.25",
-    "esprima": ">=1.0.3",
-    "jake": ">=0.6.10",
-    "jasmine-node": ">=1.11.0",
-    "plato": ">=0.6.1",
-    "wrench": ">=1.5.1"
+    "atropa-header": "git+https://github.com/matthewkastor/atropa-header.git#master",
+    "atropa-ArgsInfo": "git+https://github.com/matthewkastor/atropa-ArgsInfo.git#master",
+    "atropa-arrays": ">=2013.9.30-2453",
+    "atropa-Babbler": "git+https://github.com/matthewkastor/atropa-Babbler.git#master",
+    "atropa-CookieMonster": "git+https://github.com/matthewkastor/atropa-CookieMonster.git#master",
+    "atropa-CreateHtmlDocumentsFromXmlhttp": "git+https://github.com/matthewkastor/atropa-CreateHtmlDocumentsFromXmlhttp.git#master",
+    "atropa-customErrors": "git+https://github.com/matthewkastor/atropa-customErrors.git#master",
+    "atropa-HTMLParser": "git+https://github.com/matthewkastor/atropa-HTMLParser.git#master",
+    "atropa-inject": ">=2013.10.13",
+    "atropa-inquire": ">=2013.10.13",
+    "atropa-objects": ">=2013.10.13",
+    "atropa-random": ">=2013.10.13",
+    "atropa-regex": ">=2013.10.13",
+    "atropa-removeNodeByReference": "git+https://github.com/matthewkastor/atropa-removeNodeByReference.git#master",
+    "atropa-Requester": "git+https://github.com/matthewkastor/atropa-Requester.git#master",
+    "atropa-SerialActor": "git+https://github.com/matthewkastor/atropa-SerialActor.git#master",
+    "atropa-setAsOptionalArg": "git+https://github.com/matthewkastor/atropa-setAsOptionalArg.git#master",
+    "atropa-string": ">=2013.10.13",
+    "atropa-TextAnalyzer": "git+https://github.com/matthewkastor/atropa-TextAnalyzer.git#master",
+    "atropa-url": ">=2013.10.13",
+    "atropa-waitFor": "git+https://github.com/matthewkastor/atropa-waitFor.git#master",
+    "atropa-wtf": ">=2013.10.13",
+    "atropa-xpath": ">=2013.10.13"
   }
 }

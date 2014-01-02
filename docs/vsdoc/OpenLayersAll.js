@@ -65,10 +65,6 @@
             ///  &apos;The atropa.&apos; + className + &apos; class is unsupported in this environment.&apos;;</param>
         }, 
         
-        nop: function() {
-            /// <summary></summary>
-        }, 
-        
         removeNodeByReference: function(elementReference) {
             /// <summary>Removes DOM Nodes.</summary>
             /// <param name="elementReference" type="DOM Node">A reference to the DOM Node you want
@@ -102,9 +98,6 @@
 
     window.atropa.ArgsInfo = function(){
         /// <summary></summary>
-        /// <field name="that" type="This">Holds the proper reference to &lt;code&gt;this&lt;/code&gt;
-        /// for private functions.</field>
-        /// <field name="expectedArgTypes" type="Expected Arg Types">Holds the expected argument types object.</field>
         /// <returns type="atropa.ArgsInfo"/>
     };
 
@@ -123,16 +116,6 @@
             /// <param name="args" type="arguments">An arguments object, or anything you want to
             /// check the type of.</param>
             /// <returns type="Array">Returns an array of the types of arguments passed in.</returns>
-        }, 
-        
-        checkArgs: function(expectedTypesArray, args) {
-            /// <summary>Compares the expected arguments types to the
-            /// received arguments types.</summary>
-            /// <param name="expectedTypesArray" type="Array">An array taken from the user
-            /// created argument types object.</param>
-            /// <param name="args" type="arguments">an arguments object.</param>
-            /// <returns type="Boolean">Returns true if the expected types match for type
-            ///  and are in the same order as the received types.</returns>
         }, 
         
         checkArgTypes: function(args) {
@@ -366,7 +349,6 @@
 
     window.atropa.CookieMonster = function(){
         /// <summary></summary>
-        /// <field name="currentCookies" type="Array">This holds the current cookie object array.</field>
         /// <returns type="atropa.CookieMonster"/>
     };
 
@@ -396,15 +378,6 @@
             /// <param name="args" type="Array">Arguments to pass to the callback
             /// function.</param>
             /// <returns type="Array">An array of cookie objects.</returns>
-        }, 
-        
-        getCookieCallback: function(testCookie, args) {
-            /// <summary>Internal callback function used while getting the current
-            /// cookies.</summary>
-            /// <param name="testCookie" type="cookieObj">A cookie object</param>
-            /// <param name="args" type="String">argument used in comparison function</param>
-            /// <returns type="Boolean">If cookie key is exactly equal to the argument
-            /// then the callback returns true.</returns>
         }, 
         
         getCookie: function(whichKey) {
@@ -480,10 +453,6 @@
             /// an HTML DOM Document or false.</param>
             /// <returns type="HTML DOM Document|false">The return value is
             /// given to the callback function.</returns>
-        }, 
-        
-        init: function() {
-            /// <summary></summary>
         }
         
     };
@@ -585,10 +554,6 @@
             /// <param name="htmlstring" type="String">a string of HTML data</param>
             /// <returns type="HTML DOM Document">Resets the doc property of this instance,
             /// loading a new document with the string given.</returns>
-        }, 
-        
-        init: function() {
-            /// <summary></summary>
         }
         
     };
@@ -991,26 +956,16 @@
 
     window.atropa.Requester = function(){
         /// <summary></summary>
-        /// <field name="expArgTypes" type="Expected Arg Types">Container object for the expected argument types
-        /// supplied to this.makeRequest.</field>
         /// <field name="requestHeaders" type="Request Headers Object">Object whose properties and values are header names and values
         ///  respectively.</field>
         /// <field name="timeout" type="Number">Set the timeout value for the request in milliseconds. The request will
         ///  abort after this amount of time has passed.</field>
-        /// <field name="request" type="XMLHttpRequest">XMLHttpRequest object used by Requester.</field>
         /// <returns type="atropa.Requester"/>
     };
 
     var $x = window.atropa.Requester;
     $x.prototype = {
                 
-        checkRequest: function(args) {
-            /// <summary>Used to check the arguments types supplied to this.makeRequest.</summary>
-            /// <param name="args" type="Arguments">An arguments array</param>
-            /// <returns type="Boolean">Returns true if args types match the
-            /// expected types.</returns>
-        }, 
-        
         makeRequest: function(method, url, messageBody, callback) {
             /// <summary>Makes an AJAX request.</summary>
             /// <param name="method" type="String">The HTTP method to be used for this request.</param>
@@ -1066,10 +1021,6 @@
     var $x = window.atropa.SerialActor;
     $x.prototype = {
                 
-        dummyActor: function() {
-            /// <summary>Default actorFunction</summary>
-        }, 
-        
         action: function() {
             /// <summary>The action function is called when the actor is polled and it&apos;s blocked
             ///  state is false. This method should not be set or called manually, set
@@ -1264,10 +1215,6 @@
     var $x = window.atropa.TextAnalyzer;
     $x.prototype = {
                 
-        construct: function() {
-            /// <summary>Sets the basic properties of the text analyzer.</summary>
-        }, 
-        
         getIndex: function() {
             /// <summary>Gets an index of the text.</summary>
             /// <returns type="Array">Returns an array of unique values

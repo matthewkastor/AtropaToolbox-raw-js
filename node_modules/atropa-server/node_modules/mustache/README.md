@@ -102,7 +102,7 @@ The behavior of the section is determined by the value of the key.
 
 #### False Values or Empty Lists
 
-If the `person` key does not exist, or exists and has a value of `null`, `undefined`, or `false`, or is an empty list, the block will not be rendered.
+If the `person` key does not exist, or exists and has a value of `null`, `undefined`, `false`, `0`, or `NaN`, or is an empty string or an empty list, the block will not be rendered.
 
 View:
 
@@ -348,18 +348,23 @@ These may be built using [Rake](http://rake.rubyforge.org/) and one of the follo
     $ rake jquery
     $ rake mootools
     $ rake dojo
-    $ rake yui
+    $ rake yui3
     $ rake qooxdoo
 
 ## Testing
 
-The mustache.js test suite uses the [vows](http://vowsjs.org/) testing framework. In order to run the tests you'll need to install [node](http://nodejs.org/). Once that's done you can install vows using [npm](http://npmjs.org/).
+The mustache.js test suite uses the [mocha](http://visionmedia.github.com/mocha/) testing framework. In order to run the tests you'll need to install [node](http://nodejs.org/). Once that's done you can install mocha using [npm](http://npmjs.org/).
 
-    $ npm install -g vows
+    $ npm install -g mocha
+
+You also need to install the sub module containing [Mustache specifications](http://github.com/mustache/spec) in the project root.
+
+    $ git submodule init
+    $ git submodule update
 
 Then run the tests.
 
-    $ vows --spec
+    $ mocha test
 
 The test suite consists of both unit and integration tests. If a template isn't rendering correctly for you, you can make a test for it by doing the following:
 
@@ -373,7 +378,7 @@ The test suite consists of both unit and integration tests. If a template isn't 
 
 Then, you can run the test with:
 
-    $ TEST=mytest vows test/render_test.js
+    $ TEST=mytest mocha test/render-test.js
 
 ## Thanks
 

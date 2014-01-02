@@ -34,10 +34,6 @@
     var $x = window.atropa.SerialActor;
     $x.prototype = {
                 
-        dummyActor: function() {
-            /// <summary>Default actorFunction</summary>
-        }, 
-        
         action: function() {
             /// <summary>The action function is called when the actor is polled and it&apos;s blocked
             ///  state is false. This method should not be set or called manually, set

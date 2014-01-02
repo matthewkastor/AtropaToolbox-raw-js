@@ -17,10 +17,6 @@
     var $x = window.atropa.TextAnalyzer;
     $x.prototype = {
                 
-        construct: function() {
-            /// <summary>Sets the basic properties of the text analyzer.</summary>
-        }, 
-        
         getIndex: function() {
             /// <summary>Gets an index of the text.</summary>
             /// <returns type="Array">Returns an array of unique values

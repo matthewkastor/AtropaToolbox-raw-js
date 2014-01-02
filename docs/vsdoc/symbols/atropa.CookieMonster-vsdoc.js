@@ -6,7 +6,6 @@
 
     window.atropa.CookieMonster = function(){
         /// <summary></summary>
-        /// <field name="currentCookies" type="Array">This holds the current cookie object array.</field>
         /// <returns type="atropa.CookieMonster"/>
     };
 
@@ -36,15 +35,6 @@
             /// <param name="args" type="Array">Arguments to pass to the callback
             /// function.</param>
             /// <returns type="Array">An array of cookie objects.</returns>
-        }, 
-        
-        getCookieCallback: function(testCookie, args) {
-            /// <summary>Internal callback function used while getting the current
-            /// cookies.</summary>
-            /// <param name="testCookie" type="cookieObj">A cookie object</param>
-            /// <param name="args" type="String">argument used in comparison function</param>
-            /// <returns type="Boolean">If cookie key is exactly equal to the argument
-            /// then the callback returns true.</returns>
         }, 
         
         getCookie: function(whichKey) {

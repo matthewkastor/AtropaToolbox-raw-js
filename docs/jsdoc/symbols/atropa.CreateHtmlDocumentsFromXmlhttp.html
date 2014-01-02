@@ -2,7 +2,7 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 	<head>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta http-equiv="content-type" content="text/html; charset=utf8" />
 		<meta name="generator" content="JsDoc Toolkit" />
 		
 		<title>JsDoc Reference - atropa.CreateHtmlDocumentsFromXmlhttp</title>
@@ -261,7 +261,7 @@ ul.inheritsList
 				Creates HTML DOM Documents from an XMLHttpRequest object.
 				
 				
-					<br /><i>Defined in: </i> <a href="../symbols/src/src_AtropaToolbox.js.html">AtropaToolbox.js</a>.
+					<br /><i>Defined in: </i> &lt;node_modules/atropa-CreateHtmlDocumentsFromXmlhttp/src/atropa-CreateHtmlDocumentsFromXmlhttp.js&gt;.
 				
 			</p>
 
@@ -335,20 +335,12 @@ ul.inheritsList
 					<tbody>
 					
 						<tr>
-							<td class="attributes">&lt;inner&gt; &nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/atropa.CreateHtmlDocumentsFromXmlhttp.html#-init">init</a></b>()
-								</div>
-								<div class="description"></div>
-							</td>
-						</tr>
-					
-						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/atropa.CreateHtmlDocumentsFromXmlhttp.html#newDocument">newDocument</a></b>(method, url, messageBody, callback)
 								</div>
-								<div class="description">Creates an HTML DOM Document and puts it in the document queue, then executes the callback given.</div>
+								<div class="description">Creates an HTML DOM Document and puts it in the document
+ queue, then executes the callback given.</div>
 							</td>
 						</tr>
 					
@@ -373,13 +365,62 @@ ul.inheritsList
 				</div>
 				
 				<div class="description">
-					Creates HTML DOM Documents from an XMLHttpRequest object. This was tested on Firefox, it doesn't work on google chrome. Your mileage may vary.
-					<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
+					Creates HTML DOM Documents from an XMLHttpRequest object.
+ This was tested on Firefox, it doesn't work on google chrome.
+ Your mileage may vary.
+					<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com">
+ Matthew Christopher Kastor-Inare III </a><br />
+ ☭ Hial Atropa!! ☭.
 				</div>
 				
 				
 				
-				<pre class="code">var method, url, callback, docs;// HTTP Request methodmethod = 'get';// the page to fetch, this page must be accessible// security restrictions may applyurl = 'docs/jsdoc/symbols/atropa.xpath.html';// the callback funtion for when a new document is createdcallback = function newDocumentHandler(docref) {    try {        if (false === docref) {            // if the document could not be created throw an error            throw new Error('atropa.CreateHtmlDocumentsFromXmlhttp ' +                 'Could not create hidden document');        } else {            // if the document could be created we'll try to use it            if(docref.getElementById('index')) {                // if the document could be used then                // do something useful with it.                console.log('success!');            } else {                // if the document can not be used throw an error                throw new Error('atropa.CreateHtmlDocumentsFromXmlhttp ' +                     'could not use the hidden document');            }        }    } catch (e) {        // catching any errors thrown and handle them.    }    // At this point the work with the document is currently finished    // the document will live in the documentQueue in case you need it    // later. This is when you will trigger any function which depends    // on this hidden document having been created.    showDocumentQueue();};function showDocumentQueue() {    console.dir(docs.documentQueue);}// create an instance of the classdocs = new atropa.CreateHtmlDocumentsFromXmlhttp();// try to create a new hidden documentdocs.newDocument(method, url, null, callback);</pre>
+				<pre class="code">var method, url, callback, docs;
+
+// HTTP Request method
+method = 'get';
+
+// the page to fetch, this page must be accessible
+// security restrictions may apply
+url = 'docs/jsdoc/symbols/atropa.xpath.html';
+
+// the callback funtion for when a new document is created
+callback = function newDocumentHandler(docref) {
+    try {
+        if (false === docref) {
+            // if the document could not be created throw an error
+            throw new Error('atropa.CreateHtmlDocumentsFromXmlhttp ' +
+                 'Could not create hidden document');
+        } else {
+            // if the document could be created we'll try to use it
+            if(docref.getElementById('index')) {
+                // if the document could be used then
+                // do something useful with it.
+                console.log('success!');
+            } else {
+                // if the document can not be used throw an error
+                throw new Error('atropa.CreateHtmlDocumentsFromXmlhttp ' +
+                     'could not use the hidden document');
+            }
+        }
+    } catch (e) {
+        // catching any errors thrown and handle them.
+    }
+    // At this point the work with the document is currently finished
+    // the document will live in the documentQueue in case you need it
+    // later. This is when you will trigger any function which depends
+    // on this hidden document having been created.
+    showDocumentQueue();
+};
+
+function showDocumentQueue() {
+    console.dir(docs.documentQueue);
+}
+
+// create an instance of the class
+docs = new atropa.CreateHtmlDocumentsFromXmlhttp();
+// try to create a new hidden document
+docs.newDocument(method, url, null, callback);</pre>
 				
 				
 				
@@ -402,13 +443,6 @@ ul.inheritsList
 						</dl>
 					
 					
-						<dl class="detailList">
-						<dt class="heading">See:</dt>
-						
-							<dd><a href="../../../AtropaToolboxTests.html?spec=atropa.CreateHtmlDocumentsFromXmlhttp">tests</a></dd>
-						
-						</dl>
-					
 
 			</div>
 			
@@ -429,7 +463,9 @@ ul.inheritsList
 					<div class="description">
 						Queue of documents created by this instance.
 						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com">
+ Matthew Christopher Kastor-Inare III </a><br />
+ ☭ Hial Atropa!! ☭.
 					</div>
 					
 					
@@ -449,31 +485,6 @@ ul.inheritsList
 					Method Detail
 				</div>
 				
-					<a name="-init"> </a>
-					<div class="fixedFont">&lt;inner&gt; 
-					
-					
-					<b>init</b>()
-					
-					</div>
-					<div class="description">
-						
-						
-						
-					</div>
-					
-					
-					
-						
-						
-						
-						
-						
-						
-						
-
-					<hr />
-				
 					<a name="newDocument"> </a>
 					<div class="fixedFont">
 					
@@ -482,9 +493,13 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						Creates an HTML DOM Document and puts it in the document queue, then executes the callback given. Note, this does not work on google chrome.
+						Creates an HTML DOM Document and puts it in the document
+ queue, then executes the callback given. Note, this does
+ not work on google chrome.
 						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com">
+ Matthew Christopher Kastor-Inare III </a><br />
+ ☭ Hial Atropa!! ☭.
 					</div>
 					
 					
@@ -497,7 +512,8 @@ ul.inheritsList
 									<span class="light fixedFont">{String}</span> <b>method</b>
 									
 								</dt>
-								<dd>Any valid method to be used inan XMLHttpRequest.</dd>
+								<dd>Any valid method to be used in
+an XMLHttpRequest.</dd>
 							
 								<dt>
 									<span class="light fixedFont">{String}</span> <b>url</b>
@@ -515,7 +531,9 @@ ul.inheritsList
 									<span class="light fixedFont">{Function}</span> <b>callback</b>
 									
 								</dt>
-								<dd>The function to execute uponrequest completion. This function will be given eitheran HTML DOM Document or false.</dd>
+								<dd>The function to execute upon
+request completion. This function will be given either
+an HTML DOM Document or false.</dd>
 							
 							</dl>
 						
@@ -526,7 +544,8 @@ ul.inheritsList
 							<dl class="detailList">
 							<dt class="heading">Returns:</dt>
 							
-								<dd><span class="light fixedFont">{HTML DOM Document|false}</span> The return value isgiven to the callback function.</dd>
+								<dd><span class="light fixedFont">{HTML DOM Document|false}</span> The return value is
+given to the callback function.</dd>
 							
 							</dl>
 						
@@ -547,7 +566,7 @@ ul.inheritsList
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sat Sep 28 2013 22:46:23 GMT-0400 (EDT)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Wed Jan 01 2014 21:37:20 GMT-0500 (Eastern Standard Time)
 		</div>
 	</body>
 </html>

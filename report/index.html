@@ -13,10 +13,10 @@
   <![endif]-->
 
   <script>
-    var __options = {"title":"Code Analysis of The Glorious AtropaToolbox","flags":{"complexity":{"logicalor":true,"switchcase":true,"forin":false,"trycatch":false,"newmi":true},"jshint":{"options":{},"globals":{}}}}
+    var __options = {"title":"\"Analysis\"","flags":{"complexity":{"logicalor":true,"switchcase":true,"forin":false,"trycatch":false,"newmi":true},"jshint":{"options":{},"globals":{}}}}
   </script>
 
-  <link href="assets/css/vendor/bootstrap-3.0.0-wip.css" rel="stylesheet">
+  <link href="assets/css/vendor/bootstrap.css" rel="stylesheet">
   <link href="assets/css/vendor/font-awesome.css" rel="stylesheet">
   <link href="assets/css/vendor/font-awesome-ie7.css" rel="stylesheet">
   <link href="assets/css/vendor/morris.css" rel="stylesheet">
@@ -28,8 +28,8 @@
 
 <div class="navbar navbar-fixed-top">
   <div class="container">
-    <a class="brand" href="http://github.com/jsoverson/plato">Plato on Github</a>
-    <ul class="nav">
+    <a class="navbar-brand" href="http://github.com/jsoverson/plato">Plato on Github</a>
+    <ul class="nav navbar-nav">
       <li class="active">
         <a href="index.html">Report Home</a>
       </li>
@@ -39,31 +39,31 @@
 
 <div class="jumbotron">
   <div class="container">
-    <h1>Code Analysis of The Glorious AtropaToolbox</h1>
+    <h1>"Analysis"</h1>
   </div>
 </div>
 
 <div class="container aggregate-stats">
   <div class="row">
-    <h1 class="span12">Summary</h1>
+    <h1 class="col-md-12">Summary</h1>
   </div>
   <div class="row">
-    <div class="span6">
+    <div class="col-md-6">
       <h2 class="header">Total/Average Lines <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code" data-original-title="SLOC"></i></h2>
-      <p class="stat">4124 / 187</p>
+      <p class="stat">100 / 100</p>
     </div>
-    <div class="span6">
+    <div class="col-md-6">
       <h2 class="header">Average Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
-      <p class="stat">70.92</p>
+      <p class="stat">88.95</p>
     </div>
   </div>
 </div>
 <div class="container historical">
   <div class="row">
-    <div class="span6">
+    <div class="col-md-6">
       <div id="chart_historical_sloc" class="chart js-chart"></div>
     </div>
-    <div class="span6">
+    <div class="col-md-6">
       <div id="chart_historical_maint" class="chart js-chart"></div>
     </div>
   </div>
@@ -72,272 +72,59 @@
 
 <div class="container overview">
   <div class="row">
-    <h2 class="span12">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
-    <div class="span12"><div id='chart_maintainability' class='chart js-chart'></div></div>
+    <h2 class="col-md-12">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
+    <div class="col-md-12"><div id='chart_maintainability' class='chart js-chart'></div></div>
   </div>
   <div class="row">
-    <h2 class="span12">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code" data-original-title="SLOC"></i></h2>
-    <div class="span12"><div id='chart_sloc' class='chart js-chart'></div></div>
+    <h2 class="col-md-12">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code" data-original-title="SLOC"></i></h2>
+    <div class="col-md-12"><div id='chart_sloc' class='chart js-chart'></div></div>
   </div>
   <div class="row">
-    <h2 class="span12">Estimated errors in implementation <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
-    <div class="span12"><div id='chart_bugs' class='chart js-chart'></div></div>
+    <h2 class="col-md-12">Estimated errors in implementation <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
+    <div class="col-md-12"><div id='chart_bugs' class='chart js-chart'></div></div>
   </div>
   
   <div class="row">
-    <h2 class="span12">Lint errors</h2>
-    <div class="span12"><div id='chart_lint' class='chart js-chart'></div></div>
+    <h2 class="col-md-12">Lint errors</h2>
+    <div class="col-md-12"><div id='chart_lint' class='chart js-chart'></div></div>
   </div>
   
 </div>
 
 <div class="container">
   <div class="row">
-    <h1 class="span12">Files</h1>
+    <h1 class="col-md-12">Files</h1>
   </div>
+
+  <div class="row">
+    <div class="span12 group-header">
+      <div class="btn-group">
+        <button type="button" id="button-complexity" class="btn btn-default complexity">complexity</button>
+        <button type="button" id="button-sloc" class="btn btn-default sloc">sloc</button>
+        <button type="button" id="button-bugs" class="btn btn-default bugs">est errors</button>
+        <button type="button" id="button-lint" class="btn btn-default lint">lint errors</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    &nbsp;
+  </div>
+
   <div class="row">
     <ul class="file-list list-unstyled">
       
-      <li class="span12">
-        <span class="fade-left fadeout visible-desktop"></span>
-        <span class="span4 file"><a class="file-link" href="./files/Toolbox_enabled_ArgsInfo_js/index.html">Toolbox\enabled\ArgsInfo.js</a></span>
-        <span class="span8 file-chart js-file-chart"
+      <li class="col-md-12">
+        <div class="row">
+          <span class="fade-left fadeout visible-large"></span>
+          <span class="col-md-4 file"><a class="file-link" href="./files/src_atropa_toolbox_js/index.html">src\atropa-toolbox.js</a></span>
+        <span class="col-md-8 file-chart js-file-chart"
               data-lint="0"
-              data-sloc="160"
-              data-bugs="0.48"
-              data-complexity="8"
+              data-sloc="100"
+              data-bugs="0.81"
+              data-complexity="1"
           ></span>
-      </li>
-      
-      <li class="span12">
-        <span class="fade-left fadeout visible-desktop"></span>
-        <span class="span4 file"><a class="file-link" href="./files/Toolbox_enabled_arrays_js/index.html">Toolbox\enabled\arrays.js</a></span>
-        <span class="span8 file-chart js-file-chart"
-              data-lint="0"
-              data-sloc="397"
-              data-bugs="0.85"
-              data-complexity="10"
-          ></span>
-      </li>
-      
-      <li class="span12">
-        <span class="fade-left fadeout visible-desktop"></span>
-        <span class="span4 file"><a class="file-link" href="./files/Toolbox_enabled_atropa_SerialActor_js/index.html">Toolbox\enabled\atropa.SerialActor.js</a></span>
-        <span class="span8 file-chart js-file-chart"
-              data-lint="0"
-              data-sloc="288"
-              data-bugs="0.71"
-              data-complexity="3"
-          ></span>
-      </li>
-      
-      <li class="span12">
-        <span class="fade-left fadeout visible-desktop"></span>
-        <span class="span4 file"><a class="file-link" href="./files/Toolbox_enabled_Babbler_js/index.html">Toolbox\enabled\Babbler.js</a></span>
-        <span class="span8 file-chart js-file-chart"
-              data-lint="0"
-              data-sloc="274"
-              data-bugs="0.67"
-              data-complexity="8"
-          ></span>
-      </li>
-      
-      <li class="span12">
-        <span class="fade-left fadeout visible-desktop"></span>
-        <span class="span4 file"><a class="file-link" href="./files/Toolbox_enabled_CookieMonster_js/index.html">Toolbox\enabled\CookieMonster.js</a></span>
-        <span class="span8 file-chart js-file-chart"
-              data-lint="0"
-              data-sloc="312"
-              data-bugs="0.87"
-              data-complexity="11"
-          ></span>
-      </li>
-      
-      <li class="span12">
-        <span class="fade-left fadeout visible-desktop"></span>
-        <span class="span4 file"><a class="file-link" href="./files/Toolbox_enabled_CreateHtmlDocumentsFromXmlhttp_js/index.html">Toolbox\enabled\CreateHtmlDocumentsFromXmlhttp.js</a></span>
-        <span class="span8 file-chart js-file-chart"
-              data-lint="0"
-              data-sloc="163"
-              data-bugs="0.31"
-              data-complexity="4"
-          ></span>
-      </li>
-      
-      <li class="span12">
-        <span class="fade-left fadeout visible-desktop"></span>
-        <span class="span4 file"><a class="file-link" href="./files/Toolbox_enabled_customErrors_js/index.html">Toolbox\enabled\customErrors.js</a></span>
-        <span class="span8 file-chart js-file-chart"
-              data-lint="0"
-              data-sloc="34"
-              data-bugs="0.08"
-              data-complexity="2"
-          ></span>
-      </li>
-      
-      <li class="span12">
-        <span class="fade-left fadeout visible-desktop"></span>
-        <span class="span4 file"><a class="file-link" href="./files/Toolbox_enabled_HTMLParser_js/index.html">Toolbox\enabled\HTMLParser.js</a></span>
-        <span class="span8 file-chart js-file-chart"
-              data-lint="0"
-              data-sloc="116"
-              data-bugs="0.53"
-              data-complexity="5"
-          ></span>
-      </li>
-      
-      <li class="span12">
-        <span class="fade-left fadeout visible-desktop"></span>
-        <span class="span4 file"><a class="file-link" href="./files/Toolbox_enabled_inject_js/index.html">Toolbox\enabled\inject.js</a></span>
-        <span class="span8 file-chart js-file-chart"
-              data-lint="0"
-              data-sloc="239"
-              data-bugs="0.47"
-              data-complexity="3"
-          ></span>
-      </li>
-      
-      <li class="span12">
-        <span class="fade-left fadeout visible-desktop"></span>
-        <span class="span4 file"><a class="file-link" href="./files/Toolbox_enabled_inquire_js/index.html">Toolbox\enabled\inquire.js</a></span>
-        <span class="span8 file-chart js-file-chart"
-              data-lint="0"
-              data-sloc="82"
-              data-bugs="0.18"
-              data-complexity="3"
-          ></span>
-      </li>
-      
-      <li class="span12">
-        <span class="fade-left fadeout visible-desktop"></span>
-        <span class="span4 file"><a class="file-link" href="./files/Toolbox_enabled_objects_js/index.html">Toolbox\enabled\objects.js</a></span>
-        <span class="span8 file-chart js-file-chart"
-              data-lint="0"
-              data-sloc="282"
-              data-bugs="0.39"
-              data-complexity="2"
-          ></span>
-      </li>
-      
-      <li class="span12">
-        <span class="fade-left fadeout visible-desktop"></span>
-        <span class="span4 file"><a class="file-link" href="./files/Toolbox_enabled_random_js/index.html">Toolbox\enabled\random.js</a></span>
-        <span class="span8 file-chart js-file-chart"
-              data-lint="0"
-              data-sloc="177"
-              data-bugs="0.71"
-              data-complexity="11"
-          ></span>
-      </li>
-      
-      <li class="span12">
-        <span class="fade-left fadeout visible-desktop"></span>
-        <span class="span4 file"><a class="file-link" href="./files/Toolbox_enabled_regex_js/index.html">Toolbox\enabled\regex.js</a></span>
-        <span class="span8 file-chart js-file-chart"
-              data-lint="0"
-              data-sloc="55"
-              data-bugs="0.17"
-              data-complexity="3"
-          ></span>
-      </li>
-      
-      <li class="span12">
-        <span class="fade-left fadeout visible-desktop"></span>
-        <span class="span4 file"><a class="file-link" href="./files/Toolbox_enabled_removeNodeByReference_js/index.html">Toolbox\enabled\removeNodeByReference.js</a></span>
-        <span class="span8 file-chart js-file-chart"
-              data-lint="0"
-              data-sloc="29"
-              data-bugs="0.06"
-              data-complexity="3"
-          ></span>
-      </li>
-      
-      <li class="span12">
-        <span class="fade-left fadeout visible-desktop"></span>
-        <span class="span4 file"><a class="file-link" href="./files/Toolbox_enabled_Requester_js/index.html">Toolbox\enabled\Requester.js</a></span>
-        <span class="span8 file-chart js-file-chart"
-              data-lint="0"
-              data-sloc="181"
-              data-bugs="0.51"
-              data-complexity="6"
-          ></span>
-      </li>
-      
-      <li class="span12">
-        <span class="fade-left fadeout visible-desktop"></span>
-        <span class="span4 file"><a class="file-link" href="./files/Toolbox_enabled_setAsOptionalArg_js/index.html">Toolbox\enabled\setAsOptionalArg.js</a></span>
-        <span class="span8 file-chart js-file-chart"
-              data-lint="0"
-              data-sloc="7"
-              data-bugs="0.03"
-              data-complexity="3"
-          ></span>
-      </li>
-      
-      <li class="span12">
-        <span class="fade-left fadeout visible-desktop"></span>
-        <span class="span4 file"><a class="file-link" href="./files/Toolbox_enabled_string_js/index.html">Toolbox\enabled\string.js</a></span>
-        <span class="span8 file-chart js-file-chart"
-              data-lint="0"
-              data-sloc="257"
-              data-bugs="1.10"
-              data-complexity="7"
-          ></span>
-      </li>
-      
-      <li class="span12">
-        <span class="fade-left fadeout visible-desktop"></span>
-        <span class="span4 file"><a class="file-link" href="./files/Toolbox_enabled_TextAnalyzer_js/index.html">Toolbox\enabled\TextAnalyzer.js</a></span>
-        <span class="span8 file-chart js-file-chart"
-              data-lint="0"
-              data-sloc="145"
-              data-bugs="0.65"
-              data-complexity="5"
-          ></span>
-      </li>
-      
-      <li class="span12">
-        <span class="fade-left fadeout visible-desktop"></span>
-        <span class="span4 file"><a class="file-link" href="./files/Toolbox_enabled_url_js/index.html">Toolbox\enabled\url.js</a></span>
-        <span class="span8 file-chart js-file-chart"
-              data-lint="0"
-              data-sloc="20"
-              data-bugs="0.08"
-              data-complexity="2"
-          ></span>
-      </li>
-      
-      <li class="span12">
-        <span class="fade-left fadeout visible-desktop"></span>
-        <span class="span4 file"><a class="file-link" href="./files/Toolbox_enabled_waitFor_js/index.html">Toolbox\enabled\waitFor.js</a></span>
-        <span class="span8 file-chart js-file-chart"
-              data-lint="0"
-              data-sloc="80"
-              data-bugs="0.22"
-              data-complexity="3"
-          ></span>
-      </li>
-      
-      <li class="span12">
-        <span class="fade-left fadeout visible-desktop"></span>
-        <span class="span4 file"><a class="file-link" href="./files/Toolbox_enabled_wtf_js/index.html">Toolbox\enabled\wtf.js</a></span>
-        <span class="span8 file-chart js-file-chart"
-              data-lint="1"
-              data-sloc="623"
-              data-bugs="5.73"
-              data-complexity="8"
-          ></span>
-      </li>
-      
-      <li class="span12">
-        <span class="fade-left fadeout visible-desktop"></span>
-        <span class="span4 file"><a class="file-link" href="./files/Toolbox_enabled_xpath_js/index.html">Toolbox\enabled\xpath.js</a></span>
-        <span class="span8 file-chart js-file-chart"
-              data-lint="0"
-              data-sloc="203"
-              data-bugs="0.45"
-              data-complexity="3"
-          ></span>
+        </div>
       </li>
       
     </ul>
@@ -355,5 +142,6 @@
 <script type="text/javascript" src="report.js"></script>
 <script type="text/javascript" src="report.history.js"></script>
 <script type="text/javascript" src="assets/scripts/plato-overview.js"></script>
+<script type="text/javascript" src="assets/scripts/plato-sortable-file-list.js"></script>
 </body>
 </html>

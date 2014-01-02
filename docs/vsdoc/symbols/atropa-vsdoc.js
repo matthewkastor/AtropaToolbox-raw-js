@@ -45,10 +45,6 @@
             ///  &apos;The atropa.&apos; + className + &apos; class is unsupported in this environment.&apos;;</param>
         }, 
         
-        nop: function() {
-            /// <summary></summary>
-        }, 
-        
         removeNodeByReference: function(elementReference) {
             /// <summary>Removes DOM Nodes.</summary>
             /// <param name="elementReference" type="DOM Node">A reference to the DOM Node you want

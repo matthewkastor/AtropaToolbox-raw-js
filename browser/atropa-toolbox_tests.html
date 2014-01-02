@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>
+            Atropa Toolbox Tests
+        </title>
+        <link rel="stylesheet"
+              type="text/css"
+              href="jasmine/jasmine.css">
+        <script type="text/javascript"
+              src="jasmine/jasmine.js">
+</script>
+        <script type="text/javascript"
+              src="jasmine/jasmine-html.js">
+</script>
+
+<!-- include source files here... -->
+
+        <script type="text/javascript"
+              src="atropa-toolbox_web.js">
+</script>
+        <script type="text/javascript"
+              src="dummyScript.js">
+</script>
+
+<!-- include spec files here... -->
+
+        <script type="text/javascript"
+              src="tests/atropa-toolbox.test.js">
+</script>
+        <script type="text/javascript"
+              src="../node_modules/atropa-ArgsInfo/browser/tests/atropa-ArgsInfo.test.js">
+</script>
+        <script type="text/javascript"
+              src="../node_modules/atropa-arrays/browser/tests/atropa-arrays.test.js">
+</script>
+        <script type="text/javascript"
+              src="../node_modules/atropa-Babbler/browser/tests/atropa-Babbler.test.js">
+</script>
+        <script type="text/javascript"
+              src="../node_modules/atropa-CookieMonster/browser/tests/atropa-CookieMonster.test.js">
+</script>
+        <script type="text/javascript"
+              src="../node_modules/atropa-CreateHtmlDocumentsFromXmlhttp/browser/tests/atropa-CreateHtmlDocumentsFromXmlhttp.test.js">
+</script>
+        <script type="text/javascript"
+              src="../node_modules/atropa-customErrors/browser/tests/atropa-customErrors.test.js">
+</script>
+        <script type="text/javascript"
+              src="../node_modules/atropa-header/browser/tests/atropa-header.test.js">
+</script>
+        <script type="text/javascript"
+              src="../node_modules/atropa-HTMLParser/browser/tests/atropa-HTMLParser.test.js">
+</script>
+        <script type="text/javascript"
+              src="../node_modules/atropa-inject/browser/tests/atropa-inject.test.js">
+</script>
+        <script type="text/javascript"
+              src="../node_modules/atropa-inquire/browser/tests/atropa-inquire.test.js">
+</script>
+        <script type="text/javascript"
+              src="../node_modules/atropa-objects/browser/tests/atropa-objects.test.js">
+</script>
+        <script type="text/javascript"
+              src="../node_modules/atropa-random/browser/tests/atropa-random.test.js">
+</script>
+        <script type="text/javascript"
+              src="../node_modules/atropa-regex/browser/tests/atropa-regex.test.js">
+</script>
+        <script type="text/javascript"
+              src="../node_modules/atropa-removeNodeByReference/browser/tests/atropa-removeNodeByReference.test.js">
+</script>
+        <script type="text/javascript"
+              src="../node_modules/atropa-Requester/browser/tests/atropa-Requester.test.js">
+</script>
+        <script type="text/javascript"
+              src="../node_modules/atropa-SerialActor/browser/tests/atropa-SerialActor.test.js">
+</script>
+        <script type="text/javascript"
+              src="../node_modules/atropa-setAsOptionalArg/browser/tests/atropa-setAsOptionalArg.test.js">
+</script>
+        <script type="text/javascript"
+              src="../node_modules/atropa-string/browser/tests/atropa-string.test.js">
+</script>
+        <script type="text/javascript"
+              src="../node_modules/atropa-TextAnalyzer/browser/tests/atropa-TextAnalyzer.test.js">
+</script>
+        <script type="text/javascript"
+              src="../node_modules/atropa-url/browser/tests/atropa-url.test.js">
+</script>
+        <script type="text/javascript"
+              src="../node_modules/atropa-waitFor/browser/tests/atropa-waitFor.test.js">
+</script>
+        <script type="text/javascript"
+              src="../node_modules/atropa-wtf/browser/tests/atropa-wtf.test.js">
+</script>
+        <script type="text/javascript"
+              src="../node_modules/atropa-xpath/browser/tests/atropa-xpath.test.js">
+</script>
+
+
+        <script type="text/javascript">
+            (function () {
+                var jasmineEnv = jasmine.getEnv();
+                jasmineEnv.updateInterval = 1000;
+
+                var htmlReporter = new jasmine.HtmlReporter();
+
+                jasmineEnv.addReporter(htmlReporter);
+
+                jasmineEnv.specFilter = function (spec) {
+                    return htmlReporter.specFilter(spec);
+                };
+
+                var currentWindowOnload = window.onload;
+
+                window.onload = function () {
+                    if (currentWindowOnload) {
+                        currentWindowOnload();
+                    }
+                    execJasmine();
+                };
+
+                function execJasmine() {
+                    jasmineEnv.execute();
+                }
+            })();
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

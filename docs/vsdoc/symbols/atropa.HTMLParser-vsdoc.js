@@ -24,10 +24,6 @@
             /// <param name="htmlstring" type="String">a string of HTML data</param>
             /// <returns type="HTML DOM Document">Resets the doc property of this instance,
             /// loading a new document with the string given.</returns>
-        }, 
-        
-        init: function() {
-            /// <summary></summary>
         }
         
     };

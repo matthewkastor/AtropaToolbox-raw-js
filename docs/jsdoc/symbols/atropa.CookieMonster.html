@@ -2,7 +2,7 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 	<head>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta http-equiv="content-type" content="text/html; charset=utf8" />
 		<meta name="generator" content="JsDoc Toolkit" />
 		
 		<title>JsDoc Reference - atropa.CookieMonster</title>
@@ -261,7 +261,7 @@ ul.inheritsList
 				This represents a cookie handler
 				
 				
-					<br /><i>Defined in: </i> <a href="../symbols/src/src_AtropaToolbox.js.html">AtropaToolbox.js</a>.
+					<br /><i>Defined in: </i> &lt;node_modules/atropa-CookieMonster/src/atropa-CookieMonster.js&gt;.
 				
 			</p>
 
@@ -290,34 +290,6 @@ ul.inheritsList
 			
 
 <!-- ============================== properties summary ===================== -->
-			
-				
-				
-				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class atropa.CookieMonster.">
-					<caption>Field Summary</caption>
-					<thead>
-						<tr>
-							<th scope="col">Field Attributes</th>
-							<th scope="col">Field Name and Description</th>
-						</tr>
-					</thead>
-					<tbody>
-					
-						<tr>
-							<td class="attributes">&lt;private&gt; &lt;inner&gt; &nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont">
-								<b><a href="../symbols/atropa.CookieMonster.html#-currentCookies">currentCookies</a></b>
-								</div>
-								<div class="description">This holds the current cookie object array.</div>
-							</td>
-						</tr>
-					
-					</tbody>
-				</table>
-				
-				
-				
 			
 
 <!-- ============================== methods summary ======================== -->
@@ -380,15 +352,6 @@ ul.inheritsList
 						</tr>
 					
 						<tr>
-							<td class="attributes">&lt;private&gt; &lt;inner&gt; &nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/atropa.CookieMonster.html#-getCookieCallback">getCookieCallback</a></b>(testCookie, args)
-								</div>
-								<div class="description">Internal callback function used while getting the currentcookies.</div>
-							</td>
-						</tr>
-					
-						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/atropa.CookieMonster.html#getCookies">getCookies</a></b>()
@@ -446,12 +409,17 @@ ul.inheritsList
 				
 				<div class="description">
 					This is a cookie handler.
-					<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
+					<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com">
+ Matthew Christopher Kastor-Inare III </a><br />
+ ☭ Hial Atropa!! ☭.
 				</div>
 				
 				
 				
-				<pre class="code">// cookie objectvar cookieObj = {"key" : "cookieName", "val" : "cookieVal"}// cookie string var cookieString = cookieName=cookieVal;</pre>
+				<pre class="code">// cookie object
+var cookieObj = {"key" : "cookieName", "val" : "cookieVal"}
+// cookie string 
+var cookieString = cookieName=cookieVal;</pre>
 				
 				
 				
@@ -477,45 +445,11 @@ ul.inheritsList
 						</dl>
 					
 					
-						<dl class="detailList">
-						<dt class="heading">See:</dt>
-						
-							<dd><a href="../../../AtropaToolboxTests.html?spec=atropa.CookieMonster">tests</a></dd>
-						
-						</dl>
-					
 
 			</div>
 			
 
 <!-- ============================== field details ========================== -->		
-			
-				<div class="sectionTitle">
-					Field Detail
-				</div>
-				
-					<a name="-currentCookies"> </a>
-					<div class="fixedFont">&lt;private&gt; &lt;inner&gt; 
-					
-					<span class="light">{Array}</span>
-					<b>currentCookies</b>
-					
-					</div>
-					<div class="description">
-						This holds the current cookie object array.
-						
-						
-					</div>
-					
-					
-
-						
-						
-						
-						
-
-					
-				
 			
 
 <!-- ============================== method details ========================= -->		
@@ -534,12 +468,24 @@ ul.inheritsList
 					<div class="description">
 						Converts a cookie object to a cookie string.
 						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com">
+ Matthew Christopher Kastor-Inare III </a><br />
+ ☭ Hial Atropa!! ☭.
 					</div>
 					
 					
 					
-					<pre class="code">var cookieMonster = new atropa.CookieMonster();// creating a cookiecookieMonster.setCookie('atropa', 'hial atropa!!');console.log(document.cookie);// getting a cookie objectvar cookieObj = cookieMonster.getCookie('atropa');console.log(cookieObj);// convert the cookie object to a stringconsole.log(cookieMonster.bakeCookie(cookieObj));</pre>
+					<pre class="code">var cookieMonster = new atropa.CookieMonster();
+// creating a cookie
+cookieMonster.setCookie('atropa', 'hial atropa!!');
+console.log(document.cookie);
+
+// getting a cookie object
+var cookieObj = cookieMonster.getCookie('atropa');
+console.log(cookieObj);
+
+// convert the cookie object to a string
+console.log(cookieMonster.bakeCookie(cookieObj));</pre>
 					
 					
 					
@@ -581,12 +527,16 @@ ul.inheritsList
 					<div class="description">
 						Converts a cookie string into an object.
 						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com">
+ Matthew Christopher Kastor-Inare III </a><br />
+ ☭ Hial Atropa!! ☭.
 					</div>
 					
 					
 					
-					<pre class="code">var cookieMonster = new atropa.CookieMonster();var cookieObj = cookieMonster.cookie2obj('atropa=hial atropa!!;');console.log(cookieObj);</pre>
+					<pre class="code">var cookieMonster = new atropa.CookieMonster();
+var cookieObj = cookieMonster.cookie2obj('atropa=hial atropa!!;');
+console.log(cookieObj);</pre>
 					
 					
 					
@@ -598,7 +548,8 @@ ul.inheritsList
 									<span class="light fixedFont">{String}</span> <b>cookie</b>
 									
 								</dt>
-								<dd>A cookie represented as a string<code>cookieName=cookieVal;</code></dd>
+								<dd>A cookie represented as a string
+<code>cookieName=cookieVal;</code></dd>
 							
 							</dl>
 						
@@ -628,12 +579,20 @@ ul.inheritsList
 					<div class="description">
 						Deletes a specified cookie by user submitted string.
 						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com">
+ Matthew Christopher Kastor-Inare III </a><br />
+ ☭ Hial Atropa!! ☭.
 					</div>
 					
 					
 					
-					<pre class="code">var cookieMonster = new atropa.CookieMonster();// creating the cookie to deletecookieMonster.setCookie('atropa', 'hial atropa!!');console.log(document.cookie);// delete a cookiecookieMonster.deleteCookie('atropa');console.log(document.cookie);</pre>
+					<pre class="code">var cookieMonster = new atropa.CookieMonster();
+// creating the cookie to delete
+cookieMonster.setCookie('atropa', 'hial atropa!!');
+console.log(document.cookie);
+// delete a cookie
+cookieMonster.deleteCookie('atropa');
+console.log(document.cookie);</pre>
 					
 					
 					
@@ -645,7 +604,8 @@ ul.inheritsList
 									<span class="light fixedFont">{String}</span> <b>whichKey</b>
 									
 								</dt>
-								<dd>The cookies key (name) thatwill be deleted.</dd>
+								<dd>The cookies key (name) that
+will be deleted.</dd>
 							
 							</dl>
 						
@@ -668,12 +628,21 @@ ul.inheritsList
 					<div class="description">
 						Deletes a specified cookie by user submitted cookieObj.
 						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com">
+ Matthew Christopher Kastor-Inare III </a><br />
+ ☭ Hial Atropa!! ☭.
 					</div>
 					
 					
 					
-					<pre class="code">var cookieMonster = new atropa.CookieMonster();// creating the cookie to deletecookieMonster.setCookie('atropa', 'hial atropa!!');console.log(document.cookie);// delete a cookiecookieMonster.deleteCookieObj(    {key : 'atropa', val : 'does not matter'});console.log(document.cookie);</pre>
+					<pre class="code">var cookieMonster = new atropa.CookieMonster();
+// creating the cookie to delete
+cookieMonster.setCookie('atropa', 'hial atropa!!');
+console.log(document.cookie);
+// delete a cookie
+cookieMonster.deleteCookieObj(
+    {key : 'atropa', val : 'does not matter'});
+console.log(document.cookie);</pre>
 					
 					
 					
@@ -708,12 +677,21 @@ ul.inheritsList
 					<div class="description">
 						Gets a user requested cookie.
 						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com">
+ Matthew Christopher Kastor-Inare III </a><br />
+ ☭ Hial Atropa!! ☭.
 					</div>
 					
 					
 					
-					<pre class="code">var cookieMonster = new atropa.CookieMonster();// creating a cookiecookieMonster.setCookie('atropa', 'hial atropa!!');console.log(document.cookie);// get a specific cookievar cookieObj = cookieMonster.getCookie('atropa');console.log(cookieObj.key);console.log(cookieObj.val);</pre>
+					<pre class="code">var cookieMonster = new atropa.CookieMonster();
+// creating a cookie
+cookieMonster.setCookie('atropa', 'hial atropa!!');
+console.log(document.cookie);
+// get a specific cookie
+var cookieObj = cookieMonster.getCookie('atropa');
+console.log(cookieObj.key);
+console.log(cookieObj.val);</pre>
 					
 					
 					
@@ -736,56 +714,9 @@ ul.inheritsList
 							<dl class="detailList">
 							<dt class="heading">Returns:</dt>
 							
-								<dd><span class="light fixedFont">{cookieObj|false}</span> Returns a cookie object if a cookie with the specified key is found or false if it is not found.</dd>
-							
-							</dl>
-						
-						
-						
-
-					<hr />
-				
-					<a name="-getCookieCallback"> </a>
-					<div class="fixedFont">&lt;private&gt; &lt;inner&gt; 
-					
-					<span class="light">{Boolean}</span>
-					<b>getCookieCallback</b>(testCookie, args)
-					
-					</div>
-					<div class="description">
-						Internal callback function used while getting the currentcookies.
-						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{cookieObj}</span> <b>testCookie</b>
-									
-								</dt>
-								<dd>A cookie object</dd>
-							
-								<dt>
-									<span class="light fixedFont">{String}</span> <b>args</b>
-									
-								</dt>
-								<dd>argument used in comparison function</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Returns:</dt>
-							
-								<dd><span class="light fixedFont">{Boolean}</span> If cookie key is exactly equal to the argumentthen the callback returns true.</dd>
+								<dd><span class="light fixedFont">{cookieObj|false}</span> Returns a cookie object if
+ a cookie with the specified key is found or false if
+ it is not found.</dd>
 							
 							</dl>
 						
@@ -804,12 +735,18 @@ ul.inheritsList
 					<div class="description">
 						Get all cookies.
 						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com">
+ Matthew Christopher Kastor-Inare III </a><br />
+ ☭ Hial Atropa!! ☭.
 					</div>
 					
 					
 					
-					<pre class="code">var cookieMonster = new atropa.CookieMonster();// creating a cookiecookieMonster.setCookie('atropa', 'hial atropa!!');// get all cookie objects in an arrayconsole.log(cookieMonster.getCookies());</pre>
+					<pre class="code">var cookieMonster = new atropa.CookieMonster();
+// creating a cookie
+cookieMonster.setCookie('atropa', 'hial atropa!!');
+// get all cookie objects in an array
+console.log(cookieMonster.getCookies());</pre>
 					
 					
 					
@@ -840,12 +777,30 @@ ul.inheritsList
 					<div class="description">
 						Filter cookies based on user specified callback.
 						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com">
+ Matthew Christopher Kastor-Inare III </a><br />
+ ☭ Hial Atropa!! ☭.
 					</div>
 					
 					
 					
-					<pre class="code">var cookieMonster = new atropa.CookieMonster();// creating a few cookiescookieMonster.setCookie('atropa', 'hial atropa!!');cookieMonster.setCookie('katjii', 'munching');console.log(document.cookie);// filter cookiesfunction cookieFilter(cookieObj, cookieValue) {    if(cookieObj.val === cookieValue) {        return true;    } else {        return false;    }}var cookieObjArray = cookieMonster.inspectCookies(    cookieFilter, 'munching');console.log(cookieObjArray);</pre>
+					<pre class="code">var cookieMonster = new atropa.CookieMonster();
+// creating a few cookies
+cookieMonster.setCookie('atropa', 'hial atropa!!');
+cookieMonster.setCookie('katjii', 'munching');
+console.log(document.cookie);
+
+// filter cookies
+function cookieFilter(cookieObj, cookieValue) {
+    if(cookieObj.val === cookieValue) {
+        return true;
+    } else {
+        return false;
+    }
+}
+var cookieObjArray = cookieMonster.inspectCookies(
+    cookieFilter, 'munching');
+console.log(cookieObjArray);</pre>
 					
 					
 					
@@ -857,13 +812,18 @@ ul.inheritsList
 									<span class="light fixedFont">{function}</span> <b>callback</b>
 									
 								</dt>
-								<dd>The callback function will be passed two arguments. The first is a cookie object from the current document. The second argument is the value supplied for <code>args</code> if the callback function returns <code>true</code> then the cookie object will be included in the return results.</dd>
+								<dd>The callback function will be passed
+ two arguments. The first is a cookie object from the current
+ document. The second argument is the value supplied for
+ <code>args</code> if the callback function returns <code>true</code>
+ then the cookie object will be included in the return results.</dd>
 							
 								<dt>
 									<span class="light fixedFont">{Array}</span> <b>args</b>
 									
 								</dt>
-								<dd>Arguments to pass to the callbackfunction.</dd>
+								<dd>Arguments to pass to the callback
+function.</dd>
 							
 							</dl>
 						
@@ -891,14 +851,20 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						Sets a cookie per user specifications as strings. The cookiewill expire when the browser is closed.
+						Sets a cookie per user specifications as strings. The cookie
+will expire when the browser is closed.
 						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com">
+ Matthew Christopher Kastor-Inare III </a><br />
+ ☭ Hial Atropa!! ☭.
 					</div>
 					
 					
 					
-					<pre class="code">var cookieMonster = new atropa.CookieMonster();// set a cookiecookieMonster.setCookie('atropa', 'hial');console.log(document.cookie);</pre>
+					<pre class="code">var cookieMonster = new atropa.CookieMonster();
+// set a cookie
+cookieMonster.setCookie('atropa', 'hial');
+console.log(document.cookie);</pre>
 					
 					
 					
@@ -937,14 +903,20 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						Sets a cookie per user specifications as an object.The cookie will expire when the browser is closed.
+						Sets a cookie per user specifications as an object.
+The cookie will expire when the browser is closed.
 						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com">
+ Matthew Christopher Kastor-Inare III </a><br />
+ ☭ Hial Atropa!! ☭.
 					</div>
 					
 					
 					
-					<pre class="code">var cookieMonster = new atropa.CookieMonster();// set a cookiecookieMonster.setCookieObj({key : 'atropa', val : 'hial atropa!!'});console.log(document.cookie);</pre>
+					<pre class="code">var cookieMonster = new atropa.CookieMonster();
+// set a cookie
+cookieMonster.setCookieObj({key : 'atropa', val : 'hial atropa!!'});
+console.log(document.cookie);</pre>
 					
 					
 					
@@ -981,7 +953,7 @@ ul.inheritsList
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sat Sep 28 2013 22:46:23 GMT-0400 (EDT)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Wed Jan 01 2014 21:37:20 GMT-0500 (Eastern Standard Time)
 		</div>
 	</body>
 </html>

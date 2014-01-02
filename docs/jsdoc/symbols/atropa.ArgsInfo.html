@@ -2,7 +2,7 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 	<head>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta http-equiv="content-type" content="text/html; charset=utf8" />
 		<meta name="generator" content="JsDoc Toolkit" />
 		
 		<title>JsDoc Reference - atropa.ArgsInfo</title>
@@ -261,7 +261,7 @@ ul.inheritsList
 				This represents a filter for arguments based on type.
 				
 				
-					<br /><i>Defined in: </i> <a href="../symbols/src/src_AtropaToolbox.js.html">AtropaToolbox.js</a>.
+					<br /><i>Defined in: </i> &lt;node_modules/atropa-ArgsInfo/src/atropa-ArgsInfo.js&gt;.
 				
 			</p>
 
@@ -291,44 +291,6 @@ ul.inheritsList
 
 <!-- ============================== properties summary ===================== -->
 			
-				
-				
-				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class atropa.ArgsInfo.">
-					<caption>Field Summary</caption>
-					<thead>
-						<tr>
-							<th scope="col">Field Attributes</th>
-							<th scope="col">Field Name and Description</th>
-						</tr>
-					</thead>
-					<tbody>
-					
-						<tr>
-							<td class="attributes">&lt;private&gt; &lt;inner&gt; &nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont">
-								<b><a href="../symbols/atropa.ArgsInfo.html#-expectedArgTypes">expectedArgTypes</a></b>
-								</div>
-								<div class="description">Holds the expected argument types object.</div>
-							</td>
-						</tr>
-					
-						<tr>
-							<td class="attributes">&lt;private&gt; &lt;inner&gt; &nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont">
-								<b><a href="../symbols/atropa.ArgsInfo.html#-that">that</a></b>
-								</div>
-								<div class="description">Holds the proper reference to <code>this</code>for private functions.</div>
-							</td>
-						</tr>
-					
-					</tbody>
-				</table>
-				
-				
-				
-			
 
 <!-- ============================== methods summary ======================== -->
 			
@@ -345,20 +307,12 @@ ul.inheritsList
 					<tbody>
 					
 						<tr>
-							<td class="attributes">&lt;private&gt; &lt;inner&gt; &nbsp;</td>
-							<td class="nameDescription">
-								<div class="fixedFont"><b><a href="../symbols/atropa.ArgsInfo.html#-checkArgs">checkArgs</a></b>(expectedTypesArray, args)
-								</div>
-								<div class="description">Compares the expected arguments types to thereceived arguments types.</div>
-							</td>
-						</tr>
-					
-						<tr>
 							<td class="attributes">&nbsp;</td>
 							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/atropa.ArgsInfo.html#checkArgTypes">checkArgTypes</a></b>(args)
 								</div>
-								<div class="description">Checks the given arguments object against the expectedarguments types.</div>
+								<div class="description">Checks the given arguments object against the expected
+arguments types.</div>
 							</td>
 						</tr>
 					
@@ -402,12 +356,43 @@ ul.inheritsList
 				
 				<div class="description">
 					This represents a filter for arguments based on type.
-					<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
+					<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com">
+ Matthew Christopher Kastor-Inare III </a><br />
+ ☭ Hial Atropa!! ☭.
 				</div>
 				
 				
 				
-				<pre class="code">function myClassyConstructor(takes, a, few, args) {    var expectedArgTypes, checker;        expectedArgTypes = {};    expectedArgTypes.requestWithMessage =          ['string', 'string', 'string', 'function'];    expectedArgTypes.requestNullMessage =          ['string', 'string', 'object', 'function'];        checker = new atropa.ArgsInfo();    checker.setExpectedArgTypes(expectedArgTypes);        try {            // Check the supplied arguments pseudo array's argument types        // if the pattern of types in arguments matches one of the        // patterns set on expectedArgTypes then the matching pattern        // will be returned. Otherwise, an error will be thrown.                checker.checkArgTypes(arguments);    } catch (e) {            // Invalid argument types supplied. Handle        // the error or bail.            }        // the arguments supplied will be of the proper type    // your function can go ahead and do things with them}</pre>
+				<pre class="code">function myClassyConstructor(takes, a, few, args) {
+    var expectedArgTypes, checker;
+    
+    expectedArgTypes = {};
+    expectedArgTypes.requestWithMessage = 
+         ['string', 'string', 'string', 'function'];
+    expectedArgTypes.requestNullMessage = 
+         ['string', 'string', 'object', 'function'];
+    
+    checker = new atropa.ArgsInfo();
+    checker.setExpectedArgTypes(expectedArgTypes);
+    
+    try {
+    
+        // Check the supplied arguments pseudo array's argument types
+        // if the pattern of types in arguments matches one of the
+        // patterns set on expectedArgTypes then the matching pattern
+        // will be returned. Otherwise, an error will be thrown.
+        
+        checker.checkArgTypes(arguments);
+    } catch (e) {
+    
+        // Invalid argument types supplied. Handle
+        // the error or bail.
+        
+    }
+    
+    // the arguments supplied will be of the proper type
+    // your function can go ahead and do things with them
+}</pre>
 				
 				
 				
@@ -433,67 +418,11 @@ ul.inheritsList
 						</dl>
 					
 					
-						<dl class="detailList">
-						<dt class="heading">See:</dt>
-						
-							<dd><a href="../../../AtropaToolboxTests.html?spec=atropa.ArgsInfo">tests</a></dd>
-						
-						</dl>
-					
 
 			</div>
 			
 
 <!-- ============================== field details ========================== -->		
-			
-				<div class="sectionTitle">
-					Field Detail
-				</div>
-				
-					<a name="-expectedArgTypes"> </a>
-					<div class="fixedFont">&lt;private&gt; &lt;inner&gt; 
-					
-					<span class="light">{Expected Arg Types}</span>
-					<b>expectedArgTypes</b>
-					
-					</div>
-					<div class="description">
-						Holds the expected argument types object.
-						
-						
-					</div>
-					
-					
-
-						
-						
-						
-						
-
-					<hr />
-				
-					<a name="-that"> </a>
-					<div class="fixedFont">&lt;private&gt; &lt;inner&gt; 
-					
-					<span class="light">{This}</span>
-					<b>that</b>
-					
-					</div>
-					<div class="description">
-						Holds the proper reference to <code>this</code>for private functions.
-						
-						
-					</div>
-					
-					
-
-						
-						
-						
-						
-
-					
-				
 			
 
 <!-- ============================== method details ========================= -->		
@@ -501,62 +430,6 @@ ul.inheritsList
 				<div class="sectionTitle">
 					Method Detail
 				</div>
-				
-					<a name="-checkArgs"> </a>
-					<div class="fixedFont">&lt;private&gt; &lt;inner&gt; 
-					
-					<span class="light">{Boolean}</span>
-					<b>checkArgs</b>(expectedTypesArray, args)
-					
-					</div>
-					<div class="description">
-						Compares the expected arguments types to thereceived arguments types.
-						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
-					</div>
-					
-					
-					
-						
-							<dl class="detailList">
-							<dt class="heading">Parameters:</dt>
-							
-								<dt>
-									<span class="light fixedFont">{Array}</span> <b>expectedTypesArray</b>
-									
-								</dt>
-								<dd>An array taken from the usercreated argument types object.</dd>
-							
-								<dt>
-									<span class="light fixedFont">{arguments}</span> <b>args</b>
-									
-								</dt>
-								<dd>an arguments object.</dd>
-							
-							</dl>
-						
-						
-						
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Returns:</dt>
-							
-								<dd><span class="light fixedFont">{Boolean}</span> Returns true if the expected types match for type and are in the same order as the received types.</dd>
-							
-							</dl>
-						
-						
-							<dl class="detailList">
-							<dt class="heading">Requires:</dt>
-							
-								<dd>atropa.arrays.match</dd>
-							
-							</dl>
-						
-						
-
-					<hr />
 				
 					<a name="checkArgTypes"> </a>
 					<div class="fixedFont">
@@ -566,9 +439,12 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						Checks the given arguments object against the expectedarguments types.
+						Checks the given arguments object against the expected
+arguments types.
 						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com">
+ Matthew Christopher Kastor-Inare III </a><br />
+ ☭ Hial Atropa!! ☭.
 					</div>
 					
 					
@@ -594,7 +470,8 @@ ul.inheritsList
 								<dt>
 									<span class="light fixedFont">{<a href="../symbols/atropa.customErrors.InvalidArgumentTypesError.html">atropa.customErrors.InvalidArgumentTypesError</a>}</span>  <b></b>
 								</dt>
-								<dd>Throws an error if no matching pattern of argument types can be found for <code>args</code></dd>
+								<dd>Throws an error if no matching
+ pattern of argument types can be found for <code>args</code></dd>
 							
 							</dl>
 						
@@ -602,7 +479,8 @@ ul.inheritsList
 							<dl class="detailList">
 							<dt class="heading">Returns:</dt>
 							
-								<dd><span class="light fixedFont">{String}</span> The user assigned key which matches thearguments supplied, or throws an error.</dd>
+								<dd><span class="light fixedFont">{String}</span> The user assigned key which matches the
+arguments supplied, or throws an error.</dd>
 							
 							</dl>
 						
@@ -628,7 +506,9 @@ ul.inheritsList
 					<div class="description">
 						Gets the types of arguments.
 						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com">
+ Matthew Christopher Kastor-Inare III </a><br />
+ ☭ Hial Atropa!! ☭.
 					</div>
 					
 					
@@ -641,7 +521,8 @@ ul.inheritsList
 									<span class="light fixedFont">{arguments}</span> <b>args</b>
 									
 								</dt>
-								<dd>An arguments object, or anything you want tocheck the type of.</dd>
+								<dd>An arguments object, or anything you want to
+check the type of.</dd>
 							
 							</dl>
 						
@@ -671,12 +552,22 @@ ul.inheritsList
 					<div class="description">
 						Sets the expected argument types.
 						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com">
+ Matthew Christopher Kastor-Inare III </a><br />
+ ☭ Hial Atropa!! ☭.
 					</div>
 					
 					
 					
-					<pre class="code">// typesObj is expected to be of the form:var typesObj = {    "namedArgumentTypesArray" : ["string", "function", "number"],    "namedAlternateArgumentTypesArray" : ["object", "function", "number"]};// You may use as many named arrays as you wish and checkArgTypes will// test for a match to at least one of the provided named arrays.</pre>
+					<pre class="code">// typesObj is expected to be of the form:
+
+var typesObj = {
+    "namedArgumentTypesArray" : ["string", "function", "number"],
+    "namedAlternateArgumentTypesArray" : ["object", "function", "number"]
+};
+
+// You may use as many named arrays as you wish and checkArgTypes will
+// test for a match to at least one of the provided named arrays.</pre>
 					
 					
 					
@@ -688,7 +579,9 @@ ul.inheritsList
 									<span class="light fixedFont">{Expected Arg Types}</span> <b>typesObj</b>
 									
 								</dt>
-								<dd>An object containing information about the types of arguments you expect. Specifically, the object should look like the example.</dd>
+								<dd>An object containing information
+ about the types of arguments you expect. Specifically, the object should
+ look like the example.</dd>
 							
 							</dl>
 						
@@ -701,7 +594,8 @@ ul.inheritsList
 								<dt>
 									<span class="light fixedFont">{<a href="../symbols/atropa.customErrors.InvalidArgumentTypesError.html">atropa.customErrors.InvalidArgumentTypesError</a>}</span>  <b></b>
 								</dt>
-								<dd>Throws an error if the typesObj can not be used to set the expected argument types.</dd>
+								<dd>Throws an error if the
+ typesObj can not be used to set the expected argument types.</dd>
 							
 							</dl>
 						
@@ -723,7 +617,7 @@ ul.inheritsList
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sat Sep 28 2013 22:46:23 GMT-0400 (EDT)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Wed Jan 01 2014 21:37:20 GMT-0500 (Eastern Standard Time)
 		</div>
 	</body>
 </html>
