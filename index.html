@@ -56,7 +56,13 @@
                href="./report/index.html">Plato code report</a>.
             <br>
             Tests? See the jasmine tests at <a target="_blank"
-                href="./browser/atropa-toolbox_tests.html">Jasmine tests</a>.
+                href="./browser/atropa-toolbox_tests.html">Jasmine tests</a>. Note that the full test
+                suite only runs properly from a dev install. Navigate to the atropa-toolbox folder,
+                run <code>npm install</code>, then <code>npm start</code>. Open the browser to localhost
+                at the port indicated. This page will appear, served from your local machine. Click
+                the link above in that page to see the full test suite run. The reason you have to run
+                it from a dev install is because I don't include the node_modules folder in this repository
+                so the tests for each module is missing.
             <br>
             Using Visual Studio or WebMatrix? Intellisense support is available from <a target="_blank"
                href="./docs/vsdoc/OpenLayersAll.js">docs/vsdoc/OpenLayersAll.js</a>
