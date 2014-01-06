@@ -2,6 +2,22 @@
 
 Score!
 
+<a href="https://github.com/matthewkastor/AtropaToolbox-raw-js"></a> provides
+ tools for automating websites in
+ <a href="http://www.mozilla.org/en-US/firefox/new/"
+ target="_blank">Firefox</a>, <a target="_blank"
+ href="http://phantomjs.org/">phantomjs</a>, and other browsers. Providing
+ several easy methods for creating and manipulating DOMDocument objects, The
+ Glorious AtropaToolbox gives you flexibility in how you will retreive and
+ manipulate data. You can operate on the visible window, in a hidden frame, in
+ a completely separate DOMDocument object, or through the speedy magic of
+ XMLHttpRequests. The Glorious AtropaToolbox provides a great deal of
+ simplification in using the several methods mentioned so you can get on to
+ doing whatever it is that you're trying to do. This toolbox goes great with
+ phantomjs. Use The Amazing phantomjs to go crazy reading and writing to and
+ from files, and acting as the user controlling an invisible web browser while
+ you inject The Glorious AtropaToolbox into pages for great results!
+
 ##Where do I get it?
 
 The Atropa Toolbox can be installed through npm on node
