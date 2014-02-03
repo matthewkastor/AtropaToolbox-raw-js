@@ -1,6 +1,6 @@
 {
   "name": "atropa-toolbox",
-  "version": "2014.2.3",
+  "version": "2014.2.4",
   "main": "./src/atropa-toolbox.js",
   "description": "The Glorious AtropaToolbox's JavaScript bits",
   "author": {
