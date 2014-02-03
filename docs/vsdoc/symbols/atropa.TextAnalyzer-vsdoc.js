@@ -5,13 +5,15 @@
     window.atropa = window.atropa || {};
 
     window.atropa.TextAnalyzer = function(text){
-        /// <summary></summary>
+        /// <summary>Represents a utility for analyzing text.</summary>
         /// <param name="text" type="String">The text to analyze.</param>
         /// <field name="text" type="String">The supplied text. Defaults to an empty string.</field>
+        text : new String(), 
         /// <field name="wordCount" type="Number">Gives the count of words in the text. Defaults to 0.</field>
+        wordCount : new Number(), 
         /// <field name="words" type="Array">An array of every word in the supplied text.
         ///  Defaults to an empty array.</field>
-        /// <returns type="atropa.TextAnalyzer"/>
+        words : new Array(), 
     };
 
     var $x = window.atropa.TextAnalyzer;

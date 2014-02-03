@@ -5,7 +5,7 @@
     window.atropa = window.atropa || {};
 
     window.atropa.inquire = {
-        /// <summary></summary>
+        /// <summary>Container for functions that test the state of inputs.</summary>
         /// <returns type="atropa.inquire"/>
                 
         isNull: function(x) {

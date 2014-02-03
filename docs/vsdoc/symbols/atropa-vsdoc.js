@@ -5,22 +5,48 @@
     
 
     window.atropa = {
-        /// <summary></summary>
+        /// <summary>Container for all Glorious classes, functions, etc.</summary>
+        /// <returns type="atropa"/>
+      
         /// <field name="data" type="">Container for gobal data related to the classes and functions.</field>
+        data : {}, 
+      
         /// <field name="arrays" type="">Utilities for handling arrays.</field>
+        arrays : {}, 
+      
         /// <field name="customErrors" type="">Container for custom Errors.</field>
+        customErrors : {}, 
+      
         /// <field name="inject" type="">Contains tools for injecting elements and assemblies.
         /// into the page.</field>
+        inject : {}, 
+      
         /// <field name="inquire" type="">Container for functions that test the state of inputs.</field>
+        inquire : {}, 
+      
         /// <field name="objects" type="">Utilities for handling objects.</field>
+        objects : {}, 
+      
         /// <field name="random" type="">Provides random strings and numbers.</field>
+        random : {}, 
+      
         /// <field name="regex" type="">Container for regex functions.</field>
+        regex : {}, 
+      
         /// <field name="string" type="">A few utilities for manipulating strings.</field>
+        string : {}, 
+      
         /// <field name="url" type="">Utilities for handling urls.</field>
+        url : {}, 
+      
         /// <field name="waitFor" type="">Polling functions for quick and sloppy work.</field>
+        waitFor : {}, 
+      
         /// <field name="wtf" type="">Container for all Glorious WTFifier related functions and such.</field>
+        wtf : {}, 
+      
         /// <field name="xpath" type="">An Xpath toolkit for manipulating the DOM.</field>
-        /// <returns type="atropa"/>
+        xpath : {}, 
                 
         supportCheck: function(className, errorMessage) {
             /// <summary>Checks whether this class has been marked as unsupported and throws an 

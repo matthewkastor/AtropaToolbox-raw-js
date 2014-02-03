@@ -5,7 +5,8 @@
     window.atropa = window.atropa || {};
 
     window.atropa.inject = {
-        /// <summary></summary>
+        /// <summary>Contains tools for injecting elements and assemblies.
+        /// /// into the page.</summary>
         /// <returns type="atropa.inject"/>
                 
         element: function(elementType, docref, parentNod, attributes, onloadHandler, callback) {

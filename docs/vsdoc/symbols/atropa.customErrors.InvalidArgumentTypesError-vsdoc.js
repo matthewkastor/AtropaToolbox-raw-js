@@ -5,13 +5,14 @@
     window.atropa.customErrors = window.atropa.customErrors || {};
 
     window.atropa.customErrors.InvalidArgumentTypesError = function(message){
-        /// <summary></summary>
+        /// <summary>Invalid Argument Types Error</summary>
         /// <param name="message" type="String">Optional. The error message to send. Defaults to
         ///  &lt;code&gt;InvalidArgumentTypesError&lt;/code&gt;</param>
         /// <field name="name" type="">The name of the error. Tells the user what kind of custom
         /// error has been thrown.</field>
+        name : {}, 
         /// <field name="message" type="">The error message to send.</field>
-        /// <returns type="atropa.customErrors.InvalidArgumentTypesError"/>
+        message : {}
     };
 
     var $x = window.atropa.customErrors.InvalidArgumentTypesError;

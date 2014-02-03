@@ -5,8 +5,7 @@
     window.atropa = window.atropa || {};
 
     window.atropa.ArgsInfo = function(){
-        /// <summary></summary>
-        /// <returns type="atropa.ArgsInfo"/>
+        /// <summary>This represents a filter for arguments based on type.</summary>
     };
 
     var $x = window.atropa.ArgsInfo;

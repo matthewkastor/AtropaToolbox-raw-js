@@ -5,8 +5,7 @@
     window.atropa = window.atropa || {};
 
     window.atropa.CookieMonster = function(){
-        /// <summary></summary>
-        /// <returns type="atropa.CookieMonster"/>
+        /// <summary>This is a cookie handler.</summary>
     };
 
     var $x = window.atropa.CookieMonster;
@@ -50,13 +49,13 @@
             /// <returns type="Array">An array whose elements are cookie objects.</returns>
         }, 
         
-        "delete": function(whichKey) {
+        deleteCookie: function(whichKey) {
             /// <summary>Deletes a specified cookie by user submitted string.</summary>
             /// <param name="whichKey" type="String">The cookies key (name) that
             /// will be deleted.</param>
         }, 
         
-        "delete": function(cookieObj) {
+        deleteCookieObj: function(cookieObj) {
             /// <summary>Deletes a specified cookie by user submitted cookieObj.</summary>
             /// <param name="cookieObj" type="cookieObj">A cookie object.</param>
         }, 

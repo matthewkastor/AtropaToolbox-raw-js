@@ -5,7 +5,7 @@
     window.atropa = window.atropa || {};
 
     window.atropa.waitFor = {
-        /// <summary></summary>
+        /// <summary>Polling functions for quick and sloppy work.</summary>
         /// <returns type="atropa.waitFor"/>
                 
         test: function(testFn, onSuccessCallback, onMaxPollCallback, pollInterval, maxPoll) {

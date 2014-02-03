@@ -5,7 +5,7 @@
     window.atropa = window.atropa || {};
 
     window.atropa.customErrors = {
-        /// <summary></summary>
+        /// <summary>Container for custom Errors.</summary>
         /// <returns type="atropa.customErrors"/>
                 
     };

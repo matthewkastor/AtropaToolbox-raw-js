@@ -5,7 +5,7 @@
     window.atropa = window.atropa || {};
 
     window.atropa.url = {
-        /// <summary></summary>
+        /// <summary>Utilities for handling urls.</summary>
         /// <returns type="atropa.url"/>
                 
         getFilename: function(url) {

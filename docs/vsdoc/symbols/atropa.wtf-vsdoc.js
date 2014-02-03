@@ -5,10 +5,12 @@
     window.atropa = window.atropa || {};
 
     window.atropa.wtf = {
-        /// <summary></summary>
+        /// <summary>Container for all Glorious WTFifier related functions and such.</summary>
+        /// <returns type="atropa.wtf"/>
+      
         /// <field name="dictionary" type="">The Glorious WTFification Dictionary: Turning Shit
         /// Into Polished Turds.</field>
-        /// <returns type="atropa.wtf"/>
+        dictionary : {}, 
                 
         wtfify: function(target, outputHTML) {
             /// <summary>Accepts plain text input and Gloriously WTFifies it.</summary>

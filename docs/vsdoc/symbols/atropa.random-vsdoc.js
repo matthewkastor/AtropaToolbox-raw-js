@@ -5,7 +5,7 @@
     window.atropa = window.atropa || {};
 
     window.atropa.random = {
-        /// <summary></summary>
+        /// <summary>Provides random strings and numbers.</summary>
         /// <returns type="atropa.random"/>
                 
         string: function(stringLength, characterClass) {

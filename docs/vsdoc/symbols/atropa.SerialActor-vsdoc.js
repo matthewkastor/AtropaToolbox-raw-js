@@ -5,30 +5,37 @@
     window.atropa = window.atropa || {};
 
     window.atropa.SerialActor = function(actorName, actorFunction){
-        /// <summary></summary>
+        /// <summary>A polling class designed for executing long running processes that return
+        /// ///  nothing and have no callback parameter.</summary>
         /// <param name="actorName" type="String">The name for the SerialActor instance.</param>
         /// <param name="actorFunction" type="Function">The function to execute when the
         ///  SerialActor is free. This function must call the &lt;code&gt;free&lt;/code&gt; function
         ///  when it is finished in order to allow the actor to continue.</param>
         /// <field name="name" type="String">The name of this instance. Defaults to &quot;SerialActor&quot;</field>
+        name : new String(), 
         /// <field name="interval" type="Number">Polling interval in milliseconds. This determines how frequently the
         ///  actor function will try to execute. Defaults to 100 milliseconds.</field>
+        interval : new Number(), 
         /// <field name="intervalId" type="Number">The id of the interval set to poll the actor. You should not change
         ///  this manually, use the start and stop functions instead. Defauls to
         ///  undefined.</field>
+        intervalId : new Number(), 
         /// <field name="blocked" type="Boolean">The state of the SerialActor. If true, the actor will sleep. If false the
         ///  actor will execute the actor function when next polled. Defaults to
         ///  false.</field>
+        blocked : new Boolean(), 
         /// <field name="timeouts" type="Array">Stores id&apos;s of currently running timeout functions used to free the actor
         ///  if it has been blocked for too long.</field>
+        timeouts : new Array(), 
         /// <field name="blockTimeoutValue" type="Number">The maximum time, in milliseconds, which the actor may be blocked for.
         ///  After this duration has been reached the actor will be freed. Defaults
         ///  to 60 seconds.</field>
+        blockTimeoutValue : new Number(), 
         /// <field name="actorFunction" type="Function">The function to execute when the SerialActor is free. This function
         ///  must call the &lt;code&gt;free&lt;/code&gt; function when it is finished in order to
         ///  allow the actor to continue. Defaults to the &lt;code&gt;dummyActor&lt;/code&gt;
         ///  function.</field>
-        /// <returns type="atropa.SerialActor"/>
+        actorFunction : new Function(), 
     };
 
     var $x = window.atropa.SerialActor;

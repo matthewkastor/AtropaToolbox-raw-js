@@ -5,7 +5,7 @@
     window.atropa = window.atropa || {};
 
     window.atropa.arrays = {
-        /// <summary></summary>
+        /// <summary>Utilities for handling arrays.</summary>
         /// <returns type="atropa.arrays"/>
                 
         match: function(array1, array2) {
@@ -87,7 +87,7 @@
             /// <param name="arr" type=""></param>
         }, 
         
-        "delete": function(arr, index) {
+        deleteElement: function(arr, index) {
             /// <summary>Deletes the given element from the array at the given index. It basically
             ///  does what you would expect the delete operator to do, except the delete
             ///  operator doesn&apos;t do what you would expect.</summary>

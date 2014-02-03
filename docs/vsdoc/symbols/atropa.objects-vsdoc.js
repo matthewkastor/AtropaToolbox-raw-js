@@ -5,7 +5,7 @@
     window.atropa = window.atropa || {};
 
     window.atropa.objects = {
-        /// <summary></summary>
+        /// <summary>Utilities for handling objects.</summary>
         /// <returns type="atropa.objects"/>
                 
         convertObjectToArray: function(obj) {

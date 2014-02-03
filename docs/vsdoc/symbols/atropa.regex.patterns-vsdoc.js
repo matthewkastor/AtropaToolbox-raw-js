@@ -5,11 +5,17 @@
     window.atropa.regex = window.atropa.regex || {};
 
     window.atropa.regex.patterns = {
-        /// <summary></summary>
-        /// <field name="repeatedWords" type="">finds repeated words and phrases</field>
-        /// <field name="paragraphBreaks" type="">finds paragraph breaks</field>
-        /// <field name="lineBreaks" type="">finds line breaks</field>
+        /// <summary>Regex patterns.</summary>
         /// <returns type="atropa.regex.patterns"/>
+      
+        /// <field name="repeatedWords" type="">finds repeated words and phrases</field>
+        repeatedWords : {}, 
+      
+        /// <field name="paragraphBreaks" type="">finds paragraph breaks</field>
+        paragraphBreaks : {}, 
+      
+        /// <field name="lineBreaks" type="">finds line breaks</field>
+        lineBreaks : {}
                 
     };
 

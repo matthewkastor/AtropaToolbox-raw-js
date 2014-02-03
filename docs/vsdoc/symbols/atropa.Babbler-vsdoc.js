@@ -5,10 +5,10 @@
     window.atropa = window.atropa || {};
 
     window.atropa.Babbler = function(wrdCount){
-        /// <summary></summary>
+        /// <summary>This class represents a babbler. The babbler
+        /// /// produces lorum ipsum text, to user specifications.</summary>
         /// <param name="wrdCount" type="Number">The amount of &quot;words&quot; you would like
         /// the babbler to produce.</param>
-        /// <returns type="atropa.Babbler"/>
     };
 
     var $x = window.atropa.Babbler;

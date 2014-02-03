@@ -25,22 +25,48 @@
     
 
     window.atropa = {
-        /// <summary></summary>
+        /// <summary>Container for all Glorious classes, functions, etc.</summary>
+        /// <returns type="atropa"/>
+      
         /// <field name="data" type="">Container for gobal data related to the classes and functions.</field>
+        data : {}, 
+      
         /// <field name="arrays" type="">Utilities for handling arrays.</field>
+        arrays : {}, 
+      
         /// <field name="customErrors" type="">Container for custom Errors.</field>
+        customErrors : {}, 
+      
         /// <field name="inject" type="">Contains tools for injecting elements and assemblies.
         /// into the page.</field>
+        inject : {}, 
+      
         /// <field name="inquire" type="">Container for functions that test the state of inputs.</field>
+        inquire : {}, 
+      
         /// <field name="objects" type="">Utilities for handling objects.</field>
+        objects : {}, 
+      
         /// <field name="random" type="">Provides random strings and numbers.</field>
+        random : {}, 
+      
         /// <field name="regex" type="">Container for regex functions.</field>
+        regex : {}, 
+      
         /// <field name="string" type="">A few utilities for manipulating strings.</field>
+        string : {}, 
+      
         /// <field name="url" type="">Utilities for handling urls.</field>
+        url : {}, 
+      
         /// <field name="waitFor" type="">Polling functions for quick and sloppy work.</field>
+        waitFor : {}, 
+      
         /// <field name="wtf" type="">Container for all Glorious WTFifier related functions and such.</field>
+        wtf : {}, 
+      
         /// <field name="xpath" type="">An Xpath toolkit for manipulating the DOM.</field>
-        /// <returns type="atropa"/>
+        xpath : {}, 
                 
         supportCheck: function(className, errorMessage) {
             /// <summary>Checks whether this class has been marked as unsupported and throws an 
@@ -97,8 +123,7 @@
     window.atropa = window.atropa || {};
 
     window.atropa.ArgsInfo = function(){
-        /// <summary></summary>
-        /// <returns type="atropa.ArgsInfo"/>
+        /// <summary>This represents a filter for arguments based on type.</summary>
     };
 
     var $x = window.atropa.ArgsInfo;
@@ -140,7 +165,7 @@
     window.atropa = window.atropa || {};
 
     window.atropa.arrays = {
-        /// <summary></summary>
+        /// <summary>Utilities for handling arrays.</summary>
         /// <returns type="atropa.arrays"/>
                 
         match: function(array1, array2) {
@@ -222,7 +247,7 @@
             /// <param name="arr" type=""></param>
         }, 
         
-        "delete": function(arr, index) {
+        deleteElement: function(arr, index) {
             /// <summary>Deletes the given element from the array at the given index. It basically
             ///  does what you would expect the delete operator to do, except the delete
             ///  operator doesn&apos;t do what you would expect.</summary>
@@ -249,10 +274,10 @@
     window.atropa = window.atropa || {};
 
     window.atropa.Babbler = function(wrdCount){
-        /// <summary></summary>
+        /// <summary>This class represents a babbler. The babbler
+        /// /// produces lorum ipsum text, to user specifications.</summary>
         /// <param name="wrdCount" type="Number">The amount of &quot;words&quot; you would like
         /// the babbler to produce.</param>
-        /// <returns type="atropa.Babbler"/>
     };
 
     var $x = window.atropa.Babbler;
@@ -348,8 +373,7 @@
     window.atropa = window.atropa || {};
 
     window.atropa.CookieMonster = function(){
-        /// <summary></summary>
-        /// <returns type="atropa.CookieMonster"/>
+        /// <summary>This is a cookie handler.</summary>
     };
 
     var $x = window.atropa.CookieMonster;
@@ -393,13 +417,13 @@
             /// <returns type="Array">An array whose elements are cookie objects.</returns>
         }, 
         
-        "delete": function(whichKey) {
+        deleteCookie: function(whichKey) {
             /// <summary>Deletes a specified cookie by user submitted string.</summary>
             /// <param name="whichKey" type="String">The cookies key (name) that
             /// will be deleted.</param>
         }, 
         
-        "delete": function(cookieObj) {
+        deleteCookieObj: function(cookieObj) {
             /// <summary>Deletes a specified cookie by user submitted cookieObj.</summary>
             /// <param name="cookieObj" type="cookieObj">A cookie object.</param>
         }, 
@@ -432,9 +456,11 @@
     window.atropa = window.atropa || {};
 
     window.atropa.CreateHtmlDocumentsFromXmlhttp = function(){
-        /// <summary></summary>
+        /// <summary>Creates HTML DOM Documents from an XMLHttpRequest object.
+        /// ///  This was tested on Firefox, it doesn&amp;apos;t work on google chrome.
+        /// ///  Your mileage may vary.</summary>
         /// <field name="documentQueue" type="Array">Queue of documents created by this instance.</field>
-        /// <returns type="atropa.CreateHtmlDocumentsFromXmlhttp"/>
+        documentQueue : new Array(), 
     };
 
     var $x = window.atropa.CreateHtmlDocumentsFromXmlhttp;
@@ -469,7 +495,7 @@
     window.atropa = window.atropa || {};
 
     window.atropa.customErrors = {
-        /// <summary></summary>
+        /// <summary>Container for custom Errors.</summary>
         /// <returns type="atropa.customErrors"/>
                 
     };
@@ -489,13 +515,14 @@
     window.atropa.customErrors = window.atropa.customErrors || {};
 
     window.atropa.customErrors.InvalidArgumentTypesError = function(message){
-        /// <summary></summary>
+        /// <summary>Invalid Argument Types Error</summary>
         /// <param name="message" type="String">Optional. The error message to send. Defaults to
         ///  &lt;code&gt;InvalidArgumentTypesError&lt;/code&gt;</param>
         /// <field name="name" type="">The name of the error. Tells the user what kind of custom
         /// error has been thrown.</field>
+        name : {}, 
         /// <field name="message" type="">The error message to send.</field>
-        /// <returns type="atropa.customErrors.InvalidArgumentTypesError"/>
+        message : {}
     };
 
     var $x = window.atropa.customErrors.InvalidArgumentTypesError;
@@ -515,7 +542,7 @@
     window.atropa = window.atropa || {};
 
     window.atropa.data = {
-        /// <summary></summary>
+        /// <summary>Container for gobal data related to the classes and functions.</summary>
         /// <returns type="atropa.data"/>
                 
     };
@@ -535,9 +562,10 @@
     window.atropa = window.atropa || {};
 
     window.atropa.HTMLParser = function(){
-        /// <summary></summary>
+        /// <summary>Creates a new HTML Parser<br />
+        /// /// Carry out DOM operations without loading content to the active document.</summary>
         /// <field name="doc" type="HTML DOM Document">Holds the created HTML DOM Document.</field>
-        /// <returns type="atropa.HTMLParser"/>
+        doc : new HTML DOM Document(), 
     };
 
     var $x = window.atropa.HTMLParser;
@@ -570,7 +598,8 @@
     window.atropa = window.atropa || {};
 
     window.atropa.inject = {
-        /// <summary></summary>
+        /// <summary>Contains tools for injecting elements and assemblies.
+        /// /// into the page.</summary>
         /// <returns type="atropa.inject"/>
                 
         element: function(elementType, docref, parentNod, attributes, onloadHandler, callback) {
@@ -639,7 +668,7 @@
     window.atropa = window.atropa || {};
 
     window.atropa.inquire = {
-        /// <summary></summary>
+        /// <summary>Container for functions that test the state of inputs.</summary>
         /// <returns type="atropa.inquire"/>
                 
         isNull: function(x) {
@@ -697,7 +726,7 @@
     window.atropa = window.atropa || {};
 
     window.atropa.objects = {
-        /// <summary></summary>
+        /// <summary>Utilities for handling objects.</summary>
         /// <returns type="atropa.objects"/>
                 
         convertObjectToArray: function(obj) {
@@ -826,7 +855,7 @@
     window.atropa = window.atropa || {};
 
     window.atropa.random = {
-        /// <summary></summary>
+        /// <summary>Provides random strings and numbers.</summary>
         /// <returns type="atropa.random"/>
                 
         string: function(stringLength, characterClass) {
@@ -899,9 +928,11 @@
     window.atropa = window.atropa || {};
 
     window.atropa.regex = {
-        /// <summary></summary>
-        /// <field name="patterns" type="">Regex patterns.</field>
+        /// <summary>Container for regex functions.</summary>
         /// <returns type="atropa.regex"/>
+      
+        /// <field name="patterns" type="">Regex patterns.</field>
+        patterns : {}, 
                 
         appendPrefixesAndSuffixes: function(word, threshold) {
             /// <summary>Appends common prefix, suffix, and word boundary regex strings to
@@ -932,11 +963,17 @@
     window.atropa.regex = window.atropa.regex || {};
 
     window.atropa.regex.patterns = {
-        /// <summary></summary>
-        /// <field name="repeatedWords" type="">finds repeated words and phrases</field>
-        /// <field name="paragraphBreaks" type="">finds paragraph breaks</field>
-        /// <field name="lineBreaks" type="">finds line breaks</field>
+        /// <summary>Regex patterns.</summary>
         /// <returns type="atropa.regex.patterns"/>
+      
+        /// <field name="repeatedWords" type="">finds repeated words and phrases</field>
+        repeatedWords : {}, 
+      
+        /// <field name="paragraphBreaks" type="">finds paragraph breaks</field>
+        paragraphBreaks : {}, 
+      
+        /// <field name="lineBreaks" type="">finds line breaks</field>
+        lineBreaks : {}
                 
     };
 
@@ -955,12 +992,13 @@
     window.atropa = window.atropa || {};
 
     window.atropa.Requester = function(){
-        /// <summary></summary>
-        /// <field name="requestHeaders" type="Request Headers Object">Object whose properties and values are header names and values
+        /// <summary>This represents an XMLHttpRequest.</summary>
+        /// <field name="requestHeaders" type="Object">Object whose properties and values are header names and values
         ///  respectively.</field>
+        requestHeaders : new Object(), 
         /// <field name="timeout" type="Number">Set the timeout value for the request in milliseconds. The request will
         ///  abort after this amount of time has passed.</field>
-        /// <returns type="atropa.Requester"/>
+        timeout : new Number(), 
     };
 
     var $x = window.atropa.Requester;
@@ -992,30 +1030,37 @@
     window.atropa = window.atropa || {};
 
     window.atropa.SerialActor = function(actorName, actorFunction){
-        /// <summary></summary>
+        /// <summary>A polling class designed for executing long running processes that return
+        /// ///  nothing and have no callback parameter.</summary>
         /// <param name="actorName" type="String">The name for the SerialActor instance.</param>
         /// <param name="actorFunction" type="Function">The function to execute when the
         ///  SerialActor is free. This function must call the &lt;code&gt;free&lt;/code&gt; function
         ///  when it is finished in order to allow the actor to continue.</param>
         /// <field name="name" type="String">The name of this instance. Defaults to &quot;SerialActor&quot;</field>
+        name : new String(), 
         /// <field name="interval" type="Number">Polling interval in milliseconds. This determines how frequently the
         ///  actor function will try to execute. Defaults to 100 milliseconds.</field>
+        interval : new Number(), 
         /// <field name="intervalId" type="Number">The id of the interval set to poll the actor. You should not change
         ///  this manually, use the start and stop functions instead. Defauls to
         ///  undefined.</field>
+        intervalId : new Number(), 
         /// <field name="blocked" type="Boolean">The state of the SerialActor. If true, the actor will sleep. If false the
         ///  actor will execute the actor function when next polled. Defaults to
         ///  false.</field>
+        blocked : new Boolean(), 
         /// <field name="timeouts" type="Array">Stores id&apos;s of currently running timeout functions used to free the actor
         ///  if it has been blocked for too long.</field>
+        timeouts : new Array(), 
         /// <field name="blockTimeoutValue" type="Number">The maximum time, in milliseconds, which the actor may be blocked for.
         ///  After this duration has been reached the actor will be freed. Defaults
         ///  to 60 seconds.</field>
+        blockTimeoutValue : new Number(), 
         /// <field name="actorFunction" type="Function">The function to execute when the SerialActor is free. This function
         ///  must call the &lt;code&gt;free&lt;/code&gt; function when it is finished in order to
         ///  allow the actor to continue. Defaults to the &lt;code&gt;dummyActor&lt;/code&gt;
         ///  function.</field>
-        /// <returns type="atropa.SerialActor"/>
+        actorFunction : new Function(), 
     };
 
     var $x = window.atropa.SerialActor;
@@ -1083,7 +1128,7 @@
     window.atropa = window.atropa || {};
 
     window.atropa.string = {
-        /// <summary></summary>
+        /// <summary>A few utilities for manipulating strings.</summary>
         /// <returns type="atropa.string"/>
                 
         removeRepeatedWord: function(string) {
@@ -1203,13 +1248,15 @@
     window.atropa = window.atropa || {};
 
     window.atropa.TextAnalyzer = function(text){
-        /// <summary></summary>
+        /// <summary>Represents a utility for analyzing text.</summary>
         /// <param name="text" type="String">The text to analyze.</param>
         /// <field name="text" type="String">The supplied text. Defaults to an empty string.</field>
+        text : new String(), 
         /// <field name="wordCount" type="Number">Gives the count of words in the text. Defaults to 0.</field>
+        wordCount : new Number(), 
         /// <field name="words" type="Array">An array of every word in the supplied text.
         ///  Defaults to an empty array.</field>
-        /// <returns type="atropa.TextAnalyzer"/>
+        words : new Array(), 
     };
 
     var $x = window.atropa.TextAnalyzer;
@@ -1251,7 +1298,7 @@
     window.atropa = window.atropa || {};
 
     window.atropa.url = {
-        /// <summary></summary>
+        /// <summary>Utilities for handling urls.</summary>
         /// <returns type="atropa.url"/>
                 
         getFilename: function(url) {
@@ -1276,7 +1323,7 @@
     window.atropa = window.atropa || {};
 
     window.atropa.waitFor = {
-        /// <summary></summary>
+        /// <summary>Polling functions for quick and sloppy work.</summary>
         /// <returns type="atropa.waitFor"/>
                 
         test: function(testFn, onSuccessCallback, onMaxPollCallback, pollInterval, maxPoll) {
@@ -1320,10 +1367,12 @@
     window.atropa = window.atropa || {};
 
     window.atropa.wtf = {
-        /// <summary></summary>
+        /// <summary>Container for all Glorious WTFifier related functions and such.</summary>
+        /// <returns type="atropa.wtf"/>
+      
         /// <field name="dictionary" type="">The Glorious WTFification Dictionary: Turning Shit
         /// Into Polished Turds.</field>
-        /// <returns type="atropa.wtf"/>
+        dictionary : {}, 
                 
         wtfify: function(target, outputHTML) {
             /// <summary>Accepts plain text input and Gloriously WTFifies it.</summary>
@@ -1358,7 +1407,7 @@
     window.atropa = window.atropa || {};
 
     window.atropa.xpath = {
-        /// <summary></summary>
+        /// <summary>An Xpath toolkit for manipulating the DOM.</summary>
         /// <returns type="atropa.xpath"/>
                 
         processNodesByXpath: function(xpathExpression, contextNode, docref, callback) {

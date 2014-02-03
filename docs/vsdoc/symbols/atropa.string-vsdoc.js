@@ -5,7 +5,7 @@
     window.atropa = window.atropa || {};
 
     window.atropa.string = {
-        /// <summary></summary>
+        /// <summary>A few utilities for manipulating strings.</summary>
         /// <returns type="atropa.string"/>
                 
         removeRepeatedWord: function(string) {

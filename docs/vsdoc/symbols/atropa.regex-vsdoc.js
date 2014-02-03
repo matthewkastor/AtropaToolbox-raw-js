@@ -5,9 +5,11 @@
     window.atropa = window.atropa || {};
 
     window.atropa.regex = {
-        /// <summary></summary>
-        /// <field name="patterns" type="">Regex patterns.</field>
+        /// <summary>Container for regex functions.</summary>
         /// <returns type="atropa.regex"/>
+      
+        /// <field name="patterns" type="">Regex patterns.</field>
+        patterns : {}, 
                 
         appendPrefixesAndSuffixes: function(word, threshold) {
             /// <summary>Appends common prefix, suffix, and word boundary regex strings to
