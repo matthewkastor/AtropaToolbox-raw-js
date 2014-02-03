@@ -1,3 +1,4 @@
+/// <reference path="../docs/vsdoc/OpenLayersAll.js"/>
 /*jslint
     node : true
 */

@@ -17,11 +17,11 @@
             ///  element order.</returns>
         }, 
         
-        subtract: function(a, (minuend)) {
+        subtract: function(a, fromB) {
             /// <summary>Subtracts one array from another array based on the unique values in both
             ///  sets.</summary>
             /// <param name="a" type="Array">(subtrahend) The array to subtract.</param>
-            /// <param name="(minuend)" type="Array">fromB The array with elements duplicated in &lt;code&gt;a&lt;/code&gt;</param>
+            /// <param name="fromB" type="Array">(minuend) The array with elements duplicated in &lt;code&gt;a&lt;/code&gt;</param>
             /// <returns type="Array">Returns a new array containing only the unique
             ///  values found in &lt;code&gt;fromB&lt;/code&gt; that are not present in &lt;code&gt;a&lt;/code&gt;</returns>
         }, 
