@@ -42,7 +42,7 @@ Yes.
 
 To rebuild this project you'll run the various scripts listed in `package.json`. The browser build is created by running `npm run-script buildBrowserModule`.
 
-The built AtropaToolbox is located at `browser/atropa-toolbox_web.js`. To hack this project, edit `src/atropa-toolbox.js`. Tests are added or edited in `browser/tests/atropa-toolbox.test.js` and are run by [jasmine](http://pivotal.github.io/jasmine/). After you've modified the tests you can run them in node with `npm test` or open `browser/atropa-toolbox_tests.html` in your browser. See below for more information about running the tests in your browser.
+The built AtropaToolbox is located at `browser/atropa-toolbox_web.js`. To hack this project, edit `src/atropa-toolbox.js`. Tests are added or edited in `browser/tests/atropa-toolbox.test.js` and are run by [jasmine](https://jasmine.github.io/). After you've modified the tests you can run them in node with `npm test` or open `browser/atropa-toolbox_tests.html` in your browser. See below for more information about running the tests in your browser.
 
 Visual studio intellisense is available in `src/atropa-toolbox.js` because of the reference to
 ```
