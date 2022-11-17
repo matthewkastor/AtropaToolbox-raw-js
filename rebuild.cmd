@@ -1,6 +1,6 @@
 cmd /c npm install
 pause
-cmd /c npm run-script srcFormat
+rem cmd /c npm run-script srcFormat
 cmd /c npm run-script lint
 cmd /c npm run-script test
 pause
