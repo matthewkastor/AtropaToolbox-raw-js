@@ -311,8 +311,7 @@ ul.inheritsList
 							<td class="nameDescription">
 								<div class="fixedFont"><b><a href="../symbols/atropa.ArgsInfo.html#checkArgTypes">checkArgTypes</a></b>(args)
 								</div>
-								<div class="description">Checks the given arguments object against the expected
-arguments types.</div>
+								<div class="description">Checks the given arguments object against the expectedarguments types.</div>
 							</td>
 						</tr>
 					
@@ -356,43 +355,12 @@ arguments types.</div>
 				
 				<div class="description">
 					This represents a filter for arguments based on type.
-					<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com">
- Matthew Christopher Kastor-Inare III </a><br />
- ☭ Hial Atropa!! ☭.
+					<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 				</div>
 				
 				
 				
-				<pre class="code">function myClassyConstructor(takes, a, few, args) {
-    var expectedArgTypes, checker;
-    
-    expectedArgTypes = {};
-    expectedArgTypes.requestWithMessage = 
-         ['string', 'string', 'string', 'function'];
-    expectedArgTypes.requestNullMessage = 
-         ['string', 'string', 'object', 'function'];
-    
-    checker = new atropa.ArgsInfo();
-    checker.setExpectedArgTypes(expectedArgTypes);
-    
-    try {
-    
-        // Check the supplied arguments pseudo array's argument types
-        // if the pattern of types in arguments matches one of the
-        // patterns set on expectedArgTypes then the matching pattern
-        // will be returned. Otherwise, an error will be thrown.
-        
-        checker.checkArgTypes(arguments);
-    } catch (e) {
-    
-        // Invalid argument types supplied. Handle
-        // the error or bail.
-        
-    }
-    
-    // the arguments supplied will be of the proper type
-    // your function can go ahead and do things with them
-}</pre>
+				<pre class="code">function myClassyConstructor(takes, a, few, args) {    var expectedArgTypes, checker;        expectedArgTypes = {};    expectedArgTypes.requestWithMessage =          ['string', 'string', 'string', 'function'];    expectedArgTypes.requestNullMessage =          ['string', 'string', 'object', 'function'];        checker = new atropa.ArgsInfo();    checker.setExpectedArgTypes(expectedArgTypes);        try {            // Check the supplied arguments pseudo array's argument types        // if the pattern of types in arguments matches one of the        // patterns set on expectedArgTypes then the matching pattern        // will be returned. Otherwise, an error will be thrown.                checker.checkArgTypes(arguments);    } catch (e) {            // Invalid argument types supplied. Handle        // the error or bail.            }        // the arguments supplied will be of the proper type    // your function can go ahead and do things with them}</pre>
 				
 				
 				
@@ -439,12 +407,9 @@ arguments types.</div>
 					
 					</div>
 					<div class="description">
-						Checks the given arguments object against the expected
-arguments types.
+						Checks the given arguments object against the expectedarguments types.
 						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com">
- Matthew Christopher Kastor-Inare III </a><br />
- ☭ Hial Atropa!! ☭.
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
 					
 					
@@ -470,8 +435,7 @@ arguments types.
 								<dt>
 									<span class="light fixedFont">{<a href="../symbols/atropa.customErrors.InvalidArgumentTypesError.html">atropa.customErrors.InvalidArgumentTypesError</a>}</span>  <b></b>
 								</dt>
-								<dd>Throws an error if no matching
- pattern of argument types can be found for <code>args</code></dd>
+								<dd>Throws an error if no matching pattern of argument types can be found for <code>args</code></dd>
 							
 							</dl>
 						
@@ -479,8 +443,7 @@ arguments types.
 							<dl class="detailList">
 							<dt class="heading">Returns:</dt>
 							
-								<dd><span class="light fixedFont">{String}</span> The user assigned key which matches the
-arguments supplied, or throws an error.</dd>
+								<dd><span class="light fixedFont">{String}</span> The user assigned key which matches thearguments supplied, or throws an error.</dd>
 							
 							</dl>
 						
@@ -506,9 +469,7 @@ arguments supplied, or throws an error.</dd>
 					<div class="description">
 						Gets the types of arguments.
 						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com">
- Matthew Christopher Kastor-Inare III </a><br />
- ☭ Hial Atropa!! ☭.
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
 					
 					
@@ -521,8 +482,7 @@ arguments supplied, or throws an error.</dd>
 									<span class="light fixedFont">{arguments}</span> <b>args</b>
 									
 								</dt>
-								<dd>An arguments object, or anything you want to
-check the type of.</dd>
+								<dd>An arguments object, or anything you want tocheck the type of.</dd>
 							
 							</dl>
 						
@@ -552,22 +512,12 @@ check the type of.</dd>
 					<div class="description">
 						Sets the expected argument types.
 						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com">
- Matthew Christopher Kastor-Inare III </a><br />
- ☭ Hial Atropa!! ☭.
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
 					
 					
 					
-					<pre class="code">// typesObj is expected to be of the form:
-
-var typesObj = {
-    "namedArgumentTypesArray" : ["string", "function", "number"],
-    "namedAlternateArgumentTypesArray" : ["object", "function", "number"]
-};
-
-// You may use as many named arrays as you wish and checkArgTypes will
-// test for a match to at least one of the provided named arrays.</pre>
+					<pre class="code">// typesObj is expected to be of the form:var typesObj = {    "namedArgumentTypesArray" : ["string", "function", "number"],    "namedAlternateArgumentTypesArray" : ["object", "function", "number"]};// You may use as many named arrays as you wish and checkArgTypes will// test for a match to at least one of the provided named arrays.</pre>
 					
 					
 					
@@ -579,9 +529,7 @@ var typesObj = {
 									<span class="light fixedFont">{Expected Arg Types}</span> <b>typesObj</b>
 									
 								</dt>
-								<dd>An object containing information
- about the types of arguments you expect. Specifically, the object should
- look like the example.</dd>
+								<dd>An object containing information about the types of arguments you expect. Specifically, the object should look like the example.</dd>
 							
 							</dl>
 						
@@ -594,8 +542,7 @@ var typesObj = {
 								<dt>
 									<span class="light fixedFont">{<a href="../symbols/atropa.customErrors.InvalidArgumentTypesError.html">atropa.customErrors.InvalidArgumentTypesError</a>}</span>  <b></b>
 								</dt>
-								<dd>Throws an error if the
- typesObj can not be used to set the expected argument types.</dd>
+								<dd>Throws an error if the typesObj can not be used to set the expected argument types.</dd>
 							
 							</dl>
 						
@@ -617,7 +564,7 @@ var typesObj = {
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sun Feb 02 2014 21:01:06 GMT-0500 (Eastern Standard Time)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Thu Nov 17 2022 14:29:55 GMT-0500 (Eastern Standard Time)
 		</div>
 	</body>
 </html>

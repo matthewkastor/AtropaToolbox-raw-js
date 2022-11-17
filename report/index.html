@@ -13,12 +13,11 @@
   <![endif]-->
 
   <script>
-    var __options = {"title":"\"AtropaToolbox_Analysis\"","flags":{"complexity":{"logicalor":true,"switchcase":true,"forin":false,"trycatch":false,"newmi":true},"jshint":{"options":{},"globals":{}}}}
+    var __options = {"title":"AtropaToolbox_Analysis","flags":{"complexity":{"commonjs":true,"logicalor":true,"switchcase":true,"forin":false,"trycatch":false,"newmi":true},"jshint":{}}}
   </script>
 
   <link href="assets/css/vendor/bootstrap.css" rel="stylesheet">
   <link href="assets/css/vendor/font-awesome.css" rel="stylesheet">
-  <link href="assets/css/vendor/font-awesome-ie7.css" rel="stylesheet">
   <link href="assets/css/vendor/morris.css" rel="stylesheet">
   <link href="assets/css/plato.css" rel="stylesheet">
   <link href="assets/css/plato-overview.css" rel="stylesheet">
@@ -28,7 +27,7 @@
 
 <div class="navbar navbar-fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="http://github.com/jsoverson/plato">Plato on Github</a>
+    <a class="navbar-brand" href="http://github.com/es-analysis/plato">Plato on Github</a>
     <ul class="nav navbar-nav">
       <li class="active">
         <a href="index.html">Report Home</a>
@@ -39,7 +38,7 @@
 
 <div class="jumbotron">
   <div class="container">
-    <h1>"AtropaToolbox_Analysis"</h1>
+    <h1>AtropaToolbox_Analysis</h1>
   </div>
 </div>
 
@@ -49,12 +48,12 @@
   </div>
   <div class="row">
     <div class="col-md-6">
-      <h2 class="header">Total/Average Lines <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code" data-original-title="SLOC"></i></h2>
-      <p class="stat">4510 / 187</p>
+      <h2 class="header">Total/Average Lines <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code" data-original-title="SLOC" data-container="body"></i></h2>
+      <p class="stat">4538 / 189</p>
     </div>
     <div class="col-md-6">
-      <h2 class="header">Average Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
-      <p class="stat">71.51</p>
+      <h2 class="header">Average Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index" data-container="body"></i></a></h2>
+      <p class="stat">71.49</p>
     </div>
   </div>
 </div>
@@ -72,15 +71,15 @@
 
 <div class="container overview">
   <div class="row">
-    <h2 class="col-md-12">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"></i></a></h2>
+    <h2 class="col-md-12">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index" data-container="body"></i></a></h2>
     <div class="col-md-12"><div id='chart_maintainability' class='chart js-chart'></div></div>
   </div>
   <div class="row">
-    <h2 class="col-md-12">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code" data-original-title="SLOC"></i></h2>
+    <h2 class="col-md-12">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code" data-original-title="SLOC" data-container="body"></i></h2>
     <div class="col-md-12"><div id='chart_sloc' class='chart js-chart'></div></div>
   </div>
   <div class="row">
-    <h2 class="col-md-12">Estimated errors in implementation <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs"></i></a></h2>
+    <h2 class="col-md-12">Estimated errors in implementation <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
     <div class="col-md-12"><div id='chart_bugs' class='chart js-chart'></div></div>
   </div>
   
@@ -102,7 +101,9 @@
         <button type="button" id="button-complexity" class="btn btn-default complexity">complexity</button>
         <button type="button" id="button-sloc" class="btn btn-default sloc">sloc</button>
         <button type="button" id="button-bugs" class="btn btn-default bugs">est errors</button>
+        
         <button type="button" id="button-lint" class="btn btn-default lint">lint errors</button>
+        
       </div>
     </div>
   </div>
@@ -120,8 +121,8 @@
           <span class="col-md-4 file"><a class="file-link" href="./files/node_modules_atropa_header_src_atropa_header_js/index.html">node_modules\atropa-header\src\atropa-header.js</a></span>
         <span class="col-md-8 file-chart js-file-chart"
               data-lint="0"
-              data-sloc="89"
-              data-bugs="0.34"
+              data-sloc="109"
+              data-bugs="0.33"
               data-complexity="8"
           ></span>
         </div>
@@ -133,8 +134,8 @@
           <span class="col-md-4 file"><a class="file-link" href="./files/node_modules_atropa_ArgsInfo_src_atropa_ArgsInfo_js/index.html">node_modules\atropa-ArgsInfo\src\atropa-ArgsInfo.js</a></span>
         <span class="col-md-8 file-chart js-file-chart"
               data-lint="0"
-              data-sloc="225"
-              data-bugs="0.62"
+              data-sloc="229"
+              data-bugs="0.61"
               data-complexity="9"
           ></span>
         </div>
@@ -146,8 +147,8 @@
           <span class="col-md-4 file"><a class="file-link" href="./files/node_modules_atropa_arrays_src_atropa_arrays_js/index.html">node_modules\atropa-arrays\src\atropa-arrays.js</a></span>
         <span class="col-md-8 file-chart js-file-chart"
               data-lint="0"
-              data-sloc="427"
-              data-bugs="0.96"
+              data-sloc="428"
+              data-bugs="0.94"
               data-complexity="11"
           ></span>
         </div>
@@ -159,7 +160,7 @@
           <span class="col-md-4 file"><a class="file-link" href="./files/node_modules_atropa_Babbler_src_atropa_Babbler_js/index.html">node_modules\atropa-Babbler\src\atropa-Babbler.js</a></span>
         <span class="col-md-8 file-chart js-file-chart"
               data-lint="0"
-              data-sloc="296"
+              data-sloc="297"
               data-bugs="0.80"
               data-complexity="9"
           ></span>
@@ -172,8 +173,8 @@
           <span class="col-md-4 file"><a class="file-link" href="./files/node_modules_atropa_CookieMonster_src_atropa_CookieMonster_js/index.html">node_modules\atropa-CookieMonster\src\atropa-CookieMonster.js</a></span>
         <span class="col-md-8 file-chart js-file-chart"
               data-lint="0"
-              data-sloc="332"
-              data-bugs="0.95"
+              data-sloc="333"
+              data-bugs="0.94"
               data-complexity="12"
           ></span>
         </div>
@@ -185,7 +186,7 @@
           <span class="col-md-4 file"><a class="file-link" href="./files/node_modules_atropa_CreateHtmlDocumentsFromXmlhttp_src_atropa_CreateHtmlDocumentsFromXmlhttp_js/index.html">node_modules\atropa-CreateHtmlDocumentsFromXmlhttp\src\atropa-CreateHtmlDocumentsFromXmlhttp.js</a></span>
         <span class="col-md-8 file-chart js-file-chart"
               data-lint="0"
-              data-sloc="185"
+              data-sloc="186"
               data-bugs="0.42"
               data-complexity="5"
           ></span>
@@ -198,7 +199,7 @@
           <span class="col-md-4 file"><a class="file-link" href="./files/node_modules_atropa_customErrors_src_atropa_customErrors_js/index.html">node_modules\atropa-customErrors\src\atropa-customErrors.js</a></span>
         <span class="col-md-8 file-chart js-file-chart"
               data-lint="0"
-              data-sloc="61"
+              data-sloc="62"
               data-bugs="0.14"
               data-complexity="3"
           ></span>
@@ -211,7 +212,7 @@
           <span class="col-md-4 file"><a class="file-link" href="./files/node_modules_atropa_HTMLParser_src_atropa_HTMLParser_js/index.html">node_modules\atropa-HTMLParser\src\atropa-HTMLParser.js</a></span>
         <span class="col-md-8 file-chart js-file-chart"
               data-lint="0"
-              data-sloc="136"
+              data-sloc="137"
               data-bugs="0.61"
               data-complexity="6"
           ></span>
@@ -224,8 +225,8 @@
           <span class="col-md-4 file"><a class="file-link" href="./files/node_modules_atropa_inject_src_atropa_inject_js/index.html">node_modules\atropa-inject\src\atropa-inject.js</a></span>
         <span class="col-md-8 file-chart js-file-chart"
               data-lint="0"
-              data-sloc="261"
-              data-bugs="0.57"
+              data-sloc="262"
+              data-bugs="0.56"
               data-complexity="4"
           ></span>
         </div>
@@ -237,9 +238,9 @@
           <span class="col-md-4 file"><a class="file-link" href="./files/node_modules_atropa_inquire_src_atropa_inquire_js/index.html">node_modules\atropa-inquire\src\atropa-inquire.js</a></span>
         <span class="col-md-8 file-chart js-file-chart"
               data-lint="0"
-              data-sloc="111"
+              data-sloc="112"
               data-bugs="0.25"
-              data-complexity="4"
+              data-complexity="5"
           ></span>
         </div>
       </li>
@@ -250,8 +251,8 @@
           <span class="col-md-4 file"><a class="file-link" href="./files/node_modules_atropa_objects_src_atropa_objects_js/index.html">node_modules\atropa-objects\src\atropa-objects.js</a></span>
         <span class="col-md-8 file-chart js-file-chart"
               data-lint="0"
-              data-sloc="311"
-              data-bugs="0.47"
+              data-sloc="312"
+              data-bugs="0.46"
               data-complexity="3"
           ></span>
         </div>
@@ -263,7 +264,7 @@
           <span class="col-md-4 file"><a class="file-link" href="./files/node_modules_atropa_random_src_atropa_random_js/index.html">node_modules\atropa-random\src\atropa-random.js</a></span>
         <span class="col-md-8 file-chart js-file-chart"
               data-lint="0"
-              data-sloc="206"
+              data-sloc="207"
               data-bugs="0.79"
               data-complexity="12"
           ></span>
@@ -276,8 +277,8 @@
           <span class="col-md-4 file"><a class="file-link" href="./files/node_modules_atropa_regex_src_atropa_regex_js/index.html">node_modules\atropa-regex\src\atropa-regex.js</a></span>
         <span class="col-md-8 file-chart js-file-chart"
               data-lint="0"
-              data-sloc="84"
-              data-bugs="0.23"
+              data-sloc="94"
+              data-bugs="0.22"
               data-complexity="4"
           ></span>
         </div>
@@ -289,7 +290,7 @@
           <span class="col-md-4 file"><a class="file-link" href="./files/node_modules_atropa_removeNodeByReference_src_atropa_removeNodeByReference_js/index.html">node_modules\atropa-removeNodeByReference\src\atropa-removeNodeByReference.js</a></span>
         <span class="col-md-8 file-chart js-file-chart"
               data-lint="0"
-              data-sloc="49"
+              data-sloc="50"
               data-bugs="0.12"
               data-complexity="4"
           ></span>
@@ -302,8 +303,8 @@
           <span class="col-md-4 file"><a class="file-link" href="./files/node_modules_atropa_Requester_src_atropa_Requester_js/index.html">node_modules\atropa-Requester\src\atropa-Requester.js</a></span>
         <span class="col-md-8 file-chart js-file-chart"
               data-lint="0"
-              data-sloc="202"
-              data-bugs="0.61"
+              data-sloc="203"
+              data-bugs="0.60"
               data-complexity="7"
           ></span>
         </div>
@@ -315,7 +316,7 @@
           <span class="col-md-4 file"><a class="file-link" href="./files/node_modules_atropa_SerialActor_src_atropa_SerialActor_js/index.html">node_modules\atropa-SerialActor\src\atropa-SerialActor.js</a></span>
         <span class="col-md-8 file-chart js-file-chart"
               data-lint="0"
-              data-sloc="354"
+              data-sloc="355"
               data-bugs="0.80"
               data-complexity="4"
           ></span>
@@ -328,7 +329,7 @@
           <span class="col-md-4 file"><a class="file-link" href="./files/node_modules_atropa_setAsOptionalArg_src_atropa_setAsOptionalArg_js/index.html">node_modules\atropa-setAsOptionalArg\src\atropa-setAsOptionalArg.js</a></span>
         <span class="col-md-8 file-chart js-file-chart"
               data-lint="0"
-              data-sloc="49"
+              data-sloc="50"
               data-bugs="0.08"
               data-complexity="4"
           ></span>
@@ -341,9 +342,9 @@
           <span class="col-md-4 file"><a class="file-link" href="./files/node_modules_atropa_string_src_atropa_string_js/index.html">node_modules\atropa-string\src\atropa-string.js</a></span>
         <span class="col-md-8 file-chart js-file-chart"
               data-lint="0"
-              data-sloc="288"
-              data-bugs="1.23"
-              data-complexity="8"
+              data-sloc="289"
+              data-bugs="1.18"
+              data-complexity="10"
           ></span>
         </div>
       </li>
@@ -354,7 +355,7 @@
           <span class="col-md-4 file"><a class="file-link" href="./files/node_modules_atropa_TextAnalyzer_src_atropa_TextAnalyzer_js/index.html">node_modules\atropa-TextAnalyzer\src\atropa-TextAnalyzer.js</a></span>
         <span class="col-md-8 file-chart js-file-chart"
               data-lint="0"
-              data-sloc="169"
+              data-sloc="170"
               data-bugs="0.79"
               data-complexity="6"
           ></span>
@@ -367,7 +368,7 @@
           <span class="col-md-4 file"><a class="file-link" href="./files/node_modules_atropa_url_src_atropa_url_js/index.html">node_modules\atropa-url\src\atropa-url.js</a></span>
         <span class="col-md-8 file-chart js-file-chart"
               data-lint="0"
-              data-sloc="49"
+              data-sloc="50"
               data-bugs="0.14"
               data-complexity="3"
           ></span>
@@ -380,7 +381,7 @@
           <span class="col-md-4 file"><a class="file-link" href="./files/node_modules_atropa_waitFor_src_atropa_waitFor_js/index.html">node_modules\atropa-waitFor\src\atropa-waitFor.js</a></span>
         <span class="col-md-8 file-chart js-file-chart"
               data-lint="0"
-              data-sloc="110"
+              data-sloc="111"
               data-bugs="0.30"
               data-complexity="4"
           ></span>
@@ -392,9 +393,9 @@
           <span class="fade-left fadeout visible-large"></span>
           <span class="col-md-4 file"><a class="file-link" href="./files/node_modules_atropa_wtf_src_atropa_wtf_js/index.html">node_modules\atropa-wtf\src\atropa-wtf.js</a></span>
         <span class="col-md-8 file-chart js-file-chart"
-              data-lint="1"
-              data-sloc="190"
-              data-bugs="0.93"
+              data-lint="0"
+              data-sloc="160"
+              data-bugs="0.91"
               data-complexity="9"
           ></span>
         </div>
@@ -406,8 +407,8 @@
           <span class="col-md-4 file"><a class="file-link" href="./files/node_modules_atropa_xpath_src_atropa_xpath_js/index.html">node_modules\atropa-xpath\src\atropa-xpath.js</a></span>
         <span class="col-md-8 file-chart js-file-chart"
               data-lint="0"
-              data-sloc="226"
-              data-bugs="0.57"
+              data-sloc="227"
+              data-bugs="0.56"
               data-complexity="4"
           ></span>
         </div>
@@ -419,7 +420,7 @@
           <span class="col-md-4 file"><a class="file-link" href="./files/src_atropa_toolbox_js/index.html">src\atropa-toolbox.js</a></span>
         <span class="col-md-8 file-chart js-file-chart"
               data-lint="0"
-              data-sloc="100"
+              data-sloc="105"
               data-bugs="0.81"
               data-complexity="1"
           ></span>

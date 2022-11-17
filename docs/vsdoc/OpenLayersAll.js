@@ -418,13 +418,13 @@
         }, 
         
         deleteCookie: function(whichKey) {
-            /// <summary>Deletes a specified cookie by user submitted string.</summary>
+            /// <summary>Removes a specified cookie by user submitted string.</summary>
             /// <param name="whichKey" type="String">The cookies key (name) that
             /// will be deleted.</param>
         }, 
         
         deleteCookieObj: function(cookieObj) {
-            /// <summary>Deletes a specified cookie by user submitted cookieObj.</summary>
+            /// <summary>Removes a specified cookie by user submitted cookieObj.</summary>
             /// <param name="cookieObj" type="cookieObj">A cookie object.</param>
         }, 
         
@@ -931,7 +931,7 @@
         /// <summary>Container for regex functions.</summary>
         /// <returns type="atropa.regex"/>
       
-        /// <field name="patterns" type="">Regex patterns.</field>
+        /// <field name="patterns" type="">Regex patterns</field>
         patterns : {}, 
                 
         appendPrefixesAndSuffixes: function(word, threshold) {
@@ -963,17 +963,17 @@
     window.atropa.regex = window.atropa.regex || {};
 
     window.atropa.regex.patterns = {
-        /// <summary>Regex patterns.</summary>
+        /// <summary>Regex patterns</summary>
         /// <returns type="atropa.regex.patterns"/>
       
-        /// <field name="repeatedWords" type="">finds repeated words and phrases</field>
-        repeatedWords : {}, 
+        /// <field name="repeatedWords" type="RegExp">finds repeated words and phrases</field>
+        repeatedWords : new RegExp(), 
       
-        /// <field name="paragraphBreaks" type="">finds paragraph breaks</field>
-        paragraphBreaks : {}, 
+        /// <field name="paragraphBreaks" type="RegExp">finds paragraph breaks</field>
+        paragraphBreaks : new RegExp(), 
       
-        /// <field name="lineBreaks" type="">finds line breaks</field>
-        lineBreaks : {}
+        /// <field name="lineBreaks" type="RegExp">finds line breaks</field>
+        lineBreaks : new RegExp()
                 
     };
 

@@ -8,7 +8,7 @@
         /// <summary>Container for regex functions.</summary>
         /// <returns type="atropa.regex"/>
       
-        /// <field name="patterns" type="">Regex patterns.</field>
+        /// <field name="patterns" type="">Regex patterns</field>
         patterns : {}, 
                 
         appendPrefixesAndSuffixes: function(word, threshold) {

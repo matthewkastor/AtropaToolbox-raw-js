@@ -417,50 +417,13 @@ ul.inheritsList
 				</div>
 				
 				<div class="description">
-					This class represents a babbler. The babbler
-produces lorum ipsum text, to user specifications.
-					<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com">
- Matthew Christopher Kastor-Inare III </a><br />
- ☭ Hial Atropa!! ☭.
+					This class represents a babbler. The babblerproduces lorum ipsum text, to user specifications.
+					<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 				</div>
 				
 				
 				
-				<pre class="code">var babbler = new atropa.Babbler(30);
-// resets the word count
-babbler.resetWordCount(10)
-console.log(babbler.getWordCount());
-
-// displays a 10 word sentence of nonsense words.
-console.log(babbler.generateBabble(10));
-// displays a 3 word sentence
-console.log(babbler.generateBabble(3));
-
-// displays the user stored or last generated babble
-console.log(babbler.getBabble());
-
-// clears the stored babble
-babbler.resetBabble();
-console.log(babbler.getBabble());
-
-// sets the babble
-babbler.setBabble('here be gibberish ');
-console.log(babbler.getBabble());
-
-// append more gibberish to the current babble
-babbler.setBabble(babbler.getBabble() + babbler.generateBabble(5));
-console.log(babbler.getBabble());
-
-// generate a sentence
-babbler.resetWordCount(10);
-console.log(babbler.generateSentence(5, 20));
-
-// generate random punctuation
-console.log(babbler.punctuate());
-
-// generate a word
-console.log(babbler.generateWord(3,7));
-console.log(babbler.generateWord(7,10));</pre>
+				<pre class="code">var babbler = new atropa.Babbler(30);// resets the word countbabbler.resetWordCount(10)console.log(babbler.getWordCount());// displays a 10 word sentence of nonsense words.console.log(babbler.generateBabble(10));// displays a 3 word sentenceconsole.log(babbler.generateBabble(3));// displays the user stored or last generated babbleconsole.log(babbler.getBabble());// clears the stored babblebabbler.resetBabble();console.log(babbler.getBabble());// sets the babblebabbler.setBabble('here be gibberish ');console.log(babbler.getBabble());// append more gibberish to the current babblebabbler.setBabble(babbler.getBabble() + babbler.generateBabble(5));console.log(babbler.getBabble());// generate a sentencebabbler.resetWordCount(10);console.log(babbler.generateSentence(5, 20));// generate random punctuationconsole.log(babbler.punctuate());// generate a wordconsole.log(babbler.generateWord(3,7));console.log(babbler.generateWord(7,10));</pre>
 				
 				
 				
@@ -473,8 +436,7 @@ console.log(babbler.generateWord(7,10));</pre>
 								<span class="light fixedFont">{Number}</span>  <b>wrdCount</b>
 								
 							</dt>
-								<dd>The amount of "words" you would like
-the babbler to produce.</dd>
+								<dd>The amount of "words" you would likethe babbler to produce.</dd>
 						
 						</dl>
 					
@@ -523,13 +485,9 @@ the babbler to produce.</dd>
 					
 					</div>
 					<div class="description">
-						Generates babble to a user specified length in words.
- The word count will be zero after this and the stored
- babble will be set to the generated babble.
+						Generates babble to a user specified length in words. The word count will be zero after this and the stored babble will be set to the generated babble.
 						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com">
- Matthew Christopher Kastor-Inare III </a><br />
- ☭ Hial Atropa!! ☭.
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
 					
 					
@@ -542,8 +500,7 @@ the babbler to produce.</dd>
 									<span class="light fixedFont">{Number}</span> <b>wordsCt</b>
 									
 								</dt>
-								<dd>The desired word count for the
-generated babble.</dd>
+								<dd>The desired word count for thegenerated babble.</dd>
 							
 							</dl>
 						
@@ -578,18 +535,9 @@ generated babble.</dd>
 					
 					</div>
 					<div class="description">
-						Generates a sentence of specified length in words. The quantity
- of words in the generated sentence will be between the minimum
- and maximum set, with the maximum capped at the current words
- count. The word count will be lowered by the
- quantity of words in the generated sentence. If the word count
- is 0 then there will be no words in the sentence. If the word
- count is 3 then the maximum possible number of words in the
- sentence will be three.
+						Generates a sentence of specified length in words. The quantity of words in the generated sentence will be between the minimum and maximum set, with the maximum capped at the current words count. The word count will be lowered by the quantity of words in the generated sentence. If the word count is 0 then there will be no words in the sentence. If the word count is 3 then the maximum possible number of words in the sentence will be three.
 						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com">
- Matthew Christopher Kastor-Inare III </a><br />
- ☭ Hial Atropa!! ☭.
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
 					
 					
@@ -602,15 +550,13 @@ generated babble.</dd>
 									<span class="light fixedFont">{Number}</span> <b>sentenceMin</b>
 									
 								</dt>
-								<dd>The shortest sentence, in words,
-you would like returned.</dd>
+								<dd>The shortest sentence, in words,you would like returned.</dd>
 							
 								<dt>
 									<span class="light fixedFont">{Number}</span> <b>sentenceMax</b>
 									
 								</dt>
-								<dd>The longest sentence, in words,
-you would like returned.</dd>
+								<dd>The longest sentence, in words,you would like returned.</dd>
 							
 							</dl>
 						
@@ -621,8 +567,7 @@ you would like returned.</dd>
 							<dl class="detailList">
 							<dt class="heading">Returns:</dt>
 							
-								<dd><span class="light fixedFont">{String}</span> Returns a "sentence" within the specified
-range of length.</dd>
+								<dd><span class="light fixedFont">{String}</span> Returns a "sentence" within the specifiedrange of length.</dd>
 							
 							</dl>
 						
@@ -650,9 +595,7 @@ range of length.</dd>
 					<div class="description">
 						Generates a word with a specified length. Lowers the word count by one.
 						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com">
- Matthew Christopher Kastor-Inare III </a><br />
- ☭ Hial Atropa!! ☭.
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
 					
 					
@@ -682,8 +625,7 @@ range of length.</dd>
 							<dl class="detailList">
 							<dt class="heading">Returns:</dt>
 							
-								<dd><span class="light fixedFont">{String}</span> Returns a random string of characters
-within the specified range of length.</dd>
+								<dd><span class="light fixedFont">{String}</span> Returns a random string of characterswithin the specified range of length.</dd>
 							
 							</dl>
 						
@@ -711,9 +653,7 @@ within the specified range of length.</dd>
 					<div class="description">
 						Gets the last generated babble.
 						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com">
- Matthew Christopher Kastor-Inare III </a><br />
- ☭ Hial Atropa!! ☭.
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
 					
 					
@@ -745,9 +685,7 @@ within the specified range of length.</dd>
 					<div class="description">
 						Gets the current word count.
 						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com">
- Matthew Christopher Kastor-Inare III </a><br />
- ☭ Hial Atropa!! ☭.
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
 					
 					
@@ -779,9 +717,7 @@ within the specified range of length.</dd>
 					<div class="description">
 						Provides random punctuation.
 						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com">
- Matthew Christopher Kastor-Inare III </a><br />
- ☭ Hial Atropa!! ☭.
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
 					
 					
@@ -794,8 +730,7 @@ within the specified range of length.</dd>
 							<dl class="detailList">
 							<dt class="heading">Returns:</dt>
 							
-								<dd><span class="light fixedFont">{String}</span> Returns a random punctuation
-character ( . ! or ? ).</dd>
+								<dd><span class="light fixedFont">{String}</span> Returns a random punctuationcharacter ( . ! or ? ).</dd>
 							
 							</dl>
 						
@@ -821,9 +756,7 @@ character ( . ! or ? ).</dd>
 					<div class="description">
 						Clears the stored babble.
 						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com">
- Matthew Christopher Kastor-Inare III </a><br />
- ☭ Hial Atropa!! ☭.
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
 					
 					
@@ -855,9 +788,7 @@ character ( . ! or ? ).</dd>
 					<div class="description">
 						Resets the word count for this babbler.
 						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com">
- Matthew Christopher Kastor-Inare III </a><br />
- ☭ Hial Atropa!! ☭.
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
 					
 					
@@ -870,8 +801,7 @@ character ( . ! or ? ).</dd>
 									<span class="light fixedFont">{Number}</span> <b>wordCount</b>
 									
 								</dt>
-								<dd>The amount of "words" you would like
-to set for this babbler.</dd>
+								<dd>The amount of "words" you would liketo set for this babbler.</dd>
 							
 							</dl>
 						
@@ -901,9 +831,7 @@ to set for this babbler.</dd>
 					<div class="description">
 						Sets the babble.
 						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com">
- Matthew Christopher Kastor-Inare III </a><br />
- ☭ Hial Atropa!! ☭.
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
 					
 					
@@ -946,9 +874,7 @@ to set for this babbler.</dd>
 					<div class="description">
 						Sets the word count.
 						
-						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com">
- Matthew Christopher Kastor-Inare III </a><br />
- ☭ Hial Atropa!! ☭.
+						<br /><i>Author: </i><a href="mailto:matthewkastor@gmail.com"> Matthew Christopher Kastor-Inare III </a><br /> ☭ Hial Atropa!! ☭.
 					</div>
 					
 					
@@ -961,8 +887,7 @@ to set for this babbler.</dd>
 									<span class="light fixedFont">{Number}</span> <b>wrdCount</b>
 									
 								</dt>
-								<dd>The amount of "words" which you want the
-babbler to produce.</dd>
+								<dd>The amount of "words" which you want thebabbler to produce.</dd>
 							
 							</dl>
 						
@@ -994,7 +919,7 @@ babbler to produce.</dd>
 <!-- ============================== footer ================================= -->
 		<div class="fineprint" style="clear:both">
 			
-			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sun Feb 02 2014 21:01:06 GMT-0500 (Eastern Standard Time)
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Thu Nov 17 2022 14:29:55 GMT-0500 (Eastern Standard Time)
 		</div>
 	</body>
 </html>
