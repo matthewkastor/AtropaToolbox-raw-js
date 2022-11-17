@@ -32,9 +32,9 @@ You can also download it from [github](https://github.com/matthewkastor/AtropaTo
 
 Visual studio intellisense files are located in the `docs/vsdoc` folder. 
 
-You'll find the current build in the `browser` directory. Read the docs online at : [http://matthewkastor.github.com/AtropaToolbox-raw-js/](http://matthewkastor.github.com/AtropaToolbox-raw-js/)
+You'll find the current build in the `browser` directory. Read the docs online at : [http://matthewkastor.github.io/AtropaToolbox-raw-js/](http://matthewkastor.github.io/AtropaToolbox-raw-js/)
 
-Documentation is located in the `docs/jsdoc` folder and appear exactly as they do [online](http://matthewkastor.github.com/AtropaToolbox-raw-js/docs/jsdoc/index.html).
+Documentation is located in the `docs/jsdoc` folder and appear exactly as they do [online](http://matthewkastor.github.io/AtropaToolbox-raw-js/docs/jsdoc/index.html).
 
 ##Can I hack it?
 
